@@ -87,7 +87,8 @@ dl, ol, ul {
 .heading-search input {
 	border: 1px solid #2f6782 !important;
 	padding: 0.6rem 1rem;
-	border-radius: 6rem !important;
+	border-top-left-radius: 6rem !important;
+    border-bottom-left-radius: 6rem !important;
 }
 .md-form.input-group .form-control {
 	padding: 1rem .75rem;
@@ -95,8 +96,11 @@ dl, ol, ul {
 }
 
 .heading-search .input-group-append {
-	margin-left: -27px;
-	z-index: 99999;
+	margin-left: -1px;
+}
+
+.heading-search .fa-search{
+	padding-right: .8rem;
 }
 
 .purple.lighten-3 {
