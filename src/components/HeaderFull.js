@@ -14,7 +14,7 @@ export default class HeaderFull extends Component {
           <input type="text" className="form-control" placeholder="What are you looking for..." />
         <div className="input-group-append">
           <span className="input-group-text purple lighten-3" id="basic-text1">
-            <MDBIcon className="text-white" icon="search" /> <span className="text-right">Search</span>
+            <MDBIcon className="text-white " icon="search" /> <span className="text-right">Search</span>
           </span>
         </div>
         

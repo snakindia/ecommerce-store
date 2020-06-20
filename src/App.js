@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import TopBar from './components/TopBar';
-import HeaderFull from './components/HeaderFull'
+import HeaderFull from './components/HeaderFull';
+import Footer from './components/Footer'
 class App extends Component {
   state = {
     collapseID: ''
@@ -37,6 +38,7 @@ class App extends Component {
       <Router>
         <NavBar />
       </Router>
+      <Footer />
       </div>
     );
   }

@@ -163,3 +163,137 @@ dl, ol, ul {
 	border-radius: 0.3rem;
 	text-transform: uppercase;
 }
+
+
+
+/* Footer Card Css Design */
+
+.footer-section {
+	background: #171717 !important;
+	padding: 0;
+	width: 100%;
+	font-size: 1rem;
+	color: #fff;
+	float: left;
+	border-top: 1px solid #253280;
+}
+
+.page-footer h3 {
+	text-transform: uppercase;
+	font-size: 0.875rem;
+	font-weight: 700;
+}
+
+.foote-link {
+	width: 100%;
+	margin-top: 1.2rem;
+	padding: 0;
+}
+
+.foote-link li {
+	display: block;
+	list-style-type: none;
+	width: 100%;
+	float: left;
+	margin: 0.2rem 0;
+	line-height: auto;
+}
+
+
+.foote-link li a {
+	float: left;
+	display: block;
+	font-size: 0.935rem;
+	text-decoration: none;
+	color: #999;
+	font-weight: 400;
+	transition: 0.3s;
+}
+
+.foote-link li ul li {
+	background: url(../src/assets/images/bullet.png) 0 9px no-repeat;
+	padding-left: 1rem;
+}
+
+.breathing {
+	padding-top: 4rem;
+	float: left;
+	width: 100%;
+}
+
+
+.broucher-wrapper {
+	background: #373737;
+	float: left;
+	margin: 0 1rem 0 2rem;
+}
+
+.broucher-inner {
+	padding: 2.5rem;
+}
+
+.bha_heading_2 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: 700;
+}
+
+label {
+	display: inline-block;
+	margin-bottom: .5rem;
+}
+
+form {
+	margin-bottom: 1.5rem;
+	position: relative;
+}
+
+form .form-control{
+	padding: 1.5rem;
+}
+
+.broucher-inner p {
+	font-size: 0.8rem;
+}
+
+.bha-btn-primary {
+	background: #23536b;
+	color: #fff;
+	font-weight: 500;
+	padding: 0.6rem 1.5rem;
+	border-radius: 0.3rem;
+	text-transform: uppercase;
+}
+
+
+.footer-bottom {
+	margin-top:2rem;
+	padding: 1rem 0;
+	background: #23536b;
+}
+
+.call-us {
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+.socialLink {
+	text-transform: uppercase;
+	font-size: 1.3rem;
+	font-weight: 500;
+	padding: 0.4rem 0 0 0;
+}
+
+.socialLink a {
+	margin: 3px;
+	background: #000;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	display: inline-block;
+	transition: 0.3s;
+	transform: scale(1);
+}
+.socialLink a:hover{background: #26759d; transform:scale(1.1)}
