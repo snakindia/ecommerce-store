@@ -6,11 +6,13 @@ import ContactBody from './components/Contact/ContactBody';
 import TopBar from './components/TopBar';
 import HeaderFull from './components/HeaderFull';
 import Footer from './components/Footer';
+import NavBar from './components/NavBar';
 
 const Router = () => (
     <BrowserRouter>
         <TopBar />
         <HeaderFull />
+        <NavBar />
         <Switch>
             <Route exact path="/" component={App} />
             <Route path="/about" component={About} />
