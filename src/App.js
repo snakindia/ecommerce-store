@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import TopBar from './components/TopBar';
+import Client from './components/Home/Client';
+import ProductsParts from './components/Home/ProductsParts';
 import HeaderFull from './components/HeaderFull';
 import Footer from './components/Footer'
 class App extends Component {
@@ -38,6 +40,8 @@ class App extends Component {
       <Router>
         <NavBar />
       </Router>
+      <ProductsParts />
+      <Client />
       <Footer />
       </div>
     );

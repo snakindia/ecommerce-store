@@ -3,7 +3,7 @@ body{background: #fff; font-family: 'Roboto', sans-serif; font-size: 1rem}
 
 
 /*======================================*/
-.headtoppart{background: #000 url(../src/assets/images/top-bar-bg.jpg) top left no-repeat; color:#fff; position: relative;}
+.headtoppart{background: #000 url(../images/top-bar-bg.jpg) top left no-repeat; color:#fff; position: relative;}
 .headtoppart::before{content: ""; position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.7);}
 /*.headerwp {z-index: 100; position: relative;}*/
 .topbar{background: #000; width: 100%}
@@ -12,7 +12,7 @@ body{background: #fff; font-family: 'Roboto', sans-serif; font-size: 1rem}
 .address span{border-left:2px solid #fff; margin:0 1rem;}
 .address a img{margin:0 0.6rem;}
 
-.form-outer{background: #000 url(../src/assets/images/bg_from.jpg) bottom left no-repeat; 
+.form-outer{background: #000 url(../images/bg_from.jpg) bottom left no-repeat; 
   background-position: center; background-size: cover; width: 100%; position: relative; float:left; padding: 1rem 15px 0 0;}
 .form-outer::before{content: ""; position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.8);}
 
@@ -125,7 +125,8 @@ text-decoration: none; color:#000; font-weight: 600; transition: 0.5s ease-in-ou
 text-decoration: none; color:#000; font-weight: 600;transition: 0.5s ease-in-out}
 .google:hover{background: #eb3a3a; text-decoration: none;color:#fff;}
 .facebook, .google{display: block; text-decoration: none; color:#000; font-weight: 600}
-.blue{color:#313f99;font-weight: 700},.red{color:#eb3a3a; font-weight: 700}
+.blue{color:#313f99;font-weight: 700}
+.red{color:#eb3a3a; font-weight: 700}
 .horz-divider{width: 100%; background: transparent; float:left; margin-bottom: 1rem; position: relative;}
 .sliping-ling{width:100%; height:0.1rem; background: #ececec ;}
 .slipingText{position: absolute;top: -14px;left: 46%; background: #fff;padding: 0px 10px;}
@@ -191,7 +192,7 @@ margin-left: auto;*/}
 }
 /*========//Carosuel CSS==========*/
 .carousel-inner img {width: 100%;height: 100%;}
-.carousel-item{background: url(../src/assets/images/top-bar-bg.jpg) top left no-repeat; background-size: cover; background-position: center center;}
+.carousel-item{background: url(../images/top-bar-bg.jpg) top left no-repeat; background-size: cover; background-position: center center;}
 .carousel-indicators{margin-right: 20% !important;
 margin-left: 18% !important}
 
@@ -536,7 +537,7 @@ h2.resp-accordion:first-child {
 margin:0 0.8rem 1rem 0; display: inline-block; font-weight: 600; font-family: 'Open Sans', sans-serif; transition: 0.5s}
 .keyword-link:hover{text-decoration: none; border-color:#32438a; background: #f2f2f3; color:#2e3b7e;}
 
-.outer--container{background:url(../src/assets/images/top-bar-bg.jpg) top left no-repeat;
+.outer--container{background:url(../images/top-bar-bg.jpg) top left no-repeat;
 background-size: cover; background-position: center center; padding:2.5rem 3rem; border-radius: 6px; position: relative;
 color:#fff;}
 .outer--container::before{content: ''; background:rgba(17,38,116, 0.9); position: absolute; top:0; left: 0; right:0; bottom: 0; 
@@ -648,7 +649,7 @@ top:15px;:left:0;bottom:0;right:0; z-index: -1;}
 .footer-section {background:#171717; padding:0; width: 100%; font-size: 1rem; color:#fff; 
   float:left; border-top:1px solid #253280;}
 .footer-main{padding:0 0 2rem 0;}
-/*.footer-main{position: relative; background:#171717 url(../src/assets/images/bg.png) top left no-repeat;
+/*.footer-main{position: relative; background:#171717 url(../images/bg.png) top left no-repeat;
 background-position: center center; background-size: contain;}*/
 /*.footer-main::after{content:""; top:0; left:0; right:0; bottom:0; position: absolute;}*/
 .middle-container{position: relative; width: 100%; padding:3rem 0 0;}
@@ -664,7 +665,7 @@ background-position: center center; background-size: contain;}*/
 .foote-link li a:hover{color:#cecece; transition: 0.3s;}
 
 .foote-link li ul{padding:0; margin-top:1.5rem;}
-.foote-link li ul li{background:url('../src/assets/images/bullet.png') 0 9px no-repeat; padding-left: 1rem}
+.foote-link li ul li{background:url('../images/bullet.png') 0 9px no-repeat; padding-left: 1rem}
 
 .footer-middle{ background: #263385; border-top:1px solid #2d4ca5; margin-top: 1.5rem}
 /*.footer-middle span {margin:0 1.5rem; float: left;}*/
@@ -678,14 +679,14 @@ background-position: center center; background-size: contain;}*/
   background:#263385; color: #a3a3a3}*/
 .form-select:focus{background: #263385; color:#fff; box-shadow: none;-webkit-appearance: none;  /*Removes default chrome and safari style*/
             -moz-appearance: none; /* Removes Default Firefox style*/
-             background:#263385 url('../src/assets/images/dropdown_arrow.png') no-repeat;  /*Adds background-image*/
+             background:#263385 url('../images/dropdown_arrow.png') no-repeat;  /*Adds background-image*/
              background-position: right 16px;  /*Position of the background-image*/
              color:#a3a3a3 !important;}
  
 .form-select {/*border: 0 !important;*/  /*Removes border*/
             -webkit-appearance: none;  /*Removes default chrome and safari style*/
             -moz-appearance: none; /* Removes Default Firefox style*/
-             background:#263385 url('../src/assets/images/dropdown_arrow.png') no-repeat;  /*Adds background-image*/
+             background:#263385 url('../images/dropdown_arrow.png') no-repeat;  /*Adds background-image*/
              background-position: right 16px;  /*Position of the background-image*/
              width: 100px; /*Width of select dropdown to give space for arrow image*/
              text-indent: 0.01px; /* Removes default arrow from firefox*/
@@ -729,7 +730,7 @@ background-position: center center; background-size: contain;}*/
 .banner-section { float: left; width: 100%; margin-top: 0 !important;}
 .banner-section .container-fluid{width: 100%;padding-right: 0 !important;padding-left: 0 !important;margin-right: auto;
 margin-left: auto;}
-.course-image{background:#008c99 url(../src/assets/images/top-bar-bg.jpg) no-repeat; background-size: cover; background-position: center center;
+.course-image{background:#008c99 url(../images/top-bar-bg.jpg) no-repeat; background-size: cover; background-position: center center;
 min-height: 380px; }
 .banner-content-left{/*background: #008c99; */color:#fff;/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#03555f+0,073136+100 */
 background: #001d4d; /* Old browsers */
@@ -748,7 +749,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e4484', end
 .description-detals p{padding-bottom: 1rem; line-height: 30px;}
 .key-features{padding:0; margin:0; width: 100%}
 .key-features li{float:left; display: block; list-style-type: none; width: 100%; 
-  background: url(../src/assets/images/bullet.png)3px 4px no-repeat; padding-left:2.5rem; margin-bottom: 0.5rem}
+  background: url(../images/bullet.png)3px 4px no-repeat; padding-left:2.5rem; margin-bottom: 0.5rem}
 .email-Link{color:#057b88;}
 .keyword-details{padding:2rem 0;  float: left;}
 .keyword-link{border:2px solid #add8dc; color:#858585; font-size: 1rem; padding:0.2rem 1rem; border-radius: 100px;
