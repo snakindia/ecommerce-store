@@ -8,7 +8,7 @@ import Pintrest from '../assets/images/pintrest.png'
 export default class Footer extends Component {
   render() {
     return (
-<MDBFooter color="blue" className="font-small footer-section py-4 mt-4">
+<MDBFooter className="font-small footer-section py-4 mt-4 footer">
       <MDBContainer fluid className="text-center text-md-left">
       <MDBRow>
       <MDBCol md="8">

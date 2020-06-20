@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import TopBar from './components/TopBar';
 import Client from './components/Home/Client';
 import ProductsParts from './components/Home/ProductsParts';
+import Banner from './components/Home/Banner';
 import HeaderFull from './components/HeaderFull';
 import Footer from './components/Footer'
 class App extends Component {
@@ -40,6 +41,7 @@ class App extends Component {
       <Router>
         <NavBar />
       </Router>
+      <Banner />
       <ProductsParts />
       <Client />
       <Footer />
