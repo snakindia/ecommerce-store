@@ -5,7 +5,7 @@ import ValveImage from '../../assets/images/valve.jpg';
 import KitImage from '../../assets/images/kit.jpg';
 import Image from '../../assets/images/2000X500.jpg';
 
-export default class Client extends Component {
+export default class ProductsPart extends Component {
   render() {
     return (
             <div>

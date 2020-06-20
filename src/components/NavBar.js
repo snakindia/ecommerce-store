@@ -18,7 +18,6 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const container = { height: 1300 }
     return (
       <div>
         <Router>
@@ -62,10 +61,9 @@ class NavBar extends React.Component {
               <MDBNavLink to="/">Represent Us</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/">Contact</MDBNavLink>
+              <MDBNavLink to="/contact">Contact</MDBNavLink>
             </MDBNavItem>
-
-                </MDBNavbarNav>
+             </MDBNavbarNav>
               </MDBCollapse>
             </MDBNavbar>
           </header>

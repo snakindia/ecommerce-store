@@ -120,6 +120,7 @@ dl, ol, ul {
 
 .head-serch{
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: space-between;
 }
@@ -241,8 +242,9 @@ dl, ol, ul {
 }
 
 label {
-	display: inline-block;
-	margin-bottom: .5rem;
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-weight: 400;
 }
 
 form {
@@ -252,6 +254,17 @@ form {
 
 form .form-control{
 	padding: 1.5rem;
+}
+
+.md-form {
+	position: relative;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.md-form.input-group .form-control {
+	padding: .6rem 1rem;
+	margin: 0;
 }
 
 .broucher-inner p {
@@ -313,4 +326,8 @@ form .form-control{
 
 .pulse {
 	animation: chat-pulse 1s infinite;
+}
+
+.bha_heading_2.text-black {
+	color: #000;
 }

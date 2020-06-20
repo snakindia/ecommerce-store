@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import TopBar from './components/TopBar';
 import Client from './components/Home/Client';
+import ContactBody from './components/Contact/ContactBody';
+import HomeBody from './components/Home/HomeBody';
+import FreeBrochures from './components/Home/ProductsParts'
+
 import ProductsParts from './components/Home/ProductsParts';
 import HeaderFull from './components/HeaderFull';
 import Footer from './components/Footer'
@@ -39,9 +43,12 @@ class App extends Component {
         <HeaderFull />
       <Router>
         <NavBar />
+        <Switch>
+          <Route path="/" exact component={HomeBody} />
+          <Route path="/contact" component={ContactBody} />
+        </Switch>
       </Router>
-      <ProductsParts />
-      <Client />
+
       <Footer />
       </div>
     );

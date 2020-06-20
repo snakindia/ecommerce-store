@@ -17,46 +17,34 @@ toggleCollapse = () => {
 
 render() {
   return (
-
-    <Router>
-      <MDBNavbar color="default-color" className="headtoppart" dark expand="md">
-        <MDBNavbarBrand>
-          <strong className="white-text">CALL US: (888) 286-8708</strong>
-        </MDBNavbarBrand>
-        <MDBNavbarToggler onClick={this.toggleCollapse} />
-        <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-          <MDBNavbarNav  right>
-            <MDBNavItem className="address">
-              <MDBNavLink to="/">
-              <img src={Cart} style={{width:25}} alt="Cart" /> <span className="Cart-text">Cart</span>
-              </MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink  className="address" to="/">
-              <img src={Profile} style={{width:25}} alt="Profile" /> <span className="Cart-text">LoginSignUP</span>
-              </MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBDropdown className="top-dropdown">
-                <MDBDropdownToggle nav caret>
-                <img src={Globe} style={{width:25}} className="globe" alt="Globe" /> 
-                  <div className="d-none d-md-inline">EN</div>
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem href="/">EN</MDBDropdownItem>
-                  <MDBDropdownItem href="/">US</MDBDropdownItem>
-                  <MDBDropdownItem href="/">Dutch</MDBDropdownItem>
-                  <MDBDropdownItem divider />
-                  <MDBDropdownItem href="/">Italian</MDBDropdownItem>
-                  <MDBDropdownItem divider />
-                  <MDBDropdownItem href="/">French</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavItem>
-          </MDBNavbarNav>
-        </MDBCollapse>
-      </MDBNavbar>
-    </Router>
+    <div class="headtoppart">
+  <div class="topbar">
+      <div class="headerwp">
+          <div class="mobile pt-2 font-weight-bold pl-0" style={{float:'left'}}>
+            CALL US: (888) 286-8708
+          </div>
+          <div class="address float-right">
+            <a href=""><img src={Cart} alt="" width="20" />Cart</a>
+            <span>&nbsp;</span>
+            <a href="/" data-toggle="modal"><img src={Profile} alt="" width="20" />login/signup</a>
+            <span>&nbsp;</span>
+            <span class="dropdown border-0">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src={Globe} alt="" width="20" />EN<i class="caret border-0"></i></a>
+            
+            <ul class="dropdown-menu">
+                <li><a href="/">EN</a></li>
+                <li><a href="/">US</a></li>
+                <li><a href="/">Dutch</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/">Italian</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/">French</a></li>
+              </ul>
+              </span>
+          </div>
+      </div>
+    </div>
+    </div>
     );
   }
 }
