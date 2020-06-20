@@ -5,6 +5,7 @@ import ValveImage from '../../assets/images/valve.jpg';
 import KitImage from '../../assets/images/kit.jpg';
 import Image from '../../assets/images/2000X500.jpg';
 import Slider from "react-slick";
+
 export default class ProductsPart extends Component {
   render() {
     const settings = {
