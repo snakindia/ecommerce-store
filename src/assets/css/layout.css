@@ -574,7 +574,7 @@ border-radius: 6px;}
 .testimonial-heading{font-size: 1.4rem; font-weight: 700; color:#000; padding:0 0 2.5rem;
 position: relative;}
 .testimonial-heading::before{content: ''; height:2px; background: #e6e6ec; width: 90%; position: absolute; 
-top:15px;:left:0;bottom:0;right:0; z-index: -1;}
+top:15px; left:0;bottom:0;right:0; z-index: -1;}
 
 .client-info{/*border-right:1px solid #f3f3f3;*/ width: 100% ; font-family: 'Roboto', sans-serif;}
 .cl--overview{background: #fff; padding:2rem; margin:0 10px 0 0;border:1px solid #f3f3f3;}
@@ -657,7 +657,7 @@ background-position: center center; background-size: contain;}*/
 .left-container{float:left; width:45%; line-height: 45px;text-align: right;}
 
 .right-container{float:left; width:50%; margin-left:3rem;}
-.footer h3{text-transform:uppercase; font-size: 0.875rem; font-weight:700}
+.footer h3{text-transform:uppercase; font-size: 0.875rem; font-weight:700 !important}
 .breathing{padding-top:4rem; float:left; width: 100%}
 .foote-link{width: 100%; margin-top: 1.2rem; padding:0;}
 .foote-link li{display: block; list-style-type: none; width: 100%;float:left; margin: 0.2rem 0; line-height: auto;}

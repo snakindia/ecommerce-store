@@ -8,6 +8,7 @@ import HomeBody from './components/Home/HomeBody';
 import FreeBrochures from './components/Home/ProductsParts'
 
 import ProductsParts from './components/Home/ProductsParts';
+import Banner from './components/Home/Banner';
 import HeaderFull from './components/HeaderFull';
 import Footer from './components/Footer'
 class App extends Component {
@@ -49,6 +50,9 @@ class App extends Component {
         </Switch>
       </Router>
 
+      <Banner />
+      <ProductsParts />
+      <Client />
       <Footer />
       </div>
     );

@@ -4,9 +4,18 @@ import FanImage from '../../assets/images/fan.jpg';
 import ValveImage from '../../assets/images/valve.jpg';
 import KitImage from '../../assets/images/kit.jpg';
 import Image from '../../assets/images/2000X500.jpg';
+import Slider from "react-slick";
+
 
 export default class ProductsPart extends Component {
   render() {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1
+    };
     return (
             <div>
                 <section class="header-section">
@@ -16,6 +25,7 @@ export default class ProductsPart extends Component {
                 </section>
             <section class="pro-equipment-section">
              <div class="productitem slider">
+             <Slider {...settings}>
                 <div class="product-item-wrapper">
                     <div class="card">
                         <figure class="imghvr-push-up">
@@ -91,6 +101,7 @@ export default class ProductsPart extends Component {
                       </figure>
                   </div>
                 </div>
+                </Slider>
               </div>
             </section>
         </div>
