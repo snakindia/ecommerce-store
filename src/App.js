@@ -49,9 +49,6 @@ class App extends Component {
           <Route path="/contact" component={ContactBody} />
         </Switch>
       </Router>
-      <Banner />
-      <ProductsParts />
-      <Client />
       <Footer />
       </div>
     );
