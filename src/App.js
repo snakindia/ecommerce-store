@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import TopBar from './components/TopBar';
 import Client from './components/Home/Client';
 import ContactBody from './components/Contact/ContactBody';
-import HomeBody from './components/Home/HomeBody';
+import Home from './components/Home';
 import FreeBrochures from './components/Home/ProductsParts'
 
 import ProductsParts from './components/Home/ProductsParts';
@@ -45,7 +45,7 @@ class App extends Component {
       <Router>
         <NavBar />
         <Switch>
-          <Route path="/" exact component={HomeBody} />
+          <Route path="/" exact component={Home} />
           <Route path="/contact" component={ContactBody} />
         </Switch>
       </Router>
