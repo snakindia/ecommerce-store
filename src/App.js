@@ -2,15 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import TopBar from './components/TopBar';
-import Client from './components/Home/Client';
-import ContactBody from './components/Contact/ContactBody';
 import Home from './components/Home';
-import FreeBrochures from './components/Home/ProductsParts'
-
-import ProductsParts from './components/Home/ProductsParts';
-import Banner from './components/Home/Banner';
 import HeaderFull from './components/HeaderFull';
 import Footer from './components/Footer'
+
 class App extends Component {
   state = {
     collapseID: ''
@@ -46,7 +41,6 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/contact" component={ContactBody} />
         </Switch>
       </Router>
       <Footer />
