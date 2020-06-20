@@ -28,6 +28,8 @@ const useMountEffect = (fun) => useEffect(fun, [])
 
 
 
+
+
 const About = () =>{
 
     const myRef = useRef(null);
@@ -41,6 +43,26 @@ const About = () =>{
 
     return (
         <div>
+        <div className="banner-container">
+        {/*Carousel Banner section*/}
+        <div id="carousel" className="carousel slide" data-ride="carousel">{/* carousel-fade*/}
+          {/* <ol class="carousel-indicators">
+          <li data-target="#carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel" data-slide-to="1" class=""></li>
+          <li data-target="#carousel" data-slide-to="2" class=""></li>
+          </ol> */}
+          <div className="carousel-item active">
+            <picture>
+              <img src={aboutBanner} alt="responsive image" className="d-block img-fluid" />
+            </picture>
+            <div className="caption" style={{background: 'transparent'}}>
+              <h1 className="bha_heading_1 text-black-dark">Dust Collector Auxiliaries &amp; Parts </h1>
+              <a href="#" className="btn bha-btn-primary mt-4 pl-pr">view details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
         <FreeBrochure/>
         <div>
         <section>
@@ -48,7 +70,6 @@ const About = () =>{
           <ul className="tab-menu">
             <a className="left-control orange" href><i className="fa fa-chevron-left" aria-hidden="true" /></a>
             <li onClick={()=>scrollToRef(myRef)}><a className="tablink js-scroll-trigger current">A Message from the CEO</a></li>
-            {/* <li><a class="tablink current" href="#message">A Message from the CEO</a></li> */}
             <li onClick={()=>scrollToRef(profileRef)}><a className="tablink js-scroll-trigger">Company Profile</a></li>
             <li onClick={()=> scrollToRef(mvref)}><a className="tablink js-scroll-trigger">Mission and Vision</a></li>
             <li onClick={()=>scrollToRef(valRef)}><a className="tablink js-scroll-trigger">Our Values</a></li>
