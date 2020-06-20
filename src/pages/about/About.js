@@ -22,16 +22,9 @@ import leaderIcon from '../../assets/icon/leader.svg';
 
 
 
-
-
 const About = () =>{
     return (
         <div>
-        <TopBar />
-        <HeaderFull />
-        <Router>
-            <NavBar />
-        </Router>
         <FreeBrochure/>
         <div>
         <section>
@@ -157,7 +150,6 @@ const About = () =>{
         </section>
 
         </div>
-        <Footer/>
       </div>
           
     )

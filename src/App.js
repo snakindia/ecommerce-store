@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import TopBar from './components/TopBar';
 import Home from './components/Home';
 import HeaderFull from './components/HeaderFull';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
 
 class App extends Component {
   state = {
