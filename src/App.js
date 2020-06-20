@@ -4,7 +4,8 @@ import NavBar from './components/NavBar';
 import TopBar from './components/TopBar';
 import Client from './components/Home/Client';
 import ProductsParts from './components/Home/ProductsParts';
-import HeaderFull from './components/HeaderFull'
+import HeaderFull from './components/HeaderFull';
+import Footer from './components/Footer'
 class App extends Component {
   state = {
     collapseID: ''
@@ -41,6 +42,7 @@ class App extends Component {
       </Router>
       <ProductsParts />
       <Client />
+      <Footer />
       </div>
     );
   }
