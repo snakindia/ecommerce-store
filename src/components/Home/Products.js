@@ -17,131 +17,131 @@ export default class Products extends Component {
     };
       return (
       <div>
-        <section class="bha-product-section">
-            <div class="tab-container">
-                <ul class="tab-inner">
-                  <a class="left-control" href=""><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-                  <li><a class="tablink current" href="">Goyen</a></li>
-                  <li><a class="tablink" href="">Mecair</a></li>
-                  <li><a class="tablink" href="">Asco</a></li>
-                  <li><a class="tablink" href="">Donaldson Torit</a></li>
-                  <li><a class="tablink" href="">Camfil Farr</a></li>
-                  <li><a class="tablink" href="">Taeha</a></li>
-                  <li><a class="tablink" href="">Turbo</a></li>
-                  <li><a class="tablink" href="">Autel</a></li>
-                  <a class="right-control" href=""><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+        <section className="bha-product-section">
+            <div className="tab-container">
+                <ul className="tab-inner">
+                  <a className="left-control" href=""><i className="fa fa-chevron-left" aria-hidden="true"></i></a>
+                  <li><a className="tablink current" href="">Goyen</a></li>
+                  <li><a className="tablink" href="">Mecair</a></li>
+                  <li><a className="tablink" href="">Asco</a></li>
+                  <li><a className="tablink" href="">Donaldson Torit</a></li>
+                  <li><a className="tablink" href="">Camfil Farr</a></li>
+                  <li><a className="tablink" href="">Taeha</a></li>
+                  <li><a className="tablink" href="">Turbo</a></li>
+                  <li><a className="tablink" href="">Autel</a></li>
+                  <a className="right-control" href=""><i className="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </ul>
             </div>
   
-            <div class="item-wraper">
-              <div class="resp-tabs-container">
-                <div id="mis" class="tab-pane active show">
-                    <section class="regular slider">
+            <div className="item-wraper">
+              <div className="resp-tabs-container">
+                <div id="mis" className="tab-pane active show">
+                    <section className="regular slider">
                     <Slider {...settings}>
-                      <div class="product-card-wrapper" style={{position:"relative"}}>
-                          <em class="product-card__ribbon-wrapper">
-                            <span class="product-card__ribbon product-card__ribbon--is-new">New</span>
+                      <div className="product-card-wrapper" style={{position:"relative"}}>
+                          <em className="product-card__ribbon-wrapper">
+                            <span className="product-card__ribbon product-card__ribbon--is-new">New</span>
                           </em> 
-                          <div class="product-card hvr-float-shadow">
-                            <div class="product-card-inner">
+                          <div className="product-card hvr-float-shadow">
+                            <div className="product-card-inner">
 
-                              <img class="img-fluid" src={Item1Image} alt="" />
-                              <div class="product-description">
+                              <img className="img-fluid" src={Item1Image} alt="" />
+                              <div className="product-description">
                                 Goyen® K4502 (M2162) Replacement Repair Kit
                               </div>
-                              <div class="product-tag">
+                              <div className="product-tag">
                                 DCS574W1
                               </div>
-                            <div class="prod-details-link">
-                              <button type="button" class="btn bha-btn-primary w-100">View Details</button>
+                            <div className="prod-details-link">
+                              <button type="button" className="btn bha-btn-primary w-100">View Details</button>
                             </div>
                           </div>
                         </div>  
                       </div>
 
-                      <div class="product-card-wrapper">
-                          <div class="product-card hvr-float-shadow">
-                            <div class="product-card-inner">
-                              <img class="img-fluid" src={Item2Image} alt="" />
-                              <div class="product-description">
+                      <div className="product-card-wrapper">
+                          <div className="product-card hvr-float-shadow">
+                            <div className="product-card-inner">
+                              <img className="img-fluid" src={Item2Image} alt="" />
+                              <div className="product-description">
                                 Goyen® K2003 (M1174) Replacement Repair Kit
                               </div>
-                              <div class="product-tag">
+                              <div className="product-tag">
                                 DCS574W2
                               </div>
-                              <div class="prod-details-link">
-                                <button type="button" class="btn bha-btn-primary w-100">View Details</button>
+                              <div className="prod-details-link">
+                                <button type="button" className="btn bha-btn-primary w-100">View Details</button>
                               </div>
                             </div>
                           </div>
                       </div>
 
-                      <div class="product-card-wrapper">
-                          <div class="product-card hvr-float-shadow">
-                            <div class="product-card-inner">
-                              <img class="img-fluid" src={Item3Image} alt="" />
-                              <div class="product-description">
+                      <div className="product-card-wrapper">
+                          <div className="product-card hvr-float-shadow">
+                            <div className="product-card-inner">
+                              <img className="img-fluid" src={Item3Image} alt="" />
+                              <div className="product-description">
                                 Replacement Repair Kit for Pentair® Goyen® RCA/CA 25 1" Pulse Valves
                               </div>
-                              <div class="product-tag">
+                              <div className="product-tag">
                                 K2500 (M1183)
                               </div>
-                              <div class="prod-details-link">
-                                <button type="button" class="btn bha-btn-primary w-100">View Details</button>
+                              <div className="prod-details-link">
+                                <button type="button" className="btn bha-btn-primary w-100">View Details</button>
                               </div>
                             </div>
                           </div>
                       </div>
 
-                      <div class="product-card-wrapper" style={{position:"relative"}}>
-                          <em class="product-card__ribbon-wrapper">
-                            <span class="product-card__ribbon product-card__ribbon--is-new">New</span>
+                      <div className="product-card-wrapper" style={{position:"relative"}}>
+                          <em className="product-card__ribbon-wrapper">
+                            <span className="product-card__ribbon product-card__ribbon--is-new">New</span>
                           </em>  
-                          <div class="product-card hvr-float-shadow">
-                            <div class="product-card-inner">
-                              <img class="img-fluid" src={Item4Image} alt="" />
-                              <div class="product-description">
+                          <div className="product-card hvr-float-shadow">
+                            <div className="product-card-inner">
+                              <img className="img-fluid" src={Item4Image} alt="" />
+                              <div className="product-description">
                                 Goyen® K4502 (M2162) Replacement Repair Kit
                               </div>
-                              <div class="product-tag">
+                              <div className="product-tag">
                                 DCS574W1
                               </div>
-                              <div class="prod-details-link">
-                                <button type="button" class="btn bha-btn-primary w-100">View Details</button>
+                              <div className="prod-details-link">
+                                <button type="button" className="btn bha-btn-primary w-100">View Details</button>
                               </div>
                             </div>
                           </div>
                       </div>
 
-                      <div class="product-card-wrapper">
-                          <div class="product-card hvr-float-shadow">
-                            <div class="product-card-inner">
-                              <img class="img-fluid" src={GoyenOriginalImage} alt="" />
-                              <div class="product-description">
+                      <div className="product-card-wrapper">
+                          <div className="product-card hvr-float-shadow">
+                            <div className="product-card-inner">
+                              <img className="img-fluid" src={GoyenOriginalImage} alt="" />
+                              <div className="product-description">
                                 Goyen® K4502 (M2162) Replacement Repair Kit
                               </div>
-                              <div class="product-tag">
+                              <div className="product-tag">
                                 DCS574W1
                               </div>
-                              <div class="prod-details-link">
-                                <button type="button" class="btn bha-btn-primary w-100">View Details</button>
+                              <div className="prod-details-link">
+                                <button type="button" className="btn bha-btn-primary w-100">View Details</button>
                               </div>
                             </div>
                           </div>
                       </div>
 
-                      <div class="product-card-wrapper">
-                          <div class="product-card hvr-float-shadow">
-                            <div class="product-card-inner">
-                              <img class="img-fluid" src={Item1Image} alt="" />
-                              <div class="product-description">
+                      <div className="product-card-wrapper">
+                          <div className="product-card hvr-float-shadow">
+                            <div className="product-card-inner">
+                              <img className="img-fluid" src={Item1Image} alt="" />
+                              <div className="product-description">
                                 Goyen® K4502 (M2162) Replacement Repair Kit
                               </div>
-                              <div class="product-tag">
+                              <div className="product-tag">
                                 DCS574W1
                               </div>
-                              <div class="prod-details-link">
-                                <button type="button" class="btn bha-btn-primary w-100">View Details</button>
+                              <div className="prod-details-link">
+                                <button type="button" className="btn bha-btn-primary w-100">View Details</button>
                               </div>
                             </div>
                           </div>
@@ -150,8 +150,8 @@ export default class Products extends Component {
                     </section>
                 </div> 
               </div>
-              <div class="container text-center">
-                <a href="" class="btn bha-btn-primary z-index view-all">View All</a>
+              <div className="container text-center">
+                <a href="" className="btn bha-btn-primary z-index view-all">View All</a>
               </div>
             </div>
             </section>

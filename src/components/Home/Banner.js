@@ -13,9 +13,9 @@ export default class Banner extends Component {
     };
     
     return (
-        <div class="banner-container">
-            <div id="carousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" role="listbox">
+        <div className="banner-container">
+            <div id="carousel" className="carousel slide" data-ride="carousel">
+                <div className="carousel-inner" role="listbox">
                     <RBCarousel
                         autoplay={this.state.autoplay}
                         pauseOnVisibility={true}
@@ -24,31 +24,31 @@ export default class Banner extends Component {
                     >
                         <div>
                             <picture>
-                                  <img src={Image} alt="responsive image" class="d-block img-fluid" />
+                                  <img src={Image} alt="responsive image" className="d-block img-fluid" />
                             </picture>
-                            <div class="caption">
-                                <h1 class="bha_heading_1">dust collector EQUIPMENT & Speare parts</h1>
-                                <a href="#" class="btn bha-btn-primary mt-4 pl-pr">view details</a>
+                            <div className="caption">
+                                <h1 className="bha_heading_1">dust collector EQUIPMENT & Speare parts</h1>
+                                <a href="#" className="btn bha-btn-primary mt-4 pl-pr">view details</a>
                             </div>
                         </div>
 
                         <div>
                             <picture>
-                                <img src={PexelPhotoImage} alt="responsive image" class="d-block img-fluid" />
+                                <img src={PexelPhotoImage} alt="responsive image" className="d-block img-fluid" />
                               </picture>
-                            <div class="caption">
-                                <h1 class="bha_heading_1">dust collector EQUIPMENT & Speare parts</h1>
-                                <a href="#" class="btn bha-btn-primary mt-4 pl-pr">view details</a>
+                            <div className="caption">
+                                <h1 className="bha_heading_1">dust collector EQUIPMENT & Speare parts</h1>
+                                <a href="#" className="btn bha-btn-primary mt-4 pl-pr">view details</a>
                             </div>
                         </div>
 
                         <div>
                             <picture>
-                                <img src={FiveImage} alt="responsive image" class="d-block img-fluid" />
+                                <img src={FiveImage} alt="responsive image" className="d-block img-fluid" />
                             </picture>
-                            <div class="caption">
-                                <h1 class="bha_heading_1">dust collector EQUIPMENT & Speare parts</h1>
-                                <a href="#" class="btn bha-btn-primary mt-4 pl-pr">view details</a>
+                            <div className="caption">
+                                <h1 className="bha_heading_1">dust collector EQUIPMENT & Speare parts</h1>
+                                <a href="#" className="btn bha-btn-primary mt-4 pl-pr">view details</a>
                             </div>
                         </div>
                     </RBCarousel>
