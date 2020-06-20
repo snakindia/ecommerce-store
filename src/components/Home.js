@@ -3,6 +3,7 @@ import Client from './Home/Client';
 import ProductsPart from './Home/ProductsParts';
 import OEM from './Home/OEM';
 import Banner from './Home/Banner';
+import Products from './Home/Products';
 
 export default class Home extends Component {
   render() {
@@ -10,6 +11,7 @@ export default class Home extends Component {
       <div>
         <Banner />
         <OEM />
+        <Products />
         <ProductsPart />
         <Client />
       </div>

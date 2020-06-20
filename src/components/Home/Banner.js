@@ -9,7 +9,7 @@ export default class Banner extends Component {
   render() {
     this.slider = React.createRef();
     this.state = {
-        autoplay: false,
+        autoplay: false
     };
     
     return (

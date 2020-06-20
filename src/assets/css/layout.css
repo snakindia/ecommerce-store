@@ -791,3 +791,8 @@ margin:0 0.8rem 1rem 0; display: inline-block; cursor: pointer;}
           opacity: 1;
       }
   }
+  
+.carousel-indicators li {
+   margin-left: 0px !important;
+   opacity: 1 !important;
+}

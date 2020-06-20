@@ -8,6 +8,7 @@ import "./assets/css/layout.css";
 import "./assets/css/reset.css";
 import "./assets/css/imagehover.css";
 import "./assets/css/slick.css";
+import "./assets/css/hover.css";
 import "./assets/css/slick-theme.css";
 import "./assets/css/webslidemenu.css";
 
