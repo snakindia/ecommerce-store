@@ -35,15 +35,11 @@ class App extends Component {
 
     return (
       <div>
-        <TopBar />
-        <HeaderFull />
       <Router>
-        <NavBar />
         <Switch>
           <Route path="/" exact component={Home} />
         </Switch>
       </Router>
-      <Footer />
       </div>
     );
   }
