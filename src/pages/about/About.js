@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import 'bootstrap-css-only/css/bootstrap.min.css'; 
-
 import { BrowserRouter as Router } from 'react-router-dom';
+
 import NavBar from '../../components/NavBar';
 import TopBar from '../../components/TopBar';
 import HeaderFull from '../../components/HeaderFull';
 import Footer from '../../components/Footer';
+
+import FreeBrochure from '../../components/Contact/FreeBrochures';
 
 import picOne from '../../assets/images/pexels-photo.png';
 import picTwo from '../../assets/images/img-profile.png';
@@ -30,6 +32,7 @@ const About = () =>{
         <Router>
             <NavBar />
         </Router>
+        <FreeBrochure/>
         <div>
         <section>
         <div className="container-fluid pl-0 pr-0">
