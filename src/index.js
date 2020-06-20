@@ -15,8 +15,10 @@ import "./assets/css/webslidemenu.css";
 
 import App from "./App";
 
+import Routes from './routes'
+
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render( <App /> , document.getElementById('root'));
+ReactDOM.render( <Routes /> , document.getElementById('root'));
 
 registerServiceWorker();
