@@ -5,15 +5,14 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
 import "./index.css";
-<<<<<<< HEAD
-import "./layout.css";
-=======
 import "./assets/css/layout.css"
->>>>>>> a0eef61416b5cd56c9d93e91b7cfb43064050b7c
-import App from "./App";
+import "./assets/css/reset.css"
+//import App from "./App";
+
+import Routes from './routes'
 
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render( <App /> , document.getElementById('root'));
+ReactDOM.render( <Routes /> , document.getElementById('root'));
 
 registerServiceWorker();
