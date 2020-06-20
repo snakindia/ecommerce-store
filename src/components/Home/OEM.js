@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import FactorySvg from '../../assets/images/icon/factory.svg';
-import GearSvg from '../../assets/images/icon/gear.svg';
-import MedalSvg from '../../assets/images/icon/medal.svg';
+import FactorySvg from '../../assets/icon/factory.svg';
+import GearSvg from '../../assets/icon/gear.svg';
+import MedalSvg from '../../assets/icon/medal.svg';
 
 export default class OEM extends Component {
   render() {

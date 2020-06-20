@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import FreeBrochures from '../Contact/FreeBrochures'
 import ContentSection from '../Contact/ContentSection'
 import Mapimg from '../../assets/images/map.jpg';
-export default class AboutBody extends Component {
+
+export default class ContactBody extends Component {
   render() {
     return (
       <div>
@@ -16,7 +16,6 @@ export default class AboutBody extends Component {
         </div>
       </div>
     </div>
-    <FreeBrochures />
     <ContentSection />
 
       </div>
