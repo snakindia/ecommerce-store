@@ -4,7 +4,8 @@ import Facebook from '../assets/images/facebook.png'
 import Linkedin from '../assets/images/linkedin.png'
 import Youtube from '../assets/images/youtube.png'
 import Pintrest from '../assets/images/pintrest.png'
-
+import Footerlogo from '../assets/images/footer-logo.png'
+import Chat from '../assets/icon/chat.svg'
 export default class Footer extends Component {
   render() {
     return (
@@ -203,7 +204,7 @@ export default class Footer extends Component {
                   placeholder="Enter Email"
                 />
                 </form>
-
+                <div class="chat-button pulse"><a href="/"><img src={Chat} class="mr-2" alt="" width="30" />Live Chat</a></div>
                 </MDBCol>
               </MDBRow>
               <p class="mt-3">
@@ -238,9 +239,25 @@ export default class Footer extends Component {
         </MDBContainer>
       </div>
 
-      <div className="footer-copyright text-center py-3">
+      <div className="copyright">
         <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="https://www.mdbootstrap.com"> MDBootstrap.com </a>
+          <MDBRow>
+            <MDBCol md="9" sm="9" xs="12">
+            <p>COPYRIGHT © 2020 Baghouse. The following are trademarks for one or more  Baghouse power tools, accessories, anchors and concrete adhesives: The yellow and black 
+            color scheme; the  the array of  pyramids on the handgrip; the kit box configuration; and the array of lozenge-shaped humps on the surface of the tool.</p>
+            <ul class="footer-middle-list">
+              <li><a href="/">Updated Privacy Policy</a><span>|</span></li>
+              <li><a href="/">Terms of Use</a><span>|</span></li>
+              <li><a href="/">Safety Notices and Recalls</a><span>|</span></li>
+              <li><a href="/">Travel  Safety with Cordless Tools</a><span>|</span></li>     
+              <li><a href="/">BAGHOUSE Patent Information</a><span>|</span></li>       
+              <li><a href="/">Shop Safe</a><span>|</span></li>     
+            </ul>
+            </MDBCol>
+            <MDBCol md="3" sm="3" xs="12" className="float-right-sm pt-3 pr-4">
+            <img src={Footerlogo} alt="" width="240" />
+            </MDBCol>
+          </MDBRow>
         </MDBContainer>
       </div>
     </MDBFooter>    )
