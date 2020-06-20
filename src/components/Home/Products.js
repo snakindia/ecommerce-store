@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import BagHouseImage from '../../assets/images/baghouse.jpg';
-import FanImage from '../../assets/images/fan.jpg';
-import ValveImage from '../../assets/images/valve.jpg';
-import KitImage from '../../assets/images/kit.jpg';
-import Image from '../../assets/images/2000X500.jpg';
-import Slider from "react-slick";
+import Item1Image from '../../assets/images/product/item1.jpg';
+import Item2Image from '../../assets/images/product/item2.jpg';
+import Item3Image from '../../assets/images/product/item3.jpg';
+import Item4Image from '../../assets/images/product/item4.jpg';
+import GoyenOriginalImage from '../../assets/images/product/Goyen-Original.jpg';
 
 export default class Products extends Component {
   render() {
@@ -23,7 +22,7 @@ export default class Products extends Component {
                           <div class="product-card hvr-float-shadow">
                             <div class="product-card-inner">
 
-                              <img class="img-fluid" src="images/product/item1.jpg" alt="" />
+                              <img class="img-fluid" src={Item1Image} alt="" />
                               <div class="product-description">
                                 Goyen® K4502 (M2162) Replacement Repair Kit
                               </div>
@@ -42,7 +41,7 @@ export default class Products extends Component {
                         <a href="#"> 
                           <div class="product-card hvr-float-shadow">
                             <div class="product-card-inner">
-                              <img class="img-fluid" src="images/product/item2.jpg" alt="" />
+                              <img class="img-fluid" src={Item2Image} alt="" />
                               <div class="product-description">
                                 Goyen® K2003 (M1174) Replacement Repair Kit
                               </div>
@@ -61,7 +60,7 @@ export default class Products extends Component {
                         <a href="#">
                           <div class="product-card hvr-float-shadow">
                             <div class="product-card-inner">
-                              <img class="img-fluid" src="images/product/item3.jpg" alt="" />
+                              <img class="img-fluid" src={Item3Image} alt="" />
                               <div class="product-description">
                                 Replacement Repair Kit for Pentair® Goyen® RCA/CA 25 1" Pulse Valves
                               </div>
@@ -83,7 +82,7 @@ export default class Products extends Component {
                           </em>  
                           <div class="product-card hvr-float-shadow">
                             <div class="product-card-inner">
-                              <img class="img-fluid" src="images/product/item4.jpg" alt="" />
+                              <img class="img-fluid" src={Item4Image} alt="" />
                               <div class="product-description">
                                 Goyen® K4502 (M2162) Replacement Repair Kit
                               </div>
@@ -102,7 +101,7 @@ export default class Products extends Component {
                         <a href="#"> 
                           <div class="product-card hvr-float-shadow">
                             <div class="product-card-inner">
-                              <img class="img-fluid" src="images/product/Goyen-Original.jpg" alt="" />
+                              <img class="img-fluid" src={GoyenOriginalImage} alt="" />
                               <div class="product-description">
                                 Goyen® K4502 (M2162) Replacement Repair Kit
                               </div>
@@ -121,7 +120,7 @@ export default class Products extends Component {
                         <a href="#"> 
                           <div class="product-card hvr-float-shadow">
                             <div class="product-card-inner">
-                              <img class="img-fluid" src="images/product/item1.jpg" alt="" />
+                              <img class="img-fluid" src={Item1Image} alt="" />
                               <div class="product-description">
                                 Goyen® K4502 (M2162) Replacement Repair Kit
                               </div>
