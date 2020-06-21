@@ -794,18 +794,6 @@ video {
   border-color: transparent #FE7000 transparent transparent;
 }
 
-/*.wsmenu>.wsmenu-list>li .kitchenmenuimg {
-  background-image: url(../images/kitchen-menu-img.png);
-  background-position: bottom right;
-  background-repeat: no-repeat;
-}*/
-
-/*.wsmenu>.wsmenu-list>li .computermenubg {
-  background-image: url(../images/computer-menu-img.png);
-  background-position: bottom right;
-  background-repeat: no-repeat;
-}*/
-
 .wsmenu>.wsmenu-list>li .wstpngsml {
   padding-left: 18px;
 }
@@ -1139,7 +1127,7 @@ video {
     white-space: inherit;
   }
 
-  @supports ( -webkit-overflow-scrolling: touch ) {
+  @supports (-webkit-overflow-scrolling: touch) {
     .wsmenu>.wsmenu-list>li:last-child {
       padding-bottom: 110px;
     }

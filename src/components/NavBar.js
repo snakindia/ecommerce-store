@@ -11,6 +11,7 @@ import EpicCover from '../assets/images/600X500-4.jpg'
 import Baghouse from '../assets/images/baghouse.jpg'
 import Valve from '../assets/images/valve.jpg'
 import Fan from '../assets/images/fan.jpg'
+import Baghouselogo from '../assets/images/baghouse_logo.svg'
 
 
 class NavBar extends React.Component {
@@ -30,232 +31,244 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
-
-        <Router>
-          <header>
-            <MDBNavbar  className="wsmenu clearfix" color="default-color" dark expand="md">
-              <MDBNavbarToggler onClick={this.onClick} />
-              <MDBCollapse isOpen={this.state.collapse} navbar>
-                <MDBNavbarNav className="wsmenu-list" left>
-                  <MDBNavItem active>
-                    <MDBNavLink to="/">Home</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="/">About</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-            <span class="dropdown border-0">
-              <MDBNavLink to="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products/Services<i class="caret border-0"></i></MDBNavLink>
-              <div className="dropdown-menu custom-bord">
-              <div className="wsshopwp clearfix slide-width">
-              <div class="image-holder">
-                    <img src={EpicCover} alt="" style={{width:"300", height:"150"}} />
+      <div class="headerfull h-25">
+          <div class="wsmain clearfix">
+            <div className="smllogo"><a href="/"><img className="d-block" src={Baghouselogo} alt="" width="200" /></a></div>
+            <div className="wssearchbar clearfix">
+                <form class="topmenusearch clearfix">
+                    <div className="input-group mb-3">
+                        <input type="text" className="form-control" placeholder="What are you looking for..." />
+                        <div className="input-group-append">
+                            <button class="btn btn-bha-primary" type="button"><i class="fa fa-search pl-0 pr-2"></i>Search</button>
+                        </div>
+                    </div>
+                </form>
+            
+                <div className="right-section">
+                    <div className="call_us mr-4">
+                        CALL US: <br />(888) 739-1794 
+                    </div>
+                    <div className="hotLink mr-3 float-left">
+                        <a href="/" className="bha-btn-secondry">request a quote</a>
+                    </div>
+                    <div className="hotLink float-left">
+                        <a href="/" className="bha-btn-primary">shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <nav className="wsmenu clearfix">
+        <ul className="wsmenu-list">
+         <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="home.html" className="font-weight-bold">Home</a></li>
+          <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="about-us.html" className="font-weight-bold">About</a></li>
+          <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="#" className="font-weight-bold">Products/Services<span className="dropdown-toggle ml-2"></span></a>
+            
+            <div className="wsshoptabing wtsdepartmentmenu clearfix">
+              <div className="wsshopwp clearfix">
+                <div className="image-holder">
+                    <img src={EpicCover} alt="" width="300" height="150" />
                   </div>
-            <ul class="dropdown-menu wstabitem clearfix">
-                <li class="dropdown-submenu"><a href="/" data-src={Baghouse}>EPC<i class="caret border-0"></i></a>
-                <div class="container-fluid dropdown-menu">
-                        <div class="row custom-gutter">
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item2} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Cartridge Dust Collectors</a></li>
+                <ul className="wstabitem clearfix">
+                  <li><a href="#" data-src={Baghouse}>EPC</a>
+                    <div className="wstitemright clearfix wstpngsml">
+                      <div className="container-fluid">
+                        <div className="row custom-gutter">
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item2} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Cartridge Dust Collectors</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item1} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Baghouse</a></li>
-                            </ul>
-                          </div>
-                          
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item3} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Bin Vents</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item1} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Baghouse</a></li>
                             </ul>
                           </div>
                           
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item5} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Fans &amp; Blowers</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item3} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Bin Vents</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item4} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Portable Dust Collectors</a></li>
+                          
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item5} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Fans & Blowers</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item6} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Fiberglass Filter Bags</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item4} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Portable Dust Collectors</a></li>
                             </ul>
                           </div>
-                        </div>
-                
-                </div>
-                </li>
-                <li class="dropdown-submenu wsshoplink-active"><a href="/" data-src={Valve}>Equipment<i class="caret border-0"></i></a>
-                <div class="container-fluid dropdown-menu">
-                        <div class="row custom-gutter">
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item4} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="#">Baghouse</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item2} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="#">Cartridge Dust Collectors</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item3} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="#">Bin Vents</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item1} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="#">Portable Dust Collectors</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item5} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="#">Fans &amp; Blowers</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item6} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="#">Fiberglass Filter Bags</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item6} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Fiberglass Filter Bags</a></li>
                             </ul>
                           </div>
                         </div>
-                
-                </div>
-                </li>
-                <li class="dropdown-submenu"><a href="#" data-src={Fan}>Parts<i class="caret border-0"></i></a>
-                <div class="container-fluid dropdown-menu">
-                        <div class="row custom-gutter">
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item5} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Baghouse</a></li>
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li className="wsshoplink-active"><a href="#" data-src={Valve}>Equipment</a>
+                    <div className="wstitemright clearfix wstpngsml">
+                      <div className="container-fluid">
+                        <div className="row custom-gutter">
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item1} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Baghouse</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item1} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Cartridge Dust Collectors</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item2} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Cartridge Dust Collectors</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item3} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Bin Vents</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item3} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Bin Vents</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item4} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Portable Dust Collectors</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item4} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Portable Dust Collectors</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item5} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Fans &amp; Blowers</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item5} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Fans & Blowers</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item2} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Fiberglass Filter Bags</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item6} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Fiberglass Filter Bags</a></li>
                             </ul>
                           </div>
                         </div>
-                
-                </div>
-                </li>
-                <li class="dropdown-submenu"><a href="#" data-src={EpicCover}>Brands<i class="caret border-0"></i></a>
+                      </div>
+                    </div>
+                  </li>
 
-                <div class="container-fluid dropdown-menu">
-                        <div class="row custom-gutter">
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item6} alt=" "/></li>
-                              <li class="wstheading clearfix"><a href="/">Baghouse</a></li>
+                  <li><a href="#" data-src={Fan}>Parts</a>
+                    <div className="wstitemright clearfix wstpngsml">
+                      <div className="container-fluid">
+                        <div className="row custom-gutter">
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item1} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Baghouse</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item2} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Cartridge Dust Collectors</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item2} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Cartridge Dust Collectors</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item3} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Bin Vents</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item3} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Bin Vents</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item4} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Portable Dust Collectors</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item4} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Portable Dust Collectors</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item5} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Fans &amp; Blowers</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item5} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Fans & Blowers</a></li>
                             </ul>
                           </div>
-                          <div class="col-lg-3 col-md-12">
-                            <ul class="wstliststy04 clearfix">
-                              <li><img class="scale-down" src={item1} alt=" " /></li>
-                              <li class="wstheading clearfix"><a href="/">Fiberglass Filter Bags</a></li>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item6} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Fiberglass Filter Bags</a></li>
                             </ul>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  </li>
 
-                </div>
-                </li>
-
-              </ul>
+                  <li><a href="#" data-src={EpicCover}>Brands</a>
+                    <div className="wstitemright clearfix wstpngsml">
+                      <div className="container-fluid">
+                        <div className="row custom-gutter">
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item1} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Baghouse</a></li>
+                            </ul>
+                          </div>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item2} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Cartridge Dust Collectors</a></li>
+                            </ul>
+                          </div>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item3} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Bin Vents</a></li>
+                            </ul>
+                          </div>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item4} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Portable Dust Collectors</a></li>
+                            </ul>
+                          </div>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item5} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Fans & Blowers</a></li>
+                            </ul>
+                          </div>
+                          <div className="col-lg-3 col-md-12">
+                            <ul className="wstliststy04 clearfix">
+                              <li><img className="scale-down" src={item6} alt=" " /></li>
+                              <li className="wstheading clearfix"><a href="#">Fiberglass Filter Bags</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  
+                </ul>
               </div>
-              </div>
-              </span>
+            </div>     
 
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink to="/">Projects</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink to="/">News &amp; Events</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink to="/">Projects</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink to="/">Represent Us</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink to="/contact">Contact</MDBNavLink>
-             
-            </MDBNavItem>
-             </MDBNavbarNav>
-              </MDBCollapse>
-            </MDBNavbar>
-          </header>
-        </Router>
+          </li>
+
+           <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="course-details.html" className="font-weight-bold">Projects</a>
+          </li>
+
+          <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="course-details.html" className="font-weight-bold">Industries</a>
+          </li>
+           <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="course-details.html" className="font-weight-bold">News & Events</a>
+          </li>
+          <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="course-details.html" className="font-weight-bold">Represent Us</a></li>
+          <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="contact-us.html" className="font-weight-bold">Contact</a></li>
+        </ul>
+      </nav>
+       
       </div>
     );
   }

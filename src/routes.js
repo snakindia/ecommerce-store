@@ -4,14 +4,13 @@ import App from './App';
 import About from './pages/about/About'
 import ContactBody from './components/Contact/ContactBody';
 import TopBar from './components/TopBar';
-import HeaderFull from './components/HeaderFull';
+//import HeaderFull from './components/HeaderFull';
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
 
 const Router = () => (
     <BrowserRouter>
         <TopBar />
-        <HeaderFull />
         <NavBar />
         <Switch>
             <Route exact path="/" component={App} />

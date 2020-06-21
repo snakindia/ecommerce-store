@@ -2,16 +2,7 @@ import React, { useEffect , useRef,useState } from 'react';
 import 'bootstrap-css-only/css/bootstrap.min.css'; 
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Link, animateScroll as scroll } from "react-scroll";
-
-
-
-import NavBar from '../../components/NavBar';
-import TopBar from '../../components/TopBar';
-import HeaderFull from '../../components/HeaderFull';
-import Footer from '../../components/Footer';
-
 import FreeBrochure from '../../components/common/FreeBrochure';
-
 import picOne from '../../assets/images/pexels-photo.png';
 import picTwo from '../../assets/images/img-profile.png';
 import picThree from '../../assets/images/pexels-photo.jpeg';
@@ -27,10 +18,6 @@ import aboutBanner from '../../assets/images/DSC_7731.jpg';
 
 const scrollToRef = (ref) => typeof window !== 'undefined' && window.scrollTo(0, ref.current.offsetTop)   
 const useMountEffect = (fun) => useEffect(fun, [])
-
-
-
-
 
 const About = () =>{
 

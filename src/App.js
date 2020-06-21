@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import TopBar from './components/TopBar';
 import Home from './components/Home';
-import HeaderFull from './components/HeaderFull';
-import Footer from './components/Footer';
 
 class App extends Component {
   state = {
