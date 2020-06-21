@@ -123,7 +123,8 @@ background-position: center; background-size: cover;
 .tab-inner .tablink{float:left; display: inline-block; /*margin: 0 2rem 0 1rem; */color:#fff; 
   text-transform: uppercase;text-decoration: none; font-size: 0.875rem; padding:0.875rem 0; width: 159px; text-align: center; }
 
-.tab-inner .tablink:hover{background:#222; display: block; transition: }
+.tab-inner .tablink:hover{background:#222; display: block;}
+
 .left-control{font-size: 0.875rem; padding:0.875rem 0; text-align: center; background: #000; color:#fff; 
   float:left; width: 38px}
 .right-control{font-size: 0.875rem; padding:0.875rem 0; text-align: center; background: #000; color:#fff; 
@@ -292,67 +293,3 @@ position: relative;z-index: 100}
   width: 350px;
   transition: opacity .5s linear;
 }
-
-/*=====Login hover ===========*/
-.toplink{display: block; margin:0; padding: 0; list-style-type: none;}
-.toplink li{float:left; display: inline-block; margin:8px 15px;/* background: #e5e5e5*/}/*
-.toplink li:hover{ background: #e5e5e5}*/
-.toplink li a img{margin:0 10px;}
-.toplink span{ border-right:1px solid #fff; float:left; height: 12px; margin-top: 15px}
-#theBox_2{
-display: none;
-border: 1px solid #000;
-/*width: 380px;*/
-/*height: 200px;*/
-background-color: #e5e5e5;
-position: absolute;
-top: 96%;
-right: 110px;
-width: 600px;
-z-index: 1000000 !important;
-padding:2rem 1.5rem 1rem;
-color:#000;
-}
-
-.theBox_2{
-display: none;
-border: 1px solid #000;
-/*width: 380px;*/
-/*height: 200px;*/
-background-color: #e5e5e5;
-position: absolute;
-top:30%;
-right:30%;
-width: 600px;
-z-index: 1000000 !important;
-padding:2rem 1.5rem 1rem;
-color:#000;
-}
-
-@media(max-width: 768px){
-  #theBox_2{width:100% !important; right:0 !important;}
-}
-#theBox_country{display: none;
-border: 1px solid #000;
-/*width: 380px;*/
-/*height: 200px;*/
-background-color: #4d4d4d;
-position: absolute;
-top: 92%;
-right: 0;
-width: 100%;
-z-index: 1000000 !important;
-padding:2rem 1.5rem 1rem;
-color:#000;}
-#theBox_2 .pwdlink{color:#000 !important; text-transform: none !important; padding:0 !important; margin:0 !important;}
-#StayOpen, #CountryOpen {
- background-color: transparent;           
-}
-
-.benefits-of-registering{border:1px solid #ddd;padding:1.5rem 2rem;}
-input[type=text]:focus, input[type=password]:focus{box-shadow: none !important;}
-
-.bha-contry-list{margin:0; padding:0;}
-.bha-contry-list li{display: block; list-style-type: none; padding:0.5rem 0;}
-.bha-contry-list li a{display: block; color: #fff; text-decoration: none; text-transform: none; font-weight: normal;}
-.bha-contry-list li a:hover{text-decoration: underline;  color:#f3f3f3;}
