@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ContentSection from '../Contact/ContentSection'
 import Mapimg from '../../assets/images/map.jpg';
+import GoogleMap from '../../utils/Map' 
 
 export default class ContactBody extends Component {
   render() {
@@ -10,9 +11,7 @@ export default class ContactBody extends Component {
         <div id="carousel" class="carousel slide" data-ride="carousel">
 
         <div class="carousel-item active">
-            <picture>
-                <img src={Mapimg} alt="responsive image" class="d-block img-fluid" />
-              </picture>
+            <GoogleMap/>
         </div>
       </div>
     </div>
