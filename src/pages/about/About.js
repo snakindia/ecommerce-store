@@ -1,6 +1,8 @@
 import React, { useEffect , useRef,useState } from 'react';
 import 'bootstrap-css-only/css/bootstrap.min.css'; 
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Link, animateScroll as scroll } from "react-scroll";
+
 
 
 import NavBar from '../../components/NavBar';
@@ -8,7 +10,7 @@ import TopBar from '../../components/TopBar';
 import HeaderFull from '../../components/HeaderFull';
 import Footer from '../../components/Footer';
 
-import FreeBrochure from '../../components/Contact/FreeBrochures';
+import FreeBrochure from '../../components/common/FreeBrochure';
 
 import picOne from '../../assets/images/pexels-photo.png';
 import picTwo from '../../assets/images/img-profile.png';
@@ -39,6 +41,22 @@ const About = () =>{
 
     const [isTabActive,setIsTabActive] = useState(false);
 
+    useEffect(() => {
+      const header = document.getElementById("tabItems");
+      const sticky = header.offsetTop;
+      const scrollCallBack = window.addEventListener("scroll", () => {
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      });
+      return () => {
+        window.removeEventListener("scroll", scrollCallBack);
+      };
+    }, []);
+
+    
 	//useMountEffect(() => scrollToRef(myRef)) // Scroll on mount
 
     return (
@@ -63,21 +81,76 @@ const About = () =>{
         </div>
       </div>
 
-        <FreeBrochure/>
-        <div>
-        <section>
+      <div id="tabItems">
+      <FreeBrochure/>
+      <section>
         <div className="container-fluid pl-0 pr-0">
           <ul className="tab-menu">
             <a className="left-control orange" href><i className="fa fa-chevron-left" aria-hidden="true" /></a>
-            <li onClick={()=>scrollToRef(myRef)}><a className="tablink js-scroll-trigger current">A Message from the CEO</a></li>
-            <li onClick={()=>scrollToRef(profileRef)}><a className="tablink js-scroll-trigger">Company Profile</a></li>
-            <li onClick={()=> scrollToRef(mvref)}><a className="tablink js-scroll-trigger">Mission and Vision</a></li>
-            <li onClick={()=>scrollToRef(valRef)}><a className="tablink js-scroll-trigger">Our Values</a></li>
+            <li>
+            <Link
+                activeClass="current"
+                to="section1"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className="tablink js-scroll-trigger current"
+              >
+                A Message from the CEO
+              </Link>
+             
+            </li>
+            <li>
+            <Link
+                activeClass="current"
+                to="section2"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className="tablink js-scroll-trigger"
+              >
+                Company Profile
+              </Link>
+            </li>
+            <li>
+            <Link
+                activeClass="current"
+                to="section3"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className="tablink js-scroll-trigger"
+              >
+            Mission and Vision
+            </Link>
+            </li>
+            <li>
+            <Link
+                activeClass="current"
+                to="section4"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className="tablink js-scroll-trigger"
+              >
+                Our Values
+              </Link>
+             
+            </li>
             <a className="right-control orange" href="#"><i className="fa fa-chevron-right" aria-hidden="true" /></a>
           </ul>
         </div>
        </section>
-       <section className="content-section" id="message" ref={myRef}>
+      </div>
+
+        
+        <div>
+        
+       <section className="content-section" id="section1" ref={myRef}>
           <div className="container-fluid">
             <div className="row">
               <div className="heading-wrapper">
@@ -95,7 +168,7 @@ const About = () =>{
             </div>
           </div>
         </section>
-        <section className="content-section" id="profile" ref={profileRef}>
+        <section className="content-section" id="section2" ref={profileRef}>
           <div className="container-fluid">
             <div className="row">
               <div className="heading-wrapper">
@@ -113,7 +186,7 @@ const About = () =>{
             </div>
           </div>
         </section>
-        <section className="mv-section" id="mvsection" ref={mvref}>
+        <section className="mv-section" id="section3" ref={mvref}>
           <div className="container-fluid">
             <div className="row">
               <div className="heading-wrapper">
@@ -131,7 +204,7 @@ const About = () =>{
             </div>
           </div>
         </section>
-        <section className="content-section pb-4" id="Values" ref={valRef}>
+        <section className="content-section pb-4" id="section4" ref={valRef}>
           <div className="container-fluid">
             <div className="row">
               <div className="heading-wrapper">
