@@ -169,8 +169,8 @@ background-position: center; background-size: cover;
 .chat-button:hover{background: #555;  transform: scale(1.1);}
 
 .chat-button a{text-decoration: none; color:#fff100; font-size: 1.2rem; font-weight:700; text-align: center;}
-.carousel-indicators li{width:10px; height: 10px; border-radius: 100px; background: #fff}
-.carousel-indicators li.active{background: #4280fe}
+.carousel .carousel-indicators li{width:10px; height: 10px; border-radius: 100px; background: #fff}
+.carousel .carousel-indicators li.active{background: #4280fe}
 
 .pulse {
   animation: chat-pulse 1s infinite;

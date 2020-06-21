@@ -1,35 +1,6 @@
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
-body {
-	background: #fff;
-	font-family: 'Roboto', sans-serif !important;
-	font-size: 1rem;
-}
-dl, ol, ul {
-	margin-top: 0;
-	margin-bottom: 1rem;
-}
 
-.headtoppart{
-	background: #000 url(../src/assets/images/top-bar-bg.jpg) top left no-repeat;
-	color: #fff;
-	height: 40px;
-	position: relative;
-}
 
-.headtoppart::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(0,0,0,0.1);
-}
 
 .top-dropdown .dropdown-menu{
 	min-width: 6rem;

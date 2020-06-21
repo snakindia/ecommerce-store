@@ -141,7 +141,7 @@ export default class Footer extends Component {
                   htmlFor=""
                   className="white-text font-weight-bold"
                 >
-                  Enter Name*
+                  Name*
                 </label>
                 <input
                   type="text"
