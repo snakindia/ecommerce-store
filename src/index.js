@@ -11,6 +11,7 @@ import "./assets/css/slick.css";
 import "./assets/css/hover.css";
 import "./assets/css/slick-theme.css";
 import "./assets/css/webslidemenu.css";
+import "./index.css";
 
 import App from "./App";
 
