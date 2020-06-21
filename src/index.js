@@ -10,11 +10,9 @@ import "./assets/css/imagehover.css";
 import "./assets/css/slick.css";
 import "./assets/css/hover.css";
 import "./assets/css/slick-theme.css";
+import "./assets/css/fade-down.css";
 import "./assets/css/webslidemenu.css";
 import "./assets/css/white-gry.css";
-import "./assets/css/fade-down.css";
-//import "./assets/js/jquery-3.5.0.min.js";
-//import "./assets/js/webslidemenu.js";
 import "./index.css";
 
 import App from "./App";
