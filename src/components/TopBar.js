@@ -29,7 +29,7 @@ render() {
             <a href="/" data-toggle="modal"><img src={Profile} alt="" width="20" />login/signup</a>
             <span>&nbsp;</span>
             <span class="dropdown border-0">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src={Globe} alt="" width="20" />EN<i class="caret border-0"></i></a>
+              <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src={Globe} alt="" width="20" />EN<i class="caret border-0"></i></a>
             
             <ul class="dropdown-menu">
                 <li><a href="/">EN</a></li>
