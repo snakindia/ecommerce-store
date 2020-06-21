@@ -20,6 +20,16 @@
 	padding: .8rem;
 }
 
+.wsmenu {
+	z-index: 1 !important;
+}
+
+.toplink span {
+	border-right: 1.5px solid #fff;
+	float: left;
+	height: 12px;
+	margin-top: 5px;
+}
 .topmenusearch input[type='text'] {
 	padding: 0.6rem 1rem;
 	border-radius: 6rem;
@@ -137,3 +147,68 @@ li .wstliststy04 {
 	position: absolute;
 	transform: translate(0%, -80%);
 }
+
+
+/* Sign up Page Css  */
+
+.form-select {
+	width: 100% !important;
+	background-color: #fff !important;
+}
+
+.headerwp, .toplink{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.country{
+	z-index: 10000000 !important;
+
+}
+
+.logIn .modal-content{
+	top: 10px;
+	left:65%;
+	z-index: 1000000 !important;
+	padding: 2rem 1.5rem 1rem;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	width: 600px;
+	background-color: #e5e5e5;
+	border-radius: 0px !important;
+	outline: 0;
+}
+
+.country .modal-content {
+	top: 40px;
+	z-index: 1000000 !important;
+	padding: 2rem 1.5rem 1rem;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	pointer-events: auto;
+	background-color: #4d4d4d;
+	background-clip: padding-box;
+	border: 1px solid rgba(0,0,0,.2);
+	border-radius: 0px !important;
+	outline: 0;
+}
+
+.bha-contry-list li a {
+	font-size: 0.8rem;
+}
+/* .modal-content {
+	display: none;
+	border: 1px solid #000;
+	background-color: #4d4d4d;
+	position: relative;
+	top: 92%;
+	right: 0;
+	width: 100%;
+	z-index: 1000000 !important;
+	padding: 2rem 1.5rem 1rem;
+	color: #000;
+} */
