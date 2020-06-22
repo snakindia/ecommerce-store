@@ -80,17 +80,9 @@ export default class PopupFormValidation extends Component {
       }
     }
 
-    if (!fields["companyname"]) {
-      formIsValid = false;
-      errors["companyname"] = "*Please enter your company name.";
-    }
 
-    if (typeof fields["companyname"] !== "undefined") {
-      if (!fields["companyname"].match(/^[a-zA-Z ]*$/)) {
-        formIsValid = false;
-        errors["companyname"] = "*Please enter alphabet characters only.";
-      }
-    }
+
+
 
     this.setState({
       errors: errors

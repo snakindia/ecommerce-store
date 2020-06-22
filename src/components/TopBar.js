@@ -6,13 +6,25 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Cart from '../assets/icon/cart.svg';
 import Profile from '../assets/icon/profile.svg';
 import Globe from '../assets/icon/globe.svg';
-
+import Validate from "react-validate-form"
 class TopBar extends Component {
-  state={
+  constructor(props){
+    super(props);
+    this.state={
     modal4: false,
-    modal5: false
+    modal5: false,
+    fields: {},
+    errors: {},
+ 
   }
+  // this.handleChange = this.handleChange.bind(this);
+  // this.submitLoginForm = this.submitLoginForm.bind(this);
+
   
+
+  }
+
+
   toggle = nr => () => {
     let modalNumber = 'modal' + nr
     this.setState({
@@ -20,7 +32,75 @@ class TopBar extends Component {
     });
   }
   
+ 
+  // handleChange(e) {
+  //   let fields = this.state.fields;
+  //   fields[e.target.name] = e.target.value;
+  //   this.setState({
+  //     fields
+  //   });
+  
+  // }
+  
+  
+  // submitLoginForm(e) {
+  //   if (this.validateForm()) {
+  //       let fields = {};
+  //       fields["email"] = "";
+  //       fields["password"] = "";
+  //       this.setState({fields:fields});
+  //       alert("Login Sucess Fully");
+  //   }
+  // //  e.preventDefault();
+  
+  // }
+  
+  // validateForm() {
+  //   let fields = this.state.fields;
+  //   let errors = {};
+  //   let formIsValid = true;
+  
+  //   if (!fields["email"]) {
+  //     formIsValid = false;
+  //     errors["email"] = "EMAIL ADDRESS IS REQUIRED.";
+  //   }
+  
+  //   if (typeof fields["email"] !== "undefined") {
+  //     //regular expression for email validation
+  //     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+  //     if (!pattern.test(fields["email"])) {
+  //       formIsValid = false;
+  //       errors["email"] = "*Please enter valid email-ID.";
+  //     }
+  //   }
+
+
+  //   if (!fields["password"]) {
+  //     formIsValid = false;
+  //     errors["password"] = "PASSWORD IS REQUIRED.";
+  //   }
+
+  //   if (typeof fields["password"] !== "undefined") {
+  //     if (!fields["password"].match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
+  //       formIsValid = false;
+  //       errors["password"] = "*Please enter secure and strong password.";
+  //     }
+  //   }
+  //   this.setState({
+  //     errors: errors
+  //   });
+  //   return formIsValid;
+  
+  
+  //   }
+  
+
+    
 render() {
+  const validations = {
+    email: ["required", "email"],
+    password: ["required", "min:3", "max:15"],
+   }
   return (
 <div>
 <div class="headtoppart">
@@ -54,17 +134,17 @@ render() {
                     <h4 className="login-heading font-xx">Account Sign In</h4>
                     <div className="form-group mb-2">
                     {/* <!-- <label>Mobile / Email Address</label> --> */}
-                    <input type="text" className="form-control" name="email" placeholder="Email Address" />
-                    {/* <!-- <span className="errorMessage">Mobile / Email Address is required</span> --> */}
+                    <input type="text" className="form-control" name="email" value={this.state.fields.email} onChange={this.handleChange} placeholder="Email Address" />
+                    <span className="errorMsg">{this.state.errors.email}</span>
                     </div>
                     <div className="form-group pb-0 mb-3">
                       {/* <!-- <label>Password</label> --> */}
-                      <input type="password" className="form-control" name="pwd" placeholder="Password" />
-                      {/* <!-- <span className="errorMessage">Password is required</span> --> */}
+                      <input type="password" className="form-control" value={this.state.fields.password} onChange={this.handleChange} name="password" placeholder="Password" />
+                       <div className="errorMsg">{this.state.errors.password}</div> 
                     </div>  
                     <a href="/" className="pwdlink">Forgot Password?</a>
                     <div className="form-group">
-                      <button type="button" className="btn bha-btn-primary w-100 mt-3">Sign in</button>
+                      <button type="button" onClick={() =>{this.submitLoginForm()}} className="btn bha-btn-primary w-100 mt-3">Sign in</button>
                       {/* <!-- <span className="float-right mt-4 text-muted"><a className="forgotpwd" href="forgot-pwd.html">Forgot Password?</a></span> --> */}
                     </div>
                   </div>
