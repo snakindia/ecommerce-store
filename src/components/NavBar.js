@@ -73,7 +73,7 @@ class NavBar extends React.Component {
             <div className="wsshoptabing wtsdepartmentmenu clearfix">
               <div className="wsshopwp clearfix">
                 <div className="image-holder">
-                    <img src={coverImg} alt="" width="300" height="150" />
+                    <img src={!coverImg ? EpicCover : coverImg} alt="" width="300" height="150" />
                   </div>
                 <ul className="wstabitem clearfix">
                 {
