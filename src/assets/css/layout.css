@@ -170,7 +170,7 @@ a.forgotpwd:hover{text-decoration: none;color:#888; transition: 0.3s}
 .banner-section { float: left; width: 100%; margin-top: 0 !important;}
 .container-fluid{width: 100%;/*padding-right: 0 !important;padding-left: 0 !important;margin-right: auto;
 margin-left: auto;*/}
-.caption{position: absolute; top:22%; right: 1%; z-index: 1; background: rgba(0,0,0,0.7); padding:3rem 2.5rem;
+.caption{position: absolute; top:22%; right: 1%; z-index: 0; background: rgba(0,0,0,0.7); padding:3rem 2.5rem;
  width: 37%}
 
 

@@ -149,8 +149,38 @@ const dropDownMenuProduct = [
     },
 
 
-]
+];
+
+const defaultMenuListItems =[
+    {
+        itemName:'Larry Page Baghouse',
+        itemImg:EpcImg1
+    },
+    {
+        itemName:'Cartridge Dust Collectors',
+        itemImg:EpcImg2
+    },
+    {
+        itemName:'Bin Vents',
+        itemImg:EpcImg6
+    },
+    {
+        itemName:'Portable Dust Collectors',
+        itemImg:EpcImg3
+    },
+    {
+        itemName:'Fans & Blowers',
+        itemImg:EpcImg4
+    },
+    
+    {
+        itemName:'Fiberglass Filter Bags',
+        itemImg:EpcImg5
+    }
+    
+] 
 
 export {
-    dropDownMenuProduct
+    dropDownMenuProduct,
+    defaultMenuListItems
 }

@@ -12,7 +12,7 @@ import Baghouse from '../assets/images/baghouse.jpg'
 import Valve from '../assets/images/valve.jpg'
 import Fan from '../assets/images/fan.jpg'
 import Baghouselogo from '../assets/images/baghouse_logo.svg';
-import { dropDownMenuProduct } from "../constants/appConstant";
+import { dropDownMenuProduct,defaultMenuListItems } from "../constants/appConstant";
 
 
 class NavBar extends React.Component {
@@ -21,7 +21,8 @@ class NavBar extends React.Component {
     this.state = {
       collapse: false,
       coverImg:null,
-      listItems:[]
+      listItems:[],
+      activeLink: null
     };
     this.onClick = this.onClick.bind(this);
   }
@@ -31,13 +32,13 @@ class NavBar extends React.Component {
       collapse: !this.state.collapse,
     });
   }
-  showMenu = (listArr,e) =>{
+  showMenu = (listArr,idx,e) =>{
     const {coverImg , listItems} = listArr;
-    this.setState({coverImg,listItems})
+    this.setState({coverImg,listItems,activeLink:idx})
   }
 
   render() {
-    const {coverImg,listItems} = this.state
+    const {coverImg,listItems,activeLink} = this.state
     return (
       <div class="headerfull h-25">
           <div class="wsmain clearfix">
@@ -71,7 +72,7 @@ class NavBar extends React.Component {
           <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="about-us.html" className="font-weight-bold">About</a></li>
           <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="#" className="font-weight-bold">Products/Services<span className="dropdown-toggle ml-2"></span></a>
             
-            <div className="wsshoptabing wtsdepartmentmenu clearfix">
+            <div className="wsshoptabing wtsdepartmentmenu clearfix" style={{zIndex:999}}>
               <div className="wsshopwp clearfix">
                 <div className="image-holder">
                     <img src={!coverImg ? EpicCover : coverImg} alt="" width="300" height="150" />
@@ -84,13 +85,13 @@ class NavBar extends React.Component {
                     //let {listItems} = listArr
                     //console.log('listItems',listItems)
                     return (
-                    <li className="wsshoplink-active"><a href="#" data-src={Baghouse} onMouseEnter={(e)=>this.showMenu(listArr,e)}>{mainText}</a>
+                    <li className={activeLink == idx ? "wsshoplink-active":"wsshoplink"} key={idx+Math.random()}><a data-src={Baghouse} onMouseEnter={(e)=>this.showMenu(listArr,idx,e)}>{mainText}</a>
                     <div className="wstitemright clearfix wstpngsml">
                       <div className="container-fluid">
                         <div className="row custom-gutter">
                           {listItems.map((itemTwo,i)=>{
                             return (
-                              <div className="col-lg-3 col-md-12">
+                              <div className="col-lg-3 col-md-12" key={i+3}>
                               <ul className="wstliststy04 clearfix">
                                 <li><img className="scale-down" src={itemTwo.itemImg} alt=" " /></li>
                                 <li className="wstheading clearfix"><a href="#">{itemTwo.itemName}</a></li>
