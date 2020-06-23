@@ -25,7 +25,7 @@ const dropDownMenuProduct = [
                     itemImg:EpcImg2
                 },
                 {
-                    itemName:'Bin Vents',
+                    itemName:'Bill gates Bin Vents',
                     itemImg:EpcImg3
                 },
                 {
@@ -50,7 +50,7 @@ const dropDownMenuProduct = [
             coverImg:EquipImg,
             listItems:[
                 {
-                    itemName:'Baghouse',
+                    itemName:'Steve Jobs Baghouse',
                     itemImg:EpcImg3
                 },
                 {
@@ -84,7 +84,7 @@ const dropDownMenuProduct = [
             coverImg:PartImg,
             listItems:[
                 {
-                    itemName:'Baghouse',
+                    itemName:'Mark Zuckerberg Baghouse',
                     itemImg:EpcImg5
                 },
                 {
@@ -118,7 +118,7 @@ const dropDownMenuProduct = [
             coverImg:BrandImg,
             listItems:[
                 {
-                    itemName:'Baghouse',
+                    itemName:'Larry Page Baghouse',
                     itemImg:EpcImg1
                 },
                 {

@@ -20,7 +20,8 @@ class NavBar extends React.Component {
     super(props);
     this.state = {
       collapse: false,
-      coverImg:null
+      coverImg:null,
+      listItems:[]
     };
     this.onClick = this.onClick.bind(this);
   }
@@ -31,12 +32,12 @@ class NavBar extends React.Component {
     });
   }
   showMenu = (listArr,e) =>{
-    const {coverImg} = listArr;
-    this.setState({coverImg})
+    const {coverImg , listItems} = listArr;
+    this.setState({coverImg,listItems})
   }
 
   render() {
-    const {coverImg} = this.state
+    const {coverImg,listItems} = this.state
     return (
       <div class="headerfull h-25">
           <div class="wsmain clearfix">
@@ -80,7 +81,7 @@ class NavBar extends React.Component {
                   dropDownMenuProduct.map((itemOne,idx)=>{
                     let mainText = Object.keys(itemOne)[0];
                     let listArr = itemOne[mainText];
-                    let {listItems} = listArr
+                    //let {listItems} = listArr
                     //console.log('listItems',listItems)
                     return (
                     <li className="wsshoplink-active"><a href="#" data-src={Baghouse} onMouseEnter={(e)=>this.showMenu(listArr,e)}>{mainText}</a>
