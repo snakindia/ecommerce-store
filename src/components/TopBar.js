@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Cart from '../assets/icon/cart.svg';
 import Profile from '../assets/icon/profile.svg';
 import Globe from '../assets/icon/globe.svg';
-import Validate from "react-validate-form"
+import { Formik } from 'formik';
 class TopBar extends Component {
   constructor(props){
     super(props);
@@ -128,23 +128,65 @@ render() {
 
           <MDBModal className="logIn" isOpen={this.state.modal5} toggle={this.toggle(5)}>
       <div>
-              <form>
+      <Formik
+      initialValues={{ email: '', password: '' }}
+      validate={values => {
+        const errors = {};
+        if (!values.email) {
+          errors.email = 'Required';
+        } else if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        ) {
+          errors.email = 'Invalid email address';
+        }
+        if (!values.password) {
+          errors.password = 'Required';
+        } else if (
+          /!^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/i.test(values.password)
+        ) {
+          errors.password = 'Invalid email address';
+        }
+  
+        return errors;
+      }
+    }
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 1));
+          setSubmitting(false);
+        }, 400);
+      }}
+    >
+              {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting,
+        /* and other goodies */
+      }) => (<form>
                 <div className="row">
                   <div className="col-sm-6 col-md-6 border-right border-secondary">
                     <h4 className="login-heading font-xx">Account Sign In</h4>
                     <div className="form-group mb-2">
                     {/* <!-- <label>Mobile / Email Address</label> --> */}
-                    <input type="text" className="form-control" name="email" value={this.state.fields.email} onChange={this.handleChange} placeholder="Email Address" />
-                    <span className="errorMsg">{this.state.errors.email}</span>
+                    <input type="text" className="form-control" name="email" onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.email} placeholder="Email Address" />
+                    <span className="errorMsg">{errors.email && touched.email && errors.email}</span>
                     </div>
                     <div className="form-group pb-0 mb-3">
                       {/* <!-- <label>Password</label> --> */}
-                      <input type="password" className="form-control" value={this.state.fields.password} onChange={this.handleChange} name="password" placeholder="Password" />
-                       <div className="errorMsg">{this.state.errors.password}</div> 
+                      <input type="password" className="form-control"  onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.password} name="password" placeholder="Password" />
+                       <div className="errorMsg">{errors.password && touched.password && errors.password}</div> 
                     </div>  
                     <a href="/" className="pwdlink">Forgot Password?</a>
                     <div className="form-group">
-                      <button type="button" onClick={() =>{this.submitLoginForm()}} className="btn bha-btn-primary w-100 mt-3">Sign in</button>
+                      <button type="button" onClick={() =>{handleSubmit()}}  className="btn bha-btn-primary w-100 mt-3">Sign in</button>
                       {/* <!-- <span className="float-right mt-4 text-muted"><a className="forgotpwd" href="forgot-pwd.html">Forgot Password?</a></span> --> */}
                     </div>
                   </div>
@@ -158,6 +200,8 @@ render() {
                   </div>
                 </div>
               </form>
+              )}
+              </Formik>
           </div>
       </MDBModal>
       <MDBModal  className="country" isOpen={this.state.modal4} toggle={this.toggle(4)}  fullHeight position="top">
