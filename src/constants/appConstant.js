@@ -25,7 +25,7 @@ const dropDownMenuProduct = [
                     itemImg:EpcImg2
                 },
                 {
-                    itemName:'Bin Vents',
+                    itemName:'Bill gates Bin Vents',
                     itemImg:EpcImg3
                 },
                 {
@@ -50,7 +50,7 @@ const dropDownMenuProduct = [
             coverImg:EquipImg,
             listItems:[
                 {
-                    itemName:'Baghouse',
+                    itemName:'Steve Jobs Baghouse',
                     itemImg:EpcImg3
                 },
                 {
@@ -84,7 +84,7 @@ const dropDownMenuProduct = [
             coverImg:PartImg,
             listItems:[
                 {
-                    itemName:'Baghouse',
+                    itemName:'Mark Zuckerberg Baghouse',
                     itemImg:EpcImg5
                 },
                 {
@@ -118,7 +118,7 @@ const dropDownMenuProduct = [
             coverImg:BrandImg,
             listItems:[
                 {
-                    itemName:'Baghouse',
+                    itemName:'Larry Page Baghouse',
                     itemImg:EpcImg1
                 },
                 {
@@ -149,8 +149,38 @@ const dropDownMenuProduct = [
     },
 
 
-]
+];
+
+const defaultMenuListItems =[
+    {
+        itemName:'Larry Page Baghouse',
+        itemImg:EpcImg1
+    },
+    {
+        itemName:'Cartridge Dust Collectors',
+        itemImg:EpcImg2
+    },
+    {
+        itemName:'Bin Vents',
+        itemImg:EpcImg6
+    },
+    {
+        itemName:'Portable Dust Collectors',
+        itemImg:EpcImg3
+    },
+    {
+        itemName:'Fans & Blowers',
+        itemImg:EpcImg4
+    },
+    
+    {
+        itemName:'Fiberglass Filter Bags',
+        itemImg:EpcImg5
+    }
+    
+] 
 
 export {
-    dropDownMenuProduct
+    dropDownMenuProduct,
+    defaultMenuListItems
 }
