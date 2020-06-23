@@ -7,6 +7,12 @@ import Cart from '../assets/icon/cart.svg';
 import Profile from '../assets/icon/profile.svg';
 import Globe from '../assets/icon/globe.svg';
 import { Formik } from 'formik';
+import axios from 'axios';
+import base64 from 'buffer';
+//import utf8 from 'utf8'
+import { setUserSession } from '../utils/Common';
+//import CookieHandler from '../utils/cookieHandler.js';
+
 class TopBar extends Component {
   constructor(props){
     super(props);
@@ -149,6 +155,31 @@ render() {
       }
     }
       onSubmit={(values, { setSubmitting }) => {
+
+        console.log(values.email)
+        axios.post('http://127.0.0.1:3001/ajax/login', values)
+        .then(function (response) {
+//var bytes = base64.decode(response);
+//var text = utf8.decode(bytes);
+console.log(response.data);
+console.log(Buffer.from(response, 'base64').toString('ascii'));
+
+          if(values.email===response.data.email && values.password===response.data.password){
+                    //setUserSession(response.data.token, response.data.user);
+          
+          if(response.data.email===values.email && response.data.password===values.password){
+
+            alert("Login is sucessfully" )
+          }
+          }
+        })
+        .catch(function (error) {
+          
+          console.log(error);
+        
+        });
+       
+
         setTimeout(() => {
           alert(JSON.stringify(values, null, 1));
           setSubmitting(false);

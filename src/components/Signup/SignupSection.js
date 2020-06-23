@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Formik } from 'formik';
-
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 export default class SignupSection extends Component {
 constructor(props){
   super(props);
@@ -187,7 +188,7 @@ constructor(props){
     </div>
 
     <Formik
-      initialValues={{ fname: '', lname: '', companyname: '', email: '', password: '', confirmpassword: '', zipcode: '' }}
+      initialValues={{ fname: '', lname: '', companyname: '', email: '', password: '', confirmpassword: '', zipcode: '', countrytype: '', offerupdate: false, productnotification: false, sproductresearch:false }}
       validate={values => {
         const errors = {};
         if (!values.fname) {
@@ -232,7 +233,7 @@ constructor(props){
         } else if (
           !/^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/i.test(values.password)
         ) {
-          errors.password = 'Invalid Password';
+          errors.password = 'PASSWORD SHOULD BE A MINIMUM OF 8 CHARACTERS WITH AT LEAST ONE CAPITAL LETTER, ONE LOWER CASE LETTER AND ONE NUMBER. PASSWORD CANNOT START WITH A NUMBER OR BE THE SAME AS YOUR EMAIL.';
         }
 
 
@@ -253,12 +254,31 @@ constructor(props){
         return errors;
       }
     }
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { resetForm, props }) => {
+        console.log(values)
+        
+        axios.post('http://127.0.0.1:3001/ajax/register', values)
+        .then(function (response) {
+          console.log(response)
+          if(response.data.isRightToken===true && response.data.status===true){
 
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 1));
-          setSubmitting(false);
-        }, 400);
+            alert("Data is update sucessfully" )
+            resetForm({values:''});
+            return <Redirect from="/sign-up" to="/home.html" />   
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        
+        
+        // setTimeout(() => {
+
+
+        //   alert(JSON.stringify(values, null, 1));
+        //   setSubmitting(false);
+        // }, 400);
+
       }}
     >
               {({
@@ -303,11 +323,12 @@ constructor(props){
           </div>
           <div className="col-sm-6 col-md-6 pr-0">
           <div className="form-group">
-                <select className="form-control input-control form-select text-muted" style={{fonntSize: '0.875rem'}}>
+                <select className="form-control input-control form-select text-muted" name="countrytype" value={values.countrytype} onChange={handleChange}
+            onBlur={handleBlur} style={{fonntSize: '0.875rem'}}>
                   <option>United State</option>
-                  <option>United State</option>
-                  <option>United State</option>
-                  <option>United State</option>
+                  <option>India</option>
+                  <option>China</option>
+                  <option>banglore</option>
                 </select>
               </div>
               <div className="form-group">
@@ -327,7 +348,8 @@ constructor(props){
                 <div className="mt-2 text-muted"><input type="checkbox" className="mr-2 mt-2" /><small>Show Password</small>
                 </div>
                 <div class="form-group">
-                <div><input type="checkbox" class="mr-2 mt-3" />I would like to receive updates and offers</div>
+                <div><input type="checkbox" name="offerupdate" value={values.offerupdate} onChange={handleChange}
+            onBlur={handleBlur} class="mr-2 mt-3" />I would like to receive updates and offers</div>
             </div>
               </div>
           </div>
@@ -336,11 +358,13 @@ constructor(props){
   <div className="container-fluid">
   <div className="row">
     <div className="col-sm-6 col-md-6 pl-0">
-      <p><small><input type="checkbox" className="mr-3" />I WOULD LIKE TO RECEIVE INFORMATION ABOUT DEWALT PRODUCTS AND PROMOTIONS BY EMAIL</small></p>
+      <p><small><input type="checkbox" name="productnotification" value={values.productnotification} onChange={handleChange}
+            onBlur={handleBlur} className="mr-3" />I WOULD LIKE TO RECEIVE INFORMATION ABOUT DEWALT PRODUCTS AND PROMOTIONS BY EMAIL</small></p>
       <p className="text-muted"><small>By signing up you agree to receive emails from BAGHOUSE AMERICA with news, special offers, promotions and other information. You can unsubscribe at any time. See Updated <a href="/" className="font-weight-bold text">Privacy Policy</a> or Contact Us at <a href="mailto:support.baghouseamrica@gmail.com" className="font-weight-bold">support.baghouseamrica@gmail.com</a> or 2415 East Camelback Road, Ste. 700, Phoenix, Arizona 85016, for more information.</small></p>
     </div>
     <div className="col-sm-6 col-md-6">
-      <p><small><input type="checkbox" className="mr-3" />SIGN UP TO PARTICIPATE IN DEWALT PRODUCT RESEARCH</small></p>
+      <p><small><input type="checkbox" name="sproductresearch" value={values.sproductresearch} onChange={handleChange}
+            onBlur={handleBlur} className="mr-3" />SIGN UP TO PARTICIPATE IN DEWALT PRODUCT RESEARCH</small></p>
        <div className="form-group">
         <button type="button" className="btn bha-btn-primary float-left"  onClick={() =>{handleSubmit()}} name="buttonsubmit">Submit</button>
       </div>
