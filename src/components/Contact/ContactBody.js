@@ -10,7 +10,7 @@ export default class ContactBody extends Component {
         <div class="banner-container">
         <div id="carousel" class="carousel slide" data-ride="carousel">
 
-        <div class="carousel-item active">
+        <div className="active" style={{height: "470px"}}>
             <GoogleMap/>
         </div>
       </div>
