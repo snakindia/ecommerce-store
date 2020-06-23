@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Formik } from 'formik';
 
 export default class SignupSection extends Component {
 constructor(props){
@@ -9,34 +10,34 @@ constructor(props){
     
   }
 
-  this.handleChange = this.handleChange.bind(this);
-  this.submitsignupForm = this.submitsignupForm.bind(this);
+  // this.handleChange = this.handleChange.bind(this);
+  // this.submitsignupForm = this.submitsignupForm.bind(this);
 }
 
-handleChange(e) {
-  let fields = this.state.fields;
-  fields[e.target.name] = e.target.value;
-  this.setState({
-    fields
-  });
+// handleChange(e) {
+//   let fields = this.state.fields;
+//   fields[e.target.name] = e.target.value;
+//   this.setState({
+//     fields
+//   });
 
-}
+// }
 
 
-submitsignupForm(e) {
-  if (this.validateForm()) {
-      let fields = {};
-      fields["fname"] = "";
-      fields["lname"] = "";
-      fields["companyname"] = "";
-      fields["email"] = "";
-      fields["phone"] = "";
-      fields["zipcode"] = "";
-      fields["password"] = "";
-      fields["confirmpassword"] = "";
-      this.setState({fields:fields});
-      alert("Form submitted");
-  }
+// submitsignupForm(e) {
+//   if (this.validateForm()) {
+//       let fields = {};
+//       fields["fname"] = "";
+//       fields["lname"] = "";
+//       fields["companyname"] = "";
+//       fields["email"] = "";
+//       fields["phone"] = "";
+//       fields["zipcode"] = "";
+//       fields["password"] = "";
+//       fields["confirmpassword"] = "";
+//       this.setState({fields:fields});
+//       alert("Form submitted");
+//   }
 //   var url ="http://127.0.0.1:3001/ajax/{{bha-instance}}/authorize"
 // fetch(url,{
 //   method:'post',
@@ -55,103 +56,103 @@ submitsignupForm(e) {
 
 //  e.preventDefault();
 
-}
+// }
 
-validateForm() {
-  let fields = this.state.fields;
-  let errors = {};
-  let formIsValid = true;
-  if (!fields["fname"]) {
-    errors["fname"] = "FIRST NAME IS REQUIRED.";
-  }
+// validateForm() {
+//   let fields = this.state.fields;
+//   let errors = {};
+//   let formIsValid = true;
+//   if (!fields["fname"]) {
+//     errors["fname"] = "FIRST NAME IS REQUIRED.";
+//   }
 
-  if (typeof fields["fname"] !== "undefined") {
-    if (!fields["fname"].match(/^[a-zA-Z ]*$/)) {
-      formIsValid = false;
-      errors["fname"] = "*Please enter alphabet characters only.";
-    }
-  }
-  if (!fields["lname"]) {
-    formIsValid = false;
-    errors["lname"] = "LAST NAME IS REQUIRED.";
-  }
+//   if (typeof fields["fname"] !== "undefined") {
+//     if (!fields["fname"].match(/^[a-zA-Z ]*$/)) {
+//       formIsValid = false;
+//       errors["fname"] = "*Please enter alphabet characters only.";
+//     }
+//   }
+//   if (!fields["lname"]) {
+//     formIsValid = false;
+//     errors["lname"] = "LAST NAME IS REQUIRED.";
+//   }
 
-  if (typeof fields["lname"] !== "undefined") {
-    if (!fields["lname"].match(/^[a-zA-Z ]*$/)) {
-      formIsValid = false;
-      errors["lname"] = "*Please enter alphabet characters only.";
-    }
-  }
-  if (!fields["companyname"]) {
-    formIsValid = false;
-    errors["companyname"] = "Company NAME IS REQUIRED.";
-  }
+//   if (typeof fields["lname"] !== "undefined") {
+//     if (!fields["lname"].match(/^[a-zA-Z ]*$/)) {
+//       formIsValid = false;
+//       errors["lname"] = "*Please enter alphabet characters only.";
+//     }
+//   }
+//   if (!fields["companyname"]) {
+//     formIsValid = false;
+//     errors["companyname"] = "Company NAME IS REQUIRED.";
+//   }
 
-  if (typeof fields["companyname"] !== "undefined") {
-    if (!fields["companyname"].match(/^[a-zA-Z0-9 ]*$/)) {
-      formIsValid = false;
-      errors["companyname"] = "*Please enter alphabet characters only.";
-    }
-  }
-
-
-  if (!fields["email"]) {
-    formIsValid = false;
-    errors["email"] = "EMAIL ADDRESS IS REQUIRED.";
-  }
-
-  if (typeof fields["email"] !== "undefined") {
-    //regular expression for email validation
-    var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-    if (!pattern.test(fields["email"])) {
-      formIsValid = false;
-      errors["email"] = "*Please enter valid email-ID.";
-    }
-  }
+//   if (typeof fields["companyname"] !== "undefined") {
+//     if (!fields["companyname"].match(/^[a-zA-Z0-9 ]*$/)) {
+//       formIsValid = false;
+//       errors["companyname"] = "*Please enter alphabet characters only.";
+//     }
+//   }
 
 
+//   if (!fields["email"]) {
+//     formIsValid = false;
+//     errors["email"] = "EMAIL ADDRESS IS REQUIRED.";
+//   }
+
+//   if (typeof fields["email"] !== "undefined") {
+//     //regular expression for email validation
+//     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+//     if (!pattern.test(fields["email"])) {
+//       formIsValid = false;
+//       errors["email"] = "*Please enter valid email-ID.";
+//     }
+//   }
 
 
-  if (!fields["zipcode"]) {
-    formIsValid = false;
-    errors["zipcode"] = "POSTAL/ZIP IS REQUIRED.";
-  }
-
-  if (typeof fields["zipcode"] !== "undefined") {
-    if (!fields["zipcode"].match(/^[0-9]{6}$/)) {
-      formIsValid = false;
-      errors["zipcode"] = "*Please enter valid zipcode.";
-    }
-  }
 
 
-  if (!fields["password"]) {
-    formIsValid = false;
-    errors["password"] = "PASSWORD IS REQUIRED.";
-  }
+//   if (!fields["zipcode"]) {
+//     formIsValid = false;
+//     errors["zipcode"] = "POSTAL/ZIP IS REQUIRED.";
+//   }
 
-  if (!fields["confirmpassword"]) {
-    formIsValid = false;
-    errors["confirmpassword"] = "PLEASE CONFIRM YOUR PASSWORD.";
-  }
+//   if (typeof fields["zipcode"] !== "undefined") {
+//     if (!fields["zipcode"].match(/^[0-9]{6}$/)) {
+//       formIsValid = false;
+//       errors["zipcode"] = "*Please enter valid zipcode.";
+//     }
+//   }
 
-  if (typeof fields["password"] !== "undefined" && typeof fields["confirmpassword"] !== "undefined") {
+
+//   if (!fields["password"]) {
+//     formIsValid = false;
+//     errors["password"] = "PASSWORD IS REQUIRED.";
+//   }
+
+//   if (!fields["confirmpassword"]) {
+//     formIsValid = false;
+//     errors["confirmpassword"] = "PLEASE CONFIRM YOUR PASSWORD.";
+//   }
+
+//   if (typeof fields["password"] !== "undefined" && typeof fields["confirmpassword"] !== "undefined") {
       
-    if (fields["password"] != fields["confirmpassword"]) {
-      formIsValid = false;
-      errors["password"] = "PASSWORDS DO NOT MATCH.";
-    }
-  }
+//     if (fields["password"] != fields["confirmpassword"]) {
+//       formIsValid = false;
+//       errors["password"] = "PASSWORDS DO NOT MATCH.";
+//     }
+//   }
 
 
 
-  this.setState({
-    errors: errors
-  });
-  return formIsValid;
+//   this.setState({
+//     errors: errors
+//   });
+//   return formIsValid;
 
 
-  }
+  // }
 
 
   render() {
@@ -185,29 +186,119 @@ validateForm() {
       </div>
     </div>
 
-    <form method="post">
+    <Formik
+      initialValues={{ fname: '', lname: '', companyname: '', email: '', password: '', confirmpassword: '', zipcode: '' }}
+      validate={values => {
+        const errors = {};
+        if (!values.fname) {
+          errors.fname = 'First Name is Required.';
+        } else if (
+          !/^[a-zA-Z ]*$/i.test(values.fname)
+        ) {
+          errors.fname = 'Please enter alphabet characters only.';
+        }
+
+        if (!values.lname) {
+          errors.lname = 'Last Name is Required.';
+        } else if (
+          !/^[a-zA-Z ]*$/i.test(values.lname)
+        ) {
+          errors.lname = 'Please enter alphabet characters only.';
+        }
+
+        if (!values.companyname) {
+          errors.companyname = 'Company Name is Required.';
+        } else if (
+          !/^[a-zA-Z ]*$/i.test(values.companyname)
+        ) {
+          errors.companyname = 'Please enter alphabet characters only.';
+        }
+
+
+        if (!values.email) {
+          errors.email = 'Email Id is Required.';
+        } else if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        ) {
+          errors.email = 'Invalid email address';
+        }
+
+
+
+        if (!values.password) {
+          errors.password = 'Password is Required.';
+        } else if (values.password.length < 8){
+          errors.password = 'Password must be 8 characters long.'
+        } else if (
+          !/^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/i.test(values.password)
+        ) {
+          errors.password = 'Invalid Password';
+        }
+
+
+        if (values.password!==values.confirmpassword ) {
+          errors.confirmpassword = 'Not Match Password';
+        }
+        
+        
+        if (!values.zipcode) {
+          errors.zipcode = 'Zip Code is Required.';
+        } else if (
+          !/^[0-9]{6}$/i.test(values.zipcode)
+        ) {
+          errors.zipcode = 'Please enter Number only.';
+        }
+        
+  
+        return errors;
+      }
+    }
+      onSubmit={(values, { setSubmitting }) => {
+
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 1));
+          setSubmitting(false);
+        }, 400);
+      }}
+    >
+              {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting,
+        /* and other goodies */
+      }) => (<form method="post">
              <div className="row">
         <div className="col-sm-6 col-md-6 pl-0">
               <div class="form-group">
         
-                <input type="text" className="form-control input-control" name="fname" value={this.state.fields.fname} onChange={this.handleChange}  placeholder="First Name" />
-                <span className="errorMsg">{this.state.errors.fname}</span>
+                <input type="text" className="form-control input-control" name="fname" value={values.fname} onChange={handleChange}
+            onBlur={handleBlur}  placeholder="First Name" />
+                <span className="errorMsg">{errors.fname && touched.fname && errors.fname}</span> 
+                {/* <span className="errorMsg">{this.state.errors.fname}</span> */}
               </div>
               <div className="form-group">
-                <input type="text" className="form-control input-control" name="lname" value={this.state.fields.lname} onChange={this.handleChange} placeholder="Last Name" />
-                <span className="errorMsg">{this.state.errors.lname}</span>
+                <input type="text" className="form-control input-control" name="lname" value={values.lname} onChange={handleChange}
+            onBlur={handleBlur} placeholder="Last Name" />
+                <span className="errorMsg">{errors.lname && touched.lname && errors.lname}</span> 
               </div>
               <div class="form-group">
-                <input type="text" class="form-control input-control"  name="lname" value={this.state.fields.companyname} onChange={this.handleChange} placeholder="Company Name" />
-                <span className="errorMsg">{this.state.errors.companyname}</span>
+                <input type="text" class="form-control input-control"  name="companyname" value={values.companyname} onChange={handleChange}
+            onBlur={handleBlur} placeholder="Company Name" />
+                <span className="errorMsg">{errors.companyname && touched.companyname && errors.companyname}</span> 
               </div>
               <div className="form-group">
-                <input type="text" className="form-control input-control" name="email" value={this.state.fields.email} onChange={this.handleChange} placeholder="Email address" />
-                <span className="errorMsg">{this.state.errors.email}</span>
+                <input type="text" className="form-control input-control" name="email" value={values.email} onChange={handleChange}
+            onBlur={handleBlur} placeholder="Email address" />
+                <span className="errorMsg">{errors.email && touched.email && errors.email}</span> 
               </div>
               <div className="form-group">
-                <input type="text" className="form-control input-control" value={this.state.fields.password} onChange={this.handleChange} name="password" placeholder="Password" />
-                <span className="errorMsg">{this.state.errors.password}</span>
+                <input type="password" className="form-control input-control" value={values.password} onChange={handleChange}
+            onBlur={handleBlur} name="password" placeholder="Password" />
+                <span className="errorMsg">{errors.password && touched.password && errors.password}</span> 
               </div>
           </div>
           <div className="col-sm-6 col-md-6 pr-0">
@@ -220,15 +311,18 @@ validateForm() {
                 </select>
               </div>
               <div className="form-group">
-                <input type="text" className="form-control input-control" value={this.state.fields.phone} onChange={this.handleChange} name="phone" placeholder="Phone Number" />
+                <input type="text" className="form-control input-control" value={values.phone} onChange={handleChange}
+            onBlur={handleBlur} name="phone" placeholder="Phone Number" />
               </div>
               <div className="form-group">
-                <input type="text" className="form-control input-control" value={this.state.fields.zipcode} onChange={this.handleChange} name="zipcode" placeholder="Zip Code" />
-                <span className="errorMsg">{this.state.errors.zipcode}</span>
+                <input type="text" className="form-control input-control" value={values.zipcode} onChange={handleChange}
+            onBlur={handleBlur} name="zipcode" placeholder="Zip Code" />
+                <span className="errorMsg">{errors.zipcode && touched.zipcode && errors.zipcode}</span> 
               </div>
               <div className="form-group">
-                <input type="text" className="form-control input-control" value={this.state.fields.confirmpassword} onChange={this.handleChange} name="confirmpassword" placeholder="Confirm Password" />
-                <span className="errorMsg">{this.state.errors.confirmpassword}</span>
+                <input type="password" className="form-control input-control" value={values.confirmpassword} onChange={handleChange}
+            onBlur={handleBlur} name="confirmpassword" placeholder="Confirm Password" />
+                <span className="errorMsg">{errors.confirmpassword && touched.confirmpassword && errors.confirmpassword}</span> 
 
                 <div className="mt-2 text-muted"><input type="checkbox" className="mr-2 mt-2" /><small>Show Password</small>
                 </div>
@@ -248,13 +342,14 @@ validateForm() {
     <div className="col-sm-6 col-md-6">
       <p><small><input type="checkbox" className="mr-3" />SIGN UP TO PARTICIPATE IN DEWALT PRODUCT RESEARCH</small></p>
        <div className="form-group">
-        <button type="button" className="btn bha-btn-primary float-left" onClick={() =>{this.submitsignupForm()}} name="buttonsubmit">Submit</button>
+        <button type="button" className="btn bha-btn-primary float-left"  onClick={() =>{handleSubmit()}} name="buttonsubmit">Submit</button>
       </div>
     </div>
   </div>
 </div>
 
-      </form>
+      </form>)}
+              </Formik>
   </div>
   
   </section>
