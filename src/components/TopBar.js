@@ -14,118 +14,47 @@ import { setUserSession } from '../utils/Common';
 //import CookieHandler from '../utils/cookieHandler.js';
 
 class TopBar extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-    modal4: false,
-    modal5: false,
-    fields: {},
-    errors: {},
- 
-  }
-  // this.handleChange = this.handleChange.bind(this);
-  // this.submitLoginForm = this.submitLoginForm.bind(this);
-
-  
-
+    constructor(props) {
+        super(props);
+            this.state = {
+            modal4: false,
+            modal5: false,
+            fields: {},
+            errors: {},
+        }
   }
 
-
-  toggle = nr => () => {
-    let modalNumber = 'modal' + nr
-    this.setState({
-      [modalNumber]: !this.state[modalNumber]
-    });
-  }
-  
- 
-  // handleChange(e) {
-  //   let fields = this.state.fields;
-  //   fields[e.target.name] = e.target.value;
-  //   this.setState({
-  //     fields
-  //   });
-  
-  // }
-  
-  
-  // submitLoginForm(e) {
-  //   if (this.validateForm()) {
-  //       let fields = {};
-  //       fields["email"] = "";
-  //       fields["password"] = "";
-  //       this.setState({fields:fields});
-  //       alert("Login Sucess Fully");
-  //   }
-  // //  e.preventDefault();
-  
-  // }
-  
-  // validateForm() {
-  //   let fields = this.state.fields;
-  //   let errors = {};
-  //   let formIsValid = true;
-  
-  //   if (!fields["email"]) {
-  //     formIsValid = false;
-  //     errors["email"] = "EMAIL ADDRESS IS REQUIRED.";
-  //   }
-  
-  //   if (typeof fields["email"] !== "undefined") {
-  //     //regular expression for email validation
-  //     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-  //     if (!pattern.test(fields["email"])) {
-  //       formIsValid = false;
-  //       errors["email"] = "*Please enter valid email-ID.";
-  //     }
-  //   }
-
-
-  //   if (!fields["password"]) {
-  //     formIsValid = false;
-  //     errors["password"] = "PASSWORD IS REQUIRED.";
-  //   }
-
-  //   if (typeof fields["password"] !== "undefined") {
-  //     if (!fields["password"].match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
-  //       formIsValid = false;
-  //       errors["password"] = "*Please enter secure and strong password.";
-  //     }
-  //   }
-  //   this.setState({
-  //     errors: errors
-  //   });
-  //   return formIsValid;
-  
-  
-  //   }
-  
-
+    toggle = nr => () => {
+        let modalNumber = 'modal' + nr
+        this.setState ({
+            [modalNumber]: !this.state[modalNumber]
+        });
+    }
     
-render() {
-  return (
-<div>
-<div class="headtoppart">
-    <div class="topbar">
-      <div class="headerwp">
-          <div class="mobile pt-2 font-weight-bold pl-0" style={{float:'left'}}>
-            CALL US: (888) 286-8708
-          </div>
-          <div class="float-right">
-            <ul class="toplink">
-              <li><a href="/"><img src={Cart} alt="" width="20" />Cart</a></li>
-              <span>&nbsp;</span>
-              <li>
-                <a  onClick={this.toggle(5)}><img src={Profile} alt="" width="20" />login/signup</a>
-              </li>
-              <span>&nbsp;</span>
-              <li><a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>
-</li>
-            </ul>
-          </div>
-          </div>
-          </div>
-          </div>
+    render() {
+        return (
+            <div>
+                <div class="headtoppart">
+                    <div class="topbar">
+                      <div class="headerwp">
+                          <div class="mobile pt-2 font-weight-bold pl-0" style={{float:'left'}}>
+                                CALL US: (888) 286-8708
+                          </div>
+                          <div class="float-right">
+                            <ul class="toplink">
+                              <li><a href="/"><img src={Cart} alt="" width="20" />Cart</a></li>
+                              <span>&nbsp;</span>
+                              <li>
+                                <a  onClick={this.toggle(5)}><img src={Profile} alt="" width="20" />login/signup</a>
+                              </li>
+                              <span>&nbsp;</span>
+                              <li><a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>
+                </li>
+                            </ul>
+                          </div>
+                          </div>
+                    </div>
+            </div>
 
 
           <MDBModal className="logIn" isOpen={this.state.modal5} toggle={this.toggle(5)}>
@@ -143,12 +72,6 @@ render() {
         }
         if (!values.password) {
           errors.password = 'Password is Required.';
-        } else if (values.password.length < 8){
-          errors.password = 'Password must be 8 characters long.'
-        } else if (
-          !/^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/i.test(values.password)
-        ) {
-          errors.password = 'Invalid Password';
         }
   
         return errors;
@@ -159,34 +82,22 @@ render() {
         console.log(values.email)
         axios.post('http://127.0.0.1:3001/ajax/login', values)
         .then(function (response) {
-//var bytes = base64.decode(response);
-//var text = utf8.decode(bytes);
-console.log(response.data);
-console.log(Buffer.from(response, 'base64').toString('ascii'));
-
-          if(values.email===response.data.email && values.password===response.data.password){
-                    //setUserSession(response.data.token, response.data.user);
-          
-          if(response.data.email===values.email && response.data.password===values.password){
-
-            alert("Login is sucessfully" )
-          }
-          }
+            response = Buffer.from(response.data, 'base64').toString('ascii');
+            response = JSON.parse(response);
+ 
+            if (typeof response.token != 'undefined' && response.token != '') {
+                alert('Login Success!!');
+            } else {
+                alert('Login Fail');
+            }
         })
         .catch(function (error) {
-          
-          console.log(error);
-        
+            console.log(error);
         });
        
-
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 1));
-          setSubmitting(false);
-        }, 400);
       }}
     >
-              {({
+    {({
         values,
         errors,
         touched,
