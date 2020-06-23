@@ -97,10 +97,6 @@ class TopBar extends Component {
 
     
 render() {
-  const validations = {
-    email: ["required", "email"],
-    password: ["required", "min:3", "max:15"],
-   }
   return (
 <div>
 <div class="headtoppart">
@@ -140,11 +136,13 @@ render() {
           errors.email = 'Invalid email address';
         }
         if (!values.password) {
-          errors.password = 'Required';
+          errors.password = 'Password is Required.';
+        } else if (values.password.length < 8){
+          errors.password = 'Password must be 8 characters long.'
         } else if (
-          /!^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/i.test(values.password)
+          !/^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/i.test(values.password)
         ) {
-          errors.password = 'Invalid email address';
+          errors.password = 'Invalid Password';
         }
   
         return errors;
