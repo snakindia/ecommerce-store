@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import {Link} from 'react-router-dom'
 import Facebook from '../assets/images/facebook.png'
 import Linkedin from '../assets/images/linkedin.png'
 import Youtube from '../assets/images/youtube.png'
@@ -14,6 +15,11 @@ export default class Footer extends Component {
   }
 
   render() {
+    const {dynamicMenu} = this.props;
+    const {
+    footer_menu_1_title,footer_menu_2_title,footer_menu_3_title,footer_menu_4_title,footer_menu_5_title,
+    footer_menu_1_items,footer_menu_2_items,footer_menu_3_items,footer_menu_4_items,footer_menu_5_items,footer_social
+  } = dynamicMenu;
     return (
 <MDBFooter className="font-small footer-section py-4 mt-4 footer">
       <MDBContainer fluid className="text-center text-md-left">
@@ -21,106 +27,72 @@ export default class Footer extends Component {
       <MDBCol md="8">
         <MDBRow>
           <MDBCol md="4">
-            <h3 className="title">Equipment</h3>
+            <h3 className="title">{footer_menu_1_title}</h3>
             <ul class="foote-link">
-                  <li><a href="/">Baghouse</a></li> 
-                  <li><a href="/">Cartridge Dust Collectors</a></li> 
-                  <li><a href="/">Bin Vents</a></li> 
-                  <li><a href="/">Portable/Fume Dust Collectors</a></li>
-                  <li><a href="/">Fans &amp; Blowers</a></li> 
-                  <li><a href="/">Rotary Airlock Valve</a></li>
+            {
+              footer_menu_1_items && footer_menu_1_items.map((item,i)=>{
+                return <li key={i+"aa"}>
+                        <Link to={item.url}>{item.text}</Link>
+                       </li> 
+
+              })
+            }
                 </ul>
                 <div class="breathing">
-                  <h3>COMPANY INFORMATION</h3>
+                  <h3>{footer_menu_4_title}</h3>
                   <ul class="foote-link">
-                    <li><a href="/">About Us</a></li> 
-                    <li><a href="/">Contact Us</a></li> 
-                    <li><a href="/">News &amp; Events</a></li> 
-                    <li><a href="/">Represent Us</a></li>
+                  {
+                    footer_menu_4_items && footer_menu_4_items.map((item,i)=>{
+                      return <li key={i+"bb"}>
+                              <Link to={item.url}>{item.text}</Link>
+                            </li> 
+
+                    })
+                  }
                   </ul> 
                 </div>
 
           </MDBCol>
           <MDBCol md="4">
-          <h3 className="title">Parts</h3>
+          <h3 className="title">{footer_menu_2_title}</h3>
           <ul class="foote-link">
-                  <li><a href="/">Baghouse Filter Bags</a></li> 
-                  <li>
-                    <a href="/">Dust Collector Cartridge Filters</a>
-                    <ul className="list-disc">
-                      <li><a href="/">Aramid/Nomex Filter Bags</a></li>
-                      <li><a href="/">Fiberglass Filter Bags</a></li>
-                      <li><a href="/">PTFE Teflon Filter Bags</a></li>
-                      <li><a href="/">Polyester Filters</a></li>
-                    </ul>
-                  </li> 
-                  <li>
-                    <a href="/">Baghouse Cages</a>
-                    <ul>
-                      <li><a href="/">Epoxy Coated Cages</a></li>
-                      <li><a href="/">Stainless Steel Cages</a></li>
-                      <li><a href="/">Carbon Steel Cages</a></li>
-                    </ul>
-                  </li> 
-                  <li><a href="/">Pleated Bags</a></li>
-                  <li><a href="/">Valve Repair Kits</a></li>
-                  <li><a href="/">Diaphragm Valves</a></li>
-                  <li><a href="/">Solenoid Valves</a></li>
-                  <li><a href="/">Control Panels</a></li>
-                  <li><a href="/">Timer Boards</a></li>
-                  <li><a href="/">Leak Detection Powder</a></li>
-                </ul>
-                          </MDBCol>
+                  {
+                    footer_menu_2_items && footer_menu_2_items.map((item,i)=>{
+                      return <li key={i+Math.random()}>
+                              <Link to={item.url}>{item.text}</Link>
+                            </li> 
+
+                    })
+                  }
+                  </ul> 
+          </MDBCol>
           <MDBCol md="4">
-          <h3 className="title">Brands</h3>
+          <h3 className="title">{footer_menu_3_title}</h3>
           <ul class="foote-link">
-                  <li>
-                    <a href="/">Goyen</a>
-                    <ul>
-                      <li><a href="/">Original Goyen</a></li>
-                      <li><a href="/">Replacement Goyen</a></li>
-                    </ul>
-                  </li> 
-                  <li>
-                    <a href="/">Asco</a>
-                    <ul>
-                      <li><a href="/">Original Asco</a></li>
-                      <li><a href="/">Replacement Asco</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="/">Mecair</a>
-                    <ul>
-                      <li><a href="/">Original Mecair</a></li>
-                      <li><a href="/">Replacement Mecair</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="/">Taeha</a>
-                    <ul>
-                      <li><a href="/">Original Taeha</a></li>
-                      <li><a href="/">Replacement Taeha</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="/">Donaldson Torit</a>
-                    <ul>
-                      <li><a href="/">Original Donaldson Torit</a></li>
-                      <li><a href="/">Replacement Donaldson Torit</a></li>
-                    </ul>
-                  </li>
-                </ul>
+                  {
+                    footer_menu_3_items && footer_menu_3_items.map((item,i)=>{
+                      return <li key={i+"avf"}>
+                              <Link to={item.url}>{item.text}</Link>
+                            </li> 
+
+                    })
+                  }
+                  </ul> 
           </MDBCol>
         </MDBRow>
         <MDBRow className="mt-4">
           <MDBCol md="4">
-          <h3 className="title">Baghouse Policy</h3>
+          <h3 className="title">{footer_menu_5_title}</h3>
           <ul class="foote-link">
-            <li><a href="/">Privacy policy</a></li> 
-            <li><a href="/">Returns Policy</a></li> 
-            <li><a href="/">Terms of Use</a></li> 
-            <li><a href="/">Terms of Sale</a></li>
-          </ul>
+                  {
+                    footer_menu_5_items && footer_menu_5_items.map((item,i)=>{
+                      return <li key={i+"yj"}>
+                              <Link to={item.url}>{item.text}</Link>
+                            </li> 
+
+                    })
+                  }
+            </ul> 
           </MDBCol>
           <MDBCol md="4">
           <h3 className="title">Quick links</h3>
