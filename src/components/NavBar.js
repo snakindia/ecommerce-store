@@ -121,7 +121,7 @@ class NavBar extends React.Component {
            <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="course-details.html" className="font-weight-bold">News & Events</a>
           </li>
           <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="course-details.html" className="font-weight-bold">Represent Us</a></li>
-          <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="contact-us.html" className="font-weight-bold">Contact</a></li>
+          <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="/contact" className="font-weight-bold">Contact</a></li>
         </ul>
       </nav>
        
