@@ -180,7 +180,10 @@ const defaultMenuListItems =[
     
 ] 
 
+const BASE_URL = 'http://49.50.102.36:3001/api/v1';
+
 export {
     dropDownMenuProduct,
-    defaultMenuListItems
+    defaultMenuListItems,
+    BASE_URL
 }

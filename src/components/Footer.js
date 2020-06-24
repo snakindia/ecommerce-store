@@ -7,6 +7,12 @@ import Pintrest from '../assets/images/pintrest.png'
 import Footerlogo from '../assets/images/footer-logo.png'
 import Chat from '../assets/icon/chat.svg'
 export default class Footer extends Component {
+
+  componentDidMount(){
+    console.log('props in footer',this.props);
+    
+  }
+
   render() {
     return (
 <MDBFooter className="font-small footer-section py-4 mt-4 footer">
