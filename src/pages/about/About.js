@@ -98,7 +98,7 @@ const About = () =>{
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={myRef==="section2"? 'tablink js-scroll-trigger current':'tablink js-scroll-trigger'}
+                className={myRef=="section2"? 'tablink js-scroll-trigger current':'tablink js-scroll-trigger'}
               >
                 Company Profile
               </Link>

@@ -94,7 +94,7 @@ export default class ContentSection extends Component {
         {/* <!-- /.col-md-4 -->  */}
         <div class="col-md-9">
           <MDBTabContent class="tab-content" activeItem={this.state.activeItem}>
-          <MDBTabPane tabId="1" role="tabpanel">
+          <MDBTabPane tabId="1" role="tabpanel" className="tab-pane fade show"><div id="bhaLocation"></div>
           <div class="row">
                 <div class="col-sm-6 mb-4 border-right">
                   <div class="text-left">
@@ -124,7 +124,7 @@ export default class ContentSection extends Component {
                     </div>
                     <div class="mt-4 float-left">
                       <i class="fa fa-phone bha-icon mr-3"></i>
-                      <span class="font-weight-bold"   style={{fontsize:'0.850'}}>+1.786.422.5225</span>
+                      <span class="font-weight-bold" style={{fontsize:'0.850'}}>+1.786.422.5225</span>
                     </div>
 
 
@@ -137,9 +137,9 @@ export default class ContentSection extends Component {
 
                         </div>
 
-                       <div class="row">
+                       <div class="row ">
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="mailto:info@baghouseamerica.com">Info@baghouseamerica.com</a></span>
                     </div>
@@ -151,7 +151,7 @@ export default class ContentSection extends Component {
                     </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="purchasing@baghouseamerica.com">Purchasing@baghouseamerica.com</a></span>
                     </div>
@@ -163,7 +163,7 @@ export default class ContentSection extends Component {
                     </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="finance@baghouseamerica.com">Finance@baghouseamerica.com</a></span>
                     </div>
@@ -174,7 +174,7 @@ export default class ContentSection extends Component {
 
           </MDBTabPane>
           
-          <MDBTabPane tabId="2" role="tabpanel">
+          <MDBTabPane tabId="2" role="tabpanel" className="tab-pane fade show">
           <div class="row">
                 <div class="col-sm-6 mb-4">
                   <div class="text-left">
@@ -184,7 +184,7 @@ export default class ContentSection extends Component {
             Rua Candelária, 65, #1600, Rio de Janeiro, Brazil</div>
                     </div>
                     <div class="mt-4 float-left">
-                    <i class="fa fa-phone bha-icon mr-1"></i>
+                    <i class="fa fa-phone bha-icon mr-3"></i>
                     <span class="font-weight-bold" style={{fontsize:'0.850'}}>+552139587260</span>
                     </div>
                   </div>
@@ -199,7 +199,7 @@ export default class ContentSection extends Component {
                         </div>
                        <div class="row">
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="mailto:info@baghouseamerica.com">Info@baghouseamerica.com</a></span>
                     </div>
@@ -211,7 +211,7 @@ export default class ContentSection extends Component {
                     </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="purchasing@baghouseamerica.com">Purchasing@baghouseamerica.com</a></span>
                     </div>
@@ -223,7 +223,7 @@ export default class ContentSection extends Component {
                     </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="finance@baghouseamerica.com">Finance@baghouseamerica.com</a></span>
                     </div>
@@ -232,7 +232,7 @@ export default class ContentSection extends Component {
 
                     </div>
           </MDBTabPane>
-          <MDBTabPane tabId="3" role="tabpanel">
+          <MDBTabPane tabId="3" role="tabpanel" className="tab-pane fade show">
           <div class="row">
                 <div class="col-sm-6 mb-4">
                   <div class="text-left">
@@ -257,7 +257,7 @@ export default class ContentSection extends Component {
                         </div>
                        <div class="row">
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="mailto:info@baghouseamerica.com">Info@baghouseamerica.com</a></span>
                     </div>
@@ -269,7 +269,7 @@ export default class ContentSection extends Component {
                     </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="purchasing@baghouseamerica.com">Purchasing@baghouseamerica.com</a></span>
                     </div>
@@ -281,7 +281,7 @@ export default class ContentSection extends Component {
                     </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="finance@baghouseamerica.com">Finance@baghouseamerica.com</a></span>
                     </div>
@@ -290,7 +290,7 @@ export default class ContentSection extends Component {
 
                     </div>
           </MDBTabPane>
-          <MDBTabPane tabId="4" role="tabpanel">
+          <MDBTabPane tabId="4" role="tabpanel" className="tab-pane fade show">
           <div class="row">
                 <div class="col-sm-6 mb-4">
                   <div class="text-left">
@@ -314,7 +314,7 @@ export default class ContentSection extends Component {
                         </div>
                        <div class="row">
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="mailto:info@baghouseamerica.com">Info@baghouseamerica.com</a></span>
                     </div>
@@ -326,7 +326,7 @@ export default class ContentSection extends Component {
                     </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="purchasing@baghouseamerica.com">Purchasing@baghouseamerica.com</a></span>
                     </div>
@@ -338,7 +338,7 @@ export default class ContentSection extends Component {
                     </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="mt-4 float-left">
+                  <div class="mt-4 ml-3 float-left">
                       <i class="fa fa-envelope bha-icon mr-3"></i>
                       <span class="font-weight-normal" style={{fontsize:'0.9rem'}}><a href="finance@baghouseamerica.com">Finance@baghouseamerica.com</a></span>
                     </div>

@@ -228,3 +228,29 @@ hr {
   margin-bottom: 12px;
 }
 
+.no-gutters .nav-link{
+	font-weight: 400 !important;
+}
+.location_head {
+	font-weight: 500;
+}
+
+
+.fa {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+.icon-left-padding{
+	padding-left: 1rem;
+}
+
+.bha_heading_2{
+	margin-bottom: 0 !important;
+}
+
+.loginInner .modal-body{
+	padding: 0 !important;
+}
