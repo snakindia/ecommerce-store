@@ -188,48 +188,54 @@ constructor(props){
     </div>
 
     <Formik
-      initialValues={{ fname: '', lname: '', companyname: '', email: '', password: '', confirmpassword: '', zipcode: '', countrytype: '', offerupdate: false, productnotification: false, sproductresearch:false }}
+      initialValues={{ fname: '', lname: '', companyname: '', email: '', password: '', confirmpassword: '', phone: '', zipcode: '', countrytype: '', offerupdate: false, productnotification: false, sproductresearch:false }}
       validate={values => {
         const errors = {};
         if (!values.fname) {
-          errors.fname = 'First Name is Required.';
+          errors.fname = 'First Name is required';
         } else if (
           !/^[a-zA-Z ]*$/i.test(values.fname)
         ) {
-          errors.fname = 'Please enter alphabet characters only.';
+          errors.fname = 'Please enter alphabet characters only';
         }
 
         if (!values.lname) {
-          errors.lname = 'Last Name is Required.';
+          errors.lname = 'Last Name is required';
         } else if (
           !/^[a-zA-Z ]*$/i.test(values.lname)
         ) {
-          errors.lname = 'Please enter alphabet characters only.';
+          errors.lname = 'Please enter alphabet characters only';
+        }
+        
+        if (!values.phone) {
+          errors.phone = 'Phone Number is required';
+        } else if (
+          !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(values.phone)
+        ) {
+          errors.phone = 'Please enter valid phone number';
         }
 
         if (!values.companyname) {
-          errors.companyname = 'Company Name is Required.';
+          errors.companyname = 'Company Name is required';
         } else if (
           !/^[a-zA-Z ]*$/i.test(values.companyname)
         ) {
-          errors.companyname = 'Please enter alphabet characters only.';
+          errors.companyname = 'Please enter alphabet characters only';
         }
 
 
         if (!values.email) {
-          errors.email = 'Email Id is Required.';
+          errors.email = 'Email Id is required';
         } else if (
           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
         ) {
           errors.email = 'Invalid email address';
         }
 
-
-
         if (!values.password) {
-          errors.password = 'Password is Required.';
+          errors.password = 'Password is required';
         } else if (values.password.length < 8){
-          errors.password = 'Password must be 8 characters long.'
+          errors.password = 'Password must be 8 characters long'
         } else if (
           !/^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/i.test(values.password)
         ) {
@@ -238,16 +244,16 @@ constructor(props){
 
 
         if (values.password!==values.confirmpassword ) {
-          errors.confirmpassword = 'Not Match Password';
+          errors.confirmpassword = 'Password does not match with Confirm Password';
         }
         
         
         if (!values.zipcode) {
-          errors.zipcode = 'Zip Code is Required.';
+          errors.zipcode = 'Zip Code is required';
         } else if (
           !/^[0-9]{6}$/i.test(values.zipcode)
         ) {
-          errors.zipcode = 'Please enter Number only.';
+          errors.zipcode = 'Please enter number only';
         }
         
   
@@ -298,7 +304,6 @@ constructor(props){
                 <input type="text" className="form-control input-control" name="fname" value={values.fname} onChange={handleChange}
             onBlur={handleBlur}  placeholder="First Name" />
                 <span className="errorMsg">{errors.fname && touched.fname && errors.fname}</span> 
-                {/* <span className="errorMsg">{this.state.errors.fname}</span> */}
               </div>
               <div className="form-group">
                 <input type="text" className="form-control input-control" name="lname" value={values.lname} onChange={handleChange}
@@ -334,6 +339,7 @@ constructor(props){
               <div className="form-group">
                 <input type="text" className="form-control input-control" value={values.phone} onChange={handleChange}
             onBlur={handleBlur} name="phone" placeholder="Phone Number" />
+            <span className="errorMsg">{errors.phone && touched.phone && errors.phone}</span> 
               </div>
               <div className="form-group">
                 <input type="text" className="form-control input-control" value={values.zipcode} onChange={handleChange}
