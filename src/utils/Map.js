@@ -32,17 +32,44 @@ onClose = props => {
     return (
       <Map
         google={this.props.google}
-        zoom={14}
+        zoom={2}
+        streetViewControl={false}
         style={mapStyles}
-        initialCenter={{
-         lat: -1.2884,
-         lng: 36.8233
-        }}
+        
       >
-      <Marker
-          onClick={this.onMarkerClick}
-          name={'Goodyear, AZ 85338'}
+        <Marker
+        position={{ lat: 33.508058, lng: -112.028742 }}
+            onClick={this.onMarkerClick}
+            name={'2415 East Camelback Road, Ste. 700, Phoenix, Arizona, P.O. Box: 6887, Goodyear, Arizona 85338, United States'}
         />
+        
+        <Marker
+            position={{ lat: 15.260204, lng: 74.109314 }}
+            onClick={this.onMarkerClick}
+            name={'International Sales Office, North, South, & Central America, 801 Brickell Avenue, Suite 900, Miami, Florida, 33131, United States'}
+        />
+        
+        <Marker
+            lat={40.741895}
+            lng= {-73.989308}
+            onClick={this.onMarkerClick}
+            name={'South America, Edifício Candelária Corporate, Rua Candelária, 65, #1600, Rio de Janeiro, Brazil'}
+        />
+        
+        <Marker
+            lat={32.08227}
+         lng= {34.81065}
+          onClick={this.onMarkerClick}
+          name={'International Sales Office - Eurasia & Oceania, 12 Abba Hillel Street, Suite 1600, 52136 Ramat-Gan, Tel-Aviv, Israel'}
+        />
+        
+        <Marker
+            lat={-26.1816667}
+         lng= {28.0277778}
+          onClick={this.onMarkerClick}
+          name={'Africa- Block B & Block C, Metropolitan Park, 8 Hillside Road, Suite 1000 Parktown, Johannesburg, 2196, South Africa'}
+        />
+        
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
@@ -58,5 +85,5 @@ onClose = props => {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDSG6oWsJfrPfIKsKIz_dYy1PqhOltsVD4'
+  apiKey: 'AIzaSyB1Bndnjywbdbg4mxA86S-nEgxAVEC4zN0'
 })(MapContainer);
