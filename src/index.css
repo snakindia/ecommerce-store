@@ -254,3 +254,6 @@ hr {
 .loginInner .modal-body{
 	padding: 0 !important;
 }
+label{
+font-weight: 400;
+}
