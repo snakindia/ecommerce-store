@@ -337,7 +337,7 @@ constructor(props){
                 </select>
               </div>
               <div className="form-group">
-                <input type="text" className="form-control input-control" value={values.phone} onChange={handleChange}
+                <input type="text" className="form-control input-control"  value={values.phone} onChange={handleChange}
             onBlur={handleBlur} name="phone" placeholder="Phone Number" />
             <span className="errorMsg">{errors.phone && touched.phone && errors.phone}</span> 
               </div>

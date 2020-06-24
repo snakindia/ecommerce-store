@@ -68,8 +68,8 @@ class NavBar extends React.Component {
         </div>
       <nav className="wsmenu clearfix">
         <ul className="wsmenu-list">
-         <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="home.html" className="font-weight-bold">Home</a></li>
-          <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="about-us.html" className="font-weight-bold">About</a></li>
+         <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="/" className="font-weight-bold">Home</a></li>
+          <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="/about" className="font-weight-bold">About</a></li>
           <li aria-haspopup="true" className="wsshopmyaccount float-left"><a href="#" className="font-weight-bold">Products/Services<span className="dropdown-toggle ml-2"></span></a>
             
             <div className="wsshoptabing wtsdepartmentmenu clearfix" style={{zIndex:999}}>

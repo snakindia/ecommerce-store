@@ -210,8 +210,21 @@ li .wstliststy04 {
 	padding: 2rem 1.5rem 1rem;
 	color: #000;
 } */
+.caption.v_middle {
+	top: 8% !important;
+	left: 1%;
+	color: #fff;
+}
 
+.free-signup a{
+	color:#fff;
+	font-size: 1rem;
+}
+hr {
+	border-top: 1px solid #dee2e6 !important;
+}
 .errorMsg {
   color: #cc0000;
   margin-bottom: 12px;
 }
+

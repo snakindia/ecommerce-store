@@ -4,7 +4,6 @@ button reset==*/
 .carousel-item img {  position: absolute;  top: 0; left: 0; min-height: 470px; 
   object-fit: cover !important;}
 
-/*.carousel-item.h_50{height: 300px}*/
 
 .modal { z-index: 10000 !important;}
 .pl-pr{padding:0.5rem 2rem !important}
@@ -33,13 +32,13 @@ figcaption{padding:5rem 3.2rem !important;}
 }
 /*.carousel-item picture img{object-fit:scale-down; width: 1520px; height: 768px}*/
 /*.wsmenu > .wsmenu-list > li.wsshopmyaccount > a{padding:0 50px !important; text-transform: uppercase;}*/
-.wsshopwp{position: relative; z-index: 100!important;}
+.wsshopwp{position: relative; z-index: 100!important;background: red}
 @media only screen  and (min-width : 1224px){
 .topmenusearch{width: 44% !important}
 .wsmenu > .wsmenu-list > li.wsshopmyaccount > a{padding:0 40px !important; text-transform: uppercase;}
 .bha-client li img{width: 213px !important}
 /*.tab-inner .tablink{width: 155px !important}*/
-.tab-menu .tablink{width: 24.850% !important}
+.tab-menu .tablink{width: 23.360% !important}
 .carousel-item { height: 370px;}
 .carousel-item img {  position: absolute;  top: 0; left: 0; min-height: 370px; 
   object-fit: cover !important;}
@@ -117,21 +116,20 @@ background-position: center; background-size: cover;
 .prod-details-link a{border-radius: 0.1rem !important;}
 .z-index{position: relative; z-index: 100}
 .view-all{width:20%; border-radius: 0.1rem !important; margin-top: 1rem}
-.tab-container{width:100%;background: url(../images/top-bar-bg-m.jpg);/*padding:0.875rem 0; */position: relative;}
-.tab-container:before{content: ''; background: rgba(0,0,0.0.8); position: absolute; top:0; left:0; right:0; bottom:0;}
+.tab-container{width:100%;background:#000;/*padding:0.875rem 0; */position: absolute; top: -49px; 
+  left: 0; right:0;}
 .item-wraper{padding:2rem 0;}
 .tab-inner{display: block; margin:0; padding:0; list-style-type: none;}
 .tab-inner .tablink{float:left; display: inline-block; /*margin: 0 2rem 0 1rem; */color:#fff; 
   text-transform: uppercase;text-decoration: none; font-size: 0.875rem; padding:0.875rem 0; width: 159px; text-align: center; }
+
 .tab-inner .tablink:hover{background:#222; display: block; transition: }
 .left-control{font-size: 0.875rem; padding:0.875rem 0; text-align: center; background: #000; color:#fff; 
   float:left; width: 38px}
 .right-control{font-size: 0.875rem; padding:0.875rem 0; text-align: center; background: #000; color:#fff; 
-  float:left; width: 41px}
+  float:right; width: 41px}
 .left-control i, .right-control i{color:#fff;}
 .tab-inner .tablink.current{background:#23536b;}
-.brands-head{float:right; color:#fff; font-size: 1.5rem; text-transform: uppercase; width: 11%; text-align:center; font-family: 
-'Oswald', sans-serif;  padding:0.4rem 1.2rem;background:transparent;  }
 /*.tab-inner .tablink.current:after {
   width: 0;
   height: 0;
@@ -203,10 +201,9 @@ background-position: center; background-size: cover;
     background-color: #1f32c4;}
 
 
-/*=========About us section css====================*/
-.caption.v_middle{top:8% !important; left:1%; color:#fff;}
+/*=========About us section cs====================*/
 .carousel-item.height-50{height:350px !important; object-fit: cover !important; overflow: hidden !important;}
-.carousel-item.height-50 .caption{position: absolute; top:12%; left:0; z-index: 1; background: rgba(0,0,0); padding:3rem 2.5rem;
+.carousel-item.height-50 .caption{position: absolute; top:12%; left:0; z-index: 1; background: rgba(0,0,0,0.7); padding:3rem 2.5rem;
  width: 37%;}
 .text-black-dark{color:#fff !important; text-shadow: 1px 1px 30px #666}
 .tab-menu{background: #d8d8d8 !important; list-style-type: none; float:left; width: 100%; margin:0; padding:0; 
@@ -233,7 +230,7 @@ box-shadow: 1px 1px 10px #ddd; position: relative;}
 .content-section{float:left; width:100%; padding:1rem; background: #fff url(../images/c_bha_pro_bg.jpg);background-size: cover; background-position: center;/* box-shadow: 0 5px 10px #000*/
 margin-bottom: 10px;}
 /*.inner-wrapper{background: #f00}*/
-.menu-fixed {top: 58px; z-index: 100 !important; position: fixed !important;width: 100%;transition: top 0.3s;}
+.menu-fixed {top: 165px; z-index: 100 !important; position: fixed !important;width: 100%;transition: top 0.3s;}
 .wsmenu{z-index: 10000 !important}
 .heading-wrapper{position: relative; width: 100%; margin-bottom: 2.5rem;border-bottom: 1.5px solid #6995b1;}
 .heading-h4{font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight:normal; /*padding-left: 70px;*/
@@ -279,13 +276,15 @@ padding-bottom:5px; position: absolute; bottom:-9%; left: 9%}
 .border-frame{border:10px solid #fff; box-shadow: 1px 1px 10px #ddd; object-fit: cover; height:400px}
 
 /*======Contact us page==================*/
-.bha-icon{ color: #000; border: 1.5px solid #000;  border-radius: 100px;  width: 28px; height: 28px; padding:6px 7px;
+.bha-icon{ color: #fff; border: 1.5px solid #fff;  border-radius: 100px;  width: 28px; height: 28px; padding:6px 7px;
     vertical-align: top; font-size: 0.8rem; font-weight: bold;}
-.location{float:left; width: 100%;}
+.location{float:left; width: 100%; background:url(../images/map.jpg); background-size:cover;
+  background-position:center; padding:1rem; color:#fff; position: relative;}
+.location:before{content: ""; background:rgba(0,0,0,0.8); position: absolute; top:0; left:0; right:0; bottom:0;}
 .location a{color:#fff; text-decoration: none;}
 .bha-flag{float:left;width:132px; height: 132px; object-fit: cover; margin-right: 2rem; border:1px solid #ccc; padding:1rem;
 position: relative;z-index: 100}
-.bha_h_50{height:40vh !important; width: 100%; object-fit:cover;}
+
 .image-holder {
   /*float: left;*/
   /*margin-right: 100px;*/
@@ -294,37 +293,12 @@ position: relative;z-index: 100}
   transition: opacity .5s linear;
 }
 
-.chat-button.free-signup{position: fixed; top:40%; right:1%; background: #a70e15;
-font-size: 1rem !important; color:#fff !important; cursor: pointer; font-weight: bold}
-.signup-fixed{top:-58px; z-index: 100 !important; position: fixed !important;}
-.action-btn{ position: absolute; bottom: 0%; left:50%; width:10%; 
-transform: translate(-50%,-70%); color:#fff;text-align: center; width:80px; background: rgba(255,255,255,0.8);
-padding:0.5rem 0; border:2px solid #f3f3f3; cursor: pointer; border-radius: 50px; transition: all 0.5s}
-.action-btn a{text-decoration: none; outline: 0;}
-.action-btn i{font-size: 30px; color:#000; display: block;}
-.action-btn i:hover{color:#000;}
-
-.nav-pills{border-radius: 0 !important; background:#fff !important; height:auto; border:1px solid #f1f1f1;}
-.nav-pills .nav-item .nav-link{background: #fff !important; color:#000 !important; border:1px solid #f1f1f1;
-border-radius: 0 !important; margin:0 !important; padding:0.8rem !important; border-right: none !important}
-.nav-pills .nav-item:hover{background: #347799 !important; color:#fff !important; transition: 0.3s}
-.nav-pills .nav-link:hover{background: #347799 !important; color:#fff !important; transition: 0.3s}
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link{border-radius: 0 !important; 
-  background:#23536b !important; color:#fff !important; }
-.tab-content{border:1px solid #f1f1f1; padding:1rem 0.6rem 0 1.5rem; height:74vh; background: #fff}
-.location_head{color:#0e415a;}
-.bha-left{background: #ddd; width: 100%; position: relative;  overflow: hidden;}
-.bha-left:before{ content: ""; position: absolute; top:0; left: 0; bottom: 0; right:0; background: rgba(17,63,89,0.9) }
-.bha-left-head{position: absolute; top:22%; right: 1%; z-index: 1; padding:1rem; text-align:center;color:#fff;
-font-family: 'Roboto', sans-serif; font-size: 1.5rem}
-.tab-pane a{color:#000;}
-/*hr{background: #f0eeee; height: 2px}*/
 /*=====Login hover ===========*/
 .toplink{display: block; margin:0; padding: 0; list-style-type: none;}
 .toplink li{float:left; display: inline-block; margin:8px 15px;/* background: #e5e5e5*/}/*
 .toplink li:hover{ background: #e5e5e5}*/
 .toplink li a img{margin:0 10px;}
-.toplink span{ border-right:1px solid #000; float:left; height: 12px; margin-top: 15px}
+.toplink span{ border-right:1px solid #fff; float:left; height: 12px; margin-top: 15px}
 #theBox_2{
 display: none;
 border: 1px solid #000;
@@ -356,10 +330,7 @@ color:#000;
 }
 
 @media(max-width: 768px){
-.mOb_bha{width:100%; background: #000; padding:0.5rem 0 !important; margin:0 !important;}
-.headerwp{padding-left:0 !important; padding-right:0 !important; margin: 0 auto !important; width: 100%;}
-.view-all{width: auto;}
-#theBox_2{width:100% !important; right:0 !important;}
+  #theBox_2{width:100% !important; right:0 !important;}
 }
 #theBox_country{display: none;
 border: 1px solid #000;
@@ -383,7 +354,5 @@ input[type=text]:focus, input[type=password]:focus{box-shadow: none !important;}
 
 .bha-contry-list{margin:0; padding:0;}
 .bha-contry-list li{display: block; list-style-type: none; padding:0.5rem 0;}
-.bha-contry-list li a{display: block; color: #fff !important; text-decoration: none; text-transform: none; font-weight: normal;}
+.bha-contry-list li a{display: block; color: #fff; text-decoration: none; text-transform: none; font-weight: normal;}
 .bha-contry-list li a:hover{text-decoration: underline;  color:#f3f3f3;}
-.bha_h_100{height:80vh !important; width: 100%; object-fit:cover;}
-

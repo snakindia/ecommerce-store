@@ -2,7 +2,8 @@ import React, { useEffect , useRef,useState } from 'react';
 import 'bootstrap-css-only/css/bootstrap.min.css'; 
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Link, animateScroll as scroll } from "react-scroll";
-import FreeBrochure from '../../components/common/FreeBrochure';
+//import FreeBrochure from '../../components/common/FreeBrochure';
+import team from '../../assets/images/team.jpg';
 import picOne from '../../assets/images/pexels-photo.png';
 import picTwo from '../../assets/images/img-profile.png';
 import picThree from '../../assets/images/pexels-photo.jpeg';
@@ -26,7 +27,7 @@ const About = () =>{
     const mvref = useRef(null);
     const valRef= useRef(null);
 
-    const [isTabActive,setIsTabActive] = useState(false);
+    const [isTabActive, setIsTabActive] = useState(false);
 
     useEffect(() => {
       const header = document.getElementById("tabItems");
@@ -42,38 +43,38 @@ const About = () =>{
         window.removeEventListener("scroll", scrollCallBack);
       };
     }, []);
-
-    
 	//useMountEffect(() => scrollToRef(myRef)) // Scroll on mount
 
     return (
         <div>
         <div className="banner-container">
-        {/*Carousel Banner section*/}
-        <div id="carousel" className="carousel slide" data-ride="carousel">{/* carousel-fade*/}
-          {/* <ol class="carousel-indicators">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+          {/* <!-- carousel-fade-->
+          <!-- <ol class="carousel-indicators">
           <li data-target="#carousel" data-slide-to="0" class="active"></li>
           <li data-target="#carousel" data-slide-to="1" class=""></li>
           <li data-target="#carousel" data-slide-to="2" class=""></li>
-          </ol> */}
-          <div className="carousel-item active">
+          </ol> --> */}
+
+        <div class="carousel-item bha_h_50 active">
             <picture>
-              <img src={aboutBanner} alt="responsive image" className="d-block img-fluid" />
-            </picture>
-            <div className="caption" style={{background: 'transparent'}}>
-              <h1 className="bha_heading_1 text-black-dark">Dust Collector Auxiliaries &amp; Parts </h1>
-              <a href="#" className="btn bha-btn-primary mt-4 pl-pr">view details</a>
+                <img src={team} alt="responsive image" class="d-block img-fluid" />
+              </picture>
+            <div class="caption v_middle">
+                <h1 class="bha_heading_1 text-black-dark">Lorem ipsum dollar site amnt</h1>
+                <h5>Lorem ipsum dollar site amt. Lorem ipsum dollar site amt.Lorem ipsum dollar site amt.</h5>
+                {/* <!-- <a href="#" class="btn bha-btn-primary mt-4 pl-pr">view details</a> --> */}
             </div>
-          </div>
         </div>
       </div>
-
+    </div>
+    
+    
       <div id="tabItems">
-      <FreeBrochure/>
+      {/* <FreeBrochure/> */}
       <section>
         <div className="container-fluid pl-0 pr-0">
           <ul className="tab-menu">
-            <a className="left-control orange" href><i className="fa fa-chevron-left" aria-hidden="true" /></a>
             <li>
             <Link
                 activeClass="current"
@@ -82,6 +83,7 @@ const About = () =>{
                 smooth={true}
                 offset={-70}
                 duration={500}
+
                 className="tablink js-scroll-trigger current"
               >
                 A Message from the CEO
@@ -96,7 +98,7 @@ const About = () =>{
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className="tablink js-scroll-trigger"
+                className={myRef==="section2"? 'tablink js-scroll-trigger current':'tablink js-scroll-trigger'}
               >
                 Company Profile
               </Link>
@@ -128,7 +130,6 @@ const About = () =>{
               </Link>
              
             </li>
-            <a className="right-control orange" href="#"><i className="fa fa-chevron-right" aria-hidden="true" /></a>
           </ul>
         </div>
        </section>
