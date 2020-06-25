@@ -85,17 +85,11 @@
 	display: none;
 }
 
-
-
-
 .dropdown-menu .custom-bord{
 	width:74%;
 	background-color: #fff;
 }
 
-.custom-gutter {
-	background-color: #fff;
-}
 .dropdown-submenu:hover>.dropdown-menu {
 	display: block;
 }
@@ -247,9 +241,6 @@ hr {
 	padding-left: 1rem;
 }
 
-.bha_heading_2{
-	margin-bottom: 0 !important;
-}
 
 .loginInner .modal-body{
 	padding: 0 !important;
