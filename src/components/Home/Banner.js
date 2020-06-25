@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+
 import PexelPhotoImage from '../../assets/images/pexels-photo.png';
 import Image from '../../assets/images/2000X500.jpg';
 import FiveImage from '../../assets/images/1400X500-2.jpg';
@@ -9,11 +11,11 @@ import {API_URL} from '../../constants/appConstant'
 import axios from 'axios';
 import {fetch_dynamic_menus} from '../../actions/fetchActions';
 
-export default class Banner extends Component {
+ class Banner extends Component {
     constructor(props){
         super(props);
         this.state = {
-            DynamicSlider: [],
+            // DynamicSlider: [],
             autoplay: false,
         }
     }
@@ -22,22 +24,27 @@ export default class Banner extends Component {
     //     this.props.dispatch(fetch_dynamic_menus())
     //  }
 
-    componentDidMount() {
-        axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-        axios.get(API_URL+"/theme/settings")
-          .then( response => {
-            const DynamicSlider = response.data
-            console.log(DynamicSlider)
-            this.setState({DynamicSlider});
+    // componentDidMount() {
+    //     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+    //     axios.get(API_URL+"/theme/settings")
+    //       .then( response => {
+    //         const DynamicSlider = response.data
+    //         console.log(DynamicSlider)
+    //         this.setState({DynamicSlider});
             
-          })
-        }
+    //       })
+    //     }
 
   render() {
    this.slider = React.createRef();
-   const {home_slider} = this.state.DynamicSlider
+//    const {home_slider} = this.state.DynamicSlider
 //  const {home_slider} = this.props;
-    
+const {navMenuData} = this.props;
+const {menuData} = navMenuData;
+const {
+    home_slider
+} = menuData;
+
     return (
             <div className="banner-container">
                 <div id="carousel" className="carousel slide" data-ride="carousel">
@@ -72,3 +79,11 @@ export default class Banner extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+      navMenuData: state
+    };
+  };
+  export default connect(mapStateToProps)(Banner);
+  
