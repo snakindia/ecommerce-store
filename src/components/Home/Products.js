@@ -30,6 +30,8 @@ export default class Products extends Component {
                   <li><a className="tablink" href="">Turbo</a></li>
                   <li><a className="tablink" href="">Autel</a></li>
                   <a className="right-control" href=""><i className="fa fa-chevron-right" aria-hidden="true"></i></a>
+                  <div class="brands-head">
+    Brands</div>
                 </ul>
             </div>
   

@@ -4,8 +4,11 @@ import Image from '../../assets/images/2000X500.jpg';
 import FiveImage from '../../assets/images/1400X500-2.jpg';
 import RBCarousel from "react-bootstrap-carousel";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
+
 import {API_URL} from '../../constants/appConstant'
 import axios from 'axios';
+import {fetch_dynamic_menus} from '../../actions/fetchActions';
+
 export default class Banner extends Component {
     constructor(props){
         super(props);
@@ -14,6 +17,10 @@ export default class Banner extends Component {
             autoplay: false,
         }
     }
+
+    // componentDidMount (){
+    //     this.props.dispatch(fetch_dynamic_menus())
+    //  }
 
     componentDidMount() {
         axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
@@ -27,8 +34,9 @@ export default class Banner extends Component {
         }
 
   render() {
-    this.slider = React.createRef();
-    const {home_slider} = this.state.DynamicSlider
+   this.slider = React.createRef();
+   const {home_slider} = this.state.DynamicSlider
+//  const {home_slider} = this.props;
     
     return (
             <div className="banner-container">
