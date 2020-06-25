@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import BagHouseImage from '../../assets/images/baghouse.jpg';
-import FanImage from '../../assets/images/fan.jpg';
-import ValveImage from '../../assets/images/valve.jpg';
-import KitImage from '../../assets/images/kit.jpg';
-import Image from '../../assets/images/2000X500.jpg';
 import Slider from "react-slick";
 import axios from 'axios';
 import {API_URL} from './../../constants/appConstant';
@@ -22,8 +17,6 @@ export default class ProductsPart extends Component {
         axios.get(API_URL + "/get_product_parts_category_list")
             .then((res)=> {
             this.setState({data:res.data});
-               console.log('.......ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ....');
-         console.log(this.state.data);
         })
     }
     

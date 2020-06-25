@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-
-import PexelPhotoImage from '../../assets/images/pexels-photo.png';
-import Image from '../../assets/images/2000X500.jpg';
-import FiveImage from '../../assets/images/1400X500-2.jpg';
 import RBCarousel from "react-bootstrap-carousel";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 
-import {API_URL} from '../../constants/appConstant'
 import {fetch_dynamic_menus} from '../../actions/fetchActions';
 
  class Banner extends Component {
