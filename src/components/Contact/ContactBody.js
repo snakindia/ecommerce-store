@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ContentSection from '../Contact/ContentSection'
 import Mapimg from '../../assets/images/map.jpg';
-import GoogleMap from '../../utils/Map' 
+import GoogleMap from '../../utils/Map';
 
 export default class ContactBody extends Component {
   render() {

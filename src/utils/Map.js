@@ -50,8 +50,8 @@ onClose = props => {
         />
         
         <Marker
-            lat={40.741895}
-            lng= {-73.989308}
+            lat={-22.703280}
+            lng= {-43.414170}
             onClick={this.onMarkerClick}
             name={'South America, Edifício Candelária Corporate, Rua Candelária, 65, #1600, Rio de Janeiro, Brazil'}
         />
@@ -64,8 +64,8 @@ onClose = props => {
         />
         
         <Marker
-            lat={-26.1816667}
-         lng= {28.0277778}
+            lat={-26.183470}
+         lng= {28.039500}
           onClick={this.onMarkerClick}
           name={'Africa- Block B & Block C, Metropolitan Park, 8 Hillside Road, Suite 1000 Parktown, Johannesburg, 2196, South Africa'}
         />

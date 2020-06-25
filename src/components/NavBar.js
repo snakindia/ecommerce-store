@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import EpicCover from '../assets/images/600X500-4.jpg'
 import Baghouse from '../assets/images/baghouse.jpg'
 import Baghouselogo from '../assets/images/baghouse_logo.svg';
-import { dropDownMenuProduct, BASE_URL,defaultMenuListItems } from "../constants/appConstant";
+import { dropDownMenuProduct, API_URL,defaultMenuListItems } from "../constants/appConstant";
 
 
 class NavBar extends React.Component {

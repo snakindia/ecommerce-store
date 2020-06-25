@@ -11,6 +11,7 @@ import axios from 'axios';
 import base64 from 'buffer';
 //import utf8 from 'utf8'
 import { setUserSession } from '../utils/Common';
+import { API_AJAX_URL } from "../constants/appConstant";
 //import CookieHandler from '../utils/cookieHandler.js';
 
 class TopBar extends Component {
@@ -80,7 +81,7 @@ class TopBar extends Component {
       onSubmit={(values, { setSubmitting }) => {
 
         console.log(values.email)
-        axios.post('http://127.0.0.1:3001/ajax/login', values)
+        axios.post(API_AJAX_URL + 'login', values)
         .then(function (response) {
             response = Buffer.from(response.data, 'base64').toString('ascii');
             response = JSON.parse(response);

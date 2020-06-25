@@ -4,14 +4,12 @@ import axios from 'axios';
 import TopBar from './components/TopBar';
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
-import {BASE_URL} from './constants/appConstant'
+import {API_URL} from './constants/appConstant'
 
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./pages/about/About'));
 const ContactBody = lazy(() => import('./components/Contact/ContactBody'));
 const SignUpPage = lazy(() => import('./components/Signup/SignUpPage'));
-
-
 
 
 const Router = () =>{
@@ -20,7 +18,7 @@ const Router = () =>{
     
     useEffect(() => {
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-    axios.get(BASE_URL+"/theme/settings")
+    axios.get(API_URL+"/theme/settings")
       .then(function (response) {
         // handle success
         const {data} = response;
