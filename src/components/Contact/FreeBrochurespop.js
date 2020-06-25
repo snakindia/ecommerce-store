@@ -58,7 +58,7 @@ render() {
 
 
         if (!values.email) {
-          errors.email = 'Email Id is required';
+          errors.email = 'Email address is required';
         } else if (
           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
         ) {
@@ -108,7 +108,7 @@ render() {
                     <div class="form-group mb-1">
                       <label for="">Email Address *</label>
                       <input type="text" class="form-control" id="" name="email" value={values.email} onChange={handleChange}
-            onBlur={handleBlur} placeholder="Enter Email Id" />
+            onBlur={handleBlur} placeholder="Enter Email Address" />
                             <span className="errorMsg">{errors.email && touched.email && errors.email}</span> 
 
 
@@ -118,7 +118,7 @@ render() {
                     <div class="form-group mb-1">
                       <label for="">Company Name *</label>
                       <input type="text" class="form-control" id=""  name="companyname" value={values.companyname} onChange={handleChange}
-            onBlur={handleBlur} placeholder="Enter Name" />
+            onBlur={handleBlur} placeholder="Enter Company Name" />
             <span className="errorMsg">{errors.companyname && touched.companyname && errors.companyname}</span> 
 
                     </div>
@@ -130,7 +130,7 @@ render() {
                   You can unsubscribe at any time. See Updated Privacy 
                   Policy or Contact Us at support.bhaghouse@gamil.com.
                 </small> --> */}
-<div class="mt-2"><button type="button"  onClick={() =>{handleSubmit()}} class="btn bha-btn-primary w-100">subscribe</button></div>
+<div class="mt-2 free-brocher"><button type="button"  onClick={() =>{handleSubmit()}} class="btn bha-btn-primary w-100">subscribe</button></div>
         </form>
       )}
     </Formik>
