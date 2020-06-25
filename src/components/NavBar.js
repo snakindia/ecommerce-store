@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from "react-redux";
 import {Link} from 'react-router-dom'
 import EpicCover from '../assets/images/600X500-4.jpg'
 import Baghouse from '../assets/images/baghouse.jpg'
 import Baghouselogo from '../assets/images/baghouse_logo.svg';
 import { dropDownMenuProduct, API_URL,defaultMenuListItems } from "../constants/appConstant";
+
+import {fetch_dynamic_menus} from '../actions/fetchActions'
 
 
 class NavBar extends React.Component {
@@ -15,6 +18,10 @@ class NavBar extends React.Component {
       listItems:[],
       activeLink: null
     };
+  }
+
+  componentDidMount (){
+     this.props.dispatch(fetch_dynamic_menus())
   }
 
   
@@ -69,9 +76,10 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const {dynamicMenu} = this.props;
-    const {header_menu} = dynamicMenu;
-    
+    const {navMenuData} = this.props;
+    const {menuData} = navMenuData;
+    const {header_menu} = menuData;
+
     return (
       <div class="headerfull h-25">
           <div class="wsmain clearfix">
@@ -128,4 +136,9 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+const mapStateToProps = state => {
+  return {
+    navMenuData: state
+  };
+};
+export default connect(mapStateToProps)(NavBar);

@@ -14,13 +14,21 @@ import "./assets/css/fade-down.css";
 import "./assets/css/webslidemenu.css";
 import "./assets/css/white-gry.css";
 import "./index.css";
+import store from "./store";
+import { Provider } from "react-redux";
 
-import App from "./App";
+//import App from "./App";
 
 import Routes from './routes'
 
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render( <Routes /> , document.getElementById('root'));
+ReactDOM.render( 
+    <Provider store={store}>   
+      <Routes /> 
+    </Provider>
+,
+ document.getElementById('root')
+ );
 
 registerServiceWorker();

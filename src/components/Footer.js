@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import {Link} from 'react-router-dom'
 import Facebook from '../assets/images/facebook.png'
@@ -7,21 +8,22 @@ import Youtube from '../assets/images/youtube.png'
 import Pintrest from '../assets/images/pintrest.png'
 import Footerlogo from '../assets/images/footer-logo.png'
 import Chat from '../assets/icon/chat.svg'
-export default class Footer extends Component {
+import {fetch_dynamic_menus} from '../actions/fetchActions';
 
-  componentDidMount(){
-    console.log('props in footer',this.props);
-    
-  }
+class Footer extends Component {
 
+  componentDidMount (){
+    this.props.dispatch(fetch_dynamic_menus())
+ }
   render() {
-    const {dynamicMenu} = this.props;
+    const {navMenuData} = this.props;
+    const {menuData} = navMenuData;
     const {
     footer_menu_1_title,footer_menu_2_title,footer_menu_3_title,footer_menu_4_title,footer_menu_5_title,
     footer_menu_1_items,footer_menu_2_items,footer_menu_3_items,footer_menu_4_items,footer_menu_5_items,footer_social
-  } = dynamicMenu;
+  } = menuData;
     return (
-<MDBFooter className="font-small footer-section py-4 mt-4 footer">
+   <MDBFooter className="font-small footer-section py-4 mt-4 footer">
       <MDBContainer fluid className="text-center text-md-left">
       <MDBRow>
       <MDBCol md="8">
@@ -241,3 +243,10 @@ export default class Footer extends Component {
     </MDBFooter>    )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    navMenuData: state
+  };
+};
+export default connect(mapStateToProps)(Footer);
