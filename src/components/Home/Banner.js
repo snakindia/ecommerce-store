@@ -8,7 +8,6 @@ import RBCarousel from "react-bootstrap-carousel";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 
 import {API_URL} from '../../constants/appConstant'
-import axios from 'axios';
 import {fetch_dynamic_menus} from '../../actions/fetchActions';
 
  class Banner extends Component {

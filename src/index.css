@@ -42,3 +42,37 @@ hr {
 label{
 font-weight: 400;
 }
+
+.topmenusearch {
+	margin: .5rem 0 0 2rem;
+}
+
+.topmenusearch .input-group input{
+	margin-top:.4rem;
+	padding: .8rem;
+}
+
+
+.form-control{
+	height: calc(2rem + .75rem + 2px) !important;
+}
+
+
+.wsmenu .navbar-nav .nav-item a{
+	padding: 0 40px !important;
+	text-transform: uppercase;
+	line-height: 59px;
+}
+
+.wsmenu .navbar-nav .nav-item span a{
+	color:#fff ;
+	font-weight: 700;
+}
+
+.dropdown-submenu a{
+	color:#000 !important;
+}
+
+.wstheading a{
+	color:#fff !important;
+}
