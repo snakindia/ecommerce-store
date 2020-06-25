@@ -36,6 +36,7 @@ const Router = () =>{
             <Suspense fallback={<div>Loading...</div>}>
             <Switch>
                 <Route exact path="/" component={App} />
+                <Route exact path="/home" component={App} />
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={ContactBody} />
                 <Route path="/sign-up" component={SignUpPage} />
