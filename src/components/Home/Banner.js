@@ -15,30 +15,17 @@ import {fetch_dynamic_menus} from '../../actions/fetchActions';
     constructor(props){
         super(props);
         this.state = {
-            // DynamicSlider: [],
             autoplay: false,
         }
     }
 
-    // componentDidMount (){
-    //     this.props.dispatch(fetch_dynamic_menus())
-    //  }
+    componentDidMount (){
+        this.props.dispatch(fetch_dynamic_menus())
+     }
 
-    // componentDidMount() {
-    //     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-    //     axios.get(API_URL+"/theme/settings")
-    //       .then( response => {
-    //         const DynamicSlider = response.data
-    //         console.log(DynamicSlider)
-    //         this.setState({DynamicSlider});
-            
-    //       })
-    //     }
 
   render() {
    this.slider = React.createRef();
-//    const {home_slider} = this.state.DynamicSlider
-//  const {home_slider} = this.props;
 const {navMenuData} = this.props;
 const {menuData} = navMenuData;
 const {
