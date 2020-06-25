@@ -117,16 +117,13 @@ background-position: center; background-size: cover;
 .prod-details-link a{border-radius: 0.1rem !important;}
 .z-index{position: relative; z-index: 100}
 .view-all{width:20%; border-radius: 0.1rem !important; margin-top: 1rem}
-
-.tab-container{width:100%;background: url(../images/top-bar-bg-m.jpg); background-size:cover;
-  background-position:center; float:left; width: 100%; position: relative;}
-.tab-container:before{content: ''; background: rgba(0,0,0,0.8); position: absolute; top:0; left:0; right:0; bottom:0;}
-
+.tab-container{width:100%;background: url(../images/top-bar-bg-m.jpg);/*padding:0.875rem 0; */position: relative;}
+.tab-container:before{content: ''; background: rgba(0,0,0.0.8); position: absolute; top:0; left:0; right:0; bottom:0;}
 .item-wraper{padding:2rem 0;}
-.tab-inner{display: block; margin:0; padding:0; list-style-type: none; position: relative;}
-.tab-inner .tablink{float:left; display: inline-block; /*margin: 0 2rem 0 1rem; */color:#fff;  transition:0.5s;
-  text-transform: uppercase;text-decoration: none; font-size: 0.875rem; padding:0.875rem 0; width: 140px; text-align: center; }
-.tab-inner .tablink:hover{background:rgba(49,83,129,0.5); display: block; transition:0.5s }
+.tab-inner{display: block; margin:0; padding:0; list-style-type: none;}
+.tab-inner .tablink{float:left; display: inline-block; /*margin: 0 2rem 0 1rem; */color:#fff; 
+  text-transform: uppercase;text-decoration: none; font-size: 0.875rem; padding:0.875rem 0; width: 159px; text-align: center; }
+.tab-inner .tablink:hover{background:#222; display: block; transition: }
 .left-control{font-size: 0.875rem; padding:0.875rem 0; text-align: center; background: #000; color:#fff; 
   float:left; width: 38px}
 .right-control{font-size: 0.875rem; padding:0.875rem 0; text-align: center; background: #000; color:#fff; 
@@ -134,7 +131,7 @@ background-position: center; background-size: cover;
 .left-control i, .right-control i{color:#fff;}
 .tab-inner .tablink.current{background:#23536b;}
 .brands-head{float:right; color:#fff; font-size: 1.5rem; text-transform: uppercase; width: 11%; text-align:center; font-family: 
-'Oswald', sans-serif;  padding:0.4rem 1.2rem;background:#000; font-weight: 700; }
+'Oswald', sans-serif;  padding:0.4rem 1.2rem;background:transparent;  }
 /*.tab-inner .tablink.current:after {
   width: 0;
   height: 0;
@@ -207,7 +204,7 @@ background-position: center; background-size: cover;
 
 
 /*=========About us section css====================*/
-.caption.v_middle{top:8% !important; left:1%; color:#fff; padding:1.8rem;}
+.caption.v_middle{top:8% !important; left:1%; color:#fff;}
 .carousel-item.height-50{height:350px !important; object-fit: cover !important; overflow: hidden !important;}
 .carousel-item.height-50 .caption{position: absolute; top:12%; left:0; z-index: 1; background: rgba(0,0,0); padding:3rem 2.5rem;
  width: 37%;}
@@ -314,20 +311,20 @@ border-radius: 0 !important; margin:0 !important; padding:0.8rem !important; bor
 .nav-pills .nav-link:hover{background: #347799 !important; color:#fff !important; transition: 0.3s}
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link{border-radius: 0 !important; 
   background:#23536b !important; color:#fff !important; }
-.tab-content{border:1px solid #f1f1f1; padding:1rem 0.6rem 1rem 1.5rem; height:80vh; background: #fff}
+.tab-content{border:1px solid #f1f1f1; padding:1rem 0.6rem 0 1.5rem; height:74vh; background: #fff}
 .location_head{color:#0e415a;}
 .bha-left{background: #ddd; width: 100%; position: relative;  overflow: hidden;}
 .bha-left:before{ content: ""; position: absolute; top:0; left: 0; bottom: 0; right:0; background: rgba(17,63,89,0.9) }
 .bha-left-head{position: absolute; top:22%; right: 1%; z-index: 1; padding:1rem; text-align:center;color:#fff;
-font-family: 'Oswald', sans-serif; font-size: 1.5rem}
-.tab-pane a{color:#000; font-size: 0.875rem}
+font-family: 'Roboto', sans-serif; font-size: 1.5rem}
+.tab-pane a{color:#000;}
 /*hr{background: #f0eeee; height: 2px}*/
 /*=====Login hover ===========*/
 .toplink{display: block; margin:0; padding: 0; list-style-type: none;}
 .toplink li{float:left; display: inline-block; margin:8px 15px;/* background: #e5e5e5*/}/*
 .toplink li:hover{ background: #e5e5e5}*/
 .toplink li a img{margin:0 10px;}
-.toplink span{ border-right:1px solid #fff; float:left; height: 12px; margin-top: 15px}
+.toplink span{ border-right:1px solid #000; float:left; height: 12px; margin-top: 15px}
 #theBox_2{
 display: none;
 border: 1px solid #000;
