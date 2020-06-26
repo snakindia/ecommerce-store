@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Formik } from 'formik';
 import { connect } from "react-redux";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import {Link} from 'react-router-dom'
@@ -114,9 +115,64 @@ class Footer extends Component {
             <div className="broucher-inner">
               <h2 className="bha_heading_2">Free Brochures</h2>
               <p className="mt-3">Sign up to receive the lates infor on new Baghouse products, special offers and more.</p>
+              <Formik
+      initialValues={{ fname: '', companyname: '', email: '',  phone: '' }}
+      validate={values => {
+        const errors = {};
+        if (!values.fname) {
+          errors.fname = 'First Name is required';
+        } else if (
+          !/^[a-zA-Z ]*$/i.test(values.fname)
+        ) {
+          errors.fname = 'Please enter alphabet characters only';
+        }
+
+        
+        if (!values.phone) {
+          errors.phone = 'Phone Number is required';
+        } else if (
+          !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(values.phone)
+        ) {
+          errors.phone = 'Please enter valid phone number';
+        }
+
+        if (!values.companyname) {
+          errors.companyname = 'Company Name is required';
+        } else if (
+          !/^[a-zA-Z ]*$/i.test(values.companyname)
+        ) {
+          errors.companyname = 'Please enter alphabet characters only';
+        }
+
+
+        if (!values.email) {
+          errors.email = 'Email address is required';
+        } else if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        ) {
+          errors.email = 'Invalid email address';
+        }
+
+        return errors;
+      }}
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        alert("Free Brochures Sucessfully")
+        resetForm()
+      }}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting,
+        /* and other goodies */
+      }) => (<form onSubmit={handleSubmit}>
               <MDBRow>
                 <MDBCol md="6">
-                <form>
+             <form>
                 <label
                   htmlFor=""
                   className="white-text font-weight-bold"
@@ -127,8 +183,13 @@ class Footer extends Component {
                   type="text"
                   id="defaultFormCardNameEx"
                   className="form-control"
+                  name="fname" 
+                  value={values.fname} 
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   placeholder="Enter Name"
                 />
+                <span className="errorMsg">{errors.fname && touched.fname && errors.fname}</span>
                 </form>
                 </MDBCol>
                 <MDBCol md="6">
@@ -143,8 +204,12 @@ class Footer extends Component {
                   type="text"
                   id="defaultFormCardNameEx"
                   className="form-control"
-                  placeholder="Enter Name"
+                  placeholder="Enter Phone"
+                  value={values.phone} 
+                  onChange={handleChange}
+                  onBlur={handleBlur} name="phone"
                 />
+                <span className="errorMsg">{errors.phone && touched.phone && errors.phone}</span>
                 </form>
 
                 </MDBCol>
@@ -162,8 +227,13 @@ class Footer extends Component {
                   type="text"
                   id="defaultFormCardNameEx"
                   className="form-control"
-                  placeholder="Enter Email"
+                  name="email" 
+                  value={values.email} 
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  placeholder="Enter Email Address"
                 />
+                <span className="errorMsg">{errors.email && touched.email && errors.email}</span>
                 </form>
 
                 </MDBCol>
@@ -181,10 +251,17 @@ class Footer extends Component {
                   type="text"
                   id="defaultFormCardNameEx"
                   className="form-control"
-                  placeholder="Enter Email"
+                  placeholder="Enter Company Name"
+                  name="companyname" 
+                  value={values.companyname} 
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
+                 <span className="errorMsg">{errors.companyname && touched.companyname && errors.companyname}</span> 
+
                 </form>
-                <div class="chat-button pulse"><a href="/"><img src={Chat} class="mr-2" alt="" width="30" />Live Chat</a></div>
+
+
                 </MDBCol>
               </MDBRow>
               <p class="mt-3">
@@ -193,7 +270,10 @@ class Footer extends Component {
                   You can unsubscribe at any time. See Updated Privacy 
                   Policy or Contact Us at support.bhaghouse@gamil.com.
                 </p>
-                <div class="mt-5"><button type="button" class="btn bha-btn-primary w-100">subscribe</button></div>
+                <div class="mt-5"><button type="button"  onClick={() =>{handleSubmit()}} class="btn bha-btn-primary w-100">subscribe</button></div>
+                </form>)}
+    </Formik>
+    <div class="chat-button pulse"><a href="/"><img src={Chat} class="mr-2" alt="" width="30" />Live Chat</a></div>
             </div>
           </div>
         </MDBCol>

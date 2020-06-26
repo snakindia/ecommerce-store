@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink, MDBIcon } from "mdbreact";
 import FreeBrochurespop from './FreeBrochurespop';
-
+import Recaptcha from 'react-recaptcha';
 import Arizona from '../../assets/images/Arizona.png'
 import Florida from '../../assets/images/Florida.png'
 import Brazil from '../../assets/images/Brazil.png'
@@ -10,11 +10,16 @@ import SouthAfrica from '../../assets/images/South Africa.jpg'
 import Captcha from '../../assets/images/captcha.jpg';
 import item2 from '../../assets/images/thumbnail-img/item2.png'
 export default class ContentSection extends Component {
-  state = {
+  constructor(props){
+    super(props)
+  this.state = {
     activeItem: "1",
-    modal14: false
+    modal14: false,
+    isVerified: false,
   }
-
+ this.handleSubscribe = this.handleSubscribe.bind(this);
+ this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
+}
   toggle = tab => () => {
     if (this.state.activeItem !== tab) {
     this.setState({
@@ -22,6 +27,17 @@ export default class ContentSection extends Component {
     });
     }
   }
+
+  recaptchaLoaded(){
+    console.log("Captcha successfuly lodaded")
+  }
+
+handleSubscribe(){
+  if(this.state.isVerified){
+    alert("You have successfully subscribe")
+  }
+  alert("Please verify that you are a human")
+}
 
   render() {
     return (
@@ -386,12 +402,17 @@ export default class ContentSection extends Component {
             </div>
 
             <div class="form-group">
-              <label>Captcha</label>
-              <img class="img-fluid w-100" src={Captcha} />
+            <label>Captcha</label>
+            <Recaptcha
+                sitekey="6Lf_rakZAAAAAEDNJKxqF3XnpU5HfeKZOtI4WFbf"
+                render="explicit"
+                onloadCallback={this.recaptchaLoaded}
+            />
+              {/* <img class="img-fluid w-100" src={Captcha} /> */}
               {/* <!-- <span class="errorMessage">Mobile / Email Address is required</span> --> */}
             </div>
             <div class="form-group">
-              <button type="button" class="btn bha-btn-primary float-right" name="buttonsubmit">Submit</button>
+              <button type="button" onClick={this.handleSubscribe} class="btn bha-btn-primary float-right" name="buttonsubmit">Submit</button>
             </div>
           </div>
         </div>
@@ -400,7 +421,7 @@ export default class ContentSection extends Component {
     </div>
   </div>
 </section>
-      </div>
+</div>
     )
   }
 }
