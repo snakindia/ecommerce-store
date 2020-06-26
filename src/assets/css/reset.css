@@ -5,7 +5,9 @@ button reset==*/
   object-fit: cover !important;}
 
 /*.carousel-item.h_50{height: 300px}*/
-
+.input-group-append {
+    margin-left: -6px !important;
+}
 .modal { z-index: 10000 !important;}
 .pl-pr{padding:0.5rem 2rem !important}
 .bha-btn-primary{background:#23536b; color:#fff; font-weight: 500; padding:0.6rem 1.5rem;
@@ -72,8 +74,8 @@ figcaption{padding:5rem 3.2rem !important;}
 
 .bha-client li img{width: 245px !important}
 /*======Typography setting==*/
-.bha_heading_1{font-family: 'Oswald', sans-serif; font-size: 3rem; text-transform: uppercase; color:#fff;}
-.bha_heading_2{font-family: 'Oswald', sans-serif; font-size: 1.8rem; text-transform: uppercase; color:#fff;}
+.bha_heading_1{font-family: 'Oswald',sans-serif !important; font-size: 3rem; text-transform: uppercase; color:#fff}
+.bha_heading_2{font-family: 'Oswald',sans-serif !important; font-size: 1.8rem; text-transform: uppercase; color:#fff;}
 figcaption h4{text-transform: uppercase; font-size: 1.125rem}
 .headtoppart span ul{margin:0; padding:0;}
 .headtoppart span ul li a{color:#000 !important; padding:0.5rem 0; border-bottom: 1px solid #f2f2f2;width: 100%;
@@ -172,7 +174,7 @@ background-position: center; background-size: cover;
   padding:0.6rem 1rem; z-index: 100; transform: scale(1);transition: 0.3s;}
 .chat-button:hover{background: #555;  transform: scale(1.1);}
 
-.chat-button a{text-decoration: none; color:#fff100; font-size: 1.2rem; font-weight:700; text-align: center;}
+.chat-button a{text-decoration: none; color:#fff100 !important; font-size: 1.2rem; font-weight:700; text-align: center;}
 .carousel-indicators li{width:10px; height: 10px; border-radius: 100px; background: #fff}
 .carousel-indicators li.active{background: #4280fe}
 
