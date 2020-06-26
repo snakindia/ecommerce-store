@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink, MDBIcon } from "mdbreact";
 import FreeBrochurespop from './FreeBrochurespop';
+import { Formik } from 'formik';
 import Recaptcha from 'react-recaptcha';
 import Arizona from '../../assets/images/Arizona.png'
 import Florida from '../../assets/images/Florida.png'
@@ -17,7 +18,7 @@ export default class ContentSection extends Component {
     modal14: false,
     isVerified: false,
   }
- this.handleSubscribe = this.handleSubscribe.bind(this);
+ //this.handleSubscribe = this.handleSubscribe.bind(this);
  this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
 }
   toggle = tab => () => {
@@ -32,12 +33,12 @@ export default class ContentSection extends Component {
     console.log("Captcha successfuly lodaded")
   }
 
-handleSubscribe(){
-  if(this.state.isVerified){
-    alert("You have successfully subscribe")
-  }
-  alert("Please verify that you are a human")
-}
+// handleSubscribe(){
+//   if(this.state.isVerified){
+//     alert("You have successfully subscribe")
+//   }
+//   alert("Please verify that you are a human")
+// }
 
   render() {
     return (
@@ -373,7 +374,69 @@ handleSubscribe(){
       </div>
       </div>
     <div class="col-sm-4 col-md-4 pl-0 pr-0">
-      <form>
+    <Formik
+      initialValues={{ fname: '', message: '', email: '',  phone: '', recaptcha: false }}
+      validate={values => {
+        const errors = {};
+        if (!values.fname) {
+          errors.fname = 'First Name is required';
+        } else if (
+          !/^[a-zA-Z ]*$/i.test(values.fname)
+        ) {
+          errors.fname = 'Please enter alphabet characters only';
+        }
+
+        
+        if (!values.phone) {
+          errors.phone = 'Phone Number is required';
+        } else if (
+          !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(values.phone)
+        ) {
+          errors.phone = 'Please enter valid phone number';
+        }
+
+        if (!values.message) {
+          errors.message = 'Message is required';
+        } else if (values.message.length > 150){
+          errors.message = 'Message is not more 150 characters than long'
+        }else if (
+          !/^[a-zA-Z ]*$/i.test(values.message)
+        ) {
+          errors.message = 'Please enter alphabet characters only';
+        }
+
+
+        if (!values.email) {
+          errors.email = 'Email address is required';
+        } else if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        ) {
+          errors.email = 'Invalid email address';
+        }
+        if(values.recaptcha){
+          errors.recaptcha = 'You have successfully subscribe';
+            }else if(values.recaptcha){
+              errors.recaptcha = 'Please verify that you are a human';
+          }
+
+
+        return errors;
+      }}
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        alert("Free Brochures Sucessfully")
+        resetForm()
+      }}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting,
+        /* and other goodies */
+      }) => (<form>
         <div class="row">
           <div class="col-lg-12">
             <h2 class="bha_heading_2 text-black font-xx mb-3">Contact Us</h2>
@@ -382,23 +445,28 @@ handleSubscribe(){
           <div class="col-lg-12">
             <div class="form-group">
               <label>First Name, Surname *</label>
-              <input type="text" class="form-control input-control" name="email" placeholder="Enter Name/Surname" />
-              {/* <!-- <span class="errorMessage">Mobile / Email Address is required</span> --> */}
+              <input type="text" class="form-control input-control" name="fname" value={values.fname} onChange={handleChange}
+            onBlur={handleBlur} placeholder="Enter Name/Surname" />
+           <span className="errorMsg">{errors.fname && touched.fname && errors.fname}</span>
+
             </div>
             <div class="form-group">
               <label>Email Address *</label>
-              <input type="text" class="form-control input-control" name="email" placeholder="Enter Email address" />
-              {/* <!-- <span class="errorMessage">Mobile / Email Address is required</span> --> */}
+              <input type="text" class="form-control input-control" name="email" value={values.email} onChange={handleChange}
+            onBlur={handleBlur} placeholder="Enter Email address" />
+            <span className="errorMsg">{errors.email && touched.email && errors.email}</span>
             </div>
             <div class="form-group">
               <label>Phone *</label>
-              <input type="text" class="form-control input-control" name="email" placeholder="Enter Phone Number" />
-              {/* <!-- <span class="errorMessage">Mobile / Email Address is required</span> --> */}
+              <input type="text" class="form-control input-control" value={values.phone} onChange={handleChange}
+            onBlur={handleBlur} name="phone" placeholder="Enter Phone Number" />
+            <span className="errorMsg">{errors.phone && touched.phone && errors.phone}</span>
             </div>
             <div class="form-group">
               <label>Message</label>
-              <textarea type="text" class="form-control input-control" name="email" placeholder="Enter message here..."></textarea>
-              {/* <!-- <span class="errorMessage">Mobile / Email Address is required</span> --> */}
+              <textarea type="text" class="form-control input-control" name="message" value={values.message} onChange={handleChange}
+            onBlur={handleBlur} placeholder="Enter message here..."></textarea>
+            <span className="errorMsg">{errors.message && touched.message && errors.message}</span>
             </div>
 
             <div class="form-group">
@@ -407,16 +475,23 @@ handleSubscribe(){
                 sitekey="6Lf_rakZAAAAAEDNJKxqF3XnpU5HfeKZOtI4WFbf"
                 render="explicit"
                 onloadCallback={this.recaptchaLoaded}
+                name="recaptcha" 
+                value={values.recaptcha} 
+                onChange={handleChange}
+                onBlur={handleBlur}
             />
+                        <span className="errorMsg">{errors.recaptcha && touched.recaptcha && errors.recaptcha}</span>
+
               {/* <img class="img-fluid w-100" src={Captcha} /> */}
               {/* <!-- <span class="errorMessage">Mobile / Email Address is required</span> --> */}
             </div>
             <div class="form-group">
-              <button type="button" onClick={this.handleSubscribe} class="btn bha-btn-primary float-right" name="buttonsubmit">Submit</button>
+              <button type="button" onClick={() =>{handleSubmit()}} class="btn bha-btn-primary float-right" name="buttonsubmit">Submit</button>
             </div>
           </div>
         </div>
-      </form>
+      </form>)}
+    </Formik>
     </div>
     </div>
   </div>
