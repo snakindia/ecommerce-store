@@ -12,6 +12,7 @@ import "./assets/css/hover.css";
 import "./assets/css/slick-theme.css";
 import "./assets/css/fade-down.css";
 import "./assets/css/webslidemenu.css";
+import "./assets/css/custom.css";
 import "./assets/css/white-gry.css";
 import "./index.css";
 import store from "./store";
