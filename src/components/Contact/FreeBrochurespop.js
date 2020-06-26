@@ -96,7 +96,7 @@ render() {
                   <div class="col-sm-6 col-md-6">
                     <div class="form-group mb-1">
                       <label for="">Phone *</label>
-                      <input type="text" class="form-control" id=""value={values.phone} onChange={handleChange}
+                      <input type="text" class="form-control" id="" value={values.phone} onChange={handleChange}
             onBlur={handleBlur} name="phone" placeholder="Enter Phone" />
                         <span className="errorMsg">{errors.phone && touched.phone && errors.phone}</span> 
 

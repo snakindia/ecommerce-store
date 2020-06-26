@@ -58,9 +58,9 @@ class TopBar extends Component {
             </div>
 
 
-          <MDBModal className="logIn" isOpen={this.state.modal5} toggle={this.toggle(5)}>
+          <MDBModal className="logIn " isOpen={this.state.modal5} toggle={this.toggle(5)}>
       <div>
-      <Formik
+      <Formik 
       initialValues={{ email: '', password: '' }}
       validate={values => {
         const errors = {};
@@ -107,7 +107,7 @@ class TopBar extends Component {
         handleSubmit,
         isSubmitting,
         /* and other goodies */
-      }) => (<form>
+      }) => (<form className="login-form">
                 <div className="row">
                   <div className="col-sm-6 col-md-6 border-right border-secondary">
                     <h4 className="login-heading font-xx">Account Sign In</h4>
@@ -145,8 +145,8 @@ class TopBar extends Component {
               </Formik>
           </div>
       </MDBModal>
-      <MDBModal  className="country" isOpen={this.state.modal4} toggle={this.toggle(4)}  fullHeight position="top">
-      <div>
+      <MDBModal  className="country " isOpen={this.state.modal4} toggle={this.toggle(4)}  fullHeight position="top">
+      <div className="country-language">
                 <div className="row">
                   <div className="col-sm-6 col-md-6 col-lg-2">
                     <ul className="bha-contry-list">
