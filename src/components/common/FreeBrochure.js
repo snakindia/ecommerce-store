@@ -15,7 +15,7 @@ import { Formik } from 'formik';
       validate={values => {
         const errors = {};
         if (!values.fname) {
-          errors.fname = 'First Name is required';
+          errors.fname = 'Name is required';
         } else if (
           !/^[a-zA-Z ]*$/i.test(values.fname)
         ) {
@@ -24,7 +24,7 @@ import { Formik } from 'formik';
 
         
         if (!values.phone) {
-          errors.phone = 'Phone Number is required';
+          errors.phone = 'Phone number is required';
         } else if (
           !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(values.phone)
         ) {
@@ -32,7 +32,7 @@ import { Formik } from 'formik';
         }
 
         if (!values.companyname) {
-          errors.companyname = 'Company Name is required';
+          errors.companyname = 'Company name is required';
         } else if (
           !/^[a-zA-Z ]*$/i.test(values.companyname)
         ) {
@@ -88,7 +88,7 @@ import { Formik } from 'formik';
                 <div className="form-group">
                   <label htmlFor="emailaddress">Email Address *</label>
                   <input type="text" className="form-control" name="email" value={values.email} onChange={handleChange}
-            onBlur={handleBlur} placeholder="Enter email" />
+            onBlur={handleBlur} placeholder="Enter Email" />
                     <span className="errorMsg">{errors.email && touched.email && errors.email}</span> 
                 </div>
               </div>
