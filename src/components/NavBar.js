@@ -18,12 +18,23 @@ class NavBar extends React.Component {
       listItems:[],
       activeLink: null
     };
+    this.handleLoad = this.handleLoad.bind(this);
+
   }
 
   componentDidMount (){
+    window.addEventListener('load', this.handleLoad);
      this.props.dispatch(fetch_dynamic_menus());
      this.props.dispatch(fetch_submenu_items());
   }
+
+  handleLoad() {
+    var v = document.getElementById("firstEl");
+    if(v != null) {
+      v.click()
+    }
+  }
+  
 
   
   showMenu = (itemOneObj,index,e) =>{
@@ -55,7 +66,10 @@ class NavBar extends React.Component {
                     console.log('itemOneObj',itemOneObj);
                     const {name,image,items,slug,_id} = itemOneObj;
                     return (
-                    <li className={activeLink == i ? "wsshoplink-active":"wsshoplink"} key={i+Math.random()} onMouseEnter={(e)=>this.showMenu(itemOneObj,i,e)}><a data-src={Baghouse} >{name}</a>
+                    <li className={activeLink == i ? "wsshoplink-active":"wsshoplink"} id={i == 0 ? 'firstEl':'other'+i} 
+                    key={i+Math.random()}
+                    onClick={(e)=>this.showMenu(itemOneObj,i,e)} 
+                    onMouseEnter={(e)=>this.showMenu(itemOneObj,i,e)}><a data-src={Baghouse} >{name}</a>
                     <div className="wstitemright clearfix wstpngsml">
                       <div className="container-fluid">
                         <div className="row custom-gutter">
