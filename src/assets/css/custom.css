@@ -8,3 +8,44 @@ and open the template in the editor.
     Author     : deepa
 */
 
+.country-language {
+    border: 1px solid #000;
+    background-color: #4d4d4d;
+    position: absolute;
+    top: 39px;
+    right: 0;
+    width: 100%;
+    z-index: 99999 !important;
+    padding: 2rem 1.5rem 1rem;
+    color: #000;
+
+}
+
+
+.country-language li {
+    display: block;
+    list-style-type: none;
+    padding: 0.5rem 0;
+}
+
+.country-language li a{
+    font-size: 0.8rem;
+}
+
+.wsmenu {
+    z-index: 9999 !important;
+}
+
+.login-form{
+    border: 1px solid #000;
+    background-color: #e5e5e5;
+    position: absolute;
+    top: 11px;
+    left: 65%;
+    width: 600px;
+    z-index: 1000000 !important;
+    padding: 2rem 1.5rem 1rem;
+    color: #000;
+}
+
+
