@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 import EpicCover from '../assets/images/600X500-4.jpg'
 import Baghouse from '../assets/images/baghouse.jpg'
 import Baghouselogo from '../assets/images/baghouse_logo.svg';
-import { dropDownMenuProduct, API_URL,defaultMenuListItems } from "../constants/appConstant";
+import { dropDownMenuProduct, API_URL,defaultMenuListItems,categoryImageUrl } from "../constants/appConstant";
 
-import {fetch_dynamic_menus} from '../actions/fetchActions'
+import {fetch_dynamic_menus,fetch_submenu_items} from '../actions/fetchActions'
 
 
 class NavBar extends React.Component {
@@ -21,17 +21,27 @@ class NavBar extends React.Component {
   }
 
   componentDidMount (){
-     this.props.dispatch(fetch_dynamic_menus())
+     this.props.dispatch(fetch_dynamic_menus());
+     this.props.dispatch(fetch_submenu_items());
   }
 
   
-  showMenu = (listArr,idx,e) =>{
-    const {coverImg , listItems} = listArr;
-    this.setState({coverImg,listItems,activeLink:idx})
+  showMenu = (itemOneObj,index,e) =>{
+    console.log('itemOneObj@@',itemOneObj);
+    const {name,image,items,slug,_id} = itemOneObj;
+    let imageSrc = `${categoryImageUrl}/${_id}/${image}`;
+    this.setState({coverImg:imageSrc,listItems:items,activeLink:index})
+    
+    //const {coverImg , listItems} = listArr;
+    //this.setState({coverImg,listItems,activeLink:idx})
   }
 
   drawSubMenu(){
     const {coverImg,listItems,activeLink} = this.state;
+    const {navMenuData} = this.props;
+    const {subMenuData} = navMenuData;
+    let subMenuArr = Object.keys(subMenuData).map((k) => subMenuData[k]);
+    console.log('submenuArr in drwa44',subMenuArr);
     return (
       <div className="wsshoptabing wtsdepartmentmenu clearfix" style={{zIndex:999}}>
               <div className="wsshopwp clearfix">
@@ -40,13 +50,12 @@ class NavBar extends React.Component {
                   </div>
                 <ul className="wstabitem clearfix">
                 {
-                  dropDownMenuProduct.map((itemOne,idx)=>{
-                    let mainText = Object.keys(itemOne)[0];
-                    let listArr = itemOne[mainText];
-                    //let {listItems} = listArr
-                    //console.log('listItems',listItems)
+                  subMenuArr && subMenuArr.map((itemOne,i)=>{
+                    let itemOneObj = itemOne && itemOne[0];
+                    console.log('itemOneObj',itemOneObj);
+                    const {name,image,items,slug,_id} = itemOneObj;
                     return (
-                    <li className={activeLink == idx ? "wsshoplink-active":"wsshoplink"} key={idx+Math.random()}><a data-src={Baghouse} onMouseEnter={(e)=>this.showMenu(listArr,idx,e)}>{mainText}</a>
+                    <li className={activeLink == i ? "wsshoplink-active":"wsshoplink"} key={i+Math.random()} onMouseEnter={(e)=>this.showMenu(itemOneObj,i,e)}><a data-src={Baghouse} >{name}</a>
                     <div className="wstitemright clearfix wstpngsml">
                       <div className="container-fluid">
                         <div className="row custom-gutter">
@@ -54,8 +63,8 @@ class NavBar extends React.Component {
                             return (
                               <div className="col-lg-3 col-md-12" key={i+3}>
                               <ul className="wstliststy04 clearfix">
-                                <li><img className="scale-down" src={itemTwo.itemImg} alt=" " /></li>
-                                <li className="wstheading clearfix"><a href="#">{itemTwo.itemName}</a></li>
+                                <li><img className="scale-down" src={`${categoryImageUrl}/${_id}/${image}`} alt=" " /></li>
+                                <li className="wstheading clearfix"><a href="#">{itemTwo.name}</a></li>
                               </ul>
                             </div>
                             )
@@ -65,7 +74,11 @@ class NavBar extends React.Component {
                     </div>
                   </li>
                     )
+
+
                   })
+                    
+                  
                 }
                   
                 </ul>
@@ -77,8 +90,13 @@ class NavBar extends React.Component {
 
   render() {
     const {navMenuData} = this.props;
-    const {menuData} = navMenuData;
+    const {menuData,subMenuData} = navMenuData;
     const {header_menu} = menuData;
+    console.log('submenuDta',subMenuData);
+    let subMenuArr = Object.keys(subMenuData).map((k) => subMenuData[k]);
+    console.log('submenuArr',subMenuArr);
+    
+    
 
     return (
       <div class="headerfull h-25">
@@ -138,7 +156,8 @@ class NavBar extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    navMenuData: state
+    navMenuData: state,
+    //subMenuData:state
   };
 };
 export default connect(mapStateToProps)(NavBar);
