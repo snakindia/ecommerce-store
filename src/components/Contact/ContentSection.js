@@ -397,7 +397,9 @@ export default class ContentSection extends Component {
 
         if (!values.message) {
           errors.message = 'Message is required';
-        } else if (
+        } else if (values.message.length > 150){
+          errors.message = 'Message is not more 150 characters than long'
+        }else if (
           !/^[a-zA-Z ]*$/i.test(values.message)
         ) {
           errors.message = 'Please enter alphabet characters only';
