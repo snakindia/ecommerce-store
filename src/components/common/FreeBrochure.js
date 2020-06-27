@@ -1,14 +1,17 @@
 import React,{useEffect} from 'react';
 import './freebrochure.css'
 import { Formik } from 'formik';
-
+import { Sticky } from 'react-sticky';
 
  const FreeBrochure = () => {
 
      return (
-         <>
-          {/*Free Brochures section */}
-      <div className="form-outer float-left" id="brochureForm">
+        
+     
+           <Sticky topOffset={525}>
+            {({ style }) => (
+                <div style={{zIndex:"999", ...style }} >
+                     <div className="form-outer float-left" id="brochureForm">
         <div className="container-fluid">
         <Formik
       initialValues={{ fname: '', companyname: '', email: '',  phone: '' }}
@@ -107,9 +110,11 @@ import { Formik } from 'formik';
     </Formik>
 
         </div>
-      </div>
-      {/*//Free Brochures section */}
-         </>
+        </div>  </div>
+                    )}
+                </Sticky>
+    
+     
      )
 
 }
