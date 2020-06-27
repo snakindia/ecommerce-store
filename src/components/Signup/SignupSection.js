@@ -121,7 +121,6 @@ export default class SignupSection extends Component {
                 }
               }
                 onSubmit={(values, { resetForm, props }) => {
-                    console.log('........................');
                     this.state.show = false;
                 }}
               >

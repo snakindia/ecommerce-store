@@ -7,6 +7,8 @@ import NavBar from './components/NavBar';
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./pages/about/About'));
 const ContactBody = lazy(() => import('./components/Contact/ContactBody'));
+const ProductBody = lazy(() => import('./components/Product/ProductBody'));
+const BrandBody = lazy(() => import('./components/Brand/BrandBody'));
 const SignUpPage = lazy(() => import('./components/Signup/SignUpPage'));
 
 
@@ -22,6 +24,8 @@ const Router = () =>{
                 <Route exact path="/" component={App} />
                 <Route exact path="/home" component={App} />
                 <Route path="/about" component={About} />
+                <Route path="/product" component={ProductBody} />
+                <Route path="/brand" component={BrandBody} />
                 <Route path="/contact" component={ContactBody} />
                 <Route path="/sign-up" component={SignUpPage} />
             </Switch>

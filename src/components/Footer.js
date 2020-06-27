@@ -120,7 +120,7 @@ class Footer extends Component {
       validate={values => {
         const errors = {};
         if (!values.fname) {
-          errors.fname = 'First Name is required';
+          errors.fname = 'Name is required';
         } else if (
           !/^[a-zA-Z ]*$/i.test(values.fname)
         ) {
@@ -129,7 +129,7 @@ class Footer extends Component {
 
         
         if (!values.phone) {
-          errors.phone = 'Phone Number is required';
+          errors.phone = 'Phone number is required';
         } else if (
           !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(values.phone)
         ) {
@@ -137,7 +137,7 @@ class Footer extends Component {
         }
 
         if (!values.companyname) {
-          errors.companyname = 'Company Name is required';
+          errors.companyname = 'Company name is required';
         } else if (
           !/^[a-zA-Z ]*$/i.test(values.companyname)
         ) {

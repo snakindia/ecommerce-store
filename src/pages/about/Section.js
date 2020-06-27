@@ -11,11 +11,9 @@ let scrollSpy = Scroll.scrollSpy;
 var Section = React.createClass({
   componentDidMount: function() {
     Events.scrollEvent.register('begin', function(to, element) {
-      console.log('begin', arguments);
     });
 
     Events.scrollEvent.register('end', function(to, element) {
-      console.log('end', arguments);
     });
 
     scrollSpy.update();
@@ -37,7 +35,6 @@ var Section = React.createClass({
     scroll.scrollMore(100);
   },
   handleSetActive: function(to) {
-    console.log(to);
   },
   render: function () {
     return (

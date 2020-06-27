@@ -30,7 +30,6 @@ export default class ContentSection extends Component {
   }
 
   recaptchaLoaded(){
-    console.log("Captcha successfuly lodaded")
   }
 
 // handleSubscribe(){
@@ -379,7 +378,7 @@ export default class ContentSection extends Component {
       validate={values => {
         const errors = {};
         if (!values.fname) {
-          errors.fname = 'First Name is required';
+          errors.fname = 'First name is required';
         } else if (
           !/^[a-zA-Z ]*$/i.test(values.fname)
         ) {
@@ -388,7 +387,7 @@ export default class ContentSection extends Component {
 
         
         if (!values.phone) {
-          errors.phone = 'Phone Number is required';
+          errors.phone = 'Phone number is required';
         } else if (
           !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(values.phone)
         ) {
@@ -413,12 +412,15 @@ export default class ContentSection extends Component {
         ) {
           errors.email = 'Invalid email address';
         }
-        if(values.recaptcha){
+        if(values.recaptcha === true){
           errors.recaptcha = 'You have successfully subscribe';
-            }else if(values.recaptcha){
-              errors.recaptcha = 'Please verify that you are a human';
-          }
 
+//          alert("You have successfully subscribe")
+        }else if (values.recaptcha === false)
+        {
+          errors.recaptcha = 'Please verify that you are a human';
+        //alert("Please verify that you are a human")
+        }
 
         return errors;
       }}
@@ -435,6 +437,7 @@ export default class ContentSection extends Component {
         handleBlur,
         handleSubmit,
         isSubmitting,
+        setFieldValue
         /* and other goodies */
       }) => (<form>
         <div class="row">
@@ -453,7 +456,7 @@ export default class ContentSection extends Component {
             <div class="form-group">
               <label>Email Address *</label>
               <input type="text" class="form-control input-control" name="email" value={values.email} onChange={handleChange}
-            onBlur={handleBlur} placeholder="Enter Email address" />
+            onBlur={handleBlur} placeholder="Enter Email Address" />
             <span className="errorMsg">{errors.email && touched.email && errors.email}</span>
             </div>
             <div class="form-group">
@@ -465,23 +468,23 @@ export default class ContentSection extends Component {
             <div class="form-group">
               <label>Message</label>
               <textarea type="text" class="form-control input-control" name="message" value={values.message} onChange={handleChange}
-            onBlur={handleBlur} placeholder="Enter message here..."></textarea>
+            onBlur={handleBlur} placeholder="Enter Message Here..."></textarea>
             <span className="errorMsg">{errors.message && touched.message && errors.message}</span>
             </div>
 
             <div class="form-group">
             <label>Captcha</label>
-            <Recaptcha
-                sitekey="6Lf_rakZAAAAAEDNJKxqF3XnpU5HfeKZOtI4WFbf"
-                render="explicit"
-                onloadCallback={this.recaptchaLoaded}
-                name="recaptcha" 
-                value={values.recaptcha} 
-                onChange={handleChange}
-                onBlur={handleBlur}
-            />
-                        <span className="errorMsg">{errors.recaptcha && touched.recaptcha && errors.recaptcha}</span>
 
+            <Recaptcha
+                  sitekey="6Lf_rakZAAAAAEDNJKxqF3XnpU5HfeKZOtI4WFbf"
+                  render="explicit"
+                  theme="dark"
+                  verifyCallback={(response) => { setFieldValue("recaptcha", response); }}
+                  onloadCallback={() => {  }}
+                />
+
+                        <span className="errorMsg">{errors.recaptcha && touched.recaptcha && errors.recaptcha}</span>
+                     
               {/* <img class="img-fluid w-100" src={Captcha} /> */}
               {/* <!-- <span class="errorMessage">Mobile / Email Address is required</span> --> */}
             </div>

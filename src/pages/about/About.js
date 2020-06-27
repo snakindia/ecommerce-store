@@ -1,4 +1,5 @@
-import React, { useEffect , useRef,useState } from 'react';
+import React, { useEffect , useRef, useState } from 'react';
+import { connect } from "react-redux";
 import 'bootstrap-css-only/css/bootstrap.min.css'; 
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Link, animateScroll as scroll } from "react-scroll";
@@ -15,46 +16,97 @@ import handShakeIcon from '../../assets/icon/handshake.svg';
 import innovationIcon from '../../assets/icon/innovation.svg';
 import leaderIcon from '../../assets/icon/leader.svg';
 import aboutBanner from '../../assets/images/DSC_7731.jpg';
+import {get_about_us_details} from '../../actions/pageActions'
 
 
 const scrollToRef = (ref) => typeof window !== 'undefined' && window.scrollTo(0, ref.current.offsetTop)   
 const useMountEffect = (fun) => useEffect(fun, [])
 
-const About = () =>{
+class About extends React.Component {
 
-    const myRef = useRef(null);
-    const profileRef = useRef(null);
-    const mvref = useRef(null);
-    const valRef= useRef(null);
+    constructor(props) {
+        super(props);
+//        this.state = {
+//            myRef: useRef(null),
+//            profileRef: useRef(null),
+//            mvref: useRef(null),
+//            valRef: useRef(null)
+//        }
+  }
 
-    const [isTabActive, setIsTabActive] = useState(false);
-
-    useEffect(() => {
-      const header = document.getElementById("tabItems");
-      const sticky = header.offsetTop;
-      const scrollCallBack = window.addEventListener("scroll", () => {
-        if (window.pageYOffset > sticky) {
-          header.classList.add("sticky");
-        } else {
-          header.classList.remove("sticky");
+   
+    
+    componentDidMount (){
+        this.props.dispatch(get_about_us_details());
+        
+       
+//        useEffect(() => {
+//      const header = document.getElementById("tabItems");
+//      const sticky = header.offsetTop;
+//      const scrollCallBack = window.addEventListener("scroll", () => {
+//        if (window.pageYOffset > sticky) {
+//          header.classList.add("sticky");
+//        } else {
+//          header.classList.remove("sticky");
+//        }
+//      });
+//      return () => {
+//        window.removeEventListener("scroll", scrollCallBack);
+//      };
+//    }, []);
+    }
+    
+    drawFirstSectionData() {
+        const {abousUsDetails} = this.props.abousUsDetails;
+        if (Object.keys(this.state.errors).length > 0) {
+        return (
+            <div>
+            { Object.keys(abousUsDetails).length &&
+                abousUsDetails.map((item, idx) => {
+                    if (typeof item[0] != 'undefined') {
+                        return (
+                            <section className="content-section" id="section1" >
+                                <div className="container-fluid">
+                                    <div className="row">
+                                        <div className="heading-wrapper">
+                                            <h4 className="heading" />
+                                            <h4 className="heading-h4">{item[0].meta_title}</h4>
+                                        </div>
+                                        <div className="col-sm-9 col-md-9 pl-0">
+                                            {item[0].content}
+                                        </div>
+                                        <div className="col-sm-3 col-md-3 pl-0 pr-0">
+                                            <img className="img-fluid border-frame" src={picOne} alt="" />
+                                        </div>
+                                  </div>
+                                </div>
+                            </section>
+                        )
+                    }
+                }
+            )}
+            </div>
+        )
         }
-      });
-      return () => {
-        window.removeEventListener("scroll", scrollCallBack);
-      };
-    }, []);
-	//useMountEffect(() => scrollToRef(myRef)) // Scroll on mount
+    }
+  
 
+    
+	//useMountEffect(() => scrollToRef(myRef)) // Scroll on mount
+  render() {
+         
+//        const myRef = useRef(null);
+//        const profileRef = useRef(null);
+//        const mvref = useRef(null);
+//        const valRef= useRef(null);
+      console.log('....................................................');
+//      console.log(abousUsDetails.abousUsDetails);
+      
+//        const [isTabActive, setIsTabActive] = useState(false);
     return (
-        <div>
+            <div>
         <div className="banner-container">
         <div id="carousel" class="carousel slide" data-ride="carousel">
-          {/* <!-- carousel-fade-->
-          <!-- <ol class="carousel-indicators">
-          <li data-target="#carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel" data-slide-to="1" class=""></li>
-          <li data-target="#carousel" data-slide-to="2" class=""></li>
-          </ol> --> */}
 
         <div class="carousel-item bha_h_50 active">
             <picture>
@@ -63,7 +115,6 @@ const About = () =>{
             <div class="caption v_middle">
                 <h1 class="bha_heading_1 text-black-dark">Lorem ipsum dollar site amnt</h1>
                 <h5>Lorem ipsum dollar site amt. Lorem ipsum dollar site amt.Lorem ipsum dollar site amt.</h5>
-                {/* <!-- <a href="#" class="btn bha-btn-primary mt-4 pl-pr">view details</a> --> */}
             </div>
         </div>
       </div>
@@ -71,7 +122,6 @@ const About = () =>{
     
     
       <div id="tabItems">
-      {/* <FreeBrochure/> */}
       <section>
         <div className="container-fluid pl-0 pr-0">
           <ul className="tab-menu">
@@ -98,7 +148,6 @@ const About = () =>{
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className={myRef=="section2"? 'tablink js-scroll-trigger current':'tablink js-scroll-trigger'}
               >
                 Company Profile
               </Link>
@@ -138,43 +187,13 @@ const About = () =>{
         
         <div>
         
-       <section className="content-section" id="section1" ref={myRef}>
-          <div className="container-fluid">
-            <div className="row">
-              <div className="heading-wrapper">
-                <h4 className="heading" />
-                <h4 className="heading-h4">A Message from the CEO</h4>
-              </div>
-              <div className="col-sm-9 col-md-9 pl-0">
-                <p className="pr-5 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-                <p className="pr-5 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-                <p className="pr-5 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-              </div>
-              <div className="col-sm-3 col-md-3 pl-0 pr-0">
-                <img className="img-fluid border-frame" src={picOne} alt="" />
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="content-section" id="section2" ref={profileRef}>
-          <div className="container-fluid">
-            <div className="row">
-              <div className="heading-wrapper">
-                <h4 className="heading" />
-                <h4 className="heading-h4">Company Profile</h4>
-              </div>
-              <div className="col-sm-3 col-md-3 pl-0 pr-0">
-                <img className="img-fluid border-frame" src={picTwo} alt="" />
-              </div>
-              <div className="col-sm-9 col-md-9 pl-5">
-                <p className="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-                <p className="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-                <p className="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="mv-section" id="section3" ref={mvref}>
+       
+        {
+            
+                this.drawFirstSectionData()
+        }
+        
+        <section className="mv-section" id="section3" >
           <div className="container-fluid">
             <div className="row">
               <div className="heading-wrapper">
@@ -192,7 +211,7 @@ const About = () =>{
             </div>
           </div>
         </section>
-        <section className="content-section pb-4" id="section4" ref={valRef}>
+        <section className="content-section pb-4" id="section4" >
           <div className="container-fluid">
             <div className="row">
               <div className="heading-wrapper">
@@ -236,9 +255,14 @@ const About = () =>{
         </section>
 
         </div>
-      </div>
-          
+          </div>
     )
+  }
 }
 
-export default About;
+const mapStateToProps = state => {
+  return {
+    abousUsDetails: state
+  };
+};
+export default connect(mapStateToProps)(About);
