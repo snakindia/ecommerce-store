@@ -456,7 +456,7 @@ export default class ContentSection extends Component {
             <div class="form-group">
               <label>Email Address *</label>
               <input type="text" class="form-control input-control" name="email" value={values.email} onChange={handleChange}
-            onBlur={handleBlur} placeholder="Enter Email address" />
+            onBlur={handleBlur} placeholder="Enter Email Address" />
             <span className="errorMsg">{errors.email && touched.email && errors.email}</span>
             </div>
             <div class="form-group">
@@ -468,7 +468,7 @@ export default class ContentSection extends Component {
             <div class="form-group">
               <label>Message</label>
               <textarea type="text" class="form-control input-control" name="message" value={values.message} onChange={handleChange}
-            onBlur={handleBlur} placeholder="Enter message here..."></textarea>
+            onBlur={handleBlur} placeholder="Enter Message Here..."></textarea>
             <span className="errorMsg">{errors.message && touched.message && errors.message}</span>
             </div>
 

@@ -5,7 +5,9 @@ button reset==*/
   object-fit: cover !important;}
 
 /*.carousel-item.h_50{height: 300px}*/
-
+.input-group-append {
+    margin-left: -6px !important;
+}
 .modal { z-index: 10000 !important;}
 .pl-pr{padding:0.5rem 2rem !important}
 .bha-btn-primary{background:#23536b; color:#fff; font-weight: 500; padding:0.6rem 1.5rem;
@@ -72,8 +74,8 @@ figcaption{padding:5rem 3.2rem !important;}
 
 .bha-client li img{width: 245px !important}
 /*======Typography setting==*/
-.bha_heading_1{font-family: 'Oswald', sans-serif; font-size: 3rem; text-transform: uppercase; color:#fff;}
-.bha_heading_2{font-family: 'Oswald', sans-serif; font-size: 1.8rem; text-transform: uppercase; color:#fff;}
+.bha_heading_1{font-family: 'Oswald',sans-serif !important; font-size: 3rem; text-transform: uppercase; color:#fff}
+.bha_heading_2{font-family: 'Oswald',sans-serif !important; font-size: 1.8rem; text-transform: uppercase; color:#fff;}
 figcaption h4{text-transform: uppercase; font-size: 1.125rem}
 .headtoppart span ul{margin:0; padding:0;}
 .headtoppart span ul li a{color:#000 !important; padding:0.5rem 0; border-bottom: 1px solid #f2f2f2;width: 100%;
@@ -172,7 +174,7 @@ background-position: center; background-size: cover;
   padding:0.6rem 1rem; z-index: 100; transform: scale(1);transition: 0.3s;}
 .chat-button:hover{background: #555;  transform: scale(1.1);}
 
-.chat-button a{text-decoration: none; color:#fff100; font-size: 1.2rem; font-weight:700; text-align: center;}
+.chat-button a{text-decoration: none; color:#fff100 !important; font-size: 1.2rem; font-weight:700; text-align: center;}
 .carousel-indicators li{width:10px; height: 10px; border-radius: 100px; background: #fff}
 .carousel-indicators li.active{background: #4280fe}
 
@@ -390,60 +392,3 @@ input[type=text]:focus, input[type=password]:focus{box-shadow: none !important;}
 .bha-contry-list li a:hover{text-decoration: underline;  color:#f3f3f3;}
 .bha_h_100{height:80vh !important; width: 100%; object-fit:cover;}
 
-/*===========Inner page Css============*/
-* {box-sizing: border-box;}
-
-.page_link_item {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  /*max-width: 300px;*/
-  height: 280px;
-  margin-bottom: 2rem;
-}
-
-.image {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: 0.3s;
-  transform: scale(1);
-}
-
-.overlay {
-  position: absolute; 
-  bottom: 0; 
-  background: rgb(0, 0, 0);
-  background: rgba(36, 83, 107, 0.9); /* Black see-through */
-  color: #f1f1f1; 
-  width: 100%;
-  transition: .5s ease;
-  opacity:1;
-  color: white;
-  font-size: 20px;
-  padding: 20px;
-  text-align: center;
-}
-
-.page_link_item:hover .overlay {
-  opacity: 1;
-  background:#000;
-}
-.page_link_item:hover .image {
-  transform: scale(1.3);
-}
-/* Zoom Out #2 */
-/*.hover04 img {
-  width: 100%;
-  height: auto;
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
-}
-.hover04:hover img {
-  width: 300px;
-}*/
-.bha_category_head{background: #fff; text-align: center; float:left; padding: 2.5rem 0 1.5rem 0; width: 100%; position: relative;}
-.item-pro-inner{background: transparent; border:1px solid #a6dae8; padding:0.6rem; float:left;}
-.outer-wrpper{position: relative; background: #fff; border-radius:4px; box-shadow: 0px 0px 10px #ddd; 
-  margin-bottom: 2rem; width: 100%}
- 
