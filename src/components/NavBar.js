@@ -38,7 +38,6 @@ class NavBar extends React.Component {
 
   
   showMenu = (itemOneObj,index,e) =>{
-    console.log('itemOneObj@@',itemOneObj);
     const {name,image,items,slug,_id} = itemOneObj;
     let imageSrc = `${categoryImageUrl}/${_id}/${image}`;
     this.setState({coverImg:imageSrc,listItems:items,activeLink:index})
@@ -52,7 +51,6 @@ class NavBar extends React.Component {
     const {navMenuData} = this.props;
     const {subMenuData} = navMenuData;
     let subMenuArr = Object.keys(subMenuData).map((k) => subMenuData[k]);
-    console.log('submenuArr in drwa44',subMenuArr);
     return (
       <div className="wsshoptabing wtsdepartmentmenu clearfix" style={{zIndex:999}}>
               <div className="wsshopwp clearfix">
@@ -63,7 +61,6 @@ class NavBar extends React.Component {
                 {
                   subMenuArr && subMenuArr.map((itemOne,i)=>{
                     let itemOneObj = itemOne && itemOne[0];
-                    console.log('itemOneObj',itemOneObj);
                     const {name,image,items,slug,_id} = itemOneObj;
                     return (
                     <li className={activeLink == i ? "wsshoplink-active":"wsshoplink"} id={i == 0 ? 'firstEl':'other'+i} 
@@ -106,11 +103,7 @@ class NavBar extends React.Component {
     const {navMenuData} = this.props;
     const {menuData,subMenuData} = navMenuData;
     const {header_menu} = menuData;
-    console.log('submenuDta',subMenuData);
     let subMenuArr = Object.keys(subMenuData).map((k) => subMenuData[k]);
-    console.log('submenuArr',subMenuArr);
-    
-    
 
     return (
       <div class="headerfull h-25">

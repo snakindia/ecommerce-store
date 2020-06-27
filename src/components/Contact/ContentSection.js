@@ -30,7 +30,6 @@ export default class ContentSection extends Component {
   }
 
   recaptchaLoaded(){
-    console.log("Captcha successfuly lodaded")
   }
 
 // handleSubscribe(){
@@ -426,7 +425,6 @@ export default class ContentSection extends Component {
         return errors;
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        console.log(values.recaptcha)
         alert("Free Brochures Sucessfully")
         resetForm()
       }}
@@ -482,7 +480,7 @@ export default class ContentSection extends Component {
                   render="explicit"
                   theme="dark"
                   verifyCallback={(response) => { setFieldValue("recaptcha", response); }}
-                  onloadCallback={() => { console.log("done loading!"); }}
+                  onloadCallback={() => {  }}
                 />
 
                         <span className="errorMsg">{errors.recaptcha && touched.recaptcha && errors.recaptcha}</span>
