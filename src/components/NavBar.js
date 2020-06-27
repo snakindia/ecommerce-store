@@ -106,7 +106,7 @@ class NavBar extends React.Component {
     let subMenuArr = Object.keys(subMenuData).map((k) => subMenuData[k]);
 
     return (
-      <div class="headerfull h-25">
+      <div class="headerfull">
           <div class="wsmain clearfix">
             <div className="smllogo"><a href="/"><img className="d-block" src={Baghouselogo} alt="" width="200" /></a></div>
             <div className="wssearchbar clearfix">

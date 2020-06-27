@@ -27,7 +27,6 @@ export default class Products extends Component {
             }
         })
         
-        
     }
     
     getSubCategoryList = (id) => {

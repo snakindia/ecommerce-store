@@ -26,6 +26,8 @@ export const get_about_us_details = () => {
       return fetch(`${API_URL}/get_slug_details?slug=about`)
         .then(data => data.json())
         .then(data => {
+            console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+                    console.log(data);
             if (data.length === 0) {
                 throw new Error("No details found!!");
             } else dispatch(receive_post(data));

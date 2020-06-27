@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import { connect } from "react-redux";
 import htmlParse from "html-react-parser";
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -17,7 +17,10 @@ import innovationIcon from '../../assets/icon/innovation.svg';
 import leaderIcon from '../../assets/icon/leader.svg';
 import aboutBanner from '../../assets/images/DSC_7731.jpg';
 import {get_about_us_details} from '../../actions/pageActions';
-import { Sticky } from 'react-sticky';
+import { StickyContainer, Sticky } from 'react-sticky';
+
+
+const scrollToRef = (ref) => typeof window !== 'undefined' && window.scrollTo(0, ref.current.offsetTop)   
 
 class About extends React.Component {
 
@@ -26,20 +29,28 @@ class About extends React.Component {
         this.state = {
             activeTabID: '',
             curerentTabClass: 'tablink js-scroll-trigger current',
+             isSticky: true,
+//            abousUsDetails: {}
+//            myRef: useRef(null),
+//            profileRef: useRef(null),
+//            mvref: useRef(null),
+//            valRef: useRef(null)
         }
   }
 
     componentDidMount (){
         this.props.dispatch(get_about_us_details());
+//        this.state.activeTabID = '5ef12cc06419132054249c05';
     }
  
 
     
     setActiveClass = (id) => {
         this.setState({
-            activeTabID: id
-        })
-        this.drawMenu();
+      activeTabID: id
+    })
+        console.log('................................................');
+        console.log(this.state.activeTabID);
     }
     
     
@@ -47,81 +58,99 @@ class About extends React.Component {
         const  {abousUsDetails} = this.props;
         let abousUsObj = abousUsDetails.abousUsDetails;
         return (
+              
+  
+   <Sticky relative>
+          {({
+            style={top: 0},
+            isSticky=true,
+          }) => (
+            <div>
                 <div id="tabItems">
                     <section>
                         <div className="container-fluid pl-0 pr-0">
                             <ul className="tab-menu">
-                            {
-                                abousUsObj && Object.keys(abousUsObj).length &&
-                                abousUsObj.map((item, idx) => {
-                                    console.log('this.state.activeTabID' + this.state.activeTabID)
-                                     if (this.state.activeTabID == '') {
-                                        this.state.activeTabID = item.id;
-                                    }
-                                    return (
-                                        <li>
-                                            <Link activeClass={ this.state.activeTabID == item.id ? 'current' : ''}   to={idx} spy={true} smooth={true} offset={-70} duration={500} onClick={(e) => this.setActiveClass(item.id, e)}
-                                                className={ this.state.activeTabID == item.id ? 'tablink js-scroll-trigger current' : 'tablink js-scroll-trigger' } 
-                                              >
-                                                {item.meta_title}
-                                            </Link>
-                                        </li>
-                                    );
-                                })
-                            }
+                   {
+                       abousUsObj && Object.keys(abousUsObj).length &&
+                       abousUsObj.map((item, idx) => {
+                            if (idx == 0) {
+                               this.state.activeTabID = item.id;
+                           }
+                           return (
+                               <li>
+                                   <Link activeClass="current" spy={true} smooth={true} offset={-70} duration={500} onClick={(e) => this.setActiveClass(item.id, e)}
+                                       className={ this.state.activeTabID == item.id ? 'tablink js-scroll-trigger current' : 'tablink js-scroll-trigger' } 
+                                     >
+                                       {item.meta_title}
+                                   </Link>
+                               </li>
+                           );
+                       })
+                   }
 
                                 <li>
                                     <Link
-                                        activeClass=""
-                                        to="values"
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-70}
-                                        duration={500}
-                                        onClick={(e) => this.setActiveClass('values', e)}
-                                        className={ this.state.activeTabID == 'values' ? 'tablink js-scroll-trigger current' : 'tablink js-scroll-trigger' } 
-                                    >
-                                        Our Values
-                                    </Link>
+                                         activeClass="current"
+                                         to="section4"
+                                         spy={true}
+                                         smooth={true}
+                                         offset={-70}
+                                         duration={500}
+                                         className="tablink js-scroll-trigger"
+                                     >
+                                         Our Values
+                                     </Link>
                                 </li>
                             </ul>
                        </div>
-                </section>
+                    </section>
+                </div>
             </div>
+          )}
+        </Sticky>
+        
+    
+                
         )
     }
   
-    render() {
+
+    
+	//useMountEffect(() => scrollToRef(myRef)) // Scroll on mount
+  render() {
         const  {abousUsDetails} = this.props;
         let abousUsObj = abousUsDetails.abousUsDetails;
-        return (
-        
+//        const myRef = useRef(null);
+//        const profileRef = useRef(null);
+//        const mvref = useRef(null);
+//        const valRef= useRef(null);
+//      console.log(abousUsDetails.abousUsDetails);
+      
+//        const [isTabActive, setIsTabActive] = useState(false);
+    return (
             <div>
-                <div className="banner-container">
-                    <div id="carousel" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-item bha_h_50 active">
-                            <picture>
-                                <img src={team} alt="responsive image" class="d-block img-fluid" />
-                            </picture>
-                            <div class="caption v_middle">
-                                <h1 class="bha_heading_1 text-black-dark">Lorem ipsum dollar site amnt</h1>
-                                <h5>Lorem ipsum dollar site amt. Lorem ipsum dollar site amt.Lorem ipsum dollar site amt.</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                            
-                <div style={{ height: "450px" }} />
-                <Sticky topOffset={525}>
-                    {({ style }) => (
-                        <div style={{zIndex:"999", ...style }} >
-                            {this.drawMenu()}
-                        </div>
-                    )}
-                </Sticky>
-               <div>
-                { 
-                abousUsObj && Object.keys(abousUsObj).length &&
+              <StickyContainer>
+        <div className="banner-container">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+
+        <div class="carousel-item bha_h_50 active">
+            <picture>
+                <img src={team} alt="responsive image" class="d-block img-fluid" />
+              </picture>
+            <div class="caption v_middle">
+                <h1 class="bha_heading_1 text-black-dark">Lorem ipsum dollar site amnt</h1>
+                <h5>Lorem ipsum dollar site amt. Lorem ipsum dollar site amt.Lorem ipsum dollar site amt.</h5>
+            </div>
+        </div>
+      </div>
+    </div>
+   
+              {this.drawMenu()}
+           
+       
+        <div>
+        { 
+            abousUsObj && Object.keys(abousUsObj).length &&
                 abousUsObj.map((item, idx) => {
                    if (idx == 0) {
                         return (
@@ -188,9 +217,8 @@ class About extends React.Component {
                     }
             })
         }
-        </div>
-              
-               <section className="content-section pb-4" id="values" >
+       
+        <section className="content-section pb-4" id="section4" >
           <div className="container-fluid">
             <div className="row">
               <div className="heading-wrapper">
@@ -232,7 +260,10 @@ class About extends React.Component {
             </div>
           </div>
         </section>
+
         </div>
+          </StickyContainer>
+          </div>
     )
   }
 }
@@ -240,7 +271,6 @@ class About extends React.Component {
 const mapStateToProps = state => {
   return {
     abousUsDetails: state,
-    activeTabID: ''
     
   };
 };
