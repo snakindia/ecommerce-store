@@ -22,8 +22,11 @@ const Router = () =>{
             <Suspense fallback={<div>Loading...</div>}>
             <Switch>
                 <Route exact path="/" component={App} />
+                {/* <Route path="/:param1/:param2" component={ProductService} /> */}
+                {/* <Route path="/productserive/:param1/:param2/:param3" component={ProductServiceMenu} /> */}
                 <Route exact path="/home" component={App} />
                 <Route path="/about" component={About} />
+                <Route path="/about/:param1" component={About} />
                 <Route path="/product" component={ProductBody} />
                 <Route path="/brand" component={BrandBody} />
                 <Route path="/contact" component={ContactBody} />
