@@ -46,7 +46,9 @@ class NavBar extends React.Component {
     //this.setState({coverImg,listItems,activeLink:idx})
   }
 
-  drawSubMenu(){
+  drawSubMenu(baseUrl){
+    console.log('baseUrl',baseUrl);
+    
     const {coverImg,listItems,activeLink} = this.state;
     const {navMenuData} = this.props;
     const {subMenuData} = navMenuData;
@@ -66,7 +68,8 @@ class NavBar extends React.Component {
                     <li className={activeLink == i ? "wsshoplink-active":"wsshoplink"} id={i == 0 ? 'firstEl':'other'+i} 
                     key={i+Math.random()}
                     onClick={(e)=>this.showMenu(itemOneObj,i,e)} 
-                    onMouseEnter={(e)=>this.showMenu(itemOneObj,i,e)}><a data-src={Baghouse} >{name}</a>
+                    onMouseEnter={(e)=>this.showMenu(itemOneObj,i,e)}>
+                    <Link to={`${baseUrl}/${slug}`} data-src={Baghouse} >{name}</Link>
                     <div className="wstitemright clearfix wstpngsml">
                       <div className="container-fluid">
                         <div className="row custom-gutter">
@@ -74,8 +77,10 @@ class NavBar extends React.Component {
                             return (
                               <div className="col-lg-3 col-md-12" key={i+3}>
                               <ul className="wstliststy04 clearfix">
-                                <li><img className="scale-down" src={`${categoryImageUrl}/${_id}/${image}`} alt=" " /></li>
-                                <li className="wstheading clearfix"><a href="#">{itemTwo.name}</a></li>
+                                <li><img className="scale-down" src={`${categoryImageUrl}/${_id}/${image}`} alt="baghouse" /></li>
+                                <li className="wstheading clearfix">
+                                <Link to={`${baseUrl}/${slug}/${itemTwo.slug}`}>{itemTwo.name}</Link>
+                                </li>
                               </ul>
                             </div>
                             )
@@ -140,7 +145,7 @@ class NavBar extends React.Component {
                  return (
                   <li aria-haspopup="true" className="wsshopmyaccount float-left" key={idx+"a"}>
                   <Link to={item.url} className="font-weight-bold">{item.text}<span className="dropdown-toggle ml-2"></span></Link>
-                    {this.drawSubMenu()}
+                    {this.drawSubMenu(item.url)}
                   </li>
                  )
                }

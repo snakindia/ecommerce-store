@@ -28,6 +28,14 @@ and open the template in the editor.
     padding: 0.5rem 0;
 }
 
+.cd-breadcrumb li::after {
+    display: inline-block;
+    content: '' !important;
+    margin: 0;
+    padding-right: 1rem;
+    color: #646464;
+}
+
 .country-language li a{
     font-size: 0.8rem;
 }
@@ -48,4 +56,7 @@ and open the template in the editor.
     color: #000;
 }
 
+.text-right-sm.pr-3 {
+    transform: translate(10px, -62px);
+}
 

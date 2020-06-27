@@ -14,6 +14,7 @@ import "./assets/css/fade-down.css";
 import "./assets/css/webslidemenu.css";
 import "./assets/css/custom.css";
 import "./assets/css/white-gry.css";
+import "./assets/css/product.css"
 import "./index.css";
 import store from "./store";
 import { Provider } from "react-redux";
