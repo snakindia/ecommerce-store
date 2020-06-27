@@ -5,7 +5,7 @@ import EpicCover from '../assets/images/600X500-4.jpg'
 import Baghouse from '../assets/images/baghouse.jpg'
 import Baghouselogo from '../assets/images/baghouse_logo.svg';
 import { dropDownMenuProduct, API_URL,defaultMenuListItems,categoryImageUrl } from "../constants/appConstant";
-
+import { Sticky } from 'react-sticky';
 import {fetch_dynamic_menus,fetch_submenu_items} from '../actions/fetchActions'
 
 
@@ -137,6 +137,9 @@ class NavBar extends React.Component {
                 </div>
             </div>
         </div>
+         <Sticky topOffset={10}>
+            {({ style }) => (
+                <div style={{zIndex:"999", ...style }} >
       <nav className="wsmenu clearfix">
         <ul className="wsmenu-list">
            {
@@ -160,7 +163,9 @@ class NavBar extends React.Component {
            }
           </ul>
       </nav>
-       
+      </div>
+         )}
+                </Sticky>
       </div>
     );
   }

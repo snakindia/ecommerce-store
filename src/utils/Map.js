@@ -32,40 +32,41 @@ onClose = props => {
     return (
       <Map
         google={this.props.google}
-        zoom={2}
+        maxZoom={2}
+        minZoom={2}
         streetViewControl={false}
-        style={mapStyles}
-        
+        disableDefaultUI={true}
+        draggable={false}
       >
         <Marker
-        position={{ lat: 33.508058, lng: -112.028742 }}
+        position={{ lat: 33.508057, lng: -112.028742 }}
             onClick={this.onMarkerClick}
             name={'2415 East Camelback Road, Ste. 700, Phoenix, Arizona, P.O. Box: 6887, Goodyear, Arizona 85338, United States'}
         />
         
         <Marker
-            position={{ lat: 15.260204, lng: 74.109314 }}
+            position={{ lat: 41.331989, lng: -74.356819 }}
             onClick={this.onMarkerClick}
             name={'International Sales Office, North, South, & Central America, 801 Brickell Avenue, Suite 900, Miami, Florida, 33131, United States'}
         />
         
         <Marker
-            lat={-22.703280}
-            lng= {-43.414170}
+            lat={-22.906847}
+            lng= {-43.172897}
             onClick={this.onMarkerClick}
-            name={'South America, Edifício Candelária Corporate, Rua Candelária, 65, #1600, Rio de Janeiro, Brazil'}
+            name={'Edifício Candelária Corporate , Rua Candelária, 65, #1600, Rio de Janeiro, Brazil'}
         />
         
         <Marker
-            lat={32.08227}
-         lng= {34.81065}
+            lat={31.182882}
+         lng= {34.811615}
           onClick={this.onMarkerClick}
-          name={'International Sales Office - Eurasia & Oceania, 12 Abba Hillel Street, Suite 1600, 52136 Ramat-Gan, Tel-Aviv, Israel'}
+          name={'International Sales Office - 12 Abba Hillel Street, Suite 1600, 52136 Ramat-Gan, Tel-Aviv, Israel'}
         />
         
         <Marker
-            lat={-26.183470}
-         lng= {28.039500}
+            lat={-26.204103}
+         lng= {28.047304}
           onClick={this.onMarkerClick}
           name={'Africa- Block B & Block C, Metropolitan Park, 8 Hillside Road, Suite 1000 Parktown, Johannesburg, 2196, South Africa'}
         />

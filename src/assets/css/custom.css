@@ -60,3 +60,6 @@ and open the template in the editor.
     transform: translate(10px, -62px);
 }
 
+.carousel-control-next, .carousel-control-prev {
+    display: none;
+}

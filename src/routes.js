@@ -6,7 +6,7 @@ import NavBar from './components/NavBar';
 import { StickyContainer } from 'react-sticky';
 
 const App = lazy(() => import('./App'));
-const About = lazy(() => import('./pages/about/About'));
+const About = lazy(() => import('./components/About/About'));
 const ContactBody = lazy(() => import('./components/Contact/ContactBody'));
 const ProductBody = lazy(() => import('./components/Product/ProductBody'));
 const BrandBody = lazy(() => import('./components/Brand/BrandBody'));
