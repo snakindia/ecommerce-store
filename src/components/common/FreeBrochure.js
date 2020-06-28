@@ -8,9 +8,6 @@ import { Sticky } from 'react-sticky';
      return (
         
      
-           <Sticky topOffset={525}>
-            {({ style }) => (
-                <div style={{zIndex:"999", ...style }} >
                      <div className="form-outer float-left" id="brochureForm">
         <div className="container-fluid">
         <Formik
@@ -110,9 +107,7 @@ import { Sticky } from 'react-sticky';
     </Formik>
 
         </div>
-        </div>  </div>
-                    )}
-                </Sticky>
+        </div>  
     
      
      )

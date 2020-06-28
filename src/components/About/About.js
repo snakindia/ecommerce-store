@@ -111,14 +111,15 @@ class About extends React.Component {
                     </div>
                 </div>
                             
-                <div style={{ height: "450px" }} />
+                {/*<div style={{ height: "450px" }} />
                 <Sticky topOffset={525}>
                     {({ style }) => (
                         <div style={{zIndex:"999", ...style }} >
-                            {this.drawMenu()}
+                          
                         </div>
                     )}
-                </Sticky>
+                </Sticky>*/}
+                  {this.drawMenu()}
                <div>
                 { 
                 abousUsObj && Object.keys(abousUsObj).length &&

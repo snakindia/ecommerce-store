@@ -137,9 +137,7 @@ class NavBar extends React.Component {
                 </div>
             </div>
         </div>
-         <Sticky topOffset={10}>
-            {({ style }) => (
-                <div style={{zIndex:"999", ...style }} >
+        
       <nav className="wsmenu clearfix">
         <ul className="wsmenu-list">
            {
@@ -163,9 +161,7 @@ class NavBar extends React.Component {
            }
           </ul>
       </nav>
-      </div>
-         )}
-                </Sticky>
+      
       </div>
     );
   }
