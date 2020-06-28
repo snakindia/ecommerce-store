@@ -4,6 +4,7 @@ import TopBar from './components/TopBar';
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
 import { StickyContainer } from 'react-sticky';
+import GoogleTranslator from './components/common/GoogleTranslator';
 
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
@@ -18,7 +19,7 @@ const Router = () =>{
 
         <StickyContainer style={{overflowY: "auto"}} >
             <BrowserRouter>
-
+                <GoogleTranslator />
                 <TopBar />
                 <NavBar />
                 <Suspense fallback={<div>Loading...</div>}>

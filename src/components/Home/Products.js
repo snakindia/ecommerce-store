@@ -37,31 +37,6 @@ export default class Products extends Component {
         })
     }
     
-    drawCategory() {
-        const {category} = this.state;
-        return (
-            <div>
-                {
-                    Object.keys(category).length &&
-                        category.map((item, idx) => {
-                            if(idx == '0'){
-                                return (
-                                    <li><Link className={ this.state.activeId === item.id ? 'tablink current' : 'tablink' } onClick={(e) => this.getSubCategoryList(item.id, e)}>{item.name}</Link></li>
-                                )
-                            } else {
-                                return (
-                                    <li><Link className={this.state.activeId === item.id? 'tablink current' : 'tablink' } onClick={(e) => this.getSubCategoryList(item.id, e)}>{item.name}</Link></li>
-                                )
-                        }
-                        
-                   
-                    })
-                }
-                
-            </div>
-        )
-    }
-    
     drawSubCategory() {
         const {subCategory} = this.state;
        
@@ -81,7 +56,7 @@ export default class Products extends Component {
                                               {item.name}
                                             </div>
                                             <div class="product-tag">
-                                              DCS574W1
+                                              {item.sku}
                                             </div>
 
                                             <div class="prod-details-link">
@@ -104,17 +79,40 @@ export default class Products extends Component {
             infinite: true
         };
         
+        const CategorySettings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 5,
+            slidesToScroll: 1
+        };
+         
+        const {category} = this.state;
+        
         return (
               <section className="bha-product-section">
                 <div className="tab-container">
                     <ul className="tab-inner">
-                        <a className="left-control" href=""><i className="fa fa-chevron-left" aria-hidden="true"></i></a>
-                       
-                            {this.drawCategory()}
-                        <a className="right-control" href=""><i className="fa fa-chevron-right" aria-hidden="true"></i></a>
+                        <Slider {...CategorySettings}> {
+                            Object.keys(category).length &&
+                                category.map((item, idx) => {
+                                   if (idx == '0'){
+                                        return (
+                                            <li><Link className={ this.state.activeId === item.id ? 'tablink current' : 'tablink' } onClick={(e) => this.getSubCategoryList(item.id, e)}>{item.name}</Link></li>
+                                        )
+                                    } else {
+                                        return (
+                                            <li><Link className={this.state.activeId === item.id? 'tablink current' : 'tablink' } onClick={(e) => this.getSubCategoryList(item.id, e)}>{item.name}</Link></li>
+                                        )
+                                    }
+                                })
+                            }   
+                        </Slider>
                         <div class="brands-head">Brands</div>
                     </ul>
                 </div>
+                              
+                
                   <div class="item-wraper mt-5">
                       <div class="resp-tabs-container">
                           <div id="mis" class="tab-pane active show">

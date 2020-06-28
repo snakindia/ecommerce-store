@@ -77,7 +77,7 @@ class NavBar extends React.Component {
                             return (
                               <div className="col-lg-3 col-md-12" key={i+3}>
                               <ul className="wstliststy04 clearfix">
-                                <li><img className="scale-down" src={`${categoryImageUrl}/${_id}/${image}`} alt="baghouse" /></li>
+                                <li><img className="scale-down" src={`${categoryImageUrl}/${itemTwo._id}/${itemTwo.image}`} alt="baghouse" /></li>
                                 <li className="wstheading clearfix">
                                 <Link to={`${baseUrl}/${slug}/${itemTwo.slug}`}>{itemTwo.name}</Link>
                                 </li>
@@ -90,13 +90,8 @@ class NavBar extends React.Component {
                     </div>
                   </li>
                     )
-
-
                   })
-                    
-                  
                 }
-                  
                 </ul>
               </div>
             </div>
@@ -111,15 +106,15 @@ class NavBar extends React.Component {
     let subMenuArr = Object.keys(subMenuData).map((k) => subMenuData[k]);
 
     return (
-      <div class="headerfull">
-          <div class="wsmain clearfix">
+      <div className="headerfull">
+          <div className="wsmain clearfix">
             <div className="smllogo"><a href="/"><img className="d-block" src={Baghouselogo} alt="" width="200" /></a></div>
             <div className="wssearchbar clearfix">
-                <form class="topmenusearch clearfix">
+                <form className="topmenusearch clearfix">
                     <div className="input-group mb-3">
                         <input type="text" className="form-control" placeholder="What are you looking for..." />
                         <div className="input-group-append">
-                            <button class="btn btn-bha-primary" type="button"><i class="fa fa-search pl-0 pr-2"></i>Search</button>
+                            <button className="btn btn-bha-primary" type="button"><i className="fa fa-search pl-0 pr-2"></i>Search</button>
                         </div>
                     </div>
                 </form>

@@ -9,7 +9,6 @@ import Globe from '../assets/icon/globe.svg';
 import { Formik } from 'formik';
 import axios from 'axios';
 import base64 from 'buffer';
-//import utf8 from 'utf8'
 import { setUserSession } from '../utils/Common';
 import { API_AJAX_URL } from "../constants/appConstant";
 //import CookieHandler from '../utils/cookieHandler.js';
@@ -35,14 +34,14 @@ class TopBar extends Component {
     render() {
         return (
             <div>
-                <div class="headtoppart">
-                    <div class="topbar">
-                      <div class="headerwp">
-                          <div class="mobile pt-2 font-weight-bold pl-0" style={{float:'left'}}>
+                <div className="headtoppart">
+                    <div className="topbar">
+                      <div className="headerwp">
+                          <div className="mobile pt-2 font-weight-bold pl-0" style={{float:'left'}}>
                                 CALL US: (888) 286-8708
                           </div>
-                          <div class="float-right">
-                            <ul class="toplink">
+                          <div className="float-right">
+                            <ul className="toplink">
                               <li><a href="/"><img src={Cart} alt="" width="20" />Cart</a></li>
                               <span>&nbsp;</span>
                               <li>
@@ -212,18 +211,18 @@ class TopBar extends Component {
 
       </MDBModal>
 
-    {/* <div class="headtoppart">
-  <div class="topbar">
-      <div class="headerwp">
-          <div class="mobile pt-2 font-weight-bold pl-0" style={{float:'left'}}>
+    {/* <div className="headtoppart">
+  <div className="topbar">
+      <div className="headerwp">
+          <div className="mobile pt-2 font-weight-bold pl-0" style={{float:'left'}}>
             CALL US: (888) 286-8708
           </div>
-          <div class="float-right">
+          <div className="float-right">
             <a href=""><img src={Cart} alt="" width="20" />Cart</a>
             <span>&nbsp;</span>
             <a href="/" data-toggle="modal"><img src={Profile} alt="" width="20" />login/signup</a>
             <span>&nbsp;</span>
-              <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src={Globe} alt="" width="20" />EN</a>
+              <a href="/" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src={Globe} alt="" width="20" />EN</a>
             
           </div>
       </div>

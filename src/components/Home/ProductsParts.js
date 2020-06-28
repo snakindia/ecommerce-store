@@ -37,7 +37,7 @@ export default class ProductsPart extends Component {
                     data.map((item, idx) => {
                         if(item.image != ''){
                             return (
-                                <div className="product-item-wrapper">
+                                <div key={idx} className="product-item-wrapper">
                                     <div className="card">
                                         <figure className="imghvr-push-up">
                                             <img src={item.image} alt="Card image" />
