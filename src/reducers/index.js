@@ -3,7 +3,8 @@ const initialState = {
     isFetching: false,
     isError: false,
     subMenuData :{},
-    abousUsDetails: {}
+    abousUsDetails: {},
+    freeBrochuresUserDetail: {}
 };
   
 const asyncReducer = (state = initialState, action) => {
@@ -45,6 +46,11 @@ const asyncReducer = (state = initialState, action) => {
         case "FETCHED_ABOUT_US_PAGE_DETAILS":
             return Object.assign({}, state, {
                 abousUsDetails: action.data,
+            });
+            
+        case "SAVE_FREE_BROCHURES_USER":
+            return Object.assign({}, state, {
+                freeBrochuresUserDetail: action.data,
             });
         
       default:

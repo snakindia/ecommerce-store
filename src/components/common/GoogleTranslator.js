@@ -5,7 +5,6 @@ export default class GoogleTranslator extends Component {
     googleTranslateElementInit () {
         new window.google.translate.TranslateElement({
             pageLanguage: 'en', 
-            includedLanguages: 'ar,en,es,jv,ko,pa,pt,ru,zh-CN', 
             multilanguagePage: false,
             layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
             autoDisplay: false

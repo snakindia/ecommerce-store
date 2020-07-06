@@ -118,3 +118,10 @@ and open the template in the editor.
 }
 
 .goog-te-banner-frame.skiptranslate {display: none!important;} 
+.modal-open {
+    top: 0px !important;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    display: none;
+}

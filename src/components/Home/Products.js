@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import Slider from "react-slick";
 import axios from 'axios';
-import {API_URL} from './../../constants/appConstant';
+import {API_URL, API_IMAGE_PATH} from './../../constants/appConstant';
 
 export default class Products extends Component {
         
@@ -12,11 +12,12 @@ export default class Products extends Component {
             category: {},
             subCategory: {},
             activeId: '',
-            firstCategoryId: ''
+            firstCategoryId: '',
+            image_url: ''
         };
     }
     
-    componentDidMount(){
+    componentDidMount() {
         axios.get(API_URL + "/get_branded_category_list?fields=name")
             .then((res)=> {
             this.setState({category: res.data});
@@ -26,7 +27,6 @@ export default class Products extends Component {
                 this.state.activeId = res.data[0].id;
             }
         })
-        
     }
     
     getSubCategoryList = (id) => {
@@ -46,12 +46,12 @@ export default class Products extends Component {
                     Object.keys(subCategory).length &&
                     subCategory.map((item, idx) => {
                         return (
+                        
                             <div class="product-card-wrapper" style={{position: "relative"}}>
                                 <a href="#" >
                                     <div class="product-card hvr-float-shadow">
                                         <div class="product-card-inner">
-
-                                            <img class="img-fluid" src={item.images[0].url} alt="" style={{width: "262px", height: "280px"}}/>
+                                            <img class="img-fluid" src={item.images.length > 0 ? item.images[0].url : API_IMAGE_PATH + 'default/default.jpg'} alt="" style={{width: "262px", height: "280px"}}/>
                                             <div class="product-description">
                                               {item.name}
                                             </div>

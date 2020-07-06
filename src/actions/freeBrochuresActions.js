@@ -3,13 +3,13 @@ import {API_URL} from '../constants/appConstant'
 
 export const fetch_post = () => {
     return {
-          type: "FETCHED_ABOUT_US_PAGE_DETAILS"
+          type: "SAVE_FREE_BROCHURES_USER"
     };
 };
 
 export const receive_post = post => {
     return {
-        type: "FETCHED_ABOUT_US_PAGE_DETAILS",
+        type: "SAVE_FREE_BROCHURES_USER",
         data: post
     };
 };
@@ -20,10 +20,15 @@ export const receive_error = () => {
     };
 };
 
-export const get_about_us_details = () => {
-    store.dispatch(fetch_post());
+export const save_brochures_details = (data) => {
+    console.log(JSON.stringify(data));
+    store.dispatch(fetch_post(data));
     return function(dispatch, getState) {
-      return fetch(`${API_URL}/get_slug_details?slug=about`)
+      return fetch(`${API_URL}/save_brouchures`,   
+        { 
+            headers: { 'Content-Type': 'application/json' }, 
+            method: 'post', body: JSON.stringify(data)}
+        )
         .then(data => data.json())
         .then(data => {
             if (data.length === 0) {

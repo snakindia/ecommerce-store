@@ -79,7 +79,7 @@ class TopBar extends Component {
     }
       onSubmit={(values, { setSubmitting }) => {
 
-        axios.post(API_AJAX_URL + 'login', values)
+        axios.post(API_AJAX_URL + '/login', values)
         .then(function (response) {
             response = Buffer.from(response.data, 'base64').toString('ascii');
             response = JSON.parse(response);

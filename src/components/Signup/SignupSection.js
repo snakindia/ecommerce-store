@@ -2,7 +2,6 @@ import React, { Component, useEffect } from 'react'
 import { Formik } from 'formik';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import { API_AJAX_URL } from "../../constants/appConstant";
 export default class SignupSection extends Component {
     constructor(props){
         super(props);
@@ -120,8 +119,27 @@ export default class SignupSection extends Component {
                   return errors;
                 }
               }
-                onSubmit={(values, { resetForm, props }) => {
-                    this.state.show = false;
+                     onSubmit={(values, { resetForm, props }) => {
+        console.log(values)
+        
+        axios.post('http://127.0.0.1:3001/ajax/register', values)
+        .then(function (response) {
+          console.log(response)
+          if(response.data.isRightToken===true && response.data.status===true){
+            alert("Data is update sucessfully" )
+            resetForm({values:''});
+            return <Redirect from="/sign-up" to="/home.html" />   
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        
+        
+        // setTimeout(() => {
+        //   alert(JSON.stringify(values, null, 1));
+        //   setSubmitting(false);
+        // }, 400);
                 }}
               >
                         {({

@@ -1,25 +1,42 @@
 import React,{useEffect} from 'react';
-import './freebrochure.css'
+import { connect } from "react-redux";
+import './../../assets/css/freebrochure.css'
 import { Formik } from 'formik';
 import { Sticky } from 'react-sticky';
+import {save_brochures_details} from '../../actions/freeBrochuresActions';
 
- const FreeBrochure = () => {
+class FreeBrochure extends React.Component {
 
-     return (
+    constructor(props){
+        super(props);
+        this.state = {
+            data: {}
+        };
+    }
+    
+    saveHandler(data) {
+        this.props.dispatch(save_brochures_details(data));
+        //resetForm()
+    }
+    
+    
+    render() {
         
-     
-                     <div className="form-outer float-left" id="brochureForm">
-        <div className="container-fluid">
+        this.state.data = this.props.freeBrochuresUserDetail;
+        
+        return (
+            <div className="form-outer float-left" id="brochureForm">
+                <div className="container-fluid">
         <Formik
-      initialValues={{ fname: '', companyname: '', email: '',  phone: '' }}
+      initialValues={{ name: '', company: '', email: '',  phone: '' }}
       validate={values => {
         const errors = {};
-        if (!values.fname) {
-          errors.fname = 'Name is required';
+        if (!values.name) {
+          errors.name = 'Name is required';
         } else if (
-          !/^[a-zA-Z ]*$/i.test(values.fname)
+          !/^[a-zA-Z ]*$/i.test(values.name)
         ) {
-          errors.fname = 'Please enter alphabet characters only';
+          errors.name = 'Please enter alphabet characters only';
         }
 
         
@@ -31,12 +48,12 @@ import { Sticky } from 'react-sticky';
           errors.phone = 'Please enter valid phone number';
         }
 
-        if (!values.companyname) {
-          errors.companyname = 'Company name is required';
+        if (!values.company) {
+          errors.company = 'Company name is required';
         } else if (
-          !/^[a-zA-Z ]*$/i.test(values.companyname)
+          !/^[a-zA-Z ]*$/i.test(values.company)
         ) {
-          errors.companyname = 'Please enter alphabet characters only';
+          errors.company = 'Please enter alphabet characters only';
         }
 
 
@@ -51,8 +68,8 @@ import { Sticky } from 'react-sticky';
         return errors;
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        alert("Free Brochures Sucessfully")
-        resetForm()
+            this.saveHandler(values)
+            
       }}
     >
       {({
@@ -64,54 +81,60 @@ import { Sticky } from 'react-sticky';
         handleSubmit,
         isSubmitting,
         /* and other goodies */
-      }) => (<form onSubmit={handleSubmit}>
+      }) => (
+        <form onSubmit={handleSubmit}>
             <div className="row custom-gutter">
-              <div className="col-lg-2 col-sm-6 col-md-4 mt-4"><h2 className="bha_heading_2">Free Brochures</h2></div>
-              <div className="col-lg-2 col-sm-6 col-md-4">
-                <div className="form-group">
-                  <label htmlFor="name">Name *</label>
-                  <input type="text" className="form-control" name="fname" value={values.fname} onChange={handleChange}
-            onBlur={handleBlur} placeholder="Enter Name" />
-            <span className="errorMsg">{errors.fname && touched.fname && errors.fname}</span>
-
-                </div>
-              </div>
-              <div className="col-lg-2 col-sm-6 col-md-4">
-                <div className="form-group">
-                  <label htmlFor="phone">Phone *</label>
-                  <input type="text" className="form-control" value={values.phone} onChange={handleChange}
-            onBlur={handleBlur} name="phone" placeholder="Enter Phone" />
-                  <span className="errorMsg">{errors.phone && touched.phone && errors.phone}</span>
-                </div>
-              </div>
-              <div className="col-lg-2 col-sm-6 col-md-4">
-                <div className="form-group">
-                  <label htmlFor="emailaddress">Email Address *</label>
-                  <input type="text" className="form-control" name="email" value={values.email} onChange={handleChange}
-            onBlur={handleBlur} placeholder="Enter Email" />
-                    <span className="errorMsg">{errors.email && touched.email && errors.email}</span> 
-                </div>
-              </div>
-              <div className="col-lg-2 col-sm-6 col-md-4">
-                <div className="form-group">
-                  <label htmlFor="companyname">Company Name *</label>
-                  <input type="text" className="form-control" name="companyname" value={values.companyname} onChange={handleChange}
-            onBlur={handleBlur} placeholder="Enter Company Name" />
-                        <span className="errorMsg">{errors.companyname && touched.companyname && errors.companyname}</span> 
-
-                </div>
-              </div>
-              <div className="col-lg-2 col-sm-6 col-md-4 mt-4"><button type="submit"  className="btn bha-btn-primary w-100">Subscribe</button></div>
-            </div>
-          </form>)}
+                <div className="col-lg-2 col-sm-6 col-md-4 mt-4"><h2 className="bha_heading_2">Free Brochures</h2></div>
+                    <div className="col-lg-2 col-sm-6 col-md-4">
+                        <div className="form-group">
+                            <label htmlFor="name">Name *</label>
+                            <input type="text" className="form-control" name="name" value={values.name} onChange={handleChange} onBlur={handleBlur} placeholder="Enter Name" />
+                            <span className="errorMsg">{errors.name && touched.name && errors.name}</span>
+                        </div>
+                    </div>
+                    
+                    <div className="col-lg-2 col-sm-6 col-md-4">
+                        <div className="form-group">
+                            <label htmlFor="phone">Phone *</label>
+                            <input type="text" className="form-control" value={values.phone} onChange={handleChange} onBlur={handleBlur} name="phone" placeholder="Enter Phone" />
+                            <span className="errorMsg">{errors.phone && touched.phone && errors.phone}</span>
+                        </div>
+                    </div>
+                    
+                    <div className="col-lg-2 col-sm-6 col-md-4">
+                        <div className="form-group">
+                            <label htmlFor="emailaddress">Email Address *</label>
+                            <input type="text" className="form-control" name="email" value={values.email} onChange={handleChange} onBlur={handleBlur} placeholder="Enter Email" />
+                            <span className="errorMsg">{errors.email && touched.email && errors.email}</span> 
+                        </div>
+                    </div>
+                    
+                    <div className="col-lg-2 col-sm-6 col-md-4">
+                        <div className="form-group">
+                            <label htmlFor="company">Company Name *</label>
+                            <input type="text" className="form-control" name="company" value={values.company} onChange={handleChange} onBlur={handleBlur} placeholder="Enter Company Name" />
+                            <span className="errorMsg">{errors.company && touched.company && errors.company}</span> 
+                        </div>
+                    </div>
+                    
+                    <div className="col-lg-2 col-sm-6 col-md-4 mt-4"><button type="submit"  className="btn bha-btn-primary w-100" >Subscribe</button></div>
+                        { this.state.data && Object.keys(this.state.data).length > 0 && this.state.data.status == true &&
+                            <div style={{color: "green", "background-color": "#fff"}}>Data saved successfully</div>
+                        }
+                    </div>
+        </form>)}
     </Formik>
 
-        </div>
-        </div>  
-    
-     
+</div>
+</div>  
      )
+    }
 
 }
 
-export default FreeBrochure
+const mapStateToProps = state => {
+    return {
+        freeBrochuresUserDetail: state.freeBrochuresUserDetail
+    };
+};
+export default connect(mapStateToProps)(FreeBrochure);

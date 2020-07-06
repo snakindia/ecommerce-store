@@ -10,13 +10,28 @@ import Pintrest from '../assets/images/pintrest.png'
 import Footerlogo from '../assets/images/footer-logo.png'
 import Chat from '../assets/icon/chat.svg'
 import {fetch_dynamic_menus} from '../actions/fetchActions';
+import {save_brochures_details} from '../actions/freeBrochuresActions';
 
 class Footer extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            brochureData: {}
+        };
+    }
+    
+    saveHandler(data) {
+        this.props.dispatch(save_brochures_details(data));
+        //resetForm()
+    }
+    
   componentDidMount (){
     this.props.dispatch(fetch_dynamic_menus())
  }
   render() {
+    this.state.brochureData = this.props.freeBrochuresUserDetail;
+    console.log('this.state.brochureData' + this.state.brochureData);
     const {navMenuData} = this.props;
     const {menuData} = navMenuData;
     const {
@@ -116,32 +131,31 @@ class Footer extends Component {
               <h2 className="bha_heading_2">Free Brochures</h2>
               <p className="mt-3">Sign up to receive the lates infor on new Baghouse products, special offers and more.</p>
               <Formik
-      initialValues={{ fname: '', companyname: '', email: '',  phone: '' }}
+      initialValues={{ name: '', company: '', email: '',  phone: '' }}
       validate={values => {
         const errors = {};
-        if (!values.fname) {
-          errors.fname = 'Name is required';
+        if (!values.name) {
+          errors.name = 'Name is required';
         } else if (
-          !/^[a-zA-Z ]*$/i.test(values.fname)
+          !/^[a-zA-Z ]*$/i.test(values.name)
         ) {
-          errors.fname = 'Please enter alphabet characters only';
+          errors.name = 'Please enter alphabet characters only';
         }
 
         
         if (!values.phone) {
-          errors.phone = 'Phone number is required';
-        } else if (
-          !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(values.phone)
+            errors.phone = 'Phone number is required';
+        } else if (!/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(values.phone)
         ) {
-          errors.phone = 'Please enter valid phone number';
+            errors.phone = 'Please enter valid phone number';
         }
 
-        if (!values.companyname) {
-          errors.companyname = 'Company name is required';
+        if (!values.company) {
+            errors.company = 'Company name is required';
         } else if (
-          !/^[a-zA-Z ]*$/i.test(values.companyname)
+          !/^[a-zA-Z ]*$/i.test(values.company)
         ) {
-          errors.companyname = 'Please enter alphabet characters only';
+            errors.company = 'Please enter alphabet characters only';
         }
 
 
@@ -156,8 +170,8 @@ class Footer extends Component {
         return errors;
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        alert("Free Brochures Sucessfully")
-        resetForm()
+        this.saveHandler(values);
+//        resetForm()
       }}
     >
       {({
@@ -183,13 +197,13 @@ class Footer extends Component {
                   type="text"
                   id="defaultFormCardNameEx"
                   className="form-control"
-                  name="fname" 
-                  value={values.fname} 
+                  name="name" 
+                  value={values.name} 
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Enter Name"
                 />
-                <span className="errorMsg">{errors.fname && touched.fname && errors.fname}</span>
+                <span className="errorMsg">{errors.name && touched.name && errors.name}</span>
                 </form>
                 </MDBCol>
                 <MDBCol md="6">
@@ -252,12 +266,12 @@ class Footer extends Component {
                   id="defaultFormCardNameEx"
                   className="form-control"
                   placeholder="Enter Company Name"
-                  name="companyname" 
-                  value={values.companyname} 
+                  name="company" 
+                  value={values.company} 
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                 <span className="errorMsg">{errors.companyname && touched.companyname && errors.companyname}</span> 
+                 <span className="errorMsg">{errors.company && touched.company && errors.company}</span> 
 
                 </form>
 
@@ -271,9 +285,13 @@ class Footer extends Component {
                   Policy or Contact Us at support.bhaghouse@gamil.com.
                 </p>
                 <div class="mt-5"><button type="button"  onClick={() =>{handleSubmit()}} class="btn bha-btn-primary w-100">subscribe</button></div>
+                     { this.props.brochureData && Object.keys(this.props.brochureData).length > 0 && this.props.brochureData.status == true &&
+                            <div style={{color: "green", "background-color": "#fff"}}>Data saved successfully</div>
+                        }
                 </form>)}
     </Formik>
     <div class="chat-button pulse"><a href="/"><img src={Chat} class="mr-2" alt="" width="30" />Live Chat</a></div>
+   
             </div>
           </div>
         </MDBCol>
@@ -325,8 +343,9 @@ class Footer extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    navMenuData: state
-  };
+    return {
+        navMenuData: state,
+        brochureData: state.freeBrochuresUserDetail
+    };
 };
 export default connect(mapStateToProps)(Footer);
