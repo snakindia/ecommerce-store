@@ -1,5 +1,5 @@
 import store from "../store";
-import {API_URL} from '../constants/appConstant'
+import {getSlugDetailUrl} from "../constants/urls";
 
 export const fetch_post = () => {
     return {
@@ -23,7 +23,7 @@ export const receive_error = () => {
 export const get_about_us_details = () => {
     store.dispatch(fetch_post());
     return function(dispatch, getState) {
-      return fetch(`${API_URL}/get_slug_details?slug=about`)
+      return fetch(getSlugDetailUrl)
         .then(data => data.json())
         .then(data => {
             if (data.length === 0) {

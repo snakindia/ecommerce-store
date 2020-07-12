@@ -1,5 +1,5 @@
 import store from "../store";
-import {API_URL} from '../constants/appConstant'
+import {menuProductUrl, settingsUrl} from "../constants/urls";
 
 export const fetch_post = () => {
   return {
@@ -23,7 +23,7 @@ export const receive_error = () => {
 export const fetch_dynamic_menus = () => {
     store.dispatch(fetch_post());
     return function(dispatch, getState) {
-      return fetch(`${API_URL}/theme/settings`)
+      return fetch(settingsUrl)
         .then(data => data.json())
         .then(data => {
           if (data.message === "Not Found") {
@@ -52,7 +52,7 @@ export const fetch_submenu_post = () => {
 export const fetch_submenu_items = () => {
     store.dispatch(fetch_submenu_post());
     return function(dispatch, getState) {
-      return fetch(`${API_URL}/menu_product_categories`)
+      return fetch(menuProductUrl)
         .then(data => data.json())
         .then(data => {
           if (data.message === "Not Found") {

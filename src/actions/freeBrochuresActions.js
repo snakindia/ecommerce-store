@@ -1,5 +1,5 @@
 import store from "../store";
-import {API_URL} from '../constants/appConstant'
+import {saveBrochureUrl} from "../constants/urls";
 
 export const fetch_post = () => {
     return {
@@ -24,7 +24,7 @@ export const save_brochures_details = (data) => {
     console.log(JSON.stringify(data));
     store.dispatch(fetch_post(data));
     return function(dispatch, getState) {
-      return fetch(`${API_URL}/save_brouchures`,   
+      return fetch(saveBrochureUrl,
         { 
             headers: { 'Content-Type': 'application/json' }, 
             method: 'post', body: JSON.stringify(data)}
