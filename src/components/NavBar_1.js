@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import EpicCover from '../assets/images/600X500-4.jpg'
 import Baghouse from '../assets/images/baghouse.jpg'
 import Baghouselogo from '../assets/images/baghouse_logo.svg';
-import MenuLogo from '../assets/images/menu-logo.jpg';
 import { dropDownMenuProduct, API_URL,defaultMenuListItems,categoryImageUrl } from "../constants/appConstant";
 import { Sticky } from 'react-sticky';
 import {fetch_dynamic_menus,fetch_submenu_items} from '../actions/fetchActions'
@@ -48,6 +47,7 @@ class NavBar extends React.Component {
   }
 
   drawSubMenu(baseUrl){
+    console.log('baseUrl',baseUrl);
     
     const {coverImg,listItems,activeLink} = this.state;
     const {navMenuData} = this.props;
@@ -59,7 +59,7 @@ class NavBar extends React.Component {
                 <div className="image-holder">
                     <img src={!coverImg ? EpicCover : coverImg} alt="" width="300" height="150" />
                   </div>
-                <ul className="wsmenu-list">
+                <ul className="wstabitem clearfix">
                 {
                   subMenuArr && subMenuArr.map((itemOne,i)=>{
                     let itemOneObj = itemOne && itemOne[0];
@@ -106,42 +106,58 @@ class NavBar extends React.Component {
     let subMenuArr = Object.keys(subMenuData).map((k) => subMenuData[k]);
 
     return (
-        <div className="headerfull">
-            <div class="smllogo logo-left">
-                <a href="#" class="anchor-logo">
-                    <img class="d-block pt-1" src={MenuLogo} alt="" width="200" />
-                </a>
-            </div>
-
-            <div class="wsmain clearfix">
-                <nav className="wsmenu clearfix">
-                    <ul className="wsmenu-list">
-                    {
-                        header_menu && header_menu.map((item,idx)=>{
-                            if (idx ==2){
-                                return (
-                                    <li aria-haspopup="true" key={idx+"a"}>
-                                        <Link to={item.url} className="navtext text-uppercase">{item.text}</Link>
-                                        {this.drawSubMenu(item.url)}
-                                    </li>
-                                )
-                            } else{
-                                return <li aria-haspopup="true"  key={idx+"dd"}>
-                                      <Link to={item.url} className="navtext text-uppercase">{item.text}</Link>
-                                    </li>
-                            }
-                        })
-                    }
-                        <li aria-haspopup="true">
-                            <a href="#myModal" data-toggle="modal" class="bha-btn-secondry hotLink mr-2 ml-2">request a quote</a>
-                        </li>
-                        <li aria-haspopup="true">
-                            <a href="#" class="bha-btn-primary hotLink pl-2 pr-2">shop now</a>
-                        </li>
-                    </ul>
-                </nav>
+      <div className="headerfull">
+          <div className="wsmain clearfix">
+            <div className="smllogo"><a href="/"><img className="d-block" src={Baghouselogo} alt="" width="200" /></a></div>
+            <div className="wssearchbar clearfix">
+                <form className="topmenusearch clearfix">
+                    <div className="input-group mb-3">
+                        <input type="text" className="form-control" placeholder="What are you looking for..." />
+                        <div className="input-group-append">
+                            <button className="btn btn-bha-primary" type="button"><i className="fa fa-search pl-0 pr-2"></i>Search</button>
+                        </div>
+                    </div>
+                </form>
+            
+                <div className="right-section">
+                    <div className="call_us mr-4">
+                        CALL US: <br />(888) 739-1794 
+                    </div>
+                    <div className="hotLink mr-3 float-left">
+                        <a href="/" className="bha-btn-secondry">request a quote</a>
+                    </div>
+                    <div className="hotLink float-left">
+                        <a href="/" className="bha-btn-primary">shop now</a>
+                    </div>
+                </div>
             </div>
         </div>
+        
+      <nav className="wsmenu clearfix">
+        <ul className="wsmenu-list">
+           {
+             header_menu && header_menu.map((item,idx)=>{
+               if(idx ==2){
+                 return (
+                  <li aria-haspopup="true" className="wsshopmyaccount float-left" key={idx+"a"}>
+                  <Link to={item.url} className="font-weight-bold">{item.text}<span className="dropdown-toggle ml-2"></span></Link>
+                    {this.drawSubMenu(item.url)}
+                  </li>
+                 )
+               }
+               else{
+                 return <li aria-haspopup="true" className="wsshopmyaccount float-left" key={idx+"dd"}>
+                         <Link to={item.url} className="font-weight-bold">{item.text}</Link>
+                        </li>
+               }
+              
+
+             })
+           }
+          </ul>
+      </nav>
+      
+      </div>
     );
   }
 }
