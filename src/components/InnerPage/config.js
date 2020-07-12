@@ -1,6 +1,5 @@
 import linkImage1 from '../../assets/images/literature.png'
 import linkImage2 from '../../assets/images/literature-v2.png'
-// import pdfFile from '../../assets/files/Bin Vent Dust Collector Brochure Final.pdf';
 import galleryImage1 from '../../assets/images/broucher01.jpg';
 import galleryImage2 from '../../assets/images/broucher02.jpg';
 import galleryImage3 from '../../assets/images/broucher03.jpg';
@@ -14,7 +13,7 @@ import sliderImage2 from '../../assets/images/binvent.png';
 export const downloadBrochure = [
     {
         text: 'Product Literature',
-        linkUrl: '',
+        linkUrl: 'https://drive.google.com/file/d/10xUsIN3fdmX7s_BkzUa8qDUWtq3eFRzw/view?usp=sharing',
         image: {
             url1: linkImage1,
             url2: linkImage2,
@@ -23,7 +22,7 @@ export const downloadBrochure = [
     },
     {
         text: 'Product Specifications',
-        linkUrl: '',
+        linkUrl: 'https://drive.google.com/file/d/10xUsIN3fdmX7s_BkzUa8qDUWtq3eFRzw/view?usp=sharing',
         image: {
             url1: linkImage1,
             url2: linkImage2,
@@ -32,7 +31,7 @@ export const downloadBrochure = [
     },
     {
         text: 'Free Brochures',
-        linkUrl: '',
+        linkUrl: 'https://drive.google.com/file/d/10xUsIN3fdmX7s_BkzUa8qDUWtq3eFRzw/view?usp=sharing',
         image: {
             url1: linkImage1,
             url2: linkImage2,
