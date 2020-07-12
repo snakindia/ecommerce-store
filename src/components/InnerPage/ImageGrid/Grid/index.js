@@ -1,22 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 
 const Grid = props => {
     const {image, title, content} = props.grid;
-    const [isHover, setHover] = useState('false');
+    const [isHover, setHover] = useState(false);
 
-    const handleMouseHover = () => {
+    const handleMouseHover = useCallback(() => {
         setHover(!isHover);
-    }
+    }, [isHover])
 
     return (
         <div className="col-sm-4 col-md-4">
             <a href="#">
                 <div className="view view-first"
-                     onMouseEnter={() => handleMouseHover()}
-                     onMouseLeave={() => handleMouseHover()}>
+                     onMouseEnter={handleMouseHover}
+                     onMouseLeave={handleMouseHover}>
                     <img src={image} alt="" className="img-fluid"/>
                     {
-                        !isHover && (<div className="mask">
+                        isHover && (<div className="mask">
                             <h2>{title}</h2>
                             <p>{content}</p>
                             {/*<a href="#" class="info">Read More</a>*/}

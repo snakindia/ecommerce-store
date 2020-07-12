@@ -1,9 +1,9 @@
 import React from 'react';
-import SliderItem from "./SliderItem";
 import Slider from 'react-slick';
+import SliderItem from "./SliderItem";
 
 const ProductSlider = props => {
-    const { sliderItems } = props;
+    const {sliderItems} = props;
     const settings = {
         dots: true,
         infinite: true,
@@ -43,13 +43,13 @@ const ProductSlider = props => {
     return (
         <section className="pro-equipment-section mt-5">
 
-                    <Slider {...settings}>
-                        {
-                          sliderItems.map(item => {
-                              return <SliderItem item={item}/>
-                          })
-                        }
-                    </Slider>
+            <Slider {...settings}>
+                {
+                    sliderItems.map(item => {
+                        return <SliderItem item={item}/>
+                    })
+                }
+            </Slider>
 
         </section>
     );
