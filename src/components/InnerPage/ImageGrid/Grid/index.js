@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 const Grid = props => {
     const {image, title, content} = props.grid;
-    const [isHover, setHover] = useState('false');
+    const [isHover, setHover] = useState(false);
 
     const handleMouseHover = () => {
         setHover(!isHover);

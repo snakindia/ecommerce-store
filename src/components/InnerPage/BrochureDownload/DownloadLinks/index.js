@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 const DownloadLinks = props => {
    const { text, linkUrl, image } = props.link;
-    const [isHover, setHover] = useState('false');
+    const [isHover, setHover] = useState(false);
 
     const handleMouseHover = () => {
         setHover(!isHover);
