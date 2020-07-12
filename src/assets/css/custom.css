@@ -121,7 +121,3 @@ and open the template in the editor.
 .modal-open {
     top: 0px !important;
 }
-
-.carousel-control-next, .carousel-control-prev {
-    display: none;
-}

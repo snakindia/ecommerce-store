@@ -13,7 +13,7 @@
 }
 
 .wsmenu>.wsmenu-list>li>.navtext>span+span {
-  color: #fff;
+  color: #555555;
 }
 
 .wsmenu>.wsmenu-list>li>.navtext>span+span:after {
@@ -21,7 +21,7 @@
 }
 
 .wsmenu>.wsmenu-list>li.wsshopmyaccount>a {
-  color: #fff;
+  color: #828181;
 }
 
 .wsmenu>.wsmenu-list>.wsshopmyaccount>a i {
@@ -41,7 +41,7 @@
 }
 
 .wsmenu>.wsmenu-list>li>a {
-  color: #fff;
+  color: #000;
 }
 
 .wsmenu>.wsmenu-list>li>a .wsarrow:after {
@@ -77,7 +77,7 @@
 }
 
 .wsmenu>.wsmenu-list>li.wssearchbar>.topmenusearch>.btnstyle:hover {
-  background-color: #000;
+  background-color: #d7d7d7;
 }
 
 .wsmenu>.wsmenu-list>li.wssearchbar>.topmenusearch>.btnstyle:hover i {
@@ -85,7 +85,7 @@
 }
 
 .wsmenu>.wsmenu-list>li.wssearchbar>.topmenusearch>input:focus~.btnstyle {
-  background-color: #000;
+  background-color: #d7d7d7;
 }
 
 .wsmenu>.wsmenu-list>li.wssearchbar>.topmenusearch>input:focus~.btnstyle>i {
@@ -97,30 +97,31 @@
 }
 
 .wsmenu>.wsmenu-list>li>a.active {
-  background-color:transparent;
-  color: #fff;
+  background-color: #23536b !important;
+  color: #fff !important;
+  border-bottom:0;
 }
 
 .wsmenu>.wsmenu-list>li:hover>a {
-  background-color: #000;
-  color: #fff;
+  /*background-color: #24526d !important;*/
+  color: #24526d;
 }
 
 .wsmenu>.wsmenu-list>li>ul.sub-menu>li:hover>a {
-  background-color: #000;
-  color: #fff;
+  background-color: #f5f5f5;
+  color: #333;
   text-decoration: none;
 }
 
 .wsmenu>.wsmenu-list>li>ul.sub-menu>li>ul.sub-menu>li:hover>a {
-  /*background-color: #000;*/
-  color: #fff;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 .wsmenu>.wsmenu-list>li>.wsshoptabing>.wsshopwp>.wstabitem>li.wsshoplink-active>a {
- /* background-color: #000;*/
-  color: #fff;
-  border-left: 5px solid #3b7afb;
+  background-color: #fff;
+  color: #000;
+  /*border-left: 3px solid #DA4B38; */transition: 0.3s;
 }
 
 /* Mobile Header Color */

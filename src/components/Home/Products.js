@@ -4,6 +4,10 @@ import Slider from "react-slick";
 import axios from 'axios';
 import {API_URL, API_IMAGE_PATH} from './../../constants/appConstant';
 
+import Item1Image from '../../assets/images/product/item1.jpg';
+import Item2Image from '../../assets/images/product/item2.jpg';
+
+
 export default class Products extends Component {
         
     constructor(props) {
@@ -75,59 +79,122 @@ export default class Products extends Component {
     
     render() {
         const settings = {
-            dots: false,
-            infinite: true
-        };
-        
-        const CategorySettings = {
-            dots: true,
+             dots: true,
             infinite: true,
             speed: 500,
-            slidesToShow: 5,
+            slidesToShow: 4,
             slidesToScroll: 1
         };
          
         const {category} = this.state;
         
         return (
-              <section className="bha-product-section">
-                <div className="tab-container">
-                    <ul className="tab-inner">
-                        <Slider {...CategorySettings}> {
-                            Object.keys(category).length &&
-                                category.map((item, idx) => {
-                                   if (idx == '0'){
-                                        return (
-                                            <li><Link className={ this.state.activeId === item.id ? 'tablink current' : 'tablink' } onClick={(e) => this.getSubCategoryList(item.id, e)}>{item.name}</Link></li>
-                                        )
-                                    } else {
-                                        return (
-                                            <li><Link className={this.state.activeId === item.id? 'tablink current' : 'tablink' } onClick={(e) => this.getSubCategoryList(item.id, e)}>{item.name}</Link></li>
-                                        )
-                                    }
-                                })
-                            }   
-                        </Slider>
-                        <div class="brands-head">Brands</div>
-                    </ul>
+            <div>   
+            <section class="bg-opeque pb-4">
+                <div class="container-fluid">
+                    <h2 class="bha_heading_2 z-index text-blue">Best Selling Products</h2>
                 </div>
-                              
-                
-                  <div class="item-wraper mt-5">
-                      <div class="resp-tabs-container">
-                          <div id="mis" class="tab-pane active show">
-                              <section class="regular slider">
-                                  <Slider {...settings}>
-                                      {this.drawSubCategory()}
-                                 </Slider>
-                              </section>
-                          </div> 
+            </section>
+            <section class="pro-equipment-section" id="bestSelling">
+                   <div class="container pl-0 pr-0">
+                        <div class="productitem slider">
+                            <Slider {...settings}>
+                        <div class="product-card-wrapper outer-wrpper">
+                            <em class="product-card__ribbon-wrapper">
+                              <span class="product-card__ribbon product-card__ribbon--is-new">New</span>
+                            </em> 
+                          <div class="product-card hvr-float-shadow">
+                            <div class="item-pro-inner">
+                              <a href="#">
+                            <img class="img-fluid" src={Item1Image} alt="" />
+                              <div class="product-description">
+                                Goyen® K4502 (M2162) Replacement Repair Kit
+                              </div>
+                              <div class="product-tag">
+                                DCS574W1
+                              </div>
+                              </a>
+                              <a href="#" class="btn bha-btn-primary w-100 float-left mt-4">View Details</a>
+                            </div>
+                          </div>
+                        </div>
+
+        <div class="product-card-wrapper outer-wrpper">
+          <div class="product-card hvr-float-shadow">
+            <div class="item-pro-inner">
+              <a href="#">
+            <img class="img-fluid" src={Item2Image} alt="" />
+              <div class="product-description">
+                Goyen® K4502 (M2162) Replacement Repair Kit
+              </div>
+              <div class="product-tag">
+                DCS574W1
+              </div>
+              </a>
+              <a href="#" class="btn bha-btn-primary w-100 float-left mt-4">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card-wrapper outer-wrpper">
+          <div class="product-card hvr-float-shadow">
+            <div class="item-pro-inner">
+              <a href="#">
+            <img class="img-fluid" src={Item2Image} alt="" />
+              <div class="product-description">
+                Goyen® K4502 (M2162) Replacement Repair Kit
+              </div>
+              <div class="product-tag">
+                DCS574W1
+              </div>
+              </a>
+              <a href="#" class="btn bha-btn-primary w-100 float-left mt-4">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card-wrapper outer-wrpper">
+          <div class="product-card hvr-float-shadow">
+            <div class="item-pro-inner">
+              <a href="#">
+            <img class="img-fluid" src={Item2Image} alt="" />
+              <div class="product-description">
+                Goyen® K4502 (M2162) Replacement Repair Kit
+              </div>
+              <div class="product-tag">
+                DCS574W1
+              </div>
+              </a>
+              <a href="#" class="btn bha-btn-primary w-100 float-left mt-4">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card-wrapper outer-wrpper">
+          <div class="product-card hvr-float-shadow">
+            <div class="item-pro-inner">
+              <a href="#">
+            <img class="img-fluid" src={Item2Image} alt="" />
+              <div class="product-description">
+                Goyen® K4502 (M2162) Replacement Repair Kit
+              </div>
+              <div class="product-tag">
+                DCS574W1
+              </div>
+              </a>
+              <a href="#" class="btn bha-btn-primary w-100 float-left mt-4">View Details</a>
+            </div>
+          </div>
+
+        </div>
+                            </Slider>
                       </div>
                       <div class="container text-center">
                           <a href="" class="btn bha-btn-primary z-index view-all">View All</a>
                       </div>
                       </div>
               </section>
+              </div>
         )
     }
 }
