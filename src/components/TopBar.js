@@ -36,25 +36,28 @@ class TopBar extends Component {
             <div>
                 <div className="headtoppart">
                     <div className="topbar">
-                      <div className="headerwp">
-                          <div className="mobile pt-2 font-weight-bold pl-0" style={{float:'left'}}>
-                                CALL US: (888) 286-8708
-                          </div>
-                          <div className="float-right">
-                            <ul className="toplink">
-                              <li><a href="/"><img src={Cart} alt="" width="20" />Cart</a></li>
-                              <span>&nbsp;</span>
-                              <li>
-                                <a  onClick={this.toggle(5)}><img src={Profile} alt="" width="20" />login/signup</a>
-                              </li>
-                              <span>&nbsp;</span>
-                              <li><a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>
-                </li>
-                            </ul>
-                          </div>
-                          </div>
+                        <div className="headerwp">
+                            <div className="mobile pt-2 font-weight-bold pl-0" style={{float:'left'}}>
+                                  CALL US: (888) 286-8708
+                            </div>
+                            <div className="float-right">
+                                <ul className="toplink">
+                                    <li><a href="/"><img src={Cart} alt="" width="20" />Cart</a></li>
+                                    <span>&nbsp;</span>
+                                    <li>
+                                        <a  onClick={this.toggle(5)}><img src={Profile} alt="" width="20" />login/signup</a>
+                                    </li>
+                                    <span>&nbsp;</span>
+                                    <li><a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a></li>
+                                    <span>&nbsp;</span>
+                                    <li id="SearchOpen">
+                                        <a href="#"><i class="fa fa-search mr-2"></i> Search<i class="caret border-0"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-            </div>
+                </div>
 
 
           <MDBModal className="logIn " isOpen={this.state.modal5} toggle={this.toggle(5)}>

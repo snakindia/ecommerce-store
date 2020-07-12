@@ -31,7 +31,6 @@ class Footer extends Component {
  }
   render() {
     this.state.brochureData = this.props.freeBrochuresUserDetail;
-    console.log('this.state.brochureData' + this.state.brochureData);
     const {navMenuData} = this.props;
     const {menuData} = navMenuData;
     const {
@@ -39,9 +38,13 @@ class Footer extends Component {
     footer_menu_1_items,footer_menu_2_items,footer_menu_3_items,footer_menu_4_items,footer_menu_5_items,footer_social
   } = menuData;
     return (
-   <MDBFooter className="font-small footer-section py-4 mt-4 footer">
-      <MDBContainer fluid className="text-center text-md-left">
-      <MDBRow>
+    <div>
+        <div class="chat-button"><a href="/"><img src={Chat} class="mr-2" alt="" width="30" /></a></div>
+        <MDBFooter className="footer">
+            <div class="footer-section">
+                <div class="container pl-0 pr-0">
+      <div class="footer-main pt-5">
+      <div class="row flex-column-reverse flex-md-row">
       <MDBCol md="8">
         <MDBRow>
           <MDBCol md="4">
@@ -128,8 +131,7 @@ class Footer extends Component {
         <MDBCol md="4">
           <div className="broucher-wrapper">
             <div className="broucher-inner">
-              <h2 className="bha_heading_2">Free Brochures</h2>
-              <p className="mt-3">Sign up to receive the lates infor on new Baghouse products, special offers and more.</p>
+              <h2 className="bha_heading_2 font-weight-bold mb-3">APPLY FOR REGISTRATION</h2>
               <Formik
       initialValues={{ name: '', company: '', email: '',  phone: '' }}
       validate={values => {
@@ -185,118 +187,95 @@ class Footer extends Component {
         /* and other goodies */
       }) => (<form onSubmit={handleSubmit}>
               <MDBRow>
-                <MDBCol md="6">
-             <form>
-                <label
-                  htmlFor=""
-                  className="white-text font-weight-bold"
-                >
-                  Name*
-                </label>
-                <input
-                  type="text"
-                  id="defaultFormCardNameEx"
-                  className="form-control"
-                  name="name" 
-                  value={values.name} 
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="Enter Name"
-                />
-                <span className="errorMsg">{errors.name && touched.name && errors.name}</span>
-                </form>
+                <MDBCol md="12">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input
+                            type="text"
+                            id="defaultFormCardNameEx"
+                            className="form-control"
+                            name="name" 
+                            value={values.name} 
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            placeholder="Enter Name"
+                        />
+                        <span className="errorMsg">{errors.name && touched.name && errors.name}</span>
+                    </div>
                 </MDBCol>
-                <MDBCol md="6">
-                <form>
-                <label
-                  htmlFor=""
-                  className="white-text font-weight-bold"
-                >
-                  Phone*
-                </label>
-                <input
-                  type="text"
-                  id="defaultFormCardNameEx"
-                  className="form-control"
-                  placeholder="Enter Phone"
-                  value={values.phone} 
-                  onChange={handleChange}
-                  onBlur={handleBlur} name="phone"
-                />
-                <span className="errorMsg">{errors.phone && touched.phone && errors.phone}</span>
-                </form>
-
-                </MDBCol>
-              </MDBRow>
-              <MDBRow>
-                <MDBCol lg="12">
-                <form>
-                <label
-                  htmlFor=""
-                  className="white-text font-weight-bold"
-                >
-                  Email Address *
-                </label>
-                <input
-                  type="text"
-                  id="defaultFormCardNameEx"
-                  className="form-control"
-                  name="email" 
-                  value={values.email} 
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="Enter Email Address"
-                />
-                <span className="errorMsg">{errors.email && touched.email && errors.email}</span>
-                </form>
-
-                </MDBCol>
-              </MDBRow>
-              <MDBRow>
-              <MDBCol lg="12">
-                <form>
-                <label
-                  htmlFor=""
-                  className="white-text font-weight-bold"
-                >
-                  Company Name *
-                </label>
-                <input
-                  type="text"
-                  id="defaultFormCardNameEx"
-                  className="form-control"
-                  placeholder="Enter Company Name"
-                  name="company" 
-                  value={values.company} 
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                 <span className="errorMsg">{errors.company && touched.company && errors.company}</span> 
-
-                </form>
-
-
-                </MDBCol>
-              </MDBRow>
-              <p class="mt-3">
-                  By signing up you agre to receive emails from Bhaghouse
-                  with new, special offers, promotions and other information.
-                  You can unsubscribe at any time. See Updated Privacy 
-                  Policy or Contact Us at support.bhaghouse@gamil.com.
-                </p>
-                <div class="mt-5"><button type="button"  onClick={() =>{handleSubmit()}} class="btn bha-btn-primary w-100">subscribe</button></div>
+                
+                </MDBRow>
+                
+                <MDBRow>
+                    <MDBCol lg="12">
+                        <div class="form-group">
+                            <label>Company *</label>
+                            <input
+                                type="text"
+                                id="defaultFormCardNameEx"
+                                className="form-control"
+                                placeholder="Enter Company Name"
+                                name="company" 
+                                value={values.company} 
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+                            <span className="errorMsg">{errors.company && touched.company && errors.company}</span> 
+                        </div>
+                    </MDBCol>
+                </MDBRow>
+                
+                <MDBRow>
+                    <MDBCol md="12">
+                        <div class="form-group">
+                            <label>Phone *</label>
+                            <input
+                                type="text"
+                                id="defaultFormCardNameEx"
+                                className="form-control"
+                                placeholder="Enter Phone"
+                                value={values.phone} 
+                                onChange={handleChange}
+                                onBlur={handleBlur} name="phone"
+                            />
+                            <span className="errorMsg">{errors.phone && touched.phone && errors.phone}</span>
+                        </div>
+                    </MDBCol>
+                </MDBRow>
+                
+                <MDBRow>
+                    <MDBCol lg="12">
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input
+                                type="text"
+                                id="defaultFormCardNameEx"
+                                className="form-control"
+                                name="email" 
+                                value={values.email} 
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                placeholder="Enter Email Address"
+                            />
+                            <span className="errorMsg">{errors.email && touched.email && errors.email}</span>
+                        </div>
+                    </MDBCol>
+                </MDBRow>
+                
+                <div class="mt-2"><button type="button"  onClick={() =>{handleSubmit()}} class="btn bha-btn-primary w-100">Apply</button></div>
                      { this.props.brochureData && Object.keys(this.props.brochureData).length > 0 && this.props.brochureData.status == true &&
                             <div style={{color: "green", "background-color": "#fff"}}>Data saved successfully</div>
                         }
                 </form>)}
     </Formik>
-    <div class="chat-button pulse"><a href="/"><img src={Chat} class="mr-2" alt="" width="30" />Live Chat</a></div>
+   
    
             </div>
           </div>
         </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+        </div>
+        </div>
+        </div>
       <div className="footer-bottom py-3">
         <MDBContainer fluid>
         <MDBRow>
@@ -338,7 +317,10 @@ class Footer extends Component {
           </MDBRow>
         </MDBContainer>
       </div>
-    </MDBFooter>    )
+      </div>
+    </MDBFooter>    
+    </div>
+    )
   }
 }
 
