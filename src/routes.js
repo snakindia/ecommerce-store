@@ -12,6 +12,7 @@ const ContactBody = lazy(() => import('./components/Contact/ContactBody'));
 const ProductBody = lazy(() => import('./components/Product/ProductBody'));
 const BrandBody = lazy(() => import('./components/Brand/BrandBody'));
 const SignUpPage = lazy(() => import('./components/Signup/SignUpPage'));
+const InnerPage = lazy(() => import('./components/InnerPage'));
 
 const Router = () =>{
 
@@ -34,11 +35,12 @@ const Router = () =>{
                     <Route path="/brand" component={BrandBody} />
                     <Route path="/contact" component={ContactBody} />
                     <Route path="/sign-up" component={SignUpPage} />
+                    <Route path="/inner-page" component={InnerPage} />
                 </Switch>
                 </Suspense>
                 <Footer/>
             </BrowserRouter>
         </StickyContainer>
     );
-} 
+}
 export default Router;

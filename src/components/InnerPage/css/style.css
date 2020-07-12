@@ -1,0 +1,76 @@
+.pro-equipment-section .slick-next, .pro-equipment-section .slick-prev {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 45%;
+    display: block;
+    width: 30px;
+    height: 40px;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0px 0px 2px #d8d8d8 !important;
+    z-index: 10;
+    border: none !important;
+    padding: 0;
+    cursor: pointer;
+    color: transparent;
+    outline: none;
+}
+
+.pro-equipment-section .slick-next {
+    right: 66px;
+}
+.pro-equipment-section .slick-prev {
+    left: 66px;
+}
+.pro-item-wrapper .btn {
+     display: inline-block;
+     font-weight: 400;
+     text-align: center;
+     white-space: nowrap;
+     vertical-align: middle;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     border: 1px solid transparent;
+     padding: .375rem .75rem;
+     font-size: 1rem;
+     line-height: 1.5;
+     border-radius: .25rem;
+    text-transform: none;
+ }
+
+.view {
+    width: 366px;
+    height: 247px;
+}
+
+.view h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 0;
+    font-weight: 500;
+}
+
+.view p {
+    font-family: Roboto, serif;
+    font-style: italic;
+    font-size: 16px;
+    position: relative;
+    color: #fff;
+    padding: 2.5rem 1rem 0 1rem;
+    text-align: center;
+    font-weight: 400;
+}
+.mask {
+    opacity: 1;
+    cursor: pointer !important;
+    background-color: rgba(37,94,137, 0.7);
+    transition: all 0.2s ease-in-out;
+}
