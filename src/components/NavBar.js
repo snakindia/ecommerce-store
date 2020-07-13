@@ -136,7 +136,7 @@ class NavBar extends React.Component {
                             <a href="#myModal" data-toggle="modal" class="bha-btn-secondry hotLink mr-2 ml-2">request a quote</a>
                         </li>
                         <li aria-haspopup="true">
-                            <a href="#" class="bha-btn-primary hotLink pl-2 pr-2">shop now</a>
+                            <a href="#" class="bha-btn-primary bha-btn-menu hotLink pl-2 pr-2">shop now</a>
                         </li>
                     </ul>
                 </nav>
