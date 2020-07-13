@@ -121,3 +121,15 @@ and open the template in the editor.
 .modal-open {
     top: 0px !important;
 }
+
+/*=====Naveen Sharma Added the follwong class===============*/
+.callerLady{position:absolute; top:-27px; left: 9px}
+.bhaClient{padding-bottom:1.8rem;} 
+.bhaClient .slick-slide {width: 160px !important; box-sizing: border-box;}
+.banner-container{margin-top:0 !important}
+.bha_heading_1{height:95px !important;}
+.bottom-navigation{position:relative; top:-78px}
+.socialLink a{margin:0 3px;}
+.bha-btn-primary{padding: 0.7rem 1.5rem !important;}
+.broucher-wrapper{width:100% !important}
+.bha-btn-menu{ padding:0.32rem 1.5rem !important; font-size: 0.775rem}

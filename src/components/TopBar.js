@@ -34,7 +34,7 @@ class TopBar extends Component {
     
     render() {
         return (
-            <div>
+            <div class="top-header">
                 <div className="headtoppart">
                     <div className="topbar">
                         <div className="headerwp">
@@ -46,7 +46,7 @@ class TopBar extends Component {
                                     <li><a href="/"><img src={Cart} alt="" width="20" />Cart</a></li>
                                     <span>&nbsp;</span>
                                     <li>
-                                        <a  onClick={this.toggle(5)}><img src={Profile} alt="" width="20" />login/signup</a>
+                                        <a onClick={this.toggle(5)}><img src={Profile} alt="" width="20" />login/signup</a>
                                     </li>
                                     <span>&nbsp;</span>
                                     <li><a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a></li>
