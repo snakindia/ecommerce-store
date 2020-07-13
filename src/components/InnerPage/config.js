@@ -41,18 +41,22 @@ export const downloadBrochure = [
 ];
 export const galleryBrochure = [
     {
+        index: 0,
         image: galleryImage1,
         link: galleryLink,
     },
     {
+        index: 1,
         image: galleryImage2,
         link: galleryImage2,
     },
     {
+        index: 2,
         image: galleryImage3,
         link: galleryImage3,
     },
     {
+        index: 3,
         image: galleryImage2,
         link: galleryImage2,
     }
