@@ -39,7 +39,7 @@ export default class ProductsPart extends Component {
                             return (
                                 <div key={idx} className="product-item-wrapper">
                                     <div className="card">
-                                        <figure className="imghvr-push-up">
+                                        <figure className="imghvr-shutter-in-out-vert">
                                             <img src={item.image} alt="Card image" />
                                             <figcaption className="text-center">
                                               <h4>{item.name}</h4>
@@ -65,16 +65,16 @@ export default class ProductsPart extends Component {
        
         return (
             <div>
-                <section className="header-section">
-                    <div className="container-fluid">
-                        <h2 className="bha_heading_2 z-index font-weight-bold">Products parts & Equipment</h2>
+                <section class="bg-opeque pb-4" id="product">
+                    <div class="container-fluid">
+                        <h2 class="bha_heading_2 z-index text-blue">Products parts & Equipment</h2>
                     </div>
                 </section>
-                <section className="pro-equipment-section">
-                    <div className="productitem slider">
-                       
-                                {this.drawData()}
-                        
+                <section class="pro-equipment-section">
+                    <div class="container pl-0 pr-0">
+                        <div class="productitem slider">
+                            {this.drawData()}
+                        </div>
                     </div>
                 </section>
             </div>

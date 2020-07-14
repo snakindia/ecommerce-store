@@ -281,7 +281,7 @@ class Footer extends Component {
         <div class="container pl-0 pr-0">
         <MDBRow>
           <MDBCol lg="8"  style={{position: "relative"}}>
-               <img class="img-fluid" src={FooterCaller} alt="" style={{position: "absolute; top:-27px; left: 9px"}} />
+               <img class="img-fluid callerLady" src={FooterCaller} alt="" />
                 <span class="call-us">CALL US: (888) 286-8708</span>
 
           </MDBCol>

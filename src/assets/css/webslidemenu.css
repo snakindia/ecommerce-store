@@ -1,4 +1,37 @@
 /*
+ * Plugin: Web Slide Navigation System
+ * Demo Link: https://tagfold.com/webslide/
+ * Author: TagFold
+ * License: http://codecanyon.net/licenses/standard
+*/
+/* ======== Find Below Table of Content Points to Go Relevant Section  =========
+[Table of contents DESKTOP]
+Desktop Base CSS
+Desktop Main Menu CSS
+- Main Search Bar CSS
+- My Account Dropdown
+- Main Menu Cart Icon
+Desktop Tabing Mega Menus CSS
+- Tabing Leftside
+- Tabing Rightside
+- Mega Menu Content Formatting
+- Brand Mega Menu
+Desktop Mega Menus CSS
+Desktop Half Menus CSS
+Desktop Extra CSS
+
+[Table of contents MOBILE ]
+Mobile Menu Change Brake Point
+Mobile Base CSS
+Mobile Main Menu CSS
+Mobile Dropdown CSS
+Mobile Mega Menu CSS
+Mobile Header CSS
+ -> Mobile Search Bar
+ -> Mobile Toggle Menu icon (X ICON)
+Mobile Overlay/Drawer CSS
+Mobile Sub Menu Expander Arrows
+Extra @Media Query
 ===============================================================================*/
 /* ================== Desktop Base CSS  ================== */
 .wsmenu html,
@@ -18,7 +51,7 @@
   font-weight: normal;
   font-size: 12px;
   line-height: 18px;
-  font-family: 'Roboto', sans-serif;
+  font-family: Helvetica, sans-serif;
   -webkit-font-smoothing: subpixel-antialiased;
   font-smoothing: antialiased;
   font-smooth: antialiased;
@@ -60,13 +93,14 @@ video {
   width: 100%;
   height: 60px;
   position: relative;
-  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+/*  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);*/
+  z-index: 100000 !important;
 }
 
 .smllogo {
-  /*padding: 9px 0px 0 16px;*/
+  padding: 2px 0px 0 16px;
   margin: 0;
   float: left;
   width: 6%;
@@ -81,21 +115,22 @@ video {
 .wsmain {
   width: 100%;
   margin: 0 auto;
-  padding: 0 25px;
-  /*max-width: 1300px;*/
+  /*padding: 0 80px;*/
+  padding:0 0px 0 110px;
+  max-width: 1300px;
 }
 
 .wsmenu {
-  width: 90%;
+  width: 87%;
   float: right;
-  font-family: 'Roboto', sans-serif; 
+  /*font-family: Helvetica, sans-serif;*/
   color: #fff;
   position: relative;
-  font-size: 0.925rem; font-weight: 400;
+  font-size: 13px;
   padding: 0;
   display: block;
   margin: 0;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  /*border-left: 1px solid rgba(0, 0, 0, 0.1);*/
 }
 
 .wsmenu>.wsmenu-list {
@@ -116,9 +151,9 @@ video {
 
 .wsmenu>.wsmenu-list>li>.navtext {
   line-height: 16px;
-  text-align: left;
-  padding: 14px 20px;
-  margin: 0px;
+  text-align: right;
+  padding: 25px 5px;
+  margin: 0 2px;
 }
 
 .wsmenu>.wsmenu-list>li>a {
@@ -127,7 +162,7 @@ video {
   position: relative;
 }
 
-/*.wsmenu>.wsmenu-list>li>.navtext>span+span:after {
+.wsmenu>.wsmenu-list>li>.navtext>span+span:after {
   display: inline-block;
   font-style: normal;
   font-variant: normal;
@@ -137,7 +172,7 @@ video {
   content: "\f078";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  font-size: 0.9rem;
+  font-size: 9px;
   line-height: 10px;
   margin-left: 0px;
   position: relative;
@@ -145,24 +180,22 @@ video {
   text-align: right;
   top: 1px;
 
-}*/
+}
 
 .wsmenu>.wsmenu-list>li>.navtext>span {
-  display: inline-block;
-  font-size: 1em; 
+  display: block;
+  font-size: 11px;
   text-align: left;
   white-space: nowrap;
-  /*width: 100%;*/margin-right: 0.5rem;
-  line-height: 30px;
+  width: 100%;
+  line-height: 16px;
 }
 
 .wsmenu>.wsmenu-list>li>.navtext>span+span {
   white-space: nowrap;
-  /*font-size: 1.2em;*/
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: bold;
 }
-
-.wsmenu>.wsmenu-list>li>.navtext>span img{vertical-align: middle; margin-top: -2px}
 
 .wsmenu>.wsmenu-list>li a:hover .arrow:after {
   border-top-color: #b3b3b3
@@ -178,9 +211,9 @@ video {
 
 /* Main Search Bar CSS*/
 .wsmenu>.wsmenu-list>li.wssearchbar {
-  width: 50%;
+  width: 40%;
   float: left;
-  padding-left: 15px;padding-right: 15px;
+  padding-left: 15px;
 }
 
 .wsmenu>.wsmenu-list>li.wssearchbar>.topmenusearch {
@@ -291,7 +324,7 @@ video {
   line-height: 22px;
   padding: 8px 12px;
   text-transform: none;
-  font-size: 16px;
+  font-size: 13px;
   letter-spacing: normal;
   border-right: 0px solid;
 }
@@ -387,15 +420,15 @@ video {
 /* ================== Desktop Tabing Mega Menus CSS  ================== */
 /* Tabing Leftside */
 .wsmenu>.wsmenu-list>li>.wsshoptabing {
- /* width: 90% !important;*/
+  width: 100%;
   text-align: left;
   margin: 0px;
   padding: 0px;
   position: absolute;
-  top: 60px;
+  top: 80px;
   background-color: #f8f8f8;
   left: 0;
-  border-bottom: solid 2px #000;
+  border-bottom: solid 2px #376cb7;
   border-top: solid 0px;
   z-index: 101;
 }
@@ -404,20 +437,22 @@ video {
   width: 100%;
   display: block;
   position: relative;
-  background-color: #060c19;
-
+  background-color: #f5f5f5;
 }
 
 .wsmenu>.wsmenu-list>li>.wsshoptabing.wtsdepartmentmenu {
   background: #fff;
-  border-bottom: solid 1px #000;
+  border-left: solid 1px #fff;
+  border-top:1px solid #888;
+  border-right:1px solid #888;
+  border-bottom: 1px solid #888;
 }
 
 .wsmenu>.wsmenu-list>li>.wsshoptabing>.wsshopwp>.wstabitem {
   display: block;
   margin: 0px;
   padding: 0px;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .wsmenu>.wsmenu-list>li>.wsshoptabing>.wsshopwp>.wstabitem>li:before,
@@ -437,17 +472,16 @@ video {
 
 .wsmenu>.wsmenu-list>li>.wsshoptabing>.wsshopwp>.wstabitem>li>a {
   display: block;
-  padding: 19px 11px;
-  font-size: 16px;
+  padding: 15px 11px;
+  font-size: 13px;
   color: #fff;
-  border-bottom: solid 1px #434955;
+  border-bottom: solid 1px #e5e5e5;
   width: 23%;
   float: left;
   position: relative;
-  border-left: 5px solid #060c19;
-  /*background-color: #fff;*/
+  /*border-left: 3px solid #fff;*/
+  background-color: #23536b;
 }
-
 
 .wsmenu>.wsmenu-list>li>.wsshoptabing>.wsshopwp>.wstabitem>li:hover a {
   text-decoration: none;
@@ -478,7 +512,8 @@ video {
   float: left;
   padding: 10px 8px 0px 8px;
   width: 77%;
-  min-height: 400px;
+  min-height: auto;
+  /*min-height: 400px;*/
 }
 
 .wsmenu>.wsmenu-list>li:hover>.wsshoptabing>.wsshopwp>.wstabitem>li.wsshoplink-active>.wstitemright {
@@ -671,10 +706,10 @@ video {
 
 .wsmenu>.wsmenu-list>li .wstliststy04 li.wstheading {
   line-height: normal;
-  text-align: center;
+  text-align: left;
   padding: 12px 0px;
   font-size: 13px;
-  margin-bottom: 12px;
+  margin-bottom:0;
 }
 
 .wsmenu>.wsmenu-list>li .wstliststy04 li a .wstcount {
@@ -793,6 +828,18 @@ video {
 .wsmenu>.wsmenu-list>li .wstmenutag.orangetag:after {
   border-color: transparent #FE7000 transparent transparent;
 }
+
+/*.wsmenu>.wsmenu-list>li .kitchenmenuimg {
+  background-image: url(../images/kitchen-menu-img.png);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}*/
+
+/*.wsmenu>.wsmenu-list>li .computermenubg {
+  background-image: url(../images/computer-menu-img.png);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}*/
 
 .wsmenu>.wsmenu-list>li .wstpngsml {
   padding-left: 18px;
@@ -1178,7 +1225,8 @@ video {
   }
 
   .wsmenu>.wsmenu-list>li:hover>a {
-    background-color: rgba(0, 0, 0, 0.08);
+    /*background-color: rgba(0, 0, 0, 0.08);*/
+    background:#000;
     text-decoration: none;
   }
 
@@ -1396,7 +1444,7 @@ video {
   }
 
   .wsmenu>.wsmenu-list>li>.wsshoptabing {
-    background-color: #ffffff;width: 100% !important;
+    background-color: #ffffff;
     color: #666666;
     display: none;
     position: relative;
@@ -1410,7 +1458,6 @@ video {
     -moz-transform: none;
     -webkit-transform: none;
     -webkit-transform-style: flat;
-    left:0 !important;
   }
 
   .wsmenu>.wsmenu-list>li>.wsshoptabing>.wsshopwp>.wstabitem {

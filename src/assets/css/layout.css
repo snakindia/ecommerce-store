@@ -7,11 +7,11 @@ body{background: #fff; font-family: 'Roboto', sans-serif; font-size: 1rem}
 /*.headtoppart{background: #fff color:#000; position: relative;}*/
 /*.headerwp {z-index: 100; position: relative;}*/
 .headtoppart {
-        background-color: rgb(0, 0, 0);
+    background: #000 !important;
     color: #fff;
-    position: relative;
+   /* position: relative;*/
 }
-.headtoppart::before {
+/*.headtoppart::before {
     content: "";
     position: absolute;
     top: 0;
@@ -19,7 +19,7 @@ body{background: #fff; font-family: 'Roboto', sans-serif; font-size: 1rem}
     right: 0;
     bottom: 0;
     background: rgba(0,0,0,0.7);
-}
+}*/
 .toplink span {
     border-right: 1px solid #fff;
     float: left;
@@ -150,7 +150,7 @@ text-decoration: none; color:#000; font-weight: 600;transition: 0.5s ease-in-out
 /*textarea { resize: none;}*/
 .input-label{font-size: 1.1rem; font-weight: 600;}
 .input-control{ background: none; color: #000; font-size: 18px; /*padding: 10px;*/ display: block; width: 100%;
- border: 1px solid #9e9e9e; border-radius:0.3rem;}
+ /*border: 1px solid #9e9e9e;*/ border: 1px solid #8db8ce; border-radius:0.3rem;}
 .loginInner{padding:2rem; background:transparent; box-shadow: 1px 1px 2rem 0.1rem #5c5c5c;}
 .loginInner .form-control{padding:0.7rem 0.5rem; background: transparent;}
 .loginInner .form-control:focus{background:#fcfcfc; outline: none; box-shadow: none;}
@@ -166,7 +166,7 @@ text-decoration: none; color:#000; font-weight: 600;transition: 0.5s ease-in-out
 .center p{padding:0.5rem 1rem; color:#fff; font-size: 1.1rem}
 .center h1{padding:1.6rem 0 0 0; font-size: 1.3rem; color:#fff; font-weight: 600;}
 .imgContainer img{  display: block; margin: 0 auto 0 auto; /* Centred */ width: 100%;}
-.form-group{margin-bottom: 1rem; position: relative;}
+.form-group{margin-bottom: 0.5rem; position: relative;}
 .errorMessage{color:#f00; padding:0.2rem 0; position: absolute; bottom:-1.7rem; left: 0; font-size: 0.9rem}
 .forgotpwd{color:#bebebe; white-space: nowrap;}
 a.forgotpwd:hover{text-decoration: none;color:#888; transition: 0.3s}
@@ -556,7 +556,7 @@ margin:0 0.8rem 1rem 0; display: inline-block; font-weight: 600; font-family: 'O
 
 /*.outer--container{background:url(../images/50x-banner.jpg) top left no-repeat;
 background-size: cover; background-position: center center; padding:2.5rem 3rem; border-radius: 6px; position: relative;
-color:#fff;} */
+color:#fff;}*/
 .outer--container::before{content: ''; background:rgba(17,38,116, 0.9); position: absolute; top:0; left: 0; right:0; bottom: 0; 
 border-radius: 6px;}
 .outer--container h4{color:#fff; font-weight: 400; font-size: 2rem; font-family: 'Roboto', sans-serif;}
@@ -755,40 +755,4 @@ background-position: center center; background-size: contain;}*/
   /*.left-container{margin-left: 1rem}*/
 }
 
-/*======Course Details Css===========================================*/
-.banner-section { float: left; width: 100%; margin-top: 0 !important;}
-.banner-section .container-fluid{width: 100%;padding-right: 0 !important;padding-left: 0 !important;margin-right: auto;
-margin-left: auto;}
-/*.course-image{background:#008c99 url(../images/img_01.jpg) no-repeat; background-size: cover; background-position: center center;
-min-height: 380px; }*/
-.banner-content-left{/*background: #008c99; */color:#fff;/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#03555f+0,073136+100 */
-background: #001d4d; /* Old browsers */
-background: -moz-linear-gradient(-45deg,  #1e4484 0%, #001d4d 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(-45deg,  #1e4484 0%,#001d4d 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(135deg,  #1e4484 0%,#001d4d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e4484', endColorstr='#001d4d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-}
-.banner-caption{float:left; padding:1.6rem 3.5rem;}
-.banner-content-left h1{ font-size:2.7rem !important; font-weight: 600; margin-top: 1rem}
-.speText{color:#e6e305; font-weight: 600}
-.banner-content-left h2{width: 100%; font-size:1.8rem; font-weight: 300; padding-top:2rem;}
-.description-detals{padding:1rem 0;  float: left;}
-.cr_heading{font-size: 1.3rem; font-weight: 700; width: 100%; float:left;}
-.white-tx{color:#fff; font-size: 1.2rem}
-.description-detals p{padding-bottom: 1rem; line-height: 30px;}
-.key-features{padding:0; margin:0; width: 100%}
-.key-features li{float:left; display: block; list-style-type: none; width: 100%; 
-  background: url(../images/bullet.png)3px 4px no-repeat; padding-left:2.5rem; margin-bottom: 0.5rem}
-.email-Link{color:#057b88;}
-.keyword-details{padding:2rem 0;  float: left;}
-.keyword-link{border:2px solid #add8dc; color:#858585; font-size: 1rem; padding:0.2rem 1rem; border-radius: 100px;
-margin:0 0.8rem 1rem 0; display: inline-block; cursor: pointer;}
-.enroll-container{padding:0; color:hsl(202, 96%, 27%); font-size: 1.4rem; font-weight: 700; float: left; width: 100%}
-.enroll-Number{font-size: 1.5rem; font-weight: 500; color:#000;}
-.cta-btn{/*background: #008c99;*/ background: transparent; border-radius: 0 !important; font-size:1.2rem; font-weight:600;text-align: center; color:#fff; 
-  margin-top: 0.5rem; padding:0.7rem 3rem; border:1px solid #fff; min-width: 250px; margin-right: 0.5rem}
-.cta-btn:hover{background: #0055b5}
-.cta-btn:focus{box-shadow: none; outline:0;}
-
-/*======Course Details Css end===========================================*/
 

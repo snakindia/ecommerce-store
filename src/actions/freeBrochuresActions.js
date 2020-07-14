@@ -31,9 +31,21 @@ export const save_brochures_details = (data) => {
         )
         .then(data => data.json())
         .then(data => {
-            if (data.length === 0) {
-                throw new Error("No details found!!");
-            } else dispatch(receive_post(data));
+            let status = false;
+    console.log('........................');
+    console.log(data)
+    console.log(data.status)
+    console.log(data.status.error)
+            if (typeof data.status != 'undefined' 
+                && typeof data.error != 'undefined' 
+                && data.error == true
+            ) {
+                status = false;
+            } else {
+                status = true;
+            }
+            
+            dispatch(receive_post(status))
         })
         .catch(err => dispatch(receive_error()));
     };

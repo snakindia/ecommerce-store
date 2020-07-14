@@ -19,6 +19,7 @@ class TopBar extends Component {
             this.state = {
             modal4: false,
             modal5: false,
+            modal6: false,
             fields: {},
             errors: {},
         }
@@ -33,7 +34,7 @@ class TopBar extends Component {
     
     render() {
         return (
-            <div>
+            <div class="top-header">
                 <div className="headtoppart">
                     <div className="topbar">
                         <div className="headerwp">
@@ -45,13 +46,13 @@ class TopBar extends Component {
                                     <li><a href="/"><img src={Cart} alt="" width="20" />Cart</a></li>
                                     <span>&nbsp;</span>
                                     <li>
-                                        <a  onClick={this.toggle(5)}><img src={Profile} alt="" width="20" />login/signup</a>
+                                        <a onClick={this.toggle(5)}><img src={Profile} alt="" width="20" />login/signup</a>
                                     </li>
                                     <span>&nbsp;</span>
                                     <li><a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a></li>
                                     <span>&nbsp;</span>
-                                    <li id="SearchOpen">
-                                        <a href="#"><i class="fa fa-search mr-2"></i> Search<i class="caret border-0"></i></a>
+                                    <li>
+                                        <a onClick={this.toggle(6)}><i class="fa fa-search mr-2"></i> Search<i class="caret border-0"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -147,7 +148,7 @@ class TopBar extends Component {
           </div>
       </MDBModal>
       <MDBModal  className="country " isOpen={this.state.modal4} toggle={this.toggle(4)}  fullHeight position="top">
-      <div className="country-language">
+      <div className="country-language" >
                 <div className="row">
                   <div className="col-sm-6 col-md-6 col-lg-2">
                     <ul className="bha-contry-list">
@@ -213,6 +214,18 @@ class TopBar extends Component {
           </div>
 
       </MDBModal>
+      
+      
+    <MDBModal  className="searchbox" isOpen={this.state.modal6} toggle={this.toggle(6)}>
+            <form class="topmenusearch">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="What are you looking for..." />
+                    <div class="input-group-append">
+                        <button class="btn btn-bha-primary" type="button"><i class="fa fa-search pl-0 pr-2"></i></button>
+                    </div>
+                </div>
+            </form>
+    </MDBModal>
 
     {/* <div className="headtoppart">
   <div className="topbar">

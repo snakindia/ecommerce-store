@@ -27,7 +27,7 @@ class About extends React.Component {
             activeTabID: '',
             curerentTabClass: 'tablink js-scroll-trigger current',
         }
-  }
+    }
 
     componentDidMount (){
         this.props.dispatch(get_about_us_details());
