@@ -5,7 +5,6 @@ import BrochureGallery from "./BrochureGallery";
 import ImageGrid from "./ImageGrid";
 import ProductSlider from "./ProductSlider";
 import banner from '../../assets/images/banner-small.jpg';
-import SimpleReactLightbox from "simple-react-lightbox";
 import './css/style.css';
 
 
