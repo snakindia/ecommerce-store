@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes  } from "react";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
 MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from "mdbreact";
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
@@ -13,13 +13,13 @@ import { setUserSession } from '../utils/Common';
 import { API_AJAX_URL } from "../constants/appConstant";
 //import CookieHandler from '../utils/cookieHandler.js';
 
+
 class TopBar extends Component {
     constructor(props) {
         super(props);
             this.state = {
             modal4: false,
             modal5: false,
-            modal6: false,
             fields: {},
             errors: {},
         }
@@ -28,13 +28,17 @@ class TopBar extends Component {
     toggle = nr => () => {
         let modalNumber = 'modal' + nr
         this.setState ({
+            modal5: false,
+            modal6: false
+        });
+        this.setState ({
             [modalNumber]: !this.state[modalNumber]
         });
     }
     
     render() {
         return (
-            <div class="top-header">
+            <div>
                 <div className="headtoppart">
                     <div className="topbar">
                         <div className="headerwp">
@@ -46,13 +50,13 @@ class TopBar extends Component {
                                     <li><a href="/"><img src={Cart} alt="" width="20" />Cart</a></li>
                                     <span>&nbsp;</span>
                                     <li>
-                                        <a onClick={this.toggle(5)}><img src={Profile} alt="" width="20" />login/signup</a>
+                                        <a onMouseEnter={this.toggle(5)} ><img src={Profile} alt="" width="20" />login/signup</a>
                                     </li>
                                     <span>&nbsp;</span>
-                                    <li><a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a></li>
-                                    <span>&nbsp;</span>
-                                    <li>
-                                        <a onClick={this.toggle(6)}><i class="fa fa-search mr-2"></i> Search<i class="caret border-0"></i></a>
+                                    {/*<li><a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a></li>
+                                    <span>&nbsp;</span>*/}
+                                    <li >
+                                        <a onMouseEnter={this.toggle(6)} ><i class="fa fa-search mr-2"></i> Search<i class="caret border-0"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -109,7 +113,8 @@ class TopBar extends Component {
         handleSubmit,
         isSubmitting,
         /* and other goodies */
-      }) => (<form className="login-form">
+      }) => (
+      <form>
                 <div className="row">
                   <div className="col-sm-6 col-md-6 border-right border-secondary">
                     <h4 className="login-heading font-xx">Account Sign In</h4>

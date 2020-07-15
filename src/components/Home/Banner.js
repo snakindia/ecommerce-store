@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-
+import { Link, animateScroll as scroll } from "react-scroll";
 import PexelPhotoImage from '../../assets/images/pexels-photo.png';
 import Image from '../../assets/images/2000X500.jpg';
 import FiveImage from '../../assets/images/1400X500-2.jpg';
@@ -83,25 +83,53 @@ const {
                         <div class="col-sm-3 col-md-3 shopNow fader">
                             <img src={CompanyHoverImage} alt="" class="thumnal-icon" />
                             <img src={CompanyImage} alt="" class="thumnal-icon" />
-                            <a href="#company" class="js-scroll-trigger">Companies using our products</a>
+                            <Link
+                                className="tablink js-scroll-trigger"
+                                to="company"
+                                spy={true}
+                                smooth={true}
+                            >
+                            Companies using our products
+                            </Link>
                         </div>
 
                         <div class="col-sm-3 col-md-3 request-Quote fader pr-0">
                             <img src={BrandHoverImage} alt="" class="thumnal-icon" />
                             <img src={BrandImage} alt="" class="thumnal-icon" />
-                            <a href="#brand" class="js-scroll-trigger">Premium OEM Brands</a>
+                            <Link
+                                className="tablink js-scroll-trigger"
+                                to="brand"
+                                spy={true}
+                                smooth={true}
+                            >
+                            Premium OEM Brands
+                            </Link>
                         </div>
 
                         <div class="col-sm-3 col-md-3 request-Quote fader pl-0">
                             <img src={EquipmentHoverImage} alt="" class="thumnal-icon" />
                             <img src={EquipmentImage} alt="" class="thumnal-icon" />
-                            <a href="#product" class="js-scroll-trigger">Products parts & Equipment</a>
+                            <Link
+                                className="tablink js-scroll-trigger"
+                                to="product"
+                                spy={true}
+                                smooth={true}
+                            >
+                            Products parts & Equipment
+                            </Link>
                         </div>
 
                         <div class="col-sm-3 col-md-3 shopNow fader">
                             <img src={BestSellingHoverImage} alt="" class="thumnal-icon" />
                             <img src={BestSellingImage} alt="" class="thumnal-icon" />
-                            <a href="#bestSelling" class="js-scroll-trigger">Best Selling Products</a>
+                            <Link
+                                className="tablink js-scroll-trigger"
+                                to="bestSelling"
+                                spy={true}
+                                smooth={true}
+                            >
+                            Best Selling Products
+                            </Link>
                         </div>
                     </div>
                 </div>

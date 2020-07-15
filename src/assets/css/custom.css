@@ -145,3 +145,13 @@ and open the template in the editor.
     background: #fff; 
     padding:0 1rem 0 1rem;
 }
+
+.headerfull {
+    z-index: 0 !important;
+}
+
+.modal {
+    right: 30px;
+    width: 40%;
+    height: 100%;
+}

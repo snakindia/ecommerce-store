@@ -21,8 +21,10 @@ const Router = () =>{
         <StickyContainer style={{overflowY: "auto"}} >
             <BrowserRouter>
                 <GoogleTranslator />
+                <div class="top-header">
                 <TopBar />
                 <NavBar />
+                </div>
                 <Suspense fallback={<div>Loading...</div>}>
                 <Switch>
                     <Route exact path="/" component={App} />
