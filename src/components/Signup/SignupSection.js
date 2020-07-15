@@ -2,6 +2,8 @@ import React, { Component, useEffect } from 'react'
 import { Formik } from 'formik';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import {API_AJAX_URL} from '../../constants/appConstant'
+
 export default class SignupSection extends Component {
     constructor(props){
         super(props);
@@ -48,23 +50,23 @@ export default class SignupSection extends Component {
               </div>
 
               <Formik
-                initialValues={{ fname: '', lname: '', companyname: '', email: '', password: '', confirmpassword: '', phone: '', zipcode: '', countrytype: '', offerupdate: false, productnotification: false, sproductresearch:false }}
+                initialValues={{ first_name: '', last_name: '', companyname: '', email: '', password: '', confirmpassword: '', phone: '', zipcode: '', countrytype: '', offerupdate: false, productnotification: false, sproductresearch:false }}
                 validate={values => {
                   const errors = {};
-                  if (!values.fname) {
-                    errors.fname = 'First Name is required';
+                  if (!values.first_name) {
+                    errors.first_name = 'First Name is required';
                   } else if (
-                    !/^[a-zA-Z ]*$/i.test(values.fname)
+                    !/^[a-zA-Z ]*$/i.test(values.first_name)
                   ) {
-                    errors.fname = 'Please enter alphabet characters only';
+                    errors.first_name = 'Please enter alphabet characters only';
                   }
 
-                  if (!values.lname) {
-                    errors.lname = 'Last Name is required';
+                  if (!values.last_name) {
+                    errors.last_name = 'Last Name is required';
                   } else if (
-                    !/^[a-zA-Z ]*$/i.test(values.lname)
+                    !/^[a-zA-Z ]*$/i.test(values.last_name)
                   ) {
-                    errors.lname = 'Please enter alphabet characters only';
+                    errors.last_name = 'Please enter alphabet characters only';
                   }
 
                   if (!values.phone) {
@@ -122,12 +124,12 @@ export default class SignupSection extends Component {
                      onSubmit={(values, { resetForm, props }) => {
         console.log(values)
         
-        axios.post('http://127.0.0.1:3001/ajax/register', values)
+        axios.post(API_AJAX_URL + '/register', values)
         .then(function (response) {
           console.log(response)
           if(response.data.isRightToken===true && response.data.status===true){
             alert("Data is update sucessfully" )
-            resetForm({values:''});
+//            resetForm({values:''});
             return <Redirect from="/sign-up" to="/home.html" />   
           }
         })
@@ -156,14 +158,14 @@ export default class SignupSection extends Component {
                   <div className="col-sm-6 col-md-6 pl-0">
                         <div class="form-group">
 
-                          <input type="text" className="form-control input-control" name="fname" value={values.fname} onChange={handleChange}
+                          <input type="text" className="form-control input-control" name="first_name" value={values.first_name} onChange={handleChange}
                       onBlur={handleBlur}  placeholder="First Name" />
-                          <span className="errorMsg">{errors.fname && touched.fname && errors.fname}</span> 
+                          <span className="errorMsg">{errors.first_name && touched.first_name && errors.first_name}</span> 
                         </div>
                         <div className="form-group">
-                          <input type="text" className="form-control input-control" name="lname" value={values.lname} onChange={handleChange}
+                          <input type="text" className="form-control input-control" name="last_name" value={values.last_name} onChange={handleChange}
                       onBlur={handleBlur} placeholder="Last Name" />
-                          <span className="errorMsg">{errors.lname && touched.lname && errors.lname}</span> 
+                          <span className="errorMsg">{errors.last_name && touched.last_name && errors.last_name}</span> 
                         </div>
                         <div class="form-group">
                           <input type="text" class="form-control input-control"  name="companyname" value={values.companyname} onChange={handleChange}
