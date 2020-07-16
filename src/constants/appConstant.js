@@ -1,7 +1,7 @@
-const API_URL = 'http://49.50.102.36:3001/api/v1';
-const API_AJAX_URL = 'http://49.50.102.36:3001/ajax';
-const categoryImageUrl = 'http://49.50.102.36:3001/images/categories';
-const API_IMAGE_PATH = 'http://49.50.102.36:3001/images/';
+const API_URL = 'http://127.0.0.1:3001/api/v1';
+const API_AJAX_URL = 'http://127.0.0.1:3001/ajax';
+const categoryImageUrl = 'http://127.0.0.1:3001/images/categories';
+const API_IMAGE_PATH = 'http://127.0.0.1:3001/images/';
 
 export {
     API_URL,
