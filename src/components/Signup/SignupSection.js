@@ -187,10 +187,10 @@ export default class SignupSection extends Component {
                     <div className="form-group">
                           <select className="form-control input-control form-select text-muted" name="countrytype" value={values.countrytype} onChange={handleChange}
                       onBlur={handleBlur} style={{fonntSize: '0.875rem'}}>
-                            <option>United State</option>
-                            <option>India</option>
-                            <option>China</option>
-                            <option>banglore</option>
+                          <option value="United State">United State</option>
+                          <option value="India">India</option>
+                            <option value="China">China</option>
+                            <option value="Afganistan">Afganistan</option>
                           </select>
                         </div>
                         <div className="form-group">
