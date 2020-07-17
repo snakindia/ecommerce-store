@@ -126,32 +126,48 @@ and open the template in the editor.
 .callerLady{position:absolute; top:-27px; left: 9px}
 .bhaClient{padding-bottom:1.8rem;} 
 .bhaClient .slick-slide {width: 160px !important; box-sizing: border-box;}
-.banner-container{margin-top:0 !important}
+/*.banner-container{margin-top:0 !important}*/
+.banner-container{margin-bottom:0 !important}
 .bha_heading_1{height:95px !important;}
-.bottom-navigation{position:relative; top:-78px}
+.bottom-navigation{position:absolute; top:530px; z-index:0 !important;}
 .socialLink a{margin:0 3px;}
 .bha-btn-primary{padding: 0.7rem 1.5rem !important;}
 .broucher-wrapper{width:100% !important}
 .bha-btn-menu{ padding:0.32rem 1.5rem !important; font-size: 0.775rem}
-.phone-font-size {
-    font-size: 0.850rem !important;
-}
 
-.email-font-size {
-    font-size: 0.9rem !important;
-}
+.phone-font-size {font-size: 0.850rem !important;}
+.email-font-size {font-size: 0.9rem !important;}
+.contact-us-form {background: #fff;padding:0 1rem 0 1rem;}
+.headerfull { z-index: 0 !important;}
+/*.modal {right: 30px; width: 40%;height: 100%;}*/
 
-.contact-us-form {
-    background: #fff; 
-    padding:0 1rem 0 1rem;
-}
+/*==================Add new Css 17/07/2020==========================*/
 
-.headerfull {
-    z-index: 0 !important;
-}
+.logIn{border: 1px solid #000;background-color: #e5e5e5;position: absolute;top:1.5%;right:10%;max-width: 680px !important;z-index: 1000000 !important;
+padding:2rem 1.5rem 1rem;color:#000;}
+.logIn .modal-content{border-radius:0 !important; box-shadow:none !important; background:transparent !important; max-width:600px !important}
+.modal-dialog-lg{border:none !important;}
+/* .seachbox{display: none; background-color: #fff; position: absolute;top:42% !important;right:1% !important;
+width: 30%; z-index: 1000000 !important; padding:0.5rem 1rem;color:#000;} */
+.searchbox .modal-content{border-radius:0 !important; box-shadow:none !important;background:transparent !important;}
+.input-group-append{marging-left:-7px !important}
+.btn{margin-left:0 !important}
+.btn:hover{color:#fff !important;}
+.searchbox { position: absolute !important; top: 1.8% !important; right: 3% !important; width: 30% !important; z-index: 1000000 !important;
+    padding: 0 0.5rem !important;color: #000;}
 
-.modal {
-    right: 30px;
-    width: 40%;
-    height: 100%;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,11 +32,11 @@ overflow: hidden; /*border-bottom: 1px solid #ddd;*/ position: absolute; bottom:
 
 .callNo{background:transparent; color:#000; font-size: 1.3rem; font-weight: 700;}
 .request-Quote{background:transparent;font-size: 1rem; font-weight: 700;}
-.request-Quote a{color:#fff; display: block;padding:0.3rem 0; text-transform: uppercase; padding-left:6rem;} 
+.request-Quote a{color:#fff !important; display: block;padding:0.3rem 0; text-transform: uppercase; padding-left:6rem;} 
 .request-Quote a:hover{background:transparent; transition: 0.3s}
 
 .shopNow{background:transparent; font-size: 1rem; font-weight: 700}
-.shopNow a{color:#fff; display: block;padding:0.3rem 0;text-transform: uppercase;border-right:1px solid #ddd;
+.shopNow a{color:#fff !important; display: block;padding:0.3rem 0;text-transform: uppercase;border-right:1px solid #ddd;
 margin-left:6rem;}
 .shopNow a:last-child{border:0;}
 .shopNow a:hover{background:transparent; transition: 0.3s}

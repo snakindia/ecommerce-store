@@ -65,7 +65,7 @@ class TopBar extends Component {
                 </div>
 
 
-          <MDBModal className="logIn " isOpen={this.state.modal5} toggle={this.toggle(5)}>
+          <MDBModal className="logIn" isOpen={this.state.modal5} toggle={this.toggle(5)}>
       <div>
       <Formik 
       initialValues={{ email: '', password: '' }}

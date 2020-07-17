@@ -1,5 +1,5 @@
 /*========Costom layout css ==============*/
-body{background: #fff; font-family: 'Roboto', sans-serif; font-size: 1rem}
+body{background: #fff; font-family: 'Roboto', sans-serif !important; font-size: 1rem}
 
 
 /*======================================*/
@@ -181,7 +181,7 @@ a.forgotpwd:hover{text-decoration: none;color:#888; transition: 0.3s}
 /*==== Login screen Layout css end ========================================*/
 .top-header{position: fixed; top:0; z-index: 100000; width: 100%; padding:0; background: #fff; 
   border-bottom:2px solid #255a74;}
-.banner-container{float:left; width:100%; margin-top: 100px}
+.banner-container{float:left; width:100% !important; margin-top: 100px !important}
 /*========Start CSS for carosuel (24-03-2020)==========*/
 .banner-section { float: left; width: 100%; margin-top: 0 !important;}
 .container-fluid{width: 100%;/*padding-right: 0 !important;padding-left: 0 !important;margin-right: auto;
@@ -190,10 +190,10 @@ margin-left: auto;*/}
  width: 70%}
 
 
-.caption h1{ font-size:2.6rem ; color:#fff;font-family: 'Oswald', sans-serif;font-weight: 600;
+.caption h1{ font-size:2.6rem ; color:#fff;font-family: 'Oswald', sans-serif !important;font-weight: 600;
 /*letter-spacing: 0.5rem*/}
 .speText{color:#e6e305; font-weight: 600}
-.caption h2{width: 100%; font-size:1.5rem; color:#fff; font-weight: 300;font-family: 'Oswald', sans-serif; padding-top:2rem;}
+.caption h2{width: 100%; font-size:1.5rem; color:#fff; font-weight: 300;font-family: 'Oswald', sans-serif !important; padding-top:2rem;}
 
 @media only screen and (max-width: 991px) {
 .caption{width: 70%;right: 10% !important;top: 18%;}
