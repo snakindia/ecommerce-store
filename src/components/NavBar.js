@@ -59,7 +59,7 @@ class NavBar extends React.Component {
                 <div className="image-holder">
                     <img src={!coverImg ? EpicCover : coverImg} alt="" width="300" height="150" />
                   </div>
-                <ul className="wsmenu-list">
+                <ul className="wstabitem clearfix">
                 {
                   subMenuArr && subMenuArr.map((itemOne,i)=>{
                     let itemOneObj = itemOne && itemOne[0];
@@ -72,14 +72,14 @@ class NavBar extends React.Component {
                     <Link to={`${baseUrl}/${slug}`} data-src={Baghouse} >{name}</Link>
                     <div className="wstitemright clearfix wstpngsml">
                       <div className="container-fluid">
-                        <div className="row custom-gutter">
+                        <div className="row custom-gutter-wsmenu">
                           {listItems.map((itemTwo,i)=>{
                             return (
                               <div className="col-lg-3 col-md-12" key={i+3}>
                               <ul className="wstliststy04 clearfix">
                                 <li><img className="scale-down" src={`${categoryImageUrl}/${itemTwo._id}/${itemTwo.image}`} alt="baghouse" /></li>
                                 <li className="wstheading clearfix">
-                                <Link to={`${baseUrl}/${slug}/${itemTwo.slug}`}>{itemTwo.name}</Link>
+                                <Link to={`${baseUrl}/${slug}/${itemTwo.slug}`}> <i class="fa fa-chevron-right pr-2"></i>{itemTwo.name}</Link>
                                 </li>
                               </ul>
                             </div>
