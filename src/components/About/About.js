@@ -47,14 +47,14 @@ class About extends React.Component {
         const  {abousUsDetails} = this.props;
         let abousUsObj = abousUsDetails.abousUsDetails;
         return (
-                <div id="tabItems">
-                    <section>
-                        <div className="container-fluid pl-0 pr-0">
+                  <div class="pagewrap bha-tab"> 
+                  <div class="container-fluid pl-0 pr-0">
+                        <div class="row">
+                         <div class="col-lg-12">
                             <ul className="tab-menu">
                             {
                                 abousUsObj && Object.keys(abousUsObj).length &&
                                 abousUsObj.map((item, idx) => {
-                                    console.log('this.state.activeTabID' + this.state.activeTabID)
                                      if (this.state.activeTabID == '') {
                                         this.state.activeTabID = item.id;
                                     }
@@ -85,8 +85,9 @@ class About extends React.Component {
                                     </Link>
                                 </li>
                             </ul>
+                             </div>
                        </div>
-                </section>
+                </div>
             </div>
         )
     }
@@ -95,147 +96,187 @@ class About extends React.Component {
         const  {abousUsDetails} = this.props;
         let abousUsObj = abousUsDetails.abousUsDetails;
         return (
-        
             <div>
-                <div className="banner-container">
-                    <div id="carousel" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-item bha_h_50 active">
-                            <picture>
-                                <img src={team} alt="responsive image" class="d-block img-fluid" />
-                            </picture>
-                            <div class="caption v_middle">
-                                <h1 class="bha_heading_1 text-black-dark">Lorem ipsum dollar site amnt</h1>
-                                <h5>Lorem ipsum dollar site amt. Lorem ipsum dollar site amt.Lorem ipsum dollar site amt.</h5>
-                            </div>
-                        </div>
+                <section class="banner-container" style={{position: "relative"}}>
+                    <div class="banner-about">
+                        <picture>
+                            <img src={team} alt="responsive image" class="d-block img-fluid" />
+                        </picture>
+                        { /*
+                        <Sticky topOffset={525}>
+                            {({ style }) => (
+                                <div style={{zIndex:"999", ...style }} >
+
+                                </div>
+                            )}
+                        </Sticky>*/ }
+                        { this.drawMenu() }
                     </div>
-                </div>
-                            
-                {/*<div style={{ height: "450px" }} />
-                <Sticky topOffset={525}>
-                    {({ style }) => (
-                        <div style={{zIndex:"999", ...style }} >
-                          
-                        </div>
-                    )}
-                </Sticky>*/}
-                  {this.drawMenu()}
-               <div>
+                </section>
+                  <div class="content-wrapper pb-0">
+  <div class="pagewrap">
+    <div class="bgWhite">
                 { 
                 abousUsObj && Object.keys(abousUsObj).length &&
                 abousUsObj.map((item, idx) => {
                    if (idx == 0) {
                         return (
-                            <section class="content-section" id="0">
-                               <div class="container-fluid">
-                                   <div class="row">
-                                       <div class="heading-wrapper">
-                                           <h4 class="heading"></h4>
-                                           <h4 class="heading-h4">{item.meta_title}</h4>
-                                       </div>
-                                       <div class="col-sm-9 col-md-9 pl-0">
-                                           {htmlParse(item.content)}
-                                       </div>
-                                       <div class="col-sm-3 col-md-3 pl-0 pr-0">
-                                           <img class="img-fluid border-frame" src={picOne} alt="" />
-                                       </div>
+                        <div>
+                            <section class="pro-equipment-section pagewrap-inner" style={{background: "#f6f6f6"}} id={idx}>
+                                <div class="container-fluid p-4">
+                                    <div class="row">
+                                        <h4 class="heading-h4" id="message">{item.meta_title}</h4>
+                                        <div class="col-sm-9 col-md-9 pl-0">
+                                            {htmlParse(item.content)}
+                                        </div>
+
+                                        <div class="col-sm-3 col-md-3 pl-0 pr-0">
+                                            <img class="img-fluid border-frame" src={picOne} alt="" />
+                                        </div>
                                    </div>
                                </div>
                            </section>   
+                           <div class="container-fluid w-100 float-left" style={{background: "rgba(167,14,21,0.4)", height: "1px"}} >
+                                <div class="row">
+                                    <div class="col-lg-12 text-center">
+                                        <Link
+                                            className="tablink js-scroll-trigger"
+                                            to="1"
+                                            spy={true}
+                                            smooth={true}
+                                        >
+                                        <i class="fa fa-angle-down text-white seperator"></i>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         )
                    }
                     
+                    
+      
                     if (idx == 1) {
                         return (
-                            <section class="content-section" id="1">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="heading-wrapper">
-                                            <h4 class="heading"></h4>
-                                            <h4 class="heading-h4">{item.meta_title}</h4>
-                                        </div>
-                                        <div class="col-sm-3 col-md-3 pl-0 pr-0">
-                                              <img class="img-fluid border-frame" src={picTwo} alt="" />
-                                        </div>
-                                        <div class="col-sm-9 col-md-9 pl-5">
-                                            {htmlParse(item.content)}
+                            <div>
+                                <section class="pro-equipment-section pagewrap-inner" id={idx}>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                        <h4 class="heading-h4 pt-5 pb-0">{item.meta_title}</h4>
+                                        <div id="profile" class="float-left w-100">&nbsp;</div>
+                                            <div class="col-sm-9 col-md-9 pl-0">
+                                                 {htmlParse(item.content)}
+                                            </div>
+                                             <div class="col-sm-3 col-md-3 pl-0 pr-2">
+                                                <img class="img-fluid border-frame" src={picTwo} alt="" />
+                                            </div>
                                         </div>
                                     </div>
+                                </section>
+                                <div class="container-fluid w-100 float-left" style={{background: "rgba(167,14,21,0.4)", height: "1px"}}>
+                                    <div class="row">
+                                      <div class="col-lg-12 text-center">
+                                        <Link
+                                            className="tablink js-scroll-trigger"
+                                            to="2"
+                                            spy={true}
+                                            smooth={true}
+                                        >
+                                        <i class="fa fa-angle-down text-white seperator"></i>
+                                        </Link>
+                                      </div>
+                                    </div>
                                 </div>
-                            </section>
+                            </div>
                         )
                     }
                     
-                     if (idx == 2) {
+                    if (idx == 2) {
                      return (
-                            <section class="mv-section" id="2">
+                        <div> 
+                            <section class="mission-section pagewrap-inner" id={idx}>
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="heading-wrapper">
-                                            <h4 class="heading"></h4>
-                                            <h4 class="heading-h4">{item.meta_title}</h4>
-                                        </div>
-
-                                        <div class="col-sm-9 col-md-9 pr-5">
+                                        <h4 class="heading-h4 pt-5 pb-0 text-white" id="mission">{item.meta_title}</h4>
+                                        <div id="mvsection" class="float-left w-100">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            <section class="pro-equipment-section pagewrap-inner mission-text pb-4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 pl-0">
                                             {htmlParse(item.content)}
-                                        </div>
-                                        <div class="col-sm-3 col-md-3 pl-0 pr-0">
-                                            <img class="img-fluid border-frame" src={picThree} alt="" />
                                         </div>
                                     </div>
                                 </div>
                             </section>
+                            <div class="container-fluid w-100 float-left" style={{background: "rgba(167,14,21,0.4)", height: "1px"}} >
+                                <div class="row">
+                                    <div class="col-lg-12 text-center">
+                                        <Link
+                                            className="tablink js-scroll-trigger"
+                                            to="values"
+                                            spy={true}
+                                            smooth={true}
+                                        >
+                                        <i class="fa fa-angle-down text-white seperator"></i>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         )
                     }
             })
         }
-        </div>
+        
               
-               <section className="content-section pb-4" id="values" >
-          <div className="container-fluid">
-            <div className="row">
-              <div className="heading-wrapper">
-                <h4 className="heading" />
-                <h4 className="heading-h4">Our Values</h4>
-              </div>
-              <div className="col-sm-3 col-md-3 pl-0 mb-5">
-                <h5 className="font-weight-bold"><img src={handShakeIcon} alt="" width={60} className="mr-3" />Integrity</h5>
-                <p className="pr-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-              </div>
-              <div className="col-sm-3 col-md-3 pl-0 mb-5">
-                <h5 className="font-weight-bold"><img src={respectIcon} alt="" width={60} className="mr-3" />Respect for People</h5>
-                <p className="pr-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-              </div>
-              <div className="col-sm-3 col-md-3 pl-0 mb-5">
-                <h5 className="font-weight-bold"><img src={teamIcon} alt="" width={60} className="mr-3" />Teamwork</h5>
-                <p className="pr-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-              </div>
-              <div className="col-sm-3 col-md-3 pl-0 mb-5">
-                <h5 className="font-weight-bold"><img src={performanceIcon} alt="" width={60} className="mr-3" />Performance</h5>
-                <p className="pr-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-              </div>
-              <div className="col-sm-3 col-md-3 pl-0">
-                <h5 className="font-weight-bold"><img src={performanceIcon} alt="" width={60} className="mr-3" />Quality</h5>
-                <p className="pr-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-              </div>
-              <div className="col-sm-3 col-md-3 pl-0">
-                <h5 className="font-weight-bold"><img src={communityIcon} alt="" width={60} className="mr-3" />Community</h5>
-                <p className="pr-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-              </div>
-              <div className="col-sm-3 col-md-3 pl-0">
-                <h5 className="font-weight-bold"><img src={innovationIcon} alt="" width={60} className="mr-3" />Inovation</h5>
-                <p className="pr-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-              </div>
-              <div className="col-sm-3 col-md-3 pl-0">
-                <h5 className="font-weight-bold"><img src={leaderIcon} alt="" width={60} className="mr-3" />Leadership</h5>
-                <p className="pr-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-              </div>
+            <section class="pro-equipment-section pb-4 pagewrap-inner" id="values">
+                <div class="container-fluid pl-0 pr-0">
+                    <div className="row">
+                        <h4 class="heading-h4 pt-5 pb-1 pl-3 pr-3">Our Values</h4>
+                        <div id="Values" class="float-left w-100">&nbsp;</div>
+                        <div class="col-sm-4 col-md-4 mb-5">
+                          <h6><img src={handShakeIcon} alt="" width={50} className="mr-3" />Integrity</h6>
+                          <p className="pr-4 block-ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4 mb-5">
+                          <h6><img src={respectIcon} alt="" width={50} className="mr-3" />Respect for People</h6>
+                          <p className="pr-4 block-ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4 mb-5">
+                          <h6><img src={teamIcon} alt="" width={50} className="mr-3" />Teamwork</h6>
+                          <p className="pr-4 block-ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4 mb-5">
+                          <h6><img src={performanceIcon} alt="" width={50} className="mr-3" />Performance</h6>
+                          <p className="pr-4 block-ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <h6><img src={performanceIcon} alt="" width={50} className="mr-3" />Quality</h6>
+                          <p className="pr-4 block-ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <h6><img src={communityIcon} alt="" width={50} className="mr-3" />Community</h6>
+                          <p className="pr-4 block-ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <h6><img src={innovationIcon} alt="" width={50} className="mr-3" />Inovation</h6>
+                          <p className="pr-4 block-ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <h6><img src={leaderIcon} alt="" width={50} className="mr-3" />Leadership</h6>
+                          <p className="pr-4 block-ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             </div>
-          </div>
-        </section>
-        </div>
-    )
-  }
+            </div></div></div>
+        )
+    }
 }
 
 const mapStateToProps = state => {

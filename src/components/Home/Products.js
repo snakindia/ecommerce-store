@@ -189,9 +189,6 @@ export default class Products extends Component {
         </div>
                             </Slider>
                       </div>
-                      <div class="container text-center">
-                          <a href="" class="btn bha-btn-primary z-index view-all">View All</a>
-                      </div>
                       </div>
               </section>
               </div>
