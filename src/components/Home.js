@@ -10,13 +10,13 @@ export default class Home extends Component {
     return (
       <div>
         <Banner />
-        <div class="content-wrapper">
-            <Client />
-            <OEM /> 
-            <ProductsPart />
-             <Products /> 
+        <div className="content-wrapper">
+          <Client />
+          <OEM />
+          <ProductsPart />
+          <Products />
         </div>
       </div>
-    )
+    );
   }
 }
