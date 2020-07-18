@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import MetaData from './components/MetaData';
 import Home from './components/Home';
 
 class App extends Component {
@@ -31,14 +31,25 @@ class App extends Component {
     const { collapseID } = this.state;
 
     return (
-      <div>
-      <Router>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/home" exact component={Home} />
-        </Switch>
-      </Router>
-      </div>
+        <div>
+            <Router>
+                <Switch>
+                    <Route path='/' render={props =>
+                        <div>
+                            <MetaData />
+                            <Home />
+                        </div>
+                    } />
+                    
+                    <Route path='/home' render={props =>
+                        <div>
+                            <MetaData />
+                            <Home />
+                        </div>
+                    } />
+                </Switch>
+            </Router>
+        </div>
     );
   }
 }
