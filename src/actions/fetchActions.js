@@ -1,5 +1,5 @@
 import store from "../store";
-import {menuProductUrl, settingsUrl} from "../constants/urls";
+import {menuProductUrl, settingsUrl, getPageMetaDetails} from "../constants/urls";
 
 export const fetch_post = () => {
   return {
@@ -20,6 +20,13 @@ export const receive_error = () => {
   };
 };
 
+export const received_page_meta_details = (data) => {
+  return {
+    type: "RECEIVED_PAGE_META_DETAILS",
+    data: data
+  };
+};
+
 export const fetch_dynamic_menus = () => {
     store.dispatch(fetch_post());
     return function(dispatch, getState) {
@@ -29,6 +36,19 @@ export const fetch_dynamic_menus = () => {
           if (data.message === "Not Found") {
             throw new Error("No such user found!!");
           } else dispatch(receive_post(data));
+        })
+        .catch(err => dispatch(receive_error()));
+    };
+  };
+  
+export const fetch_page_meta_details = () => {
+    return function(dispatch, getState) {
+      return fetch(getPageMetaDetails)
+        .then(data => data.json())
+        .then(data => {
+          if (data.message === "Not Found") {
+            throw new Error("No page found!!");
+          } else dispatch(received_page_meta_details(data));
         })
         .catch(err => dispatch(receive_error()));
     };

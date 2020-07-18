@@ -4,7 +4,8 @@ const initialState = {
     isError: false,
     subMenuData :{},
     abousUsDetails: {},
-    freeBrochuresUserDetail: {}
+    freeBrochuresUserDetail: {},
+    page_meta_details: {}
 };
   
 const asyncReducer = (state = initialState, action) => {
@@ -53,6 +54,11 @@ const asyncReducer = (state = initialState, action) => {
                 freeBrochuresUserDetail: action.data,
             });
         
+        case "RECEIVED_PAGE_META_DETAILS":
+            return Object.assign({}, state, {
+                page_meta_details: action.data,
+            });
+            
       default:
         return state;
     }

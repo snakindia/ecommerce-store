@@ -7,7 +7,7 @@ import Baghouselogo from '../assets/images/baghouse_logo.svg';
 import MenuLogo from '../assets/images/menu-logo.jpg';
 import { dropDownMenuProduct, API_URL,defaultMenuListItems,categoryImageUrl } from "../constants/appConstant";
 import { Sticky } from 'react-sticky';
-import {fetch_dynamic_menus,fetch_submenu_items} from '../actions/fetchActions'
+import {fetch_dynamic_menus,fetch_submenu_items, fetch_page_meta_details} from '../actions/fetchActions'
 
 
 class NavBar extends React.Component {
@@ -27,6 +27,7 @@ class NavBar extends React.Component {
     window.addEventListener('load', this.handleLoad);
      this.props.dispatch(fetch_dynamic_menus());
      this.props.dispatch(fetch_submenu_items());
+     this.props.dispatch(fetch_page_meta_details());
   }
 
   handleLoad() {
