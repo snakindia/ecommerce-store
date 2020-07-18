@@ -44,7 +44,7 @@ class ContentSection extends Component {
   render() {
     return (
       <div>
-<section class="content-section">
+<section class="content-wrapper pb-0">
  <div class="pagewrap">
       <div class="bgWhite">
   <div class="container pt-5">

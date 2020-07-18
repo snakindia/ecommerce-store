@@ -142,7 +142,7 @@ and open the template in the editor.
 /*.modal {right: 30px; width: 40%;height: 100%;}*/
 
 /*==================Add new Css 17/07/2020==========================*/
-
+/* body{font-family: 'Roboto', sans-serif !important} */
 .logIn{border: 1px solid #000;background-color: #e5e5e5;position: absolute;top:1.5%;right:10%;max-width: 680px !important;z-index: 1000000 !important;
 padding:2rem 1.5rem 1rem;color:#000;}
 .logIn .modal-content{border-radius:0 !important; box-shadow:none !important; background:transparent !important; max-width:600px !important}
@@ -155,6 +155,53 @@ width: 30%; z-index: 1000000 !important; padding:0.5rem 1rem;color:#000;} */
 .btn:hover{color:#fff !important;}
 .searchbox { position: absolute !important; top: 1.8% !important; right: 3% !important; width: 30% !important; z-index: 1000000 !important;
     padding: 0 0.5rem !important;color: #000;}
+.bha_heading_2{font-size:1.8rem !important;}
+.caption h1{font-size:3rem !important;}
+
+.bha-icon {
+    color: #a70e15;
+    border: 1.5px solid #a70e15;
+    border-radius: 100px;
+    width: 24px;
+    height: 24px;
+    padding: 6px 6px;
+    vertical-align: top;
+    font-size: 0.6rem !important;
+    font-weight: bold !important;
+}
+h6{font-size: 1rem !important; font-weight:600 !important}
+
+/*==============Responsive CSS==============================================*/
+@media(max-width: 768px)
+{
+  .headerfull{background:transparent !important}
+  .top-header{z-index: 1000 !important}
+  .wsmobileheader > .smllogo { width: 180px !important; margin-top: 10px !important}
+  .carousel-item{max-height: 55vh !important}
+  .footer-main{padding:0 1rem !important;}
+  .footer-bottom, .copyright{padding:1rem !important;}
+  .bottom-navigation{position: static !important; overflow: visible !important; margin-bottom: 0 !important}
+  .shopNow,.request-Quote{ border-bottom: 1px solid #ddd; float:left; display: block; max-height: 100px}
+  .request-Quote a{padding:1.3rem 0 !important;color:#000 !important; padding-left: 4rem !important;
+  font-size: 0.8rem}
+  .shopNow a{ color:#000 !important;padding:1.3rem 0 !important; margin-left: 4rem !important; 
+    font-size: 0.8rem}
+  .thumnal-icon{float:left; margin: 0.6rem 0 1rem 0 !important }
+  .pl-0{padding-left: 1rem !important}
+
+  /*===Navigation css=================================================*/
+  .wsmenu>.wsmenu-list>li>.navtext { text-align: left !important;}
+  .wsmenu > .wsmenu-list > li > .mbilewsstabing{left:0 !important; width:100% !important;}
+  .image-holder{width: auto !important;}
+  /*===footer css=================================================*/
+  .socialLink{ width: 100%; margin-top: 2.2rem !important;}
+  .socialLink span{padding-right:10px;}
+  .call-us { font-size: 1.2rem !important; font-weight: 700; padding-left: 4rem !important; float:left;
+   text-align: right; width: 100%; max-height: 100px;padding-top: 0.5rem;}
+   #SearchOpen{display: none !important}
+   .mobPipe{display: none !important}
+}
+
 
 
 
