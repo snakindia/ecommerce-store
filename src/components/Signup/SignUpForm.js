@@ -258,7 +258,7 @@ class SignUpForm extends PureComponent {
                         onBlur={handleBlur}
                         className="mr-3"
                       />
-                      I WOULD LIKE TO RECEIVE INFORMATION ABOUT DEWALT PRODUCTS
+                      I WOULD LIKE TO RECEIVE INFORMATION ABOUT BAGHOUSE PRODUCTS
                       AND PROMOTIONS BY EMAIL
                     </small>
                   </p>
@@ -293,7 +293,7 @@ class SignUpForm extends PureComponent {
                         onBlur={handleBlur}
                         className="mr-3"
                       />
-                      SIGN UP TO PARTICIPATE IN DEWALT PRODUCT RESEARCH
+                      SIGN UP TO PARTICIPATE IN BAGHOUSE PRODUCT RESEARCH
                     </small>
                   </p>
                   <div className="form-group">

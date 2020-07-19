@@ -43,7 +43,7 @@ export default class SignupSection extends Component {
                           View related accessories and products to your
                           registered tools
                         </li>
-                        <li>Easily rate and review your DEWALT products</li>
+                        <li>Easily rate and review your BAGHOUSE products</li>
                       </ul>
                     </div>
                     <div className="col-sm-4 col-md-4 mt-4">
