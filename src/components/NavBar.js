@@ -16,7 +16,6 @@ import { Sticky } from 'react-sticky';
 import {
   fetch_dynamic_menus,
   fetch_submenu_items,
-  fetch_page_meta_details,
 } from '../actions/fetchActions';
 import RequestAQuote from './RequestAQuote';
 import { save_brochures_details } from '../actions/freeBrochuresActions';
@@ -38,7 +37,7 @@ class NavBar extends React.Component {
     window.addEventListener('load', this.handleLoad);
     this.props.fetch_dynamic_menus();
     this.props.fetch_submenu_items();
-    this.props.fetch_page_meta_details();
+    
   }
 
 
@@ -217,7 +216,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   saveBrochuresDetails: save_brochures_details,
   fetch_dynamic_menus,
-  fetch_submenu_items,
-  fetch_page_meta_details
+  fetch_submenu_items
 };
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
