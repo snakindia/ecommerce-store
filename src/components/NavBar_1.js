@@ -162,9 +162,9 @@ class NavBar extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ asyncReducer }) => {
   return {
-    navMenuData: state,
+    navMenuData: asyncReducer,
     //subMenuData:state
   };
 };

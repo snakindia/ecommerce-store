@@ -506,9 +506,9 @@ class ContentSection extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ asyncReducer }) => {
   return {
-    saveRecordStatus: state.freeBrochuresUserDetail
+    saveRecordStatus: asyncReducer.freeBrochuresUserDetail
     
   };
 };

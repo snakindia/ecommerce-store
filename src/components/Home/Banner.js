@@ -139,9 +139,9 @@ const {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ asyncReducer }) => {
     return {
-      navMenuData: state
+      navMenuData: asyncReducer
     };
   };
   export default connect(mapStateToProps)(Banner);

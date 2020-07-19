@@ -58,9 +58,9 @@ class MetaData extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ asyncReducer }) => {
     return {
-        meta_details: state.page_meta_details  
+        meta_details: asyncReducer.page_meta_details
     };
 };
 

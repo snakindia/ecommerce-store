@@ -132,9 +132,9 @@ class FreeBrochure extends React.Component {
 
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ asyncReducer }) => {
     return {
-        freeBrochuresUserDetail: state.freeBrochuresUserDetail
+        freeBrochuresUserDetail: asyncReducer.freeBrochuresUserDetail
     };
 };
 export default connect(mapStateToProps)(FreeBrochure);

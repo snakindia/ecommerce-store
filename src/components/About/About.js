@@ -279,9 +279,9 @@ class About extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ asyncReducer }) => {
   return {
-    abousUsDetails: state,
+    abousUsDetails: asyncReducer,
     activeTabID: ''
     
   };
