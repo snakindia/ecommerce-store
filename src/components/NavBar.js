@@ -19,6 +19,7 @@ import {
 } from '../actions/fetchActions';
 import RequestAQuote from './RequestAQuote';
 import { save_brochures_details } from '../actions/freeBrochuresActions';
+import { showToast } from './Notification/notification.actions';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -37,7 +38,6 @@ class NavBar extends React.Component {
     window.addEventListener('load', this.handleLoad);
     this.props.fetch_dynamic_menus();
     this.props.fetch_submenu_items();
-
   }
 
   handleLoad() {
@@ -199,6 +199,7 @@ class NavBar extends React.Component {
           toggleModal={this.toggleQuoteModal}
           isOpen={this.state.isQuoteModalOpen}
           onSubmit={this.props.saveBrochuresDetails}
+          showToast={this.props.showToast}
         />
       </div>
     );
@@ -216,5 +217,6 @@ const mapDispatchToProps = {
   saveBrochuresDetails: save_brochures_details,
   fetch_dynamic_menus,
   fetch_submenu_items,
+  showToast,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

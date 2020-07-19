@@ -3,22 +3,29 @@ import { MDBModal, MDBModalBody } from 'mdbreact';
 import { Form, Formik } from 'formik';
 import execValidation from '../../services/validatorService';
 import { validators } from './validators';
+import { TOAST_TYPE } from '../Notification/action.constants';
 
 const initialValues = {
   name: '',
-  companyName: '',
+  company: '',
   email: '',
   phone: '',
 };
 
 class RequestAQuote extends Component {
   handleSubmit = async (values, { setSubmitting }) => {
-    const { toggleModal, onSubmit } = this.props;
+    const { toggleModal, onSubmit, showToast } = this.props;
     setSubmitting(true);
     try {
-      const res = await onSubmit(values);
-      console.log('response is', res);
-      toggleModal();
+      const res = await onSubmit({ ...values, type: 'Contact' });
+      if (res && res.status) {
+        toggleModal();
+        showToast('Quote request success', TOAST_TYPE.SUCCESS);
+      } else if (res && res.status.error) {
+        showToast(res.status.error || 'Something Went wrong', TOAST_TYPE.ERROR);
+      }
+    } catch (e) {
+      showToast('Something Went wrong', TOAST_TYPE.ERROR);
     } finally {
       setSubmitting(false);
     }
@@ -122,18 +129,18 @@ class RequestAQuote extends Component {
                     </div>
                     <div className="col-lg-12">
                       <div className="form-group mb-1">
-                        <label htmlFor="companyName">Company Name *</label>
+                        <label htmlFor="company">Company Name *</label>
                         <input
                           type="text"
                           className="form-control"
-                          id="companyName"
+                          id="company"
                           placeholder="Enter Company Name"
-                          value={values.companyName}
+                          value={values.company}
                           onChange={handleChange}
                           onBlur={handleBlur}
                         />
                         <span className="errorMsg">
-                          {touched.companyName && errors.companyName}
+                          {touched.company && errors.company}
                         </span>
                       </div>
                     </div>

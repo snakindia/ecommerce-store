@@ -8,6 +8,6 @@ import {
 export const validators = {
   name: [isRequired('Name is required'), charactersOnly()],
   phone: [isRequired('Phone Number is required'), phoneNumber()],
-  companyName: [isRequired('Company Name is required'), charactersOnly()],
+  company: [isRequired('Company Name is required'), charactersOnly()],
   email: [isRequired('Email Id is required'), email()],
 };
