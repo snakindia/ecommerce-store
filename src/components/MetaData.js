@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import MetaTags from 'react-meta-tags';
+import {Helmet} from "react-helmet";
+
 import {
     fetch_page_meta_details,
 } from '../actions/fetchActions';
@@ -42,12 +43,13 @@ class MetaData extends Component {
                     details && Object.keys(details).length &&
                     details.map((item, idx) => {
                         return item.slug && item.slug == this.state.path ?
-                            <MetaTags>
+                            <Helmet>
+                                <meta charSet="utf-8" />
                                 <title>{item.meta_title}</title>
                                 <meta name="description" content={item.meta_description} />
                                 <meta property="og:title" content={item.meta_title} />
                                 {/* <meta property="og:image" content="path/to/image.jpg" /> */}
-                            </MetaTags>
+                            </Helmet>
                         :
                         ''
                     })

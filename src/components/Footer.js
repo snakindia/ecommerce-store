@@ -18,6 +18,7 @@ class Footer extends Component {
     super(props);
     this.state = {
       brochureData: {},
+      year: new Date().getFullYear()
     };
   }
 
@@ -377,7 +378,7 @@ class Footer extends Component {
                   <MDBRow>
                     <MDBCol md="9" sm="9" xs="12">
                       <p>
-                        COPYRIGHT © 2020 Baghouse. The following are trademarks
+                        COPYRIGHT © {this.state.year} Baghouse. The following are trademarks
                         for one or more Baghouse power tools, accessories,
                         anchors and concrete adhesives: The yellow and black
                         color scheme; the the array of pyramids on the handgrip;
