@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import MetaData from './components/MetaData';
 import Home from './components/Home';
 
 class App extends Component {
@@ -34,19 +33,8 @@ class App extends Component {
         <div>
             <Router>
                 <Switch>
-                    <Route path='/' render={props =>
-                        <div>
-                            <MetaData />
-                            <Home />
-                        </div>
-                    } />
-                    
-                    <Route path='/home' render={props =>
-                        <div>
-                            <MetaData />
-                            <Home />
-                        </div>
-                    } />
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/home" component={Home} />
                 </Switch>
             </Router>
         </div>

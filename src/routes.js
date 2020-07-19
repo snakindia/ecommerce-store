@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import NavBar from './components/NavBar';
 import { StickyContainer } from 'react-sticky';
 import GoogleTranslator from './components/common/GoogleTranslator';
-import MetaData from './components/MetaData';
+import MetaContainer from './components/MetaData';
 import Notification from './components/Notification';
 
 const App = lazy(() => import('./App'));
@@ -21,46 +21,32 @@ const Router = () => {
   return (
     <StickyContainer style={{ overflowY: 'auto' }}>
       <Notification />
-      <BrowserRouter>
-        <GoogleTranslator />
-        <div className="top-header">
-          <TopBar />
-          <NavBar />
-        </div>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Switch>
-            <Route exact path="/" component={App} />
-            {/* <Route path="/:param1/:param2" component={ProductService} /> */}
-            {/* <Route path="/productserive/:param1/:param2/:param3" component={ProductServiceMenu} /> */}
-            <Route exact path="/home" component={App} />
-            <Route
-              path="/about"
-              render={props => (
-                <div>
-                  <MetaData />
-                  <About />
+        <BrowserRouter>
+            <MetaContainer>
+                <GoogleTranslator />
+                <div className="top-header">
+                    <TopBar />
+                    <NavBar />
                 </div>
-              )}
-            />
-            <Route path="/about/:param1" component={About} />
-            <Route path="/product" component={ProductBody} />
-            <Route path="/brand" component={BrandBody} />
-            <Route
-              path="/contact"
-              render={props => (
-                <div>
-                  <MetaData />
-                  <ContactBody />
-                </div>
-              )}
-            />
-            <Route path="/sign-up" component={SignUpPage} />
-            <Route path="/verify-user" component={VerifyUser} />
-            <Route path="/inner-page" component={InnerPage} />
-          </Switch>
-        </Suspense>
-        <Footer />
-      </BrowserRouter>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Switch>
+                        <Route exact path="/" component={App} />
+                        {/* <Route path="/:param1/:param2" component={ProductService} /> */}
+                        {/* <Route path="/productserive/:param1/:param2/:param3" component={ProductServiceMenu} /> */}
+                        <Route exact path="/home" component={App} />
+                        <Route path='/about' component={About} />
+                        <Route path="/about/:param1" component={About} />
+                        <Route path="/product" component={ProductBody} />
+                        <Route path="/brand" component={BrandBody} />
+                        <Route path='/about' component={ContactBody} />
+                        <Route path="/sign-up" component={SignUpPage} />
+                        <Route path="/verify-user" component={VerifyUser} />
+                        <Route path="/inner-page" component={InnerPage} />
+                    </Switch>
+                </Suspense>
+                <Footer />
+            </MetaContainer>
+        </BrowserRouter>
     </StickyContainer>
   );
 };
