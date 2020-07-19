@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 import { signUp } from './signUp.actions';
 import execValidation from '../../services/validatorService';
 import { validators } from './validators';
+import { showToast } from '../Notification/notification.actions';
+import { TOAST_TYPE } from '../Notification/action.constants';
 
 const initialValues = {
   first_name: '',
@@ -24,15 +26,26 @@ class SignUpForm extends PureComponent {
   state = {
     showPassword: false,
   };
-  handleSubmit = async (values, { setSubmitting }) => {
-    const { actions, history } = this.props;
+  handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    const { actions } = this.props;
     setSubmitting(true);
     try {
       const res = await actions.signUp(values);
       const { isRightToken, status } = res;
       if (isRightToken && status) {
-        history.push('/verify-user');
+        resetForm();
+        actions.showToast(
+          'Please click on link sent in your mailbox for verification',
+          TOAST_TYPE.SUCCESS
+        );
+      } else {
+        actions.showToast(
+          'We are unable to process the request. Please try again later',
+          TOAST_TYPE.ERROR
+        );
       }
+    } catch (e) {
+      actions.showToast('Something went wrong', TOAST_TYPE.ERROR);
     } finally {
       setSubmitting(false);
     }
@@ -309,6 +322,7 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(
     {
       signUp,
+      showToast,
     },
     dispatch
   ),

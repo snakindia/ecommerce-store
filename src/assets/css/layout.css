@@ -179,7 +179,7 @@ a.forgotpwd:hover{text-decoration: none;color:#888; transition: 0.3s}
             text-transform: uppercase; font-weight: 500; border:none;}
 
 /*==== Login screen Layout css end ========================================*/
-.top-header{position: fixed; top:0; z-index: 100000; width: 100%; padding:0; background: #fff; 
+.top-header{position: fixed; top:0; z-index: 999; width: 100%; padding:0; background: #fff;
   border-bottom:2px solid #255a74;}
 .banner-container{float:left; width:100% !important; margin-top: 100px !important}
 /*========Start CSS for carosuel (24-03-2020)==========*/

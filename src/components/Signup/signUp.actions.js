@@ -7,6 +7,7 @@ const signUp = payload => async () => {
     return response.data;
   } catch (e) {
     console.error('SignUp error', e);
+    throw e;
   }
 };
 

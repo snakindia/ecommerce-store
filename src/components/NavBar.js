@@ -41,7 +41,6 @@ class NavBar extends React.Component {
     this.props.fetch_page_meta_details();
   }
 
-
   handleLoad() {
     var v = document.getElementById('firstEl');
     if (v != null) {
@@ -207,9 +206,9 @@ class NavBar extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ asyncReducer }) => {
   return {
-    navMenuData: state,
+    navMenuData: asyncReducer || {},
     //subMenuData:state
   };
 };
@@ -218,6 +217,6 @@ const mapDispatchToProps = {
   saveBrochuresDetails: save_brochures_details,
   fetch_dynamic_menus,
   fetch_submenu_items,
-  fetch_page_meta_details
+  fetch_page_meta_details,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
