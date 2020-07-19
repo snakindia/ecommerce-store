@@ -38,7 +38,7 @@ const Router = () => {
                         <Route path="/about/:param1" component={About} />
                         <Route path="/product" component={ProductBody} />
                         <Route path="/brand" component={BrandBody} />
-                        <Route path='/about' component={ContactBody} />
+                        <Route path='/contact' component={ContactBody} />
                         <Route path="/sign-up" component={SignUpPage} />
                         <Route path="/verify-user" component={VerifyUser} />
                         <Route path="/inner-page" component={InnerPage} />

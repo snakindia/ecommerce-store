@@ -151,7 +151,7 @@ class Footer extends Component {
                     <div className="broucher-wrapper">
                       <div className="broucher-inner">
                         <h2 className="bha_heading_2 font-weight-bold mb-3">
-                          APPLY FOR REGISTRATION
+                          APPLY FOR REPRESENTATION
                         </h2>
                         <Formik
                           initialValues={{
