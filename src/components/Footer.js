@@ -22,10 +22,11 @@ class Footer extends Component {
     };
   }
 
-  saveHandler(data) {
-    this.props.dispatch(save_brochures_details(data));
-    //resetForm()
-  }
+    saveHandler(data) {
+        data.type = 'Representative';
+        this.props.dispatch(save_brochures_details(data));
+        //resetForm()
+    }
 
   componentDidMount() {
     this.props.dispatch(fetch_dynamic_menus());

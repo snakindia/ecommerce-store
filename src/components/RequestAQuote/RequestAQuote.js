@@ -10,6 +10,7 @@ const initialValues = {
   company: '',
   email: '',
   phone: '',
+  message: '',
 };
 
 class RequestAQuote extends Component {
@@ -17,7 +18,7 @@ class RequestAQuote extends Component {
     const { toggleModal, onSubmit, showToast } = this.props;
     setSubmitting(true);
     try {
-      const res = await onSubmit({ ...values, type: 'Contact' });
+      const res = await onSubmit({ ...values, type: 'Request a Quote' });
       if (res && res.status) {
         toggleModal();
         showToast('Quote request success', TOAST_TYPE.SUCCESS);
@@ -141,6 +142,24 @@ class RequestAQuote extends Component {
                         />
                         <span className="errorMsg">
                           {touched.company && errors.company}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="col-lg-12">
+                      <div className="form-group mb-1">
+                        <label htmlFor="company">Message *</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="message"
+                          placeholder="Type Message"
+                          value={values.message}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                        />
+                        <span className="errorMsg">
+                          {touched.message && errors.message}
                         </span>
                       </div>
                     </div>

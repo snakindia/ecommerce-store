@@ -32,10 +32,6 @@ export const save_brochures_details = data => {
       .then(data => data.json())
       .then(data => {
         let status = false;
-        console.log('........................');
-        console.log(data);
-        console.log(data.status);
-        console.log(data.status.error);
         if (
           typeof data.status != 'undefined' &&
           typeof data.error != 'undefined' &&

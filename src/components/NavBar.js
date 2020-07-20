@@ -95,7 +95,7 @@ class NavBar extends React.Component {
                     onClick={e => this.showMenu(itemOneObj, i, e)}
                     onMouseEnter={e => this.showMenu(itemOneObj, i, e)}
                   >
-                    <Link to={`${baseUrl}/${slug}`} data-src={Baghouse}>
+                    <Link  data-src={Baghouse}>
                       {name}
                     </Link>
                     <div className="wstitemright clearfix wstpngsml">
