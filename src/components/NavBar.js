@@ -187,7 +187,7 @@ class NavBar extends React.Component {
               </li>
               <li aria-haspopup="true">
                 <a
-                  href="#"
+                  href="shop"
                   className="bha-btn-primary bha-btn-menu hotLink pl-2 pr-2"
                 >
                   shop now

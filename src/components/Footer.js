@@ -12,6 +12,8 @@ import FooterCaller from '../assets/images/call-xs.png';
 import Chat from '../assets/icon/chat.svg';
 import { fetch_dynamic_menus } from '../actions/fetchActions';
 import { save_brochures_details } from '../actions/freeBrochuresActions';
+import { showToast } from './Notification/notification.actions';
+import { TOAST_TYPE } from './Notification/action.constants';
 
 class Footer extends Component {
   constructor(props) {
@@ -29,6 +31,10 @@ class Footer extends Component {
     }
 
   componentDidMount() {
+       showToast(
+          'Please click on link sent in your mailbox for verification',
+          TOAST_TYPE.SUCCESS
+        );
     this.props.dispatch(fetch_dynamic_menus());
   }
   render() {

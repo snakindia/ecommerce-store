@@ -1,4 +1,5 @@
 import React, { Component, PropTypes  } from "react";
+import { connect } from 'react-redux';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
 MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from "mdbreact";
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
@@ -11,6 +12,7 @@ import axios from 'axios';
 import base64 from 'buffer';
 import { setUserSession } from '../utils/Common';
 import { API_AJAX_URL } from "../constants/appConstant";
+import parseHtml from 'react-html-parser';
 //import CookieHandler from '../utils/cookieHandler.js';
 
 
@@ -36,7 +38,27 @@ class TopBar extends Component {
         });
     }
     
+    displaySignupContent() {
+        const pageDetails = this.props.page_details;
+        return (
+            <div>
+                {
+                    pageDetails && Object.keys(pageDetails).length &&
+                    pageDetails.map(item => item.slug == "/sign-up" ? (
+                        <small>{parseHtml(item.content)}</small>
+                    ) : (
+                        ''
+                    )
+                )
+                
+                
+                }
+            </div>
+        )
+    }
+    
     render() {
+        
         return (
             <div>
                 <div className="headtoppart">
@@ -140,7 +162,7 @@ class TopBar extends Component {
                   </div>
                   <div className="col-sm-6 col-md-6">
                     <h4 className="login-heading font-xx">WHY JOIN?</h4>
-<small>Join Baghouseamerica to register your tools and help protect your investment, rate and review products you love, receive special offers and learn about the newest equipments and accessories</small>                    
+                    {this.displaySignupContent()}
                     <div className="form-group">
                       <a href="/sign-up" className="btn bha-btn-primary w-100 mt-3">Sign up</a>
                       {/* <!-- <span className="float-right mt-4 text-muted"><a className="forgotpwd" href="forgot-pwd.html">Forgot Password?</a></span> --> */}
@@ -152,74 +174,6 @@ class TopBar extends Component {
               </Formik>
           </div>
       </MDBModal>
-      <MDBModal  className="country " isOpen={this.state.modal4} toggle={this.toggle(4)}  fullHeight position="top">
-      <div className="country-language" >
-                <div className="row">
-                  <div className="col-sm-6 col-md-6 col-lg-2">
-                    <ul className="bha-contry-list">
-                      <li><a href="">United States</a></li>
-                      <li><a href="">Argentina</a></li>
-                      <li><a href="">Australia</a></li>
-                      <li><a href="">België/Belgique</a></li>
-                      <li><a href="">Brasil</a></li>
-                      <li><a href="">CANADA</a></li>
-                    </ul>
-                  </div>
-                  <div className="col-sm-6 col-md-6 col-lg-2">
-                    <ul className="bha-contry-list">
-                      <li><a href="">United States</a></li>
-                      <li><a href="">Argentina</a></li>
-                      <li><a href="">Australia</a></li>
-                      <li><a href="">België/Belgique</a></li>
-                      <li><a href="">Brasil</a></li>
-                      <li><a href="">CANADA</a></li>
-                    </ul>
-                  </div>
-                  <div className="col-sm-6 col-md-6 col-lg-2">
-                    <ul className="bha-contry-list">
-                      <li><a href="">United States</a></li>
-                      <li><a href="">Argentina</a></li>
-                      <li><a href="">Australia</a></li>
-                      <li><a href="">België/Belgique</a></li>
-                      <li><a href="">Brasil</a></li>
-                      <li><a href="">CANADA</a></li>
-                    </ul>
-                  </div>
-                  <div className="col-sm-6 col-md-6 col-lg-2">
-                    <ul className="bha-contry-list">
-                      <li><a href="">United States</a></li>
-                      <li><a href="">Argentina</a></li>
-                      <li><a href="">Australia</a></li>
-                      <li><a href="">België/Belgique</a></li>
-                      <li><a href="">Brasil</a></li>
-                      <li><a href="">CANADA</a></li>
-                    </ul>
-                  </div>
-                  <div className="col-sm-6 col-md-6 col-lg-2">
-                    <ul className="bha-contry-list">
-                      <li><a href="">United States</a></li>
-                      <li><a href="">Argentina</a></li>
-                      <li><a href="">Australia</a></li>
-                      <li><a href="">België/Belgique</a></li>
-                      <li><a href="">Brasil</a></li>
-                      <li><a href="">CANADA</a></li>
-                    </ul>
-                  </div>
-                  <div className="col-sm-6 col-md-6 col-lg-2">
-                    <ul className="bha-contry-list">
-                      <li><a href="">United States</a></li>
-                      <li><a href="">Argentina</a></li>
-                      <li><a href="">Australia</a></li>
-                      <li><a href="">België/Belgique</a></li>
-                      <li><a href="">Brasil</a></li>
-                      <li><a href="">CANADA</a></li>
-                    </ul>
-                  </div>
-                </div>
-          </div>
-
-      </MDBModal>
-      
       
     <MDBModal  className="searchbox" isOpen={this.state.modal6} toggle={this.toggle(6)}>
             <form class="topmenusearch">
@@ -255,4 +209,10 @@ class TopBar extends Component {
   }
 }
 
-export default TopBar;
+const mapStateToProps = ({ asyncReducer }) => {
+    return {
+        page_details: asyncReducer.page_meta_details    
+    };
+};
+
+export default connect(mapStateToProps)(TopBar);

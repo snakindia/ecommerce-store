@@ -4,9 +4,9 @@ import TopBar from './components/TopBar';
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
 import { StickyContainer } from 'react-sticky';
-import GoogleTranslator from './components/common/GoogleTranslator';
 import MetaContainer from './components/MetaData';
 import Notification from './components/Notification';
+import Shop from './components/Shop';
 
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
@@ -23,7 +23,6 @@ const Router = () => {
       <Notification />
         <BrowserRouter>
             <MetaContainer>
-                <GoogleTranslator />
                 <div className="top-header">
                     <TopBar />
                     <NavBar />
@@ -40,8 +39,10 @@ const Router = () => {
                         <Route path="/brand" component={BrandBody} />
                         <Route path='/contact' component={ContactBody} />
                         <Route path="/sign-up" component={SignUpPage} />
-                        <Route path="/verify-user" component={VerifyUser} />
                         <Route path="/inner-page" component={InnerPage} />
+                        <Route path="/verify-user/:token" component={VerifyUser} />
+                        <Route path="/shop" component={Shop} />
+                        
                     </Switch>
                 </Suspense>
                 <Footer />

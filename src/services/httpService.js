@@ -8,12 +8,12 @@ const getHeaders = customHeaders => {
 
 const POST = ({url, payload, headers}) => {
     const _headers = getHeaders(headers);
+    console.log(payload)
     return axios.post(url, payload, {..._headers});
 }
 
 const GET = ({url, headers}) => {
     const _headers = getHeaders(headers);
-
     return axios.get(url, {..._headers});
 }
 
