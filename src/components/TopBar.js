@@ -31,9 +31,13 @@ import base64 from 'buffer';
 import { setUserSession } from '../utils/Common';
 import parseHtml from 'react-html-parser';
 import { POST } from '../services/httpService';
-import { getAuthToken, setAuthDetails } from '../services/authService';
+import {
+  getAuthToken,
+  removeAuthDetails,
+  setAuthDetails,
+} from '../services/authService';
 import { signInUrl } from '../constants/urls';
-import { getUserDetail } from '../actions/authActions';
+import { getUserDetail, signOutUser } from '../actions/authActions';
 //import CookieHandler from '../utils/cookieHandler.js';
 
 class TopBar extends Component {
@@ -97,6 +101,11 @@ class TopBar extends Component {
       });
   };
 
+  onSignOut = () => {
+    removeAuthDetails();
+    this.props.signOutUser();
+  };
+
   render() {
     const { authenticated, userDetails } = this.props;
     return (
@@ -120,7 +129,10 @@ class TopBar extends Component {
                   </li>
                   <span>&nbsp;</span>
                   {authenticated ? (
-                    <li>{userDetails.full_name}</li>
+                    <li>
+                      {userDetails.full_name}
+                      <button onClick={this.onSignOut}>SignOut</button>
+                    </li>
                   ) : (
                     <li>
                       <a onMouseEnter={this.toggle(5)}>
@@ -302,4 +314,4 @@ const mapStateToProps = ({ asyncReducer, auth }) => {
   };
 };
 
-export default connect(mapStateToProps, { getUserDetail })(TopBar);
+export default connect(mapStateToProps, { getUserDetail, signOutUser })(TopBar);

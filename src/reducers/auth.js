@@ -1,4 +1,4 @@
-import { GET_USER_DETAILS } from '../actions/authActions';
+import { GET_USER_DETAILS, SIGN_OUT_USER } from '../actions/authActions';
 
 const initialState = {
   token: null,
@@ -16,6 +16,9 @@ export default (state = initialState, action) => {
 
     case `${GET_USER_DETAILS}_ERROR`:
       return { ...state, token: null, authenticated: false, error: error };
+
+    case SIGN_OUT_USER:
+      return { ...initialState };
 
     default:
       return state;

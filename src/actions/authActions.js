@@ -3,7 +3,8 @@ import { removeAuthDetails } from '../services/authService';
 import { userDetailUrl } from '../constants/urls';
 
 const GET_USER_DETAILS = 'GET_USER_DETAILS';
-export { GET_USER_DETAILS };
+const SIGN_OUT_USER = 'SIGN_OUT_USER';
+export { GET_USER_DETAILS, SIGN_OUT_USER };
 
 const getUserDetail = token => async dispatch => {
   try {
@@ -15,4 +16,8 @@ const getUserDetail = token => async dispatch => {
   }
 };
 
-export { getUserDetail };
+const signOutUser = () => ({
+  type: SIGN_OUT_USER,
+});
+
+export { getUserDetail, signOutUser };
