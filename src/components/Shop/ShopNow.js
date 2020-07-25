@@ -7,6 +7,7 @@ import Client from "./../Home/Client";
 import Products from "./../Home/Products";
 import TopRatedProducts from "./TopRatedProducts";
 import PremiumBrands from "./PremiumBrands";
+import HotDeals from "./HotDeals";
 
 const initialValues = {
   name: '',
@@ -17,28 +18,7 @@ const initialValues = {
 };
 
 class ShopNOw extends Component {
-//  handleSubmit = async (values, { setSubmitting }) => {
-//    const { toggleModal, onSubmit, showToast } = this.props;
-//    setSubmitting(true);
-//    try {
-//      const res = await onSubmit({ ...values, type: 'Request a Quote' });
-//      if (res && res.status) {
-//        toggleModal();
-//        showToast('Quote request success', TOAST_TYPE.SUCCESS);
-//      } else if (res && res.status.error) {
-//        showToast(res.status.error || 'Something Went wrong', TOAST_TYPE.ERROR);
-//      }
-//    } catch (e) {
-//      showToast('Something Went wrong', TOAST_TYPE.ERROR);
-//    } finally {
-//      setSubmitting(false);
-//    }
-//  };
-//
-//  validateForm = values => {
-//    const e = execValidation(validators, values);
-//    return Object.keys(e) ? e : null;
-//  };
+
   render() {
     return (
             <div class="content-wrapper topPadding">
@@ -58,7 +38,7 @@ class ShopNOw extends Component {
                                 </div>
                             </div>
                         </section>
-    
+                        <HotDeals/>
                         <Client/>
                         <PremiumBrands/>
                         <Products/>

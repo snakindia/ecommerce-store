@@ -11,7 +11,7 @@ import { Formik } from 'formik';
 import axios from 'axios';
 import base64 from 'buffer';
 import { setUserSession } from '../utils/Common';
-import { API_AJAX_URL } from "../constants/appConstant";
+import { API_AJAX_URL, API_URL } from "../constants/appConstant";
 import parseHtml from 'react-html-parser';
 //import CookieHandler from '../utils/cookieHandler.js';
 
