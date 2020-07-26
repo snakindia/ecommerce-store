@@ -3,6 +3,11 @@ import cartIcon from '../../../assets/icon/cart_black.svg';
 import compareIcon from '../../../assets/icon/compare.svg';
 
 const DealCard = ({ dealData, openQuickDeal }) => {
+  let priceDiff = dealData.regular_price - dealData.sale_price;
+  let discount = parseFloat((priceDiff * 100) / dealData.regular_price).toFixed(
+    2
+  );
+  const imgSrc = (dealData.images[0] || {}).url;
   return (
     <div
       className="hot-deals-item-wrapper deals-border-right"
@@ -19,10 +24,10 @@ const DealCard = ({ dealData, openQuickDeal }) => {
                 href="#"
                 onClick={e => {
                   e.preventDefault();
-                  openQuickDeal(dealData.detail);
+                  openQuickDeal(dealData);
                 }}
                 className="quick-view"
-                tabIndex="0"
+                // tabIndex="0"
               >
                 Quick View
               </a>
@@ -39,19 +44,19 @@ const DealCard = ({ dealData, openQuickDeal }) => {
         </a>
         <div className="hot-tag">
           <div className="innertag">Hot</div>
-          <div className="discount">{dealData.discount}%</div>
+          <div className="discount">-{discount}%</div>
         </div>
         <div className="card-description">
-          <h6>RCA-3D2 Replacement</h6>
+          <h6>{dealData.name}</h6>
           <div className="pro_Price">
             <p className=" currecny">
-              <span className="strike">${dealData.price}</span>
-              <span className="sp-price">${dealData.specialPrice}</span>
+              <span className="strike">${dealData.regular_price}</span>
+              <span className="sp-price">${dealData.sale_price}</span>
             </p>
           </div>
         </div>
         <div className="card-item">
-          <img src={dealData.imgSrc} alt="" className="img-fluid" />
+          <img src={imgSrc} alt="" className="img-fluid" />
         </div>
         <div className="d-block float-left w-100 pl-3">
           <a href="#" className="svg-icon" tabIndex="0">

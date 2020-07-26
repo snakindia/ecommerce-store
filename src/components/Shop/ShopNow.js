@@ -7,7 +7,7 @@ import Client from './../Home/Client';
 import Products from './../Home/Products';
 import TopRatedProducts from './TopRatedProducts';
 import PremiumBrands from './PremiumBrands';
-import HotDeals from './HotDeals';
+import HotDeals from './HotDeals/index';
 
 const initialValues = {
   name: '',
@@ -18,7 +18,6 @@ const initialValues = {
 };
 
 class ShopNOw extends Component {
-
   render() {
     return (
       <div className="content-wrapper topPadding">
