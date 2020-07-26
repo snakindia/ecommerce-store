@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 import { connect } from 'react-redux';
+import InquiryNotification from './common/InquiryNotification';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import Facebook from '../assets/images/facebook.png';
@@ -39,20 +40,21 @@ class Footer extends Component {
   }
   render() {
     this.state.brochureData = this.props.freeBrochuresUserDetail;
-    const { navMenuData } = this.props;
+    const { navMenuData, brochureData } = this.props;
     const { menuData } = navMenuData;
+
     const {
-      footer_menu_1_title,
-      footer_menu_2_title,
-      footer_menu_3_title,
-      footer_menu_4_title,
-      footer_menu_5_title,
-      footer_menu_1_items,
-      footer_menu_2_items,
-      footer_menu_3_items,
-      footer_menu_4_items,
-      footer_menu_5_items,
-      footer_social,
+        footer_menu_1_title,
+        footer_menu_2_title,
+        footer_menu_3_title,
+        footer_menu_4_title,
+        footer_menu_5_title,
+        footer_menu_1_items,
+        footer_menu_2_items,
+        footer_menu_3_items,
+        footer_menu_4_items,
+        footer_menu_5_items,
+        footer_social,
     } = menuData;
     return (
       <div>
@@ -61,6 +63,9 @@ class Footer extends Component {
             <img src={Chat} class="mr-2" alt="" width="30" />
           </a>
         </div>
+        { this.props.brochureData && this.props.brochureData == true &&
+            <InquiryNotification isOpen={this.props.brochureData}/>
+        }
         <MDBFooter className="footer">
           <div class="footer-section">
             <div class="container pl-0 pr-0">

@@ -21,7 +21,6 @@ export const receive_error = () => {
 };
 
 export const save_brochures_details = data => {
-  console.log(JSON.stringify(data));
   store.dispatch(fetch_post(data));
   return function (dispatch, getState) {
     return fetch(saveBrochureUrl, {
