@@ -19,7 +19,7 @@ export default class PremiumBrands extends Component {
         })
     }
     
-   render() {
+    render() {
     const {brands} = this.state;
    
      var settings = {

@@ -18,28 +18,7 @@ const initialValues = {
 };
 
 class ShopNOw extends Component {
-  //  handleSubmit = async (values, { setSubmitting }) => {
-  //    const { toggleModal, onSubmit, showToast } = this.props;
-  //    setSubmitting(true);
-  //    try {
-  //      const res = await onSubmit({ ...values, type: 'Request a Quote' });
-  //      if (res && res.status) {
-  //        toggleModal();
-  //        showToast('Quote request success', TOAST_TYPE.SUCCESS);
-  //      } else if (res && res.status.error) {
-  //        showToast(res.status.error || 'Something Went wrong', TOAST_TYPE.ERROR);
-  //      }
-  //    } catch (e) {
-  //      showToast('Something Went wrong', TOAST_TYPE.ERROR);
-  //    } finally {
-  //      setSubmitting(false);
-  //    }
-  //  };
-  //
-  //  validateForm = values => {
-  //    const e = execValidation(validators, values);
-  //    return Object.keys(e) ? e : null;
-  //  };
+
   render() {
     return (
       <div className="content-wrapper topPadding">

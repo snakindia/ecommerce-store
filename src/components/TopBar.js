@@ -29,6 +29,7 @@ import Globe from '../assets/icon/globe.svg';
 import { Formik } from 'formik';
 import base64 from 'buffer';
 import { setUserSession } from '../utils/Common';
+import { API_AJAX_URL, API_URL } from "../constants/appConstant";
 import parseHtml from 'react-html-parser';
 import { POST } from '../services/httpService';
 import {
