@@ -29,8 +29,7 @@ import Globe from '../assets/icon/globe.svg';
 import { Formik } from 'formik';
 import base64 from 'buffer';
 import { setUserSession } from '../utils/Common';
-import { API_AJAX_URL, API_URL } from "../constants/appConstant";
-
+import { API_AJAX_URL, API_URL } from '../constants/appConstant';
 import parseHtml from 'react-html-parser';
 import { POST } from '../services/httpService';
 import {
@@ -50,6 +49,7 @@ class TopBar extends Component {
       modal5: false,
       fields: {},
       errors: {},
+      loginError: null,
     };
   }
 
@@ -62,6 +62,7 @@ class TopBar extends Component {
     this.setState({
       modal5: false,
       modal6: false,
+      loginError: null,
     });
     this.setState({
       [modalNumber]: !this.state[modalNumber],
@@ -95,7 +96,7 @@ class TopBar extends Component {
           });
           this.props.getUserDetail(response.data.token);
         } else {
-          alert('Login Fail');
+          this.setState({ loginError: 'Something Went Wrong' });
         }
       })
       .catch(error => {
@@ -203,7 +204,10 @@ class TopBar extends Component {
                           type="text"
                           className="form-control"
                           name="email"
-                          onChange={handleChange}
+                          onChange={e => {
+                            this.setState({ loginError: null });
+                            handleChange(e);
+                          }}
                           onBlur={handleBlur}
                           value={values.email}
                           placeholder="Email Address"
@@ -217,7 +221,10 @@ class TopBar extends Component {
                         <input
                           type="password"
                           className="form-control"
-                          onChange={handleChange}
+                          onChange={e => {
+                            this.setState({ loginError: null });
+                            handleChange(e);
+                          }}
                           onBlur={handleBlur}
                           value={values.password}
                           name="password"
@@ -233,6 +240,9 @@ class TopBar extends Component {
                         Forgot Password?
                       </a>
                       <div className="form-group">
+                        <span className="errorMsg">
+                          {this.state.loginError}
+                        </span>
                         <button
                           type="button"
                           onClick={() => {

@@ -64,21 +64,31 @@ class QuickViewDeal extends Component {
               <div className="row">
                 <div className="col-sm-6 pl-0 border">
                   {dealDetail.images.length <= 1 ? (
-                    dealDetail.images.map(src => (
-                      <img src={src} className="img-fluid" alt="" />
+                    dealDetail.images.map(({ url, fileName, id }) => (
+                      <img
+                        key={id}
+                        src={url}
+                        className="img-fluid"
+                        alt={fileName}
+                      />
                     ))
                   ) : (
                     <Slider>
-                      {dealDetail.images.map(src => (
-                        <img src={src} className="img-fluid" alt="" />
+                      {dealDetail.images.map(({ url, fileName, id }) => (
+                        <img
+                          key={id}
+                          src={url}
+                          className="img-fluid"
+                          alt={fileName}
+                        />
                       ))}
                     </Slider>
                   )}
                 </div>
                 <div className="col-sm-6">
                   <div className="media-body">
-                    <h4 className="mt-0 mb-2">{dealDetail.title}</h4>
-                    <p className="text-muted mb-0">{dealDetail.desc}</p>
+                    <h4 className="mt-0 mb-2">{dealDetail.name}</h4>
+                    <p className="text-muted mb-0">{dealDetail.description}</p>
                     <div className="d-flex align-items-center justify-content-left mt-1">
                       <div className="star-rating">
                         <ul className="list-inline">
@@ -92,15 +102,17 @@ class QuickViewDeal extends Component {
                     </div>
                     <div className="pro_Price p-0">
                       <p className=" currecny">
-                        <span className="strike">${dealDetail.price}</span>
+                        <span className="strike">
+                          ${dealDetail.regular_price}
+                        </span>
                         <span className="sp-price">
-                          ${dealDetail.specialPrice}
+                          ${dealDetail.sale_price}
                         </span>
                       </p>
                     </div>
                     <div className="text-muted">
                       <span>SKU:</span>{' '}
-                      <span className="sp-price">{dealDetail.SKU}</span>
+                      <span className="sp-price">{dealDetail.sku}</span>
                     </div>
                     <div className="text-muted">
                       <span>Category:</span>{' '}

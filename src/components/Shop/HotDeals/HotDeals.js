@@ -1,18 +1,19 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import { deals } from './hotdeals.dummy';
+import { useDispatch, useSelector } from 'react-redux';
 import DealCard from './DealCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import QuickViewDeal from './QuickViewDeal';
+import { fetchHotDeals } from './hotDeals.actions';
 
 const HotDeals = () => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 800,
-    // autoplay: true,
-    // autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 2000,
     slidesToShow: 4,
     slidesToScroll: 4,
     responsive: [
@@ -41,6 +42,10 @@ const HotDeals = () => {
       },
     ],
   };
+  const dispatch = useDispatch();
+  const { hotDeals: deals, fetchingDeals } = useSelector(
+    store => store.hotDeals
+  );
 
   const [selectedDeal, setDeal] = useState(null);
   const openQuickDeal = useCallback(
@@ -49,6 +54,10 @@ const HotDeals = () => {
     },
     [selectedDeal]
   );
+
+  useEffect(() => {
+    dispatch(fetchHotDeals());
+  }, [dispatch]);
   return (
     <>
       <section className="bg-opeque">
@@ -60,12 +69,18 @@ const HotDeals = () => {
       </section>
       <section className="pro-equipment-section box-shadow">
         <div className="container-fluid pl-0 pr-0 portfolio-item">
+          {fetchingDeals && <div>Loading ...</div>}
+          {!fetchingDeals && !deals.length && <div>No Deals Found</div>}
           <Slider
             {...settings}
             className="productitem-auto slider slick-dotted"
           >
             {deals.map(item => (
-              <DealCard dealData={item} openQuickDeal={openQuickDeal} />
+              <DealCard
+                key={item.id}
+                dealData={item}
+                openQuickDeal={openQuickDeal}
+              />
             ))}
           </Slider>
         </div>
