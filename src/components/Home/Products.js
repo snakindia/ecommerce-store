@@ -14,7 +14,7 @@ export default class Products extends Component {
     }
     
     componentDidMount() {
-        axios.get(API_URL + "/products/getBestSellingProducts?fields=name,images,sku")
+        axios.get(API_URL + "/getBestSellingProducts?fields=name,images,sku")
             .then((res)=> {
             this.setState({products: res.data});
         })
