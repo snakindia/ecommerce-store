@@ -7,7 +7,7 @@ export { FETCH_HOT_DEALS };
 const fetchHotDeals = () => async dispatch => {
   dispatch({ type: `${FETCH_HOT_DEALS}_START` });
   try {
-    const res = await POST({ url: hotDealsUrl, payload: {} });
+    const res = await GET({ url: hotDealsUrl, payload: {} });
     dispatch({ type: FETCH_HOT_DEALS, payload: res.data });
   } catch (e) {
     throw e;

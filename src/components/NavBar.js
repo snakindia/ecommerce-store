@@ -8,6 +8,7 @@ import MenuLogo from '../assets/images/menu-logo.jpg';
 import {
   dropDownMenuProduct,
   API_URL,
+  API_IMAGE_PATH,
   defaultMenuListItems,
   categoryImageUrl,
 } from '../constants/appConstant';
@@ -109,6 +110,7 @@ class NavBar extends React.Component {
                                   <li>
                                     <img
                                       className="scale-down"
+                                      src={categoryImageUrl != '' ? `${categoryImageUrl}/${itemTwo._id}/${itemTwo.image}` : API_IMAGE_PATH + 'default/default.jpg'}
                                       src={`${categoryImageUrl}/${itemTwo._id}/${itemTwo.image}`}
                                       alt="baghouse"
                                     />

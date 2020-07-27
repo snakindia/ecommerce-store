@@ -14,7 +14,7 @@ export default class TopRatedProducts extends Component {
     }
     
     componentDidMount() {
-        axios.post(API_URL + "/products/getTopRatedProducts?fields=name,images,sku")
+        axios.get(API_URL + "/products/getTopRatedProducts?fields=name,images,sku")
             .then((res)=> {
             this.setState({products: res.data});
         })

@@ -14,7 +14,7 @@ export default class Products extends Component {
     }
     
     componentDidMount() {
-        axios.post(API_URL + "/products/getBestSellingProducts?fields=name,images,sku")
+        axios.get(API_URL + "/products/getBestSellingProducts?fields=name,images,sku")
             .then((res)=> {
             this.setState({products: res.data});
         })
@@ -30,11 +30,13 @@ export default class Products extends Component {
         };
          
         const {products} = this.state;
+        console.log('products');
+        console.log(products);
         return (
             <div>   
                 <section class="bg-opeque pb-4">
                     <div class="container-fluid">
-                        <h2 class="bha_heading_2 z-index text-blue">Top Rated Products</h2>
+                        <h2 class="bha_heading_2 z-index text-blue">Best Selling Products</h2>
                     </div>
                 </section>
                 <section class="pro-equipment-section" id="bestSelling">
