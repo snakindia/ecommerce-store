@@ -1,4 +1,4 @@
-import { POST } from '../../../services/httpService';
+import { POST, GET } from '../../../services/httpService';
 import { hotDealsUrl } from '../../../constants/urls';
 
 const FETCH_HOT_DEALS = 'FETCH_HOT_DEALS';
