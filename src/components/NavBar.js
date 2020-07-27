@@ -110,9 +110,8 @@ class NavBar extends React.Component {
                                   <li>
                                     <img
                                       className="scale-down"
-                                      src={categoryImageUrl != '' ? `${categoryImageUrl}/${itemTwo._id}/${itemTwo.image}` : API_IMAGE_PATH + 'default/default.jpg'}
-                                      src={`${categoryImageUrl}/${itemTwo._id}/${itemTwo.image}`}
-                                      alt="baghouse"
+                                      src={itemTwo.image != '' ? `${categoryImageUrl}/${itemTwo._id}/${itemTwo.image}` : API_IMAGE_PATH + 'default/default.jpg'}
+                                      alt="bha"
                                     />
                                   </li>
                                   <li className="wstheading clearfix">
