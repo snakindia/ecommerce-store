@@ -5,6 +5,7 @@ export default class BrandCategory extends Component {
   render() {
     return (
       <>
+        
 <div class="banner-container brand-category">
         <div id="carousel" class="carousel slide" data-ride="carousel">
 
