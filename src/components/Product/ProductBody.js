@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import ProductBredcumBar from '../Product/ProductBredcumBar'
+import ProductBredcumBar from '../Product/ProductBredcumBar';
 import ProductFilter from '../Product/ProductFilter';
 import Client from '../Home/Client';
 import ProductsPart from '../Home/ProductsParts';
-
 
 export default class ProductBody extends Component {
   render() {
@@ -12,8 +11,7 @@ export default class ProductBody extends Component {
         <ProductBredcumBar />
         <ProductFilter />
         <Client />
-
       </div>
-    )
+    );
   }
 }

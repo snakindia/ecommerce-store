@@ -145,7 +145,7 @@ class RequestAQuote extends Component {
                         </span>
                       </div>
                     </div>
-                    
+
                     <div className="col-lg-12">
                       <div className="form-group mb-1">
                         <label htmlFor="company">Message *</label>

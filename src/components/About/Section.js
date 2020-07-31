@@ -1,54 +1,90 @@
 import * as Scroll from 'react-scroll';
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import {
+  Link,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from 'react-scroll';
 
 // Or Access Link,Element,etc as follows
-let Link      = Scroll.Link;
-let Element   = Scroll.Element;
-let Events    = Scroll.Events;
-let scroll    = Scroll.animateScroll;
+let Link = Scroll.Link;
+let Element = Scroll.Element;
+let Events = Scroll.Events;
+let scroll = Scroll.animateScroll;
 let scrollSpy = Scroll.scrollSpy;
 
 var Section = React.createClass({
-  componentDidMount: function() {
-    Events.scrollEvent.register('begin', function(to, element) {
-    });
+  componentDidMount: function () {
+    Events.scrollEvent.register('begin', function (to, element) {});
 
-    Events.scrollEvent.register('end', function(to, element) {
-    });
+    Events.scrollEvent.register('end', function (to, element) {});
 
     scrollSpy.update();
   },
-  componentWillUnmount: function() {
+  componentWillUnmount: function () {
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
   },
-  scrollToTop: function() {
+  scrollToTop: function () {
     scroll.scrollToTop();
   },
-  scrollToBottom: function() {
+  scrollToBottom: function () {
     scroll.scrollToBottom();
   },
-  scrollTo: function() {
+  scrollTo: function () {
     scroll.scrollTo(100);
   },
-  scrollMore: function() {
+  scrollMore: function () {
     scroll.scrollMore(100);
   },
-  handleSetActive: function(to) {
-  },
+  handleSetActive: function (to) {},
   render: function () {
     return (
       <div>
-        <Link activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500} onSetActive={this.handleSetActive}>
+        <Link
+          activeClass="active"
+          to="test1"
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={500}
+          onSetActive={this.handleSetActive}
+        >
           Test 1
         </Link>
-        <Link activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500} delay={1000}>
+        <Link
+          activeClass="active"
+          to="test1"
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={500}
+          delay={1000}
+        >
           Test 2 (delay)
         </Link>
-        <Link className="test6" to="anchor" spy={true} smooth={true} duration={500}>
+        <Link
+          className="test6"
+          to="anchor"
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
           Test 6 (anchor)
         </Link>
-        <Button activeClass="active" className="btn" type="submit" value="Test 2" to="test2" spy={true} smooth={true} offset={50} duration={500} >
+        <Button
+          activeClass="active"
+          className="btn"
+          type="submit"
+          value="Test 2"
+          to="test2"
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={500}
+        >
           Test 2
         </Button>
 
@@ -82,13 +118,15 @@ var Section = React.createClass({
         </div>
 
         <a onClick={this.scrollToTop}>To the top!</a>
-        <br/>
+        <br />
         <a onClick={this.scrollToBottom}>To the bottom!</a>
-        <br/>
+        <br />
         <a onClick={this.scrollTo}>Scroll to 100px from the top</a>
-        <br/>
-        <a onClick={this.scrollMore}>Scroll 100px more from the current position!</a>
+        <br />
+        <a onClick={this.scrollMore}>
+          Scroll 100px more from the current position!
+        </a>
       </div>
     );
-  }
+  },
 });

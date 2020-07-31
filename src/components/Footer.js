@@ -21,21 +21,21 @@ class Footer extends Component {
     super(props);
     this.state = {
       brochureData: {},
-      year: new Date().getFullYear()
+      year: new Date().getFullYear(),
     };
   }
 
-    saveHandler(data) {
-        data.type = 'Representative';
-        this.props.dispatch(save_brochures_details(data));
-        //resetForm()
-    }
+  saveHandler(data) {
+    data.type = 'Representative';
+    this.props.dispatch(save_brochures_details(data));
+    //resetForm()
+  }
 
   componentDidMount() {
-       showToast(
-          'Please click on link sent in your mailbox for verification',
-          TOAST_TYPE.SUCCESS
-        );
+    showToast(
+      'Please click on link sent in your mailbox for verification',
+      TOAST_TYPE.SUCCESS
+    );
     this.props.dispatch(fetch_dynamic_menus());
   }
   render() {
@@ -44,17 +44,17 @@ class Footer extends Component {
     const { menuData } = navMenuData;
 
     const {
-        footer_menu_1_title,
-        footer_menu_2_title,
-        footer_menu_3_title,
-        footer_menu_4_title,
-        footer_menu_5_title,
-        footer_menu_1_items,
-        footer_menu_2_items,
-        footer_menu_3_items,
-        footer_menu_4_items,
-        footer_menu_5_items,
-        footer_social,
+      footer_menu_1_title,
+      footer_menu_2_title,
+      footer_menu_3_title,
+      footer_menu_4_title,
+      footer_menu_5_title,
+      footer_menu_1_items,
+      footer_menu_2_items,
+      footer_menu_3_items,
+      footer_menu_4_items,
+      footer_menu_5_items,
+      footer_social,
     } = menuData;
     return (
       <div>
@@ -63,9 +63,9 @@ class Footer extends Component {
             <img src={Chat} class="mr-2" alt="" width="30" />
           </a>
         </div>
-        { this.props.brochureData && this.props.brochureData == true &&
-            <InquiryNotification isOpen={this.props.brochureData}/>
-        }
+        {this.props.brochureData && this.props.brochureData == true && (
+          <InquiryNotification isOpen={this.props.brochureData} />
+        )}
         <MDBFooter className="footer">
           <div class="footer-section">
             <div class="container pl-0 pr-0">
@@ -390,11 +390,11 @@ class Footer extends Component {
                   <MDBRow>
                     <MDBCol md="9" sm="9" xs="12">
                       <p>
-                        COPYRIGHT © {this.state.year} Baghouse. The following are trademarks
-                        for one or more Baghouse power tools, accessories,
-                        anchors and concrete adhesives: The yellow and black
-                        color scheme; the the array of pyramids on the handgrip;
-                        the kit box configuration; and the array of
+                        COPYRIGHT © {this.state.year} Baghouse. The following
+                        are trademarks for one or more Baghouse power tools,
+                        accessories, anchors and concrete adhesives: The yellow
+                        and black color scheme; the the array of pyramids on the
+                        handgrip; the kit box configuration; and the array of
                         lozenge-shaped humps on the surface of the tool.
                       </p>
                       <ul class="footer-middle-list">

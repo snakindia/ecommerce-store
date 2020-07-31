@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import Brands from '../../assets/images/brands.jpg'
-import BrandCategoryContant from '../Brand/BrandCategoryContant'
+import React, { Component } from 'react';
+import Brands from '../../assets/images/brands.jpg';
+import BrandCategoryContant from '../Brand/BrandCategoryContant';
 export default class BrandCategory extends Component {
   render() {
     return (

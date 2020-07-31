@@ -5,7 +5,6 @@ import OEM from './Home/OEM';
 import Banner from './Home/Banner';
 import Products from './Home/Products';
 
-
 export default class Home extends Component {
   render() {
     return (

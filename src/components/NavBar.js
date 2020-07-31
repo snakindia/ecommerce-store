@@ -96,13 +96,11 @@ class NavBar extends React.Component {
                     onClick={e => this.showMenu(itemOneObj, i, e)}
                     onMouseEnter={e => this.showMenu(itemOneObj, i, e)}
                   >
-                    <Link  data-src={Baghouse}>
-                      {name}
-                    </Link>
+                    <Link data-src={Baghouse}>{name}</Link>
                     <div className="wstitemright clearfix wstpngsml">
                       <div className="container-fluid">
                         <div className="row custom-gutter-wsmenu">
-                         <h3 class="wsmenu_heading">{name}</h3>
+                          <h3 class="wsmenu_heading">{name}</h3>
                           {listItems.map((itemTwo, i) => {
                             return (
                               <div className="col-lg-3 col-md-12" key={i + 3}>
@@ -110,7 +108,12 @@ class NavBar extends React.Component {
                                   <li>
                                     <img
                                       className="scale-down"
-                                      src={itemTwo.image != '' ? `${categoryImageUrl}/${itemTwo._id}/${itemTwo.image}` : API_IMAGE_PATH + 'default/default.jpg'}
+                                      src={
+                                        itemTwo.image != ''
+                                          ? `${categoryImageUrl}/${itemTwo._id}/${itemTwo.image}`
+                                          : API_IMAGE_PATH +
+                                            'default/default.jpg'
+                                      }
                                       alt="bha"
                                     />
                                   </li>

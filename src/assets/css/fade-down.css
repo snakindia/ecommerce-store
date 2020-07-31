@@ -1,4 +1,4 @@
-.wsmenu>.wsmenu-list>li>ul.sub-menu {
+.wsmenu > .wsmenu-list > li > ul.sub-menu {
   opacity: 0;
   visibility: hidden;
   -o-transform-origin: 0% 0%;
@@ -19,7 +19,7 @@
   -webkit-transform: rotateX(-75deg);
 }
 
-.wsmenu>.wsmenu-list>li:hover>ul.sub-menu {
+.wsmenu > .wsmenu-list > li:hover > ul.sub-menu {
   opacity: 1;
   visibility: visible;
   transform: rotateX(0deg);
@@ -28,7 +28,7 @@
   -webkit-transform: rotateX(0deg);
 }
 
-.wsmenu>.wsmenu-list>li>.wsmegamenu {
+.wsmenu > .wsmenu-list > li > .wsmegamenu {
   opacity: 0;
   visibility: hidden;
   -o-transform-origin: 0% 0%;
@@ -49,7 +49,7 @@
   -webkit-transform: rotateX(-75deg);
 }
 
-.wsmenu>.wsmenu-list>li:hover>.wsmegamenu {
+.wsmenu > .wsmenu-list > li:hover > .wsmegamenu {
   opacity: 1;
   visibility: visible;
   transform: rotateX(0deg);
@@ -58,7 +58,7 @@
   -webkit-transform: rotateX(0deg);
 }
 
-.wsmenu-list>li>.wsshoptabing {
+.wsmenu-list > li > .wsshoptabing {
   opacity: 0;
   visibility: hidden;
   -o-transform-origin: 0% 0%;
@@ -79,7 +79,7 @@
   -webkit-transform: rotateX(-75deg);
 }
 
-.wsmenu-list>li:hover .wsshoptabing {
+.wsmenu-list > li:hover .wsshoptabing {
   opacity: 1;
   visibility: visible;
   transform: rotateX(0deg);

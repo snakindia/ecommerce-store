@@ -258,8 +258,8 @@ class SignUpForm extends PureComponent {
                         onBlur={handleBlur}
                         className="mr-3"
                       />
-                      I WOULD LIKE TO RECEIVE INFORMATION ABOUT BAGHOUSE PRODUCTS
-                      AND PROMOTIONS BY EMAIL
+                      I WOULD LIKE TO RECEIVE INFORMATION ABOUT BAGHOUSE
+                      PRODUCTS AND PROMOTIONS BY EMAIL
                     </small>
                   </p>
                   <p className="text-muted">

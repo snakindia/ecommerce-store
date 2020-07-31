@@ -1,7 +1,5 @@
-import {
-    isRequired,
-} from '../../services/validatorService';
+import { isRequired } from '../../services/validatorService';
 
 export const validators = {
-    token: [isRequired('Token is required'), isRequired()]
+  token: [isRequired('Token is required'), isRequired()],
 };

@@ -4,12 +4,12 @@ import Home from './components/Home';
 
 class App extends Component {
   state = {
-    collapseID: ''
+    collapseID: '',
   };
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
-      collapseID: prevState.collapseID !== collapseID ? collapseID : ''
+      collapseID: prevState.collapseID !== collapseID ? collapseID : '',
     }));
 
   closeCollapse = collID => () => {
@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     const overlay = (
       <div
-        id='sidenav-overlay'
+        id="sidenav-overlay"
         style={{ backgroundColor: 'transparent' }}
         onClick={this.toggleCollapse('mainNavbarCollapse')}
       />
@@ -30,14 +30,14 @@ class App extends Component {
     const { collapseID } = this.state;
 
     return (
-        <div>
-            <Router>
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/home" component={Home} />
-                </Switch>
-            </Router>
-        </div>
+      <div>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }

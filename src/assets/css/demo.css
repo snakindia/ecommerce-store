@@ -52,7 +52,7 @@
 }
 
 .headertopright a:hover {
-  background-color: #272B37;
+  background-color: #272b37;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -248,7 +248,7 @@
   text-align: center;
   margin: 0% 0% 0% 0%;
   background-color: #f2f2f2;
-  border: solid 1px #D9D9D9;
+  border: solid 1px #d9d9d9;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -361,7 +361,7 @@
 }
 
 .wscolorcode.cpurple {
-  background-color: #967ADC;
+  background-color: #967adc;
 }
 
 .wscolorcode.cgry {
@@ -373,7 +373,13 @@
 }
 
 .wscolorcode.grd-green {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#49c4a4), to(#97b832));
+  background: -webkit-gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#49c4a4),
+    to(#97b832)
+  );
   background: -webkit-linear-gradient(left, #49c4a4, #97b832);
   background: -moz-linear-gradient(left, #49c4a4, #97b832);
   background: -o-linear-gradient(left, #49c4a4, #97b832);
@@ -383,7 +389,13 @@
 }
 
 .wscolorcode.grd-blue {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#31c8b1), to(#4ec7ff));
+  background: -webkit-gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#31c8b1),
+    to(#4ec7ff)
+  );
   background: -webkit-linear-gradient(left, #31c8b1, #4ec7ff);
   background: -moz-linear-gradient(left, #31c8b1, #4ec7ff);
   background: -o-linear-gradient(left, #31c8b1, #4ec7ff);
@@ -393,7 +405,13 @@
 }
 
 .wscolorcode.grd-red {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d90647), to(#eb402c));
+  background: -webkit-gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#d90647),
+    to(#eb402c)
+  );
   background: -webkit-linear-gradient(left, #d90647, #eb402c);
   background: -moz-linear-gradient(left, #d90647, #eb402c);
   background: -o-linear-gradient(left, #d90647, #eb402c);
@@ -403,7 +421,13 @@
 }
 
 .wscolorcode.grd-light-green {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#29bb92), to(#69cbb0));
+  background: -webkit-gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#29bb92),
+    to(#69cbb0)
+  );
   background: -webkit-linear-gradient(left, #29bb92, #69cbb0);
   background: -moz-linear-gradient(left, #29bb92, #69cbb0);
   background: -o-linear-gradient(left, #29bb92, #69cbb0);
@@ -413,7 +437,13 @@
 }
 
 .wscolorcode.grd-pink {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c659a7), to(#fd67a0));
+  background: -webkit-gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#c659a7),
+    to(#fd67a0)
+  );
   background: -webkit-linear-gradient(left, #c659a7, #fd67a0);
   background: -moz-linear-gradient(left, #c659a7, #fd67a0);
   background: -o-linear-gradient(left, #c659a7, #fd67a0);
@@ -423,7 +453,13 @@
 }
 
 .wscolorcode.grd-orange {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff5183), to(#ff754b));
+  background: -webkit-gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#ff5183),
+    to(#ff754b)
+  );
   background: -webkit-linear-gradient(left, #ff5183, #ff754b);
   background: -moz-linear-gradient(left, #ff5183, #ff754b);
   background: -o-linear-gradient(left, #ff5183, #ff754b);
@@ -433,7 +469,13 @@
 }
 
 .wscolorcode.grd-black {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#383d41), to(#5d6069));
+  background: -webkit-gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#383d41),
+    to(#5d6069)
+  );
   background: -webkit-linear-gradient(left, #383d41, #5d6069);
   background: -moz-linear-gradient(left, #383d41, #5d6069);
   background: -o-linear-gradient(left, #383d41, #5d6069);
@@ -443,7 +485,13 @@
 }
 
 .wscolorcode.grd-gry {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cccccc), to(#e4e4e4));
+  background: -webkit-gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#cccccc),
+    to(#e4e4e4)
+  );
   background: -webkit-linear-gradient(left, #cccccc, #e4e4e4);
   background: -moz-linear-gradient(left, #cccccc, #e4e4e4);
   background: -o-linear-gradient(left, #cccccc, #e4e4e4);
@@ -454,7 +502,7 @@
 
 /* End Color Swicher*/
 
-@media only screen and (min-width: 230px) and (max-width:991px) {
+@media only screen and (min-width: 230px) and (max-width: 991px) {
   .wrapper {
     width: 100%;
     margin: 0% 0%;
@@ -550,7 +598,7 @@
 
   .address.clearfix:before,
   .address.clearfix:after {
-    content: "";
+    content: '';
     display: table;
   }
 
