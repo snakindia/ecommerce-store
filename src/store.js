@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import notificationReducer from './components/Notification/notification.reducer';
 import auth from './reducers/auth';
 import hotDeals from './components/Shop/HotDeals/hotDeals.reducer';
+import categoryReducer from './components/Category/category.reducer';
 
 const logger = createLogger({ collapsed: true });
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   notification: notificationReducer,
   auth,
   hotDeals,
+  category: categoryReducer,
 });
 const store = createStore(
   rootReducer,

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBModal } from 'mdbreact';
 import Slider from 'react-slick';
+import Rating from '../../common/Rating';
 
 class QuickViewDeal extends Component {
   state = {
@@ -90,15 +91,7 @@ class QuickViewDeal extends Component {
                     <h4 className="mt-0 mb-2">{dealDetail.name}</h4>
                     <p className="text-muted mb-0">{dealDetail.description}</p>
                     <div className="d-flex align-items-center justify-content-left mt-1">
-                      <div className="star-rating">
-                        <ul className="list-inline">
-                          {ratings.map((i, index) => (
-                            <li key={index} className="list-inline-item">
-                              <i className={`fa fa-star${i ? '' : '-o'}`} />
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      <Rating ratings={dealDetail.ratings} />
                     </div>
                     <div className="pro_Price p-0">
                       <p className=" currecny">
@@ -106,7 +99,7 @@ class QuickViewDeal extends Component {
                           ${dealDetail.regular_price}
                         </span>
                         <span className="sp-price">
-                          ${dealDetail.sale_price}
+                          ${dealDetail.sale_price || dealDetail.price}
                         </span>
                       </p>
                     </div>
@@ -116,7 +109,9 @@ class QuickViewDeal extends Component {
                     </div>
                     <div className="text-muted">
                       <span>Category:</span>{' '}
-                      <span className="sp-price">{dealDetail.category}</span>
+                      <span className="sp-price">
+                        {dealDetail.category_name}
+                      </span>
                     </div>
                     <form className="inc_value">
                       <div

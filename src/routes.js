@@ -8,6 +8,7 @@ import MetaContainer from './components/MetaData';
 import Notification from './components/Notification';
 import Shop from './components/Shop';
 import PrivateRoute from './PrivateRoute';
+import Category from './components/Category';
 
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
@@ -41,6 +42,7 @@ const Router = () => {
               <Route path="/contact" component={ContactBody} />
               <PrivateRoute path="/sign-up" component={SignUpPage} />
               <Route path="/inner-page" component={InnerPage} />
+              <Route path="/category" component={Category} />
               <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
               <Route path="/shop" component={Shop} />
             </Switch>
