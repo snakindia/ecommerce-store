@@ -35,4 +35,9 @@ const PAGE_SIZE_OPTIONS = [
   },
 ];
 
-export { SORT_BY_OPTIONS, PAGE_SIZE_OPTIONS };
+const LAYOUT = {
+  GRID: 'GRID',
+  LIST: 'LIST',
+};
+
+export { SORT_BY_OPTIONS, PAGE_SIZE_OPTIONS, LAYOUT };

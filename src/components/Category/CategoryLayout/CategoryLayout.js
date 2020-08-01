@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Pagination from './Pagination';
@@ -11,16 +11,23 @@ import {
   dropDownChange,
 } from '../category.actions';
 import QuickViewDeal from '../../Shop/HotDeals/QuickViewDeal';
-import { PAGE_SIZE_OPTIONS, SORT_BY_OPTIONS } from './categoryLayout.constants';
+import {
+  LAYOUT,
+  SORT_BY_OPTIONS,
+  PAGE_SIZE_OPTIONS,
+} from './categoryLayout.constants';
+import CategoryListCard from './CategoryListCard';
 
 class CategoryLayout extends Component {
   state = {
     selectedProduct: null,
+    layout: LAYOUT.GRID,
   };
   componentDidMount() {
     const { actions } = this.props;
     actions.fetchCategory();
   }
+
   toggleModal = selectedProduct => {
     this.setState({ selectedProduct });
   };
@@ -29,6 +36,11 @@ class CategoryLayout extends Component {
     const { actions } = this.props;
     const { value } = e.target;
     actions.searchChange(value);
+  };
+
+  handleLayoutChange = layout => event => {
+    event.preventDefault();
+    this.setState({ layout });
   };
 
   render() {
@@ -40,7 +52,11 @@ class CategoryLayout extends Component {
       currentPage,
       totalRecords,
     } = this.props;
-    const { selectedProduct } = this.state;
+    const { selectedProduct, layout } = this.state;
+    const isGridLayout = layout === LAYOUT.GRID;
+    const CardComponent = isGridLayout ? CategoryCard : CategoryListCard;
+    const Wrapper1 = isGridLayout ? Fragment : 'div';
+    const Wrapper2 = isGridLayout ? Fragment : 'ul';
     return (
       <section className="pro-equipment-section">
         <div className="container shorting-box border-bottom">
@@ -66,16 +82,18 @@ class CategoryLayout extends Component {
             <div className="col-sm-8 col-md-8">
               <div className="w-100">
                 <a
-                  href="list-view-page.html"
+                  href="#"
                   className="grid-switcher"
                   title="List View"
+                  onClick={this.handleLayoutChange(LAYOUT.LIST)}
                 >
                   <i className="fas fa-list" />
                 </a>
                 <a
-                  href="category-page.html"
+                  href="#"
                   className="grid-switcher"
                   title="Grid View"
+                  onClick={this.handleLayoutChange(LAYOUT.GRID)}
                 >
                   <i className="fas fa-th" />
                 </a>
@@ -89,11 +107,22 @@ class CategoryLayout extends Component {
             </div>
           </div>
         </div>
-        <div className="container-fluid pl-0 pr-0 product-xs-item">
-          <div className="row no-gutters">
-            {products.map(item => (
-              <CategoryCard product={item} openQuickView={this.toggleModal} />
-            ))}
+        <div
+          className={`container-fluid pl-0 pr-0 product-xs-${
+            isGridLayout ? 'item' : 'list'
+          }`}
+        >
+          <div className={`row ${isGridLayout ? 'no-gutters' : ''}`}>
+            <Wrapper1 className="col-lg-12">
+              <Wrapper2 className="list-group">
+                {products.map(item => (
+                  <CardComponent
+                    product={item}
+                    openQuickView={this.toggleModal}
+                  />
+                ))}
+              </Wrapper2>
+            </Wrapper1>
           </div>
         </div>
         <div className="container box-shadow shorting-box">
