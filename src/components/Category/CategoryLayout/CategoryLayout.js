@@ -4,8 +4,14 @@ import { bindActionCreators } from 'redux';
 import Pagination from './Pagination';
 import DropDown from './DropDown';
 import CategoryCard from './CategoryCard';
-import { fetchCategory, fieldChange } from '../category.actions';
+import {
+  changePage,
+  searchChange,
+  fetchCategory,
+  dropDownChange,
+} from '../category.actions';
 import QuickViewDeal from '../../Shop/HotDeals/QuickViewDeal';
+import { PAGE_SIZE_OPTIONS, SORT_BY_OPTIONS } from './categoryLayout.constants';
 
 class CategoryLayout extends Component {
   state = {
@@ -15,7 +21,6 @@ class CategoryLayout extends Component {
     const { actions } = this.props;
     actions.fetchCategory();
   }
-
   toggleModal = selectedProduct => {
     this.setState({ selectedProduct });
   };
@@ -23,11 +28,18 @@ class CategoryLayout extends Component {
   handleChange = e => {
     const { actions } = this.props;
     const { value } = e.target;
-    actions.fieldChange(value);
+    actions.searchChange(value);
   };
 
   render() {
-    const { products, search } = this.props;
+    const {
+      size,
+      search,
+      actions,
+      products,
+      currentPage,
+      totalRecords,
+    } = this.props;
     const { selectedProduct } = this.state;
     return (
       <section className="pro-equipment-section">
@@ -36,7 +48,11 @@ class CategoryLayout extends Component {
             <div className="col-sm-4 col-md-4">
               <div className="short-items">
                 <span>Sort By:</span>
-                <DropDown />
+                <DropDown
+                  name="sortBy"
+                  options={SORT_BY_OPTIONS}
+                  onChange={actions.dropDownChange}
+                />
               </div>
               <div className="short-items">
                 <input
@@ -63,7 +79,12 @@ class CategoryLayout extends Component {
                 >
                   <i className="fas fa-th" />
                 </a>
-                <Pagination />
+                <Pagination
+                  size={size}
+                  currentPage={currentPage}
+                  totalRecords={totalRecords}
+                  changePage={actions.changePage}
+                />
               </div>
             </div>
           </div>
@@ -81,17 +102,25 @@ class CategoryLayout extends Component {
               <div className="short-items">
                 <span>Show:</span>
                 <DropDown
+                  name="size"
                   styles={{
                     width: '80px !important',
                     float: 'left',
                     marginLeft: '1rem',
                   }}
+                  options={PAGE_SIZE_OPTIONS}
+                  onChange={actions.dropDownChange}
                 />
               </div>
             </div>
             <div className="col-sm-8 col-md-8">
               <div className="w-100">
-                <Pagination />
+                <Pagination
+                  size={size}
+                  currentPage={currentPage}
+                  totalRecords={totalRecords}
+                  changePage={actions.changePage}
+                />
               </div>
             </div>
           </div>
@@ -106,15 +135,20 @@ class CategoryLayout extends Component {
 }
 
 const mapStateToProps = ({ category }) => ({
-  products: category.data,
+  size: category.size,
   search: category.search,
+  products: category.data,
+  currentPage: category.currentPage,
+  totalRecords: category.total_count,
 });
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(
     {
+      changePage,
+      searchChange,
       fetchCategory,
-      fieldChange,
+      dropDownChange,
     },
     dispatch
   ),

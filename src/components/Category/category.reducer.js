@@ -1,6 +1,7 @@
 import {
   FETCH_PRODUCT_LIST,
   FIELD_VALUE_CHANGE,
+  PAGE_CHANGE,
 } from './category.action.constants';
 
 const initialState = {
@@ -12,6 +13,9 @@ const initialState = {
   has_more: '',
   data: [],
   search: '',
+  currentPage: 1,
+  sortBy: 'name',
+  size: 12,
 };
 
 export default (state = initialState, action) => {
@@ -35,7 +39,10 @@ export default (state = initialState, action) => {
       return { ...state, fetching: false };
 
     case FIELD_VALUE_CHANGE:
-      return { ...state, search: action.payload };
+      return { ...state, [action.fieldName]: action.payload };
+
+    case PAGE_CHANGE:
+      return { ...state, currentPage: action.payload };
 
     default:
       return state;
