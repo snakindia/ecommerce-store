@@ -7,7 +7,10 @@ import {
 const initialState = {
   fetching: false,
   error: null,
-  price: '',
+  price: {
+    min: 0,
+    max: 0,
+  },
   attributes: '',
   total_count: '',
   has_more: '',

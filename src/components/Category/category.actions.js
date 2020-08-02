@@ -10,15 +10,16 @@ export const SIZE = 12;
 const fetchCategory = () => async (dispatch, getState) => {
   try {
     const { category } = getState();
+    const { size, currentPage, search, sortBy, price } = category;
     dispatch({ type: `${FETCH_PRODUCT_LIST}_START` });
     const url = getProductListUrl({
-      limit: category.size,
-      page: category.currentPage - 1 < 0 ? 0 : category.currentPage - 1,
-      search: category.search,
-      sortBy: category.sortBy,
+      limit: size,
+      page: currentPage - 1 < 0 ? 0 : currentPage - 1,
+      search,
+      sortBy,
+      price,
     });
     const res = await GET({ url });
-    console.log('res', res.data);
     dispatch({ type: FETCH_PRODUCT_LIST, payload: res.data });
   } catch (e) {
     dispatch({ type: `${FETCH_PRODUCT_LIST}_ERROR`, error: e });
@@ -43,6 +44,13 @@ const searchChange = value => dispatch => {
   searchTimer = setTimeout(() => dispatch(fetchCategory()), 1000);
 };
 
+let priceRangeTimer = null;
+const priceRangeChange = value => dispatch => {
+  dispatch({ type: FIELD_VALUE_CHANGE, fieldName: 'price', payload: value });
+  clearTimeout(priceRangeTimer);
+  priceRangeTimer = setTimeout(() => dispatch(fetchCategory()), 2000);
+};
+
 const dropDownChange = (fieldName, value) => async dispatch => {
   try {
     await dispatch({ type: FIELD_VALUE_CHANGE, payload: value, fieldName });
@@ -52,4 +60,10 @@ const dropDownChange = (fieldName, value) => async dispatch => {
   }
 };
 
-export { fetchCategory, searchChange, dropDownChange, changePage };
+export {
+  changePage,
+  searchChange,
+  fetchCategory,
+  dropDownChange,
+  priceRangeChange,
+};

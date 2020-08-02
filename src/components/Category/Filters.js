@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import InputRange from 'react-input-range';
+import 'react-input-range/lib/css/index.css';
+import Rating from '../common/Rating';
+import { priceRangeChange } from './category.actions';
 
-const Filters = () => {
+const Filters = ({}) => {
+  const [priceRange, setPriceRange] = useState({ min: 0, max: 400 });
+  const dispatch = useDispatch();
+  const handlePriceChange = useCallback(
+    value => {
+      setPriceRange(value);
+      dispatch(priceRangeChange(value));
+    },
+    [dispatch]
+  );
   return (
     <div id="accordion" className="myaccordion">
       <div className="border-0">
@@ -45,8 +59,20 @@ const Filters = () => {
       <div className="filter-heading border-bottom pt-1 pb-0">
         <div className="pb-2">Price Range</div>
         <div className="slider-box">
-          <div id="price-range" className="slider" />
-          <input className="input-text" type="text" id="priceRange" readOnly />
+          <InputRange
+            maxValue={1000}
+            minValue={0}
+            value={priceRange}
+            draggableTrack
+            onChange={handlePriceChange}
+          />
+          <input
+            className="input-text"
+            type="text"
+            id="priceRange"
+            value={`$${priceRange.min} - $${priceRange.max}`}
+            readOnly
+          />
         </div>
       </div>
       <div className="featured-product">
@@ -56,25 +82,7 @@ const Filters = () => {
           <div className="description-xxs">
             Goyen® Pentair® CA25T000 Replacement Repair Kit
           </div>
-          <div className="star-rating mb-0">
-            <ul className="list-inline mb-0">
-              <li className="list-inline-item">
-                <i className="fa fa-star" />
-              </li>
-              <li className="list-inline-item">
-                <i className="fa fa-star" />
-              </li>
-              <li className="list-inline-item">
-                <i className="fa fa-star" />
-              </li>
-              <li className="list-inline-item">
-                <i className="fa fa-star" />
-              </li>
-              <li className="list-inline-item">
-                <i className="fa fa-star-o" />
-              </li>
-            </ul>
-          </div>
+          <Rating className="mb-0" wClassName="mb-0" ratings={3} />
           <div className="pro_Price p-0">
             <p className=" currecny">
               <span className="strike">$91.08</span>
@@ -86,25 +94,7 @@ const Filters = () => {
         <div className="location">
           <img className="bha-flag" src="images/product/img1.jpg" alt="" />
           <div className="description-xxs">RCA 3D2 Replacements</div>
-          <div className="star-rating mb-0">
-            <ul className="list-inline mb-0">
-              <li className="list-inline-item">
-                <i className="fa fa-star" />
-              </li>
-              <li className="list-inline-item">
-                <i className="fa fa-star" />
-              </li>
-              <li className="list-inline-item">
-                <i className="fa fa-star" />
-              </li>
-              <li className="list-inline-item">
-                <i className="fa fa-star" />
-              </li>
-              <li className="list-inline-item">
-                <i className="fa fa-star-o" />
-              </li>
-            </ul>
-          </div>
+          <Rating className="mb-0" wClassName="mb-0" ratings={3} />
           <div className="pro_Price p-0">
             <p className=" currecny">
               <span className="strike">$91.08</span>

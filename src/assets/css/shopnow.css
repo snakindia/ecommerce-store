@@ -1060,6 +1060,10 @@ i.wishList-hover-xs{position: absolute;  top: -18%; right: 2.6%; font-size: 1.2r
   width: 95%;
   margin: 8px;
 }
+.slider-box .input-range__label {
+  display: none;
+}
+
 /*input {border: none; display: inline-block; margin-right:0; vertical-align: top;}*/
 .input-text {
   width: 100%;

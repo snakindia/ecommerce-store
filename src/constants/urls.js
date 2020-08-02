@@ -13,8 +13,11 @@ const getProductListUrl = ({
   page = 0,
   search = '',
   sortBy = 'name',
+  price,
 }) =>
-  `${API_URL}/products?discontinued=false&fields=id,name,category_id,category_ids,category_name,sku,images,enabled,discontinued,description,stock_status,stock_quantity,price,on_sale,regular_price,url&limit=${limit}&offset=${page}&search=${search}&sort=${sortBy}`;
+  `${API_URL}/products?discontinued=false&fields=id,name,category_id,category_ids,category_name,sku,images,enabled,discontinued,description,stock_status,stock_quantity,price,on_sale,regular_price,url&limit=${limit}&offset=${page}&search=${search}&sort=${sortBy}&price=${encodeURIComponent(
+    price
+  )}`;
 const getPageMetaDetails = `${API_URL}/pages?fields=slug,meta_title,meta_description,content`;
 
 export {
