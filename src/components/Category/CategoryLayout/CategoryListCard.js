@@ -2,9 +2,10 @@ import React from 'react';
 import cartIcon from '../../../assets/icon/cart_black.svg';
 import compareIcon from '../../../assets/icon/compare.svg';
 import Rating from '../../common/Rating';
+import { DEFAULT_IMG_URL } from '../../../constants/urls';
 
 const CategoryListCard = ({ product, openQuickView }) => {
-  const imgSrc = (product.images[0] || {}).url;
+  const imgSrc = (product.images[0] || {}).url || DEFAULT_IMG_URL;
   return (
     <li className="list-group-item">
       <div className="media flex-column flex-lg-row p-3">
@@ -46,7 +47,9 @@ const CategoryListCard = ({ product, openQuickView }) => {
           </div>
           <div className="pro_Price p-0">
             <p className=" currecny">
-              <span className="strike">${product.regular_price}</span>
+              {product.on_sale && (
+                <span className="strike">${product.regular_price}</span>
+              )}
               <span className="sp-price">${product.price}</span>
             </p>
           </div>

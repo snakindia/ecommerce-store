@@ -2,9 +2,10 @@ import React from 'react';
 import cartIcon from '../../../assets/icon/cart_black.svg';
 import compareIcon from '../../../assets/icon/compare.svg';
 import Rating from '../../common/Rating';
+import { DEFAULT_IMG_URL } from '../../../constants/urls';
 
 const CategoryCard = ({ product, openQuickView }) => {
-  const imgSrc = (product.images[0] || {}).url;
+  const imgSrc = (product.images[0] || {}).url || DEFAULT_IMG_URL;
   return (
     <div className="col-sm-6 col-md-6 col-lg-3 border-bottom">
       <div className="hot-deals-item-wrapper">
@@ -43,7 +44,9 @@ const CategoryCard = ({ product, openQuickView }) => {
             <div className="product-description">{product.name}</div>
             <div className="pro_Price text-center">
               <p className=" currecny">
-                <span className="strike">${product.regular_price}</span>
+                {product.on_sale && (
+                  <span className="strike">${product.regular_price}</span>
+                )}
                 <span className="sp-price">${product.price}</span>
               </p>
             </div>

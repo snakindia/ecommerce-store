@@ -37,6 +37,8 @@ const changePage = pageNo => async dispatch => {
   }
 };
 
+const resetPage = () => ({ type: PAGE_CHANGE, payload: 1 });
+
 let searchTimer = null;
 const searchChange = value => dispatch => {
   dispatch({ type: FIELD_VALUE_CHANGE, fieldName: 'search', payload: value });
@@ -61,6 +63,7 @@ const dropDownChange = (fieldName, value) => async dispatch => {
 };
 
 export {
+  resetPage,
   changePage,
   searchChange,
   fetchCategory,

@@ -5,6 +5,7 @@ import Pagination from './Pagination';
 import DropDown from './DropDown';
 import CategoryCard from './CategoryCard';
 import {
+  resetPage,
   changePage,
   searchChange,
   fetchCategory,
@@ -36,11 +37,18 @@ class CategoryLayout extends Component {
     const { actions } = this.props;
     const { value } = e.target;
     actions.searchChange(value);
+    actions.resetPage();
   };
 
   handleLayoutChange = layout => event => {
     event.preventDefault();
     this.setState({ layout });
+  };
+
+  handlePageSizeChange = (fieldName, value) => {
+    const { actions } = this.props;
+    actions.dropDownChange(fieldName, value);
+    actions.resetPage();
   };
 
   render() {
@@ -138,7 +146,7 @@ class CategoryLayout extends Component {
                     marginLeft: '1rem',
                   }}
                   options={PAGE_SIZE_OPTIONS}
-                  onChange={actions.dropDownChange}
+                  onChange={this.handlePageSizeChange}
                 />
               </div>
             </div>
@@ -156,6 +164,7 @@ class CategoryLayout extends Component {
         </div>
         <QuickViewDeal
           dealDetail={selectedProduct}
+          onSale={(selectedProduct || {}).on_sale}
           closeModal={this.toggleModal}
         />
       </section>
@@ -174,6 +183,7 @@ const mapStateToProps = ({ category }) => ({
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(
     {
+      resetPage,
       changePage,
       searchChange,
       fetchCategory,

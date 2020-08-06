@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { MDBContainer, MDBModal } from 'mdbreact';
 import Slider from 'react-slick';
 import Rating from '../../common/Rating';
+import { DEFAULT_IMG_URL } from '../../../constants/urls';
 
 class QuickViewDeal extends Component {
   state = {
@@ -28,7 +29,7 @@ class QuickViewDeal extends Component {
   toggle = () => this.props.closeModal(null);
 
   render() {
-    const { dealDetail } = this.props;
+    const { dealDetail, onSale } = this.props;
     if (!dealDetail) {
       return null;
     }
@@ -68,7 +69,7 @@ class QuickViewDeal extends Component {
                     dealDetail.images.map(({ url, fileName, id }) => (
                       <img
                         key={id}
-                        src={url}
+                        src={url || DEFAULT_IMG_URL}
                         className="img-fluid"
                         alt={fileName}
                       />
@@ -78,7 +79,7 @@ class QuickViewDeal extends Component {
                       {dealDetail.images.map(({ url, fileName, id }) => (
                         <img
                           key={id}
-                          src={url}
+                          src={url || DEFAULT_IMG_URL}
                           className="img-fluid"
                           alt={fileName}
                         />
@@ -95,9 +96,11 @@ class QuickViewDeal extends Component {
                     </div>
                     <div className="pro_Price p-0">
                       <p className=" currecny">
-                        <span className="strike">
-                          ${dealDetail.regular_price}
-                        </span>
+                        {onSale && (
+                          <span className="strike">
+                            ${dealDetail.regular_price}
+                          </span>
+                        )}
                         <span className="sp-price">
                           ${dealDetail.sale_price || dealDetail.price}
                         </span>
@@ -163,5 +166,9 @@ class QuickViewDeal extends Component {
     );
   }
 }
+
+QuickViewDeal.defaultProps = {
+  onSale: true,
+};
 
 export default QuickViewDeal;

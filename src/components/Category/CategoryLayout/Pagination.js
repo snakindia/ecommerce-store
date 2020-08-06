@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const PAGE_SET = 4;
 const PAGE_DIR = {
@@ -52,7 +52,10 @@ const Pagination = ({ totalRecords, size, currentPage = 1, changePage }) => {
     return renderingPages.map((page, index) => {
       let element;
       element = (
-        <li className={`page-item ${page === currentPage ? 'active' : ''}`}>
+        <li
+          key={page}
+          className={`page-item ${page === currentPage ? 'active' : ''}`}
+        >
           <a
             className="page-link"
             href="#"
@@ -69,10 +72,10 @@ const Pagination = ({ totalRecords, size, currentPage = 1, changePage }) => {
         renderingPages.length > 3
       ) {
         element = (
-          <>
+          <Fragment key={page}>
             {element}
             <li className="page-item">...</li>
-          </>
+          </Fragment>
         );
       }
       return element;
@@ -99,7 +102,7 @@ const Pagination = ({ totalRecords, size, currentPage = 1, changePage }) => {
           data-dir={PAGE_DIR.NEXT_PAGE}
           onClick={handleChangePage}
         >
-          <i className="fa fa-angle-right" data-dir={PAGE_DIR.PREVIOUS_PAGE} />
+          <i className="fa fa-angle-right" data-dir={PAGE_DIR.NEXT_PAGE} />
         </a>
       </li>
     </ul>
