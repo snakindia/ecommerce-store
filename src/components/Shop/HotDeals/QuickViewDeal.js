@@ -90,7 +90,12 @@ class QuickViewDeal extends Component {
                 <div className="col-sm-6">
                   <div className="media-body">
                     <h4 className="mt-0 mb-2">{dealDetail.name}</h4>
-                    <p className="text-muted mb-0">{dealDetail.description}</p>
+                    <p
+                      className="text-muted mb-0"
+                      dangerouslySetInnerHTML={{
+                        __html: (dealDetail.description || '').slice(0, 300),
+                      }}
+                    />
                     <div className="d-flex align-items-center justify-content-left mt-1">
                       <Rating ratings={dealDetail.ratings} />
                     </div>
