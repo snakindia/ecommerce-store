@@ -3,7 +3,7 @@ import { MDBModal, MDBModalBody } from 'mdbreact';
 
 import LeftMenu from './LeftMenu';
 import Banner from './Banner';
-import Client from './../Home/Client';
+import Clients from './../Clients';
 import Products from './../Home/Products';
 import TopRatedProducts from './TopRatedProducts';
 import PremiumBrands from './PremiumBrands';
@@ -38,7 +38,7 @@ class ShopNOw extends Component {
               </div>
             </section>
             <HotDeals />
-            <Client />
+            <Clients />
             <PremiumBrands />
             <Products />
             <TopRatedProducts />

@@ -21,17 +21,21 @@ const getProductListUrl = ({
     price
   )}`;
 const getPageMetaDetails = `${API_URL}/pages?fields=slug,meta_title,meta_description,content`;
+const getNewsDetailURL = `${API_URL}/newsevents/get_news_details?type=News&slug=`;
+const getClientListURL = `${API_URL}/companies/get_list`;
 
 export {
-  DEFAULT_IMG_URL,
-  signUpUrl,
-  signInUrl,
-  hotDealsUrl,
-  settingsUrl,
-  userDetailUrl,
-  menuProductUrl,
-  saveBrochureUrl,
-  getSlugDetailUrl,
-  getProductListUrl,
-  getPageMetaDetails,
+    DEFAULT_IMG_URL,
+    signUpUrl,
+    signInUrl,
+    hotDealsUrl,
+    settingsUrl,
+    userDetailUrl,
+    menuProductUrl,
+    saveBrochureUrl,
+    getSlugDetailUrl,
+    getProductListUrl,
+    getPageMetaDetails,
+    getNewsDetailURL,
+    getClientListURL
 };

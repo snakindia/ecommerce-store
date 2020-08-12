@@ -9,6 +9,7 @@ import Notification from './components/Notification';
 import Shop from './components/Shop';
 import PrivateRoute from './PrivateRoute';
 import Category from './components/Category';
+import NewsDetail from './components/NewsDetail';
 
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
@@ -45,6 +46,7 @@ const Router = () => {
               <Route path="/category" component={Category} />
               <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
               <Route path="/shop" component={Shop} />
+              <Route path="/newsdetail/:slug" component={NewsDetail} />
             </Switch>
           </Suspense>
           <Footer />
