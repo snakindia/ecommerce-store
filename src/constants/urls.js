@@ -21,7 +21,8 @@ const getProductListUrl = ({
     price
   )}`;
 const getPageMetaDetails = `${API_URL}/pages?fields=slug,meta_title,meta_description,content`;
-const getNewsListUrl = `${API_URL}/newsevents/get_list?type=News`;
+const getNewsListUrl = ({ type, page = 1, size, filterBy }) =>
+  `${API_URL}/newsevents/get_list?type=${type}&page=${page}&size=${size}&filterby=${filterBy}`;
 
 export {
   DEFAULT_IMG_URL,
@@ -37,4 +38,3 @@ export {
   getProductListUrl,
   getPageMetaDetails,
 };
-
