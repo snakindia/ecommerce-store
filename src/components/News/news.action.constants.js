@@ -1,0 +1,3 @@
+const FETCH_NEWS_LIST = 'FETCH_NEWS_LIST';
+
+export {FETCH_NEWS_LIST};

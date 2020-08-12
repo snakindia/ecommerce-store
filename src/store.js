@@ -7,6 +7,7 @@ import notificationReducer from './components/Notification/notification.reducer'
 import auth from './reducers/auth';
 import hotDeals from './components/Shop/HotDeals/hotDeals.reducer';
 import categoryReducer from './components/Category/category.reducer';
+import newsReducer from './components/News/news.reducer';
 
 const logger = createLogger({ collapsed: true });
 const rootReducer = combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   auth,
   hotDeals,
   category: categoryReducer,
+  news: newsReducer,
 });
 const store = createStore(
   rootReducer,
