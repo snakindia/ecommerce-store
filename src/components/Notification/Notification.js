@@ -31,6 +31,8 @@ const Notification = ({ msg, id, type }) => {
     <MDBContainer>
       <ToastContainer
         // hideProgressBar={true}
+          //
+          position="bottom-left"
         newestOnTop={true}
         autoClose={5000}
       />

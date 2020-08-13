@@ -2,12 +2,26 @@ import React from 'react';
 import cartIcon from '../../../assets/icon/cart_black.svg';
 import compareIcon from '../../../assets/icon/compare.svg';
 
-const DealCard = ({ dealData, openQuickDeal }) => {
+const DealCard = ({ dealData, openQuickDeal, addToCompare, comparedDeals}) => {
   let priceDiff = dealData.regular_price - dealData.sale_price;
   let discount = parseFloat((priceDiff * 100) / dealData.regular_price).toFixed(
     2
   );
   const imgSrc = (dealData.images[0] || {}).url;
+  const compare = (e, data) => {
+    e.preventDefault();
+    addToCompare(dealData);
+  }
+
+  const isCompared = (id) => {
+    let existingData = comparedDeals.find(item=> item._id === id);
+    if(existingData) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   return (
     <div
       className="hot-deals-item-wrapper deals-border-right"
@@ -68,13 +82,17 @@ const DealCard = ({ dealData, openQuickDeal }) => {
             />
             Add to Cart
           </a>
-          <a href="#" className="svg-icon" tabIndex="0">
-            <img
-              className="mr-2 ml-4"
-              src={compareIcon}
-              alt=""
-              style={{ display: 'inline-block' }}
-            />
+          <a
+              href="#!"
+              className={isCompared(dealData._id) ? 'svg-icon compare-link link-active' : 'svg-icon svg-icon compare-link'}
+                  tabIndex="0" onClick={(e) => compare(e, dealData)}>
+            {/*<img*/}
+            {/*  className="mr-2 ml-4"*/}
+            {/*  src={compareIcon}*/}
+            {/*  alt=""*/}
+            {/*  style={{ display: 'inline-block' }}*/}
+            {/*/>*/}
+            <i className="fa fa-random mr-2 ml-2" area-hidden="true" />
             Compare
           </a>
         </div>
