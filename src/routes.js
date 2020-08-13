@@ -19,6 +19,8 @@ const BrandBody = lazy(() => import('./components/Brand/BrandBody'));
 const SignUpPage = lazy(() => import('./components/Signup/SignUpPage'));
 const InnerPage = lazy(() => import('./components/InnerPage'));
 const VerifyUser = lazy(() => import('./components/VerifyUser'));
+const News = lazy(() => import('./components/News'));
+const Events = lazy(() => import('./components/Events'));
 
 const Router = () => {
   return (
@@ -47,6 +49,8 @@ const Router = () => {
               <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
               <Route path="/shop" component={Shop} />
               <Route path="/newsdetail/:slug" component={NewsDetail} />
+              <Route path="/news" component={News} />
+              <Route path="/events" component={Events} />
             </Switch>
           </Suspense>
           <Footer />

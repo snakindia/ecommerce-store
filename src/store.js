@@ -9,6 +9,7 @@ import hotDeals from './components/Shop/HotDeals/hotDeals.reducer';
 import categoryReducer from './components/Category/category.reducer';
 import newsDetailReducer from './components/NewsDetail/newsdetail.reducer';
 import Clients from './components/Clients/clients.reducer';
+import newsReducer from './components/News/news.reducer';
 
 const logger = createLogger({ collapsed: true });
 const rootReducer = combineReducers({
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   hotDeals,
   category: categoryReducer,
   newsdetail: newsDetailReducer,
-  clients: Clients
+  clients: Clients,
+  news: newsReducer
 });
 const store = createStore(
   rootReducer,

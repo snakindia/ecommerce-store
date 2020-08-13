@@ -23,6 +23,8 @@ const getProductListUrl = ({
 const getPageMetaDetails = `${API_URL}/pages?fields=slug,meta_title,meta_description,content`;
 const getNewsDetailURL = `${API_URL}/newsevents/get_news_details?type=News&slug=`;
 const getClientListURL = `${API_URL}/companies/get_list`;
+const getNewsListUrl = ({ type, page = 1, size, filterBy }) =>
+  `${API_URL}/newsevents/get_list?type=${type}&page=${page}&size=${size}&filterby=${filterBy}`;
 
 export {
     DEFAULT_IMG_URL,
@@ -37,5 +39,6 @@ export {
     getProductListUrl,
     getPageMetaDetails,
     getNewsDetailURL,
-    getClientListURL
+    getClientListURL,
+    getNewsListUrl
 };
