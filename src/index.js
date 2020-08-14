@@ -23,6 +23,7 @@ import './assets/css/news-events.css';
 import './assets/transition-css/common.css';
 import './assets/transition-css/style.css';
 import './index.css';
+
 import store from './store';
 import { Provider } from 'react-redux';
 

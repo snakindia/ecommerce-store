@@ -4,13 +4,13 @@ import { bindActionCreators } from 'redux';
 import {dateConversion} from './../../common/Util';
 import Clients from './../../Clients';
 import PremiumBrands from './../../Shop/PremiumBrands';
-import landing from '../../../assets/images/landing-banner.jpg';
+import landingImage from '../../../assets/images/landing-banner.jpg';
 import filter from '../../../assets/images/filter-img.png';
 import baghouse1 from '../../../assets/images/baghouse1.png';
 import Goyen from '../../../assets/images/Goyen-Original.jpg';
 import shipping2 from '../../../assets/images/free-shipping2.png';
 import badge from '../../../assets/images/badge-28.png';
-import '../../../assets/css/bha-landing.css';
+import './../../../assets/css/bha-landing.css';
 
 class ProductServicesDetail extends Component {
     constructor(props) {
@@ -44,10 +44,11 @@ class ProductServicesDetail extends Component {
         
     return (
     <div>
-            <section class="news-events-banner" style={{'border-bottom': '1px solid #ddd'}}>
-  <div class="news-events-inner">
-    <div id="news-carousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner" role="listbox" style={{'height': '500px'}}>
+        
+            <section class="product-services-banner" style={{'border-bottom': '1px solid #ddd'}}>
+  <div class="">
+    <div id="" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner" role="listbox" style={{'height': '620px'}}>
         <div class="carousel-item active"> 
           <div class="landing-caption">
             <div class="landing-caption-inner">
@@ -57,7 +58,7 @@ sit ament, consectetur adiplisicing elit,</h1>
               <p class="pt-3">Didunt ut labore et dolore magna aliqua. </p>
             </div>
           </div>
-            <img class="img-fluid" src={landing} alt="responsive image" />
+            <img class="img-fluid" src={landingImage} alt="responsive image" />
           <div class="quick-link-container pattern pattern1" >
             <div class="inner-link">
               <h2 class="pb-2">Quick Links</h2>
