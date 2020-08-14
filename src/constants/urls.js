@@ -1,6 +1,6 @@
 import { API_AJAX_URL, API_IMAGE_PATH, API_URL } from './appConstant';
 
-const DEFAULT_IMG_URL = `${API_IMAGE_PATH}/default/default.jpg`;
+const DEFAULT_IMG_URL = `${API_IMAGE_PATH}default/default.jpg`;
 
 const signUpUrl = `${API_AJAX_URL}/register`;
 const signInUrl = `${API_AJAX_URL}/login`;

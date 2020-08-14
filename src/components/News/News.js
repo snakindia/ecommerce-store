@@ -111,7 +111,7 @@ class News extends Component {
                     <div className="animatedParent">
                       <div className="row no-gutters">
                         {newsList.map(item => (
-                          <NewsCard key={item._id} newsData={item} />
+                          <NewsCard key={item._id} newsData={item} pageType={pageType} />
                         ))}
                       </div>
                     </div>

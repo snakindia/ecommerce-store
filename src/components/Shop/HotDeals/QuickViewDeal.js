@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { MDBContainer, MDBModal } from 'mdbreact';
 import Slider from 'react-slick';
 import Rating from '../../common/Rating';
-import { DEFAULT_IMG_URL } from '../../../constants/urls';
+import Image from '../../common/Image';
 
 class QuickViewDeal extends Component {
   state = {
@@ -36,6 +36,8 @@ class QuickViewDeal extends Component {
     const ratings = new Array(5)
       .fill(1, 0, dealDetail.ratings)
       .fill(0, dealDetail.ratings);
+
+    const firstImg = dealDetail.images[0] || {};
     return (
       <MDBContainer>
         <MDBModal
@@ -66,20 +68,18 @@ class QuickViewDeal extends Component {
               <div className="row">
                 <div className="col-sm-6 pl-0 border">
                   {dealDetail.images.length <= 1 ? (
-                    dealDetail.images.map(({ url, fileName, id }) => (
-                      <img
-                        key={id}
-                        src={url || DEFAULT_IMG_URL}
-                        className="img-fluid"
-                        alt={fileName}
-                      />
-                    ))
+                    <Image
+                      key={firstImg.id || 1}
+                      src={firstImg.url}
+                      className="img-fluid"
+                      alt={firstImg.fileName || 'defaultimg'}
+                    />
                   ) : (
                     <Slider>
                       {dealDetail.images.map(({ url, fileName, id }) => (
-                        <img
+                        <Image
                           key={id}
-                          src={url || DEFAULT_IMG_URL}
+                          src={url}
                           className="img-fluid"
                           alt={fileName}
                         />
