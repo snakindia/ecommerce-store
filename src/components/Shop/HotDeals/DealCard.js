@@ -1,6 +1,7 @@
 import React from 'react';
 import cartIcon from '../../../assets/icon/cart_black.svg';
 import compareIcon from '../../../assets/icon/compare.svg';
+import Image from '../../common/Image';
 
 const DealCard = ({ dealData, openQuickDeal, addToCompare, comparedDeals}) => {
   let priceDiff = dealData.regular_price - dealData.sale_price;
@@ -70,7 +71,7 @@ const DealCard = ({ dealData, openQuickDeal, addToCompare, comparedDeals}) => {
           </div>
         </div>
         <div className="card-item">
-          <img src={imgSrc} alt="" className="img-fluid" />
+          <Image src={imgSrc} alt="" className="img-fluid" />
         </div>
         <div className="d-block float-left w-100 pl-3">
           <a href="#" className="svg-icon" tabIndex="0">
@@ -83,9 +84,15 @@ const DealCard = ({ dealData, openQuickDeal, addToCompare, comparedDeals}) => {
             Add to Cart
           </a>
           <a
-              href="#!"
-              className={isCompared(dealData._id) ? 'svg-icon compare-link link-active' : 'svg-icon svg-icon compare-link'}
-                  tabIndex="0" onClick={(e) => compare(e, dealData)}>
+            href="#!"
+            className={
+              isCompared(dealData._id)
+                ? 'svg-icon compare-link link-active'
+                : 'svg-icon svg-icon compare-link'
+            }
+            tabIndex="0"
+            onClick={e => compare(e, dealData)}
+          >
             {/*<img*/}
             {/*  className="mr-2 ml-4"*/}
             {/*  src={compareIcon}*/}
