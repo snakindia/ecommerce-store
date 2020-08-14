@@ -13,14 +13,14 @@ import compareReducer from './components/Shop/HotDeals/compare.reducer';
 
 const logger = createLogger({ collapsed: true });
 const rootReducer = combineReducers({
-  asyncReducer,
-  notification: notificationReducer,
-  auth,
-  hotDeals,
-  category: categoryReducer,
-  clients: Clients,
-  news: newsReducer,
-  compare: compareReducer,
+    asyncReducer,
+    notification: notificationReducer,
+    auth,
+    hotDeals,
+    category: categoryReducer,
+    clients: Clients,
+    news: newsReducer,
+    compare: compareReducer,
 });
 const store = createStore(
   rootReducer,

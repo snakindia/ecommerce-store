@@ -11,6 +11,7 @@ import PrivateRoute from './PrivateRoute';
 import Category from './components/Category';
 import NewsDetail from './components/News/NewsDetail';
 import EventDetail from './components/Events/EventDetail';
+import ProductServicesDetail from './components/ProductServices/ProductServicesDetail';
 
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
@@ -53,6 +54,7 @@ const Router = () => {
 
               <Route path="/news" component={News} />
               <Route path="/events" component={Events} />
+              <Route path="/filter" component={ProductServicesDetail} />
             </Switch>
           </Suspense>
           <Footer />
