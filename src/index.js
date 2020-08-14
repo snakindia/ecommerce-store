@@ -15,7 +15,9 @@ import './assets/css/webslidemenu.css';
 import './assets/css/custom.css';
 import './assets/css/white-gry.css';
 import './assets/css/product.css';
+
 import './assets/css/news-events.css';
+
 import './assets/css/shopnow.css';
 import './assets/css/news-events.css';
 import './assets/transition-css/common.css';

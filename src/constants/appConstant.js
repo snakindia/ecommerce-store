@@ -1,4 +1,4 @@
-const url = window.localStorage.__url || '127.0.0.1'; // 49.50.102.36
+const url = window.localStorage.__url || '49.50.102.36'; // 49.50.102.36
 
 const API_URL = `http://${url}:3001/api/v1`;
 const API_AJAX_URL = `http://${url}:3001/ajax`;

@@ -144,3 +144,4 @@ const mSTP = ({ news }) => ({
 });
 const mDTP = { fetchNews };
 export default connect(mSTP, mDTP)(News);
+

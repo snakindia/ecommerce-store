@@ -47,3 +47,4 @@ const NewsCard = ({ newsData }) => {
 };
 
 export default NewsCard;
+
