@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Client from './Home/Client';
+import Clients from './Clients';
 import ProductsPart from './Home/ProductsParts';
 import OEM from './Home/OEM';
 import Banner from './Home/Banner';
@@ -11,7 +11,7 @@ export default class Home extends Component {
       <div>
         <Banner />
         <div className="content-wrapper">
-          <Client />
+          <Clients />
           <OEM />
           <ProductsPart />
           <Products />

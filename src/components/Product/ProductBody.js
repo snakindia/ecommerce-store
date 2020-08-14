@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ProductBredcumBar from '../Product/ProductBredcumBar';
 import ProductFilter from '../Product/ProductFilter';
-import Client from '../Home/Client';
+import Clients from './../Clients';
 import ProductsPart from '../Home/ProductsParts';
 
 export default class ProductBody extends Component {
@@ -10,7 +10,7 @@ export default class ProductBody extends Component {
       <div>
         <ProductBredcumBar />
         <ProductFilter />
-        <Client />
+        <Clients />
       </div>
     );
   }
