@@ -5,7 +5,11 @@ import DealCard from './DealCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import QuickViewDeal from './QuickViewDeal';
-import { fetchHotDeals } from './hotDeals.actions';
+import CompareSection from "./CompareSection";
+import { fetchHotDeals} from './hotDeals.actions';
+import { addToCompare, removeFromCompare } from "./compare.actions";
+import { showToast } from "../../Notification/notification.actions";
+import {TOAST_TYPE} from "../../Notification/action.constants";
 
 const HotDeals = () => {
   const settings = {
@@ -43,11 +47,16 @@ const HotDeals = () => {
     ],
   };
   const dispatch = useDispatch();
-  const { hotDeals: deals, fetchingDeals } = useSelector(
+  const { hotDeals: deals, fetchingDeals  } = useSelector(
     store => store.hotDeals
   );
 
+  const { comparedDeals, comparedError } = useSelector(
+      store => store.compare
+  );
+
   const [selectedDeal, setDeal] = useState(null);
+  const [comparedDeal, setComparedDeal] = useState(null);
   const openQuickDeal = useCallback(
     deal => {
       setDeal(deal);
@@ -55,9 +64,27 @@ const HotDeals = () => {
     [selectedDeal]
   );
 
+  const addCompare = useCallback(
+      deal => {
+       setComparedDeal(deal);
+       dispatch(addToCompare(deal))
+      },
+      [comparedDeal]
+  );
+
+  const removeComparedDeal = (id) => {
+    dispatch(removeFromCompare(id))
+  }
+
   useEffect(() => {
     dispatch(fetchHotDeals());
   }, [dispatch]);
+
+  if(comparedError && comparedError !== '') {
+    dispatch(showToast(comparedError, TOAST_TYPE.ERROR));
+  }
+
+
   return (
     <>
       <section className="bg-opeque">
@@ -77,14 +104,23 @@ const HotDeals = () => {
           >
             {deals.map(item => (
               <DealCard
-                key={item.id}
+                key={item._id}
                 dealData={item}
                 openQuickDeal={openQuickDeal}
+                addToCompare={addCompare}
+                comparedDeals={comparedDeals}
               />
             ))}
           </Slider>
         </div>
         <QuickViewDeal dealDetail={selectedDeal} closeModal={openQuickDeal} />
+        {
+          comparedDeals && comparedDeals.length > 0
+            && <CompareSection
+              deals={comparedDeals}
+              removeComparedDeal={removeComparedDeal}
+          />
+        }
       </section>
     </>
   );

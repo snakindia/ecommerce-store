@@ -9,6 +9,8 @@ import hotDeals from './components/Shop/HotDeals/hotDeals.reducer';
 import categoryReducer from './components/Category/category.reducer';
 import Clients from './components/Clients/clients.reducer';
 import newsReducer from './components/News/news.reducer';
+import compareReducer from './components/Shop/HotDeals/compare.reducer';
+
 const logger = createLogger({ collapsed: true });
 const rootReducer = combineReducers({
   asyncReducer,
@@ -18,6 +20,7 @@ const rootReducer = combineReducers({
   category: categoryReducer,
   clients: Clients,
   news: newsReducer,
+  compare: compareReducer,
 });
 const store = createStore(
   rootReducer,
