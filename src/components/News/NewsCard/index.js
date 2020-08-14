@@ -53,3 +53,4 @@ const NewsCard = ({ newsData, pageType }) => {
 };
 
 export default NewsCard;
+

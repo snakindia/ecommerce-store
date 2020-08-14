@@ -40,3 +40,4 @@ const NewsBanner = () => {
 };
 
 export default NewsBanner;
+

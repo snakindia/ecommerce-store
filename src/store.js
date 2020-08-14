@@ -7,26 +7,24 @@ import notificationReducer from './components/Notification/notification.reducer'
 import auth from './reducers/auth';
 import hotDeals from './components/Shop/HotDeals/hotDeals.reducer';
 import categoryReducer from './components/Category/category.reducer';
-import newsDetailReducer from './components/NewsDetail/newsdetail.reducer';
 import Clients from './components/Clients/clients.reducer';
 import newsReducer from './components/News/news.reducer';
 import compareReducer from './components/Shop/HotDeals/compare.reducer';
 
 const logger = createLogger({ collapsed: true });
 const rootReducer = combineReducers({
-  asyncReducer,
-  notification: notificationReducer,
-  auth,
-  hotDeals,
-  category: categoryReducer,
-  newsdetail: newsDetailReducer,
-  clients: Clients,
-  news: newsReducer,
-  compare: compareReducer,
+    asyncReducer,
+    notification: notificationReducer,
+    auth,
+    hotDeals,
+    category: categoryReducer,
+    clients: Clients,
+    news: newsReducer,
+    compare: compareReducer,
 });
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk, logger))
-);
+)
 
 export default store;

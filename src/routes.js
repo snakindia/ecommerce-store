@@ -9,7 +9,9 @@ import Notification from './components/Notification';
 import Shop from './components/Shop';
 import PrivateRoute from './PrivateRoute';
 import Category from './components/Category';
-import NewsDetail from './components/NewsDetail';
+import NewsDetail from './components/News/NewsDetail';
+import EventDetail from './components/Events/EventDetail';
+import ProductServicesDetail from './components/ProductServices/ProductServicesDetail';
 
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
@@ -21,7 +23,6 @@ const InnerPage = lazy(() => import('./components/InnerPage'));
 const VerifyUser = lazy(() => import('./components/VerifyUser'));
 const News = lazy(() => import('./components/News'));
 const Events = lazy(() => import('./components/Events'));
-
 const Router = () => {
   return (
     <StickyContainer style={{ overflowY: 'auto' }}>
@@ -49,15 +50,17 @@ const Router = () => {
               <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
               <Route path="/shop" component={Shop} />
               <Route path="/newsdetail/:slug" component={NewsDetail} />
+              <Route path="/eventdetail/:slug" component={EventDetail} />
+
               <Route path="/news" component={News} />
               <Route path="/events" component={Events} />
+              <Route path="/filter" component={ProductServicesDetail} />
             </Switch>
           </Suspense>
           <Footer />
         </MetaContainer>
       </BrowserRouter>
     </StickyContainer>
-  );
-};
-
+  )
+}
 export default Router;

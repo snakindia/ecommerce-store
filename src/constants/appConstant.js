@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 const url = window.localStorage.__url || '49.50.102.36'; // 49.50.102.36
 
 const API_URL = `http://${url}:3001/api/v1`;
