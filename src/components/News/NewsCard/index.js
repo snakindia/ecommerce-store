@@ -8,7 +8,7 @@ const NewsCard = ({ newsData, pageType }) => {
 
   const onCardClick = useCallback(() => {
     history.push(
-      `/${pageType === 'Events' ? 'eventdetail' : 'newsdetail'}/${
+      `/${pageType === 'Event' ? 'eventdetail' : 'newsdetail'}/${
         newsData.slug
       }`
     );

@@ -25,3 +25,5 @@ const getNewsListUrl = ({ type, page = 1, size, filterBy }) =>
   `${API_URL}/newsevents/get_list?type=${type}&page=${page}&size=${size}&filterby=${filterBy}`;
 export {   DEFAULT_IMG_URL,   signUpUrl,   signInUrl,   hotDealsUrl,   settingsUrl,   userDetailUrl,   menuProductUrl,   saveBrochureUrl,   getSlugDetailUrl,   getProductListUrl,   getPageMetaDetails,   getNewsDetailURL,   getClientListURL,   getNewsListUrl,
 };
+
+export const getProductServiceUrl = `${API_URL}/get_slug_details?slug=`;
