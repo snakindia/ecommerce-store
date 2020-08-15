@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {dateConversion} from './../../common/Util';
 import { fetchNewsDetail, fetchNews } from './../../News/news.actions';
+import ReactHtmlParser from 'react-html-parser';
 
 class EventDetail extends Component {
     constructor(props) {
@@ -59,7 +60,7 @@ class EventDetail extends Component {
                   <div class="row no-gutters">
                       <div class="col-sm-9 col-md-9 pl-2">
                         <div class="mt-4 float-left">
-                          {details.content}
+                          {ReactHtmlParser(details.content)}
                           <div class="loadMorebtn p-0"><a href="/events" class="btn bha-btn-primary float-left">Go Back</a></div>
                         </div>
                       </div>

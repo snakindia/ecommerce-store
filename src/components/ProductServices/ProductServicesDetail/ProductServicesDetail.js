@@ -4,13 +4,13 @@ import { bindActionCreators } from 'redux';
 import {dateConversion} from './../../common/Util';
 import Clients from './../../Clients';
 import PremiumBrands from './../../Shop/PremiumBrands';
-import landingImage from '../../../assets/images/landing-banner.jpg';
-import filter from '../../../assets/images/filter-img.png';
 import baghouse1 from '../../../assets/images/baghouse1.png';
 import Goyen from '../../../assets/images/Goyen-Original.jpg';
 import shipping2 from '../../../assets/images/free-shipping2.png';
 import badge from '../../../assets/images/badge-28.png';
 import './../../../assets/css/bha-landing.css';
+import { fetchProdcutServiceDetail } from './../productservice.actions';
+import ReactHtmlParser from 'react-html-parser';
 
 class ProductServicesDetail extends Component {
     constructor(props) {
@@ -23,53 +23,55 @@ class ProductServicesDetail extends Component {
         };
   }
     
-//    componentDidMount() {
-//        const slug = this.props.match.params.slug;
-//        const { actions } = this.props;
-//        
-//        const { page, pageType, size, filterBy } = this.state;
-//        if (slug != '') {
-//            actions.fetchNewsDetail(slug, pageType);
-//        }
-//        
-//        actions.fetchNews({
-//            type: pageType,
-//            page,
-//            size,
-//            filterBy,
-//        });
-//    }
+    componentDidMount() {
+        let url = this.props.location.pathname;
+        const { actions } = this.props;
+        if (url != '') {
+            const slug = url.replace(/\\|\//g,'');
+            actions.fetchProdcutServiceDetail(slug);
+        }
+    }
   
     render() {
         
+        const details = this.props.data;
     return (
+            <div>
+             {
+        details && (
     <div>
-        
+      
             <section class="product-services-banner" style={{'border-bottom': '1px solid #ddd'}}>
   <div class="">
     <div id="" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" role="listbox" style={{'height': '620px'}}>
         <div class="carousel-item active"> 
           <div class="landing-caption">
+           
             <div class="landing-caption-inner">
-              <h1 class="bha_heading_2 text-black">lorem ipsum dollar
-sit ament, consectetur adiplisicing elit,</h1>
-              <h6 class="text-size-medium mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod didunt ut labore et dolore magna aliqua.  Lorem ipsum dolor sit amet, consectetur adipisicing elit,</h6>
-              <p class="pt-3">Didunt ut labore et dolore magna aliqua. </p>
+             {ReactHtmlParser(details.banner_content)}
             </div>
+   
           </div>
-            <img class="img-fluid" src={landingImage} alt="responsive image" />
+           {Object.keys(details.banners).length > 0 &&
+                    details.banners.map((item, idx) => {
+                        return (
+                            <img class="img-fluid" src={item.image} alt="responsive image" />
+                        )
+                    })
+              }
+            
           <div class="quick-link-container pattern pattern1" >
             <div class="inner-link">
               <h2 class="pb-2">Quick Links</h2>
-              <a href="" class="quick-link-btn">
-              <span>Product Specification</span></a>
-              <a href="" class="quick-link-btn">
-              <span>Product Specification</span></a>
-              <a href="" class="quick-link-btn">
-              <span>Product Specification</span></a>
-              <a href="" class="quick-link-btn">
-              <span>Product Specification</span></a>
+               {Object.keys(details.resources).length > 0 &&
+                    details.resources.map((item, idx) => {
+                        return (
+                            <a href={item.image} target="_blank" class="quick-link-btn">
+                            <span>{item['resource_title' + idx]}</span></a>
+                        )
+                    })
+              }
             </div>
           </div>
         </div>
@@ -81,7 +83,13 @@ sit ament, consectetur adiplisicing elit,</h1>
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-7 col-md-7">
-        <img src={filter} alt="..." class="img-fluid" />
+        {Object.keys(details.placeholder_images).length > 0 &&
+                    details.placeholder_images.map((item, idx) => {
+                        return (
+                            <img class="img-fluid" src={item.image} alt="responsive image" />
+                        )
+                    })
+              }
       </div>
       <div class="col-sm-5 col-md-5">
         <div class="promo-caption">
@@ -260,21 +268,25 @@ sit ament, consectetur adiplisicing elit,</h1>
     </div>
   </div>
 </section>
+  
     <Clients />
     <PremiumBrands />
+  
+        </div>
+         )}
         </div>
     );
   }
 }
 
-const mapStateToProps = ({ productservice }) => ({
- 
+const mapStateToProps = ({ productService }) => ({
+    data: productService[0]
 });
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(
     {
-       
+       fetchProdcutServiceDetail
     },
     dispatch
     ),
