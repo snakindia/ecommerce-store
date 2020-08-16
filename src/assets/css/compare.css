@@ -1,0 +1,36 @@
+.comparison-table {
+  width: 100%;
+  font-size: 0.875rem;
+  overflow-x: hidden;
+}
+.comparison-table table {
+  min-width: 41rem;
+  table-layout: fixed;
+}
+table .bg-secondary {
+  background-color: #f7f7f7 !important;
+}
+table .bg-primary {
+  background: #fff !important;
+}
+.TFtableCol tr td:nth-child(odd) {
+  background: #fff;
+}
+.comparison-table .comparison-item {
+  position: relative;
+  padding: 0.875rem 0.75rem 1.125rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.custom-collapse {
+  display: block !important;
+  max-height: 0;
+  transition: max-height 0.3s linear, color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.custom-collapse.show {
+  max-height: 400px;
+}

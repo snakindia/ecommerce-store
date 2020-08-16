@@ -1,17 +1,18 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { withRouter } from "react-router-dom";
 import Slider from 'react-slick';
 import { useDispatch, useSelector } from 'react-redux';
 import DealCard from './DealCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import QuickViewDeal from './QuickViewDeal';
-import CompareSection from "./CompareSection";
+import CompareSection from "../../Compare/CompareSection";
 import { fetchHotDeals} from './hotDeals.actions';
-import { addToCompare, removeFromCompare } from "./compare.actions";
+import { addToCompare, removeFromCompare } from "../../Compare/compare.actions";
 import { showToast } from "../../Notification/notification.actions";
 import {TOAST_TYPE} from "../../Notification/action.constants";
 
-const HotDeals = () => {
+const HotDeals = (props) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -46,6 +47,7 @@ const HotDeals = () => {
       },
     ],
   };
+
   const dispatch = useDispatch();
   const { hotDeals: deals, fetchingDeals  } = useSelector(
     store => store.hotDeals
@@ -84,6 +86,10 @@ const HotDeals = () => {
     dispatch(showToast(comparedError, TOAST_TYPE.ERROR));
   }
 
+  const redirectToComparePage = () => {
+    const {history} = props;
+history.push('/compare');
+  }
 
   return (
     <>
@@ -114,16 +120,17 @@ const HotDeals = () => {
           </Slider>
         </div>
         <QuickViewDeal dealDetail={selectedDeal} closeModal={openQuickDeal} />
-        {
-          comparedDeals && comparedDeals.length > 0
-            && <CompareSection
-              deals={comparedDeals}
-              removeComparedDeal={removeComparedDeal}
-          />
-        }
       </section>
+      {
+        comparedDeals && comparedDeals.length > 0
+        && <CompareSection
+          deals={comparedDeals}
+          removeComparedDeal={removeComparedDeal}
+          redirectToComparePage={redirectToComparePage}
+        />
+      }
     </>
   );
 };
 
-export default HotDeals;
+export default withRouter(HotDeals);
