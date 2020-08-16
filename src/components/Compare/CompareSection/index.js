@@ -35,12 +35,18 @@ const CompareSection = ({
                     : 'btn btn-header-link text-uppercase font-weight-bold collapsed'
                 }
                 onClick={e => toggleComparePanel(e)}
+                style={{ margin: 0 }}
               >
                 Compare<span> ({deals.length})</span>
               </a>
             </div>
 
-            <div id="faq1" className={collapse ? 'collapse show' : 'collapse'}>
+            <div
+              id="faq1"
+              className={`custom-collapse ${
+                collapse ? 'collapse show' : 'collapse'
+              }`}
+            >
               <div className="card-body" id="myDiv">
                 <ul className="compare-widget__products">
                   {deals.map(item => (
