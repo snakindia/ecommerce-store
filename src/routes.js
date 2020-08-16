@@ -12,6 +12,7 @@ import Category from './components/Category';
 import NewsDetail from './components/News/NewsDetail';
 import EventDetail from './components/Events/EventDetail';
 import ProductServicesDetail from './components/ProductServices/ProductServicesDetail';
+import Dynamic from './components/Dynamic/Dynamic';
 
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
@@ -23,7 +24,7 @@ const InnerPage = lazy(() => import('./components/InnerPage'));
 const VerifyUser = lazy(() => import('./components/VerifyUser'));
 const News = lazy(() => import('./components/News'));
 const Events = lazy(() => import('./components/Events'));
-const Compare = lazy(()=> import('./components/Compare'));
+const Compare = lazy(() => import('./components/Compare'));
 
 const Router = () => {
   return (
@@ -58,12 +59,13 @@ const Router = () => {
               <Route path="/events" component={Events} />
               <Route path="/filter" component={ProductServicesDetail} />
               <Route path="/compare" component={Compare} />
+              <Route path="/dynamic" component={Dynamic} />
             </Switch>
           </Suspense>
           <Footer />
         </MetaContainer>
       </BrowserRouter>
     </StickyContainer>
-  )
-}
+  );
+};
 export default Router;
