@@ -32,7 +32,7 @@
 .slick-next:focus {
   /*color: transparent;*/
   outline: none;
-  /*background: transparent;*/
+  background: #fff !important;
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,

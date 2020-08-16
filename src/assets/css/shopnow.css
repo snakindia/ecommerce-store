@@ -666,7 +666,7 @@ a.bha-btn-secondry:hover {
 #material,
 #pattern,
 #discount {
-  border-bottom: 1px solid #e8e8e8;
+  /* border-bottom: 1px solid #e8e8e8; */
   padding: 0;
   margin: 0;
   font-weight: bold;

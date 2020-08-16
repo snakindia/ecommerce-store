@@ -61,15 +61,14 @@ export default class Products extends Component {
                                     : API_IMAGE_PATH + 'default/default.jpg'
                                 }
                                 alt=""
-                                style={{ width: '130px', height: '200px' }}
+                                
                               />
                               <div class="product-description">{item.name}</div>
                               <div class="product-tag">{item.sku}</div>
                             </a>
                             <a
                               href="#"
-                              class="btn bha-btn-primary w-100 float-left mt-4"
-                            >
+                              class="btn bha-btn-primary w-100 float-left mt-4">
                               View Details
                             </a>
                           </div>

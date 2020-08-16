@@ -73,7 +73,7 @@ border-bottom:2px solid #255a74; height:auto;}
   background-color: #000;}
 /*.modal { z-index: 10000 !important;}*/
 .pl-pr{padding:0.7rem 2.5rem !important}
-.bha-btn-primary{background:#23536b; color:#fff !important; font-weight: 500; padding:0.5rem 1.5rem;
+.bha-btn-primary{background:#2c87b5; color:#fff !important; font-weight: 500; padding:0.5rem 1.5rem;
   border-radius: 0.3rem;text-transform: uppercase; font-size: 0.875rem; font-weight: 600}
 .bha-btn-menu{ padding:0.32rem 1.5rem; font-size: 0.775rem}
 .bha-btn-primary.w-100{width:100%;}
@@ -127,7 +127,7 @@ overflow: hidden;}
 text-shadow: 0 0 3px #000 }
 .cursive_head{font-family: 'Satisfy', cursive; text-transform: none; font-size: 2.5rem;}
 .bha_heading_2{font-family: 'Oswald', sans-serif; font-size: 1.5rem; text-transform: uppercase; color:#fff;}
-figcaption h4{text-transform: uppercase; font-size: 1.125rem}
+figcaption h4{text-transform: uppercase; font-size: 1.125rem; font-weight:500;}
 .headtoppart span ul{margin:0; padding:0;}
 .headtoppart span ul li a{color:#000 !important; padding:0.5rem 0; border-bottom: 1px solid #f2f2f2;width: 100%;
 display: block; text-decoration: none; font-size: 0.750rem !important}
