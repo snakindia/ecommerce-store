@@ -228,8 +228,7 @@ background: rgb(255,255,255,0.8);}
     position: relative;}
 /*=====Pro-equipment-section======*/
 .pro-equipment-section{width: 100%; float:left; margin:0; padding:0;}
-.product-item-wrapper{background:transparent;
-  position: relative; }
+.product-item-wrapper{background:transparent; position: relative; }
 .pro-equipment-section .slick-slide{margin:0 !important; }
 .product-item-wrapper .card{/*width:378px !important;*/ margin:6px 10px; border:0;}
 
@@ -623,7 +622,7 @@ a:hover,a:focus{
 
 #accordion .panel-title a:before,
 #accordion .panel-title a.collapsed:before{
-    /*content: url('../images/left-arrow-white.png');*/
+    content: url('../images/left-arrow-white.png');
     font-family: "Font Awesome 5 Free";
     width: 25px;
     height: 25px;

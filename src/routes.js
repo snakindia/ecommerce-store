@@ -9,7 +9,9 @@ import Notification from './components/Notification';
 import Shop from './components/Shop';
 import PrivateRoute from './PrivateRoute';
 import Category from './components/Category';
-import NewsDetail from './components/NewsDetail';
+import NewsDetail from './components/News/NewsDetail';
+import EventDetail from './components/Events/EventDetail';
+import ProductServicesDetail from './components/ProductServices/ProductServicesDetail';
 
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
@@ -50,8 +52,11 @@ const Router = () => {
               <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
               <Route path="/shop" component={Shop} />
               <Route path="/newsdetail/:slug" component={NewsDetail} />
+              <Route path="/eventdetail/:slug" component={EventDetail} />
+
               <Route path="/news" component={News} />
               <Route path="/events" component={Events} />
+              <Route path="/filter" component={ProductServicesDetail} />
               <Route path="/compare" component={Compare} />
             </Switch>
           </Suspense>
@@ -59,7 +64,6 @@ const Router = () => {
         </MetaContainer>
       </BrowserRouter>
     </StickyContainer>
-  );
-};
-
+  )
+}
 export default Router;

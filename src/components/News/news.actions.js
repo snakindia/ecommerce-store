@@ -1,6 +1,6 @@
 import { GET } from '../../services/httpService';
-import { getNewsListUrl } from '../../constants/urls';
-import { FETCH_NEWS_LIST } from './news.action.constants';
+import { getNewsListUrl, getNewsDetailURL } from '../../constants/urls';
+import { FETCH_NEWS_LIST, FETCH_NEWS_DETAIL } from './news.action.constants';
 
 const fetchNews = ({ type, page, size, filterBy }) => async (
   dispatch,
@@ -30,4 +30,18 @@ const fetchNews = ({ type, page, size, filterBy }) => async (
   }
 };
 
-export { fetchNews };
+const fetchNewsDetail = (slug, type) => async (dispatch, getState) => {
+    try {
+        dispatch({ type: `${FETCH_NEWS_DETAIL}_START` });
+        const url = getNewsDetailURL + 'type=' + type + '&slug=' + slug
+        const res = await GET({ url });
+        dispatch({ type: FETCH_NEWS_DETAIL, payload: res.data });
+    } catch (e) {
+        dispatch({ type: `${FETCH_NEWS_DETAIL}_ERROR`, error: e });
+    } finally {
+        dispatch({ type: `${FETCH_NEWS_DETAIL}_FINISHED` });
+    }
+};
+
+export { fetchNews, fetchNewsDetail };
+

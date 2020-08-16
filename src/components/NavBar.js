@@ -11,7 +11,9 @@ import {
   API_IMAGE_PATH,
   defaultMenuListItems,
   categoryImageUrl,
+  
 } from '../constants/appConstant';
+import { DEFAULT_IMG_URL } from '../constants/urls';
 import { Sticky } from 'react-sticky';
 
 import {
@@ -50,7 +52,13 @@ class NavBar extends React.Component {
 
   showMenu = (itemOneObj, index, e) => {
     const { name, image, items, slug, _id } = itemOneObj;
-    let imageSrc = `${categoryImageUrl}/${_id}/${image}`;
+    let imageSrc = '';
+    if (image != '') {
+        imageSrc = `${categoryImageUrl}/${_id}/${image}`;
+    } else {
+        imageSrc = DEFAULT_IMG_URL;
+    }
+    
     this.setState({ coverImg: imageSrc, listItems: items, activeLink: index });
 
     //const {coverImg , listItems} = listArr;
@@ -67,6 +75,9 @@ class NavBar extends React.Component {
     const { navMenuData } = this.props;
     const { subMenuData } = navMenuData;
     let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
+    console.log('coverImg');
+    console.log(coverImg);
+    
     return (
       <div
         className="wsshoptabing wtsdepartmentmenu clearfix"
@@ -94,7 +105,6 @@ class NavBar extends React.Component {
                     id={i == 0 ? 'firstEl' : 'other' + i}
                     key={i + Math.random()}
                     onClick={e => this.showMenu(itemOneObj, i, e)}
-                    onMouseEnter={e => this.showMenu(itemOneObj, i, e)}
                   >
                     <Link data-src={Baghouse}>{name}</Link>
                     <div className="wstitemright clearfix wstpngsml">
@@ -111,8 +121,7 @@ class NavBar extends React.Component {
                                       src={
                                         itemTwo.image != ''
                                           ? `${categoryImageUrl}/${itemTwo._id}/${itemTwo.image}`
-                                          : API_IMAGE_PATH +
-                                            'default/default.jpg'
+                                          : DEFAULT_IMG_URL
                                       }
                                       alt="bha"
                                     />

@@ -1,20 +1,19 @@
-import {
-    FETCH_NEWS_DETAIL
-} from './newsdetail.action.constants';
-
+import { FETCH_PRODUCTSERVICE_DETAIL } from './productservice.action.constants';
 const initialState = {
     fetching: false,
     error: null,
-    data: []
+    newsList: [],
+    has_more: false
 };
 
 export default (state = initialState, action) => {
-    const { type } = action;
-    switch (type) {
-        case FETCH_NEWS_DETAIL:
+  const { type, payload } = action;
+  switch (type) {
+      
+     case FETCH_PRODUCTSERVICE_DETAIL:
           return { ...state, ...action.payload };
 
-        case `${FETCH_NEWS_DETAIL}_START`:
+        case `${FETCH_PRODUCTSERVICE_DETAIL}_START`:
             return {
             ...state,
                 fetching: true,
@@ -22,13 +21,14 @@ export default (state = initialState, action) => {
                 ...action.payload,
             };
 
-        case `${FETCH_NEWS_DETAIL}_ERROR`:
+        case `${FETCH_PRODUCTSERVICE_DETAIL}_ERROR`:
             return { ...state, error: action.error };
 
-        case `${FETCH_NEWS_DETAIL}_FINISHED`:
+        case `${FETCH_PRODUCTSERVICE_DETAIL}_FINISHED`:
             return { ...state, fetching: false };
 
-        default:
-            return state;
-    }
+    default:
+      return state;
+  }
 };
+
