@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { withRouter } from "react-router-dom";
 import Slider from 'react-slick';
 import { useDispatch, useSelector } from 'react-redux';
 import DealCard from './DealCard';
@@ -11,7 +12,7 @@ import { addToCompare, removeFromCompare } from "./compare.actions";
 import { showToast } from "../../Notification/notification.actions";
 import {TOAST_TYPE} from "../../Notification/action.constants";
 
-const HotDeals = () => {
+const HotDeals = (props) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -46,6 +47,7 @@ const HotDeals = () => {
       },
     ],
   };
+
   const dispatch = useDispatch();
   const { hotDeals: deals, fetchingDeals  } = useSelector(
     store => store.hotDeals
@@ -84,6 +86,10 @@ const HotDeals = () => {
     dispatch(showToast(comparedError, TOAST_TYPE.ERROR));
   }
 
+  const redirectToComparePage = () => {
+    const {history} = props;
+history.push('/compare');
+  }
 
   return (
     <>
@@ -119,6 +125,7 @@ const HotDeals = () => {
             && <CompareSection
               deals={comparedDeals}
               removeComparedDeal={removeComparedDeal}
+              redirectToComparePage={redirectToComparePage}
           />
         }
       </section>
@@ -126,4 +133,4 @@ const HotDeals = () => {
   );
 };
 
-export default HotDeals;
+export default withRouter(HotDeals);

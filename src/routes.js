@@ -21,6 +21,7 @@ const InnerPage = lazy(() => import('./components/InnerPage'));
 const VerifyUser = lazy(() => import('./components/VerifyUser'));
 const News = lazy(() => import('./components/News'));
 const Events = lazy(() => import('./components/Events'));
+const Compare = lazy(()=> import('./components/Compare'));
 
 const Router = () => {
   return (
@@ -51,6 +52,7 @@ const Router = () => {
               <Route path="/newsdetail/:slug" component={NewsDetail} />
               <Route path="/news" component={News} />
               <Route path="/events" component={Events} />
+              <Route path="/compare" component={Compare} />
             </Switch>
           </Suspense>
           <Footer />

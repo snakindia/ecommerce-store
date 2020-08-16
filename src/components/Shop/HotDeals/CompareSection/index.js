@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const CompareSection = ({deals, removeComparedDeal}) => {
+const CompareSection = ({deals, removeComparedDeal, redirectToComparePage}) => {
     const [collapse, setCollapse] = useState(false);
     if (!deals) {
         return null;
@@ -12,7 +12,10 @@ const CompareSection = ({deals, removeComparedDeal}) => {
         e.preventDefault();
         setCollapse(!collapse);
     }
-    const parentClass = ['btn', 'btn-header-link', 'text-uppercase', 'font-weight-bold', 'collapsed'];
+    const redirect = (e) => {
+        e.preventDefault();
+        redirectToComparePage();
+    }
     return (
                 <div id="main">
                     <div className="container" id="about_popup" style={{display: 'block'}}>
@@ -54,7 +57,7 @@ const CompareSection = ({deals, removeComparedDeal}) => {
                                         </ul>
                                         {
                                             deals && deals.length > 1
-                                            && <a href="compare.html" className="btn bha-btn-primary w-100">COMPARE
+                                            && <a href="#!" className="btn bha-btn-primary w-100" onClick={(e) => redirect(e)}>COMPARE
                                                 SELECTED</a>
                                         }
 

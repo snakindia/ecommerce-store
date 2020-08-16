@@ -1,0 +1,24 @@
+.comparison-table {
+    width: 100%;
+    font-size: .875rem;
+    overflow-x: hidden;
+}
+.comparison-table table {
+    min-width: 41rem;
+    table-layout: fixed;
+}
+table .bg-secondary {
+    background-color: #f7f7f7 !important;
+}
+table .bg-primary {
+    background: #fff !important;
+}
+.TFtableCol tr td:nth-child(odd) {
+    background: #fff;
+}
+.comparison-table .comparison-item {
+    position: relative;
+    padding: .875rem .75rem 1.125rem;
+    background-color: #fff;
+    text-align: center;
+}
