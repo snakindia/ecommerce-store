@@ -22,3 +22,13 @@ table .bg-primary {
     background-color: #fff;
     text-align: center;
 }
+
+.custom-collapse {
+    display: block !important;
+    max-height: 0;
+    transition: max-height .3s linear;
+}
+
+.custom-collapse.show {
+    max-height: 400px;
+}
