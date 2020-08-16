@@ -1,72 +1,50 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Route, NavLink, Switch, Link } from 'react-router-dom';
 import { GET } from '../../services/httpService';
-import { X } from './X';
-import { Y } from './Y';
-import { Z } from './Z';
+import ProductServicesDetail from './../ProductServices/ProductServicesDetail';
 
-const TEMPLATES = {
-  X: X,
-  Y: Y,
-  Z: Z,
-};
 
 class Dynamic extends Component {
   state = {
     routes: [],
+    template: {
+        'ProductServicesDetail' : ProductServicesDetail
+    }
   };
-  async componentDidMount() {
-    const res = await GET({
-      url: 'https://run.mocky.io/v3/d85f795d-8897-4e0c-ae5f-249cf144bf0a',
-    });
-    this.setState({ routes: res.data });
-  }
+ 
 
   render() {
-    const { routes } = this.state;
+    this.state.routes = this.props.meta_details;
     const { match } = this.props;
-    const isRoutes = routes.length;
     return (
-      <Switch>
-        <div className="content-wrapper topPadding" id="content">
-          <div className="pagewrap">
-            <div className="bgWhite padding-bottom">
-              <div>
-                {isRoutes &&
-                  routes.map(route => {
-                    return (
-                      <Route
-                        path={`${match.path}${route.route}`}
-                        render={props => {
-                          const Componet = TEMPLATES[route.component];
-                          return (
-                            <div>
-                              Hello {props.location.pathname}
-                              <Componet />
-                            </div>
-                          );
-                        }}
-                      />
-                    );
-                  })}
-              </div>
-              <section className="bg-opeque box-shadow footerItems">
-                <div>
-                  {isRoutes &&
-                    routes.map(route => {
+            <div>
+              {this.state.routes && this.state.routes.length > 0 &&
+                this.state.routes.map(route => {
+                  if (route.slug != '' && route.template != '') {
                       return (
-                        <NavLink to={`${match.path}${route.route}`}>
-                          {route.route}
-                        </NavLink>
+                        <Route
+                          path={route.slug}
+                          component={this.state.template[route.template]}
+                        />
                       );
-                    })}
-                </div>
-              </section>
+                  }
+                })}
             </div>
-          </div>
-        </div>
-      </Switch>
-    );
-  }
+
+          );
+    }
 }
-export default Dynamic;
+const mapStateToProps = ({ asyncReducer }) => {
+  return {
+    meta_details: asyncReducer.page_meta_details,
+  };
+};
+
+const mapDispatchToProps = {
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dynamic);

@@ -26,13 +26,6 @@ const News = lazy(() => import('./components/News'));
 const Events = lazy(() => import('./components/Events'));
 const Compare = lazy(() => import('./components/Compare'));
 
-const DYNAMIC_ROUTES= [
-    {
-        path:'/filter',
-        component: ProductServicesDetail,
-    }
-];
-
 const Router = () => {
     return (
         <StickyContainer style={{ overflowY: 'auto' }}>
@@ -65,23 +58,14 @@ const Router = () => {
                             <Route path="/news" component={News} />
                             <Route path="/events" component={Events} />
                             <Route path="/compare" component={Compare} />
-                            <Route path="/dynamic" component={Dynamic} />
-                             {
-                                DYNAMIC_ROUTES.map((route, index) => {
-                                    console.log('route')
-                                    console.log(route)
-                                    return (
-                                        <Route path={route.path} component={route.component} />  
-                                    )
-                                })
-                            }
-            </Switch>
-          </Suspense>
-          <Footer />
-        </MetaContainer>
-      </BrowserRouter>
-    </StickyContainer>
-  );
+                           <Dynamic />
+                        </Switch>
+                    </Suspense>
+                    <Footer />
+                </MetaContainer>
+            </BrowserRouter>
+        </StickyContainer>
+    );
 };
 
 export default Router;

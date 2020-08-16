@@ -18,7 +18,7 @@ const getProductListUrl = ({
   `${API_URL}/products?discontinued=false&fields=id,name,category_id,category_ids,category_name,sku,images,enabled,discontinued,description,stock_status,stock_quantity,price,on_sale,regular_price,url&limit=${limit}&offset=${page}&search=${search}&sort=${sortBy}&price=${encodeURIComponent(
     price
   )}`
-const getPageMetaDetails = `${API_URL}/pages?fields=slug,meta_title,meta_description,content`;
+const getPageMetaDetails = `${API_URL}/pages?fields=slug,meta_title,meta_description,content,template`;
 const getNewsDetailURL = `${API_URL}/newsevents/get_news_details?`;
 const getClientListURL = `${API_URL}/companies/get_list`;
 const getNewsListUrl = ({ type, page = 1, size, filterBy }) =>
