@@ -83,7 +83,7 @@ class ProductServicesDetail extends Component {
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-7 col-md-7">
-        {Object.keys(details.placeholder_images).length > 0 &&
+        {details.placeholder_images && Object.keys(details.placeholder_images).length > 0 &&
                     details.placeholder_images.map((item, idx) => {
                         return (
                             <img class="img-fluid" src={item.image} alt="responsive image" />
