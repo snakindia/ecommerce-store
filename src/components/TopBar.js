@@ -138,7 +138,7 @@ class TopBar extends Component {
                     </li>
                   ) : (
                     <li>
-                      <a onMouseEnter={this.toggle(5)}>
+                      <a onClick={this.toggle(5)}>
                         <img src={Profile} alt="" width="20" />
                         login/signup
                       </a>
@@ -148,7 +148,7 @@ class TopBar extends Component {
                   {/*<li><a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a></li>
                                     <span>&nbsp;</span>*/}
                   <li>
-                    <a onMouseEnter={this.toggle(6)}>
+                    <a onClick={this.toggle(6)}>
                       <i className="fa fa-search mr-2" /> Search
                       <i className="caret border-0" />
                     </a>

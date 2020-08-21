@@ -127,7 +127,7 @@ button {
   background:#FFF;
   font-size:12px;
   font-weight:bold;
-  height:60px;
+  height:auto;
   color:#999
 }
 li.active.course-pricing-table button {
