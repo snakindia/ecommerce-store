@@ -11,7 +11,6 @@ import PrivateRoute from './PrivateRoute';
 import Category from './components/Category';
 import NewsDetail from './components/News/NewsDetail';
 import EventDetail from './components/Events/EventDetail';
-import ProductServicesDetail from './components/ProductServices/ProductServicesDetail';
 import Dynamic from './components/Dynamic/Dynamic';
 
 const App = lazy(() => import('./App'));
