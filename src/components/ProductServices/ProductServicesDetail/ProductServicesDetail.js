@@ -82,21 +82,21 @@ class ProductServicesDetail extends Component {
 <section class="promo-container">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-7 col-md-7">
-        {details.placeholder_images && Object.keys(details.placeholder_images).length > 0 &&
+		<div class="col-sm-7 col-md-7 promo-caption">
+			<div style={{width:'650px', height:'350px', overflow:'hidden'}}>
+			{details.placeholder_images && Object.keys(details.placeholder_images).length > 0 &&
                     details.placeholder_images.map((item, idx) => {
                         return (
                             <img class="img-fluid" src={item.image} alt="responsive image" />
                         )
                     })
               }
+			</div>
       </div>
-      <div class="col-sm-5 col-md-5">
-        <div class="promo-caption">
+      <div class="col-sm-5 col-md-5 promo-caption">
           <h2 class="promo-heading">
             UP TO 40% lorem ipsum dollar sit ament, consectetur 
           </h2>
-        </div>
       </div>
     </div>
   </div>
@@ -261,7 +261,7 @@ class ProductServicesDetail extends Component {
           <a href="" class="free-quote">CALL FOR A FREE QUOTE</a>
         </div>
       </div>
-      <div class="col-sm-5 col-md-5 pr-5">
+      <div class="col-sm-5 col-md-5 pr-5 promo-caption">
         <img src={badge} alt="..." class="img-fluid" />
         
       </div>

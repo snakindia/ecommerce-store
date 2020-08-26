@@ -148,7 +148,7 @@ class About extends React.Component {
                               <h4 class="heading-h4" id="message">
                                 {item.meta_title}
                               </h4>
-                              <div class="col-sm-9 col-md-9 pl-0">
+                              <div class="col-sm-9 col-md-9 pl-0" style={{textAlign:'left'}}>
                                 {htmlParse(item.content)}
                               </div>
 
@@ -384,22 +384,7 @@ class About extends React.Component {
                         magna aliqua. Quis ipsum suspendisse ultrices gravida.
                       </p>
                     </div>
-                    <div class="col-sm-4 col-md-4">
-                      <h6>
-                        <img
-                          src={communityIcon}
-                          alt=""
-                          width={50}
-                          className="mr-3"
-                        />
-                        Community
-                      </h6>
-                      <p className="pr-4 block-ellipsis">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      </p>
-                    </div>
+                   
                     <div class="col-sm-4 col-md-4">
                       <h6>
                         <img
@@ -409,6 +394,22 @@ class About extends React.Component {
                           className="mr-3"
                         />
                         Inovation
+                      </h6>
+                      <p className="pr-4 block-ellipsis">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                      </p>
+                    </div>
+					 <div class="col-sm-4 col-md-4">
+                      <h6>
+                        <img
+                          src={communityIcon}
+                          alt=""
+                          width={50}
+                          className="mr-3"
+                        />
+                        Community
                       </h6>
                       <p className="pr-4 block-ellipsis">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
