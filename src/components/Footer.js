@@ -68,7 +68,7 @@ class Footer extends Component {
         )}
         <MDBFooter className="footer">
           <div class="footer-section">
-            <div class="container pl-0 pr-0">
+            <div class="pagewrap">
               <div class="footer-main pt-5">
                 <div class="row flex-column-reverse flex-md-row">
                   <MDBCol md="8">

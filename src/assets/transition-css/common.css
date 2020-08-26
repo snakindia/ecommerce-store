@@ -14,8 +14,8 @@
 }
 .view .mask,
 .view .content {
-  width: 366px;
-  height: 247px;
+  width: 380px;
+  height: 250px;
   position: absolute;
   overflow: hidden;
   top: 0;
@@ -25,6 +25,9 @@
 .view img {
   display: block;
   position: relative;
+  object-fit:cover;
+  width: 380px;
+  height: 250px;
 }
 .view h2 {
   text-transform: uppercase;
@@ -38,11 +41,20 @@
 }
 .view p {
   font-family: Roboto, serif;
-  font-style: italic;
-  font-size: 16px;
+  font-style: normal;
+  font-size: 1.5rem;
   position: relative;
   color: #fff;
-  padding: 2.5rem 1rem 0 1rem;
+  padding:2.5rem 1rem;
+  text-align: center;
+}
+.view h1 {
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-size: 1.5rem;
+  position: relative;
+  padding:1.5rem 1rem;
+  color: #fff; font-weight:400;
   text-align: center;
 }
 .view a.info {
