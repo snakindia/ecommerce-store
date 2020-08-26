@@ -59,12 +59,13 @@ class NewsDetail extends Component {
                 <div class="animatedParent">
                   <div class="row no-gutters">
                       <div class="col-sm-9 col-md-9 pl-2">
+                        <img src={details.image} alt="" class="img-fluid object-fit-lg" />
                         <div class="mt-4 float-left">
                           {ReactHtmlParser(details.content)}
                           <div class="loadMorebtn p-0"><a href="/news" class="btn bha-btn-primary float-left">Go Back</a></div>
                         </div>
                       </div>
-
+                     
                         <div class="col-sm-3 col-md-3">
                             <div class="featured-product feature-sticky">
                                 <h6>Latest News</h6>
