@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import Client from './Home/Client';
+import Client from './Clients/Clients';
 import ProductsPart from './Home/ProductsParts';
 import OEM from './Home/OEM';
 import Banner from './Home/Banner';
