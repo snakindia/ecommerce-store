@@ -2,7 +2,6 @@
   "name": "BHA-store",
   "version": "0.1.0",
   "private": true,
-  "// If You want to install mdbreact from our GitLab repository, please replace '4.27.0' with gitURL provided here ->": "git+https://oauth2:<YOUR-TOKEN-GOES-HERE>@git.mdbootstrap.com/mdb/react/re-pro.git",
   "dependencies": {
     "axios": "^0.19.2",
     "buffer": "^5.6.0",
@@ -21,6 +20,7 @@
     "react-helmet": "^6.1.0",
     "react-html-parser": "^2.0.2",
     "react-image-lightbox": "^5.1.1",
+    "react-input-range": "^1.3.0",
     "react-meta-tags": "^0.7.4",
     "react-recaptcha": "^2.3.10",
     "react-redux": "^7.2.0",

@@ -75,8 +75,6 @@ class NavBar extends React.Component {
     const { navMenuData } = this.props;
     const { subMenuData } = navMenuData;
     let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
-    console.log('coverImg');
-    console.log(coverImg);
     
     return (
       <div
@@ -172,7 +170,7 @@ class NavBar extends React.Component {
                 header_menu.map((item, idx) => {
                   if (idx == 2) {
                     return (
-                      <li aria-haspopup="true" key={idx + 'a'}>
+                      <li id="megaMenu" key={idx + 'a'}>
                         <Link to={item.url} className="navtext text-uppercase">
                           {item.text}
                         </Link>
