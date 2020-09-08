@@ -12,10 +12,14 @@ export default class Home extends Component {
       <div>
         <Banner />
         <div className="content-wrapper">
-          <Client />
-          <OEM />
-          <ProductsPart />
-          <Products />
+          <div className="pagewrap">
+            <div className="bgWhite pb-4">
+              <Client />
+              <OEM />
+              <ProductsPart />
+              <Products />
+            </div>
+          </div>
         </div>
       </div>
     );
