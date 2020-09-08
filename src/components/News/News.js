@@ -60,79 +60,40 @@ class News extends Component {
         <div className="content-wrapper pb-0">
           <div className="pagewrap">
             <div className="bgWhite pb-4">
-              <div className="container-fluid" style={{ marginTop: '100px' }}>
-                <div
-                  className="row pb-2 pt-3 pl-2"
-                  style={{ background: '#fdfdfd' }}
-                >
-                  <div className="col-lg-5">
-                    <form>
-                      <div className="form-group row">
-                        <label
-                          htmlFor="inputPassword"
-                          className="col-sm-3 col-form-label font-weight-bold"
-                        >
-                          Filter By:
-                        </label>
-                        <div className="col-sm-9">
-                          <select
-                            className="filter form-control-select form-select"
-                            onChange={this.handleFilterChange}
-                            value={filterBy}
-                          >
-                            {filterOptions.map(opt => (
-                              <option key={opt.value} value={opt.value}>
-                                {opt.label}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <section
-                className="bg-opeque pt-4 animatedParent"
-                style={{ overflowX: 'hidden' }}
-              >
-                <div className="container-fluid">
-                  <h2 className="bha_heading_2 pb-3 text-blue text-center">
-                    {pageType}
-                    <span className="viewAll" style={{ top: '36%' }}>
-                      <a href="news-events.html">Go to news</a>
-                    </span>
-                  </h2>
-                </div>
-              </section>
-              <section className="pro-equipment-section pagewrap-inner">
-                <div className="container pl-1 pr-1">
-                  <div className="row">
-                    <div className="animatedParent">
-                      <div className="row no-gutters">
-                        {newsList.map(item => (
-                          <NewsCard
-                            key={item._id}
-                            newsData={item}
-                            pageType={pageType}
-                          />
-                        ))}
-                      </div>
+                <section class="bg-opeque pt-4 animatedParent" style={{"overflow-x": "hidden", "margin-top":"100px"}} >
+                    <div class="container-fluid">
+                        <h2 class="bha_heading_2 pb-0 text-blue text-center">{pageType == 'News' ? 'NEWS' : 'EVENTS' }</h2>
                     </div>
-                  </div>
-                  <div className="loadMorebtn">
-                    {Boolean(has_more) && (
-                      <a
-                        href="#"
-                        className="btn bha-btn-primary"
-                        onClick={this.handleLoadMore}
-                      >
-                        Load More
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </section>
+                </section>
+              
+                <section className="pro-equipment-section pagewrap-inner">
+                    <div className="container pl-1 pr-1">
+                        <div className="row">
+                            <div className="animatedParent">
+                                <div className="row no-gutters">
+                                    {newsList.map(item => (
+                                      <NewsCard
+                                        key={item._id}
+                                        newsData={item}
+                                        pageType={pageType}
+                                      />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="loadMorebtn">
+                            {Boolean(has_more) && (
+                                <a
+                                  href="#"
+                                  className="btn bha-btn-primary"
+                                  onClick={this.handleLoadMore}
+                                >
+                                  Load More
+                                </a>
+                            )}
+                        </div>
+                    </div>
+                </section>
             </div>
           </div>
         </div>
