@@ -143,7 +143,7 @@ class About extends React.Component {
                           style={{ background: '#f6f6f6' }}
                           id={idx}
                         >
-                          <div class="container-fluid p-4">
+                          <div class="container-fluid">
                             <div class="row">
                               <h4 class="heading-h4" id="message">
                                 {item.meta_title}
