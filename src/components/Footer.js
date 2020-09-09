@@ -353,7 +353,7 @@ class Footer extends Component {
               </div>
             </div>
             <div className="footer-bottom">
-              <div class="container pl-0 pr-0">
+              <div class="pagewrap">
                 <MDBRow>
                   <MDBCol lg="8" style={{ position: 'relative' }}>
                     <img
@@ -361,11 +361,11 @@ class Footer extends Component {
                       src={FooterCaller}
                       alt=""
                     />
-                    <span class="call-us">CALL US: (888) 286-8708</span>
+                    <span className="call-us">CALL US: (888) 286-8708</span>
                   </MDBCol>
                   <MDBCol md="4" sm="4" xs="12" className="text-right">
-                    <div class="socialLink">
-                      <span class="float-left">Follow us:</span>
+                    <div className="socialLink">
+                      <span className="float-left">Follow us:</span>
                       <a href="/">
                         <img src={Facebook} alt="Facebook" />
                       </a>
@@ -385,8 +385,9 @@ class Footer extends Component {
             </div>
 
             <div className="copyright">
+              <div className="pagewrap">
               <MDBContainer fluid>
-                <div class="container pl-0 pr-0">
+                <div className="row">
                   <MDBRow>
                     <MDBCol md="9" sm="9" xs="12">
                       <p>
@@ -430,11 +431,12 @@ class Footer extends Component {
                       xs="12"
                       className="float-right-sm pt-3 pr-4"
                     >
-                      <img src={Footerlogo} alt="" width="240" />
+                      <img className="w-100" src={Footerlogo} alt="" />
                     </MDBCol>
                   </MDBRow>
                 </div>
               </MDBContainer>
+              </div>
             </div>
           </div>
         </MDBFooter>

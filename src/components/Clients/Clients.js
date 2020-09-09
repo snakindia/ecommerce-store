@@ -42,7 +42,7 @@ class Clients extends Component {
                                     return (
                                         <div class="item-container">
                                             <div class="thumbnail">
-                                                <img src={item.url} alt="" />
+                                                <img className="filterNone" src={item.url} alt="" />
                                             </div>
                                         </div>
                                     );
