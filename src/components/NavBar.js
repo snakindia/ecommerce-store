@@ -109,7 +109,7 @@ class NavBar extends React.Component {
                       <div className="container-fluid">
                         <div className="row custom-gutter-wsmenu">
                           <h3 class="wsmenu_heading">{name}</h3>
-                          {listItems.map((itemTwo, i) => {
+                          {listItems.length > 0 && listItems.map((itemTwo, i) => {
                             return (
                               <div className="col-lg-3 col-md-12" key={i + 3}>
                                 <ul className="wstliststy04 clearfix">
