@@ -3,19 +3,7 @@ import { connect } from 'react-redux';
 import htmlParse from 'html-react-parser';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Link, animateScroll as scroll } from 'react-scroll';
-//import FreeBrochure from '../../components/common/FreeBrochure';
-import team from '../../assets/images/team.jpg';
-import picOne from '../../assets/images/pexels-photo.png';
-import picTwo from '../../assets/images/img-profile.png';
-import picThree from '../../assets/images/pexels-photo.jpeg';
-import teamIcon from '../../assets/icon/teamwork.svg';
-import performanceIcon from '../../assets/icon/performance.svg';
-import communityIcon from '../../assets/icon/community.svg';
-import respectIcon from '../../assets/icon/respect.svg';
-import handShakeIcon from '../../assets/icon/handshake.svg';
-import innovationIcon from '../../assets/icon/innovation.svg';
-import leaderIcon from '../../assets/icon/leader.svg';
-import aboutBanner from '../../assets/images/DSC_7731.jpg';
+
 import { get_about_us_details } from '../../actions/pageActions';
 import { Sticky } from 'react-sticky';
 
@@ -50,52 +38,33 @@ class About extends React.Component {
               <ul className="tab-menu">
                 {abousUsObj &&
                   Object.keys(abousUsObj).length &&
-                  abousUsObj.map((item, idx) => {
+                  abousUsObj[0].contents.map((item, idx) => {
                     if (this.state.activeTabID == '') {
-                      this.state.activeTabID = item.id;
+                      this.state.activeTabID = item.title;
                     }
                     return (
                       <li>
                         <Link
                           activeClass={
-                            this.state.activeTabID == item.id ? 'current' : ''
+                            this.state.activeTabID == item.title ? 'current' : ''
                           }
                           to={idx}
                           spy={true}
                           smooth={true}
                           offset={-70}
                           duration={500}
-                          onClick={e => this.setActiveClass(item.id, e)}
+                          onClick={e => this.setActiveClass(item.title, e)}
                           className={
-                            this.state.activeTabID == item.id
+                            this.state.activeTabID == item.title
                               ? 'tablink js-scroll-trigger current'
                               : 'tablink js-scroll-trigger'
                           }
                         >
-                          {item.meta_title}
+                          {item.title}
                         </Link>
                       </li>
                     );
                   })}
-
-                <li>
-                  <Link
-                    activeClass=""
-                    to="values"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                    onClick={e => this.setActiveClass('values', e)}
-                    className={
-                      this.state.activeTabID == 'values'
-                        ? 'tablink js-scroll-trigger current'
-                        : 'tablink js-scroll-trigger'
-                    }
-                  >
-                    Our Values
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>
@@ -109,32 +78,29 @@ class About extends React.Component {
     let abousUsObj = abousUsDetails.abousUsDetails;
     return (
       <div>
-        <section class="banner-container" style={{ position: 'relative' }}>
-          <div class="banner-about">
-            <picture>
-              <img
-                src={team}
-                alt="responsive image"
-                class="d-block img-fluid"
-              />
-            </picture>
-            {/*
-                        <Sticky topOffset={525}>
-                            {({ style }) => (
-                                <div style={{zIndex:"999", ...style }} >
-
-                                </div>
-                            )}
-                        </Sticky>*/}
-            {this.drawMenu()}
-          </div>
-        </section>
+                <section class="banner-container" style={{ position: 'relative' }}>
+                  <div class="banner-about">
+                    {abousUsObj && Object.keys(abousUsObj).length > 0 ?
+                        
+                    <picture>
+                      <img
+                        src={abousUsObj[0].banner_image}
+                        alt="responsive image"
+                        class="d-block img-fluid"
+                      />
+                      <div class="caption"><h1>{abousUsObj[0].banner_title}</h1></div>
+                    </picture> : ''
+                    }
+                    {this.drawMenu()}
+                  </div>
+                </section>
+            
         <div class="content-wrapper pb-0">
           <div class="pagewrap">
             <div class="bgWhite">
               {abousUsObj &&
                 Object.keys(abousUsObj).length &&
-                abousUsObj.map((item, idx) => {
+                abousUsObj[0].contents.map((item, idx) => {
                   if (idx == 0) {
                     return (
                       <div>
@@ -143,21 +109,25 @@ class About extends React.Component {
                           style={{ background: '#f6f6f6' }}
                           id={idx}
                         >
-                          <div class="container-fluid">
+                          <div class="container-fluid p-4">
                             <div class="row">
                               <h4 class="heading-h4" id="message">
-                                {item.meta_title}
+                                {item.title}
                               </h4>
-                              <div class="col-sm-9 col-md-9 pl-0" style={{textAlign:'left'}}>
-                                {htmlParse(item.content)}
+                              <div class="col-sm-9 col-md-9 pl-0">
+                                {htmlParse(item.description)}
                               </div>
 
                               <div class="col-sm-3 col-md-3 pl-0 pr-0">
                                 <img
                                   class="img-fluid border-frame"
-                                  src={picOne}
+                                  src={item.url}
                                   alt=""
                                 />
+                                <div class="img-caption">
+                                    <div class="bha-name">Lorem ipsum dolor sit amet</div>
+                                    <div class="bha-designation">Chief Executive Officer</div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -172,7 +142,7 @@ class About extends React.Component {
                           <div class="row">
                             <div class="col-lg-12 text-center">
                               <Link
-                                className="tablink js-scroll-trigger"
+                                className="js-scroll-trigger"
                                 to="1"
                                 spy={true}
                                 smooth={true}
@@ -196,18 +166,18 @@ class About extends React.Component {
                           <div class="container-fluid">
                             <div class="row">
                               <h4 class="heading-h4 pt-5 pb-0">
-                                {item.meta_title}
+                                {item.title}
                               </h4>
                               <div id="profile" class="float-left w-100">
                                 &nbsp;
                               </div>
                               <div class="col-sm-9 col-md-9 pl-0">
-                                {htmlParse(item.content)}
+                                {htmlParse(item.description)}
                               </div>
                               <div class="col-sm-3 col-md-3 pl-0 pr-2">
                                 <img
                                   class="img-fluid border-frame"
-                                  src={picTwo}
+                                  src={item.url}
                                   alt=""
                                 />
                               </div>
@@ -224,7 +194,7 @@ class About extends React.Component {
                           <div class="row">
                             <div class="col-lg-12 text-center">
                               <Link
-                                className="tablink js-scroll-trigger"
+                                className="js-scroll-trigger"
                                 to="2"
                                 spy={true}
                                 smooth={true}
@@ -251,7 +221,7 @@ class About extends React.Component {
                                 class="heading-h4 pt-5 pb-0 text-white"
                                 id="mission"
                               >
-                                {item.meta_title}
+                                {item.title}
                               </h4>
                               <div id="mvsection" class="float-left w-100">
                                 &nbsp;
@@ -264,7 +234,7 @@ class About extends React.Component {
                           <div class="container-fluid">
                             <div class="row">
                               <div class="col-lg-12 pl-0">
-                                {htmlParse(item.content)}
+                                {htmlParse(item.description)}
                               </div>
                             </div>
                           </div>
@@ -279,8 +249,8 @@ class About extends React.Component {
                           <div class="row">
                             <div class="col-lg-12 text-center">
                               <Link
-                                className="tablink js-scroll-trigger"
-                                to="values"
+                                className="js-scroll-trigger"
+                                to="3"
                                 spy={true}
                                 smooth={true}
                               >
@@ -292,150 +262,20 @@ class About extends React.Component {
                       </div>
                     );
                   }
+                  
+                    if (idx == 3) {
+                        return (
+                          <section
+                            class="pro-equipment-section pb-4 pagewrap-inner"
+                            id="3"
+                          >
+                            <div>
+                                <img src={item.url} alt="" class="d-block bha_h_100" style={{position: "relative"}} />
+                            </div>
+                          </section>
+                        );
+                      }
                 })}
-
-              <section
-                class="pro-equipment-section pb-4 pagewrap-inner"
-                id="values"
-              >
-                <div class="container-fluid pl-0 pr-0">
-                  <div className="row">
-                    <h4 class="heading-h4 pt-5 pb-1 pl-3 pr-3">Our Values</h4>
-                    <div id="Values" class="float-left w-100">
-                      &nbsp;
-                    </div>
-                    <div class="col-sm-4 col-md-4 mb-5">
-                      <h6>
-                        <img
-                          src={handShakeIcon}
-                          alt=""
-                          width={50}
-                          className="mr-3"
-                        />
-                        Integrity
-                      </h6>
-                      <p className="pr-4 block-ellipsis">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      </p>
-                    </div>
-                    <div class="col-sm-4 col-md-4 mb-5">
-                      <h6>
-                        <img
-                          src={respectIcon}
-                          alt=""
-                          width={50}
-                          className="mr-3"
-                        />
-                        Respect for People
-                      </h6>
-                      <p className="pr-4 block-ellipsis">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      </p>
-                    </div>
-                    <div class="col-sm-4 col-md-4 mb-5">
-                      <h6>
-                        <img
-                          src={teamIcon}
-                          alt=""
-                          width={50}
-                          className="mr-3"
-                        />
-                        Teamwork
-                      </h6>
-                      <p className="pr-4 block-ellipsis">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      </p>
-                    </div>
-                    <div class="col-sm-4 col-md-4 mb-5">
-                      <h6>
-                        <img
-                          src={performanceIcon}
-                          alt=""
-                          width={50}
-                          className="mr-3"
-                        />
-                        Performance
-                      </h6>
-                      <p className="pr-4 block-ellipsis">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      </p>
-                    </div>
-                    <div class="col-sm-4 col-md-4">
-                      <h6>
-                        <img
-                          src={performanceIcon}
-                          alt=""
-                          width={50}
-                          className="mr-3"
-                        />
-                        Quality
-                      </h6>
-                      <p className="pr-4 block-ellipsis">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      </p>
-                    </div>
-                   
-                    <div class="col-sm-4 col-md-4">
-                      <h6>
-                        <img
-                          src={innovationIcon}
-                          alt=""
-                          width={50}
-                          className="mr-3"
-                        />
-                        Inovation
-                      </h6>
-                      <p className="pr-4 block-ellipsis">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      </p>
-                    </div>
-					 <div class="col-sm-4 col-md-4">
-                      <h6>
-                        <img
-                          src={communityIcon}
-                          alt=""
-                          width={50}
-                          className="mr-3"
-                        />
-                        Community
-                      </h6>
-                      <p className="pr-4 block-ellipsis">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      </p>
-                    </div>
-                    <div class="col-sm-4 col-md-4">
-                      <h6>
-                        <img
-                          src={leaderIcon}
-                          alt=""
-                          width={50}
-                          className="mr-3"
-                        />
-                        Leadership
-                      </h6>
-                      <p className="pr-4 block-ellipsis">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </section>
             </div>
           </div>
         </div>
