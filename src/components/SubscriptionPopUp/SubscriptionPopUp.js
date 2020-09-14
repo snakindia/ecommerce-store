@@ -7,16 +7,25 @@ import Image from '../../assets/images/1 (3).jpg';
 class SubscriptionPopUp extends Component {
     constructor(props) {
         super(props);
+        this.state = { 
+            idleTime: 0
+        };
+    }
+    
+    handleClose() {
+        document.cookie = "subscriptionPopUp=true";
+        document.getElementsByClassName("delayedPopupWindow")[0].style.display = "none";
+        document.getElementsByClassName("backgroundOverlay")[0].style.display = "none";
+        clearInterval(window.timer);
     }
 
-    componentDidMount() {
-//    this.fetchData();
-    }
     
     render() {
         return (
+                <div>
+                 <div id="bkgOverlay" class="backgroundOverlay"></div>
             <div id="delayedPopup" class="delayedPopupWindow">
-                <a href="#" id="btnClose" title="Click here to close this deal box."><img src={PopUpClose} alt="Close" /></a>
+                <a href="#" id="btnClose" title="Click here to close this deal box." onClick={this.handleClose.bind(this)}><img src={PopUpClose} alt="Close" /></a>
                 <div class="container pl-0 pr-0">
                     <div class="row no-gutters">
                         <div class="col-sm-6 col-md-6"><img class="img-fluid img-cover" src={Image} alt="" /></div>
@@ -45,6 +54,7 @@ class SubscriptionPopUp extends Component {
                         </div>
                     </div>
               </div>
+            </div>
             </div>
         );
     }
