@@ -12,6 +12,8 @@ import Category from './components/Category';
 import NewsDetail from './components/News/NewsDetail';
 import EventDetail from './components/Events/EventDetail';
 import Dynamic from './components/Dynamic/Dynamic';
+import RepresentUs from './components/RepresentUs/RepresentUs';
+import SubscriptionPopUp from './components/SubscriptionPopUp/SubscriptionPopUp';
 
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
@@ -26,12 +28,22 @@ const Events = lazy(() => import('./components/Events'));
 const Compare = lazy(() => import('./components/Compare'));
 
 const Router = () => {
+     useEffect(() => {
+          const timer = setTimeout(() => {
+          const currentTime = localStorage.getItem("currentTime");
+            let timeDiff = Date.now() - currentTime;
+            console.log(timeDiff);
+        }, 1000);
+//        return () => clearTimeout(timer);
+  }, []);
+    
     return (
         <StickyContainer style={{ overflowY: 'auto' }}>
             <Notification />
             <BrowserRouter>
                 <MetaContainer>
                     <div className="top-header">
+                        <SubscriptionPopUp />
                         <TopBar />
                         <NavBar />
                     </div>
@@ -57,6 +69,7 @@ const Router = () => {
                             <Route path="/news" component={News} />
                             <Route path="/events" component={Events} />
                             <Route path="/compare" component={Compare} />
+                            <Route path="/represent-us" component={RepresentUs} />
                            <Dynamic />
                         </Switch>
                     </Suspense>
