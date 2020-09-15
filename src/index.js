@@ -16,12 +16,11 @@ import './assets/css/custom.css';
 import './assets/css/white-gry.css';
 import './assets/css/product.css';
 
-import './assets/css/news-events.css';
+
 import './assets/css/pro-details.css';
 import './assets/css/compare.css';
 
 import './assets/css/shopnow.css';
-import './assets/css/news-events.css';
 import './assets/transition-css/common.css';
 import './assets/transition-css/style.css';
 import './index.css';

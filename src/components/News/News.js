@@ -5,6 +5,7 @@ import NewsCard from './NewsCard';
 import './css/style.css';
 import { filterOptions } from './constants';
 import NewsBanner from './NewsBanner';
+import './../../assets/css/news-events.css';
 
 class News extends Component {
   constructor(props) {

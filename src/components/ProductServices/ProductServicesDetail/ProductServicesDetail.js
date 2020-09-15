@@ -35,72 +35,70 @@ class ProductServicesDetail extends Component {
     render() {
         
         const details = this.props.data;
+        console.log('details')
+        console.log(details)
     return (
             <div>
              {
         details && (
     <div>
       
-            <section class="product-services-banner" style={{'border-bottom': '1px solid #ddd'}}>
-  <div class="">
-    <div id="" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner" role="listbox" style={{'height': '620px'}}>
-        <div class="carousel-item active"> 
-          <div class="landing-caption">
-           
-            <div class="landing-caption-inner">
-             {ReactHtmlParser(details.banner_content)}
+    <section class="news-events-banner" style={{'border-bottom': '1px solid #ddd'}}>
+        <div class="news-events-inner">
+            <div id="" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox" style={{'height': '500px'}}>
+                    <div class="carousel-item active"> 
+                        <div class="landing-caption">
+
+                          <div class="landing-caption-inner">
+                           <h1 class="bha_heading_2 text-white">{details.banner_title}</h1>
+                           {ReactHtmlParser(details.content)}
+                          </div>
+
+                        </div>
+
+                        <img class="img-fluid" src={details.banner_image} alt="responsive image" />
+                        {details.resources && Object.keys(details.resources).length > 0 &&
+                            <div class="quick-link-container pattern pattern1" >
+                                <div class="inner-link">
+                                    <h2 class="pb-2">Quick Links</h2> {
+                                            details.resources.map((item, idx) => {
+                                                return (
+                                                    <a href={item.image} target="_blank" class="quick-link-btn">
+                                                    <span>{item.title}</span></a>
+                                                )
+                                            })
+                                        }
+                                </div>
+                            </div>
+                          }
+
+                    </div>
+                </div>
             </div>
-   
-          </div>
-           {Object.keys(details.banners).length > 0 &&
-                    details.banners.map((item, idx) => {
-                        return (
-                            <img class="img-fluid" src={item.image} alt="responsive image" />
-                        )
-                    })
-              }
-            
-          <div class="quick-link-container pattern pattern1" >
-            <div class="inner-link">
-              <h2 class="pb-2">Quick Links</h2>
-               {Object.keys(details.resources).length > 0 &&
-                    details.resources.map((item, idx) => {
-                        return (
-                            <a href={item.image} target="_blank" class="quick-link-btn">
-                            <span>{item['resource_title' + idx]}</span></a>
-                        )
-                    })
-              }
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="promo-container">
-  <div class="container-fluid">
-    <div class="row">
-		<div class="col-sm-7 col-md-7 promo-caption">
-			<div style={{width:'650px', height:'350px', overflow:'hidden'}}>
-			{details.placeholder_images && Object.keys(details.placeholder_images).length > 0 &&
-                    details.placeholder_images.map((item, idx) => {
-                        return (
-                            <img class="img-fluid" src={item.image} alt="responsive image" />
-                        )
-                    })
-              }
-			</div>
-      </div>
-      <div class="col-sm-5 col-md-5 promo-caption">
-          <h2 class="promo-heading">
-            UP TO 40% lorem ipsum dollar sit ament, consectetur 
-          </h2>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
+    {
+        details.contents && Object.keys(details.contents).length > 0 ?  
+        <section class="promo-container">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-7 col-md-7">
+                        <div style={{width:'650px', height:'350px', overflow:'hidden'}}>
+                            <img class="img-fluid" src={details.contents[0].url} alt="responsive image" />
+                        </div>
+                    </div>
+                     <div class="col-sm-5 col-md-5">
+                        <div class="promo-caption">
+                            <h2 class="promo-heading">
+                                {details.contents[0].title}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> : ''
+    }
 <section class="how-best-container">
   <div class="bg-opeque">
     <div class="container-fluid pt-4 pb-4">
@@ -244,30 +242,29 @@ class ProductServicesDetail extends Component {
 </div>
 </section>
 
-<section class="call-for-acton">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-7 col-md-7">
-        <div class="call-for-action-container">
-          <h2 class="promo-heading">
-            CALL FOR A FREE QUOTE 
-          </h2>
-          <ul class="call-to-action-link">
-            <li><span>&nbsp;</span>Lorem ipsum dolor sit amet,</li>
-            <li><span>&nbsp;</span>Lorem ipsum dolor sit amet, consectetur</li>
-            <li><span>&nbsp;</span>Lorem ipsum dolor sit amet, consectetur  elit, </li>
-            <li><span>&nbsp;</span>Lorem ipsum dolor sit amet, consectetur</li>
-          </ul>
-          <a href="" class="free-quote">CALL FOR A FREE QUOTE</a>
-        </div>
-      </div>
-      <div class="col-sm-5 col-md-5 pr-5 promo-caption">
-        <img src={badge} alt="..." class="img-fluid" />
-        
-      </div>
-    </div>
-  </div>
-</section>
+    {
+    details.contents && Object.keys(details.contents).length == 3 ?  
+        <section class="call-for-acton">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-7 col-md-7">
+                        <div class="call-for-action-container">
+                            <h2 class="promo-heading">
+                                {details.contents[2].title}
+                            </h2>
+                            <ul class="call-to-action-link">
+                               {details.contents[2].description}
+                            </ul>
+                            <a href="" class="free-quote">{details.contents[2].title}</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-md-5 pr-5">
+                        <img src={details.contents[2].url} alt="..." class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </section> : ''
+    }
   
     <Clients />
     <PremiumBrands />
