@@ -109,7 +109,7 @@ class About extends React.Component {
                           style={{ background: '#f6f6f6' }}
                           id={idx}
                         >
-                          <div class="container-fluid p-4">
+                          <div class="container-fluid ">
                             <div class="row">
                               <h4 class="heading-h4" id="message">
                                 {item.title}
@@ -266,11 +266,11 @@ class About extends React.Component {
                     if (idx == 3) {
                         return (
                           <section
-                            class="pro-equipment-section pb-4 pagewrap-inner"
+                            class="pro-equipment-section padding-0 pagewrap-inner"
                             id="3"
                           >
                             <div>
-                                <img src={item.url} alt="" class="d-block bha_h_100" style={{position: "relative"}} />
+                                <img src={item.url} alt="" class="d-block bha_h_100"  />
                             </div>
                           </section>
                         );
