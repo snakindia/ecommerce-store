@@ -43,12 +43,11 @@ background-position: center center; background-size: cover;}
 .promo-container:before{content: ''; position: absolute; top:0; left: 0; bottom: 0;
 right:0; background:rgba(6,34,52,0.8);}
 .promo-caption{padding:3rem 3rem 0.5rem; width: 100%; text-align: center;
-position: absolute; top:20%; right:5%;}
+/*position: absolute; top:20%; right:5%;*/}
 .promo-heading{color:#fff; font-weight: 700; font-size: 2.3rem; text-transform: uppercase;}
 
 /*===========Call for action=============*/
-.call-for-acton{padding:0 2rem; position: relative; float: left;
-  background:url(../images/call-to-actioin-bg.gif) top left no-repeat;
+.call-for-acton{padding:0 2rem; position: relative; background:url(../images/call-to-actioin-bg.gif) top left no-repeat;
 background-position: center center; background-size: cover;}
 .call-for-action-container{text-align: left;padding:2.5rem 0 0 2rem; width: 100%;}
 .call-to-action-link{padding:0; margin:0;list-style-type: none; float: left;

@@ -448,3 +448,22 @@ display:-webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
 .padding-0{padding:0 !important;}
 /*.anchor-logo{padding-left: 33px !important;}*/
 .img-caption{bottom:0 !important;}
+
+/*==============Inner page layout fixing css===============*/
+.call-for-acton{display: flex !important;}
+.call-for-acton img{margin:1.5rem 0 1.5rem;}
+.quick-link-btn span{color:#fff !important;}
+.carousel-item img{object-fit: cover !important;}
+.call-for-action-container ul{padding: 0;margin: 0; margin-top: 0px;
+list-style-type: none;display:block; margin-top: 2rem;}
+.call-for-action-container ul li{display: none !important}
+.call-for-action-container ul ul{padding: 0;margin: 0; margin-top: 0px;
+list-style-type: none;display:block; margin-top: 2rem;}
+.call-for-action-container ul ul li{margin: 0.5rem 0; display: block !important;}
+/*.call-for-action-container li:first-child{display: none}*/
+.call-for-action-container ul li:before:fitst-child{display: none !important}
+
+.call-for-action-container li:before{ content:"";background: #ffa800;
+border: 3px solid #fff;width: 16px;height: 16px;float: left;margin: 0.2rem 1rem 0 0;}
+.call-for-action-container li span{background: transparent !important; 
+  color:#fff !important; font-size: 1.2rem !important;}
