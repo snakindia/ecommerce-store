@@ -118,7 +118,7 @@ class NavBar extends React.Component {
                                       className="scale-down"
                                       src={
                                         itemTwo.image != ''
-                                          ? `${categoryImageUrl}/${itemTwo._id}/${itemTwo.image}`
+                                          ? `${itemTwo.banner_image}`
                                           : DEFAULT_IMG_URL
                                       }
                                       alt="bha"
@@ -130,7 +130,7 @@ class NavBar extends React.Component {
                                     >
                                       {' '}
                                       <i class="fa fa-chevron-right pr-2"></i>
-                                      {itemTwo.name}
+                                      {itemTwo.meta_title}
                                     </Link>
                                   </li>
                                 </ul>
