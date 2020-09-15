@@ -253,7 +253,7 @@ class ProductServicesDetail extends Component {
                                 {details.contents[2].title}
                             </h2>
                             <ul class="call-to-action-link">
-                               {details.contents[2].description}
+                               {ReactHtmlParser(details.contents[2].description)}
                             </ul>
                             <a href="" class="free-quote">{details.contents[2].title}</a>
                         </div>

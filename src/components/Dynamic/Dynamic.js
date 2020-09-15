@@ -18,7 +18,6 @@ class Dynamic extends Component {
 
     render() {
     this.state.routes = this.props.meta_details;
-    console.log(this.state.routes)
     const { match } = this.props;
     
     return (
