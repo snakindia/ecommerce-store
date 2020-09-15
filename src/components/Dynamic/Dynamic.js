@@ -4,6 +4,7 @@ import { Route, NavLink, Switch, Link } from 'react-router-dom';
 import { GET } from '../../services/httpService';
 import ProductServicesDetail from './../ProductServices/ProductServicesDetail';
 import PageTemplateDetail from './../ProductServices/PageTemplateDetail';
+import ProjectsTemplate from './../Projects';
 
 
 class Dynamic extends Component {
@@ -11,7 +12,8 @@ class Dynamic extends Component {
         routes: [],
         template: {
             'ProductServicesDetail' : ProductServicesDetail,
-            'PageTemplateDetail' : PageTemplateDetail
+            'PageTemplateDetail' : PageTemplateDetail,
+            'ProjectsTemplate' : ProjectsTemplate
         }
     };
  
@@ -19,7 +21,6 @@ class Dynamic extends Component {
     render() {
     this.state.routes = this.props.meta_details;
     const { match } = this.props;
-    
     return (
             <div>
               {this.state.routes && this.state.routes.length > 0 &&
