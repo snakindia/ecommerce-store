@@ -35,8 +35,6 @@ class ProductServicesDetail extends Component {
     render() {
         
         const details = this.props.data;
-        console.log('details')
-        console.log(details)
     return (
             <div>
              {
