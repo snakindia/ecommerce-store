@@ -469,8 +469,10 @@ list-style-type: none;display:block; margin-top: 2rem;}
   z-index: 10000 !important;
  
 }
-.affixed a {
+#affixed a {
   color: #000 !important;
+}
+.affixed a {
   line-height: 1.2rem !important;
   font-weight: 500;
   padding-top: 0.7rem !important;

@@ -88,7 +88,7 @@ class Banner extends Component {
              offsetTop={120} 
              onChange={e=>this.setState({affix:e})}
              >
-          <div class="container">
+          <div class="container" id={affix ? 'affixed':''}>
         
         {/* <Sticky topOffset={280}>
           {({

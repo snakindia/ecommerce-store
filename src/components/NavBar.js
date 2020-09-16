@@ -105,7 +105,7 @@ class NavBar extends React.Component {
             <ul className="wsmenu-list">
               {header_menu &&
                 header_menu.map((item, idx) => <li
-                  //onMouseLeave={this.hideSubMenu}
+                  onMouseLeave={this.hideSubMenu}
                   id={item.has_sub_mennu ? 'megaMenu' : ''}
                   key={idx + 'a'}
                   className={item.id == this.state.visibleSubmenu ? 'wsclickopen' : ''}
@@ -122,7 +122,7 @@ class NavBar extends React.Component {
                       activeLink={this.state.activeLink}
                       navMenuData={this.props.navMenuData}
                       id={item.id}
-                     //hide={this.hideSubMenu}
+                     hide={this.hideSubMenu}
                     />
                   }
 
