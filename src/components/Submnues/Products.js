@@ -20,8 +20,25 @@ class Products extends React.Component {
         };
 
     }
+    componentDidMount(){
+        const { navMenuData :{subMenuData}} = this.props;
+        // const { subMenuData } = navMenuData;
+        let loop =true;
+        let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
+        if(subMenuArr && subMenuArr.length > 0){
+            subMenuArr.map((itemOne, i) =>{
+                if(itemOne && itemOne[0] && loop){
+                    //console.log('itemOneObj',itemOne)
+                    this.showMenu(itemOne[0], i, null);
+                    loop=false;
+                }
+            }
+            )
+        }
+    }
 
     showMenu = (itemOneObj, index, e) => {
+        console.log('itemOneObj',itemOneObj)
         const { name, image, items, slug, _id } = itemOneObj;
         let imageSrc = '';
         if (image != '') {
