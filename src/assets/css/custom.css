@@ -131,7 +131,7 @@ and open the template in the editor.
   padding-bottom: 1.8rem;
 }
 .bhaClient .slick-slide {
-  width: 160px !important;
+  width: 173px !important;
   box-sizing: border-box;
 }
 /*.banner-container{margin-top:0 !important}*/
@@ -466,3 +466,7 @@ list-style-type: none;display:block; margin-top: 2rem;}
 border: 3px solid #fff;width: 16px;height: 16px;float: left;margin: 0.2rem 1rem 0 0;}
 .call-for-action-container li span{background: transparent !important; 
   color:#fff !important; font-size: 1.2rem !important;}
+
+.slider {
+    /*width: 93% !important;*/
+}
