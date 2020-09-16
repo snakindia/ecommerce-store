@@ -221,7 +221,8 @@ top: 40%;left:-20px !important; width: 0;height: 0;
 border-top: 23px solid transparent;border-right: 18px solid #fff;
 border-bottom: 23px solid transparent; z-index: 1}
 
-
+.promo-caption.texture-bg{background: url(../images/texture-img.jpg) top left repeat; 
+height: 341px; position: relative;}
 .promo-caption.texture-bg:before{content:''; background: rgba(255,255,255,0.9);
 top:0; left:0; right:0; bottom:0; position: absolute;}
 /*.caption-img{display: flex;align-items: center;justify-content: center;
@@ -288,10 +289,10 @@ transition: all 1s ease;
 
 /*====================215487===========================================*/
 .side-menu{padding: 0; margin: 0;}
-.side-menu .tablink{float:left;color:#000; width: 100%;word-break: break-all !important;}
+.side-menu .tablink{float:left;color:#000 !important; width: 100%;word-break: break-all !important;}
 .side-menu .tablink:hover{background: #23536b; transition: 0.3s; color:#fff;}
-.side-menu .tablink.current{color:#fff; background:#000;}
-.side-menu .tablink.current i{background:#fff !important; width: 32px;
+.side-menu .tablink.active{color:#fff  !important; background:#000}
+.side-menu .tablink.active i{background:#fff; width: 32px;
   transition: 0.4s;height: 2px;}
 
 /* styling sidebar */ 
@@ -338,5 +339,7 @@ transition: all 1s ease;
 
 /*===========Represent layout css=============*/
 .p-10{padding:0 8rem;z-index:10; position: relative;}
+.texture-bg{background: url(../images/texture-img.jpg) top left repeat; 
+ position: relative;}
 .texture-bg:before{content: ''; position: absolute; top:0; left: 0;
  right:0; bottom:0; background:rgba(255,255,255,0.9);};

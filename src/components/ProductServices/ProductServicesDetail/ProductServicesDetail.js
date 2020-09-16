@@ -35,18 +35,16 @@ class ProductServicesDetail extends Component {
     render() {
         
         const details = this.props.data;
-        console.log('details')
-        console.log(details)
     return (
             <div>
              {
         details && (
     <div>
       
-    <section class="news-events-banner" style={{'border-bottom': '1px solid #ddd'}}>
+    <section class="news-events-banner" style={{'border-bottom': '1px solid #ddd', 'margin-top': '7.5rem'}}>
         <div class="news-events-inner">
             <div id="" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" role="listbox" style={{'height': '500px'}}>
+                <div class="carousel-inner" role="listbox" style={{'height': '540px'}}>
                     <div class="carousel-item active"> 
                         <div class="landing-caption">
 
@@ -83,12 +81,10 @@ class ProductServicesDetail extends Component {
         <section class="promo-container">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-7 col-md-7">
-                        <div style={{width:'650px', height:'350px', overflow:'hidden'}}>
-                            <img class="img-fluid" src={details.contents[0].url} alt="responsive image" />
-                        </div>
+                    <div class="col-sm-6 col-md-6"> 
+                      <img class="img-fluid" src={details.contents[0].url} alt="responsive image" />
                     </div>
-                     <div class="col-sm-5 col-md-5">
+                     <div class="col-sm-6 col-md-6 justify-content-center">
                         <div class="promo-caption">
                             <h2 class="promo-heading">
                                 {details.contents[0].title}
@@ -252,9 +248,7 @@ class ProductServicesDetail extends Component {
                             <h2 class="promo-heading">
                                 {details.contents[2].title}
                             </h2>
-                            <ul class="call-to-action-link">
-                               {details.contents[2].description}
-                            </ul>
+                            {ReactHtmlParser(details.contents[2].description)}
                             <a href="" class="free-quote">{details.contents[2].title}</a>
                         </div>
                     </div>

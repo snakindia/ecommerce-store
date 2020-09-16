@@ -1,11 +1,11 @@
 import { GET } from '../../services/httpService';
-import { getProductServiceUrl } from '../../constants/urls';
+import { getPageDetailsUrl } from '../../constants/urls';
 import { FETCH_PRODUCTSERVICE_DETAIL } from './productservice.action.constants';
 
 const fetchProdcutServiceDetail = (slug) => async (dispatch, getState) => {
     try {
         dispatch({ type: `${FETCH_PRODUCTSERVICE_DETAIL}_START` });
-        const url = getProductServiceUrl + slug
+        const url = getPageDetailsUrl + slug
         const res = await GET({ url });
         dispatch({ type: FETCH_PRODUCTSERVICE_DETAIL, payload: res.data });
     } catch (e) {

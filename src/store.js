@@ -11,6 +11,7 @@ import Clients from './components/Clients/clients.reducer';
 import newsReducer from './components/News/news.reducer';
 import compareReducer from './components/Compare/compare.reducer';
 import productService from './components/ProductServices/productservice.reducer';
+import projects from './components/Projects/projects.reducer';
 
 const logger = createLogger({ collapsed: true });
 const rootReducer = combineReducers({
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
     clients: Clients,
     news: newsReducer,
     compare: compareReducer,
-    productService: productService
+    productService: productService,
+    projects
 });
 const store = createStore(
   rootReducer,
