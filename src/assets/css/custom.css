@@ -418,7 +418,6 @@ body{font-weight: 400;line-height: 1.5;color: #212529;text-align: left;}
 iframe{width: 280px !important; border-right:1px solid #ddd; border-radius: 0.2rem}
 iframe .rc-anchor-logo-portrait{margin: 10px 0 0 0px !important;}
 /*.tab-menu .tablink{width:33.333% !important;}*/
-.pagewrap-inner{padding:0 1.5rem 2rem !important;}
 .news-inner{min-height: 320px;}
 .social-share-box{border:none !important;}
 .news-inner img.object-fit { width:100%; width: 270px !important; object-fit: cover;
