@@ -58,7 +58,7 @@ class Projects extends Component {
                         {details.contents && details.contents.length > 0 &&
                             <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[0].title}>
                                 <div class="row no-gutters flex-column-reverse flex-md-row">
-                                    <div class="col-sm-6 col-md-6 promo-caption texture-bg">
+                                    <div class="col-sm-6 col-md-6 promo-caption texture-bg mb-4">
                                         <div class="p-right">
                                             <h4 class="heading-h4 pb-2 text-blue">{details.contents[0].title}</h4>
                                             {ReactHtmlParser(details.contents[0].description)}
@@ -76,8 +76,8 @@ class Projects extends Component {
                         {details.contents && details.contents.length > 1 &&
                         <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[1].title}>
                             <div class="row no-gutters">
-                                <div class="col-sm-6 col-md-6 caption-img">
-                                    <div class="mt-4 brighten">
+                                <div class="col-sm-6 col-md-6 caption-img mb-4">
+                                    <div class="brighten">
                                         <img src={details.contents[1].url} alt="..." class="proj-object-fit" />
                                     </div>
                                 </div>
@@ -94,8 +94,8 @@ class Projects extends Component {
                         {details.contents && details.contents.length > 2 &&
                         <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[2].title}>
                           <div class="row no-gutters flex-column-reverse flex-md-row">
-                            <div class="col-sm-6 col-md-6 promo-caption texture-bg">
-                              <div class="p-right">
+                            <div class="col-sm-6 col-md-6 promo-caption texture-bg mb-4">
+                              <div class="p-right text-left">
                                 <h4 class="heading-h4 pb-2 text-blue">{details.contents[1].title}</h4>
                                 {ReactHtmlParser(details.contents[2].description)}
                               </div>
@@ -113,7 +113,7 @@ class Projects extends Component {
                             <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[3].title}>
                                 <div class="row no-gutters">
                                     <div class="col-sm-6 col-md-6 caption-img">
-                                        <div class="mt-4 brighten">
+                                        <div class="brighten">
                                             <img src={details.contents[2].url} alt="..." class="proj-object-fit" />
                                         </div>
                                     </div>
@@ -130,7 +130,7 @@ class Projects extends Component {
                         {details.contents && details.contents.length > 4 &&
                             <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[4].title}>
                                 <div class="row no-gutters flex-column-reverse flex-md-row">
-                                    <div class="col-sm-6 col-md-6 promo-caption texture-bg">
+                                    <div class="col-sm-6 col-md-6 promo-caption texture-bg mb-4">
                                       <div class="p-right">
                                         <h4 class="heading-h4 pb-2 text-blue">{details.contents[4].title}</h4>
                                         {ReactHtmlParser(details.contents[4].description)}
@@ -149,7 +149,7 @@ class Projects extends Component {
                             <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[5].title}>
                                 <div class="row no-gutters">
                                     <div class="col-sm-6 col-md-6 caption-img">
-                                        <div class="mt-4 brighten">
+                                        <div class="brighten">
                                             <img src={details.contents[5].url} alt="..." class="proj-object-fit" />
                                         </div>
                                     </div>
@@ -184,12 +184,13 @@ class Projects extends Component {
                     </div>
                 </div>
             </div>
-        )};
+        )}
         </div>
         
     );
   }
 }
+
 
 const mapStateToProps = ({ projects }) => ({
     data: projects[0]

@@ -109,12 +109,12 @@ class About extends React.Component {
                           style={{ background: '#f6f6f6' }}
                           id={idx}
                         >
-                          <div class="container-fluid pt-4">
+                          <div class="container-fluid pt-4 pb-4">
                             <div class="row">
                               <h4 class="heading-h4" id="message">
                                 {item.title}
                               </h4>
-                              <div class="col-sm-9 col-md-9 pl-0">
+                              <div class="col-sm-9 col-md-9 pl-0 pr-5">
                                 {htmlParse(item.description)}
                               </div>
 
@@ -163,7 +163,7 @@ class About extends React.Component {
                           class="pro-equipment-section pagewrap-inner"
                           id={idx}
                         >
-                          <div class="container-fluid">
+                          <div class="container-fluid pb-4">
                             <div class="row">
                               <h4 class="heading-h4 pt-5 pb-0">
                                 {item.title}
@@ -171,10 +171,10 @@ class About extends React.Component {
                               <div class="float-left w-100">
                                 &nbsp;
                               </div>
-                              <div class="col-sm-9 col-md-9 pl-0">
+                              <div class="col-sm-9 col-md-9 pl-0 pr-5">
                                 {htmlParse(item.description)}
                               </div>
-                              <div class="col-sm-3 col-md-3 pl-0 pr-2">
+                              <div class="col-sm-3 col-md-3 pl-0 pr-0">
                                 <img
                                   class="img-fluid border-frame"
                                   src={item.url}

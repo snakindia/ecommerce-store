@@ -180,7 +180,9 @@ and open the template in the editor.
 /*.modal {right: 30px; width: 40%;height: 100%;}*/
 
 /*==================Add new Css 17/07/2020==========================*/
-/* body{font-family: 'Roboto', sans-serif !important} */
+ body{font-family: 'Roboto', sans-serif !important; font-size: 1rem !important;
+ font-weight: 400;line-height: 1.5; color:#000;} 
+/* body{text-align: left;} */
 .logIn {
   border: 1px solid #000;
   background-color: #e5e5e5;
@@ -397,7 +399,7 @@ button.close {padding: 0; background-color: transparent;border: 0;-webkit-appear
 .tab-menu .tablink {font-weight:400; width:25%; color:#000 !important;}
 .tab-menu .tablink:hover{background: #23536b; transition: 0.3s; color:#fff !important;}
 .tab-menu .tablink.current{color:#fff !important; background:#23536b;}	
-body{font-weight: 400;line-height: 1.5;color: #212529;text-align: left;}	 
+ 
 .seperator { background: rgba(167,14,21,1);
   width: 60px; height: 30px !important; border-radius: 100px;
   line-height: 20px !important; font-size: 1.5rem !important; font-weight: 700 !important;
@@ -468,4 +470,25 @@ border: 3px solid #fff;width: 16px;height: 16px;float: left;margin: 0.2rem 1rem 
   color:#fff !important; font-size: 1.2rem !important;}
 
 /*=====About us page============*/
-.heading-h4{font-size: 1.6rem !important;font-weight: 600 !important;}
+.heading-h4{font-size: 1.5rem !important;font-weight: 600 !important;}
+.pagewrap-inner p span{font-family: 'Roboto', sans-serif !important; font-size: 1rem !important}
+.pro-equipment-section span{color:#000 !important;}
+.mission-section p span{color:#fff;}
+/*======Project page==================*/
+.promo-caption{text-align: left !important;}
+.pagewrap-inner p{padding-right:0 !important;}
+.p-right, .p-left{height: 236px;
+  display: block;
+    display: -webkit-box;
+    width: auto;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;}
+.p-right .heading-h4{padding:0 0 0.6rem !important;font-size: 1.5rem !important;}
+.bha_heading_2 {letter-spacing: -0.04rem !important;font-size: 1.570rem !important;}
+.text-blue{font-weight: 600 !important}
+.side-menu .tablink:hover{color:#fff !important;}
+.sidehoverbar{position: fixed !important}
+.side-menu .tablink{width: 290px !important}
+/*.sidehoverbar{left: -253px !important}*/
