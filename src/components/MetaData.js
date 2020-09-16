@@ -17,7 +17,7 @@ class MetaData extends Component {
   componentWillMount() {
     this.unlisten = this.props.history.listen((location, action) => {
       this.state.path = location.pathname;
-      console.log('on route change =>  ', this.state.path);
+      //console.log('on route change =>  ', this.state.path);
     });
   }
 
