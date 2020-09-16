@@ -11,7 +11,7 @@ import {
   API_IMAGE_PATH,
   defaultMenuListItems,
   categoryImageUrl,
-  
+
 } from '../constants/appConstant';
 import { DEFAULT_IMG_URL } from '../constants/urls';
 import { Sticky } from 'react-sticky';
@@ -23,7 +23,7 @@ import {
 import RequestAQuote from './RequestAQuote';
 import { save_brochures_details } from '../actions/freeBrochuresActions';
 import { showToast } from './Notification/notification.actions';
-
+import SubMenu from './Submnues/SubMenu'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -54,11 +54,11 @@ class NavBar extends React.Component {
     const { name, image, items, slug, _id } = itemOneObj;
     let imageSrc = '';
     if (image != '') {
-        imageSrc = `${categoryImageUrl}/${_id}/${image}`;
+      imageSrc = `${categoryImageUrl}/${_id}/${image}`;
     } else {
-        imageSrc = DEFAULT_IMG_URL;
+      imageSrc = DEFAULT_IMG_URL;
     }
-    
+
     this.setState({ coverImg: imageSrc, listItems: items, activeLink: index });
 
     //const {coverImg , listItems} = listArr;
@@ -69,88 +69,25 @@ class NavBar extends React.Component {
     const { isQuoteModalOpen } = this.state;
     this.setState({ isQuoteModalOpen: !isQuoteModalOpen });
   };
-
-  drawSubMenu(baseUrl) {
-    const { coverImg, listItems, activeLink } = this.state;
-    const { navMenuData } = this.props;
-    const { subMenuData } = navMenuData;
-    let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
-    
-    return (
-      <div
-        className="wsshoptabing wtsdepartmentmenu clearfix"
-        style={{ zIndex: 999 }}
-      >
-        <div className="wsshopwp clearfix">
-          <div className="image-holder">
-            <img
-              src={!coverImg ? EpicCover : coverImg}
-              alt=""
-              width="300"
-              height="150"
-            />
-          </div>
-          <ul className="wstabitem clearfix">
-            {subMenuArr &&
-              subMenuArr.map((itemOne, i) => {
-                let itemOneObj = itemOne && itemOne[0];
-                const { name, image, items, slug, _id } = itemOneObj;
-                return (
-                  <li
-                    className={
-                      activeLink == i ? 'wsshoplink-active' : 'wsshoplink'
-                    }
-                    id={i == 0 ? 'firstEl' : 'other' + i}
-                    key={i + Math.random()}
-                    onClick={e => this.showMenu(itemOneObj, i, e)}
-                  >
-                    <Link data-src={Baghouse}>{name}</Link>
-                    <div className="wstitemright clearfix wstpngsml">
-                      <div className="container-fluid">
-                        <div className="row custom-gutter-wsmenu">
-                          <h3 class="wsmenu_heading">{name}</h3>
-                          {listItems.length > 0 && listItems.map((itemTwo, i) => {
-                            return (
-                              <div className="col-lg-3 col-md-12" key={i + 3}>
-                                <ul className="wstliststy04 clearfix">
-                                  <li>
-                                    <img
-                                      className="scale-down"
-                                      src={
-                                        itemTwo.image != ''
-                                          ? `${itemTwo.banner_image}`
-                                          : DEFAULT_IMG_URL
-                                      }
-                                      alt="bha"
-                                    />
-                                  </li>
-                                  <li className="wstheading clearfix">
-                                    <Link
-                                      to={`${baseUrl}/${slug}/${itemTwo.slug}`}
-                                    >
-                                      {' '}
-                                      <i class="fa fa-chevron-right pr-2"></i>
-                                      {itemTwo.meta_title}
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                );
-              })}
-          </ul>
-        </div>
-      </div>
-    );
+  showSubMenu = (e, item) => {
+    if (item.has_sub_menu) {
+      e.preventDefault();
+      const { visibleSubmenu } = this.state;
+      if (visibleSubmenu && visibleSubmenu == item.id) {
+        this.setState({ visibleSubmenu: null })
+      } else {
+        this.setState({ visibleSubmenu: item.id })
+      }
+    }
   }
+  hideSubMenu = () => {
+    this.setState({ visibleSubmenu: null })
+  }
+
 
   render() {
     const { navMenuData } = this.props;
+    const { visibleSubmenu } = this.state;
     const { menuData, subMenuData } = navMenuData;
     const { header_menu } = menuData;
     let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
@@ -167,26 +104,30 @@ class NavBar extends React.Component {
           <nav className="wsmenu clearfix">
             <ul className="wsmenu-list">
               {header_menu &&
-                header_menu.map((item, idx) => {
-                  if (idx == 2) {
-                    return (
-                      <li id="megaMenu" key={idx + 'a'}>
-                        <Link to={item.url} className="navtext text-uppercase">
-                          {item.text}
-                        </Link>
-                        {this.drawSubMenu(item.url)}
-                      </li>
-                    );
-                  } else {
-                    return (
-                      <li aria-haspopup="true" key={idx + 'dd'}>
-                        <Link to={item.url} className="navtext text-uppercase">
-                          {item.text}
-                        </Link>
-                      </li>
-                    );
+                header_menu.map((item, idx) => <li
+                  //onMouseLeave={this.hideSubMenu}
+                  id={item.has_sub_mennu ? 'megaMenu' : ''}
+                  key={idx + 'a'}
+                  className={item.id == this.state.visibleSubmenu ? 'wsclickopen' : ''}
+                >
+                  <Link to={item.url} className="navtext text-uppercase"
+                    onClick={e => this.showSubMenu(e, item)}
+                  >
+                    {item.text}
+                  </Link>
+                  {visibleSubmenu == item.id &&
+                    <SubMenu
+                      coverImg={this.state.coverImg}
+                      listItems={this.state.listItems}
+                      activeLink={this.state.activeLink}
+                      navMenuData={this.props.navMenuData}
+                      id={item.id}
+                     //hide={this.hideSubMenu}
+                    />
                   }
-                })}
+
+                </li>
+                )}
               <li aria-haspopup="true">
                 <a
                   href="javascript:void(0)"

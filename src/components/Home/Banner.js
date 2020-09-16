@@ -17,7 +17,7 @@ import BestSellingImage from '../../assets/images/best-selling.png';
 import RBCarousel from 'react-bootstrap-carousel';
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css';
 import { Sticky } from 'react-sticky';
-
+import { Affix } from 'antd';
 import { API_URL } from '../../constants/appConstant';
 import axios from 'axios';
 import { fetch_dynamic_menus } from '../../actions/fetchActions';
@@ -27,6 +27,7 @@ class Banner extends Component {
     super(props);
     this.state = {
       autoplay: false,
+      affix:false,
     };
   }
 
@@ -35,6 +36,7 @@ class Banner extends Component {
   }
 
   render() {
+    const {affix} =this.state
     this.slider = React.createRef();
     const { navMenuData } = this.props;
     const { menuData } = navMenuData;
@@ -81,14 +83,19 @@ class Banner extends Component {
           </div>
         </div>
         
-             <div class="bottom-navigation">
+             <div class='bottom-navigation affixed'>
+             <Affix 
+             offsetTop={120} 
+             onChange={e=>this.setState({affix:e})}
+             >
           <div class="container">
         
-        <Sticky topOffset={280}>
+        {/* <Sticky topOffset={280}>
           {({
             style,
 
-          }) => (
+          }) => ( */}
+         
             <header style={style} top={280}>
              {
             <div class="row justify-content-center">
@@ -146,10 +153,12 @@ class Banner extends Component {
             </div>
             }
         </header>
-          )}
-        </Sticky>
+        
+          {/* )}
+        </Sticky> */}
        
             </div>
+            </Affix>
         </div>
           
       </div>

@@ -449,3 +449,16 @@ display: -webkit-box;
 
 	
 
+.ant-affix{
+  background: rgba(255,255,255,0.950);
+  box-shadow: 0px 10px 5px -10px #d7d7d7;
+  height: 70px !important;
+  z-index: 10000 !important;
+ 
+}
+.affixed a {
+  color: #000 !important;
+  line-height: 1.2rem !important;
+  font-weight: 500;
+  padding-top: 0.7rem !important;
+}
