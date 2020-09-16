@@ -1,6 +1,6 @@
 .wsmenu > .wsmenu-list > li > ul.sub-menu {
-  opacity: 0;
-  visibility: hidden;
+  /* opacity: 0;
+  visibility: hidden; */
   -o-transform-origin: 0% 0%;
   -ms-transform-origin: 0% 0%;
   -moz-transform-origin: 0% 0%;
@@ -20,8 +20,8 @@
 }
 
 .wsmenu > .wsmenu-list > li:hover > ul.sub-menu {
-  opacity: 1;
-  visibility: visible;
+  /* opacity: 1;
+  visibility: visible; */
   transform: rotateX(0deg);
   -o-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
@@ -29,8 +29,8 @@
 }
 
 .wsmenu > .wsmenu-list > li > .wsmegamenu {
-  opacity: 0;
-  visibility: hidden;
+  /* opacity: 0;
+  visibility: hidden; */
   -o-transform-origin: 0% 0%;
   -ms-transform-origin: 0% 0%;
   -moz-transform-origin: 0% 0%;
@@ -50,8 +50,8 @@
 }
 
 .wsmenu > .wsmenu-list > li:hover > .wsmegamenu {
-  opacity: 1;
-  visibility: visible;
+  /* opacity: 1;
+  visibility: visible; */
   transform: rotateX(0deg);
   -o-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
@@ -59,8 +59,8 @@
 }
 
 .wsmenu-list > li > .wsshoptabing {
-  opacity: 0;
-  visibility: hidden;
+  /* opacity: 0;
+  visibility: hidden; */
   -o-transform-origin: 0% 0%;
   -ms-transform-origin: 0% 0%;
   -moz-transform-origin: 0% 0%;
@@ -80,8 +80,8 @@
 }
 
 .wsmenu-list > li:hover .wsshoptabing {
-  opacity: 1;
-  visibility: visible;
+  /* opacity: 1;
+  visibility: visible; */
   transform: rotateX(0deg);
   -o-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);

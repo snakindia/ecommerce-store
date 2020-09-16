@@ -2024,3 +2024,22 @@ video {
     width: 93%;
   }
 }
+
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: block;
+  border-bottom: 1px solid #ddd;
+}
+.wsmenu > .wsmenu-list > li > ul.sub-menu {
+  position: absolute;
+  top: 80px;
+  z-index: 1000;
+  margin: 2px 0;
+  padding: 0;
+  min-width: 190px;
+  background-color: #fff;
+  border: solid 1px #eeeeee;
+}
