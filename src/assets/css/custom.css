@@ -467,3 +467,6 @@ list-style-type: none;display:block; margin-top: 2rem;}
 border: 3px solid #fff;width: 16px;height: 16px;float: left;margin: 0.2rem 1rem 0 0;}
 .call-for-action-container li span{background: transparent !important; 
   color:#fff !important; font-size: 1.2rem !important;}
+
+/*=====About us page============*/
+.heading-h4{font-size: 1.6rem !important;font-weight: 600 !important;}
