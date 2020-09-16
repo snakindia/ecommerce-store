@@ -131,7 +131,7 @@ and open the template in the editor.
   padding-bottom: 1.8rem;
 }
 .bhaClient .slick-slide {
-  width: 160px !important;
+  width: 173px !important;
   box-sizing: border-box;
 }
 /*.banner-container{margin-top:0 !important}*/
@@ -464,6 +464,21 @@ list-style-type: none;display:block; margin-top: 2rem;}
 /*.call-for-action-container li:first-child{display: none}*/
 .call-for-action-container ul li:before:fitst-child{display: none !important}
 
+.ant-affix{
+  background: rgba(255,255,255,0.950);
+  box-shadow: 0px 10px 5px -10px #d7d7d7;
+  height: 70px !important;
+  z-index: 10000 !important;
+ 
+}
+#affixed a {
+  color: #000 !important;
+}
+.affixed a {
+  line-height: 1.2rem !important;
+  font-weight: 500;
+  padding-top: 0.7rem !important;
+}
 .call-for-action-container li:before{ content:"";background: #ffa800;
 border: 3px solid #fff;width: 16px;height: 16px;float: left;margin: 0.2rem 1rem 0 0;}
 .call-for-action-container li span{background: transparent !important; 

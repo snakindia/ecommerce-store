@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ReactHtmlParser from 'react-html-parser';
 import { fetchProjectsDetail } from './projects.actions';
-import './../../assets/css/news-events.css';
+//import './../../assets/css/news-events.css';
 import { Link, animateScroll as scroll } from 'react-scroll';
 
 class Projects extends Component {
@@ -23,8 +23,6 @@ class Projects extends Component {
     render() {
         
         const details = this.props.data;
-        console.log('details')
-        console.log(details)
         return (
         <div>
             <div class="sidehoverbar">
