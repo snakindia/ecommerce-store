@@ -168,7 +168,7 @@ class About extends React.Component {
                               <h4 class="heading-h4 pt-5 pb-0">
                                 {item.title}
                               </h4>
-                              <div id="profile" class="float-left w-100">
+                              <div class="float-left w-100">
                                 &nbsp;
                               </div>
                               <div class="col-sm-9 col-md-9 pl-0">

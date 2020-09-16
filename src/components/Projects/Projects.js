@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ReactHtmlParser from 'react-html-parser';
 import { fetchProjectsDetail } from './projects.actions';
+import './../../assets/css/news-events.css';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 class Projects extends Component {
     constructor(props) {
@@ -21,9 +23,32 @@ class Projects extends Component {
     render() {
         
         const details = this.props.data;
+        console.log('details')
+        console.log(details)
         return (
-            <div>
-            {
+        <div>
+            <div class="sidehoverbar">
+                <div class="side-menu">
+                {details &&
+                    Object.keys(details).length &&
+                    details.contents.map((item, idx) => {
+                        return (
+                            <Link
+                                to={item.title}
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={500}
+                                className="tablink js-scroll-trigger"
+                            >
+                                {item.title}<i>&nbsp;</i>
+                            </Link>
+                        )
+                    })
+                }
+                </div>  
+            </div>
+        {
         details && (
         <div class="content-wrapper pb-0">
             <div class="pagewrap">
@@ -31,7 +56,7 @@ class Projects extends Component {
                     <section class="pro-equipment-section pagewrap-inner" style={{"overflow-x": "hidden","margin-top":"160px"}} >
                         <h1 class="bha_heading_2 text-blue text-center pb-5">{details.banner_title}</h1>
                         {details.contents && details.contents.length > 0 &&
-                            <div class="container-fluid pl-1 pr-1 mb-5" id="section_1">
+                            <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[0].title}>
                                 <div class="row no-gutters flex-column-reverse flex-md-row">
                                     <div class="col-sm-6 col-md-6 promo-caption texture-bg">
                                         <div class="p-right">
@@ -49,7 +74,7 @@ class Projects extends Component {
                         }
 
                         {details.contents && details.contents.length > 1 &&
-                        <div class="container-fluid pl-1 pr-1 mb-5" id="section_2">
+                        <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[1].title}>
                             <div class="row no-gutters">
                                 <div class="col-sm-6 col-md-6 caption-img">
                                     <div class="mt-4 brighten">
@@ -67,7 +92,7 @@ class Projects extends Component {
                         }
                         
                         {details.contents && details.contents.length > 2 &&
-                        <div class="container-fluid pl-1 pr-1 mb-5" id="section_3">
+                        <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[2].title}>
                           <div class="row no-gutters flex-column-reverse flex-md-row">
                             <div class="col-sm-6 col-md-6 promo-caption texture-bg">
                               <div class="p-right">
@@ -85,7 +110,7 @@ class Projects extends Component {
                         }
                         
                         {details.contents && details.contents.length > 3 &&
-                            <div class="container-fluid pl-1 pr-1 mb-5" id="section_4">
+                            <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[3].title}>
                                 <div class="row no-gutters">
                                     <div class="col-sm-6 col-md-6 caption-img">
                                         <div class="mt-4 brighten">
@@ -103,7 +128,7 @@ class Projects extends Component {
                         }
 
                         {details.contents && details.contents.length > 4 &&
-                            <div class="container-fluid pl-1 pr-1 mb-5" id="section_5">
+                            <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[4].title}>
                                 <div class="row no-gutters flex-column-reverse flex-md-row">
                                     <div class="col-sm-6 col-md-6 promo-caption texture-bg">
                                       <div class="p-right">
@@ -121,7 +146,7 @@ class Projects extends Component {
                         }
 
                         {details.contents && details.contents.length > 5 &&
-                            <div class="container-fluid pl-1 pr-1 mb-5" id="section_6">
+                            <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[5].title}>
                                 <div class="row no-gutters">
                                     <div class="col-sm-6 col-md-6 caption-img">
                                         <div class="mt-4 brighten">
@@ -139,7 +164,7 @@ class Projects extends Component {
                         }
 
                             {details.contents && details.contents.length > 6 &&
-                                <div class="container-fluid pl-1 pr-1 mb-5" id="section_7">
+                                <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[6].title}>
                                     <div class="row no-gutters flex-column-reverse flex-md-row">
                                         <div class="col-sm-6 col-md-6 promo-caption texture-bg">
                                             <div class="p-right">
