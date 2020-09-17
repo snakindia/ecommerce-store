@@ -289,11 +289,10 @@ transition: all 1s ease;
 
 /*====================215487===========================================*/
 .side-menu{padding: 0; margin: 0;}
-.side-menu .tablink{float:left;color:#000 !important; width: 100%;
-  word-break: break-all !important;}
+.side-menu .tablink{float:left;color:#000 !important; width: 100%;word-break: break-all !important;}
 .side-menu .tablink:hover{background: #23536b; transition: 0.3s; color:#fff;}
-.side-menu .tablink.active{color:#fff  !important; background:#000}
-.side-menu .tablink.active i{background:#fff; width: 32px;
+.side-menu .tablink.active{color:#fff !important; background:#000 !important;}
+.side-menu .tablink.active i{background:#fff !important; width: 32px;
   transition: 0.4s;height: 2px;}
 
 /* styling sidebar */ 
@@ -306,7 +305,7 @@ transition: all 1s ease;
         text-decoration: none; 
         color: white; 
         margin:0; 
-        left:-255px; 
+        left:-252px; 
         transition: 0.5s; 
         opacity: 0.5;
         z-index: 5001;

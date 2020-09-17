@@ -26,6 +26,7 @@ const VerifyUser = lazy(() => import('./components/VerifyUser'));
 const News = lazy(() => import('./components/News'));
 const Events = lazy(() => import('./components/Events'));
 const Compare = lazy(() => import('./components/Compare'));
+const Industries = lazy(() => import('./components/Industries'));
 
 const Router = () => {
      useEffect(() => {
@@ -42,7 +43,7 @@ const Router = () => {
             <Notification />
             <BrowserRouter>
                 <MetaContainer>
-                    <div className="top-header">
+                    <div className="top-header navbar-fixed">
                         <SubscriptionPopUp />
                         <TopBar />
                         <NavBar />
@@ -70,6 +71,7 @@ const Router = () => {
                             <Route path="/events" component={Events} />
                             <Route path="/compare" component={Compare} />
                             <Route path="/represent-us" component={RepresentUs} />
+                            <Route path="/industries" component={Industries} />
                            <Dynamic />
                         </Switch>
                     </Suspense>
