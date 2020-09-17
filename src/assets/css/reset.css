@@ -153,9 +153,12 @@ display: block; text-decoration: none; font-size: 0.750rem !important}
 .wstheading{background: #555; border:0 !important;}
 .wstheading > a{color:#fff !important;font-family: 'Roboto', sans-serif; 
 text-transform: none; display: block;font-size: 0.750rem !important;
-font-weight: normal; padding:0 0.6rem; white-space: nowrap;}
+font-weight: normal; padding:0 0.6rem; white-space: nowrap; text-transform: capitalize !important;}
+.wstliststy04 img > li{background: red;}
+.wsmenu > .wsmenu-list > li .wstliststy04 li.wstheading:hover{background: #232323 !important; 
+  color:#000; transition: 0.4s}
 .wstheading > a i{font-size: 0.750rem !important}
-.wstliststy04 img{object-fit: cover; width: 250px; height: 120px;}
+.wstliststy04 img{object-fit: cover; width: 200px !important; height: 100px !important;}
 .custom-gutter > [class*='col-'] { padding-right:2px; padding-left:2px;}
 .custom-gutter-wsmenu > [class*='col-'] { padding-right:2px; padding-left:2px;}
 

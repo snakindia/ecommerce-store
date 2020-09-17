@@ -495,7 +495,7 @@ video {
 
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > a {
   display: block;
-  padding: 15px 11px;
+  padding: 20px 11px;
   font-size: 13px;
   color: #fff;
   border-bottom: solid 1px #e5e5e5;
@@ -562,7 +562,8 @@ video {
   color: #000;
   display: block;
   float: left;
-  padding: 10px 8px 0px 8px;
+  padding: 10px 8px 0px 8px !important;
+  margin-bottom: 0 !important;
   width: 77%;
   min-height: auto;
   /*min-height: 400px;*/
