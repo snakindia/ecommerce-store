@@ -16,7 +16,7 @@ class Clients extends Component {
   
     render() {
         const clientData = this.props.data;
-        var settings = {
+        const settings = {
             slidesToShow: 6,
             slidesToScroll: 3,
             autoplay: true,

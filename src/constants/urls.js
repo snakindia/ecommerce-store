@@ -27,3 +27,4 @@ export {   DEFAULT_IMG_URL,   signUpUrl,   signInUrl,   hotDealsUrl,   settingsU
 };
 
 export const getPageDetailsUrl = `${API_URL}/get_slug_details?slug=`;
+export const getIndustriesList = `${API_URL}/industries/get_list`;

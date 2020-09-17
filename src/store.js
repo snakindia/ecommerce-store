@@ -12,6 +12,7 @@ import newsReducer from './components/News/news.reducer';
 import compareReducer from './components/Compare/compare.reducer';
 import productService from './components/ProductServices/productservice.reducer';
 import projects from './components/Projects/projects.reducer';
+import industries from './components/Industries/industries.reducer';
 
 const logger = createLogger({ collapsed: true });
 const rootReducer = combineReducers({
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
     news: newsReducer,
     compare: compareReducer,
     productService: productService,
-    projects
+    projects,
+    industries
 });
 const store = createStore(
   rootReducer,

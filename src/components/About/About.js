@@ -124,10 +124,6 @@ class About extends React.Component {
                                   src={item.url}
                                   alt=""
                                 />
-                                <div class="img-caption">
-                                    <div class="bha-name">Lorem ipsum dolor sit amet</div>
-                                    <div class="bha-designation">Chief Executive Officer</div>
-                                </div>
                               </div>
                             </div>
                           </div>

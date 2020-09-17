@@ -42,8 +42,8 @@ class ProductServicesDetail extends Component {
         details && (
     <div>
       
-    <section class="news-events-banner" style={{'border-bottom': '1px solid #ddd', 'margin-top': '7.5rem'}}>
-        <div class="news-events-inner">
+    <section class="" style={{'border-bottom': '1px solid #ddd', 'margin-top': '7.5rem'}}>
+        <div class="">
             <div id="" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox" style={{'height': '540px'}}>
                     <div class="carousel-item active"> 
@@ -51,7 +51,7 @@ class ProductServicesDetail extends Component {
 
                           <div class="landing-caption-inner">
                            <h1 class="bha_heading_2 text-white">{details.banner_title}</h1>
-                           {ReactHtmlParser(details.content)}
+                           <h6 class="text-size-medium mt-3 text-white">{ReactHtmlParser(details.banner_desc)}</h6>
                           </div>
 
                         </div>
@@ -82,11 +82,11 @@ class ProductServicesDetail extends Component {
         <section class="promo-container">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-6 col-md-6"> 
-                      <img class="img-fluid" src={details.contents[0].url} alt="responsive image" />
+                    <div class="col-sm-6 col-md-6 justify-content-center"> 
+                      <img class="img-fluid promo-graphic" src={details.contents[0].url} alt="responsive image" />
                     </div>
                      <div class="col-sm-6 col-md-6 justify-content-center">
-                        <div class="promo-caption">
+                        <div class="bags-promo-caption">
                             <h2 class="promo-heading">
                                 {details.contents[0].title}
                             </h2>

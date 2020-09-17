@@ -464,13 +464,8 @@ list-style-type: none;display:block; margin-top: 2rem;}
 /*.call-for-action-container li:first-child{display: none}*/
 .call-for-action-container ul li:before:fitst-child{display: none !important}
 
-.ant-affix{
-  background: rgba(255,255,255,0.950);
-  box-shadow: 0px 10px 5px -10px #d7d7d7;
-  height: 70px !important;
-  z-index: 10000 !important;
- 
-}
+.ant-affix{ background: rgba(255,255,255,0.950); box-shadow: 0px 10px 5px -10px #d7d7d7;
+  height: 70px !important; z-index: 10000 !important;}
 #affixed a {
   color: #000 !important;
 }
@@ -489,27 +484,64 @@ list-style-type: none;display:block; margin-top: 2rem;}
 border: 3px solid #fff;width: 16px;height: 16px;float: left;margin: 0.2rem 1rem 0 0;}
 .call-for-action-container li span{background: transparent !important; 
   color:#fff !important; font-size: 1.2rem !important;}
-
+.bags-promo-caption{padding: 3rem 3rem 0.5rem;width: 100%;text-align: center;
+position: absolute;top: 15%;right: 5%;}
+.promo-graphic{width: 600px; height: 300px; object-fit: cover; object-position: center;}
+.bhaClient .slick-slide{width: 160px !important;}
+.proService .slick-slide{width: 174px !important;}
+.view p{font-size: 1.6rem !important;padding: 2.5rem 1rem !important;}
+.view-first .mask{background-color: rgba(15,65,106, 0.8) !important}
+.landing-caption-inner p span{font-size: 1.175rem !important; color:#fff !important; 
+  background: transparent !important;font-family: 'Roboto', sans-serif !important;}
 /*=====About us page============*/
-.heading-h4{font-size: 1.5rem !important;font-weight: 600 !important;}
+.heading-h4{font-size: 1.3rem !important;font-weight: 500 !important;}
 .pagewrap-inner p span{font-family: 'Roboto', sans-serif !important; font-size: 1rem !important}
 .pro-equipment-section span{color:#000 !important;}
 .mission-section p span{color:#fff;}
 /*======Project page==================*/
 .promo-caption{text-align: left !important;}
 .pagewrap-inner p{padding-right:0 !important;}
-.p-right, .p-left{height: 236px;
-  display: block;
+.p-right, .p-left{height: 235px; margin-top: -1rem;
     display: -webkit-box;
     width: auto;
     -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;}
-.p-right .heading-h4{padding:0 0 0.6rem !important;font-size: 1.5rem !important;}
+.p-right .heading-h4{padding:0 0 0.6rem !important;letter-spacing: -0.035rem;font-size: 1.35rem !important;}
 .bha_heading_2 {letter-spacing: -0.04rem !important;font-size: 1.570rem !important;}
+.landing-caption-inner .bha_heading_2 {
+    font-size: 2.5rem !important;
+    font-weight: 700;
+}
 .text-blue{font-weight: 600 !important}
 .side-menu .tablink:hover{color:#fff !important;}
 .sidehoverbar{position: fixed !important}
 .side-menu .tablink{width: 290px !important}
 /*.sidehoverbar{left: -253px !important}*/
+/*==========Home page fixing============================*/
+.image-holder{
+  width:273px !important; height: 150px !important;}
+.wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{
+  border-left: 1px solid #ddd !important;}
+.wsmenu > .wsmenu-list > li > .wsshoptabing{
+  box-shadow: 0px 10px 3px -10px #868686 !important;
+  border:0 !important;border-left: 1px solid #f1f4f4 !important; 
+  border:1px solid #ddd !important;}
+figcaption h4{font-weight: 500 !important}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/*@media only screen and (min-width: 1200px) {
+
+.pagewrap {
+    width: 1190px;
+    margin: auto;}
+
+}
+@media only screen and (min-width: 1366px) {
+
+.pagewrap {
+    width: 1300px;
+    margin: auto;}
+
+}*/
