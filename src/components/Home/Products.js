@@ -32,7 +32,7 @@ export default class Products extends Component {
     const { products } = this.state;
     return (
       <div>
-        <section class="bg-opeque pb-4"  id="bestSelling">
+        <section class="bg-opeque pb-4" id="bestSelling">
           <div class="container-fluid">
             <h2 class="bha_heading_2 z-index text-blue">
               Best Selling Products

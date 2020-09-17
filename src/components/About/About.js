@@ -116,10 +116,10 @@ class About extends React.Component {
                       <div>
                         <section
                           class="pro-equipment-section pagewrap-inner"
-                          style={{ background: '#f6f6f6' }}
+                          style={{ background: '#f6f6f6', padding: '0 2rem' }}
                           id={idx}
                         >
-                          <div class="container-fluid pt-4 pb-4">
+                          <div class="container-fluid pt-4 pb-5">
                             <div class="row">
                               <h4 class="heading-h4" id="message">
                                 {item.title}
@@ -169,7 +169,7 @@ class About extends React.Component {
                           class="pro-equipment-section pagewrap-inner ethics"
                           id={idx}
                         >
-                          <div class="container-fluid pb-4">
+                          <div class="container-fluid pb-5">
                             <div class="row">
                               <h4 class="heading-h4 pt-5 pb-0">
                                 {item.title}
