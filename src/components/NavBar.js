@@ -93,8 +93,9 @@ class NavBar extends React.Component {
     let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
 
     return (
+      <div className="pagewrap">
       <div className="headerfull" >
-        <div className="smllogo logo-left">
+        <div className="smllogo">
           <a href="#" className="anchor-logo">
             <img className="d-block pt-1" src={MenuLogo} alt="" width="200" />
           </a>
@@ -154,6 +155,7 @@ class NavBar extends React.Component {
           onSubmit={this.props.saveBrochuresDetails}
           showToast={this.props.showToast}
         />
+      </div>
       </div>
     );
   }
