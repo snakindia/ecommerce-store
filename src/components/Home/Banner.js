@@ -21,6 +21,7 @@ import { Affix } from 'antd';
 import { API_URL } from '../../constants/appConstant';
 import axios from 'axios';
 import { fetch_dynamic_menus } from '../../actions/fetchActions';
+var scrollToElement = require('scroll-to-element');
 
 class Banner extends Component {
   constructor(props) {
@@ -31,9 +32,37 @@ class Banner extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.dispatch(fetch_dynamic_menus());
-  }
+    componentDidMount() {
+        this.props.dispatch(fetch_dynamic_menus());
+    }
+  
+    scrollToCompanyEle() {
+        scrollToElement('#company', {
+            offset: -195,
+            duration: 1500
+        });
+    }
+    
+    scrollToBrandsEle() {
+        scrollToElement('#brand', {
+            offset: -195,
+            duration: 1500
+        });
+    }
+    
+    scrollToProductEle() {
+        scrollToElement('#product', {
+            offset: -195,
+            duration: 1500
+        });
+    }
+    
+    scrollToBestSellingEle() {
+        scrollToElement('#bestSelling', {
+            offset: -195,
+            duration: 1500
+        });
+    }
 
   render() {
     const {affix} =this.state
@@ -103,10 +132,10 @@ class Banner extends Component {
                 <img src={CompanyHoverImage} alt="" class="thumnal-icon" />
                 <img src={CompanyImage} alt="" class="thumnal-icon" />
                 <Link
-                  className="tablink js-scroll-trigger"
-                  to="company"
-                  spy={true}
-                  smooth={true}
+                    className="tablink js-scroll-trigger"
+                    spy={true}
+                    smooth={true}
+                    onClick={this.scrollToCompanyEle}
                 >
                   Companies using our products
                 </Link>
@@ -117,9 +146,9 @@ class Banner extends Component {
                 <img src={BrandImage} alt="" class="thumnal-icon" />
                 <Link
                   className="tablink js-scroll-trigger"
-                  to="brand"
                   spy={true}
-                  smooth={true}
+                    smooth={true}
+                  onClick={this.scrollToBrandsEle}
                 >
                   Premium OEM Brands
                 </Link>
@@ -129,10 +158,10 @@ class Banner extends Component {
                 <img src={EquipmentHoverImage} alt="" class="thumnal-icon" />
                 <img src={EquipmentImage} alt="" class="thumnal-icon" />
                 <Link
-                  className="tablink js-scroll-trigger"
-                  to="product"
-                  spy={true}
-                  smooth={true}
+                    className="tablink js-scroll-trigger"
+                    spy={true}
+                    smooth={true}
+                    onClick={this.scrollToProductEle}
                 >
                   Products parts & Equipment
                 </Link>
@@ -142,10 +171,10 @@ class Banner extends Component {
                 <img src={BestSellingHoverImage} alt="" class="thumnal-icon" />
                 <img src={BestSellingImage} alt="" class="thumnal-icon" />
                 <Link
-                  className="tablink js-scroll-trigger"
-                  to="bestSelling"
-                  spy={true}
-                  smooth={true}
+                    className="tablink js-scroll-trigger"
+                    spy={true}
+                    smooth={true}
+                    onClick={this.scrollToBestSellingEle}
                 >
                   Best Selling Products
                 </Link>

@@ -7,6 +7,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
     "buffer": "^5.6.0",
+    "dotenv": "^8.2.0",
     "email-validator": "^2.0.4",
     "formik": "^2.1.4",
     "google-map-react": "^1.1.7",
@@ -40,6 +41,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "scroll-to-element": "^2.0.3",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {

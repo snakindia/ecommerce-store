@@ -30,8 +30,6 @@ export default class Products extends Component {
     };
 
     const { products } = this.state;
-    console.log('products');
-    console.log(products);
     return (
       <div>
         <section class="bg-opeque pb-4" id="bestSelling">
