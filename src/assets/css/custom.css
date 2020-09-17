@@ -481,33 +481,29 @@ border: 3px solid #fff;width: 16px;height: 16px;float: left;margin: 0.2rem 1rem 
 .bags-promo-caption{padding: 3rem 3rem 0.5rem;width: 100%;text-align: center;
 position: absolute;top: 15%;right: 5%;}
 .promo-graphic{width: 600px; height: 300px; object-fit: cover; object-position: center;}
-.bhaClient .slick-slide{width: 160px !important;}
-.proService .slick-slide{width: 174px !important;}
+/*.bhaClient .slick-slide{width: 160px !important;}
+.proService .slick-slide{width: 174px !important;}*/
 .view p{font-size: 1.6rem !important;padding: 2.5rem 1rem !important;}
 .view-first .mask{background-color: rgba(15,65,106, 0.8) !important}
 .landing-caption-inner p span{font-size: 1.175rem !important; color:#fff !important; 
   background: transparent !important;font-family: 'Roboto', sans-serif !important;}
 /*=====About us page============*/
-.heading-h4{font-size: 1.3rem !important;font-weight: 500 !important;}
+.heading-h4{font-size: 1.42rem !important;font-weight: 600 !important;
+  letter-spacing: -0.043rem !important; color:#212529 !important; margin-top: -0.1rem}
 .pagewrap-inner p span{font-family: 'Roboto', sans-serif !important; font-size: 1rem !important}
-.pro-equipment-section span{color:#000 !important;}
+.pro-equipment-section span{color:#212529 !important;}
 .mission-section p span{color:#fff;}
+/*.pagewrap-inner{padding: 0 2rem !important;}*/
 /*======Project page==================*/
 .promo-caption{text-align: left !important;}
 .pagewrap-inner p{padding-right:0 !important;}
 .p-right, .p-left{height: 235px; margin-top: -1rem;
-    display: -webkit-box;
-    width: auto;
-    -webkit-line-clamp: 7;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;}
-.p-right .heading-h4{padding:0 0 0.6rem !important;letter-spacing: -0.035rem;font-size: 1.35rem !important;}
-.bha_heading_2 {letter-spacing: -0.04rem !important;font-size: 1.570rem !important;}
-.landing-caption-inner .bha_heading_2 {
-    font-size: 2.5rem !important;
-    font-weight: 700;
-}
+    display: -webkit-box;width: auto;-webkit-line-clamp: 7;
+    -webkit-box-orient: vertical; overflow: hidden;text-overflow: ellipsis;}
+
+.p-right .heading-h4{padding:0 0 0.6rem !important;letter-spacing: -0.035rem;font-size:1.35rem !important;}
+.bha_heading_2 {letter-spacing: -0.035rem !important;font-size: 1.570rem !important;}
+.landing-caption-inner .bha_heading_2 {font-size: 2.5rem !important; font-weight: 700;}
 .text-blue{font-weight: 600 !important}
 .side-menu .tablink:hover{color:#fff !important;}
 .sidehoverbar{position: fixed !important}
@@ -523,19 +519,3 @@ position: absolute;top: 15%;right: 5%;}
   border:0 !important;border-left: 1px solid #f1f4f4 !important; 
   border:1px solid #ddd !important;}
 figcaption h4{font-weight: 500 !important}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-/*@media only screen and (min-width: 1200px) {
-
-.pagewrap {
-    width: 1190px;
-    margin: auto;}
-
-}
-@media only screen and (min-width: 1366px) {
-
-.pagewrap {
-    width: 1300px;
-    margin: auto;}
-
-}*/
