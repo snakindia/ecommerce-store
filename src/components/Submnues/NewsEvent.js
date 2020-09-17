@@ -6,8 +6,8 @@ const NewsEvent = (props) => {
         <ul class="sub-menu"
         onMouseLeave={hide}
         >
-            <li aria-haspopup="true"><Link to="/" >News</Link></li>
-            <li aria-haspopup="true"><Link to="/" >Events</Link></li>
+            <li aria-haspopup="true"><Link to="/news" >News</Link></li>
+            <li aria-haspopup="true"><Link to="/events" >Events</Link></li>
           </ul>
       )
 }

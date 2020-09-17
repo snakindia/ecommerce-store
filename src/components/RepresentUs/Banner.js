@@ -6,6 +6,7 @@ import banner2 from '../../assets/images/Cristo.jpg';
 import banner3 from '../../assets/images/V&A-Waterfront.jpg';
 import banner4 from '../../assets/images/statue-liberty.jpg';
 import banner5 from '../../assets/images/Western-Wall.gif';
+import ContactForm from '../common/ContactForm';
 
 const Banner = () => {
   return (
@@ -25,6 +26,7 @@ const Banner = () => {
                                   >
                                         {
                                          <div class="carousel-inner" role="listbox">
+                                             <ContactForm />
                                                 <div key="1" >
                                                 <picture>
                                                     <img src={banner1} alt="" className="img-fluid hero-img" />
