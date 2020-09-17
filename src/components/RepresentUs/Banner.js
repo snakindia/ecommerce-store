@@ -9,27 +9,30 @@ import banner5 from '../../assets/images/Western-Wall.gif';
 import ContactForm from '../common/ContactForm';
 
 const Banner = () => {
-  return (
-        <section class="banner-slider-container" style={{"margin-top":"105px", "padding":"1rem 0 0"}} >
+    return (
+        <section class="banner-slider-container" style={{ "margin-top": "105px", "padding": "1rem 0 0" }} >
             <div class="page wrap">
                 <div class="container-fluid pl-0 pr-0">
                     <div class="row no-gutters">
                         <div class="col-lg-12 pr-0">
-                        <div class="banner-container-xxs mt-0">
-            <div id="carousel" class="carousel slide" data-ride="carousel">
-                            
-                                <RBCarousel
-                                    autoplay={true}
-                                    pauseOnVisibility={true}
-                                    slideshowSpeed={100}
-                                    version={4}
-                                  >
+                            <div class="banner-container-xxs mt-0">
+                                <div id="carousel" class="carousel slide" data-ride="carousel">
+
+                                    <RBCarousel
+                                        autoplay={true}
+                                        pauseOnVisibility={true}
+                                        slideshowSpeed={100}
+                                        version={4}
+                                    >
                                         {
-                                         <div class="carousel-inner" role="listbox">
-                                             <ContactForm />
+                                            <div class="carousel-inner" role="listbox">
+                                                <div className="align-right-contactform">
+                                                    <ContactForm />
+                                                </div>
+
                                                 <div key="1" >
-                                                <picture>
-                                                    <img src={banner1} alt="" className="img-fluid hero-img" />
+                                                    <picture>
+                                                        <img src={banner1} alt="" className="img-fluid hero-img" />
                                                     </picture>
                                                     <div class="item-xxs-caption">
                                                         <h1 class="item_heading text-white">North America</h1>
@@ -61,7 +64,7 @@ const Banner = () => {
                                                     </div>
                                                 </div>
 
-                                                <div  key="5"><picture>
+                                                <div key="5"><picture>
                                                     <img src={banner5} alt="" className="img-fluid" /></picture>
                                                     <div class="item-xxs-caption">
                                                         <h1 class="item_heading text-white">Israel</h1>
@@ -70,16 +73,16 @@ const Banner = () => {
                                                 </div>
                                             </div>
                                         }
-                                </RBCarousel>
-                           
+                                    </RBCarousel>
+
+                                </div>
+                            </div>
                         </div>
-                         </div>
-                          </div>
                     </div>
                 </div>
             </div>
         </section>
-  );
+    );
 };
 
 export default Banner;

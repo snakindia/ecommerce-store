@@ -477,7 +477,7 @@ list-style-type: none;display:block; margin-top: 2rem;}
 #representus-contact {
   z-index: 1;
   position: relative;
-  right: 100px;
+  /* right: 100px; */
   float: right;
 }
 .call-for-action-container li:before{ content:"";background: #ffa800;
