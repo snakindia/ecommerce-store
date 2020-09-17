@@ -82,11 +82,11 @@ class ProductServicesDetail extends Component {
         <section class="promo-container">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-6 col-md-6"> 
-                      <img class="img-fluid" src={details.contents[0].url} alt="responsive image" />
+                    <div class="col-sm-6 col-md-6 justify-content-center"> 
+                      <img class="img-fluid promo-graphic" src={details.contents[0].url} alt="responsive image" />
                     </div>
                      <div class="col-sm-6 col-md-6 justify-content-center">
-                        <div class="">
+                        <div class="bags-promo-caption">
                             <h2 class="promo-heading">
                                 {details.contents[0].title}
                             </h2>
