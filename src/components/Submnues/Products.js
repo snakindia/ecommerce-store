@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import EpicCover from '../../assets/images/600X500-4.jpg';
 import Baghouse from '../../assets/images/baghouse.jpg';
 import { DEFAULT_IMG_URL } from '../../constants/urls';
+import { API_IMAGE_PATH } from '../../constants/appConstant';
 import {
     categoryImageUrl
 
@@ -101,7 +102,7 @@ class Products extends React.Component {
                                                                             className="scale-down"
                                                                             src={
                                                                                 itemTwo.image != ''
-                                                                                    ? `${itemTwo.banner_image}`
+                                                                                    ? API_IMAGE_PATH + 'categories/' + itemTwo._id + '/' + `${itemTwo.image}`
                                                                                     : DEFAULT_IMG_URL
                                                                             }
                                                                             alt="bha"

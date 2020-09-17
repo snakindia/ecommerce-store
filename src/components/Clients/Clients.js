@@ -24,9 +24,9 @@ class Clients extends Component {
         };
         return (
             <div>
-                <section class="bg-opeque" id="company">
-                    <div class="container-fluid">
-                        <h2 class="bha_heading_2 z-index text-blue">
+                <section className="pb-4 bg-opeque" id="company">
+                    <div className="container-fluid">
+                        <h2 className="bha_heading_2 z-index text-blue">
                             Companies using our products
                         </h2>
                     </div>

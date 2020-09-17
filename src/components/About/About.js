@@ -6,26 +6,36 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 
 import { get_about_us_details } from '../../actions/pageActions';
 import { Sticky } from 'react-sticky';
+var scrollToElement = require('scroll-to-element');
 
 class About extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeTabID: '',
-      curerentTabClass: 'tablink js-scroll-trigger current',
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeTabID: '',
+            curerentTabClass: 'tablink js-scroll-trigger current',
+        };
+    }
+
+    componentDidMount() {
+        this.props.dispatch(get_about_us_details());
+    }
+
+    setActiveClass = id => {
+        this.setState({
+            activeTabID: id,
+        });
+        this.drawMenu();
     };
-  }
-
-  componentDidMount() {
-    this.props.dispatch(get_about_us_details());
-  }
-
-  setActiveClass = id => {
-    this.setState({
-      activeTabID: id,
-    });
-    this.drawMenu();
-  };
+  
+    scrollToEle(val, offsetVal) {
+        scrollToElement('.' + val, {
+            offset: - offsetVal,
+            duration: 1500
+        });
+    }
+    
 
   drawMenu() {
     const { abousUsDetails } = this.props;
@@ -106,10 +116,10 @@ class About extends React.Component {
                       <div>
                         <section
                           class="pro-equipment-section pagewrap-inner"
-                          style={{ background: '#f6f6f6' }}
+                          style={{ background: '#f6f6f6', padding: '0 2rem' }}
                           id={idx}
                         >
-                          <div class="container-fluid pt-4 pb-4">
+                          <div class="container-fluid pt-4 pb-5">
                             <div class="row">
                               <h4 class="heading-h4" id="message">
                                 {item.title}
@@ -139,7 +149,7 @@ class About extends React.Component {
                             <div class="col-lg-12 text-center">
                               <Link
                                 className="js-scroll-trigger"
-                                to="1"
+                                onClick={() => this.scrollToEle('ethics', 85)}
                                 spy={true}
                                 smooth={true}
                               >
@@ -156,10 +166,10 @@ class About extends React.Component {
                     return (
                       <div>
                         <section
-                          class="pro-equipment-section pagewrap-inner"
+                          class="pro-equipment-section pagewrap-inner ethics"
                           id={idx}
                         >
-                          <div class="container-fluid pb-4">
+                          <div class="container-fluid pb-5">
                             <div class="row">
                               <h4 class="heading-h4 pt-5 pb-0">
                                 {item.title}
@@ -191,7 +201,7 @@ class About extends React.Component {
                             <div class="col-lg-12 text-center">
                               <Link
                                 className="js-scroll-trigger"
-                                to="2"
+                                onClick={() => this.scrollToEle('mission',85)}
                                 spy={true}
                                 smooth={true}
                               >
@@ -208,7 +218,7 @@ class About extends React.Component {
                     return (
                       <div>
                         <section
-                          class="mission-section pagewrap-inner"
+                          class="mission-section pagewrap-inner mission"
                           id={idx}
                         >
                           <div class="container-fluid">
@@ -246,7 +256,7 @@ class About extends React.Component {
                             <div class="col-lg-12 text-center">
                               <Link
                                 className="js-scroll-trigger"
-                                to="3"
+                                onClick={() => this.scrollToEle('location', 115)}
                                 spy={true}
                                 smooth={true}
                               >
@@ -262,7 +272,7 @@ class About extends React.Component {
                     if (idx == 3) {
                         return (
                           <section
-                            class="pro-equipment-section padding-0 pagewrap-inner"
+                            class="pro-equipment-section padding-0 pagewrap-inner location"
                             id="3"
                           >
                             <div>
