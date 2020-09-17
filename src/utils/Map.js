@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-
+import { MDBModal, MDBModalBody } from 'mdbreact';
+import ContactForm from '../components/common/ContactForm'
 const mapStyles = {
   width: '100%',
   height: '100%',
@@ -30,18 +31,25 @@ export class MapContainer extends Component {
       });
     }
   };
+  toggleModal = () => {
+    const { modalVisible } = this.state;
+    this.setState({ modalVisible: modalVisible ? false : true })
+  }
   render() {
+    const { modalVisible } = this.state;
     return (
-      <Map
-        initialCenter={coords}
-        google={this.props.google}
-        maxZoom={2}
-        minZoom={2}
-        streetViewControl={false}
-        disableDefaultUI={true}
-        draggable={false}
-      >
-        <Marker
+      <>
+        <Map
+          initialCenter={coords}
+          google={this.props.google}
+          maxZoom={2}
+          minZoom={2}
+          streetViewControl={false}
+          disableDefaultUI={true}
+          draggable={false}
+          onClick={this.toggleModal}
+        >
+          {/* <Marker
           name={
             '2415 East Camelback Road, Ste. 700, Phoenix, Arizona, P.O. Box: 6887, Goodyear, Arizona 85338, United States'
           }
@@ -89,8 +97,14 @@ export class MapContainer extends Component {
           <div>
             <h4>{this.state.selectedPlace.name}</h4>
           </div>
-        </InfoWindow>
-      </Map>
+        </InfoWindow> */}
+        </Map>
+        <MDBModal isOpen={modalVisible} toggle={this.toggleModal} centered>
+         
+            <ContactForm />
+          
+        </MDBModal>
+      </>
     );
   }
 }
