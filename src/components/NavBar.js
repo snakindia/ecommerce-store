@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import EpicCover from '../assets/images/600X500-4.jpg';
 import Baghouse from '../assets/images/baghouse.jpg';
 import Baghouselogo from '../assets/images/baghouse_logo.svg';
@@ -25,6 +25,7 @@ import { save_brochures_details } from '../actions/freeBrochuresActions';
 import { showToast } from './Notification/notification.actions';
 import SubMenu from './Submnues/SubMenu';
 import ReactDOM from 'react-dom';
+var scrollToElement = require('scroll-to-element');
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -43,6 +44,13 @@ class NavBar extends React.Component {
     window.addEventListener('load', this.handleLoad);
     this.props.fetch_dynamic_menus();
     this.props.fetch_submenu_items();
+  }
+
+  componentDidUpdate(preveProps){
+    if(preveProps.location.pathname !=this.props.location.pathname){
+      
+      scrollToElement('#root');
+    }
   }
 
   handleLoad() {
@@ -191,4 +199,6 @@ const mapDispatchToProps = {
   fetch_submenu_items,
   showToast,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+//export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+const navRedux =connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default withRouter(navRedux);
