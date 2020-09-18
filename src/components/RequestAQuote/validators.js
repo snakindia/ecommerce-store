@@ -10,5 +10,6 @@ export const validators = {
   phone: [isRequired('Phone Number is required'), phoneNumber()],
   company: [isRequired('Company Name is required'), charactersOnly()],
   email: [isRequired('Email Id is required'), email()],
+  category_id: [isRequired('Category is required'), isRequired()],
   message: [isRequired('Please type Message'), isRequired()],
 };
