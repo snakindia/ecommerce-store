@@ -32,6 +32,8 @@ import { setUserSession } from '../utils/Common';
 import { API_AJAX_URL, API_URL } from '../constants/appConstant';
 import parseHtml from 'react-html-parser';
 import { POST } from '../services/httpService';
+import GoogleTranslator from './common/GoogleTranslator';
+
 import {
   getAuthToken,
   removeAuthDetails,
@@ -108,11 +110,12 @@ class TopBar extends Component {
     removeAuthDetails();
     this.props.signOutUser();
   };
-
+  
   render() {
     const { authenticated, userDetails } = this.props;
     return (
       <div>
+          <GoogleTranslator/>
         <div className="headtoppart">
           <div className="topbar">
             <div className="headerwp">
@@ -144,6 +147,12 @@ class TopBar extends Component {
                       </a>
                     </li>
                   )}
+                  
+                <span class="mobPipe">&nbsp;</span>
+                <li id="CountryOpen">
+                    <a href="#"><img src={Globe} alt="" width="20" />EN<i class="caret border-0"></i></a>
+                </li>
+          
                   <span>&nbsp;</span>
                   {/*<li><a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a></li>
                                     <span>&nbsp;</span>*/}

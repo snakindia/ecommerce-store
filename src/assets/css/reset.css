@@ -372,6 +372,10 @@ padding:1.5rem 0; width:100%;}
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;}
+.location-section{float:left;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;}
 /*.heading{
   background:#6995b1;
   position:relative;
