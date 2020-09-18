@@ -11,10 +11,10 @@ class News extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 1,
-      pageType: props.pageType || 'News',
-      size: props.size || 4,
-      filterBy: 'Default',
+        page: 1,
+        pageType: props.pageType || 'News',
+        size: props.size || 4,
+        filterBy: 'Default',
     };
   }
 
@@ -56,7 +56,7 @@ class News extends Component {
     const { filterBy, pageType } = this.state;
     return (
       <React.Fragment>
-        <NewsBanner />
+        { newsList && Object.keys(newsList).length > 0 ? <NewsBanner bannerDetails={newsList[0]} /> : ''}
         {Boolean(fetchingNews) && <div>Loading...</div>}
         <div className="content-wrapper pb-0">
           <div className="pagewrap">
