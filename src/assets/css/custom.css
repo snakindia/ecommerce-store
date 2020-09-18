@@ -522,3 +522,11 @@ color:#000 !important; font-weight: 500 !important; }
     opacity: unset !important;
     visibility: unset !important;
 }
+.view.view-first.height-auto.indusry-img {
+  width: 360px;
+  height: 214px;
+  margin: 0 auto;
+}
+.container-fluid.pl-0.pr-0.padding25 {
+  padding: 0 25px !important;
+}
