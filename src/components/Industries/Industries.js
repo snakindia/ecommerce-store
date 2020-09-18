@@ -62,11 +62,11 @@ class Industries extends Component {
                                             <div class="card-slider__container__list__card__content">
                                                 <a href="/en/industrial-manufacturing/landing/red1000.html" target="_self">
                                                     <div class="card-slider__container__list__card__content__headings">
-                                                        <h2 class="card-slider__container__list__card__content__title color-" style={{"overflow-wrap": "break-word"}} >
-                                                            {ReactHtmlParser(item.content)}
-                                                        </h2>
-                                                        <h3 class="card-slider__container__list__card__content__subtitle color-" style={{"overflow-wrap": "break-word"}} >
+                                                        <h2 class="card-slider__container__list__card__content__title" style={{"overflow-wrap": "break-word"}} >
                                                             {item.title}
+                                                        </h2>
+                                                        <h3 class="card-slider__container__list__card__content__subtitle" style={{"overflow-wrap": "break-word"}} >
+                                                            {ReactHtmlParser(item.content)}
                                                         </h3>
                                                     </div>
                                                 </a>

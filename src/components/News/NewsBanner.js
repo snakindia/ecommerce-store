@@ -11,7 +11,7 @@ const NewsBanner = (bannerDetails) => {
                             <div class="caption-right">
                                 <div class="caption-inner">
                                     <div class="animated bounceInRight">
-                                        <h4 class="pt-3">{bannerDetails.bannerDetails.title}</h4>
+                                        <h1 class="pt-3 bha_heading_2 text-white">{bannerDetails.bannerDetails.title}</h1>
                                         <h6 class="text-size-medium mt-3">{htmlParse(bannerDetails.bannerDetails.content)}</h6>
                                     </div>
                                     {

@@ -33,7 +33,7 @@ class ProductServicesClients extends Component {
                 </div>
                 <div class="placement-client pt-0" style={{"padding":"1rem 3rem"}}>
                     <div class="container-fluid">
-                        <section class="bhaClient proService slider">
+                        <section class="proService slider">
                             <Slider {...settings}>
                             {
                                 clientData &&
