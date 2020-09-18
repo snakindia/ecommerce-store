@@ -496,3 +496,7 @@ color:#000 !important; font-weight: 500 !important; }
 }*/
 
 
+.wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright {
+    opacity: unset !important;
+    visibility: unset !important;
+}
