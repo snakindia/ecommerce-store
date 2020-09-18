@@ -8,7 +8,7 @@ export default class GoogleTranslator extends Component {
         multilanguagePage: false,
         layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false,
-        //            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+                    layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
       },
       'google_translate_element'
     );
@@ -25,6 +25,6 @@ export default class GoogleTranslator extends Component {
   }
 
   render() {
-    return <div id="google_translate_element"></div>;
+      return <div id="google_translate_element"></div>;
   }
 }

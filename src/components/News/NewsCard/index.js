@@ -39,7 +39,6 @@ const NewsCard = ({ newsData, pageType }) => {
           </div>
         </a>
         <div className="social-share-box border">
-          <span>{category_name}</span>
           <a href="javascript:void(0);" className="float-right">
             <i className="fa fa-twitter share-icon twitter-bg" />
           </a>

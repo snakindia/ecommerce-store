@@ -58,65 +58,6 @@ and open the template in the editor.
   transform: translate(10px, -62px);
 }
 
-#google_translate_element {
-  position: absolute;
-  bottom: calc(53px + 16px);
-  right: 16px !important;
-}
-.goog-te-gadget {
-  font-family: Roboto, 'Open Sans', sans-serif !important;
-  text-transform: uppercase;
-}
-.goog-te-gadget-simple {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-  border: 1px solid rgba(255, 255, 255, 0.5) !important;
-  padding: 8px !important;
-  border-radius: 4px !important;
-  font-size: 1rem !important;
-  line-height: 2rem !important;
-  display: inline-block;
-  cursor: pointer;
-  zoom: 1;
-}
-.goog-te-menu2 {
-  max-width: 100%;
-}
-.goog-te-menu-value {
-  color: #fff !important;
-  &:before {
-    font-family: 'Material Icons';
-    content: '\E927';
-    margin-right: 16px;
-    font-size: 2rem;
-    vertical-align: -10px;
-  }
-}
-.goog-te-menu-value span:nth-child(5) {
-  display: none;
-}
-.goog-te-menu-value span:nth-child(3) {
-  border: none !important;
-  font-family: 'Material Icons';
-  &:after {
-    font-family: 'Material Icons';
-    content: '\E5C5';
-    font-size: 1.5rem;
-    vertical-align: -6px;
-  }
-}
-
-.goog-te-gadget-icon {
-  background-image: url(https://placehold.it/32) !important;
-  background-position: 0px 0px;
-  height: 32px !important;
-  width: 32px !important;
-  margin-right: 8px !important;
-  display: none;
-}
-
-.goog-te-banner-frame.skiptranslate {
-  display: none !important;
-}
 .modal-open {
   top: 0px !important;
 }
@@ -203,32 +144,6 @@ and open the template in the editor.
 .modal-dialog-lg {
   border: none !important;
 }
-/* .seachbox{display: none; background-color: #fff; position: absolute;top:42% !important;right:1% !important;
-width: 30%; z-index: 1000000 !important; padding:0.5rem 1rem;color:#000;} */
-.searchbox .modal-content {
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  background: #fff !important;
-  margin-top: 0.5rem;
-}
-.input-group-append {
-  margin-left: -7px !important;
-}
-.btn {
-  margin-left: 0 !important;
-}
-.btn:hover {
-  color: #fff !important;
-}
-.searchbox {
-  position: absolute !important;
-  top: 1.8% !important;
-  right: 3% !important;
-  width: 30% !important;
-  z-index: 1000000 !important;
-  padding: 0 0.5rem !important;
-  color: #000;
-}
 /* .bha_heading_2 { font-size: 1.8rem !important;} */
 .caption h1 {
   font-size: 3rem !important;
@@ -261,11 +176,6 @@ h6 {
   height: calc(1.5rem + 0.75rem + 2px) !important;
 }
 
-#google_translate_element {
-  position: absolute;
-  bottom: calc(15px + 16px);
-  right: 62px !important;
-}
 
 /*==============Responsive CSS==============================================*/
 @media (max-width: 768px) {

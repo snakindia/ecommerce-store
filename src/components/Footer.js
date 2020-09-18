@@ -140,23 +140,6 @@ class Footer extends Component {
                             })}
                         </ul>
                       </MDBCol>
-                      <MDBCol md="4">
-                        <h3 className="title">Quick links</h3>
-                        <ul class="foote-link">
-                          <li>
-                            <a href="/">Projects</a>
-                          </li>
-                          <li>
-                            <a href="/">Industries</a>
-                          </li>
-                          <li>
-                            <a href="/">Shop</a>
-                          </li>
-                          <li>
-                            <a href="/">Request a Quote</a>
-                          </li>
-                        </ul>
-                      </MDBCol>
                       <MDBCol md="4"></MDBCol>
                     </MDBRow>
                   </MDBCol>

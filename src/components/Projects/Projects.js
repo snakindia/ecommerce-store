@@ -94,7 +94,7 @@ class Projects extends Component {
                           <div class="row no-gutters flex-column-reverse flex-md-row">
                             <div class="col-sm-6 col-md-6 promo-caption texture-bg mb-4">
                               <div class="p-right text-left">
-                                <h4 class="heading-h4 pb-2 text-blue">{details.contents[1].title}</h4>
+                                <h4 class="heading-h4 pb-2 text-blue">{details.contents[2].title}</h4>
                                 {ReactHtmlParser(details.contents[2].description)}
                               </div>
                             </div>
@@ -112,12 +112,12 @@ class Projects extends Component {
                                 <div class="row no-gutters">
                                     <div class="col-sm-6 col-md-6 caption-img">
                                         <div class="brighten">
-                                            <img src={details.contents[2].url} alt="..." class="proj-object-fit" />
+                                            <img src={details.contents[3].url} alt="..." class="proj-object-fit" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-md-6 promo-caption-left flex-column-reverse flex-md-row">
                                         <div class="p-left">
-                                            <h4 class="heading-h4 pb-2 text-blue">{details.contents[2].title}</h4>
+                                            <h4 class="heading-h4 pb-2 text-blue">{details.contents[3].title}</h4>
                                             {ReactHtmlParser(details.contents[3].description)}
                                         </div>
                                     </div>
