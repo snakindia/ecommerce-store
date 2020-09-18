@@ -5,7 +5,7 @@ import RBCarousel from 'react-bootstrap-carousel';
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css';
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 import ReactHtmlParser from 'react-html-parser';
-
+import ContactForm from '../common/ContactForm';
 class IndustriesSlider extends Component {
     
     constructor(props) {
@@ -25,6 +25,9 @@ class IndustriesSlider extends Component {
                             <div class="banner-container-xx mt-0" style={{"position": "relative"}} >
                                 <div id="carousel" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner" role="listbox">
+                                    <div id="IndustriesSlider" className="align-right-contactform">
+                                                    <ContactForm />
+                                                </div>
                                         <RBCarousel
                                             autoplay={true}
                                             pauseOnVisibility={true}
