@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MDBModal, MDBModalBody } from 'mdbreact';
-import { Form, Formik,Field } from 'formik';
+import { Form, Formik, Field } from 'formik';
 import { Select } from 'antd'
 import { connect } from 'react-redux';
 import execValidation from '../../services/validatorService';
@@ -22,7 +22,7 @@ class RequestAQuote extends Component {
     const { toggleModal, onSubmit, showToast } = this.props;
     setSubmitting(true);
     try {
-     
+
       const res = await onSubmit({ ...values, type: 'Request a Quote' });
       if (res && res.status) {
         toggleModal();
@@ -56,7 +56,7 @@ class RequestAQuote extends Component {
         }
       }
     }
-    
+    categories = categories.sort((a, b) => a.label > b.label)
     return (
       <MDBModal isOpen={isOpen} toggle={toggleModal} centered>
         <MDBModalBody>
@@ -179,17 +179,17 @@ class RequestAQuote extends Component {
                             onChange={handleChange}
                             onBlur={handleBlur}
                           > <option>Select a Category</option>
-                          {categories && categories.map(item => 
-                            <option 
-                            key={item.value} 
-                            value={item.value}
-                            title={item.label}
-                            onClick={e=>{
-                              setFieldValue('category_name', item.label)
-                            }}
-                            >{item.label}</option>)}
-                            </Field>
-                          
+                            {categories && categories.map(item =>
+                              <option
+                                key={item.value}
+                                value={item.value}
+                                title={item.label}
+                                onClick={e => {
+                                  setFieldValue('category_name', item.label)
+                                }}
+                              >{item.label}</option>)}
+                          </Field>
+
                           <span className="errorMsg">
                             {touched.category_id && errors.category_id}
                           </span>
@@ -199,9 +199,11 @@ class RequestAQuote extends Component {
                       <div className="col-lg-12">
                         <div className="form-group mb-1">
                           <label htmlFor="company">Message *</label>
-                          <input
-                            type="text"
-                            className="form-control"
+                          <Field
+                            maxLength="100"
+                            component="textarea"
+                            rows="2"
+                            className="form-control-textarea"
                             id="message"
                             placeholder="Type Message"
                             value={values.message}

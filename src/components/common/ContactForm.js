@@ -9,6 +9,14 @@ class ContactForm extends Component {
         this.props.save_brochures_details(data);
     }
     render() {
+        const initialValues = {
+            name: '',
+            company: '',
+            email: '',
+            phone: '',
+            country: this.props.countryName ? this.props.countryName : '',
+            description: '',
+        }
 
         return (
 
@@ -22,14 +30,8 @@ class ContactForm extends Component {
                                 APPLY FOR REPRESENTATION
                         </h2>
                             <Formik
-                                initialValues={{
-                                    name: '',
-                                    company: '',
-                                    email: '',
-                                    phone: '',
-                                    country: '',
-                                    description: '',
-                                }}
+                                enableReinitialize
+                                initialValues={initialValues}
                                 validate={values => {
                                     const errors = {};
                                     if (!values.name) {
@@ -214,8 +216,9 @@ class ContactForm extends Component {
                                                     <div class="form-group">
                                                         <label>Description *</label>
                                                         <Field
-                                                          component="textarea"
-                                                          rows="2"
+                                                            component="textarea"
+                                                            rows="2"
+                                                            maxLength="100"
                                                             id="description"
                                                             className="form-control-textarea"
                                                             name="description"

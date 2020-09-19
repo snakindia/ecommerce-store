@@ -53,6 +53,7 @@ class TopBar extends Component {
       errors: {},
       loginError: null,
     };
+    this.ref =React.createRef(null);
   }
 
   componentDidMount() {
@@ -65,6 +66,7 @@ class TopBar extends Component {
       modal5: false,
       modal6: false,
       loginError: null,
+      showLanguage:undefined
     });
     this.setState({
       [modalNumber]: !this.state[modalNumber],
@@ -86,6 +88,11 @@ class TopBar extends Component {
           )}
       </div>
     );
+  }
+
+ showLanguage =()=>{
+    const {showLanguage} =this.state;
+    this.setState({showLanguage:showLanguage ? false :true})
   }
 
   onFormSubmit = (values, { setSubmitting }) => {
@@ -113,9 +120,13 @@ class TopBar extends Component {
   
   render() {
     const { authenticated, userDetails } = this.props;
+    const { showLanguage} = this.state;
     return (
       <div>
-          <GoogleTranslator/>
+        <div style={{display: showLanguage ? 'block':'none'}}>
+        <GoogleTranslator />
+        </div>
+       
         <div className="headtoppart">
           <div className="topbar">
             <div className="headerwp">
@@ -149,7 +160,7 @@ class TopBar extends Component {
                   )}
                   
                 <span class="mobPipe">&nbsp;</span>
-                <li id="CountryOpen">
+                <li id="CountryOpen"  onClick={this.showLanguage}>
                     <a href="#"><img src={Globe} alt="" width="20" />EN<i class="caret border-0"></i></a>
                 </li>
           
