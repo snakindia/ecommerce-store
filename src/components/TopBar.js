@@ -124,7 +124,7 @@ class TopBar extends Component {
     return (
       <div>
         <div style={{display: showLanguage ? 'block':'none'}}>
-        <GoogleTranslator />
+            <GoogleTranslator />
         </div>
        
         <div className="headtoppart">

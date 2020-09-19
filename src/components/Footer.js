@@ -16,6 +16,7 @@ import { save_brochures_details } from '../actions/freeBrochuresActions';
 import { showToast } from './Notification/notification.actions';
 import { TOAST_TYPE } from './Notification/action.constants';
 
+
 class Footer extends Component {
   constructor(props) {
     super(props);
@@ -32,11 +33,11 @@ class Footer extends Component {
   }
 
   componentDidMount() {
-    showToast(
-      'Please click on link sent in your mailbox for verification',
-      TOAST_TYPE.SUCCESS
-    );
-    this.props.dispatch(fetch_dynamic_menus());
+//    showToast(
+//      'Please click on link sent in your mailbox for verification',
+//      TOAST_TYPE.SUCCESS
+//    );
+    fetch_dynamic_menus();
   }
   render() {
     this.state.brochureData = this.props.freeBrochuresUserDetail;
@@ -195,8 +196,12 @@ class Footer extends Component {
                             return errors;
                           }}
                           onSubmit={(values, { setSubmitting, resetForm }) => {
+                              setSubmitting(true);
                             this.saveHandler(values);
-                            //        resetForm()
+//                             toggleModal();
+//                            showToast('Quote request success', TOAST_TYPE.SUCCESS);
+//console.log('...................')
+                                    resetForm()
                           }}
                         >
                           {({
@@ -432,6 +437,8 @@ const mapStateToProps = ({ asyncReducer }) => {
   return {
     navMenuData: asyncReducer,
     brochureData: asyncReducer.freeBrochuresUserDetail,
+    showToast
   };
 };
+
 export default connect(mapStateToProps)(Footer);
