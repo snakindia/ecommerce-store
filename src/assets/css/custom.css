@@ -85,7 +85,7 @@ and open the template in the editor.
 }
 .bottom-navigation {
   position: absolute;
-  /* top: 530px; */
+   top: 630px; 
   bottom: 0 !important;
   z-index: 100 !important;
 }

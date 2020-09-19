@@ -114,7 +114,7 @@ class Banner extends Component {
         
              <div class='bottom-navigation affixed'>
              <Affix 
-             offsetTop={120} 
+             offsetTop={144} 
              onChange={e=>this.setState({affix:e})}
              >
           <div class="container" id={affix ? 'affixed':''}>

@@ -52,7 +52,7 @@ class EventDetail extends Component {
                   </h2>
                   <p class="text-left pl-2 text-muted">{dateConversion(details.date_created)}</p>
                   <div class="share-link">
-                    <FacebookShareButton url={window.location.href} quote={details.title} hashtag={details.title} >
+                    <FacebookShareButton url={window.location.href} quote={window.location.href} > 
                         <a href=""><i class="fa fa-facebook"></i>facebook</a>
                     </FacebookShareButton>
                     
