@@ -33,9 +33,7 @@ const Router = () => {
           const timer = setTimeout(() => {
           const currentTime = localStorage.getItem("currentTime");
             let timeDiff = Date.now() - currentTime;
-            console.log(timeDiff);
         }, 1000);
-//        return () => clearTimeout(timer);
   }, []);
     
     return (

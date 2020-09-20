@@ -35,7 +35,7 @@ class Projects extends Component {
                                 to={item.title}
                                 spy={true}
                                 smooth={true}
-                                offset={-70}
+                                offset={-150}
                                 duration={500}
                                 className="tablink js-scroll-trigger"
                             >

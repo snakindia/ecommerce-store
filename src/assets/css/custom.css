@@ -533,3 +533,7 @@ color:#000 !important; font-weight: 500 !important; }
 #industrybanner{
   height: 690px !important;
 }
+
+.side-menu {
+    padding-top: 50px !important;
+}

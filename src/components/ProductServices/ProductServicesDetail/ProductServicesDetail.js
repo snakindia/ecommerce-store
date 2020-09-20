@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Banner from './Banner';
+import Certificates from './Certificates';
+import Resources from './Resources';
 import {dateConversion} from './../../common/Util';
 import Clients from './../../Clients/ProductServicesClients';
 import PremiumBrands from './../../Shop/ProductServicesPremiumBrands';
@@ -35,220 +38,83 @@ class ProductServicesDetail extends Component {
   
     render() {
         
-        const details = this.props.data;
+    const details = this.props.data;
+    console.log('details.contents')
+    console.log(details)
     return (
-            <div>
-             {
+        <div>
+        {
         details && (
-    <div>
-      
-    <section class="" style={{'border-bottom': '1px solid #ddd', 'margin-top': '7.5rem'}}>
-        <div class="">
-            <div id="" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" role="listbox" style={{'height': '540px'}}>
-                    <div class="carousel-item active"> 
-                        <div class="landing-caption">
-
-                          <div class="landing-caption-inner">
-                           <h1 class="bha_heading_2 text-white">{details.banner_title}</h1>
-                           <h6 class="text-size-medium mt-3 text-white">{ReactHtmlParser(details.banner_desc)}</h6>
-                          </div>
-
+               
+            <div>
+                <section class="breadcrumb-container" style={{"position": "relative", "z-index": "1000"}} >
+                    <div class="container-fluid">
+                        <div class="row justify-content-center">
+                            <ol class="breadcrumb breadcrumb-bar pb-0 pt-1 small">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Product/Services</a></li>
+                                <li class="breadcrumb-item active">{details.meta_title}</li>
+                            </ol>
                         </div>
-
-                        <img class="img-fluid" src={details.banner_image} alt="responsive image" />
-                        {details.resources && Object.keys(details.resources).length > 0 &&
-                            <div class="quick-link-container pattern pattern1" >
-                                <div class="inner-link">
-                                    <h2 class="pb-2">Quick Links</h2> {
-                                            details.resources.map((item, idx) => {
-                                                return (
-                                                    <a href={item.image} target="_blank" class="quick-link-btn">
-                                                    <span>{item.title}</span></a>
-                                                )
-                                            })
-                                        }
+                    </div>
+                </section>
+                <Banner content={details} />
+                <Certificates />
+    
+                {
+                details.contents && Object.keys(details.contents).length > 0 ?  
+                    <section class="efficiency-section">
+                        <div class="pagewrap">
+                            <div class="container-fluid" style={{"overflow-x": "hidden"}}>
+                              <div class="row">
+                                <div class="col-sm-6 col-md-6 pl-0 animatedParent">
+                                  <h1 class="bag_jai_head text-left text-black pl-0 pr-5 animated bounceInDown">{details.contents[0].title}</h1>
+                                  <div class="inner-wrap">
+                                    <img class="img-object-fit box-shadow animated bounceInLeft mt-3" data-id="1" src={details.contents[0].url} alt="" style={{"border":"0 solid #fff", "border-radius": "0 !important",
+                                    "width": "97%", "height": "80%"}} />
+                                  </div>
                                 </div>
+                                <div class="col-sm-6 col-md-6 animatedParent" style={{"padding-top": "6rem !important"}} >
+                                {ReactHtmlParser(details.contents[0].description)}
+                                  <div class="float-left pl-3 mt-4">
+                                    <div class="actionButton">
+                                      <a href="#">Call for a free quote</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                          }
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    {
-        details.contents && Object.keys(details.contents).length > 0 ?  
-        <section class="promo-container">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 justify-content-center"> 
-                      <img class="img-fluid promo-graphic" src={details.contents[0].url} alt="responsive image" />
-                    </div>
-                     <div class="col-sm-6 col-md-6 justify-content-center">
-                        <div class="bags-promo-caption">
-                            <h2 class="promo-heading">
-                                {details.contents[0].title}
-                            </h2>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section> : ''
-    }
-    <section class="how-best-container">
-        <div class="text-center">
-            <div class="container-fluid pt-5">
-                <h2 class="bha_heading_2 z-index text-blue">{details.contents[1].title}</h2>
-            </div>
-        </div>
-  
-        <div class="pagewrap">
-          <div class="text-center">
-            <div class="container content-padding">
-              <div class="row align-items-center card-gutter">
-                <div class="col-lg-4">
-                  <div class="card-1 mx-auto mt-2 border-blue">
-                    <div class="card-body p-0 pt-3 pb-3">
-                      <img src={Goyen} class="card-img-fit fade" alt="..." />
-                      <h3 class="card-name">Valves & Repair Kits</h3>
-                      <h2 class="text-uppercase font-weight-bold mb-4 text-blue">Others</h2>
-                      <ul class="list-unstyled">
-                        <li class="card-list-item">Cycles:<span class="font-weight-bold ml-3">500K</span></li>
-                        <li class="card-list-item">Max PSI:<span class="font-weight-bold ml-3">80</span></li>
-                        <li class="card-list-item">Price: <span class="font-weight-bold ml-3">$</span></li> 
-                        <li class="card-list-item">
-                          <div class="star-rating">
-                            <ul class="list-inline">
-                              <span class="mr-3 ml-0 pl-0">Rating:</span>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li class="card-list-item">Contact:<span class="font-weight-bold ml-3">Not Available</span></li>
-                        <li class="card-list-item">Satisfaction Guarantee:
-                          <span class="font-weight-bold ml-3">No Returns</span></li>
-                        <li class="card-list-item">Lead Time:<span class="font-weight-bold ml-3">17 days</span></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4">
-                  <div class="card-2 mx-auto border-red" style={{"margin-bottom": "2.2rem"}}>
-                    <img src={Best} class="sticker" alt="..." />
-                    <div class="card-body p-0 pb-3 pt-2">
-                      <img src={baghouse1} class="card-img-fit" alt="..." />
-                      <h3 class="card-name">Valves & Repair Kits</h3>
-                      <h2 class="text-uppercase font-weight-bold mb-4 text-blue">Baghouse America</h2>
-                      <ul class="list-unstyled">
-                        <li class="card-list-item">Cycles: <span class="font-weight-bold ml-3">2 Million</span></li>
-                        <li class="card-list-item">Max PSI: <span class="font-weight-bold ml-3">125</span></li>
-                        <li class="card-list-item">Price: <span class="font-weight-bold ml-3">$$</span></li>
-                        <li class="card-list-item">
-                          <div class="star-rating">
-                            <ul class="list-inline">
-                              <span class="mr-3 ml-0 pl-0">Rating:</span>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li class="card-list-item">Contact: <span class="font-weight-bold ml-3">Order Online or Call for Pricing</span></li>
-                        <li class="card-list-item">Satisfaction Guarantee: <span class="font-weight-bold ml-3">Yes</span></li>
-                        <li class="card-list-item">Lead Time: <span class="font-weight-bold ml-3">In Stock</span></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4">
-                  <div class="card-3 mx-auto border-blue mt-2">
-                    <div class="card-body p-0 pt-3 pb-3">
-                      <img src={Goyen} class="card-img-fit" alt="..." />
-                      <h3 class="card-name">Valves & Repair Kits</h3>
-                      <h2 class="text-uppercase font-weight-bold mb-4 text-blue">Goyen</h2>
-                      <ul class="list-unstyled">
-                        <li class="card-list-item">Cycles: <span class="font-weight-bold ml-3">2 Million</span></li>
-                        <li class="card-list-item">Max PSI: <span class="font-weight-bold ml-3">125</span></li>
-                        <li class="card-list-item">Price: <span class="font-weight-bold ml-3">$$$$</span></li>
-                        <li class="card-list-item">
-
-                          <div class="star-rating">
-                            <ul class="list-inline">
-                              <span class="mr-3 ml-0 pl-0">Rating:</span>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            </ul>
-                          </div>
-                        </li>
-                         <li class="card-list-item">Contact: <span class="font-weight-bold ml-3">Call 888-405-1143 for Pricing</span></li>
-                        <li class="card-list-item">Satisfaction Guarantee: <span class="font-weight-bold ml-3">Re-Stocking Fee</span></li>
-                        <li class="card-list-item">Lead Time: <span class="font-weight-bold ml-3">In Stock</span></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-  
-  
-  
-        <div class="certificate-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 col-md-4 text-center">
-                        <img src={shipping2} class="img-fluid" alt="..." />
-                    </div>
-                    <div class="col-sm-4 col-md-4 text-center">
-                        <img src={badge} class="img-fluid" alt="..." />
-                    </div>
-                    <div class="col-sm-4 col-md-4 text-center">
-                        <img src={badge} class="img-fluid" alt="..." />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {
-    details.contents && Object.keys(details.contents).length == 3 ?  
-        <section class="call-for-acton">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-7 col-md-7">
-                        <div class="call-for-action-container">
-                            <h2 class="promo-heading">
-                                {details.contents[2].title}
-                            </h2>
-                            {ReactHtmlParser(details.contents[2].description)}
-                            <a href="" class="free-quote">{details.contents[2].title}</a>
+                    </section> : ''
+                }
+                    
+                    <Resources content={details} />
+                    
+                {
+                details.contents && Object.keys(details.contents).length > 1 ?  
+                    <section class="bag_Jail_Section">
+                        <div class="pagewrap">
+                            <div class="container-fluid pl-0 pr-0">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h1 class="bag_jai_head">{details.contents[1].title}</h1>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 ">
+                                        <p class="pt-5 text-white text-justify">{ReactHtmlParser(details.contents[1].description)}</p>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 text-center pt-3">
+                                        <img src={details.contents[1].url} alt="..." class="img-fluid" />
+                                    </div>
+                                  </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-5 col-md-5 pr-5">
-                        <img src={details.contents[2].url} alt="..." class="img-fluid" />
-                    </div>
-                </div>
+                    </section> : ''
+                }
+
+                <Clients />
+                <PremiumBrands />
+  
             </div>
-        </section> : ''
-    }
-  
-    <Clients />
-    <PremiumBrands />
-  
-        </div>
          )}
         </div>
     );
