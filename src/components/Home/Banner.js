@@ -63,6 +63,10 @@ class Banner extends Component {
             duration: 1500
         });
     }
+    
+    triggerRequestAQuoteButton() {
+        document.getElementById("requestAQuote").click();
+    }
 
   render() {
     const {affix} =this.state
@@ -98,8 +102,9 @@ class Banner extends Component {
                         <div className="caption">
                           <h1 className="bha_heading_1">{item.description}</h1>
                           <a
-                            href={item.path}
+                            href="#"
                             className="btn bha-btn-primary mt-4 pl-pr"
+                            onClick={this.triggerRequestAQuoteButton}
                           >
                             FREE BROCHURES
                           </a>

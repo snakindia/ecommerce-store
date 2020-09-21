@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Field, Formik } from 'formik';
 import { connect } from 'react-redux';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
-import { save_brochures_details } from '../../actions/freeBrochuresActions';
-class ContactForm extends Component {
+import { save_brochures_details } from '../../../actions/freeBrochuresActions';
+class ProducstServiceContactForm extends Component {
     saveHandler(data) {
-        data.type = 'Representative';
+        data.type = 'Download Brochure';
         this.props.save_brochures_details(data);
     }
     render() {
@@ -19,17 +19,15 @@ class ContactForm extends Component {
         }
 
         return (
-
-            <div id="representus-contact" className="broucher-bg pattern pattern1">
-
-                <div className="broucher-inner pt-3 pb-3">
-
-                    <div className="">
-                        <div className="">
-                            <h2 className="apply_representation_heading font-weight-bold text-black" >
-                                APPLY FOR REPRESENTATION
-                        </h2>
-                            <Formik
+                
+            <div class="col-sm-5 col-md-4 pr-0">
+                <div class="freequote-container">
+                    <div class="free-quote">
+                        <div class="inner-link">
+                            <h2 class="pb-2 quote-heading_1">Download Brochure</h2>
+                            <h3 class="pb-2 quote-heading_2">Submit Your Info Below</h3>
+                            <div>
+                                <Formik
                                 enableReinitialize
                                 initialValues={initialValues}
                                 validate={values => {
@@ -57,14 +55,9 @@ class ContactForm extends Component {
                                         errors.company =
                                             'Please enter alphabet characters only';
                                     }
-                                    if (!values.country) {
-                                        errors.country = 'Country name is required';
-                                    } else if (!/^[a-zA-Z ]*$/i.test(values.country)) {
-                                        errors.country =
-                                            'Please enter alphabet characters only';
-                                    }
+                                    
                                     if (!values.description) {
-                                        errors.description = 'Description is required';
+                                        errors.description = 'Comment is required';
                                     } else if (!/^[a-zA-Z ]*$/i.test(values.description)) {
                                         errors.description =
                                             'Please enter alphabet characters only';
@@ -84,7 +77,7 @@ class ContactForm extends Component {
                                 }}
                                 onSubmit={(values, { setSubmitting, resetForm }) => {
                                     this.saveHandler(values);
-                                    resetForm()
+                                    //        resetForm()
                                 }}
                             >
                                 {({
@@ -99,7 +92,7 @@ class ContactForm extends Component {
                                 }) => (
                                         <form onSubmit={handleSubmit}>
                                             <MDBRow>
-                                                <MDBCol md="12">
+                                                <MDBCol lg="12">
                                                     <div class="form-group">
                                                         <label>Name *</label>
                                                         <input
@@ -192,29 +185,7 @@ class ContactForm extends Component {
                                             <MDBRow>
                                                 <MDBCol lg="12">
                                                     <div class="form-group">
-                                                        <label>Country *</label>
-                                                        <input
-                                                            type="text"
-                                                            id="defaultFormCardNameEx"
-                                                            className="form-control"
-                                                            name="country"
-                                                            value={values.country}
-                                                            onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            placeholder="Enter Country name"
-                                                        />
-                                                        <span className="errorMsg">
-                                                            {errors.country &&
-                                                                touched.country &&
-                                                                errors.country}
-                                                        </span>
-                                                    </div>
-                                                </MDBCol>
-                                            </MDBRow>
-                                            <MDBRow>
-                                                <MDBCol lg="12">
-                                                    <div class="form-group">
-                                                        <label>Description *</label>
+                                                        <label>Comment *</label>
                                                         <Field
                                                             component="textarea"
                                                             rows="2"
@@ -240,10 +211,10 @@ class ContactForm extends Component {
                                                 <button
                                                     type="button"
                                                     onClick={handleSubmit}
-                                                    class="btn bha-btn-primary w-100"
+                                                    class="btn quote-btn w-100"
                                                 >
-                                                    Apply
-                                </button>
+                                                    Download
+                                                </button>
                                             </div>
                                             {this.props.brochureData &&
                                                 Object.keys(this.props.brochureData).length >
@@ -260,15 +231,13 @@ class ContactForm extends Component {
                                                 )}
                                         </form>
                                     )}
-                            </Formik>
+                                </Formik>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         )
-
     }
 }
 const mSTP = ({ news }) => {
@@ -282,4 +251,4 @@ const mDTP = dispatch => {
     }
 }
 
-export default connect(mSTP, mDTP)(ContactForm);
+export default connect(mSTP, mDTP)(ProducstServiceContactForm);
