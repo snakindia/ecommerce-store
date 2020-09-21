@@ -62,12 +62,6 @@ class ProducstServiceContactForm extends Component {
                                             'Please enter alphabet characters only';
                                     }
                                     
-                                    if (!values.description) {
-                                        errors.description = 'Comment is required';
-                                    } else if (!/^[a-zA-Z ]*$/i.test(values.description)) {
-                                        errors.description =
-                                            'Please enter alphabet characters only';
-                                    }
 
                                     if (!values.email) {
                                         errors.email = 'Email address is required';
@@ -189,30 +183,7 @@ class ProducstServiceContactForm extends Component {
                                                     </div>
                                                 </MDBCol>
                                             </MDBRow>
-                                            <MDBRow>
-                                                <MDBCol lg="12">
-                                                    <div class="form-group">
-                                                        <label>Comment *</label>
-                                                        <Field
-                                                            component="textarea"
-                                                            rows="2"
-                                                            maxLength="100"
-                                                            id="description"
-                                                            className="form-control-textarea"
-                                                            name="description"
-                                                            value={values.description}
-                                                            onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            placeholder="Enter Description"
-                                                        />
-                                                        <span className="errorMsg">
-                                                            {errors.description &&
-                                                                touched.description &&
-                                                                errors.description}
-                                                        </span>
-                                                    </div>
-                                                </MDBCol>
-                                            </MDBRow>
+                                            
 
                                             <div class="mt-2">
                                                 <button

@@ -265,7 +265,7 @@ padding: 10px;}
 }
 /*.card-body .list-unstyled{margin-bottom: 0; padding:1rem 0.5rem;}*/
 .card-body .card-list-item:last-child{border-bottom:none;}
-.card-name{font-size: 1rem;}
+.card-name{font-size: 1rem !important; font-weight: 500;}
 .footer-tag{background: #000; padding:0.3rem; color:#fff !important}
 .footrer-ul-list{margin: 1rem 0 0 0;
 border-bottom-left-radius: 0.2rem;
@@ -310,9 +310,9 @@ border: none; font-size: 0.8rem; color: #fff; font-weight: bold}
 }
 
 .card-list-item {
-    border-bottom: 1px solid #f7f7f7;
+    /*border-bottom: 1px solid #f7f7f7;*/
     width: auto; text-align: left; color: rgb(98, 95, 95);
-    margin: auto; padding:0.875rem 0.5rem; font-size: 0.9rem; margin: 0.5rem;
+    margin: auto; padding:0.8rem; font-size: 0.9rem; margin:0 0.5rem;
 }
 .card-list-item span{color: rgb(79, 78, 78)}
 
@@ -327,8 +327,8 @@ border: none; font-size: 0.8rem; color: #fff; font-weight: bold}
     transition: .2s;
 }
 
-.card-img-fit{width:250px; height: auto; object-fit: contain; object-position: top;
-margin-bottom: 1rem}
+.card-img-fit{width:50% !important; height: auto; object-fit: contain; object-position: top;
+margin-bottom: 1rem;}
 
 
 /*@keyframes moveFromLeft {
@@ -397,14 +397,15 @@ color: #08118f;}
 text-transform: uppercase; font-size: 0.850rem; font-weight: 600}
 .free-quote {width: 315px; display: inline-block; margin: 3rem 0; background: #5571ac;
 border-radius:0.5rem; padding:2rem;}
-.quote-heading_1{font-size: 1.750rem; font-family: 'Roboto', sans-serif; color:#fff; 
+.quote-heading_1{font-size: 1.450rem; font-family: 'Roboto', sans-serif; color:#fff; white-space: nowrap;
 text-transform: uppercase; text-align: center; font-weight: 600}
 .quote-heading_2{font-size: 0.950rem; font-family: 'Roboto', sans-serif; color:#fff; 
 text-transform: uppercase; text-align: center;font-weight: 500;}
 .free-quote label{color:#fff; font-weight: 500; font-size: 0.950rem; margin:0;}
 .free-quote .form-control{padding:0.25rem 0.5rem; border-radius: 0.15rem !important}
 .quote-btn{background: #ba0d30; color:#fff; font-size: 0.850rem; font-weight: 600; padding:0.6rem 1rem;
-  text-transform: uppercase;}
+  text-transform: uppercase; border-radius: 0.2rem;}
+.quote-btn:hover{color:#fff !important;}
 /*.news-carousel img {
     position: absolute !important;
     top: 0 !important;
@@ -414,7 +415,7 @@ text-transform: uppercase; text-align: center;font-weight: 500;}
     width: 100% !important;
 }*/
 
-.certificate-section{background:#fff; float:left; width: 100%; padding-top:2rem; position: relative; z-index: 1}
+.certificate-section{background:#fff; float:left; width: 100%; padding-top:1rem; position: relative; z-index: 1}
 
 .how-best-container .award-section{float:none;}
 .awardTag{margin: 0; position: relative;}
@@ -451,7 +452,8 @@ text-transform: uppercase; font-size: 0.850rem; font-weight: 600}
 .btnReqQuote:hover{color: #fff}
 
 .bag_Jail_Section{width: 100%; float:left; background: #2e3192;padding:3rem 0;}
-.bag_jai_head{text-align: center; color:#fff; font-weight: 600; font-family: 'Roboto'; font-size:2.175rem}
+.bag_jai_head{text-align: center; font-weight: 600 !important; font-family: 'Roboto'; 
+font-size:2.175rem}
 
 .cust-order-section{background: url(../images/header_bg.jpg) top left no-repeat;
 background-size: cover; background-position: center center; float:left; width: 100%;padding:1rem 0; 
@@ -467,7 +469,7 @@ background-size: cover; background-position: top center; position: relative; pad
 .compaire-container:before{content: ''; position: absolute; top:0; left: 0; bottom: 0;
 right:0; /*background:rgba(255,255,255,0.9);*/}
 
-.inner-wrap:after{content: '';
+/*.inner-wrap:after{content: '';
 display: inline-block;
 position: absolute;
 top: 50%;
@@ -477,7 +479,7 @@ height: 0;
 border-top: 30px solid transparent;
 border-right: 20px solid #fff;
 border-bottom: 30px solid transparent;
-z-index: 1 }
+z-index: 1 }*/
 
 .brand-section{width: 100%;
 float: left;
@@ -492,3 +494,8 @@ background-position: center center;}
 .landing-clientBg{background:url(../images/footer1.jpg) top left no-repeat;
 background-position: center; background-size: cover; float: left; width: 100%
 }
+
+/*===========Landing page brand fixing css==========================================*/
+.column_4{background: transparent;}
+.column_4 img{width: 350px !important; height: 200px !important;} 
+.column_4 .mask{width: auto !important; height: 200px !important}

@@ -63,20 +63,23 @@ class ProductServicesDetail extends Component {
     
                 {
                 details.contents && Object.keys(details.contents).length > 0 ?  
-                    <section class="efficiency-section">
+                    <section class="efficiency-section" style={{"position":"relative"}}>
+                    <div class="imgB_color"></div>
                         <div class="pagewrap">
                             <div class="container-fluid" style={{"overflow-x": "hidden"}}>
                               <div class="row">
                                 <div class="col-sm-6 col-md-6 pl-0 animatedParent">
                                   <h1 class="bag_jai_head text-left text-black pl-0 pr-5 animated bounceInDown">{details.contents[0].title}</h1>
-                                  <div class="inner-wrap">
-                                    <img class="img-object-fit box-shadow animated bounceInLeft mt-3" data-id="1" src={details.contents[0].url} alt="" style={{"border":"0 solid #fff", "border-radius": "0 !important",
-                                    "width": "97%", "height": "80%"}} />
+                                  <div class="imgL-container">
+                                    <div class="inner-wrap">
+                                      <img class="iMg_pos animated bounceInLeft mt-3" data-id="1" src={details.contents[0].url} alt=""/>
+                                      
+                                    </div>
                                   </div>
                                 </div>
-                                <div class="col-sm-6 col-md-6 animatedParent" style={{"padding-top": "6rem !important"}} >
+                                <div class="col-sm-6 col-md-6 animatedParent contentDescript">
                                 {ReactHtmlParser(details.contents[0].description)}
-                                  <div class="float-left pl-3 mt-4">
+                                  <div class="float-left pl-0 mt-4 mb-5">
                                     <div class="actionButton">
                                       <a href="#">Call for a free quote</a>
                                     </div>
@@ -97,12 +100,12 @@ class ProductServicesDetail extends Component {
                             <div class="container-fluid pl-0 pr-0">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <h1 class="bag_jai_head">{details.contents[1].title}</h1>
+                                        <h1 class="bag_jai_head font-xl text-white">{details.contents[1].title}</h1>
                                     </div>
                                     <div class="col-sm-6 col-md-6 ">
-                                        <p class="pt-5 text-white text-justify">{ReactHtmlParser(details.contents[1].description)}</p>
+                                        <div class="jail_Content_Descrpt">{ReactHtmlParser(details.contents[1].description)}</div>
                                     </div>
-                                    <div class="col-sm-6 col-md-6 text-center pt-3">
+                                    <div class="col-sm-6 col-md-6 text-left pt-5 pr-4 pl-3">
                                         <img src={details.contents[1].url} alt="..." class="img-fluid" />
                                     </div>
                                   </div>
