@@ -148,7 +148,7 @@ class NavBar extends React.Component {
                       activeLink={this.state.activeLink}
                       navMenuData={this.props.navMenuData}
                       id={item.id}
-                     //hide={this.hideSubMenu}
+                     hide={this.hideSubMenu}
                     />
                   }
 

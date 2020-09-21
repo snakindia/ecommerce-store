@@ -3,10 +3,16 @@ import { Field, Formik } from 'formik';
 import { connect } from 'react-redux';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
 import { save_brochures_details } from '../../../actions/freeBrochuresActions';
+import { showToast } from './../../Notification/notification.actions';
+import { TOAST_TYPE } from './../../Notification/action.constants';
 class ProducstServiceContactForm extends Component {
+    constructor(props) {
+        super(props);
+    }
+    
     saveHandler(data) {
         data.type = 'Download Brochure';
-        this.props.save_brochures_details(data);
+        this.props.saveBrochuresDetails(data);
     }
     render() {
         const initialValues = {
@@ -71,7 +77,8 @@ class ProducstServiceContactForm extends Component {
                                 }}
                                 onSubmit={(values, { setSubmitting, resetForm }) => {
                                     this.saveHandler(values);
-                                    //        resetForm()
+                                    this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
+                                    resetForm()
                                 }}
                             >
                                 {({
@@ -216,10 +223,10 @@ const mSTP = ({ news }) => {
         brochureData: news.freeBrochuresUserDetail,
     }
 };
-const mDTP = dispatch => {
-    return {
-        save_brochures_details: payload => dispatch(save_brochures_details(payload))
-    }
-}
 
-export default connect(mSTP, mDTP)(ProducstServiceContactForm);
+const mapDispatchToProps = {
+    saveBrochuresDetails: data => save_brochures_details(data),
+    showToast,
+};
+
+export default connect(mSTP, mapDispatchToProps)(ProducstServiceContactForm);
