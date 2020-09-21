@@ -16,7 +16,7 @@ class ContactForm extends Component {
   
     saveHandler(data) {
         data.type = 'Representative';
-        this.props.save_brochures_details(data);
+        this.props.saveBrochuresDetails(data);
     }
     
     render() {
@@ -95,8 +95,6 @@ class ContactForm extends Component {
                                 }}
                                 onSubmit={(values, { setSubmitting, resetForm }) => {
                                     this.saveHandler(values);
-//                                    toggleModal();
-                                   this.state.toggleModal = false;
                                     this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
                                     resetForm()
                                 }}
@@ -290,11 +288,10 @@ const mSTP = ({ news }) => {
         brochureData: news.freeBrochuresUserDetail,
     }
 };
-const mDTP = dispatch => {
-    return {
-        save_brochures_details: payload => dispatch(save_brochures_details(payload)),
-        showToast
-    }
-}
 
-export default connect(mSTP, mDTP)(ContactForm);
+const mapDispatchToProps = {
+    saveBrochuresDetails: data => save_brochures_details(data),
+    showToast,
+};
+
+export default connect(mSTP, mapDispatchToProps)(ContactForm);

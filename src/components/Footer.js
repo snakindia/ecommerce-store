@@ -432,7 +432,7 @@ const mapStateToProps = ({ asyncReducer }) => {
 };
 
 const mapDispatchToProps = {
-    saveBrochuresDetails: save_brochures_details,
+    saveBrochuresDetails: data => save_brochures_details(data),
     fetch_dynamic_menus: fetch_dynamic_menus,
     showToast,
 };
