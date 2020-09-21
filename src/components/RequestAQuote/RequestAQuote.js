@@ -19,6 +19,23 @@ const initialValues = {
 
 class RequestAQuote extends Component {
   handleSubmit = async (values, { setSubmitting }) => {
+    if(!values.category_name){
+      const { isOpen, toggleModal, subMenuData } = this.props;
+     
+      if (subMenuData && Object.keys(subMenuData).length > 0) {
+        for (const key of Object.keys(subMenuData)) {
+          if (subMenuData[key] && subMenuData[key][0] && subMenuData[key][0].items && subMenuData[key][0].items.length > 0) {
+            subMenuData[key][0].items.map(item => {
+              
+              if(item._id == values.category_id){
+                values.category_name =item.name;
+              }
+            })
+          }
+        }
+      }
+    }
+   
     const { toggleModal, onSubmit, showToast } = this.props;
     setSubmitting(true);
     try {
@@ -56,7 +73,12 @@ class RequestAQuote extends Component {
         }
       }
     }
-    categories = categories.sort((a, b) => a.label > b.label)
+   
+    categories = categories.sort((a, b) =>{
+      if (a.label < b.label ) return -1;
+      if (a.label  > b.label ) return 1;
+      return 0;
+    })
     return (
       <MDBModal isOpen={isOpen} toggle={toggleModal} centered>
         <MDBModalBody>
@@ -184,9 +206,7 @@ class RequestAQuote extends Component {
                                 key={item.value}
                                 value={item.value}
                                 title={item.label}
-                                onClick={e => {
-                                  setFieldValue('category_name', item.label)
-                                }}
+                               
                               >{item.label}</option>)}
                           </Field>
 
