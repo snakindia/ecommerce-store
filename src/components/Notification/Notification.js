@@ -13,7 +13,6 @@ const Notification = ({ msg, id, type }) => {
           toast.info(msg, { closeButton: true });
           break;
         case TOAST_TYPE.SUCCESS:
-            console.log('AAAAAAAA')
           toast.success(msg, { closeButton: true });
           break;
         case TOAST_TYPE.WARNING:

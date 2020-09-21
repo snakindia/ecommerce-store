@@ -18,45 +18,41 @@ import { TOAST_TYPE } from './Notification/action.constants';
 
 
 class Footer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      brochureData: {},
-      year: new Date().getFullYear(),
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            brochureData: {},
+            year: new Date().getFullYear(),
+        };
+    }
 
-  saveHandler(data) {
-    data.type = 'Representative';
-    this.props.dispatch(save_brochures_details(data));
-    //resetForm()
-  }
+    saveHandler(data) {
+        data.type = 'Representative';
+        this.props.saveBrochuresDetails();
+    }
 
-  componentDidMount() {
-//    showToast(
-//      'Please click on link sent in your mailbox for verification',
-//      TOAST_TYPE.SUCCESS
-//    );
-    fetch_dynamic_menus();
-  }
-  render() {
-    this.state.brochureData = this.props.freeBrochuresUserDetail;
-    const { navMenuData, brochureData } = this.props;
-    const { menuData } = navMenuData;
+    componentDidMount() {
+        this.props.fetch_dynamic_menus();
+    }
+    
+    render() {
+        this.state.brochureData = this.props.freeBrochuresUserDetail;
+        const { navMenuData, brochureData } = this.props;
+        const { menuData } = navMenuData;
 
-    const {
-      footer_menu_1_title,
-      footer_menu_2_title,
-      footer_menu_3_title,
-      footer_menu_4_title,
-      footer_menu_5_title,
-      footer_menu_1_items,
-      footer_menu_2_items,
-      footer_menu_3_items,
-      footer_menu_4_items,
-      footer_menu_5_items,
-      footer_social,
-    } = menuData;
+        const {
+          footer_menu_1_title,
+          footer_menu_2_title,
+          footer_menu_3_title,
+          footer_menu_4_title,
+          footer_menu_5_title,
+          footer_menu_1_items,
+          footer_menu_2_items,
+          footer_menu_3_items,
+          footer_menu_4_items,
+          footer_menu_5_items,
+          footer_social,
+        } = menuData;
     return (
       <div>
         <div class="chat-button">
@@ -64,9 +60,6 @@ class Footer extends Component {
             <img src={Chat} class="mr-2" alt="" width="30" />
           </a>
         </div>
-        {this.props.brochureData && this.props.brochureData == true && (
-          <InquiryNotification isOpen={this.props.brochureData} />
-        )}
         <MDBFooter className="footer">
           <div class="footer-section">
             <div class="pagewrap">
@@ -196,12 +189,10 @@ class Footer extends Component {
                             return errors;
                           }}
                           onSubmit={(values, { setSubmitting, resetForm }) => {
-                              setSubmitting(true);
-                            this.saveHandler(values);
-//                             toggleModal();
-//                            showToast('Quote request success', TOAST_TYPE.SUCCESS);
-//console.log('...................')
-                                    resetForm()
+                                setSubmitting(true);
+                                this.saveHandler(values);
+                                this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
+                                resetForm()
                           }}
                         >
                           {({
@@ -436,9 +427,14 @@ class Footer extends Component {
 const mapStateToProps = ({ asyncReducer }) => {
   return {
     navMenuData: asyncReducer,
-    brochureData: asyncReducer.freeBrochuresUserDetail,
-    showToast
+    brochureData: asyncReducer.freeBrochuresUserDetail
   };
 };
 
-export default connect(mapStateToProps)(Footer);
+const mapDispatchToProps = {
+    saveBrochuresDetails: save_brochures_details,
+    fetch_dynamic_menus: fetch_dynamic_menus,
+    showToast,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

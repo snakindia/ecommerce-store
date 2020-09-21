@@ -3,11 +3,22 @@ import { Field, Formik } from 'formik';
 import { connect } from 'react-redux';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
 import { save_brochures_details } from '../../actions/freeBrochuresActions';
+import { TOAST_TYPE } from '../Notification/action.constants';
+import { showToast } from './../Notification/notification.actions';
+
 class ContactForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            toggleModal: true
+        };
+    }
+  
     saveHandler(data) {
         data.type = 'Representative';
         this.props.save_brochures_details(data);
     }
+    
     render() {
         const initialValues = {
             name: '',
@@ -84,6 +95,9 @@ class ContactForm extends Component {
                                 }}
                                 onSubmit={(values, { setSubmitting, resetForm }) => {
                                     this.saveHandler(values);
+//                                    toggleModal();
+                                   this.state.toggleModal = false;
+                                    this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
                                     resetForm()
                                 }}
                             >
@@ -98,7 +112,7 @@ class ContactForm extends Component {
                                     /* and other goodies */
                                 }) => (
                                         <form onSubmit={handleSubmit}>
-                                            <MDBRow>
+                                            <MDBRow toggle="true" >
                                                 <MDBCol md="12">
                                                     <div class="form-group">
                                                         <label>Name *</label>
@@ -278,7 +292,8 @@ const mSTP = ({ news }) => {
 };
 const mDTP = dispatch => {
     return {
-        save_brochures_details: payload => dispatch(save_brochures_details(payload))
+        save_brochures_details: payload => dispatch(save_brochures_details(payload)),
+        showToast
     }
 }
 
