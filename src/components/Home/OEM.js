@@ -64,7 +64,7 @@ export default class OEM extends Component {
     var settings = {
       slidesToShow: 4,
       slidesToScroll: 1,
-      autoplay: false,
+      autoplay: true,
       autoplaySpeed: 2000,
     };
     return (
