@@ -43,7 +43,7 @@ class RequestAQuote extends Component {
       const res = await onSubmit({ ...values, type: 'Request a Quote' });
       if (res && res.status) {
         toggleModal();
-        showToast('Quote request success', TOAST_TYPE.SUCCESS);
+        showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
       } else if (res && res.status.error) {
         showToast(res.status.error || 'Something Went wrong', TOAST_TYPE.ERROR);
       }
