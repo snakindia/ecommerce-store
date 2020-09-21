@@ -58,7 +58,7 @@ class Products extends React.Component {
 
         return (
             <div
-                onMouseLeave={hide}
+                
                 className="wsshoptabing wtsdepartmentmenu clearfix"
                 style={{
                     zIndex: 999, opacity: 1,
@@ -74,7 +74,7 @@ class Products extends React.Component {
                             height="150"
                         />
                     </div>
-                    <ul className="wstabitem clearfix">
+                    <ul className="wstabitem clearfix" >
                         {subMenuArr &&
                             subMenuArr.map((itemOne, i) => {
                                 let itemOneObj = itemOne && itemOne[0];
@@ -94,9 +94,10 @@ class Products extends React.Component {
                                                 <div className="row custom-gutter-wsmenu">
                                                     <h3 class="wsmenu_heading">{name}</h3>
                                                     {listItems.length > 0 && listItems.map((itemTwo, i) => {
+                                                        let url  = typeof itemTwo.page_url != 'undefined' && itemTwo.page_url != '' ? itemTwo.page_url : ''
                                                         return (
                                                             <div className="col-lg-3 col-md-12" key={i + 3}>
-                                                                <ul className="wstliststy04 clearfix">
+                                                                <ul className="wstliststy04 clearfix" onClick={hide}>
                                                                     <li>
                                                                         <img
                                                                             className="scale-down"
@@ -110,7 +111,7 @@ class Products extends React.Component {
                                                                     </li>
                                                                     <li className="wstheading clearfix">
                                                                         <Link
-                                                                            to={`${baseUrl}/${slug}/${itemTwo.slug}`}
+                                                                            to={url}
                                                                         >
                                                                             {' '}
                                                                             <i class="fa fa-chevron-right pr-2"></i>

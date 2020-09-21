@@ -2,23 +2,18 @@ import React, { Component } from 'react';
 import { Field, Formik } from 'formik';
 import { connect } from 'react-redux';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
-import { save_brochures_details } from '../../actions/freeBrochuresActions';
-import { TOAST_TYPE } from '../Notification/action.constants';
-import { showToast } from './../Notification/notification.actions';
-
-class ContactForm extends Component {
+import { save_brochures_details } from '../../../actions/freeBrochuresActions';
+import { showToast } from './../../Notification/notification.actions';
+import { TOAST_TYPE } from './../../Notification/action.constants';
+class ProducstServiceContactForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            toggleModal: true
-        };
-    }
-  
-    saveHandler(data) {
-        data.type = 'Representative';
-        this.props.saveBrochuresDetails(data);
     }
     
+    saveHandler(data) {
+        data.type = 'Download Brochure';
+        this.props.saveBrochuresDetails(data);
+    }
     render() {
         const initialValues = {
             name: '',
@@ -30,17 +25,15 @@ class ContactForm extends Component {
         }
 
         return (
-
-            <div id="representus-contact" className="broucher-bg pattern pattern1">
-
-                <div className="broucher-inner pt-3 pb-3">
-
-                    <div className="">
-                        <div className="">
-                            <h2 className="apply_representation_heading font-weight-bold text-black" >
-                                APPLY FOR REPRESENTATION
-                        </h2>
-                            <Formik
+                
+            <div class="col-sm-5 col-md-4 pr-0">
+                <div class="freequote-container">
+                    <div class="free-quote">
+                        <div class="inner-link">
+                            <h2 class="pb-2 quote-heading_1">Download Brochure</h2>
+                            <h3 class="pb-2 quote-heading_2">Submit Your Info Below</h3>
+                            <div>
+                                <Formik
                                 enableReinitialize
                                 initialValues={initialValues}
                                 validate={values => {
@@ -68,14 +61,9 @@ class ContactForm extends Component {
                                         errors.company =
                                             'Please enter alphabet characters only';
                                     }
-                                    if (!values.country) {
-                                        errors.country = 'Country name is required';
-                                    } else if (!/^[a-zA-Z ]*$/i.test(values.country)) {
-                                        errors.country =
-                                            'Please enter alphabet characters only';
-                                    }
+                                    
                                     if (!values.description) {
-                                        errors.description = 'Description is required';
+                                        errors.description = 'Comment is required';
                                     } else if (!/^[a-zA-Z ]*$/i.test(values.description)) {
                                         errors.description =
                                             'Please enter alphabet characters only';
@@ -110,8 +98,8 @@ class ContactForm extends Component {
                                     /* and other goodies */
                                 }) => (
                                         <form onSubmit={handleSubmit}>
-                                            <MDBRow toggle="true" >
-                                                <MDBCol md="12">
+                                            <MDBRow>
+                                                <MDBCol lg="12">
                                                     <div class="form-group">
                                                         <label>Name *</label>
                                                         <input
@@ -204,29 +192,7 @@ class ContactForm extends Component {
                                             <MDBRow>
                                                 <MDBCol lg="12">
                                                     <div class="form-group">
-                                                        <label>Country *</label>
-                                                        <input
-                                                            type="text"
-                                                            id="defaultFormCardNameEx"
-                                                            className="form-control"
-                                                            name="country"
-                                                            value={values.country}
-                                                            onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            placeholder="Enter Country name"
-                                                        />
-                                                        <span className="errorMsg">
-                                                            {errors.country &&
-                                                                touched.country &&
-                                                                errors.country}
-                                                        </span>
-                                                    </div>
-                                                </MDBCol>
-                                            </MDBRow>
-                                            <MDBRow>
-                                                <MDBCol lg="12">
-                                                    <div class="form-group">
-                                                        <label>Description *</label>
+                                                        <label>Comment *</label>
                                                         <Field
                                                             component="textarea"
                                                             rows="2"
@@ -252,10 +218,10 @@ class ContactForm extends Component {
                                                 <button
                                                     type="button"
                                                     onClick={handleSubmit}
-                                                    class="btn bha-btn-primary w-100"
+                                                    class="btn quote-btn w-100"
                                                 >
-                                                    Apply
-                                </button>
+                                                    Download
+                                                </button>
                                             </div>
                                             {this.props.brochureData &&
                                                 Object.keys(this.props.brochureData).length >
@@ -272,15 +238,13 @@ class ContactForm extends Component {
                                                 )}
                                         </form>
                                     )}
-                            </Formik>
+                                </Formik>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         )
-
     }
 }
 const mSTP = ({ news }) => {
@@ -294,4 +258,4 @@ const mapDispatchToProps = {
     showToast,
 };
 
-export default connect(mSTP, mapDispatchToProps)(ContactForm);
+export default connect(mSTP, mapDispatchToProps)(ProducstServiceContactForm);

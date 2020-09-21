@@ -19,6 +19,23 @@ const initialValues = {
 
 class RequestAQuote extends Component {
   handleSubmit = async (values, { setSubmitting }) => {
+    if(!values.category_name){
+      const { isOpen, toggleModal, subMenuData } = this.props;
+     
+      if (subMenuData && Object.keys(subMenuData).length > 0) {
+        for (const key of Object.keys(subMenuData)) {
+          if (subMenuData[key] && subMenuData[key][0] && subMenuData[key][0].items && subMenuData[key][0].items.length > 0) {
+            subMenuData[key][0].items.map(item => {
+              
+              if(item._id == values.category_id){
+                values.category_name =item.name;
+              }
+            })
+          }
+        }
+      }
+    }
+   
     const { toggleModal, onSubmit, showToast } = this.props;
     setSubmitting(true);
     try {
@@ -26,7 +43,7 @@ class RequestAQuote extends Component {
       const res = await onSubmit({ ...values, type: 'Request a Quote' });
       if (res && res.status) {
         toggleModal();
-        showToast('Quote request success', TOAST_TYPE.SUCCESS);
+        showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
       } else if (res && res.status.error) {
         showToast(res.status.error || 'Something Went wrong', TOAST_TYPE.ERROR);
       }
@@ -56,7 +73,12 @@ class RequestAQuote extends Component {
         }
       }
     }
-    categories = categories.sort((a, b) => a.label > b.label)
+   
+    categories = categories.sort((a, b) =>{
+      if (a.label < b.label ) return -1;
+      if (a.label  > b.label ) return 1;
+      return 0;
+    })
     return (
       <MDBModal isOpen={isOpen} toggle={toggleModal} centered>
         <MDBModalBody>
@@ -184,9 +206,7 @@ class RequestAQuote extends Component {
                                 key={item.value}
                                 value={item.value}
                                 title={item.label}
-                                onClick={e => {
-                                  setFieldValue('category_name', item.label)
-                                }}
+                               
                               >{item.label}</option>)}
                           </Field>
 

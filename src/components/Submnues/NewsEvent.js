@@ -4,7 +4,7 @@ const NewsEvent = (props) => {
     const {hide } = props;
       return (
         <ul class="sub-menu"
-        onMouseLeave={hide}
+        onClick={hide}
         >
             <li aria-haspopup="true"><Link to="/news" >News</Link></li>
             <li aria-haspopup="true"><Link to="/events" >Events</Link></li>

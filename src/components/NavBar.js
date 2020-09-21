@@ -148,7 +148,7 @@ class NavBar extends React.Component {
                       activeLink={this.state.activeLink}
                       navMenuData={this.props.navMenuData}
                       id={item.id}
-                     //hide={this.hideSubMenu}
+                     hide={this.hideSubMenu}
                     />
                   }
 
@@ -156,9 +156,10 @@ class NavBar extends React.Component {
                 )}
               <li aria-haspopup="true">
                 <a
-                  href="javascript:void(0)"
-                  onClick={this.toggleQuoteModal}
-                  className="bha-btn-secondry hotLink mr-2 ml-2"
+                    id="requestAQuote"
+                    href="javascript:void(0)"
+                    onClick={this.toggleQuoteModal}
+                    className="bha-btn-secondry hotLink mr-2 ml-2"
                 >
                   request a quote
                 </a>

@@ -29,7 +29,7 @@ export const getFAQError = (payload) => ({
 
 export const getFaq = () => {
     return dispatch => {
-            const url =`${API_URL}/faqs/get_list`;
+            const url =`${API_URL}/faqs/get_published_faq_list`;
         dispatch(setLoading(true));
         Axios.get(url)
             .then(res => {
