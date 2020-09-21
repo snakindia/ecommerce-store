@@ -30,7 +30,7 @@ export default class ProductServicesPremiumBrands extends Component {
     };
 
     return (
-        <section class="shopping-product">
+        <section class="shopping-product mt-4">
             <div class="bg-opeque">
                 <div class="container-fluid">
                     <h2 class="bha_heading_2 z-index text-blue">Shop by premium brands</h2>
@@ -38,7 +38,7 @@ export default class ProductServicesPremiumBrands extends Component {
             </div>
             <div class="pagewrap">
                 <section class="grid-container mt-4">
-                   <div class="container-fluid pl-0 pr-0">
+                   <div class="container-fluid pl-0 pr-0 padding25" >
                       <div class="row">
                         {Object.keys(brands).length &&
                           brands.map((item, idx) => {
@@ -46,7 +46,8 @@ export default class ProductServicesPremiumBrands extends Component {
                               <div class="col-sm-4 col-md-4 bha-mb">
                                 <a href="#">
                                   <div
-                                    class="view view-first height-auto"
+                                    class="view view-first height-auto indusry-img"
+                                    
                                   >
                                     <img
                                       class="img-fluid"

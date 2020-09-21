@@ -19,7 +19,7 @@
   -webkit-transform: rotateX(-75deg);
 }
 
-.wsmenu > .wsmenu-list > li:hover > ul.sub-menu {
+.wsmenu > .wsmenu-list > li > ul.sub-menu {
   /* opacity: 1;
   visibility: visible; */
   transform: rotateX(0deg);
@@ -79,7 +79,7 @@
   -webkit-transform: rotateX(-75deg);
 }
 
-.wsmenu-list > li:hover .wsshoptabing {
+.wsmenu-list > li .wsshoptabing {
   /* opacity: 1;
   visibility: visible; */
   transform: rotateX(0deg);

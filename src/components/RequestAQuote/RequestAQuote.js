@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { MDBModal, MDBModalBody } from 'mdbreact';
-import { Form, Formik } from 'formik';
+import { Form, Formik, Field } from 'formik';
+import { Select } from 'antd'
+import { connect } from 'react-redux';
 import execValidation from '../../services/validatorService';
 import { validators } from './validators';
 import { TOAST_TYPE } from '../Notification/action.constants';
-
+const { Option } = Select;
 const initialValues = {
   name: '',
   company: '',
   email: '',
   phone: '',
   message: '',
+  category_id: '',
+  category_name: '',
 };
 
 class RequestAQuote extends Component {
@@ -18,6 +22,7 @@ class RequestAQuote extends Component {
     const { toggleModal, onSubmit, showToast } = this.props;
     setSubmitting(true);
     try {
+
       const res = await onSubmit({ ...values, type: 'Request a Quote' });
       if (res && res.status) {
         toggleModal();
@@ -37,7 +42,21 @@ class RequestAQuote extends Component {
     return Object.keys(e) ? e : null;
   };
   render() {
-    const { isOpen, toggleModal } = this.props;
+    const { isOpen, toggleModal, subMenuData } = this.props;
+    let categories = [];
+    if (subMenuData && Object.keys(subMenuData).length > 0) {
+      for (const key of Object.keys(subMenuData)) {
+        if (subMenuData[key] && subMenuData[key][0] && subMenuData[key][0].items && subMenuData[key][0].items.length > 0) {
+          subMenuData[key][0].items.map(item => {
+            categories.push({
+              label: item.name,
+              value: item._id
+            })
+          })
+        }
+      }
+    }
+    categories = categories.sort((a, b) => a.label > b.label)
     return (
       <MDBModal isOpen={isOpen} toggle={toggleModal} centered>
         <MDBModalBody>
@@ -54,7 +73,7 @@ class RequestAQuote extends Component {
               <span aria-hidden="true">×</span>
             </button>
             <h2 className="bha_heading_2 font-weight-bold text-black">
-              Free Brochures
+              Request For quote
             </h2>
             <Formik
               initialValues={initialValues}
@@ -69,112 +88,145 @@ class RequestAQuote extends Component {
                 handleBlur,
                 handleSubmit,
                 isSubmitting,
+                setFieldTouched,
+                setFieldValue
               }) => (
-                <Form>
-                  {isSubmitting ? <div>Loading...</div> : null}
-                  <div className="row">
-                    <div className="col-lg-12">
-                      <div className="form-group mb-1">
-                        <label htmlFor="name">Name *</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="name"
-                          placeholder="Enter Name"
-                          value={values.name}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                        />
-                        <span className="errorMsg">
-                          {touched.name && errors.name}
-                        </span>
+                  <Form>
+                    {isSubmitting ? <div>Loading...</div> : null}
+                    <div className="row">
+                      <div className="col-lg-12">
+                        <div className="form-group mb-1">
+                          <label htmlFor="name">Name *</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="name"
+                            placeholder="Enter Name"
+                            value={values.name}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                          />
+                          <span className="errorMsg">
+                            {touched.name && errors.name}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-lg-12">
-                      <div className="form-group mb-1">
-                        <label htmlFor="phone">Phone *</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="phone"
-                          placeholder="Enter Phone"
-                          value={values.phone}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                        />
-                        <span className="errorMsg">
-                          {touched.phone && errors.phone}
-                        </span>
+                    <div className="row">
+                      <div className="col-lg-12">
+                        <div className="form-group mb-1">
+                          <label htmlFor="phone">Phone *</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="phone"
+                            placeholder="Enter Phone"
+                            value={values.phone}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                          />
+                          <span className="errorMsg">
+                            {touched.phone && errors.phone}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-lg-12">
-                      <div className="form-group mb-1">
-                        <label htmlFor="email">Email Address *</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="email"
-                          placeholder="Enter Email"
-                          value={values.email}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                        />
-                        <span className="errorMsg">
-                          {touched.email && errors.email}
-                        </span>
+                    <div className="row">
+                      <div className="col-lg-12">
+                        <div className="form-group mb-1">
+                          <label htmlFor="email">Email Address *</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="email"
+                            placeholder="Enter Email"
+                            value={values.email}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                          />
+                          <span className="errorMsg">
+                            {touched.email && errors.email}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <div className="form-group mb-1">
-                        <label htmlFor="company">Company Name *</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="company"
-                          placeholder="Enter Company Name"
-                          value={values.company}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                        />
-                        <span className="errorMsg">
-                          {touched.company && errors.company}
-                        </span>
+                      <div className="col-lg-12">
+                        <div className="form-group mb-1">
+                          <label htmlFor="company">Company Name *</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="company"
+                            placeholder="Enter Company Name"
+                            value={values.company}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                          />
+                          <span className="errorMsg">
+                            {touched.company && errors.company}
+                          </span>
+                        </div>
                       </div>
-                    </div>
+                      <div className="col-lg-12">
+                        <div className="form-group mb-1">
+                          <label htmlFor="company">Category*</label>
+                          <Field
+                            as="select"
+                            className="form-control select_type"
+                            id="category_id"
+                            name="category_id"
+                            placeholder="Select Category"
+                            value={values.category}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                          > <option>Select a Category</option>
+                            {categories && categories.map(item =>
+                              <option
+                                key={item.value}
+                                value={item.value}
+                                title={item.label}
+                                onClick={e => {
+                                  setFieldValue('category_name', item.label)
+                                }}
+                              >{item.label}</option>)}
+                          </Field>
 
-                    <div className="col-lg-12">
-                      <div className="form-group mb-1">
-                        <label htmlFor="company">Message *</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="message"
-                          placeholder="Type Message"
-                          value={values.message}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                        />
-                        <span className="errorMsg">
-                          {touched.message && errors.message}
-                        </span>
+                          <span className="errorMsg">
+                            {touched.category_id && errors.category_id}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="col-lg-12">
+                        <div className="form-group mb-1">
+                          <label htmlFor="company">Message *</label>
+                          <Field
+                            maxLength="100"
+                            component="textarea"
+                            rows="2"
+                            className="form-control-textarea"
+                            id="message"
+                            placeholder="Type Message"
+                            value={values.message}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                          />
+                          <span className="errorMsg">
+                            {touched.message && errors.message}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="mt-2">
-                    <button
-                      type="button"
-                      className="btn bha-btn-primary w-100"
-                      onClick={handleSubmit}
-                    >
-                      subscribe
+                    <div className="mt-2">
+                      <button
+                        type="button"
+                        className="btn bha-btn-primary w-100"
+                        onClick={handleSubmit}
+                      >
+                        subscribe
                     </button>
-                  </div>
-                </Form>
-              )}
+                    </div>
+                  </Form>
+                )}
             </Formik>
           </div>
         </MDBModalBody>
@@ -183,4 +235,15 @@ class RequestAQuote extends Component {
   }
 }
 
-export default RequestAQuote;
+const mSTP = (state) => {
+  return {
+    subMenuData: state.asyncReducer.subMenuData,
+  }
+};
+const mDTP = dispatch => {
+  return {
+
+  }
+}
+
+export default connect(mSTP, mDTP)(RequestAQuote);

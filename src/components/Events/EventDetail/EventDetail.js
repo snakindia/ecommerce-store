@@ -4,6 +4,10 @@ import { bindActionCreators } from 'redux';
 import {dateConversion} from './../../common/Util';
 import { fetchNewsDetail, fetchNews } from './../../News/news.actions';
 import ReactHtmlParser from 'react-html-parser';
+import {
+  FacebookShareButton,
+  TwitterShareButton
+} from "react-share";
 
 class EventDetail extends Component {
     constructor(props) {
@@ -48,8 +52,13 @@ class EventDetail extends Component {
                   </h2>
                   <p class="text-left pl-2 text-muted">{dateConversion(details.date_created)}</p>
                   <div class="share-link">
-                    <a href=""><i class="fa fa-facebook"></i>facebook</a>
-                    <a href="" class="twitter"><i class="fa fa-twitter"></i>Twitter</a>
+                    <FacebookShareButton url={window.location.href} quote={window.location.href} > 
+                        <a href=""><i class="fa fa-facebook"></i>facebook</a>
+                    </FacebookShareButton>
+                    
+                    <TwitterShareButton url={window.location.href} title={details.title}  via={ReactHtmlParser(details.content)} > 
+                        <a href="" class="twitter"><i class="fa fa-twitter"></i>Twitter</a>
+                    </TwitterShareButton>
                   </div>
                 </div>
               </section>

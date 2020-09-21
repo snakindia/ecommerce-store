@@ -33,9 +33,7 @@ const Router = () => {
           const timer = setTimeout(() => {
           const currentTime = localStorage.getItem("currentTime");
             let timeDiff = Date.now() - currentTime;
-            console.log(timeDiff);
         }, 1000);
-//        return () => clearTimeout(timer);
   }, []);
     
     return (
@@ -50,7 +48,7 @@ const Router = () => {
                     </div>
                     <Suspense fallback={<div>Loading...</div>}>
                         <Switch>
-                            <Route exact path="/" render={() => <Redirect to="/home" />} />
+                            <Route exact path="/" component={App} />} />
                             {/* <Route path="/:param1/:param2" component={ProductService} /> */}
                             {/* <Route path="/productserive/:param1/:param2/:param3" component={ProductServiceMenu} /> */}
                             <Route exact path="/home" component={App} />

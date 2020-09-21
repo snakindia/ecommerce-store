@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import EpicCover from '../assets/images/600X500-4.jpg';
 import Baghouse from '../assets/images/baghouse.jpg';
 import Baghouselogo from '../assets/images/baghouse_logo.svg';
@@ -23,7 +23,9 @@ import {
 import RequestAQuote from './RequestAQuote';
 import { save_brochures_details } from '../actions/freeBrochuresActions';
 import { showToast } from './Notification/notification.actions';
-import SubMenu from './Submnues/SubMenu'
+import SubMenu from './Submnues/SubMenu';
+import ReactDOM from 'react-dom';
+var scrollToElement = require('scroll-to-element');
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -38,9 +40,17 @@ class NavBar extends React.Component {
   }
 
   componentDidMount() {
+    document.addEventListener('click', this.handleClickOutside, true);
     window.addEventListener('load', this.handleLoad);
     this.props.fetch_dynamic_menus();
     this.props.fetch_submenu_items();
+  }
+
+  componentDidUpdate(preveProps){
+    if(preveProps.location.pathname !=this.props.location.pathname){
+      
+      scrollToElement('#root');
+    }
   }
 
   handleLoad() {
@@ -78,12 +88,27 @@ class NavBar extends React.Component {
       } else {
         this.setState({ visibleSubmenu: item.id })
       }
+    } else {
+      this.setState({ visibleSubmenu: null })
     }
   }
   hideSubMenu = () => {
     this.setState({ visibleSubmenu: null })
   }
 
+ 
+
+  componentWillUnmount() {
+      document.removeEventListener('click', this.handleClickOutside, true);
+  }
+
+  handleClickOutside = event => {
+      const domNode = ReactDOM.findDOMNode(this);
+
+      if (!domNode || !domNode.contains(event.target)) {
+         this.hideSubMenu()
+      }
+  }
 
   render() {
     const { navMenuData } = this.props;
@@ -103,10 +128,10 @@ class NavBar extends React.Component {
 
         <div className="wsmain clearfix">
           <nav className="wsmenu clearfix">
-            <ul className="wsmenu-list">
+            <ul className="wsmenu-list" onClick={this.handleClickOutside}>
               {header_menu &&
                 header_menu.map((item, idx) => <li
-                  onMouseLeave={this.hideSubMenu}
+                  //onMouseLeave={this.hideSubMenu}
                   id={item.has_sub_mennu ? 'megaMenu' : ''}
                   key={idx + 'a'}
                   className={item.id == this.state.visibleSubmenu ? 'wsclickopen' : ''}
@@ -123,7 +148,7 @@ class NavBar extends React.Component {
                       activeLink={this.state.activeLink}
                       navMenuData={this.props.navMenuData}
                       id={item.id}
-                     hide={this.hideSubMenu}
+                     //hide={this.hideSubMenu}
                     />
                   }
 
@@ -174,4 +199,6 @@ const mapDispatchToProps = {
   fetch_submenu_items,
   showToast,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+//export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+const navRedux =connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default withRouter(navRedux);
