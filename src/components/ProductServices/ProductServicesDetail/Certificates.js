@@ -8,7 +8,7 @@ import Torit from '../../../assets/images/torit.jpg';
 
 const Certificates = () => {
   return (
-    <section class="certificate-section">
+    <section class="certificate-section" style={{"margin-top": "8%"}}>
          <div class="pagewrap">
             <div class="awardTag">
                 <div class="container-fluid">
@@ -28,8 +28,8 @@ const Certificates = () => {
                     <div class="row align-items-center card-gutter">
                         <div class="col-lg-4">
                             <div class="card-1 mx-auto mt-2 border-blue color--border">
-                                <div class="card-body p-0 pt-3 pb-0">
-                                    <div style={{"height": "50px"}}></div>
+                                <div class="card-body p-0 pt-0 pb-0">
+                                    <div style={{"height": "110px"}}></div>
                                     <h3 class="card-name text-gracy">Dust Collector Catridge Filters</h3>
                                     <h2 class="text-uppercase font-weight-bold mb-4 text-blue">Others</h2>
                                     <ul class="list-unstyled">
@@ -100,7 +100,7 @@ const Certificates = () => {
 
                         <div class="col-lg-4">
                             <div class="card-3 mx-auto border-blue color--border mt-1">
-                                <div class="card-body p-0 pt-3 pb-0">
+                                <div class="card-body p-0 pt-0 pb-0">
                                     <img src={Torit} class="card-img-fit" alt="..." />
                                     <h3 class="card-name text-gracy">Dust Collector Catridge Filters</h3>
                                     <h2 class="text-uppercase font-weight-bold mb-4 text-blue">Donaldson Torit</h2>

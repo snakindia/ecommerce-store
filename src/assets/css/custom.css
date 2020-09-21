@@ -500,14 +500,24 @@ color:#000 !important; font-weight: 500 !important; }
 
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp{ position: relative; z-index: 10000 !important;}
 
-.banner-img-100{width: 100%; height:768px !important;object-fit: cover; object-position: center;}
+.banner-img-100{width: 100%; height:550px !important; object-fit: cover; object-position: bottom;}
 
-.freequote-container {
-    position: absolute;
-    top: 5%;
-    right: -102px !important;
-    z-index: 100;
-}
+.freequote-container { position: absolute; top: 5%; right: -80px !important; z-index: 100;}
+
+/*.bag_jai_head{color:#000 !important;}*/
+.img-object-fit{border-radius: 0 !important}
+.imgL-container{background: transparent !important;}
+.imgB_color{background: rgba(46,49,146,1); position: absolute; bottom:0; left: 0;
+width:500px; height: 400px}
+.inner-wrap{position: absolute; top:6rem; left:0; z-index: 100}
+.iMg_pos{border: 0px solid rgb(255, 255, 255);width: 540px; height: 606px; position: relative;z-index: 1;}
+.contentDescript{background:transparent; margin-top: 6rem;}
+.contentDescript p span{font-family: 'Roboto', sans-serif !important;color:#212529 !important;}
+.contentDescript p span strong{font-weight: 600; font-family: 'Roboto', sans-serif !important; 
+font-size: 1.2rem !important}
+.font-xl{font-size:2.875rem !important;}
+.jail_Content_Descrpt {padding: 3rem 3rem 3rem 5rem;font-size: 1.25rem;text-align: justify;color: #fff;
+line-height: 2rem}
 /*====Home page layout fixing with menu dropdown end========================================*/
 
 .form-control.select_type {
