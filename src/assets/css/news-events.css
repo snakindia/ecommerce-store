@@ -159,8 +159,8 @@ background: #b9b9b9 !important; height: 6px}
 .banner-container-xxs .carousel-indicators li{width: 20px !important; border-radius: 0 !important;
 background: #b9b9b9 !important; height: 6px}
 .banner-container-xxs .carousel-indicators li.active { background: #6e7173 !important;}
-.banner-container-xxs .carousel-inner img{height: 460px !important}
-.banner-container-xxs .carousel-indicators{bottom:120px;}
+.banner-container-xxs .carousel-inner img{height: auto !important}/*----height: 460px !important--*/
+.banner-container-xxs .carousel-indicators{bottom:110px;}
 .item-xxs-caption { position: absolute; top: 8%;left: 6%;width: 40%;}
 .item-xxs-caption.caption-setting{top:20%; width: 50%}
 .item-xxs-caption .item_heading {font-size: 2.5rem; font-weight: 700;

@@ -39,7 +39,7 @@ const Faq = ({ data }) => {
        </CustomToggle>
       
       <Accordion.Collapse eventKey={i.toString()}>
-        <div className="card-body card-body margin-top p-4" dangerouslySetInnerHTML={{__html:item.answer}}/>
+        <div className="card-body card-body margin-top pl-3 pr-3" dangerouslySetInnerHTML={{__html:item.answer}}/>
       </Accordion.Collapse>
       </>
     )

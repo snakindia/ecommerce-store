@@ -98,7 +98,7 @@ class Projects extends Component {
                                 {ReactHtmlParser(details.contents[2].description)}
                               </div>
                             </div>
-                            <div class="col-sm-6 col-md-6 caption-img">
+                            <div class="col-sm-6 col-md-6 caption-img mb-4">
                               <div class="brighten">
                                <img src={details.contents[2].url} alt="..." class="proj-object-fit" />
                               </div>
@@ -110,7 +110,7 @@ class Projects extends Component {
                         {details.contents && details.contents.length > 3 &&
                             <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[3].title}>
                                 <div class="row no-gutters">
-                                    <div class="col-sm-6 col-md-6 caption-img">
+                                    <div class="col-sm-6 col-md-6 caption-img mb-4">
                                         <div class="brighten">
                                             <img src={details.contents[3].url} alt="..." class="proj-object-fit" />
                                         </div>
@@ -134,7 +134,7 @@ class Projects extends Component {
                                         {ReactHtmlParser(details.contents[4].description)}
                                       </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-6 caption-img">
+                                    <div class="col-sm-6 col-md-6 caption-img mb-4">
                                       <div class="brighten">
                                         <img src={details.contents[4].url} alt="..." class="proj-object-fit" />
                                       </div>
@@ -146,7 +146,7 @@ class Projects extends Component {
                         {details.contents && details.contents.length > 5 &&
                             <div class="container-fluid pl-1 pr-1 mb-5" id={details.contents[5].title}>
                                 <div class="row no-gutters">
-                                    <div class="col-sm-6 col-md-6 caption-img">
+                                    <div class="col-sm-6 col-md-6 caption-img mb-4">
                                         <div class="brighten">
                                             <img src={details.contents[5].url} alt="..." class="proj-object-fit" />
                                         </div>
