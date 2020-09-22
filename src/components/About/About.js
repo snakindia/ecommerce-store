@@ -273,7 +273,7 @@ class About extends React.Component {
                         return (
                           <section class="pro-equipment-section padding-0 pagewrap-inner location"
                             id="3" style={{"position":"relative"}}>
-                            <h4 class="heading-h4 pt-5 pb-0" style={{"position":"absolute", "top":"0", "left":"1.5rem", "color":"#043852"}}>Location</h4>
+                            <h4 class="heading-h4 pt-5 pb-0" style={{"position":"absolute", "top":"0", "left":"1.5rem", "color":"#043852"}}>{item.title}</h4>
                             <img src={item.url} alt="" class="d-block bha_h_100"  />
                           </section>
                         );
