@@ -19,7 +19,7 @@ class ProductServicesClients extends Component {
         var settings = {
             slidesToShow: 6,
             slidesToScroll: 1,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 1500,
         };
         return (

@@ -45,13 +45,14 @@ export default class ProductsPart extends Component {
                       alt="Card image"
                     />
                     <figcaption className="text-center">
-                      <h4>{item.name}</h4>
-                      <button
-                        type="button"
-                        className="btn bha-btn-primary w-100 mt-2"
-                      >
-                        View Details
-                      </button>
+                        <h4>{item.name}</h4>
+                        <button
+                            type="button"
+                            className="btn bha-btn-primary w-100 mt-2"
+                            onClick=""
+                        >
+                            View Details
+                        </button>
                     </figcaption>
 
                     <div className="card-body p-0">
