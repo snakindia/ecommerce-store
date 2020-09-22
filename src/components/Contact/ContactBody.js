@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ContentSection from '../Contact/ContentSection';
-import Mapimg from '../../assets/images/map.png';
+import Mapimg from '../../assets/images/ContactMap1.jpg';
 
 export default class ContactBody extends Component {
   render() {

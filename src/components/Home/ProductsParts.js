@@ -50,7 +50,7 @@ export default class ProductsPart extends Component {
                         type="button"
                         className="btn bha-btn-primary w-100 mt-2"
                       >
-                        Shop Now!
+                        View Details
                       </button>
                     </figcaption>
 
