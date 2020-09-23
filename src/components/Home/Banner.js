@@ -21,19 +21,23 @@ import { Affix } from 'antd';
 import { API_URL } from '../../constants/appConstant';
 import axios from 'axios';
 import { fetch_dynamic_menus } from '../../actions/fetchActions';
+import { save_brochures_details } from '../../actions/freeBrochuresActions';
+import RequestAQuote from './../RequestAQuote/RequestAQuote';
+import { showToast } from './../Notification/notification.actions';
 var scrollToElement = require('scroll-to-element');
 
 class Banner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      autoplay: false,
-      affix:false,
+        autoplay: false,
+        affix:false,
+        isQuoteModalOpen: false
     };
   }
 
     componentDidMount() {
-        this.props.dispatch(fetch_dynamic_menus());
+        fetch_dynamic_menus();
     }
   
     scrollToCompanyEle() {
@@ -64,9 +68,14 @@ class Banner extends Component {
         });
     }
     
-    triggerRequestAQuoteButton() {
-        document.getElementById("requestAQuote").click();
-    }
+//    triggerRequestAQuoteButton() {
+//        document.getElementById("requestAQuote").click();
+//    }
+    
+    toggleQuoteModal = () => {
+        const { isQuoteModalOpen } = this.state;
+        this.setState({ isQuoteModalOpen: !isQuoteModalOpen });
+    };
 
   render() {
     const {affix} =this.state
@@ -77,6 +86,7 @@ class Banner extends Component {
     const style = {
         top:100
     }
+    
     return (
       <div>
         <div className="banner-container">
@@ -104,7 +114,7 @@ class Banner extends Component {
                           <a
                             href="#"
                             className="btn bha-btn-primary mt-4 pl-pr"
-                            onClick={this.triggerRequestAQuoteButton}
+                            onClick={this.toggleQuoteModal}
                           >
                             FREE BROCHURES
                           </a>
@@ -184,6 +194,14 @@ class Banner extends Component {
                   Best Selling Products
                 </Link>
               </div>
+              
+              <RequestAQuote
+                    toggleModal={this.toggleQuoteModal}
+                    isOpen={this.state.isQuoteModalOpen}
+                    onSubmit={this.props.saveBrochuresDetails}
+                    showToast={this.props.showToast}
+                    isFreeBrochure={true}
+            />
             </div>
             }
         </header>
@@ -201,8 +219,13 @@ class Banner extends Component {
 }
 
 const mapStateToProps = ({ asyncReducer }) => {
-  return {
-    navMenuData: asyncReducer,
-  };
+    return {
+        navMenuData: asyncReducer,
+    };
 };
-export default connect(mapStateToProps)(Banner);
+
+const mapDispatchToProps = {
+    saveBrochuresDetails: save_brochures_details,
+    showToast
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Banner);

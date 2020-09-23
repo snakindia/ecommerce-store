@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import AlertMessages from './common/AlertMessages';
 import EpicCover from '../assets/images/600X500-4.jpg';
 import Baghouse from '../assets/images/baghouse.jpg';
 import Baghouselogo from '../assets/images/baghouse_logo.svg';
@@ -26,6 +27,7 @@ import { showToast } from './Notification/notification.actions';
 import SubMenu from './Submnues/SubMenu';
 import ReactDOM from 'react-dom';
 var scrollToElement = require('scroll-to-element');
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -102,14 +104,14 @@ class NavBar extends React.Component {
       document.removeEventListener('click', this.handleClickOutside, true);
   }
 
-  handleClickOutside = event => {
-      const domNode = ReactDOM.findDOMNode(this);
+    handleClickOutside = event => {
+        const domNode = ReactDOM.findDOMNode(this);
 
-      if (!domNode || !domNode.contains(event.target)) {
-         this.hideSubMenu()
-      }
-  }
-
+        if (!domNode || !domNode.contains(event.target)) {
+           this.hideSubMenu()
+        }
+    }
+  
   render() {
     const { navMenuData } = this.props;
     const { visibleSubmenu } = this.state;

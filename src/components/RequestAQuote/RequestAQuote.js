@@ -8,13 +8,13 @@ import { validators } from './validators';
 import { TOAST_TYPE } from '../Notification/action.constants';
 const { Option } = Select;
 const initialValues = {
-  name: '',
-  company: '',
-  email: '',
-  phone: '',
-  message: '',
-  category_id: '',
-  category_name: '',
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    message: '',
+    category_id: '',
+    category_name: '',
 };
 
 class RequestAQuote extends Component {
@@ -54,12 +54,15 @@ class RequestAQuote extends Component {
     }
   };
 
-  validateForm = values => {
-    const e = execValidation(validators, values);
-    return Object.keys(e) ? e : null;
-  };
+    validateForm = values => {
+        const e = execValidation(validators, values);
+        if (this.props.isFreeBrochure == true) {
+            delete e.message;
+        }
+        return Object.keys(e) ? e : null;
+    };
   render() {
-    const { isOpen, toggleModal, subMenuData } = this.props;
+    const { isOpen, toggleModal, subMenuData, isFreeBrochure } = this.props;
     let categories = [];
     if (subMenuData && Object.keys(subMenuData).length > 0) {
       for (const key of Object.keys(subMenuData)) {
@@ -95,7 +98,7 @@ class RequestAQuote extends Component {
               <span aria-hidden="true">×</span>
             </button>
             <h2 className="bha_heading_2 font-weight-bold text-black">
-              Request For quote
+                {isFreeBrochure != true ? "Request For quote" : "Free Brochure"}
             </h2>
             <Formik
               initialValues={initialValues}
@@ -215,26 +218,27 @@ class RequestAQuote extends Component {
                           </span>
                         </div>
                       </div>
-
-                      <div className="col-lg-12">
-                        <div className="form-group mb-1">
-                          <label htmlFor="company">Message *</label>
-                          <Field
-                            maxLength="100"
-                            component="textarea"
-                            rows="2"
-                            className="form-control-textarea"
-                            id="message"
-                            placeholder="Type Message"
-                            value={values.message}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                          />
-                          <span className="errorMsg">
-                            {touched.message && errors.message}
-                          </span>
-                        </div>
-                      </div>
+                        { isFreeBrochure != true ?
+                            <div className="col-lg-12">
+                                <div className="form-group mb-1">
+                                  <label htmlFor="company">Message *</label>
+                                  <Field
+                                        maxLength="100"
+                                        component="textarea"
+                                        rows="2"
+                                        className="form-control-textarea"
+                                        id="message"
+                                        placeholder="Type Message"
+                                        value={values.message}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                  />
+                                  <span className="errorMsg">
+                                    {touched.message && errors.message}
+                                  </span>
+                                </div>
+                            </div> : ''
+                        }
                     </div>
                     <div className="mt-2">
                       <button
@@ -242,7 +246,7 @@ class RequestAQuote extends Component {
                         className="btn bha-btn-primary w-100"
                         onClick={handleSubmit}
                       >
-                        subscribe
+                        {isFreeBrochure != true ? 'subscribe' : 'download brochure'}
                     </button>
                     </div>
                   </Form>
