@@ -2,7 +2,8 @@ import React from 'react';
 import ProducstServiceContactForm from './ProducstServiceContactForm';
 
 const Banner = ({ content }) => {
-  return (
+    let pdf_url = '';
+    return (
         <section class="hero-header" style={{"background": "none"}}>
             <img src={content.banner_image} alt="..." class="img-fluid banner-img-100"/>
             <div class="pagewrap" style={{"position": "absolute", "top":"30%"}}>
@@ -13,9 +14,19 @@ const Banner = ({ content }) => {
                                 <div class="type1">{content.banner_title}</div>
                             </div>
                         </div>
-                        {content.resources && Object.keys(content.resources).length > 0 && content.resources[0].title == '||DB||' ?
-                            <ProducstServiceContactForm pdf_url={content.resources[0].url} /> : <ProducstServiceContactForm />
+                        {
+                            content.resources && Object.keys(content.resources).length > 0 && content.resources[0].title == '||DB||'  &&
+                            content.resources.map((item, idx) => {
+                            if (item.title == '||DB||') {
+                                pdf_url = item.url;
+                            }
+                        })}
+                        
+                        {
+                            pdf_url != '' ? <ProducstServiceContactForm pdf_url={content.resources[0].url} /> : <ProducstServiceContactForm />
                         }
+                            
+                        
                         
                     </div>
                 </div>
