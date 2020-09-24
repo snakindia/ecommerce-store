@@ -573,3 +573,6 @@ line-height: 2rem}
     padding-top: 50px !important;
 }
 
+.Toastify__toast {
+    margin-top: 125px;
+}

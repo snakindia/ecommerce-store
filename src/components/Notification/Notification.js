@@ -32,7 +32,7 @@ const Notification = ({ msg, id, type }) => {
       <ToastContainer
         // hideProgressBar={true}
           //
-          position="bottom-left"
+          position="top-right"
         newestOnTop={true}
         autoClose={5000}
       />
