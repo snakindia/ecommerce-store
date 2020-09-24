@@ -122,7 +122,7 @@ class NavBar extends React.Component {
       <div className="pagewrap">
       <div className="headerfull" >
         <div className="smllogo">
-          <a href="#" className="anchor-logo">
+          <a href="/" className="anchor-logo">
             <img className="d-block pt-1" src={MenuLogo} alt="" width="200" />
           </a>
         </div>

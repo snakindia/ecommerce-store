@@ -681,7 +681,7 @@ class ContentSection extends Component {
                                 <label class="text-small">Captcha</label>
 
                                 <Recaptcha
-                                  sitekey="6Lf_rakZAAAAAEDNJKxqF3XnpU5HfeKZOtI4WFbf"
+                                  sitekey="6Lea-c8ZAAAAAJ0loVL0GTrWQRaxy5XUFGH14auQ"
                                   render="explicit"
                                   theme="light"
                                   verifyCallback={response => {
