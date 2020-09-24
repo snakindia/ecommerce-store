@@ -88,7 +88,7 @@ class ProductServicesDetail extends Component {
                         </div>
                     </section> : ''
                 }
-                    {details.resources && Object.keys(details.resources).length > 0 ?
+                    {details.resources && Object.keys(details.resources).length > 0 && details.resources[0].title != '||DB||' ?
                         <Resources content={details} /> : ''
                     }
                     

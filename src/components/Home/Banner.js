@@ -30,7 +30,7 @@ class Banner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        autoplay: false,
+        autoplay: true,
         affix:false,
         isQuoteModalOpen: false
     };

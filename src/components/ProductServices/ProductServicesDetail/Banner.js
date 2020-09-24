@@ -13,7 +13,10 @@ const Banner = ({ content }) => {
                                 <div class="type1">{content.banner_title}</div>
                             </div>
                         </div>
-                        <ProducstServiceContactForm />
+                        {content.resources && Object.keys(content.resources).length > 0 && content.resources[0].title == '||DB||' ?
+                            <ProducstServiceContactForm pdf_url={content.resources[0].url} /> : <ProducstServiceContactForm />
+                        }
+                        
                     </div>
                 </div>
             </div>

@@ -423,7 +423,7 @@ position: absolute;top: 15%;right: 5%;}
 /*.sidehoverbar{left: -253px !important}*/
 /*==========Home page fixing============================*/
 .image-holder{
-  width:273px !important; height: 300px !important;}
+  width:273px !important; height: 200px !important;}
 .image-holder img{height: 300px !important; object-fit: cover; 
   object-position: center !important;}
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{
@@ -439,11 +439,11 @@ figcaption h4{font-weight: 500 !important}
 
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{
   padding: 10px 10px 20px 10px !important; overflow: hidden !important;
-  height: 480px !important; margin-bottom: 3rem !important;
+  height: 380px !important; margin-bottom: 3rem !important;
 }
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp {
     width: 100%; display: block; position: relative; background-color: #fff;
-    height: 480px !important;}
+    height: 380px !important;}
 /*.wstabitem > li > a{font-size: 0.850rem !important;}*/
 /*.bottom-navigation{z-index: 1000 !important}*/
 /*=====Top menu section===========*/

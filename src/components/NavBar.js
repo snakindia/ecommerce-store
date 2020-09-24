@@ -118,7 +118,6 @@ class NavBar extends React.Component {
     const { menuData, subMenuData } = navMenuData;
     const { header_menu } = menuData;
     let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
-
     return (
       <div className="pagewrap">
       <div className="headerfull" >
@@ -197,10 +196,10 @@ const mapStateToProps = ({ asyncReducer }) => {
 };
 
 const mapDispatchToProps = {
-  saveBrochuresDetails: save_brochures_details,
-  fetch_dynamic_menus,
-  fetch_submenu_items,
-  showToast,
+    saveBrochuresDetails: save_brochures_details,
+    fetch_dynamic_menus,
+    fetch_submenu_items,
+    showToast,
 };
 //export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
 const navRedux =connect(mapStateToProps, mapDispatchToProps)(NavBar);
