@@ -36,9 +36,9 @@ class Banner extends Component {
     };
   }
 
-    componentDidMount() {
-        fetch_dynamic_menus();
-    }
+    // componentDidMount() {
+    //     fetch_dynamic_menus();
+    // }
   
     scrollToCompanyEle() {
         scrollToElement('#company', {
