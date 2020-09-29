@@ -79,7 +79,7 @@ class ProductServicesDetail extends Component {
                                 {ReactHtmlParser(details.contents[0].description)}
                                   <div class="float-left pl-0 mt-4 mb-5">
                                     <div class="actionButton">
-                                      <a href="#">Call for a free quote</a>
+                                      <a href="tel:+1-888-286-8708">Call for a free quote</a>
                                     </div>
                                   </div>
                                 </div>
