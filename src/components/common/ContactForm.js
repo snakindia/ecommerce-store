@@ -5,7 +5,8 @@ import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
 import { save_brochures_details } from '../../actions/freeBrochuresActions';
 import { TOAST_TYPE } from '../Notification/action.constants';
 import { showToast } from './../Notification/notification.actions';
-
+import messages from '../../utils/messages';
+import Input from '../common/Input';
 class ContactForm extends Component {
     constructor(props) {
         super(props);
@@ -47,10 +48,11 @@ class ContactForm extends Component {
                                     const errors = {};
                                     if (!values.name) {
                                         errors.name = 'Name is required';
-                                    } else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
-                                        errors.name =
-                                            'Please enter alphabet characters only';
-                                    }
+                                    } 
+                                    // else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
+                                    //     errors.name =
+                                    //         'Please enter alphabet characters only';
+                                    // }
 
                                     if (!values.phone) {
                                         errors.phone = 'Phone number is required';
@@ -64,10 +66,11 @@ class ContactForm extends Component {
 
                                     if (!values.company) {
                                         errors.company = 'Company name is required';
-                                    } else if (!/^[a-zA-Z ]*$/i.test(values.company)) {
-                                        errors.company =
-                                            'Please enter alphabet characters only';
-                                    }
+                                    } 
+                                    // else if (!/^[a-zA-Z ]*$/i.test(values.company)) {
+                                    //     errors.company =
+                                    //         'Please enter alphabet characters only';
+                                    // }
 
                                     if (!values.email) {
                                         errors.email = 'Email address is required';
@@ -83,7 +86,8 @@ class ContactForm extends Component {
                                 }}
                                 onSubmit={(values, { setSubmitting, resetForm }) => {
                                     this.saveHandler(values);
-                                    this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
+                                    //this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
+                                    this.props.showToast(messages.footer, TOAST_TYPE.SUCCESS);
                                     resetForm()
                                 }}
                             >
@@ -102,7 +106,8 @@ class ContactForm extends Component {
                                                 <MDBCol md="12">
                                                     <div class="form-group">
                                                         <label class="mb-0">Name *</label>
-                                                        <input
+                                                        <Input
+                                                            allow="spc"
                                                             type="text"
                                                             id="defaultFormCardNameEx"
                                                             className="form-control"
@@ -125,7 +130,8 @@ class ContactForm extends Component {
                                                 <MDBCol lg="12">
                                                     <div class="form-group">
                                                         <label class="mb-0">Company *</label>
-                                                        <input
+                                                        <Input
+                                                            allow="spc"
                                                             type="text"
                                                             id="defaultFormCardNameEx"
                                                             className="form-control"

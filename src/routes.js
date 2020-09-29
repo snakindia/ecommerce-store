@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import TopBar from './components/TopBar';
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
+import MobileMenu from './components/MobileMenu';
 import { StickyContainer } from 'react-sticky';
 import MetaContainer from './components/MetaData';
 import Notification from './components/Notification';
@@ -43,6 +44,7 @@ const Router = () => {
                 <MetaContainer>
                     <div className="top-header navbar-fixed">
                         <SubscriptionPopUp />
+                        <MobileMenu/>
                         <TopBar />
                         <NavBar />
                     </div>
