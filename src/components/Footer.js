@@ -3,6 +3,8 @@ import { Formik } from 'formik';
 import { connect } from 'react-redux';
 import InquiryNotification from './common/InquiryNotification';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
+import messages from '../utils/messages';
+import Input from './common/Input';
 import { Link } from 'react-router-dom';
 import Facebook from '../assets/images/facebook.png';
 import Linkedin from '../assets/images/linkedin.png';
@@ -18,41 +20,41 @@ import { TOAST_TYPE } from './Notification/action.constants';
 
 
 class Footer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            brochureData: {},
-            year: new Date().getFullYear(),
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      brochureData: {},
+      year: new Date().getFullYear(),
+    };
+  }
 
-    saveHandler(data) {
-        data.type = 'Representative';
-        this.props.saveBrochuresDetails();
-    }
+  saveHandler(data) {
+    data.type = 'Representative';
+    this.props.saveBrochuresDetails();
+  }
 
-    componentDidMount() {
-        this.props.fetch_dynamic_menus();
-    }
-    
-    render() {
-        this.state.brochureData = this.props.freeBrochuresUserDetail;
-        const { navMenuData, brochureData } = this.props;
-        const { menuData } = navMenuData;
+  componentDidMount() {
+    this.props.fetch_dynamic_menus();
+  }
 
-        const {
-          footer_menu_1_title,
-          footer_menu_2_title,
-          footer_menu_3_title,
-          footer_menu_4_title,
-          footer_menu_5_title,
-          footer_menu_1_items,
-          footer_menu_2_items,
-          footer_menu_3_items,
-          footer_menu_4_items,
-          footer_menu_5_items,
-          footer_social,
-        } = menuData;
+  render() {
+    this.state.brochureData = this.props.freeBrochuresUserDetail;
+    const { navMenuData, brochureData } = this.props;
+    const { menuData } = navMenuData;
+
+    const {
+      footer_menu_1_title,
+      footer_menu_2_title,
+      footer_menu_3_title,
+      footer_menu_4_title,
+      footer_menu_5_title,
+      footer_menu_1_items,
+      footer_menu_2_items,
+      footer_menu_3_items,
+      footer_menu_4_items,
+      footer_menu_5_items,
+      footer_social,
+    } = menuData;
     return (
       <div>
         <div class="chat-button">
@@ -154,10 +156,11 @@ class Footer extends Component {
                             const errors = {};
                             if (!values.name) {
                               errors.name = 'Name is required';
-                            } else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
-                              errors.name =
-                                'Please enter alphabet characters only';
                             }
+                            //  else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
+                            //   errors.name =
+                            //     'Please enter alphabet characters only';
+                            // }
 
                             if (!values.phone) {
                               errors.phone = 'Phone number is required';
@@ -171,10 +174,11 @@ class Footer extends Component {
 
                             if (!values.company) {
                               errors.company = 'Company name is required';
-                            } else if (!/^[a-zA-Z ]*$/i.test(values.company)) {
-                              errors.company =
-                                'Please enter alphabet characters only';
                             }
+                            //  else if (!/^[a-zA-Z ]*$/i.test(values.company)) {
+                            //   errors.company =
+                            //     'Please enter alphabet characters only';
+                            // }
 
                             if (!values.email) {
                               errors.email = 'Email address is required';
@@ -189,10 +193,11 @@ class Footer extends Component {
                             return errors;
                           }}
                           onSubmit={(values, { setSubmitting, resetForm }) => {
-                                setSubmitting(true);
-                                this.saveHandler(values);
-                                this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
-                                resetForm()
+                            setSubmitting(true);
+                            this.saveHandler(values);
+                            //this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
+                            this.props.showToast(messages.footer, TOAST_TYPE.SUCCESS);
+                            resetForm()
                           }}
                         >
                           {({
@@ -205,125 +210,127 @@ class Footer extends Component {
                             isSubmitting,
                             /* and other goodies */
                           }) => (
-                            <form onSubmit={handleSubmit}>
-                              <MDBRow>
-                                <MDBCol md="12">
-                                  <div class="form-group">
-                                    <label>Name *</label>
-                                    <input
-                                      type="text"
-                                      id="defaultFormCardNameEx"
-                                      className="form-control"
-                                      name="name"
-                                      value={values.name}
-                                      onChange={handleChange}
-                                      onBlur={handleBlur}
-                                      placeholder="Enter Name"
-                                    />
-                                    <span className="errorMsg">
-                                      {errors.name &&
-                                        touched.name &&
-                                        errors.name}
-                                    </span>
-                                  </div>
-                                </MDBCol>
-                              </MDBRow>
+                              <form onSubmit={handleSubmit}>
+                                <MDBRow>
+                                  <MDBCol md="12">
+                                    <div class="form-group">
+                                      <label>Name *</label>
+                                      <Input
+                                        allow="spc"
+                                        type="text"
+                                        id="defaultFormCardNameEx"
+                                        className="form-control"
+                                        name="name"
+                                        value={values.name}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        placeholder="Enter Name"
+                                      />
+                                      <span className="errorMsg">
+                                        {errors.name &&
+                                          touched.name &&
+                                          errors.name}
+                                      </span>
+                                    </div>
+                                  </MDBCol>
+                                </MDBRow>
 
-                              <MDBRow>
-                                <MDBCol lg="12">
-                                  <div class="form-group">
-                                    <label>Company *</label>
-                                    <input
-                                      type="text"
-                                      id="defaultFormCardNameEx"
-                                      className="form-control"
-                                      placeholder="Enter Company Name"
-                                      name="company"
-                                      value={values.company}
-                                      onChange={handleChange}
-                                      onBlur={handleBlur}
-                                    />
-                                    <span className="errorMsg">
-                                      {errors.company &&
-                                        touched.company &&
-                                        errors.company}
-                                    </span>
-                                  </div>
-                                </MDBCol>
-                              </MDBRow>
+                                <MDBRow>
+                                  <MDBCol lg="12">
+                                    <div class="form-group">
+                                      <label>Company *</label>
+                                      <Input
+                                        allow="spc"
+                                        type="text"
+                                        id="defaultFormCardNameEx"
+                                        className="form-control"
+                                        placeholder="Enter Company Name"
+                                        name="company"
+                                        value={values.company}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                      />
+                                      <span className="errorMsg">
+                                        {errors.company &&
+                                          touched.company &&
+                                          errors.company}
+                                      </span>
+                                    </div>
+                                  </MDBCol>
+                                </MDBRow>
 
-                              <MDBRow>
-                                <MDBCol md="12">
-                                  <div class="form-group">
-                                    <label>Phone *</label>
-                                    <input
-                                      type="text"
-                                      id="defaultFormCardNameEx"
-                                      className="form-control"
-                                      placeholder="Enter Phone"
-                                      value={values.phone}
-                                      onChange={handleChange}
-                                      onBlur={handleBlur}
-                                      name="phone"
-                                    />
-                                    <span className="errorMsg">
-                                      {errors.phone &&
-                                        touched.phone &&
-                                        errors.phone}
-                                    </span>
-                                  </div>
-                                </MDBCol>
-                              </MDBRow>
+                                <MDBRow>
+                                  <MDBCol md="12">
+                                    <div class="form-group">
+                                      <label>Phone *</label>
+                                      <input
+                                        type="text"
+                                        id="defaultFormCardNameEx"
+                                        className="form-control"
+                                        placeholder="Enter Phone"
+                                        value={values.phone}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        name="phone"
+                                      />
+                                      <span className="errorMsg">
+                                        {errors.phone &&
+                                          touched.phone &&
+                                          errors.phone}
+                                      </span>
+                                    </div>
+                                  </MDBCol>
+                                </MDBRow>
 
-                              <MDBRow>
-                                <MDBCol lg="12">
-                                  <div class="form-group">
-                                    <label>Email *</label>
-                                    <input
-                                      type="text"
-                                      id="defaultFormCardNameEx"
-                                      className="form-control"
-                                      name="email"
-                                      value={values.email}
-                                      onChange={handleChange}
-                                      onBlur={handleBlur}
-                                      placeholder="Enter Email Address"
-                                    />
-                                    <span className="errorMsg">
-                                      {errors.email &&
-                                        touched.email &&
-                                        errors.email}
-                                    </span>
-                                  </div>
-                                </MDBCol>
-                              </MDBRow>
+                                <MDBRow>
+                                  <MDBCol lg="12">
+                                    <div class="form-group">
+                                      <label>Email *</label>
+                                      <input
+                                        type="text"
+                                        id="defaultFormCardNameEx"
+                                        className="form-control"
+                                        name="email"
+                                        value={values.email}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        placeholder="Enter Email Address"
+                                      />
+                                      <span className="errorMsg">
+                                        {errors.email &&
+                                          touched.email &&
+                                          errors.email}
+                                      </span>
+                                    </div>
+                                  </MDBCol>
+                                </MDBRow>
 
-                              <div class="mt-2">
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    handleSubmit();
-                                  }}
-                                  class="btn bha-btn-primary w-100"
-                                >
-                                  Apply
-                                </button>
-                              </div>
-                              {this.props.brochureData &&
-                                Object.keys(this.props.brochureData).length >
-                                  0 &&
-                                this.props.brochureData.status == true && (
-                                  <div
-                                    style={{
-                                      color: 'green',
-                                      'background-color': '#fff',
+                                <div class="mt-2">
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      handleSubmit();
                                     }}
+                                    class="btn bha-btn-primary w-100"
                                   >
-                                    Data saved successfully
-                                  </div>
-                                )}
-                            </form>
-                          )}
+                                    Apply
+                                </button>
+                                </div>
+                                {this.props.brochureData &&
+                                  Object.keys(this.props.brochureData).length >
+                                  0 &&
+                                  this.props.brochureData.status == true && (
+                                    <div
+                                      style={{
+                                        color: 'green',
+                                        'background-color': '#fff',
+                                      }}
+                                    >
+                                      Data saved successfully
+                                    </div>
+                                  )}
+                              </form>
+                            )}
                         </Formik>
                       </div>
                     </div>
@@ -365,56 +372,56 @@ class Footer extends Component {
 
             <div className="copyright">
               <div className="pagewrap">
-              <MDBContainer fluid>
-                <div className="row">
-                  <MDBRow>
-                    <MDBCol md="9" sm="9" xs="12">
-                      <p>
-                        COPYRIGHT © {this.state.year} Baghouse. The following
+                <MDBContainer fluid>
+                  <div className="row">
+                    <MDBRow>
+                      <MDBCol md="9" sm="9" xs="12">
+                        <p>
+                          COPYRIGHT © {this.state.year} Baghouse. The following
                         are trademarks for one or more Baghouse power tools,
                         accessories, anchors and concrete adhesives: The yellow
                         and black color scheme; the the array of pyramids on the
                         handgrip; the kit box configuration; and the array of
                         lozenge-shaped humps on the surface of the tool.
                       </p>
-                      <ul class="footer-middle-list">
-                        <li>
-                          <a href="/">Updated Privacy Policy</a>
-                          <span>|</span>
-                        </li>
-                        <li>
-                          <a href="/">Terms of Use</a>
-                          <span>|</span>
-                        </li>
-                        <li>
-                          <a href="/">Safety Notices and Recalls</a>
-                          <span>|</span>
-                        </li>
-                        <li>
-                          <a href="/">Travel Safety with Cordless Tools</a>
-                          <span>|</span>
-                        </li>
-                        <li>
-                          <a href="/">BAGHOUSE Patent Information</a>
-                          <span>|</span>
-                        </li>
-                        <li>
-                          <a href="/">Shop Safe</a>
-                          <span>|</span>
-                        </li>
-                      </ul>
-                    </MDBCol>
-                    <MDBCol
-                      md="3"
-                      sm="3"
-                      xs="12"
-                      className="float-right-sm pt-3 pr-4"
-                    >
-                      <img className="w-100" src={Footerlogo} alt="" />
-                    </MDBCol>
-                  </MDBRow>
-                </div>
-              </MDBContainer>
+                        <ul class="footer-middle-list">
+                          <li>
+                            <a href="/">Updated Privacy Policy</a>
+                            <span>|</span>
+                          </li>
+                          <li>
+                            <a href="/">Terms of Use</a>
+                            <span>|</span>
+                          </li>
+                          <li>
+                            <a href="/">Safety Notices and Recalls</a>
+                            <span>|</span>
+                          </li>
+                          <li>
+                            <a href="/">Travel Safety with Cordless Tools</a>
+                            <span>|</span>
+                          </li>
+                          <li>
+                            <a href="/">BAGHOUSE Patent Information</a>
+                            <span>|</span>
+                          </li>
+                          <li>
+                            <a href="/">Shop Safe</a>
+                            <span>|</span>
+                          </li>
+                        </ul>
+                      </MDBCol>
+                      <MDBCol
+                        md="3"
+                        sm="3"
+                        xs="12"
+                        className="float-right-sm pt-3 pr-4"
+                      >
+                        <img className="w-100" src={Footerlogo} alt="" />
+                      </MDBCol>
+                    </MDBRow>
+                  </div>
+                </MDBContainer>
               </div>
             </div>
           </div>
@@ -432,9 +439,9 @@ const mapStateToProps = ({ asyncReducer }) => {
 };
 
 const mapDispatchToProps = {
-    saveBrochuresDetails: data => save_brochures_details(data),
-    fetch_dynamic_menus: fetch_dynamic_menus,
-    showToast,
+  saveBrochuresDetails: data => save_brochures_details(data),
+  fetch_dynamic_menus: fetch_dynamic_menus,
+  showToast,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);
