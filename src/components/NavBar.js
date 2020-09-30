@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import AlertMessages from './common/AlertMessages';
 import EpicCover from '../assets/images/600X500-4.jpg';
 import Baghouse from '../assets/images/baghouse.jpg';
 import Baghouselogo from '../assets/images/baghouse_logo.svg';
@@ -26,6 +27,7 @@ import { showToast } from './Notification/notification.actions';
 import SubMenu from './Submnues/SubMenu';
 import ReactDOM from 'react-dom';
 var scrollToElement = require('scroll-to-element');
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -102,27 +104,26 @@ class NavBar extends React.Component {
       document.removeEventListener('click', this.handleClickOutside, true);
   }
 
-  handleClickOutside = event => {
-      const domNode = ReactDOM.findDOMNode(this);
+    handleClickOutside = event => {
+        const domNode = ReactDOM.findDOMNode(this);
 
-      if (!domNode || !domNode.contains(event.target)) {
-         this.hideSubMenu()
-      }
-  }
-
+        if (!domNode || !domNode.contains(event.target)) {
+           this.hideSubMenu()
+        }
+    }
+  
   render() {
     const { navMenuData } = this.props;
     const { visibleSubmenu } = this.state;
     const { menuData, subMenuData } = navMenuData;
     const { header_menu } = menuData;
     let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
-
     return (
       
     <div className="headerfull" >
       <div className="pagewrap">
         <div className="smllogo">
-          <a href="#" className="anchor-logo">
+          <a href="/" className="anchor-logo">
             <img className="d-block pt-1" src={MenuLogo} alt="" width="200" />
           </a>
         </div>
@@ -196,10 +197,10 @@ const mapStateToProps = ({ asyncReducer }) => {
 };
 
 const mapDispatchToProps = {
-  saveBrochuresDetails: save_brochures_details,
-  fetch_dynamic_menus,
-  fetch_submenu_items,
-  showToast,
+    saveBrochuresDetails: save_brochures_details,
+    fetch_dynamic_menus,
+    fetch_submenu_items,
+    showToast,
 };
 //export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
 const navRedux =connect(mapStateToProps, mapDispatchToProps)(NavBar);

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
 import { API_URL, API_IMAGE_PATH } from './../../constants/appConstant';
+import { Link  } from 'react-router-dom';
 
 export default class ProductsPart extends Component {
   constructor(props) {
@@ -17,6 +18,16 @@ export default class ProductsPart extends Component {
       this.setState({ data: res.data });
     });
   }
+  
+//    onBtnClick = (url) => {
+//        if (url != '') {
+//            
+//        console.log(' this.props')
+//        console.log(this.props)
+//            hashHistory.push('/deepak');
+//        }
+//      }
+  
 
   drawData() {
     const { data } = this.state;
@@ -27,7 +38,7 @@ export default class ProductsPart extends Component {
       slidesToShow: 4,
       slidesToScroll: 1,
     };
-
+    
     return (
       <Slider {...settings}>
         {Object.keys(data).length &&
@@ -46,13 +57,14 @@ export default class ProductsPart extends Component {
                     />
                     <figcaption className="text-center">
                         <h4>{item.name}</h4>
-                        <button
+                        <Link to={item.page_url}><button
                             type="button"
-                            className="btn bha-btn-primary w-100 mt-2"
-                            onClick=""
+                            className="btn bha-btn-primary w-100 mt-20"
                         >
                             View Details
-                        </button>
+                        </button></Link>
+                        
+                        
                     </figcaption>
 
                     <div className="card-body p-0">

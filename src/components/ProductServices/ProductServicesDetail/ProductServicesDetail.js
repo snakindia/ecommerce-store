@@ -79,7 +79,8 @@ class ProductServicesDetail extends Component {
                                 {ReactHtmlParser(details.contents[0].description)}
                                   <div class="mt-4 mb-5">
                                     <div class="actionButton w-50">
-                                      <a href="#">Call for a free quote</a>
+                                      <a href="tel:+1-888-286-8708">Call for a free quote</a>
+
                                     </div>
                                   </div>
                                 </div>
@@ -88,7 +89,7 @@ class ProductServicesDetail extends Component {
                         </div>
                     </section> : ''
                 }
-                    {details.resources && Object.keys(details.resources).length > 0 ?
+                    {details.resources && Object.keys(details.resources).length > 0 && details.resources[0].title != '||DB||' ?
                         <Resources content={details} /> : ''
                     }
                     

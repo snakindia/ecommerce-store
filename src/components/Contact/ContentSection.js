@@ -12,13 +12,11 @@ import {
 } from 'mdbreact';
 import { Formik } from 'formik';
 import { connect } from 'react-redux';
-import Recaptcha from 'react-recaptcha';
 import Arizona from '../../assets/images/Arizona.png';
 import Florida from '../../assets/images/Florida.png';
 import Brazil from '../../assets/images/Brazil.png';
 import Israel from '../../assets/images/Israel.jpg';
 import SouthAfrica from '../../assets/images/South Africa.jpg';
-import Captcha from '../../assets/images/captcha.jpg';
 import item2 from '../../assets/images/thumbnail-img/item2.png';
 import { save_brochures_details } from '../../actions/freeBrochuresActions';
 
@@ -31,7 +29,7 @@ class ContentSection extends Component {
       isVerified: false,
     };
     //this.handleSubscribe = this.handleSubscribe.bind(this);
-    this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
+//    this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
   }
   toggle = tab => () => {
     if (this.state.activeItem !== tab) {
@@ -41,7 +39,7 @@ class ContentSection extends Component {
     }
   };
 
-  recaptchaLoaded() {}
+//  recaptchaLoaded() {}
 
   // handleSubscribe(){
   //   if(this.state.isVerified){
@@ -530,8 +528,7 @@ class ContentSection extends Component {
                         name: '',
                         message: '',
                         email: '',
-                        phone: '',
-                        recaptcha: false,
+                        phone: ''
                       }}
                       validate={values => {
                         const errors = {};
@@ -569,15 +566,6 @@ class ContentSection extends Component {
                           )
                         ) {
                           errors.email = 'Invalid email address';
-                        }
-                        if (values.recaptcha === true) {
-                          errors.recaptcha = 'You have successfully subscribe';
-
-                          //          alert("You have successfully subscribe")
-                        } else if (values.recaptcha === false) {
-                          errors.recaptcha =
-                            'Please verify that you are a human';
-                          //alert("Please verify that you are a human")
                         }
 
                         return errors;
@@ -677,28 +665,7 @@ class ContentSection extends Component {
                                     errors.message}
                                 </span>
                               </div>
-                              <div class="form-group">
-                                <label class="text-small">Captcha</label>
-
-                                <Recaptcha
-                                  sitekey="6Lf_rakZAAAAAEDNJKxqF3XnpU5HfeKZOtI4WFbf"
-                                  render="explicit"
-                                  theme="light"
-                                  verifyCallback={response => {
-                                    setFieldValue('recaptcha', response);
-                                  }}
-                                  onloadCallback={() => {}}
-                                />
-
-                                <span className="errorMsg">
-                                  {errors.recaptcha &&
-                                    touched.recaptcha &&
-                                    errors.recaptcha}
-                                </span>
-
-                                {/* <img class="img-fluid w-100" src={Captcha} /> */}
-                                {/* <!-- <span class="errorMessage">Mobile / Email Address is required</span> --> */}
-                              </div>
+                             
                               {this.props.saveRecordStatus == true && (
                                 <div
                                   style={{

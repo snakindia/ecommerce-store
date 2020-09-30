@@ -14,12 +14,12 @@ class ContactForm extends Component {
             toggleModal: true
         };
     }
-  
+
     saveHandler(data) {
         data.type = 'Representative';
         this.props.saveBrochuresDetails(data);
     }
-    
+
     render() {
         const initialValues = {
             name: '',
@@ -38,7 +38,7 @@ class ContactForm extends Component {
 
                     <div className="">
                         <div className="">
-                            <h2 className="apply_representation_heading font-weight-bold text-white" >
+                            <h2 className="apply_representation_heading font-weight-bold text-black" >
                                 APPLY FOR REPRESENTATION
                         </h2>
                             <Formik
@@ -48,7 +48,7 @@ class ContactForm extends Component {
                                     const errors = {};
                                     if (!values.name) {
                                         errors.name = 'Name is required';
-                                    } 
+                                    }
                                     // else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
                                     //     errors.name =
                                     //         'Please enter alphabet characters only';
@@ -66,11 +66,23 @@ class ContactForm extends Component {
 
                                     if (!values.company) {
                                         errors.company = 'Company name is required';
-                                    } 
+                                    }
                                     // else if (!/^[a-zA-Z ]*$/i.test(values.company)) {
                                     //     errors.company =
                                     //         'Please enter alphabet characters only';
                                     // }
+                                    if (!values.country) {
+                                        errors.country = 'Country name is required';
+                                    } else if (!/^[a-zA-Z ]*$/i.test(values.country)) {
+                                        errors.country =
+                                            'Please enter alphabet characters only';
+                                    }
+                                    if (!values.description) {
+                                        errors.description = 'Description is required';
+                                    } else if (!/^[a-zA-Z ]*$/i.test(values.description)) {
+                                        errors.description =
+                                            'Please enter alphabet characters only';
+                                    }
 
                                     if (!values.email) {
                                         errors.email = 'Email address is required';
@@ -195,7 +207,53 @@ class ContactForm extends Component {
                                                     </div>
                                                 </MDBCol>
                                             </MDBRow>
-                                           
+                                            <MDBRow>
+                                                <MDBCol lg="12">
+                                                    <div class="form-group">
+                                                        <label class="mb-0">Country *</label>
+                                                        <input
+                                                            type="text"
+                                                            id="defaultFormCardNameEx"
+                                                            className="form-control"
+                                                            name="country"
+                                                            value={values.country}
+                                                            onChange={handleChange}
+                                                            onBlur={handleBlur}
+                                                            placeholder="Enter Country name"
+                                                        />
+                                                        <span className="errorMsg">
+                                                            {errors.country &&
+                                                                touched.country &&
+                                                                errors.country}
+                                                        </span>
+                                                    </div>
+                                                </MDBCol>
+                                            </MDBRow>
+                                            <MDBRow>
+                                                <MDBCol lg="12">
+                                                    <div class="form-group">
+                                                        <label class="mb-0">Description *</label>
+                                                        <Field
+                                                            component="textarea"
+                                                            rows="2"
+                                                            maxLength="100"
+                                                            id="description"
+                                                            className="form-control-textarea"
+                                                            name="description"
+                                                            value={values.description}
+                                                            onChange={handleChange}
+                                                            onBlur={handleBlur}
+                                                            placeholder="Enter Description"
+                                                        />
+                                                        <span className="errorMsg">
+                                                            {errors.description &&
+                                                                touched.description &&
+                                                                errors.description}
+                                                        </span>
+                                                    </div>
+                                                </MDBCol>
+                                            </MDBRow>
+
                                             <div class="mt-2">
                                                 <button
                                                     type="button"

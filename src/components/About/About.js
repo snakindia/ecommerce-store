@@ -283,6 +283,7 @@ class About extends React.Component {
                                 </div>
                               </div>
                             </div>
+
                             <img src={item.url} alt="" class="d-block bha_h_100"  />
                           </section>
                         );

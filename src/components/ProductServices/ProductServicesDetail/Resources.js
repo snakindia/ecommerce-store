@@ -17,20 +17,22 @@ const Resources = ({ content }) => {
                         {content.resources &&
                             Object.keys(content.resources).length &&
                             content.resources.map((item, idx) => {
-                            let spliTitle = item.title.split('||');
-                            return (
-                                <div class="col-sm-6 col-md-6 col-lg-4 mb-4">
-                                    <div class="hot-deals-item-wrapper imgwrap" style={{"height": "450px !important"}}>
-                                        <div class="item-pro-inner p-0">
-                                            <div class="filter-description text-center">
-                                                <h6 class="font-weight-bold text-uppercase">{spliTitle[0]}</h6>
-                                                <p class="text-muted">{spliTitle[1]}</p>
+                            if (item.title != '||DB||') {
+                                let spliTitle = item.title.split('||');
+                                return (
+                                    <div class="col-sm-6 col-md-6 col-lg-4 mb-4">
+                                        <div class="hot-deals-item-wrapper imgwrap" style={{"height": "450px !important"}}>
+                                            <div class="item-pro-inner p-0">
+                                                <div class="filter-description text-center">
+                                                    <h6 class="font-weight-bold text-uppercase">{spliTitle[0]}</h6>
+                                                    <p class="text-muted">{spliTitle[1]}</p>
+                                                </div>
+                                                <img class="filterImg" src={item.url} alt="" />
                                             </div>
-                                            <img class="filterImg" src={item.url} alt="" />
                                         </div>
                                     </div>
-                                </div>
                                 );
+                            }
                             })}
                         </div>
                     </div>

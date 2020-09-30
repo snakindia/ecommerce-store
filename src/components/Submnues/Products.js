@@ -9,6 +9,9 @@ import {
     categoryImageUrl
 
 } from '../../constants/appConstant';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
 class Products extends React.Component {
     constructor(props) {
         super(props);
@@ -21,6 +24,20 @@ class Products extends React.Component {
         };
 
     }
+    
+    
+    submit = () => {
+        confirmAlert({
+            title: "Alert",
+            message: 'This page is coming soon..',
+            buttons: [
+                {
+                  label: 'Ok',
+                }
+            ]
+        });
+    };
+    
     componentDidMount(){
         const { navMenuData :{subMenuData}} = this.props;
         // const { subMenuData } = navMenuData;
@@ -110,13 +127,22 @@ class Products extends React.Component {
                                                                         />
                                                                     </li>
                                                                     <li className="wstheading clearfix">
-                                                                        <Link
+                                                                    {
+                                                                        url != '' ? <Link
                                                                             to={url}
                                                                         >
                                                                             {' '}
                                                                             <i class="fa fa-chevron-right pr-2"></i>
                                                                             {itemTwo.meta_title}
-                                                                        </Link>
+                                                                        </Link> : <a
+                                                                        href="#"
+                                                                            onClick={this.submit}
+                                                                        >
+                                                                            {' '}
+                                                                            <i class="fa fa-chevron-right pr-2"></i>
+                                                                            {itemTwo.meta_title}
+                                                                        </a>
+                                                                    }
                                                                     </li>
                                                                 </ul>
                                                             </div>
