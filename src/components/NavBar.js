@@ -142,6 +142,7 @@ class NavBar extends React.Component {
                     onClick={e => this.showSubMenu(e, item)}
                   >
                     {item.text}
+                    <span><i class="fas fa-angle-down ml-4 downArrowHide"></i></span>
                   </Link>
                   {visibleSubmenu == item.id &&
                     <SubMenu
@@ -156,7 +157,7 @@ class NavBar extends React.Component {
 
                 </li>
                 )}
-              <li aria-haspopup="true">
+              <li>
                 <a
                     id="requestAQuote"
                     href="javascript:void(0)"
@@ -166,7 +167,7 @@ class NavBar extends React.Component {
                   request a quote
                 </a>
               </li>
-              <li aria-haspopup="true">
+              <li>
                 <a
                   href="shop"
                   className="bha-btn-primary bha-btn-menu hotLink pl-2 pr-2"

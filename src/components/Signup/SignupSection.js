@@ -13,7 +13,7 @@ export default class SignupSection extends Component {
 
   render() {
     return (
-      <section className="content-section" style={{ backgroundImage: 'none' }}>
+      <section className="content-section w-100" style={{ backgroundImage: 'none' }}>
         {this.state.show ? (
           <div className="container pl-0 pr-0 pt-3">
             <div className="row">

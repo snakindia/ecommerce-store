@@ -231,7 +231,7 @@ h6 {
     padding-top: 0.5rem;
   }
   #SearchOpen {display: none !important;}
-  .mobPipe {display: none !important;}
+  /*.mobPipe {display: none !important;}*/
 }
 
 /*==========Added new css rules for override existing css 16-August-2020=================*/
@@ -422,6 +422,10 @@ figcaption h4{font-weight: 500 !important}
 /*.wstabitem > li > a{font-size: 0.850rem !important;}*/
 /*.bottom-navigation{z-index: 1000 !important}*/
 /*=====Top menu section===========*/
+
+
+
+
 .wsmenu{width: auto !important;}
 .smllogo {padding: 2px 0px 0 0; margin: 0; float: left; width: 6%;}
 .wsshoptabing {left: -206px !important; width: 121% !important;}
@@ -568,25 +572,24 @@ embed{margin-right: 0.5rem;}
     padding: 0.8rem 0 1.5rem;
     background: #225269;
 }
+.formPadding{padding:0;}
+.downArrowHide{display: none}
 /*====Responsive fixing css==============================================*/
 @media(max-width:768px){
 /*=======Navigation=============*/
-.bottom-navigation {
-    position: static !important;
-    overflow: visible !important;
-    margin-bottom: 0 !important;
-    background: #fff !important;
-}
+.bottom-navigation { position: static !important;  overflow: visible !important;  margin-bottom: 0 !important;
+    background: #fff !important;}
 .bottom-navigation.affixed{position: static !important;}
-.shopNow,
-  .request-Quote { border-bottom: 1px solid #ddd; float: left; display: block; 
+.shopNow, .request-Quote { border-bottom: 1px solid #ddd; float: left; display: block; 
     max-height: 100px;}
-  .request-Quote a {padding: 1.3rem 0 !important; color: #000 !important;
+.request-Quote a {padding: 1.3rem 0 !important; color: #000 !important;
     padding-left: 4rem !important; font-size: 0.8rem;}
-  .shopNow a {color: #000 !important; padding: 1.3rem 0 !important;
+.shopNow a {color: #000 !important; padding: 1.3rem 0 !important;
    margin-left: 4rem !important; font-size: 0.8rem;}
-  .thumnal-icon { float: left !important; margin: 0.6rem 0 1rem 0 !important;}
-  .pl-0 { padding-left: 0 !important; }
+.thumnal-icon { float: left !important; margin: 0.6rem 0 1rem 0 !important;}
+.pl-0 { padding-left: 0 !important; }
+.toplink li{margin:8px 15px !important;}
+.btn{margin:0 !important;}
 /*=======Navigation=============*/
 .pagewrap{margin:0 !important;}
 .imgB_color{display: none}
@@ -606,21 +609,50 @@ padding-left:0 !important;}
 /*.caption h1{font-size: 2.5rem !important}*/
 
 /* page css fixing*/
+.topbar{z-index: 0 !important}
 .tab-menu .tablink{width: 100% !important}
 [class*="col-"] { width: 100% !important;}
 .border-frame{width: 100% !important; min-height:200px !important}
 .p-10{padding:0.5rem 2rem !important; text-align:left !important; }
 .item-xxs-caption{width: 95% !important; padding:0.8rem !important;}
+.mobHide{display: none !important}
+.downArrowHide{display: block !important;}
+.formPadding{padding:0.5rem 2.5rem;}
+.banner-inner img{height: 300px !important}
+.banner-inner::before{width: 100% !important}
+.banner-caption{width: 70% !important; left: 7% !important}
+.wsmobileheader .wssearch.wsopensearch i.wsclosesearch{position: relative; z-index: 100!important}
+.wsmobileheader .wssearchform{padding:0 0.8rem 0 0 !important;}
+/*.wsmenu > .wsmenu-list > li >.navtext{background: red !important}*/
+.wsmenu > .wsmenu-list > li >.navtext:hover{background: #000 !important; color:#fff !important;}
+.wsmenu > .wsmenu-list > li > a{display: inline-flex;width: 100%;white-space: nowrap;}
+/*===Navigation css=================================================*/
 
-/*.tab-content .tab-pane{display: block !important}*/
+.wsmenu{height: 100vh !important; box-shadow: 0 0 50px 2px #d9d1d1; position: fixed !important; top:0 !important; 
+  left: 0 !important;  z-index: 100002 !important;overflow-x: hidden !important;}
+.wsmenu>.wsmenu-list>li>.navtext { text-align: left !important;}
+.wsmenu > .wsmenu-list > li > .mbilewsstabing{left:0 !important; width:100% !important; display: block !important;}
+.image-holder{width: auto !important;}
+.wsmenu > .wsmenu-list > li > a{padding: 15px; font-size: 14px;text-align: left;border-right: solid 0px;
+color: #666666;}
+.bha-btn-secondry{display: block !important; padding:0.5rem !important; background: #a70e15 !important; width: 94% !important;
+text-align: center;}
+.hotLink{text-align: center !important;}
+.bha-btn-menu{display: block !important; padding:0.5rem !important; background: #23536b !important; margin: 1rem 0.5rem;
+text-align: center;width: 94% !important;}
+.wsshoptabing{width: 100%; left: 0 !important; display: block !important;}
+/*.wsmenu > .wsmenu-list > li > ul.sub-menu{display: block !important}*/
+.wsmenu > .wsmenu-list > li > ul.sub-menu { position: static !important;display: block !important; top: 0 !important;  
+  z-index: 1000; margin: 0px 0;border: solid 1px #eeeeee;}
+.wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{display: block !important;}
+.wsmenu_heading{display: none !important}
 /*===========Form fixing css===========================*/
 #representus-contact{position: static; float: none !important;width: 92%;}
 .item-description-xs{overflow: visible !important;}
 .contTactForm{position:static; margin-top:5%;}
 .userContactForm{padding: 1.3rem !important;}
 
-.freequote-container { position: relative !important; top: 0 !important; 
-  left: -0.5rem !important}
+.freequote-container { position: relative !important; top: 0 !important; left: -0.5rem !important}
 .certificate-section{ margin-top: 90% !important}
 .awardTag{float: left !important;}
 .awardTag img{margin-bottom: 2rem !important; width: 200px !important}
@@ -634,7 +666,5 @@ padding-left:0 !important;}
 .broucher-inner{padding:2rem !important;}
 .fa-facebook, .fa-linkedin, .fa-twitter, .fa-youtube-play{border:0 !important;}
 
-.Toastify__toast {
-    margin-top: 125px;
-}
+.Toastify__toast { margin-top: 125px;}
 }
