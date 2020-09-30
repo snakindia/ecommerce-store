@@ -8,7 +8,7 @@
     cursor: pointer;
     float: left;
     margin: 180px 2px 0;
-    overflow: hidden
+    overflow: hidden;
 }
 
 
@@ -26,7 +26,7 @@
 
 @media only screen and (min-width: 840px) {
     .card-slider__container__list__card img {
-        height: 300px; width: 265px; object-fit: cover;
+        height: 300px; width: auto; object-fit: cover; object-position: center;
     }
 }
 
@@ -45,7 +45,7 @@ only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 
 @media only screen and (min-width: 840px) {
     .card-slider__container__list__card {
-        width: 265px; margin:0 2.4px; margin-bottom: 0px;
+        width: auto; margin:0 2.4px; margin-bottom: 0px;
     }
     .card-slider__container__list__card {
         margin-top: 0px
@@ -168,6 +168,9 @@ only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         border-left: 130px solid transparent;
         border-right: 130px solid transparent;
         right: calc(50% - 130px)
+        /*border-left: 150px solid transparent;
+        border-right: 150px solid transparent;
+        left: calc(35% - 100px);*/
     }
 }
 

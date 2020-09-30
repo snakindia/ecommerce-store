@@ -9,7 +9,7 @@ const Banner = ({ content }) => {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-8 col-md-8 pt-5 pl-0" style={{"position": "relative"}}>
-                            <div style={{"position": "absolute", "top":"120%", "right":"2px", "width": "320px"}} >
+                            <div class="innerPageform">
                                 <div class="type1">{content.banner_title}</div>
                             </div>
                         </div>

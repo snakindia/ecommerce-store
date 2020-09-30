@@ -140,7 +140,7 @@ class TopBar extends Component {
                 <ul className="toplink">
                   <li>
                     <a href="/">
-                      <img src={Cart} alt="" width="20" />
+                      <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20"></embed>
                       Cart
                     </a>
                   </li>
@@ -153,7 +153,7 @@ class TopBar extends Component {
                   ) : (
                     <li>
                       <a onClick={this.toggle(5)}>
-                        <img src={Profile} alt="" width="20" />
+                        <embed src={Profile}  alt="" width="20" height="20"></embed>
                         login/signup
                       </a>
                     </li>
@@ -161,7 +161,8 @@ class TopBar extends Component {
                   
                 <span class="mobPipe">&nbsp;</span>
                 <li id="CountryOpen"  onClick={this.showLanguage}>
-                    <a href="#"><img src={Globe} alt="" width="20" />EN<i class="caret border-0"></i></a>
+                    <a href="#"><embed src={Globe}  alt="" width="20" height="20"></embed>
+                    EN<i class="caret border-0"></i></a>
                 </li>
           
                   <span>&nbsp;</span>
@@ -319,7 +320,7 @@ class TopBar extends Component {
         {/* <div className="headtoppart">
   <div className="topbar">
       <div className="headerwp">
-          <div className="mobile pt-2 font-weight-bold pl-0" style={{float:'left'}}>
+          <div className="mobile pt-2 font-weight-bold pl-0" style={{"float":"left"}}>
             CALL US: (888) 286-8708
           </div>
           <div className="float-right">

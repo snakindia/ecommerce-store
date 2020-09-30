@@ -38,7 +38,7 @@ export default class ProductServicesPremiumBrands extends Component {
             </div>
             <div class="pagewrap">
                 <section class="grid-container mt-4">
-                   <div class="container-fluid pl-0 pr-0">
+                   <div class="container-fluid paddingNo">
                       <div class="row">
                         {Object.keys(brands).length &&
                           brands.map((item, idx) => {

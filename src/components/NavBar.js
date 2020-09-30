@@ -118,8 +118,9 @@ class NavBar extends React.Component {
     let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
 
     return (
+      
+    <div className="headerfull" >
       <div className="pagewrap">
-      <div className="headerfull" >
         <div className="smllogo">
           <a href="#" className="anchor-logo">
             <img className="d-block pt-1" src={MenuLogo} alt="" width="200" />

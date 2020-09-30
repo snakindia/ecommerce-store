@@ -37,7 +37,7 @@ class ContactForm extends Component {
 
                     <div className="">
                         <div className="">
-                            <h2 className="apply_representation_heading font-weight-bold text-black" >
+                            <h2 className="apply_representation_heading font-weight-bold text-white" >
                                 APPLY FOR REPRESENTATION
                         </h2>
                             <Formik

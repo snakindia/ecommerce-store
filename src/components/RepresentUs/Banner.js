@@ -10,16 +10,16 @@ import ContactForm from '../common/ContactForm';
 
 const Banner = () => {
     return (
-        <section class="banner-slider-container" style={{ "margin-top": "105px", "padding": "1rem 0 0" }} >
+        <section class="banner-slider-container" style={{ "margin-top": "120px", "padding": "1rem 0 0" }} >
             <div class="page wrap">
                 <div class="container-fluid pl-0 pr-0">
                     <div class="row no-gutters">
                         <div class="col-lg-12 pr-0">
                             <div class="banner-container-xxs mt-0">
                                 <div id="carousel" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-inner" role="listbox" style={{ "position": "relative", "overflow":"visible" }}>
 
-                                        <div className="align-right-contactform">
+                                        <div className="align-right-contactform contTactForm">
                                             <ContactForm />
                                         </div>
 

@@ -17,7 +17,7 @@ class IndustriesSlider extends Component {
         const details = this.props.data;
         return (
             <section class="banner-slider-container">
-                <div class="container-fluid pl-0 pr-0">
+                <div class="container-fluid pb-3 pt-3 pl-0 pr-0">
                     <h2 class="bha_heading_2 text-black text-center font-weight-bold pt-3 mb-4" style={{ "z-index": "1", "position": "relative" }} >
                         Industries Served by Air Filtration Systems</h2>
                     <div class="row no-gutters">

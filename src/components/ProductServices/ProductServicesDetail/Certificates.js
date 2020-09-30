@@ -12,7 +12,7 @@ const Certificates = (is_certified) => {
          <div class="pagewrap">
             <div class="awardTag">
                 <div class="container-fluid">
-                    <div class="row">  
+                    <div class="row justify_center">  
                         <img src={AW01} class="img-fluid" alt="..." width="150" />
                         <img src={AW02} class="img-fluid" alt="..." width="150" />
                         <img src={AW03} class="img-fluid" alt="..." width="150" />

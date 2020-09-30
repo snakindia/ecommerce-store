@@ -159,7 +159,7 @@ class Banner extends Component {
                 </Link>
               </div>
 
-              <div class="col-sm-3 col-md-3 request-Quote fader pl-0">
+              <div class="col-sm-3 col-md-3 request-Quote fader pl-3">
                 <img src={EquipmentHoverImage} alt="" class="thumnal-icon" />
                 <img src={EquipmentImage} alt="" class="thumnal-icon" />
                 <Link

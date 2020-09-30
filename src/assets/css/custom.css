@@ -199,32 +199,7 @@ h6 {
     overflow: visible !important;
     margin-bottom: 0 !important;
   }
-  .shopNow,
-  .request-Quote {
-    border-bottom: 1px solid #ddd;
-    float: left;
-    display: block;
-    max-height: 100px;
-  }
-  .request-Quote a {
-    padding: 1.3rem 0 !important;
-    color: #000 !important;
-    padding-left: 4rem !important;
-    font-size: 0.8rem;
-  }
-  .shopNow a {
-    color: #000 !important;
-    padding: 1.3rem 0 !important;
-    margin-left: 4rem !important;
-    font-size: 0.8rem;
-  }
-  .thumnal-icon {
-    float: left;
-    margin: 0.6rem 0 1rem 0 !important;
-  }
-  .pl-0 {
-    padding-left: 1rem !important;
-  }
+  
 
   /*===Navigation css=================================================*/
   .wsmenu > .wsmenu-list > li > .navtext {
@@ -462,43 +437,23 @@ overflow: visible !important;}
 color:#000 !important; font-weight: 500 !important; }
 .card-slide_container { position: absolute; width: 100%; bottom: -6px !important; z-index: 10;}
 
-.card-slider__container__list__card{width: 265px !important;}
-
-/*@media only screen and (max-width: 840px) {
-    .card-slider__container__list__card img {
-        height: 300px; width: 260px !important; object-fit: cover;
-    }
-}
-*/
-/*@media only screen and (max-width: 839px) {
-    .card-slider__container__list__card img {
-        width: 298px !important;
-        height: 200px;
-    }
-}
-*/
-/*@media only screen and (max-device-width: 1024px) {
-    .card-slider__container__list__card img {
-        width: 298px !important;
-        height: 200px;
-    }
-}
-
-@media only screen and (min-width: 840px) {
-    .card-slider__container__list__card {
-        width: 332px !important; margin:0 2.4px; margin-bottom: 0px;
-    }
+.card-slider__container__list__card{width: 100% !important; padding:0 2px; overflow: hidden;}
+.banner-slider-container{padding:0 !important;}
+.banner-container-xxs{overflow: visible !important;}
+/*html,body{
+  height:100vh;
+  width:100vw;
+  margin: 0;
+  padding: 0;
 }*/
+
+/*.banner-container-xxs .carousel-inner .carousel-item picture img{height: 570px !important}*/
+/*.texture-bg{margin-top: -100px}*/
 
 /*====Home page layout fixing with menu dropdown========================================*/
 /*=====Extra Css For fxing menu ===================================================================*/
 .ant-affix{top:120px !important; height: 75px !important;}
 .btn{margin:0.450rem 0 !important;}
-.wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li{
-  list-style: none;width: 273px !important;}
-.wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > a{width: 100% !important}
-
-.wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp{ position: relative; z-index: 10000 !important;}
 
 .banner-img-100{width: 100%; height:550px !important; object-fit: cover; object-position: bottom;}
 
@@ -519,6 +474,10 @@ font-size: 1.2rem !important}
 .jail_Content_Descrpt {padding: 3rem 3rem 3rem 5rem;font-size: 1.25rem;text-align: justify;color: #fff;
 line-height: 2rem}
 .seperator{z-index: 1 !important}
+/*.type1 { font-weight: normal; font-size: 3.5rem !important; color: #08118f !important;
+    font-family: 'Oswald'; margin-bottom: -10px; font-weight: 700 !important;
+    line-height: 5rem !important; text-shadow: 0 0 3px #000;}*/
+
 .type1 {
     font-weight: normal;
     font-size: 4.5rem !important;
@@ -528,6 +487,19 @@ line-height: 2rem}
     font-weight: 700 !important;
     line-height: 5rem !important;
 }
+
+.carousel-inner { position: relative; overflow: visible !important; width: 100% !important;}
+.banner-container-xx{overflow: visible !important;}
+
+.banner-container-xx .carousel-indicators{top:500px !important;}
+.item-xs-caption { position: absolute; top: 15% !important; left: 10% !important; width: 40%;}
+
+/*html,body{
+height:100vh !important;
+width:100vw !important;
+margin: 0 !important;
+padding: 0 !important;
+}*/
 /*====Home page layout fixing with menu dropdown end========================================*/
 
 .form-control.select_type { padding: 4px 6px !important;}
@@ -565,11 +537,102 @@ line-height: 2rem}
 .container-fluid.pl-0.pr-0.padding25 {
   padding: 0 25px !important;
 }
-#industrybanner{
-  height: 690px !important;
+/*#industrybanner{
+  height: auto !important;
 }
-
+*/
 .side-menu {
     padding-top: 50px !important;
 }
+.headtoppart a{display: flex; display:-webkit-flexbox; margin-top: 0.2rem !important}
+embed{margin-right: 0.5rem;}
+.contTactForm{position:absolute;top:2%; right:5%; z-index:10000 !important;}
+.innerPageform{position: absolute; top:120%; right:2px; width:320px }
+.paddingNo{padding:0 !important;}
+.searchbox {
+    display: block;
+    /*border-top: 1px solid #ddd;*/
+    background-color: #fff;
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    width: auto;
+    z-index: 1000000;
+    padding: 0.2rem 1rem ;
+    color: #000;
+}
+.searchbox .modal-content{box-shadow: none !important; background: none !important}
+.input-group-append{margin-left: -1px; margin-top: -2px}
+.bottom-navigation {
+    position: static !important;
+    overflow: visible !important;
+    margin-bottom: 0 !important;
+    padding: 0.8rem 0 1.5rem;
+    background: #225269;
+}
+/*====Responsive fixing css==============================================*/
+@media(max-width:768px){
+/*=======Navigation=============*/
+.bottom-navigation {
+    position: static !important;
+    overflow: visible !important;
+    margin-bottom: 0 !important;
+    background: #fff !important;
+}
+.bottom-navigation.affixed{position: static !important;}
+.shopNow,
+  .request-Quote { border-bottom: 1px solid #ddd; float: left; display: block; 
+    max-height: 100px;}
+  .request-Quote a {padding: 1.3rem 0 !important; color: #000 !important;
+    padding-left: 4rem !important; font-size: 0.8rem;}
+  .shopNow a {color: #000 !important; padding: 1.3rem 0 !important;
+   margin-left: 4rem !important; font-size: 0.8rem;}
+  .thumnal-icon { float: left !important; margin: 0.6rem 0 1rem 0 !important;}
+  .pl-0 { padding-left: 0 !important; }
+/*=======Navigation=============*/
+.pagewrap{margin:0 !important;}
+.imgB_color{display: none}
+.imgL-container {float:left;}
+.imgL-container .inner-wrap{background:transparent; position:relative !important; 
+  margin-bottom: 2rem}
+.inner-wrap img{width: 100%; height: 100%; margin:0 auto;}
+.actionButton{width: 100% !important}
+.item-pro-inner{float:none !important;}
+.column_4 img { width: 330px !important;}
+.bag_jai_head.font-xl{font-size: 1.875rem !important}
+.jail_Content_Descrpt{text-align: left; padding:1rem !important;}
+.footer-main { padding: 0 0 0 1rem !important;}
+.caption{width:100%; top:10%; text-align: center;}
+.caption .bha_heading_1{height: auto !important; background: none; text-align: center;
+padding-left:0 !important;}
+/*.caption h1{font-size: 2.5rem !important}*/
 
+/* page css fixing*/
+.tab-menu .tablink{width: 100% !important}
+[class*="col-"] { width: 100% !important;}
+.border-frame{width: 100% !important; min-height:200px !important}
+.p-10{padding:0.5rem 2rem !important; text-align:left !important; }
+.item-xxs-caption{width: 95% !important; padding:0.8rem !important;}
+
+/*.tab-content .tab-pane{display: block !important}*/
+/*===========Form fixing css===========================*/
+#representus-contact{position: static; float: none !important;width: 92%;}
+.item-description-xs{overflow: visible !important;}
+.contTactForm{position:static; margin-top:5%;}
+.userContactForm{padding: 1.3rem !important;}
+
+.freequote-container { position: relative !important; top: 0 !important; 
+  left: -0.5rem !important}
+.certificate-section{ margin-top: 90% !important}
+.awardTag{float: left !important;}
+.awardTag img{margin-bottom: 2rem !important; width: 200px !important}
+.justify_center{justify-content: center !important;}
+.hero-header{position: static;}
+.innerPageform{position: static;width:320px }
+.inner-wrap{top:0 !important;}
+.contentDescript{margin-top: 0 !important}
+.paddingNo{padding: 0 0.8rem !important;}
+.broucher-wrapper{width: auto !important}
+.broucher-inner{padding:2rem !important;}
+.fa-facebook, .fa-linkedin, .fa-twitter, .fa-youtube-play{border:0 !important;}
+}

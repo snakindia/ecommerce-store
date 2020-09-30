@@ -58,7 +58,7 @@ class ContentSection extends Component {
             <div class="bgWhite">
               <div class="container pt-5">
                 <div class="row">
-                  <div class="col-sm-9 col-md-9 mb-5 pl-0 pr-4">
+                  <div class="col-sm-9 col-md-9 mb-5 pr-4">
                     <h2 class="bha_heading_2 text-black font-xx mb-3">
                       BAGHOUSE AMERICA
                     </h2>
@@ -524,7 +524,7 @@ class ContentSection extends Component {
                     </div>
                   </div>
 
-                  <div class="col-sm-3 col-md-3 pl-0 pr-0">
+                  <div class="col-sm-3 col-md-3 pl-0 pr-0 userContactForm">
                     <Formik
                       initialValues={{
                         name: '',

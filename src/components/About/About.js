@@ -236,7 +236,7 @@ class About extends React.Component {
                           </div>
                         </section>
 
-                        <section class="pro-equipment-section pagewrap-inner mission-text pb-4">
+                        <section class="pro-equipment-section pagewrap-inner mission-text pb-5">
                           <div class="container-fluid">
                             <div class="row">
                               <div class="col-lg-12 pl-0">
@@ -272,8 +272,17 @@ class About extends React.Component {
                     if (idx == 3) {
                         return (
                           <section class="pro-equipment-section padding-0 pagewrap-inner location"
-                            id="3" style={{"position":"relative"}}>
-                            <h4 class="heading-h4 pt-5 pb-0" style={{"position":"absolute", "top":"0", "left":"1.5rem", "color":"#043852"}}>Location</h4>
+                            id="3">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <h4 class="heading-h4 p-4 mt-4 text-center">Our Location</h4>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-12" style={{"padding":"0 2rem 1rem"}}>
+                                    <p class="text-left" style={{"font-size":"1rem"}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                </div>
+                              </div>
+                            </div>
                             <img src={item.url} alt="" class="d-block bha_h_100"  />
                           </section>
                         );

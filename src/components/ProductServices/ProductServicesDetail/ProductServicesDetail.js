@@ -77,8 +77,8 @@ class ProductServicesDetail extends Component {
                                 </div>
                                 <div class="col-sm-6 col-md-6 animatedParent contentDescript">
                                 {ReactHtmlParser(details.contents[0].description)}
-                                  <div class="float-left pl-0 mt-4 mb-5">
-                                    <div class="actionButton">
+                                  <div class="mt-4 mb-5">
+                                    <div class="actionButton w-50">
                                       <a href="#">Call for a free quote</a>
                                     </div>
                                   </div>
