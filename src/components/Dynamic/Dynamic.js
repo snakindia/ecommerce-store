@@ -5,6 +5,7 @@ import { GET } from '../../services/httpService';
 import ProductServicesDetail from './../ProductServices/ProductServicesDetail';
 import PageTemplateDetail from './../ProductServices/PageTemplateDetail';
 import ProjectsTemplate from './../Projects';
+import About from './../About/About';
 
 
 class Dynamic extends Component {
@@ -13,7 +14,8 @@ class Dynamic extends Component {
         template: {
             'ProductServicesDetail' : ProductServicesDetail,
             'PageTemplateDetail' : PageTemplateDetail,
-            'ProjectsTemplate' : ProjectsTemplate
+            'ProjectsTemplate' : ProjectsTemplate,
+            'About' : About
         }
     };
  

@@ -31,8 +31,11 @@ class ProductServicesDetail extends Component {
         let url = this.props.location.pathname;
         const { actions } = this.props;
         if (url != '') {
-            const slug = url.replace(/\\|\//g,'');
-            actions.fetchProdcutServiceDetail(slug);
+//            const slug = url.replace(/\\|\//g,'');
+            if (url[0] == '/') {
+                url = url.slice(1, url.length)
+            }
+            actions.fetchProdcutServiceDetail(url);
         }
     }
   
