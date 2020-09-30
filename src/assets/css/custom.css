@@ -574,8 +574,18 @@ embed{margin-right: 0.5rem;}
 }
 .formPadding{padding:0;}
 .downArrowHide{display: none}
+.goog-te-menu-frame{width:1140px !important;top:18% !important; left: 8% !important; box-shadow: none !important}
+.goog-te-gadget-simple{position: absolute !important;right: 5% !important;top: 3.7rem !important;z-index: 1 !important;
+background: #fff !important;height: 38px !important; width: 250px;font-size: 1.3rem !important;
+padding-left: 1rem !important;}
+/*.goog-te-menu2{width: 100% !important}*/
+.goog-te-menu2 table{width: 100% !important}
+
 /*====Responsive fixing css==============================================*/
 @media(max-width:768px){
+.goog-te-gadget-simple{margin-top:2.5rem !important; z-index: 0 !important}
+.goog-te-menu-frame{width:95% !important; left: 2% !important}
+.goog-te-menu-frame body{overflow-x:scroll !important;}
 /*=======Navigation=============*/
 .bottom-navigation { position: static !important;  overflow: visible !important;  margin-bottom: 0 !important;
     background: #fff !important;}
@@ -609,7 +619,7 @@ padding-left:0 !important;}
 /*.caption h1{font-size: 2.5rem !important}*/
 
 /* page css fixing*/
-.topbar{z-index: 0 !important}
+/*.topbar{z-index: 1 !important}*/
 .tab-menu .tablink{width: 100% !important}
 [class*="col-"] { width: 100% !important;}
 .border-frame{width: 100% !important; min-height:200px !important}
@@ -665,6 +675,6 @@ text-align: center;width: 94% !important;}
 .broucher-wrapper{width: auto !important}
 .broucher-inner{padding:2rem !important;}
 .fa-facebook, .fa-linkedin, .fa-twitter, .fa-youtube-play{border:0 !important;}
-
+.breadcrumb-container{background: transparent !important;position: relative !important; z-index: 0 !important}
 .Toastify__toast { margin-top: 125px;}
 }
