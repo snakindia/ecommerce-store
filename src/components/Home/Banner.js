@@ -93,7 +93,7 @@ class Banner extends Component {
     
     return (
       <div>
-        <div className="banner-container">
+        <div className="banner-container" style={{"position":"relative"}}>
           <div id="carousel" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner" role="listbox">
               <RBCarousel
@@ -129,23 +129,13 @@ class Banner extends Component {
               </RBCarousel>
             </div>
           </div>
+          
         </div>
         
              <div class='bottom-navigation affixed'>
-             <Affix 
-             offsetTop={144} 
-             onChange={e=>this.setState({affix:e})}
-             >
-          <div class="container" id={affix ? 'affixed':''}>
+           
+          <div class="container">
         
-        {/* <Sticky topOffset={280}>
-          {({
-            style,
-
-          }) => ( */}
-         
-            <header style={style} top={280}>
-             {
             <div class="row justify-content-center">
               <div class="col-sm-3 col-md-3 shopNow fader" >
                 <img src={CompanyHoverImage} alt="" class="thumnal-icon" />
@@ -214,14 +204,8 @@ class Banner extends Component {
                     isFreeBrochure={true}
             />
             </div>
-            }
-        </header>
-        
-          {/* )}
-        </Sticky> */}
-       
+           
             </div>
-            </Affix>
         </div>
           
       </div>
