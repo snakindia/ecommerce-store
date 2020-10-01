@@ -21,6 +21,32 @@ class Clients extends Component {
             slidesToScroll: 3,
             autoplay: true,
             autoplaySpeed: 1500,
+             responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
         };
         return (
             <div>
@@ -33,7 +59,7 @@ class Clients extends Component {
                 </section>
                 <div class="placement-client pt-0">
                     <div class="container pl-0 pr-0">
-                        <section class="bhaClient slider portfolio">
+                        <section class=" slider ">
                             <Slider {...settings}>
                             {
                                 clientData &&

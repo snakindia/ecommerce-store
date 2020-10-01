@@ -37,6 +37,32 @@ export default class ProductsPart extends Component {
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
     };
     
     return (
@@ -57,14 +83,12 @@ export default class ProductsPart extends Component {
                     />
                     <figcaption className="text-center">
                         <h4>{item.name}</h4>
-                        <Link to={item.page_url}><button
-                            type="button"
-                            className="btn bha-btn-primary w-100 mt-20"
-                        >
+                        {/*<Link to={item.page_url}>*/}
+                        <button type="button" className="btn bha-btn-primary w-100 mt-2">
                             View Details
-                        </button></Link>
-                        
-                        
+                        </button>
+                      {/*<a href="" className="btn bha-btn-primary w-100 mt-2">View Details</a>*/}
+                      {/*</Link>*/}
                     </figcaption>
 
                     <div className="card-body p-0">
