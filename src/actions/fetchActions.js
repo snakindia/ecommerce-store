@@ -5,6 +5,12 @@ import {
   getPageMetaDetails,
 } from '../constants/urls';
 
+export const setLoading = (payload) => {
+  return {
+    type: 'LOADING',
+    payload
+  };
+};
 export const fetch_post = () => {
   return {
     type: 'FETCH_MENU',
