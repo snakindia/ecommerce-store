@@ -106,9 +106,10 @@ class Products extends React.Component {
                                         onClick={e => this.showMenu(itemOneObj, i, e)}
                                     >
                                         <Link data-src={Baghouse}>{name}</Link>
-                                        <div className="wstitemright clearfix wstpngsml">
+                                        {i == activeLink &&
+                                        <div className="subcategories wstitemright clearfix wstpngsml ">
                                             <div className="container-fluid">
-                                                <div className="row custom-gutter-wsmenu">
+                                                <div className="row custom-gutter-wsmenu" >
                                                     <h3 class="wsmenu_heading">{name}</h3>
                                                     {listItems.length > 0 && listItems.map((itemTwo, i) => {
                                                         let url  = typeof itemTwo.page_url != 'undefined' && itemTwo.page_url != '' ? itemTwo.page_url : ''
@@ -151,6 +152,7 @@ class Products extends React.Component {
                                                 </div>
                                             </div>
                                         </div>
+                            }
                                     </li>
                                 );
                             })}
