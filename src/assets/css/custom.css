@@ -749,7 +749,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   .mobile{display: block !important;}
   .topbar {background: #000; width: 100% !important; padding-left:0;}
   .toplink li { margin: 8px 11px !important;}
-  .float-sm-right{padding-right:10% !important;}
+  /*.float-sm-right{padding-right:10% !important;}*/
 }
 
 
