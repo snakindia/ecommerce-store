@@ -677,6 +677,7 @@ text-align: center;width: 94% !important;}
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{width: auto !important}
 /*.wstitemright{background: red !important; margin:0 !important; padding:0 !important;}*/
 .wsshoptabing{width: 100% !important}
+
 }
 
 /*========New Bug Fixing 01/10/2020============================================*/
@@ -684,7 +685,8 @@ text-align: center;width: 94% !important;}
 border-radius: 0.3rem;text-transform: uppercase;font-size: 0.875rem;font-weight: 600;text-align: center; float:left !important;}
 [class^="imghvr-"] a, [class*=" imghvr-"] a{position: relative !important; }
 
-.placement-client .slick-slide{width: 170px !important;box-sizing: border-box; margin:10px !important;}
+/*.placement-client .slick-slide{width: 170px !important;box-sizing: border-box; margin:10px !important;}*/
+
 /*.bottom-navigation { position: absolute !important; overflow: hidden !important; bottom:0 !important; height: 90px !important;
     margin-bottom: 0 !important; padding: 0.8rem 0 1.5rem; background: #225269;}*/
 .banner-container .carousel{position: relative;}
@@ -708,18 +710,45 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 @media(min-width: 360px){
   .topbar {background: #000; width: 100% !important; padding-left: 5% !important;}
+  .modal-dialog{margin-top: 0!important;}
+  .top{margin-left:0 !important; margin-right: 8% !important; margin-top: 0 !important; }
+  .modal{top:55px !important;}
+  label{margin-bottom: 0 !important}
+  .bha-btn-primary {white-space: nowrap;}
+  .logIn{top: 15% !important;width: 100% !important; right:0 !important;}
 }
+
 
 @media(min-width: 375px){
   .topbar {background: #000; width: 100% !important; padding-left: 7% !important;}
+  .bha-btn-primary {white-space: nowrap;}
+  label{margin-bottom: 0 !important}
+  .logIn{top: 12.5% !important;width: 100% !important; right:0 !important;}
 }
 
 @media(min-width: 414px){
   .topbar {background: #000; width: 100% !important; padding-left: 10% !important;}
   .toplink li { margin: 8px 18px !important;}
+  .bha-btn-primary {white-space: nowrap;}
+  label{margin-bottom: 0 !important}
+  .logIn{top: 12.5% !important;width: 100% !important; right:0 !important;}
 }
 
 @media(min-width: 320px){
+  .modal{top:0px !important;}
+  .top{margin-left:0 !important; margin-right: 8% !important; margin-top: 0 !important; }
   .topbar {background: #000; width: 100% !important; padding-left:0;}
   .toplink li { margin: 8px 11px !important;}
+  .bha-btn-primary {white-space: nowrap;font-size: 0.8rem;}
+  label{margin-bottom: 0 !important}
+  .logIn{top: 12.5% !important;width: 100% !important; right:0 !important;}
 }
+
+@media(min-width: 768px){
+  .modal{top:40px !important;}
+  .mobile{display: block !important;}
+  .topbar {background: #000; width: 100% !important; padding-left:0;}
+  .toplink li { margin: 8px 11px !important;}
+  .float-sm-right{padding-right:10% !important;}
+}
+
