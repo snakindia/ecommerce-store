@@ -6,10 +6,15 @@ const initialState = {
   abousUsDetails: {},
   freeBrochuresUserDetail: {},
   page_meta_details: {},
+  loading:false,
 };
 
 const asyncReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'LOADING':
+      return Object.assign({}, state, {
+        loading: action.payload,
+      });
     case 'FETCH_MENU':
       return Object.assign({}, state, {
         isFetching: true,
