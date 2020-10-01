@@ -41,7 +41,7 @@ class ProductServicesDetail extends Component {
   
     render() {
         
-    const details = this.props.data;
+    const details = this.props.data;console.log('.........................'); console.log(details);
     return (
         <div>
         {
@@ -60,7 +60,10 @@ class ProductServicesDetail extends Component {
                     </div>
                 </section>
                 <Banner content={details} />
-                <Certificates is_certified={details.is_certified}/>
+                 {
+                details.contents && Object.keys(details.contents).length > 0 ?  
+                <Certificates data={details} /> : ''
+                }
     
                 {
                 details.contents && Object.keys(details.contents).length > 0 ?  

@@ -6,6 +6,7 @@ import ProductServicesDetail from './../ProductServices/ProductServicesDetail';
 import PageTemplateDetail from './../ProductServices/PageTemplateDetail';
 import ProjectsTemplate from './../Projects';
 import About from './../About/About';
+import PrivacyPolicy from './../PrivacyPolicy';
 
 
 class Dynamic extends Component {
@@ -15,7 +16,8 @@ class Dynamic extends Component {
             'ProductServicesDetail' : ProductServicesDetail,
             'PageTemplateDetail' : PageTemplateDetail,
             'ProjectsTemplate' : ProjectsTemplate,
-            'About' : About
+            'About' : About,
+            'PrivacyPolicy' : PrivacyPolicy
         }
     };
  

@@ -14,6 +14,7 @@ import productService from './components/ProductServices/productservice.reducer'
 import projects from './components/Projects/projects.reducer';
 import industries from './components/Industries/industries.reducer';
 import representus from './components/RepresentUs/store/Reducer';
+import privacyPolicy from './components/PrivacyPolicy/privacypolicy.reducer';
 
 const logger = createLogger({ collapsed: true });
 const rootReducer = combineReducers({
@@ -28,7 +29,8 @@ const rootReducer = combineReducers({
     productService: productService,
     projects,
     industries,
-    representus
+    representus,
+    privacyPolicy
 });
 const store = createStore(
   rootReducer,
