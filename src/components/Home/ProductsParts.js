@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
 import { API_URL, API_IMAGE_PATH } from './../../constants/appConstant';
-import { Link  } from 'react-router-dom';
+import { Link, Redirect, withRouter  } from 'react-router-dom';
 
-export default class ProductsPart extends Component {
+ class ProductsPart extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +28,11 @@ export default class ProductsPart extends Component {
 //        }
 //      }
   
-
+  redirect=(e,page_url)=>{
+    e.preventDefault()
+    console.log({page_url})
+    this.props.history.push(page_url)
+  }
   drawData() {
     const { data } = this.state;
     const settings = {
@@ -84,7 +88,9 @@ export default class ProductsPart extends Component {
                     <figcaption className="text-center">
                         <h4>{item.name}</h4>
                         {/*<Link to={item.page_url}>*/}
-                        <button type="button" className="btn bha-btn-primary w-100 mt-2">
+                        <button
+                        onClick={e=>this.redirect(e,item.path)}
+                         type="button" className="btn bha-btn-primary w-100 mt-2">
                             View Details
                         </button>
                       {/*<a href="" className="btn bha-btn-primary w-100 mt-2">View Details</a>*/}
@@ -122,3 +128,4 @@ export default class ProductsPart extends Component {
     );
   }
 }
+export default withRouter(ProductsPart);

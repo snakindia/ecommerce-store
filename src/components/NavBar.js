@@ -49,8 +49,9 @@ class NavBar extends React.Component {
   }
 
   componentDidUpdate(preveProps){
+    console.log('->>>>>>>>>>>',this.props.location.pathname)
     if(preveProps.location.pathname !=this.props.location.pathname){
-      
+      console.log('scroll');
       scrollToElement('#root');
     }
   }

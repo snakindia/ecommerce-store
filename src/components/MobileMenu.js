@@ -20,7 +20,7 @@ class MobileMenu extends React.Component {
     this.setState({ isMenuOpen: !isMenuOpen })
   }
   componentDidUpdate(preveProps){
-
+    console.log('->>>>>>>>>>>2',this.props.location.pathname)
     if(preveProps.location.pathname !=this.props.location.pathname){
        document.body.className ='';
       this.setState({ isMenuOpen:false })
