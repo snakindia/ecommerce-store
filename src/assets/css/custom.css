@@ -682,11 +682,19 @@ border-radius: 0.3rem;text-transform: uppercase;font-size: 0.875rem;font-weight:
 /*.bottom-navigation { position: absolute !important; overflow: hidden !important; bottom:0 !important; height: 90px !important;
     margin-bottom: 0 !important; padding: 0.8rem 0 1.5rem; background: #225269;}*/
 .banner-container .carousel{position: relative;}
-.bottom-navigation { top: 580px !important; position: absolute;background: rgba(115, 123, 168, 0.5); height: 86px !important; 
+.bottom-navigation { top: 580px !important; position: absolute;background: rgba(255,255,255,1);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(252,252,252,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(22%, rgba(255,255,255,1)), color-stop(100%, rgba(252,252,252,1)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(252,252,252,1) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(252,252,252,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(252,252,252,1) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(252,252,252,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fcfcfc', GradientType=0 ); height: 86px !important; 
   padding-top:0.5rem !important; z-index: 10 !important;}
 .bottom-navigation a{color:#fff !important;}
 
 .footerPart{ bottom: 0px !important; position: absolute;background: rgba(115, 123, 168, 0.5); height: 86px !important; 
   padding-top:0.5rem !important; z-index: 10 !important; width: 100%}
 
-.wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{height: auto !important;}
+.wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{height: auto !important; 
+  padding:10px !important; margin-bottom: 0 !important}
