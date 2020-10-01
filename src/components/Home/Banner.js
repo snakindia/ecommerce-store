@@ -93,7 +93,7 @@ class Banner extends Component {
     
     return (
       <div>
-        <div className="banner-container">
+        <div className="banner-container" style={{"position":"relative"}}>
           <div id="carousel" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner" role="listbox">
               <RBCarousel
@@ -129,6 +129,7 @@ class Banner extends Component {
               </RBCarousel>
             </div>
           </div>
+          
         </div>
         
              <div class='bottom-navigation affixed'>

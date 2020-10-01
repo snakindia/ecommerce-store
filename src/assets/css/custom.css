@@ -83,8 +83,6 @@ and open the template in the editor.
 .bha_heading_1 {
   height: 95px !important;
 }
-.bottom-navigation { top: 580px;}
-.bottom-navigation a{color:#fff !important;}
 
 .socialLink a {
   margin: 0 3px;
@@ -368,6 +366,7 @@ border: 3px solid #fff;width: 16px;height: 16px;float: left;margin: 0.2rem 1rem 
 position: absolute;top: 15%;right: 5%;}
 .promo-graphic{width: 600px; height: 300px; object-fit: cover; object-position: center;}
 .bhaClient .slick-slide{width:160px !important;box-sizing: border-box; margin:15px !important;}
+
 .proService .slick-slide{width: 174px !important;box-sizing: border-box; margin:15px !important;}
 .view p{font-size: 1.6rem !important;padding: 2.5rem 1rem !important;}
 .view-first .mask{background-color: rgba(15,65,106, 0.8) !important}
@@ -407,6 +406,7 @@ position: absolute;top: 15%;right: 5%;}
   box-shadow: 0px 10px 3px -10px #868686 !important;
   border:0 !important;border-left: 1px solid #f1f4f4 !important; 
   border:1px solid #ddd !important;}
+
 figcaption h4{font-weight: 500 !important}
 
 .wsmenu > .wsmenu-list > li .wstliststy04 { padding: 5px 0px 0px 0px !important;
@@ -565,13 +565,7 @@ embed{margin-right: 0.5rem;}
 }
 .searchbox .modal-content{box-shadow: none !important; background: none !important}
 .input-group-append{margin-left: -1px; margin-top: -2px}
-.bottom-navigation {
-    position: static !important;
-    overflow: visible !important;
-    margin-bottom: 0 !important;
-    padding: 0.8rem 0 1.5rem;
-    background: #225269;
-}
+
 .formPadding{padding:0;}
 .downArrowHide{display: none}
 .goog-te-menu-frame{width:1200px !important;top:18% !important; left: 8% !important; box-shadow: none !important}
@@ -678,3 +672,21 @@ text-align: center;width: 94% !important;}
 .breadcrumb-container{background: transparent !important;position: relative !important; z-index: 0 !important}
 .Toastify__toast { margin-top: 125px;}
 }
+
+/*========New Bug Fixing 01/10/2020============================================*/
+.anchor_link_Btn {background: #23536b; width: 100%;color: #fff !important;font-weight: 500;padding: 0.5rem 1.5rem;
+border-radius: 0.3rem;text-transform: uppercase;font-size: 0.875rem;font-weight: 600;text-align: center; float:left !important;}
+[class^="imghvr-"] a, [class*=" imghvr-"] a{position: relative !important; }
+
+.placement-client .slick-slide{width: 170px !important;box-sizing: border-box; margin:10px !important;}
+/*.bottom-navigation { position: absolute !important; overflow: hidden !important; bottom:0 !important; height: 90px !important;
+    margin-bottom: 0 !important; padding: 0.8rem 0 1.5rem; background: #225269;}*/
+.banner-container .carousel{position: relative;}
+.bottom-navigation { top: 580px !important; position: absolute;background: rgba(115, 123, 168, 0.5); height: 86px !important; 
+  padding-top:0.5rem !important; z-index: 10 !important;}
+.bottom-navigation a{color:#fff !important;}
+
+.footerPart{ bottom: 0px !important; position: absolute;background: rgba(115, 123, 168, 0.5); height: 86px !important; 
+  padding-top:0.5rem !important; z-index: 10 !important; width: 100%}
+
+.wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{height: auto !important;}
