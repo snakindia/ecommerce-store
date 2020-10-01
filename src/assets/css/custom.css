@@ -239,10 +239,10 @@ h6 {
   height: calc(1.5rem + 0.75rem + 2px) !important;
 }
 .image-holder {display: block; width: 281px; transition: opacity .5s linear; overflow: hidden !important;}
-.wsshopwp .image-holder img{object-filt:cover; object-position:center; width:280px/* width:100%; object-fit:contain !important; object-position: center !important; */
+.wsshopwp .image-holder img{object-fit:cover; object-position:center; width:280px/* width:100%; object-fit:contain !important; object-position: center !important; */
 /* width: 100% !important; -o-object-fit: scale-down; object-fit: scale-down !important; object-position: center !important; */}
 .wsshopwp .image-holder img { width:100%; height: 185px; background-color: #fff;}
-.wsshopwp .image-holder img[class] { width: 100%;}
+.wsshopwp .image-holder img[class] { width: 260px;}
 
 .wstliststy04 li img{width: 250px !important; height:150px; -o-object-fit: cover; object-fit: cover !important; 
 object-position: center !important;}
@@ -581,14 +581,14 @@ padding-left: 1rem !important;}
 .goog-te-menu-frame{width:95% !important; left: 2% !important}
 .goog-te-menu-frame body{overflow-x:scroll !important;}
 /*=======Navigation=============*/
-.bottom-navigation { position: static !important;  overflow: visible !important;  margin-bottom: 0 !important;
-    background: #fff !important;}
+.bottom-navigation {background: #fff !important; float:left !important; height: auto !important;}
+
 .bottom-navigation.affixed{position: static !important;}
 .shopNow, .request-Quote { border-bottom: 1px solid #ddd; float: left; display: block; 
     max-height: 100px;}
-.request-Quote a {padding: 1.3rem 0 !important; color: #000 !important;
+.bottom-navigation .request-Quote a {padding: 1.3rem 0 !important; color: #000 !important;
     padding-left: 4rem !important; font-size: 0.8rem;}
-.shopNow a {color: #000 !important; padding: 1.3rem 0 !important;
+.bottom-navigation .shopNow a {color: #000 !important; padding: 1.3rem 0 !important;
    margin-left: 4rem !important; font-size: 0.8rem;}
 .thumnal-icon { float: left !important; margin: 0.6rem 0 1rem 0 !important;}
 .pl-0 { padding-left: 0 !important; }
@@ -671,6 +671,11 @@ text-align: center;width: 94% !important;}
 .fa-facebook, .fa-linkedin, .fa-twitter, .fa-youtube-play{border:0 !important;}
 .breadcrumb-container{background: transparent !important;position: relative !important; z-index: 0 !important}
 .Toastify__toast { margin-top: 125px;}
+.image-holder{width:260px !important; height: 200px !important;}
+.image-holder img{height: 300px !important; object-fit: cover; object-position: center !important;}
+.wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{width: auto !important}
+/*.wstitemright{background: red !important; margin:0 !important; padding:0 !important;}*/
+.wsshoptabing{width: 100% !important}
 }
 
 /*========New Bug Fixing 01/10/2020============================================*/
@@ -682,17 +687,17 @@ border-radius: 0.3rem;text-transform: uppercase;font-size: 0.875rem;font-weight:
 /*.bottom-navigation { position: absolute !important; overflow: hidden !important; bottom:0 !important; height: 90px !important;
     margin-bottom: 0 !important; padding: 0.8rem 0 1.5rem; background: #225269;}*/
 .banner-container .carousel{position: relative;}
-.bottom-navigation { top: 580px !important; position: absolute;background: rgba(255,255,255,1);
-background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(252,252,252,1) 100%);
-background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(22%, rgba(255,255,255,1)), color-stop(100%, rgba(252,252,252,1)));
-background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(252,252,252,1) 100%);
-background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(252,252,252,1) 100%);
-background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(252,252,252,1) 100%);
-background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 22%, rgba(252,252,252,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fcfcfc', GradientType=0 ); height: 86px !important; 
+.bottom-navigation { top: 580px !important; position: absolute;background: rgba(115, 123, 168, 0.5);
+background: -moz-linear-gradient(top, rgba(115, 123, 168, 0.5) 0%, rgba(115, 123, 168, 0.5) 22%, rgba(115, 123, 168, 0.5) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(115, 123, 168, 0.5)), color-stop(22%, rgba(115, 123, 168, 0.5)), color-stop(100%, rgba(252,252,252,1)));
+background: -webkit-linear-gradient(top, rgba(115, 123, 168, 0.5) 0%, rgba(115, 123, 168, 0.5) 22%, rgba(115, 123, 168, 0.5) 100%);
+background: -o-linear-gradient(top, rgba(115, 123, 168, 0.5) 0%, rgba(115, 123, 168, 0.5) 22%, rgba(115, 123, 168, 0.5) 100%);
+background: -ms-linear-gradient(top, rgba(115, 123, 168, 0.5) 0%, rgba(115, 123, 168, 0.5) 22%, rgba(115, 123, 168, 0.5) 100%);
+background: linear-gradient(to bottom, rgba(115, 123, 168, 0.5) 0%, rgba(115, 123, 168, 0.5) 22%, rgba(115, 123, 168, 0.5) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fcfcfc', GradientType=0 ); height: 86px; 
   padding-top:0.5rem !important; z-index: 10 !important;}
+/*.bottom-navigation a{color:#fff;}*/
 .bottom-navigation a{color:#fff !important;}
-
 .footerPart{ bottom: 0px !important; position: absolute;background: rgba(115, 123, 168, 0.5); height: 86px !important; 
   padding-top:0.5rem !important; z-index: 10 !important; width: 100%}
 
