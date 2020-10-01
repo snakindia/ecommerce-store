@@ -40,32 +40,36 @@ class Banner extends Component {
     //     fetch_dynamic_menus();
     // }
   
-    scrollToCompanyEle() {
-        scrollToElement('#company', {
-            offset: -195,
-            duration: 1500
-        });
+    scrollToCompanyEle=()=> {
+      console.log('fff1')
+        // scrollToElement('#company', {
+        //     offset: -195,
+        //     duration: 1500
+        // });
     }
     
-    scrollToBrandsEle() {
-        scrollToElement('#brand', {
-            offset: -195,
-            duration: 1500
-        });
+    scrollToBrandsEle=()=> {
+      console.log('fff')
+        // scrollToElement('#brand', {
+        //     offset: -195,
+        //     duration: 1500
+        // });
     }
     
-    scrollToProductEle() {
-        scrollToElement('#product', {
-            offset: -195,
-            duration: 1500
-        });
+    scrollToProductEle=()=> {
+      console.log('fff2')
+        // scrollToElement('#product', {
+        //     offset: -195,
+        //     duration: 1500
+        // });
     }
     
-    scrollToBestSellingEle() {
-        scrollToElement('#bestSelling', {
-            offset: -195,
-            duration: 1500
-        });
+    scrollToBestSellingEle=()=> {
+      console.log('fff4')
+        // scrollToElement('#bestSelling', {
+        //     offset: -195,
+        //     duration: 1500
+        // });
     }
     
 //    triggerRequestAQuoteButton() {
@@ -143,27 +147,32 @@ class Banner extends Component {
             <header style={style} top={280}>
              {
             <div class="row justify-content-center">
-              <div class="col-sm-3 col-md-3 shopNow fader">
+              <div class="col-sm-3 col-md-3 shopNow fader" >
                 <img src={CompanyHoverImage} alt="" class="thumnal-icon" />
                 <img src={CompanyImage} alt="" class="thumnal-icon" />
                 <Link
                     className="tablink js-scroll-trigger"
                     spy={true}
                     smooth={true}
+                    to="company"
                     onClick={this.scrollToCompanyEle}
                 >
                   Companies using our products
                 </Link>
               </div>
 
-              <div class="col-sm-3 col-md-3 request-Quote fader pr-0">
+              <div class="col-sm-3 col-md-3 request-Quote fader pr-0" 
+              //onClick={this.scrollToBrandsEle}
+              >
                 <img src={BrandHoverImage} alt="" class="thumnal-icon" />
                 <img src={BrandImage} alt="" class="thumnal-icon" />
                 <Link
+                   to="brand"
                   className="tablink js-scroll-trigger"
-                  spy={true}
-                    smooth={true}
-                  onClick={this.scrollToBrandsEle}
+                  // spy={true}
+                  //   smooth={true}
+                    // onClick={this.scrollToBrandsEle}
+                    onClick={e=>console.log('fk')}
                 >
                   Premium OEM Brands
                 </Link>
@@ -176,20 +185,22 @@ class Banner extends Component {
                     className="tablink js-scroll-trigger"
                     spy={true}
                     smooth={true}
-                    onClick={this.scrollToProductEle}
+                    to="product"
+                    //onClick={this.scrollToProductEle}
                 >
                   Products parts & Equipment
                 </Link>
               </div>
 
-              <div class="col-sm-3 col-md-3 shopNow fader">
+              <div class="col-sm-3 col-md-3 shopNow fader"  >
                 <img src={BestSellingHoverImage} alt="" class="thumnal-icon" />
                 <img src={BestSellingImage} alt="" class="thumnal-icon" />
                 <Link
                     className="tablink js-scroll-trigger"
                     spy={true}
                     smooth={true}
-                    onClick={this.scrollToBestSellingEle}
+                    to="bestSelling"
+                   // onClick={this.scrollToBestSellingEle}
                 >
                   Best Selling Products
                 </Link>
