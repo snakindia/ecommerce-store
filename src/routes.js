@@ -1,5 +1,6 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import TopBar from './components/TopBar';
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
@@ -14,8 +15,10 @@ import NewsDetail from './components/News/NewsDetail';
 import EventDetail from './components/Events/EventDetail';
 import Dynamic from './components/Dynamic/Dynamic';
 import RepresentUs from './components/RepresentUs/RepresentUs';
+import Loader from './components/Loader/Loader'
 import SubscriptionPopUp from './components/SubscriptionPopUp/SubscriptionPopUp';
-
+import {setLoading} from './actions/fetchActions';
+import axios from 'axios';
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
 const ContactBody = lazy(() => import('./components/Contact/ContactBody'));
@@ -29,15 +32,36 @@ const Events = lazy(() => import('./components/Events'));
 const Compare = lazy(() => import('./components/Compare'));
 const Industries = lazy(() => import('./components/Industries'));
 
-const Router = () => {
+const Router = (props) => {
      useEffect(() => {
           const timer = setTimeout(() => {
           const currentTime = localStorage.getItem("currentTime");
             let timeDiff = Date.now() - currentTime;
         }, 1000);
   }, []);
+  axios.interceptors.request.use(function(req) {
     
+    // Do something before request is sent
+    props.setLoading(true)
+    return req;
+  }, function (error) {
+    props.setLoading(false)
+    // Do something with request error
+    return Promise.reject(error);
+  });
+ 
+// Add a response interceptor
+axios.interceptors.response.use(function (response) {
+    props.setLoading(false)
+    return response;
+  }, function (error) {
+    props.setLoading(false)
+    return Promise.reject(error);
+  });
+  const {loading}=props
     return (
+        <>
+         {loading &&  <Loader />}
         <StickyContainer style={{ overflowY: 'auto' }}>
             <Notification />
             <BrowserRouter>
@@ -79,7 +103,18 @@ const Router = () => {
                 </MetaContainer>
             </BrowserRouter>
         </StickyContainer>
+        </>
     );
 };
-
-export default Router;
+const mapStateToProps = state => ({
+    loading: state.asyncReducer.loading,
+  });
+  
+  const mapDispatchToProps = dispatch => ({
+    setLoading:payload=>dispatch(setLoading(payload))
+  });
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Router);
