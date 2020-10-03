@@ -23,9 +23,11 @@ class PrivacyPolicy extends Component {
 
   render() {
     const { privacyPolicy } = this.props;
+    console.log('privacyPolicy[0].banner_image')
+    console.log(privacyPolicy)
     return (
       <React.Fragment>
-       { privacyPolicy && typeof privacyPolicy[0] != 'undefined' ? <PrivacyPolicyBanner bannerDetails={privacyPolicy[0]} /> : ''}
+       { privacyPolicy && typeof privacyPolicy[0] != 'undefined' && privacyPolicy[0].banner_image != '' ? <PrivacyPolicyBanner bannerDetails={privacyPolicy[0]} /> : ''}
                 
         <div class="content-wrapper">
             <div class="pagewrap">
@@ -40,8 +42,8 @@ class PrivacyPolicy extends Component {
                   typeof privacyPolicy[0] != 'undefined' &&
                   privacyPolicy[0].contents.map((item, idx) => {
                     return (
-                    <div class="col-lg-12 pl-0">
-                      <h5 class="pb-2 pt-2">{item.title}</h5>
+                    <div class="col-lg-12 pl-0 pt-3" style={{"font-size": "24px"}}>
+                      {item.title}
                      {htmlParse(item.description)}
                     </div>
                       )
