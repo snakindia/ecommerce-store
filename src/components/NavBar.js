@@ -170,7 +170,8 @@ class NavBar extends React.Component {
               </li>
               <li>
                 <a
-                  href="shop"
+                  href="http://sales.baghouseamerica.com/"
+                  target="_blank"
                   className="bha-btn-primary bha-btn-menu hotLink pl-2 pr-2"
                 >
                   shop now

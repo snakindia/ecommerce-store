@@ -76,7 +76,7 @@ export default class Products extends Component {
                       return (
                         <div class="product-card hvr-float-shadow">
                           <div class="item-pro-inner">
-                            <a href="#">
+                            <a href="http://sales.baghouseamerica.com/" target="_blank">
                               <img
                                 class="img-fluid"
                                 src={
@@ -91,7 +91,8 @@ export default class Products extends Component {
                               <div class="product-tag">{item.sku}</div>
                             </a>
                             <a
-                              href="#"
+                              href="http://sales.baghouseamerica.com/"
+                              target="_blank"
                               class="btn bha-btn-primary w-100 float-left mt-4">
                               View Details
                             </a>
