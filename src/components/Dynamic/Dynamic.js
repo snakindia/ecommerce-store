@@ -24,12 +24,13 @@ class Dynamic extends Component {
 
     render() {
     this.state.routes = this.props.meta_details;
-    const { match } = this.props;
+    // wrong way to update state in render function , must use lifecycle method to update state
+    const { location:{pathname} } = this.props;
     return (
             <div>
               {this.state.routes && this.state.routes.length > 0 &&
                 this.state.routes.map(route => {
-                    if (route.slug != '' && route.template != '') {
+                    if (route.slug != '' && route.template != '' && pathname ==route.slug) {
                         return (
                           <Route
                             path={route.slug}
