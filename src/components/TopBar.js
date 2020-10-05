@@ -128,10 +128,11 @@ class TopBar extends Component {
         </div>
        
         <div className="headtoppart">
+        <div class="call-us-mob">CALL US: (888) 286-8708</div>
           <div className="topbar">
             <div className="headerwp">
               <div
-                className="mobile pt-2 font-weight-bold pl-0"
+                className="mobile pt-2 font-weight-bold pl-0 callUs_lx"
                 style={{ float: 'left' }}
               >
                 CALL US: (888) 286-8708

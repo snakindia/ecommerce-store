@@ -44,7 +44,7 @@ class EventDetail extends Component {
     return (
     <div class="pagewrap">
             <div class="bgWhite pb-4">
-              <section class="bg-opeque pt-5 animatedParent" style={{'overflow-x': 'hidden', 'margin-top':'100px'}}>
+              <section class="bg-opeque pt-5 animatedParent gapTop">
                 <div class="container-fluid">
                   <h2 class="bha_heading_2 pt-2 pl-2 text-blue text-left">
                     {details.title}
