@@ -22,6 +22,7 @@ class Industries extends Component {
     componentDidMount() {
         const { actions } = this.props;
         actions.fetchIndustriesList();
+        document.title = 'Industries'
     }
 
     render() {

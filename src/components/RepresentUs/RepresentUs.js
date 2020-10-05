@@ -15,6 +15,7 @@ class RepresentUs extends Component {
 
     componentDidMount() {
         this.props.getFaq();
+        document.title = 'Represent Us'
     }
 
     render() {

@@ -20,6 +20,11 @@ class News extends Component {
 
   componentDidMount() {
     this.fetchData();
+    if (this.state.pageType == 'News') {
+        document.title = 'News'
+    } else {
+        document.title = 'Events'
+    }
   }
 
   fetchData = () => {
