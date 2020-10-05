@@ -723,9 +723,12 @@ text-align: center;width: 94% !important;}
   .caption-inner{height: auto !important;}
   #representus-contact{margin-top: 30px !important}
   .contTactForm{top: 92% !important; position: absolute; z-index: 0 !important;}
-  .content-wrapper{margin-top: 110% !important;}
+  /*.content-wrapper{margin-top: 110% !important;}*/
   .banner-container-xxs{overflow: visible !important;}
   .banner-container-xxs{overflow-x: unset !important;}
+  .card-slider__container__list__card img{width: 100% !important;}
+  .card-slide_container{ top: 0 !important; }
+  .hero-img{height: 320px !important}
 
 }
 .call-us-mob{background: #1e475e !important; padding:0.6rem 0; text-align: center; font-weight: 600; font-size: 1.5rem; 
