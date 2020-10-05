@@ -6,6 +6,7 @@ import EpicCover from '../assets/images/600X500-4.jpg';
 import Baghouse from '../assets/images/baghouse.jpg';
 import Baghouselogo from '../assets/images/baghouse_logo.svg';
 import MenuLogo from '../assets/images/menu-logo.jpg';
+
 import {
   dropDownMenuProduct,
   API_URL,
@@ -26,7 +27,7 @@ import { save_brochures_details } from '../actions/freeBrochuresActions';
 import { showToast } from './Notification/notification.actions';
 import SubMenu from './Submnues/SubMenu';
 import ReactDOM from 'react-dom';
-var scrollToElement = require('scroll-to-element');
+import scrollToEl from '../utils/scrollToEl'
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class NavBar extends React.Component {
     console.log('->>>>>>>>>>>sr', this.props.location.pathname)
     if (preveProps.location.pathname != this.props.location.pathname) {
       console.log('scroll');
-      scrollToElement('#root');
+      scrollToEl('#root', 0)
     }
   }
 
@@ -88,6 +89,9 @@ class NavBar extends React.Component {
     const { isQuoteModalOpen } = this.state;
     this.setState({ isQuoteModalOpen: !isQuoteModalOpen });
   };
+
+ 
+
   showSubMenu = (e, item) => {
     if (item.has_sub_menu) {
       e.preventDefault();
@@ -140,7 +144,7 @@ class NavBar extends React.Component {
 
           <div className="wsmain clearfix">
             <nav className="wsmenu clearfix">
-              <ul className="wsmenu-list" onClick={this.handleClickOutside}>
+              <ul id="scrollablesubMenu" className="wsmenu-list" onClick={this.handleClickOutside}>
                 {header_menu &&
                   header_menu.map((item, idx) => <li
                     //onMouseLeave={this.hideSubMenu}

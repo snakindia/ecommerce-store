@@ -87,14 +87,7 @@ import { Link, Redirect, withRouter  } from 'react-router-dom';
                     />
                     <figcaption className="text-center">
                         <h4>{item.name}</h4>
-                        {/*<Link to={item.page_url}>*/}
-                        <button
-                        onClick={e=>this.redirect(e,item.path)}
-                         type="button" className="btn bha-btn-primary w-100 mt-2">
-                            View Details
-                        </button>
-                      {/*<a href="" className="btn bha-btn-primary w-100 mt-2">View Details</a>*/}
-                      {/*</Link>*/}
+                      <a href={item.page_url} className="btn bha-btn-primary w-100 mt-2">View Details</a>
                     </figcaption>
 
                     <div className="card-body p-0">

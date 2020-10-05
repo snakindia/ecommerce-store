@@ -6,7 +6,7 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 
 import { get_about_us_details } from '../../actions/pageActions';
 import { Sticky } from 'react-sticky';
-var scrollToElement = require('scroll-to-element');
+import scrollToEl from '../../utils/scrollToEl'
 
 class About extends React.Component {
     
@@ -22,18 +22,23 @@ class About extends React.Component {
         this.props.dispatch(get_about_us_details());
     }
 
-    setActiveClass = id => {
+    setActiveClass = (id,e, el) => {
+      e.preventDefault();
+      const arr= ['','ethics','mission','location'];
+      if(el !==0){
+        scrollToEl('.' + arr[el], -110,500)
+      }
+      
         this.setState({
             activeTabID: id,
         });
         this.drawMenu();
     };
   
-    scrollToEle(val, offsetVal) {
-        scrollToElement('.' + val, {
-            offset: - offsetVal,
-            duration: 1500
-        });
+    scrollToEle(e,val, offsetVal) {
+      console.log('clicked')
+      e.preventDefault();
+      scrollToEl('.' + val, offsetVal, 500)
     }
     
 
@@ -58,12 +63,12 @@ class About extends React.Component {
                           activeClass={
                             this.state.activeTabID == item.title ? 'current' : ''
                           }
-                          to={idx}
-                          spy={true}
-                          smooth={true}
+                          // to={idx}
+                          // spy={true}
+                          // smooth={true}
                           offset={-70}
                           duration={500}
-                          onClick={e => this.setActiveClass(item.title, e)}
+                          onClick={e => this.setActiveClass(item.title, e,idx)}
                           className={
                             this.state.activeTabID == item.title
                               ? 'tablink js-scroll-trigger current'
@@ -149,9 +154,9 @@ class About extends React.Component {
                             <div class="col-lg-12 text-center">
                               <Link
                                 className="js-scroll-trigger"
-                                onClick={() => this.scrollToEle('ethics', 85)}
-                                spy={true}
-                                smooth={true}
+                                onClick={(e) => this.scrollToEle(e,'ethics', -110)}
+                                // spy={true}
+                                // smooth={true}
                               >
                                 <i class="fa fa-angle-down text-white seperator"></i>
                               </Link>
@@ -201,9 +206,9 @@ class About extends React.Component {
                             <div class="col-lg-12 text-center">
                               <Link
                                 className="js-scroll-trigger"
-                                onClick={() => this.scrollToEle('mission',85)}
-                                spy={true}
-                                smooth={true}
+                                onClick={(e) => this.scrollToEle(e,'mission',-110)}
+                                // spy={true}
+                                // smooth={true}
                               >
                                 <i class="fa fa-angle-down text-white seperator"></i>
                               </Link>
@@ -256,9 +261,9 @@ class About extends React.Component {
                             <div class="col-lg-12 text-center">
                               <Link
                                 className="js-scroll-trigger"
-                                onClick={() => this.scrollToEle('location', 115)}
-                                spy={true}
-                                smooth={true}
+                                onClick={(e) => this.scrollToEle(e,'location', -110)}
+                                // spy={true}
+                                // smooth={true}
                               >
                                 <i class="fa fa-angle-down text-white seperator"></i>
                               </Link>

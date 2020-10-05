@@ -85,7 +85,9 @@ class EventDetail extends Component {
                                     newsList.map((item, idx) => {
                                         return (
                                             <div class="location">
-                                                <img class="bha-flag" src={item.image} alt="" />
+                                                <a href={'/eventdetail/' + item.slug }>
+                                                  <img class="bha-flag" src={item.image} alt="" />
+                                                  </a>
                                                 <div class="description-xxs"><a href={'/eventdetail/' + item.slug }>{item.title}</a></div>
                                                 <div class="pro_Price p-0">
                                                     <p class="text-left pl-2 text-muted">{dateConversion(item.date_created)}</p>
