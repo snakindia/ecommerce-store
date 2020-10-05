@@ -8,9 +8,8 @@ import { getFaq } from './store/Actions'
 class RepresentUs extends Component {
     constructor(props) {
         super(props);
-        console.log(window.innerWidth)
         this.state = {
-            displayView: window.innerWidth < 350 ? '110%' : 0
+            displayView: window.innerWidth < 450 ? '110%' : 0
         };
     }
 
