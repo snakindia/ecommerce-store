@@ -71,7 +71,7 @@ class Banner extends Component {
               <RBCarousel
                 autoplay={this.state.autoplay}
                 pauseOnVisibility={true}
-                slideshowSpeed={2000}
+                slideshowSpeed={5000}
                 version={4}
               >
                 {home_slider &&

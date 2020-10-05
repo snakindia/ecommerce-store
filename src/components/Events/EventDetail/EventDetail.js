@@ -48,7 +48,6 @@ class EventDetail extends Component {
                 <div class="container-fluid">
                   <h2 class="bha_heading_2 pt-2 pl-2 text-blue text-left">
                     {details.title}
-                  <span class="viewAll" style={{top:"38%"}}><a href="/news">Go to News</a></span>
                   </h2>
                   <p class="text-left pl-2 text-muted">{dateConversion(details.date_created)}</p>
                   <div class="share-link">
