@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState, useRef } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TopBar from './components/TopBar';
@@ -58,9 +58,12 @@ axios.interceptors.response.use(function (response) {
     props.setLoading(false)
     return Promise.reject(error);
   });
+
+  const [t, setT]=useState((new Date().getTime()));
+  const myRef = useRef(null) 
   const {loading}=props
     return (
-        <>
+        <div ref={myRef}>
          {loading &&  <Loader />}
         <StickyContainer style={{ overflowY: 'auto' }}>
             <Notification />
@@ -68,9 +71,9 @@ axios.interceptors.response.use(function (response) {
                 <MetaContainer>
                     <div className="top-header navbar-fixed">
                         <SubscriptionPopUp />
-                        <MobileMenu/>
+                        <MobileMenu t={t}/>
                         <TopBar />
-                        <NavBar />
+                        <NavBar setT={setT} myRef={myRef}/>
                     </div>
                     <Suspense fallback={<div>Loading...</div>}>
                         <Switch>
@@ -103,7 +106,7 @@ axios.interceptors.response.use(function (response) {
                 </MetaContainer>
             </BrowserRouter>
         </StickyContainer>
-        </>
+        </div>
     );
 };
 const mapStateToProps = state => ({

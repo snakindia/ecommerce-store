@@ -26,7 +26,7 @@ import { save_brochures_details } from '../actions/freeBrochuresActions';
 import { showToast } from './Notification/notification.actions';
 import SubMenu from './Submnues/SubMenu';
 import ReactDOM from 'react-dom';
-var scrollToElement = require('scroll-to-element');
+import scrollToEl from '../utils/scrollToEl'
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -48,11 +48,11 @@ class NavBar extends React.Component {
     this.props.fetch_submenu_items();
   }
 
-  componentDidUpdate(preveProps){
-    console.log('->>>>>>>>>>>',this.props.location.pathname)
-    if(preveProps.location.pathname !=this.props.location.pathname){
+  componentDidUpdate(preveProps) {
+    console.log('->>>>>>>>>>>sr', this.props.location.pathname)
+    if (preveProps.location.pathname != this.props.location.pathname) {
       console.log('scroll');
-      scrollToElement('#root');
+      scrollToEl('#root', 0)
     }
   }
 
@@ -78,7 +78,13 @@ class NavBar extends React.Component {
     //this.setState({coverImg,listItems,activeLink:idx})
   };
 
+  linkClicked = (p) => {
+    console.log('linkClicked', p)
+    this.props.setT((new Date()).getTime())
+  }
+
   toggleQuoteModal = () => {
+    this.linkClicked()
     const { isQuoteModalOpen } = this.state;
     this.setState({ isQuoteModalOpen: !isQuoteModalOpen });
   };
@@ -92,101 +98,107 @@ class NavBar extends React.Component {
         this.setState({ visibleSubmenu: item.id })
       }
     } else {
+      this.linkClicked('1')
       this.setState({ visibleSubmenu: null })
     }
   }
   hideSubMenu = () => {
     this.setState({ visibleSubmenu: null })
+    //this.linkClicked('2')
   }
 
- 
+
 
   componentWillUnmount() {
-      document.removeEventListener('click', this.handleClickOutside, true);
+    document.removeEventListener('click', this.handleClickOutside, true);
   }
 
-    handleClickOutside = event => {
-        const domNode = ReactDOM.findDOMNode(this);
+  handleClickOutside = event => {
+    const domNode = ReactDOM.findDOMNode(this);
 
-        if (!domNode || !domNode.contains(event.target)) {
-           this.hideSubMenu()
-        }
+    if (!domNode || !domNode.contains(event.target)) {
+      this.hideSubMenu()
     }
-  
+  }
+
   render() {
     const { navMenuData } = this.props;
     const { visibleSubmenu } = this.state;
     const { menuData, subMenuData } = navMenuData;
     const { header_menu } = menuData;
+
     let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
     return (
-      
-    <div className="headerfull" >
-      <div className="pagewrap">
-        <div className="smllogo">
-          <a href="/" className="anchor-logo">
-            <img className="d-block pt-1" src={MenuLogo} alt="" width="200" />
-          </a>
-        </div>
 
-        <div className="wsmain clearfix">
-          <nav className="wsmenu clearfix">
-            <ul className="wsmenu-list" onClick={this.handleClickOutside}>
-              {header_menu &&
-                header_menu.map((item, idx) => <li
-                  //onMouseLeave={this.hideSubMenu}
-                  id={item.has_sub_mennu ? 'megaMenu' : ''}
-                  key={idx + 'a'}
-                  className={item.id == this.state.visibleSubmenu ? 'wsclickopen' : ''}
-                >
-                  <Link to={item.url} className="navtext text-uppercase"
-                    onClick={e => this.showSubMenu(e, item)}
+      <div className="headerfull" >
+        <div className="pagewrap">
+          <div className="smllogo">
+            <a href="/" className="anchor-logo">
+              <img className="d-block pt-1" src={MenuLogo} alt="" width="200" />
+            </a>
+          </div>
+
+          <div className="wsmain clearfix">
+            <nav className="wsmenu clearfix">
+              <ul className="wsmenu-list" onClick={this.handleClickOutside}>
+                {header_menu &&
+                  header_menu.map((item, idx) => <li
+                    //onMouseLeave={this.hideSubMenu}
+                    id={item.has_sub_mennu ? 'megaMenu' : ''}
+                    key={idx + 'a'}
+                    className={item.id == this.state.visibleSubmenu ? 'wsclickopen' : ''}
                   >
-                    {item.text}
-                    <span><i class="fas fa-angle-down ml-4 downArrowHide"></i></span>
-                  </Link>
-                  {visibleSubmenu == item.id &&
-                    <SubMenu
-                      coverImg={this.state.coverImg}
-                      listItems={this.state.listItems}
-                      activeLink={this.state.activeLink}
-                      navMenuData={this.props.navMenuData}
-                      id={item.id}
-                     hide={this.hideSubMenu}
-                    />
-                  }
+                    <Link to={item.url} className="navtext text-uppercase"
+                      onClick={e => this.showSubMenu(e, item)}
+                    >
+                      {item.text}
+                      {item.has_sub_menu &&
+                        <span><i class="fas fa-angle-down ml-4 downArrowHide"></i></span>
+                      }
+                    </Link>
+                    {visibleSubmenu == item.id &&
+                      <SubMenu
+                        coverImg={this.state.coverImg}
+                        listItems={this.state.listItems}
+                        activeLink={this.state.activeLink}
+                        navMenuData={this.props.navMenuData}
+                        id={item.id}
+                        hide={this.hideSubMenu}
+                      />
+                    }
 
-                </li>
-                )}
-              <li>
-                <a
+                  </li>
+                  )}
+                <li>
+                  <a
                     id="requestAQuote"
                     href="javascript:void(0)"
                     onClick={this.toggleQuoteModal}
                     className="bha-btn-secondry hotLink mr-2 ml-2"
-                >
-                  request a quote
+                  >
+                    request a quote
                 </a>
-              </li>
-              <li>
-                <a
-                  href="http://sales.baghouseamerica.com/"
-                  target="_blank"
-                  className="bha-btn-primary bha-btn-menu hotLink pl-2 pr-2"
-                >
-                  shop now
+                </li>
+                <li>
+                  <a
+                    onClick={this.linkClicked}
+                    href="http://sales.baghouseamerica.com/"
+                    target="_blank"
+                    className="bha-btn-primary bha-btn-menu hotLink pl-2 pr-2"
+                  >
+                    shop now
                 </a>
-              </li>
-            </ul>
-          </nav>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <RequestAQuote
+            toggleModal={this.toggleQuoteModal}
+            isOpen={this.state.isQuoteModalOpen}
+            onSubmit={this.props.saveBrochuresDetails}
+            showToast={this.props.showToast}
+          />
         </div>
-        <RequestAQuote
-          toggleModal={this.toggleQuoteModal}
-          isOpen={this.state.isQuoteModalOpen}
-          onSubmit={this.props.saveBrochuresDetails}
-          showToast={this.props.showToast}
-        />
-      </div>
       </div>
     );
   }
@@ -200,11 +212,11 @@ const mapStateToProps = ({ asyncReducer }) => {
 };
 
 const mapDispatchToProps = {
-    saveBrochuresDetails: save_brochures_details,
-    fetch_dynamic_menus,
-    fetch_submenu_items,
-    showToast,
+  saveBrochuresDetails: save_brochures_details,
+  fetch_dynamic_menus,
+  fetch_submenu_items,
+  showToast,
 };
 //export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
-const navRedux =connect(mapStateToProps, mapDispatchToProps)(NavBar);
+const navRedux = connect(mapStateToProps, mapDispatchToProps)(NavBar);
 export default withRouter(navRedux);
