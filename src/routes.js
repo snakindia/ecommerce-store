@@ -58,6 +58,8 @@ axios.interceptors.response.use(function (response) {
     props.setLoading(false)
     return Promise.reject(error);
   });
+
+  const [t, setT]=useState((new Date().getTime()));
   const {loading}=props
     return (
         <>
@@ -68,9 +70,9 @@ axios.interceptors.response.use(function (response) {
                 <MetaContainer>
                     <div className="top-header navbar-fixed">
                         <SubscriptionPopUp />
-                        <MobileMenu/>
+                        <MobileMenu t={t}/>
                         <TopBar />
-                        <NavBar />
+                        <NavBar setT={setT}/>
                     </div>
                     <Suspense fallback={<div>Loading...</div>}>
                         <Switch>
