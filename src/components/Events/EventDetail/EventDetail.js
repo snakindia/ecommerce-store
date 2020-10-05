@@ -44,7 +44,7 @@ class EventDetail extends Component {
     return (
     <div class="pagewrap">
             <div class="bgWhite pb-4">
-              <section class="bg-opeque pt-5 animatedParent" style={{'overflow-x': 'hidden', 'margin-top':'100px'}}>
+              <section class="bg-opeque pt-5 animatedParent gapTop">
                 <div class="container-fluid">
                   <h2 class="bha_heading_2 pt-2 pl-2 text-blue text-left">
                     {details.title}
@@ -85,7 +85,9 @@ class EventDetail extends Component {
                                     newsList.map((item, idx) => {
                                         return (
                                             <div class="location">
-                                                <img class="bha-flag" src={item.image} alt="" />
+                                                <a href={'/eventdetail/' + item.slug }>
+                                                  <img class="bha-flag" src={item.image} alt="" />
+                                                  </a>
                                                 <div class="description-xxs"><a href={'/eventdetail/' + item.slug }>{item.title}</a></div>
                                                 <div class="pro_Price p-0">
                                                     <p class="text-left pl-2 text-muted">{dateConversion(item.date_created)}</p>

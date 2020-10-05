@@ -23,15 +23,12 @@ const Banner = () => {
                                             <ContactForm />
                                         </div>
 
-
                                         <RBCarousel
                                             autoplay={true}
                                             pauseOnVisibility={true}
                                             slideshowSpeed={2000}
                                             version={4}
                                         >
-
-
 
 
                                             <div key="1" >

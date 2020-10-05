@@ -948,9 +948,9 @@ border-radius:0.1rem; box-shadow: 0 0 10px #f7f7f7}
   }
 }
 @media (max-width: 767px) {
-  .tab-content .tab-pane {
+  /* .tab-content .tab-pane {
     display: block;
-  }
+  } */
   .nav-tabs {
     display: none;
   }
