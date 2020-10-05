@@ -11,7 +11,7 @@ import {
 } from '../../constants/appConstant';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-
+import scrollToEl from '../../utils/scrollToEl'
 class Products extends React.Component {
     constructor(props) {
         super(props);
@@ -37,7 +37,9 @@ class Products extends React.Component {
             ]
         });
     };
-    
+    scrollToSubMenu =()=>{
+          document.getElementById('scrollablesubMenu').scrollIntoView();
+      }
     componentDidMount(){
         const { navMenuData :{subMenuData}} = this.props;
         // const { subMenuData } = navMenuData;
@@ -65,7 +67,9 @@ class Products extends React.Component {
             imageSrc = DEFAULT_IMG_URL;
         }
 
-        this.setState({ coverImg: imageSrc, listItems: items, activeLink: index });
+        this.setState({ coverImg: imageSrc, listItems: items, activeLink: index },()=>{
+            this.scrollToSubMenu()
+        });
     };
     render() {
         const { coverImg, listItems, activeLink } = this.state;
@@ -75,7 +79,7 @@ class Products extends React.Component {
 
         return (
             <div
-                
+                id="prdcts"
                 className="wsshoptabing wtsdepartmentmenu clearfix"
                 style={{
                     zIndex: 999, opacity: 1,
