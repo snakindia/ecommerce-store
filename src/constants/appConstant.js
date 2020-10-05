@@ -6,5 +6,4 @@ const API_URL = process.env.REACT_APP_API_URL ? process.env.REACT_APP_API_URL: '
 const API_AJAX_URL = process.env.REACT_APP_API_AJAX_URL ? process.env.REACT_APP_API_AJAX_URL :'http://127.0.0.1:3001/ajax';
 const categoryImageUrl =process.env.REACT_APP_categoryImageUrl ? process.env.REACT_APP_categoryImageUrl:  'http://127.0.0.1:3001/images/categories';
 const API_IMAGE_PATH =process.env.REACT_APP_API_IMAGE_PATH ? process.env.REACT_APP_API_IMAGE_PATH: 'http://127.0.0.1:3001/images/';
-console.log('process.env->>>>>>>>>>>>>>>>>>>>>>',API_URL, API_AJAX_URL, categoryImageUrl, API_IMAGE_PATH )
 export { API_URL, API_AJAX_URL, categoryImageUrl, API_IMAGE_PATH };
