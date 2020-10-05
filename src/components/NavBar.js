@@ -26,7 +26,7 @@ import { save_brochures_details } from '../actions/freeBrochuresActions';
 import { showToast } from './Notification/notification.actions';
 import SubMenu from './Submnues/SubMenu';
 import ReactDOM from 'react-dom';
-var scrollToElement = require('scroll-to-element');
+import scrollToEl from '../utils/scrollToEl'
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -52,7 +52,7 @@ class NavBar extends React.Component {
     console.log('->>>>>>>>>>>sr', this.props.location.pathname)
     if (preveProps.location.pathname != this.props.location.pathname) {
       console.log('scroll');
-      scrollToElement('#root');
+      scrollToEl('#root', 0)
     }
   }
 
