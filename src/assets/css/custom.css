@@ -443,7 +443,8 @@ color:#000 !important; font-weight: 500 !important; }
 
 .card-slider__container__list__card{width: 100% !important; padding:0 2px; overflow: hidden;}
 .banner-slider-container{padding:0 !important;}
-.banner-container-xxs{overflow: visible !important;}
+/*.banner-container-xxs{overflow: visible !important;}*/
+.banner-container-xxs{overflow: hidden !important;}
 /*html,body{
   height:100vh;
   width:100vw;
@@ -492,7 +493,7 @@ line-height: 2rem}
     line-height: 5rem !important;
 }
 
-.carousel-inner { position: relative; overflow: visible !important; width: 100% !important;}
+.carousel-inner { position: relative; overflow: hidden; width: 100% !important;}
 .banner-container-xx{overflow: visible !important;}
 
 .banner-container-xx .carousel-indicators{top:500px !important;}
@@ -556,7 +557,7 @@ embed{margin-right: 0.5rem;}
     /*border-top: 1px solid #ddd;*/
     background-color: #fff;
     position: absolute;
-    top: 6%;
+    top: 2%;
     right: 3%;
     width: auto;
     z-index: 1000000;
@@ -574,7 +575,7 @@ border-radius: 0.3rem;text-transform: uppercase;font-size: 0.875rem;font-weight:
 [class^="imghvr-"] a, [class*=" imghvr-"] a{position: relative !important; }
 
 .banner-container .carousel{position: relative;}
-.bottom-navigation { top: 580px !important; position: absolute;background: rgba(115, 123, 168, 0.2);
+.bottom-navigation { top: 565px !important; position: absolute;background: rgba(115, 123, 168, 0.2);
 background: -moz-linear-gradient(top, rgba(115, 123, 168, 0.2) 0%, rgba(115, 123, 168, 0.2) 22%, rgba(115, 123, 168, 0.2) 100%);
 background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(115, 123, 168, 0.2)), color-stop(22%, rgba(115, 123, 168, 0.5)), color-stop(100%, rgba(252,252,252,1)));
 background: -webkit-linear-gradient(top, rgba(115, 123, 168, 0.2) 0%, rgba(115, 123, 168, 0.2) 22%, rgba(115, 123, 168, 0.2) 100%);
@@ -687,7 +688,7 @@ text-align: center;width: 94% !important;}
   .modal{top:0px;}
   label{margin-bottom: 0 !important}
   .bha-btn-primary {white-space: nowrap;}
-  .logIn{top:0 !important;/*width: 100% !important; right:0 !important; background: #fff !important;*/ border:none;}
+  .logIn{top:0;/*width: 100% !important; right:0 !important; background: #fff !important;*/ border:none;}
   .socialLink span{padding-right: 6px;}
   .socialLink a{margin: 0 1.5px;}
 }
@@ -717,12 +718,22 @@ text-align: center;width: 94% !important;}
   .carousel .carousel-inner .item, .carousel .carousel-inner .carousel-item{overflow: hidden !important;}
   .call-us-mob{display: block !important;}
   .headtoppart{margin-top: 61px !important;}
-  .banner-about{margin-top: 0 !important; height: 409px !important;}
+  .banner-about{margin-top: 0 !important; height: 360px !important;}
   .banner-container{margin-top: 157px !important;}
+  .caption-inner{height: auto !important;}
+  #representus-contact{margin-top: 30px !important}
+  .contTactForm{top: 92% !important; position: absolute; z-index: 0 !important;}
+  .content-wrapper{margin-top: 110% !important;}
+  .banner-container-xxs{overflow: visible !important;}
+  .banner-container-xxs{overflow-x: unset !important;}
+
 }
 .call-us-mob{background: #1e475e !important; padding:0.6rem 0; text-align: center; font-weight: 600; font-size: 1.5rem; 
   display:none;}
 .gapTop{overflow-x: hidden; margin-top:101px}
+.footer-middle-list{display: none}
+/*.carousel-inner{overflow: hidden;}*/
+.copyright p{padding-top:1rem !important;}
 /*@media(min-width: 375px){
   .topbar {background: #000; width: 100% !important; padding-left: 7% !important;}
   .bha-btn-primary {white-space: nowrap;}
