@@ -400,10 +400,7 @@ class Footer extends Component {
                         <p>
                           COPYRIGHT © {this.state.year} Baghouse. The following
                         are trademarks for one or more Baghouse power tools,
-                        accessories, anchors and concrete adhesives: The yellow
-                        and black color scheme; the the array of pyramids on the
-                        handgrip; the kit box configuration; and the array of
-                        lozenge-shaped humps on the surface of the tool.
+                        accessories, anchors and concrete adhesives.
                       </p>
                         <ul class="footer-middle-list">
                           <li>
