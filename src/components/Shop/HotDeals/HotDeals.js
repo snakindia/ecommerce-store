@@ -18,7 +18,7 @@ const HotDeals = (props) => {
     infinite: true,
     speed: 800,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 5000,
     slidesToShow: 4,
     slidesToScroll: 4,
     responsive: [

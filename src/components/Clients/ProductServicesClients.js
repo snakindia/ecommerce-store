@@ -20,7 +20,7 @@ class ProductServicesClients extends Component {
             slidesToShow: 6,
             slidesToScroll: 3,
             autoplay: true,
-            autoplaySpeed: 1500,
+            autoplaySpeed: 5000,
              responsive: [
         {
           breakpoint: 1024,

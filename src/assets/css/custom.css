@@ -354,7 +354,7 @@ list-style-type: none;display:block; margin-top: 2rem;}
   padding-top: 0.7rem !important;
 }
 #representus-contact {
-  z-index: 1;
+  z-index: 100;
   /* position: relative; */
   /* right: 100px; */
   float: right;
@@ -415,11 +415,13 @@ figcaption h4{font-weight: 500 !important}
 
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{
   padding: 10px 10px 20px 10px !important; overflow: hidden !important;
-  height: 380px !important; margin-bottom: 3rem !important;
+  height: 380px !important; 
+  margin-bottom: 3rem !important;
 }
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp {
     width: 100%; display: block; position: relative; background-color: #fff;
-    height: 380px !important;}
+    /* height: 380px !important; */
+  }
 /*.wstabitem > li > a{font-size: 0.850rem !important;}*/
 /*.bottom-navigation{z-index: 1000 !important}*/
 /*=====Top menu section===========*/
@@ -813,3 +815,6 @@ text-align: center;width: 94% !important;}
   right: 0;
 }
 
+body {
+  -webkit-overflow-scrolling: touch;
+}

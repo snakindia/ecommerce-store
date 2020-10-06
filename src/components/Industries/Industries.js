@@ -31,8 +31,8 @@ class Industries extends Component {
         const settings = {
             slidesToShow: 5,
             slidesToScroll: 1,
-            autoplay: false,
-            autoplaySpeed: 1500,
+            autoplay: true,
+            autoplaySpeed: 5000,
             responsive: [
                 {
                   breakpoint: 1024,
@@ -64,8 +64,7 @@ class Industries extends Component {
                 }
               ]
         };
-        console.log('details')
-        console.log(details)
+        
         return (
             <div>
                 {details &&
@@ -83,7 +82,7 @@ class Industries extends Component {
                                         <Slider {...settings}>{
                                             details &&
                                             Object.keys(details).length &&
-                                            details.map((item, idx) => {
+                                            details.reverse().map((item, idx) => {
                                                 return (
                                                     <div class="hot-deals-item-wrapper pb-0">
                                                         <div class="card-slider__container__list__card">

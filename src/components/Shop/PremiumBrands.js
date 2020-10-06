@@ -25,8 +25,8 @@ export default class PremiumBrands extends Component {
     var settings = {
       slidesToShow: 4,
       slidesToScroll: 1,
-      autoplay: false,
-      autoplaySpeed: 2000,
+      autoplay: true,
+      autoplaySpeed: 5000,
     };
 
     return (
