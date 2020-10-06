@@ -68,7 +68,7 @@ useEffect(()=>{
     return (
         <div ref={myRef}>
          {loading &&  <Loader />}
-        <StickyContainer style={{ overflowY: 'auto' }}>
+        <StickyContainer>
             <Notification />
             <BrowserRouter>
                 <MetaContainer>

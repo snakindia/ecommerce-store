@@ -20,7 +20,7 @@ const Resources = ({ content }) => {
                             if (item.title != '||DB||') {
                                 let spliTitle = item.title.split('||');
                                 return (
-                                    <div class="col-sm-6 col-md-6 col-lg-4 mb-4">
+                                    <div class="col-sm-6 col-md-6 col-lg-3 mb-4">
                                         <div class="hot-deals-item-wrapper imgwrap" style={{"height": "450px !important"}}>
                                             <div class="item-pro-inner p-0">
                                                 <div class="filter-description text-center">

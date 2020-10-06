@@ -474,8 +474,8 @@ color:#000 !important; font-weight: 500 !important; }
 .imgL-container{background: transparent !important;}
 .imgB_color{background: rgba(46,49,146,1); position: absolute; bottom:0; left: 0;
 width:500px; height: 400px}
-.inner-wrap{position: absolute; top:7rem; left:0; z-index: 100}
-.iMg_pos{border: 0px solid rgb(255, 255, 255);width: 540px; height: 606px; position: relative;z-index: 1;}
+/*.inner-wrap{position: absolute; top:7rem; left:0; z-index: 100}*/
+/*.iMg_pos{border: 0px solid rgb(255, 255, 255);width: 540px; height: 606px; position: relative;z-index: 1;}*/
 .contentDescript{background:transparent; margin-top: 6rem;}
 .contentDescript p span{font-family: 'Roboto', sans-serif !important;color:#212529 !important;}
 .contentDescript p span strong{font-weight: 600; font-family: 'Roboto', sans-serif !important; 
@@ -588,7 +588,7 @@ background: -o-linear-gradient(top, rgba(115, 123, 168, 0.1) 0%, rgba(115, 123, 
 background: -ms-linear-gradient(top, rgba(115, 123, 168, 0.1) 0%, rgba(115, 123, 168, 0.1) 22%, rgba(115, 123, 168, 0.1) 100%);
 background: linear-gradient(to bottom, rgba(115, 123, 168, 0.1) 0%, rgba(115, 123, 168, 0.1) 22%, rgba(115, 123, 168, 0.1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fcfcfc', GradientType=0 ); 
-padding-top:0.5rem !important; z-index: 10 !important;}
+padding-top:0.5rem !important; z-index: 10 !important; height: 120px !important}
 .bottom-navigation a{color:#fff !important;}
 .footerPart{ bottom: 0px !important; position: absolute;background: rgba(115, 123, 168, 0.5); height: 86px !important; 
 padding-top:0.5rem !important; z-index: 10 !important; width: 100%}
@@ -751,7 +751,7 @@ text-align: center;width: 94% !important;}
   .card-slider__container__list__card__content__button__learn-more{text-align: center !important;}
   .card-slider__container__list__card__content{height: auto !important; padding-bottom: 1rem !important}
   .banner-slider-container .bha_heading_2{margin-top: 20px !important;}
-  .padding_news{margin-top: 310px !important}
+  .padding_news{margin-top: 400px !important}
   .banner-container-xxs .carousel-indicators{display: none;}
   .content-wrapper .texture-bg{margin-top: 100px !important}
   .banner-slider-container{margin-top: 103px !important;}
@@ -760,8 +760,20 @@ text-align: center;width: 94% !important;}
 @-ms-viewport{
 width: 1920px;
 }
-.bg-opeque{float:left !important; width: 100%; padding: 2rem 0 !important;
-margin: 0 !important}
+#root{overflow-x: hidden !important;}
+/*.banner-slider-container{overflow-x: hidden !important}*/
+.tab-content{padding:15px 0 10px 15px !important}
+.hot-deals-item-wrapper{text-align: center;}
+.hot-deals-item-wrapper .item-pro-inner{padding-bottom:3rem !important;}
+.filterImg{width:200px !important; height: 200px !important; object-fit: cover !important; 
+	object-position: center !important; border:none !important;}
+
+.imgB_color{display: none}
+.iMg_pos{height: 850px !important; width: 90% !important; padding:1rem 0 !important}
+/*.inner-wrap{top:8% !important;}*/
+.contentDescript{margin-top: 6.2rem !important;}
+.item-pro-inner{float:left !important; width: 100% !important}
+.bg-opeque{float:left !important; width: 100%; padding: 2rem 0 !important;}
 .bg-opeque h2{margin: 0 !important}
 .banner-container-xxs .carousel-indicators{bottom:110px !important}
 .chat-button{display: none}
