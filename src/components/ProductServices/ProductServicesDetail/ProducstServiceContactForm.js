@@ -79,7 +79,7 @@ class ProducstServiceContactForm extends Component {
                                     let result = this.saveHandler(values)
                                     .then(data => {
                                         if (data.status == true) {
-                                            this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
+                                            this.props.showToast("Thank you for sharing this information", TOAST_TYPE.SUCCESS);
                                             resetForm();
                                             if (typeof this.props.pdf_url != 'undefined' && this.props.pdf_url != '') {
                                                 window.open(this.props.pdf_url, '_blank');

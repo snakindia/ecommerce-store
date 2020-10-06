@@ -105,7 +105,7 @@ class TopBar extends Component {
           });
           this.props.getUserDetail(response.data.token);
         } else {
-          this.setState({ loginError: 'Something Went Wrong' });
+          this.setState({ loginError: 'We were unable to process your request at this moment. Please try after some time or call us at (888) 286-8708' });
         }
       })
       .catch(error => {

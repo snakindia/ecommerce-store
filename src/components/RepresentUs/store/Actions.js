@@ -38,11 +38,11 @@ export const getFaq = () => {
                     dispatch(setSuccess());
                     dispatch(getFAQSuccess(res.data));
                 } else {
-                    dispatch(getFAQError('Something went wrong'));
+                    dispatch(getFAQError('We were unable to process your request at this moment. Please try after some time or call us at (888) 286-8708'));
                 }
             })
             .catch(e => {
-                message.error('Something went wrong');
+                message.error('We were unable to process your request at this moment. Please try after some time or call us at (888) 286-8708');
                 dispatch(setLoading(false));
                 dispatch(setError(e));
                 dispatch(getFAQError(e));

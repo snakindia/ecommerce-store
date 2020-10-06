@@ -20,9 +20,7 @@ export default class InquiryNotification extends Component {
       <MDBModal isOpen={this.state.modal} toggle={this.toggleModal} centered>
         <MDBCloseIcon onClick={this.toggleModal} />
         <MDBModalBody>
-          Thanks you for filling out your information! We are thrilling to hear
-          from you. Our inbox can't wait to get your messages, so talk to us any
-          time you like.
+          Thank you for sharing this information.
         </MDBModalBody>
         Cheers!
       </MDBModal>
