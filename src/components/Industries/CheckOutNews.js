@@ -20,7 +20,6 @@ class CheckOutNews extends Component {
                          <div class="border-0 radious-0">
                             <div class="card-body">
                               <h3 class="bha_heading_2 text-black pt-2">Checkout Our News</h3>
-                              <p class="card-text small">Lorem ipsum dollar site amntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                               <a href="/news" class="btn bha-btn-primary">View Details</a>
                             </div>
                           </div>

@@ -37,7 +37,6 @@ const Banner = () => {
                                                 </picture>
                                                 <div class="item-xxs-caption">
                                                     <h1 class="item_heading text-white">North America</h1>
-                                                    <p class="item-description-xs text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod didunt ut labore et dolore magna aliqua.  Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
                                                 </div>
                                             </div>
 
@@ -45,7 +44,6 @@ const Banner = () => {
                                                 <img src={banner2} alt="" className="img-fluid" /></picture>
                                                 <div class="item-xxs-caption">
                                                     <h1 class="item_heading text-white">South America</h1>
-                                                    <p class="item-description-xs text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod didunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                                                 </div>
                                             </div>
 
@@ -53,7 +51,6 @@ const Banner = () => {
                                                 <img src={banner3} alt="" className="img-fluid" /></picture>
                                                 <div class="item-xxs-caption">
                                                     <h1 class="item_heading text-white">South Africa</h1>
-                                                    <p class="item-description-xs text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod didunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                                                 </div>
                                             </div>
 
@@ -61,7 +58,6 @@ const Banner = () => {
                                                 <img src={banner4} alt="" className="img-fluid" /></picture>
                                                 <div class="item-xxs-caption">
                                                     <h1 class="item_heading text-white">United States</h1>
-                                                    <p class="item-description-xs text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod didunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                                                 </div>
                                             </div>
 
