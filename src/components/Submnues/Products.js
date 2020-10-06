@@ -41,6 +41,10 @@ class Products extends React.Component {
           document.getElementById('scrollablesubMenu').scrollIntoView();
       }
     componentDidMount(){
+        const isMobile =document.body.className =='wsactive';
+        if(isMobile){
+            return ;
+        }
         const { navMenuData :{subMenuData}} = this.props;
         // const { subMenuData } = navMenuData;
         let loop =true;
@@ -58,6 +62,8 @@ class Products extends React.Component {
     }
 
     showMenu = (itemOneObj, index, e) => {
+        const isMobile =document.body.className =='wsactive';
+        const {activeLink} =this.state;
         console.log('itemOneObj',itemOneObj)
         const { name, image, items, slug, _id } = itemOneObj;
         let imageSrc = '';
@@ -67,7 +73,9 @@ class Products extends React.Component {
             imageSrc = DEFAULT_IMG_URL;
         }
 
-        this.setState({ coverImg: imageSrc, listItems: items, activeLink: index },()=>{
+        this.setState({ coverImg: imageSrc, listItems: items, 
+            activeLink: isMobile && activeLink== index ? null: index
+         },()=>{
             this.scrollToSubMenu()
         });
     };

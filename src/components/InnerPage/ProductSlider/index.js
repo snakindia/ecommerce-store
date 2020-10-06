@@ -8,8 +8,8 @@ const ProductSlider = props => {
     dots: true,
     infinite: true,
     speed: 800,
-    // autoplay: true,
-    // autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
     responsive: [

@@ -25,15 +25,15 @@ export default class ProductServicesPremiumBrands extends Component {
     var settings = {
       slidesToShow: 4,
       slidesToScroll: 1,
-      autoplay: false,
-      autoplaySpeed: 2000,
+      autoplay: true,
+      autoplaySpeed: 5000,
     };
 
     return (
         <section class="shopping-product mt-0 pb-2">
             <div class="bg-opeque">
                 <div class="container-fluid">
-                    <h2 class="bha_heading_2 z-index text-blue">Shop by premium brands</h2>
+                    <h2 class="bha_heading_2 z-index text-blue">Our premium brands</h2>
                 </div>
             </div>
             <div class="pagewrap">
@@ -55,7 +55,9 @@ export default class ProductServicesPremiumBrands extends Component {
                                       }
                                       alt="Card image"
                                     />
-                                    <div class="brand-label">{item.name}</div>
+                                    <div class="brand-label">
+                                      {item.name}
+                                    </div>
                                     <div class="mask">
                                       <p>{parseHtml(item.description)}</p>
                                     </div>
