@@ -261,7 +261,7 @@ class ContentSection extends Component {
                                     <div class="text-small">
                                       Edifício Candelária Corporate , Rua
                                       Candelária, 65, #1600, Rio de Janeiro,
-                                      Brazil
+                                      \n Brazil
                                     </div>
                                   </div>
                                   <div class="mt-4 float-left">
