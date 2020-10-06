@@ -7,6 +7,10 @@ const errCharacterOnly = 'Please enter alphabet characters only';
 const charactersOnly = msg => value => {
   return /^[a-zA-Z ]*$/i.test(value) ? null : msg || errCharacterOnly;
 };
+const erralphaOnly = 'Please enter alphabet characters only';
+const aphaOnly = msg => value => {
+  return /^[a-zA-Z0-9~!@#$%^&*-_'" ]*$/i.test(value) ? null : msg || erralphaOnly;
+};
 
 const errPhoneNumber = 'Please enter valid phone number';
 const phoneNumber = msg => value => {
@@ -74,4 +78,5 @@ export {
   minLength,
   strongPassWord,
   zipCode,
+  aphaOnly  
 };

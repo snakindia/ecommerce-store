@@ -1,19 +1,42 @@
 import React from 'react';
 import { Field } from 'formik'
 const Input = (props) => {
-    const { allow, onChange } = props;
+    const { allow, onChange,formik,length, name,type } = props;
     const validateAllow=(val)=>{
+        if(!val){
+            return true;
+        }
         if(!allow){
             return true;
-        } else if (allow && allow =='spc'){
-            const isValid= (/^[a-zA-Z0-9~!@#$%^&*-_'"]*$/i.test(val))
+        } 
+        else if (allow && allow =='text'){
+            const isValid= (/^[a-zA-Z0-9 ]*$/i.test(val))
             console.log({isValid})
-            return isValid;
+            return isValid && val.length <=length;
+        } else if (allow && allow =='special'){
+            const isValid= (/^[a-zA-Z0-9~!@#$%^&*-_'" ]*$/i.test(val))
+            console.log({isValid})
+            return isValid && val.length <=length;
+        }
+         else if (allow && allow =='numeric'){
+            const isValid= (/^[0-9]/i.test(val))
+            console.log({isValid})
+            return isValid && val.length <=length;
+        }  else if (allow && allow =='email'){
+            const isValid= (/^[a-zA-Z0-9@-_.]*$/i.test(val))
+            console.log({isValid})
+            return isValid && val.length <=length;
         }
     }
     const onchangeHandler = (e) => {
         const {value}=e.target;
-        if (onChange && validateAllow(value)) {
+        const isValid =validateAllow(value);
+        formik.setFieldTouched(name,true)
+        if(isValid){
+            formik.setFieldValue(name,value)
+            
+        }
+        if (onChange && isValid) {
             onChange(e)
         }
     }
@@ -21,6 +44,8 @@ const Input = (props) => {
         <Field
 
             {...props}
+            component={type=='textarea'? 'textarea':'input'}
+            value={formik.values[name]}
             onChange={onchangeHandler}
         />
     );

@@ -6,50 +6,52 @@ import { connect } from 'react-redux';
 import execValidation from '../../services/validatorService';
 import { validators } from './validators';
 import { TOAST_TYPE } from '../Notification/action.constants';
+import Input from '../common/Input';
+import Error from '../common/Error';
 const { Option } = Select;
 const initialValues = {
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    message: '',
-    category_id: '',
-    category_name: '',
+  name: '',
+  company: '',
+  email: '',
+  phone: '',
+  message: '',
+  category_id: '',
+  category_name: '',
 };
 
 class RequestAQuote extends Component {
   handleSubmit = async (values, { setSubmitting }) => {
-    if(!values.category_name){
+    if (!values.category_name) {
       const { isOpen, toggleModal, subMenuData } = this.props;
-     
+
       if (subMenuData && Object.keys(subMenuData).length > 0) {
         for (const key of Object.keys(subMenuData)) {
           if (subMenuData[key] && subMenuData[key][0] && subMenuData[key][0].items && subMenuData[key][0].items.length > 0) {
             subMenuData[key][0].items.map(item => {
-              
-              if(item._id == values.category_id){
-                values.category_name =item.name;
+
+              if (item._id == values.category_id) {
+                values.category_name = item.name;
               }
             })
           }
         }
       }
     }
-   
+
     const { toggleModal, onSubmit, showToast } = this.props;
     setSubmitting(true);
     try {
 
-        const res = await onSubmit({ ...values, type: 'Request a Quote' });
-        if (res && res.status) {
-            toggleModal();
-            showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
-            if (typeof res.url != 'undefined' && res.url != '') {
-                window.open(res.url, '_blank');
-            }
-        } else if (res && res.status.error) {
-            showToast(res.status.error || 'Something Went wrong', TOAST_TYPE.ERROR);
+      const res = await onSubmit({ ...values, type: 'Request a Quote' });
+      if (res && res.status) {
+        toggleModal();
+        showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
+        if (typeof res.url != 'undefined' && res.url != '') {
+          window.open(res.url, '_blank');
         }
+      } else if (res && res.status.error) {
+        showToast(res.status.error || 'Something Went wrong', TOAST_TYPE.ERROR);
+      }
     } catch (e) {
       showToast('Something Went wrong', TOAST_TYPE.ERROR);
     } finally {
@@ -57,13 +59,13 @@ class RequestAQuote extends Component {
     }
   };
 
-    validateForm = values => {
-        const e = execValidation(validators, values);
-        if (this.props.isFreeBrochure == true) {
-            delete e.message;
-        }
-        return Object.keys(e) ? e : null;
-    };
+  validateForm = values => {
+    const e = execValidation(validators, values);
+    if (this.props.isFreeBrochure == true) {
+      delete e.message;
+    }
+    return Object.keys(e) ? e : null;
+  };
   render() {
     const { isOpen, toggleModal, subMenuData, isFreeBrochure } = this.props;
     let categories = [];
@@ -79,10 +81,10 @@ class RequestAQuote extends Component {
         }
       }
     }
-   
-    categories = categories.sort((a, b) =>{
-      if (a.label < b.label ) return -1;
-      if (a.label  > b.label ) return 1;
+
+    categories = categories.sort((a, b) => {
+      if (a.label < b.label) return -1;
+      if (a.label > b.label) return 1;
       return 0;
     })
     return (
@@ -101,159 +103,158 @@ class RequestAQuote extends Component {
               <span aria-hidden="true">×</span>
             </button>
             <h2 className="bha_heading_2 font-weight-bold text-black">
-                {isFreeBrochure != true ? "Request For quote" : "Free Brochure"}
+              {isFreeBrochure != true ? "Request For quote" : "Free Brochure"}
             </h2>
             <Formik
               initialValues={initialValues}
               onSubmit={this.handleSubmit}
               validate={this.validateForm}
             >
-              {({
-                values,
-                errors,
-                touched,
-                handleChange,
-                handleBlur,
-                handleSubmit,
-                isSubmitting,
-                setFieldTouched,
-                setFieldValue
-              }) => (
-                  <Form>
-                    {isSubmitting ? <div>Loading...</div> : null}
-                    <div className="row">
-                      <div className="col-lg-12">
-                        <div className="form-group mb-1">
-                          <label htmlFor="name">Name *</label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="name"
-                            placeholder="Enter Name"
-                            value={values.name}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                          />
-                          <span className="errorMsg">
+              {(formik) => (
+                <Form>
+                  {formik.isSubmitting ? <div>Loading...</div> : null}
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <div className="form-group mb-1">
+                        <label htmlFor="name">Name *</label>
+                        <Input
+                          type="text"
+                          className="form-control"
+                          id="name"
+                          name="name"
+                          placeholder="Enter Name"
+                          allow="special"
+                          length={50}
+                          formik={formik}
+                        />
+                        {/* <span className="errorMsg">
                             {touched.name && errors.name}
-                          </span>
-                        </div>
+                          </span> */}
                       </div>
                     </div>
-                    <div className="row">
-                      <div className="col-lg-12">
-                        <div className="form-group mb-1">
-                          <label htmlFor="phone">Phone *</label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="phone"
-                            placeholder="Enter Phone"
-                            value={values.phone}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                          />
-                          <span className="errorMsg">
+                  </div>
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <div className="form-group mb-1">
+                        <label htmlFor="phone">Phone *</label>
+                        <Input
+                          type="text"
+                          className="form-control"
+                          id="phone"
+                          name="phone"
+                          placeholder="Enter Phone"
+                          allow="numeric"
+                          length={10}
+                          formik={formik}
+                        />
+                        {/* <span className="errorMsg">
                             {touched.phone && errors.phone}
-                          </span>
-                        </div>
+                          </span> */}
                       </div>
                     </div>
-                    <div className="row">
-                      <div className="col-lg-12">
-                        <div className="form-group mb-1">
-                          <label htmlFor="email">Email Address *</label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="email"
-                            placeholder="Enter Email"
-                            value={values.email}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                          />
-                          <span className="errorMsg">
+                  </div>
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <div className="form-group mb-1">
+                        <label htmlFor="email">Email Address *</label>
+                        <Input
+                          type="text"
+                          className="form-control"
+                          id="email"
+                          name="email"
+                          placeholder="Enter Email"
+                          allow="email"
+                          length={50}
+                          formik={formik}
+                        />
+                        {/* <span className="errorMsg">
                             {touched.email && errors.email}
-                          </span>
-                        </div>
+                          </span> */}
                       </div>
-                      <div className="col-lg-12">
-                        <div className="form-group mb-1">
-                          <label htmlFor="company">Company Name *</label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="company"
-                            placeholder="Enter Company Name"
-                            value={values.company}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                          />
-                          <span className="errorMsg">
+                    </div>
+                    <div className="col-lg-12">
+                      <div className="form-group mb-1">
+                        <label htmlFor="company">Company Name *</label>
+                        <Input
+                          type="text"
+                          className="form-control"
+                          id="company"
+                          name="company"
+                          placeholder="Enter Company Name"
+                          allow="special"
+                          length={50}
+                          formik={formik}
+                        />
+                        {/* <span className="errorMsg">
                             {touched.company && errors.company}
-                          </span>
-                        </div>
+                          </span> */}
                       </div>
+                    </div>
+                    <div className="col-lg-12">
+                      <div className="form-group mb-1">
+                        <label htmlFor="company">Category*</label>
+                        <Field
+                          as="select"
+                          className="form-control select_type"
+                          id="category_id"
+                          name="category_id"
+                          placeholder="Select Category"
+                          value={formik.values.category}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                        > <option>Select a Category</option>
+                          {categories && categories.map(item =>
+                            <option
+                              key={item.value}
+                              value={item.value}
+                              title={item.label}
+
+                            >{item.label}</option>)}
+                        </Field>
+
+                        {/* <span className="errorMsg">
+                            {touched.category_id && errors.category_id}
+                          </span> */}
+                      </div>
+                    </div>
+                    {isFreeBrochure != true ?
                       <div className="col-lg-12">
                         <div className="form-group mb-1">
-                          <label htmlFor="company">Category*</label>
+                          <label htmlFor="company">Message *</label>
                           <Field
-                            as="select"
-                            className="form-control select_type"
-                            id="category_id"
-                            name="category_id"
-                            placeholder="Select Category"
-                            value={values.category}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                          > <option>Select a Category</option>
-                            {categories && categories.map(item =>
-                              <option
-                                key={item.value}
-                                value={item.value}
-                                title={item.label}
-                               
-                              >{item.label}</option>)}
-                          </Field>
-
-                          <span className="errorMsg">
-                            {touched.category_id && errors.category_id}
-                          </span>
-                        </div>
-                      </div>
-                        { isFreeBrochure != true ?
-                            <div className="col-lg-12">
-                                <div className="form-group mb-1">
-                                  <label htmlFor="company">Message *</label>
-                                  <Field
-                                        maxLength="100"
-                                        component="textarea"
-                                        rows="2"
-                                        className="form-control-textarea"
-                                        id="message"
-                                        placeholder="Type Message"
-                                        value={values.message}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                  />
-                                  <span className="errorMsg">
+                            maxLength="100"
+                            component="textarea"
+                            rows="2"
+                            className="form-control-textarea"
+                            id="message"
+                            placeholder="Type Message"
+                            value={formik.values.message}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                          />
+                          {/* <span className="errorMsg">
                                     {touched.message && errors.message}
-                                  </span>
-                                </div>
-                            </div> : ''
-                        }
-                    </div>
-                    <div className="mt-2">
-                      <button
-                        type="button"
-                        className="btn bha-btn-primary w-100"
-                        onClick={handleSubmit}
-                      >
-                        {isFreeBrochure != true ? 'subscribe' : 'download brochure'}
+                                  </span> */}
+                        </div>
+                      </div> : ''
+                    }
+                  </div>
+                  <div className="col-lg-12">
+
+                    <Error formik={formik} el={['name', 'phone', 'email', 'company', 'category_id', 'message']} />
+                  </div>
+
+                  <div className="mt-2">
+                    <button
+                      type="button"
+                      className="btn bha-btn-primary w-100"
+                      onClick={formik.handleSubmit}
+                    >
+                      {isFreeBrochure != true ? 'subscribe' : 'download brochure'}
                     </button>
-                    </div>
-                  </Form>
-                )}
+                  </div>
+                </Form>
+              )}
             </Formik>
           </div>
         </MDBModalBody>

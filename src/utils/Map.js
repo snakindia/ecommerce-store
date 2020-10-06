@@ -36,13 +36,16 @@ export class MapContainer extends Component {
 
   toggleModal = (mapProps, map, clickEvent) => {
     console.log(clickEvent);
-    const lat =clickEvent.latLng.lat();
-    const lng =clickEvent.latLng.lng();
-    console.log({lat})
-    console.log({lng})
-    if(lat && lng){
-      this.getCountry(lat,lng)
+    if(clickEvent){
+      const lat =clickEvent.latLng.lat();
+      const lng =clickEvent.latLng.lng();
+      console.log({lat})
+      console.log({lng})
+      if(lat && lng){
+        this.getCountry(lat,lng)
+      }
     }
+    
     
     const { modalVisible } = this.state;
     this.setState({ modalVisible: modalVisible ? false : true })

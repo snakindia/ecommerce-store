@@ -19,7 +19,8 @@ import Israel from '../../assets/images/Israel.jpg';
 import SouthAfrica from '../../assets/images/South Africa.jpg';
 import item2 from '../../assets/images/thumbnail-img/item2.png';
 import { save_brochures_details } from '../../actions/freeBrochuresActions';
-
+import Input from '../common/Input';
+import Error from '../common/Error';
 class ContentSection extends Component {
   constructor(props) {
     super(props);
@@ -534,29 +535,33 @@ class ContentSection extends Component {
                         const errors = {};
                         if (!values.name) {
                           errors.name = 'Full Name is required';
-                        } else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
-                          errors.name = 'Please enter alphabet characters only';
                         }
+                        //  else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
+                        //   errors.name = 'Please enter alphabet characters only';
+                        // }
 
                         if (!values.phone) {
                           errors.phone = 'Phone Number is required';
-                        } else if (
-                          !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(
-                            values.phone
-                          )
-                        ) {
-                          errors.phone = 'Please enter valid Phone Number';
                         }
+                        //  else if (
+                        //   !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(
+                        //     values.phone
+                        //   )
+                        // ) {
+                        //   errors.phone = 'Please enter valid Phone Number';
+                        // }
 
                         if (!values.message) {
                           errors.message = 'Message is required';
-                        } else if (values.message.length > 150) {
-                          errors.message =
-                            'Message is not more 150 characters than long';
-                        } else if (!/^[a-zA-Z ]*$/i.test(values.message)) {
-                          errors.message =
-                            'Please enter alphabet characters only';
                         }
+                        //  else if (values.message.length > 200) {
+                        //   errors.message =
+                        //     'Message is not more 200 characters than long';
+                        // }
+                        //  else if (!/^[a-zA-Z ]*$/i.test(values.message)) {
+                        //   errors.message =
+                        //     'Please enter alphabet characters only';
+                        // }
 
                         if (!values.email) {
                           errors.email = 'Email Address is required';
@@ -574,20 +579,10 @@ class ContentSection extends Component {
                         Object.assign(values, { type: 'Contact' });
                         console.log(values);
                         this.props.dispatch(save_brochures_details(values));
-                        //        resetForm()
+                        resetForm()
                       }}
                     >
-                      {({
-                        values,
-                        errors,
-                        touched,
-                        handleChange,
-                        handleBlur,
-                        handleSubmit,
-                        isSubmitting,
-                        setFieldValue,
-                        /* and other goodies */
-                      }) => (
+                      {(formik) => (
                         <form>
                           <div class="row">
                             <div class="col-lg-12">
@@ -599,73 +594,78 @@ class ContentSection extends Component {
                             <div class="col-lg-12 contact-us-form">
                               <div class="form-group">
                                 <label class="text-small">Full Name *</label>
-                                <input
+                                <Input
                                   type="text"
                                   class="form-control input-control"
                                   name="name"
-                                  value={values.name}
-                                  onChange={handleChange}
-                                  onBlur={handleBlur}
+                                  allow="special"
+                                                        length={50}
+                                                        formik={formik}
                                   placeholder="Enter Name"
                                 />
-                                <span className="errorMsg">
+                                {/* <span className="errorMsg">
                                   {errors.name && touched.name && errors.name}
-                                </span>
+                                </span> */}
                               </div>
                               <div class="form-group">
                                 <label class="text-small">
                                   Email Address *
                                 </label>
-                                <input
+                                <Input
                                   type="text"
                                   class="form-control input-control"
                                   name="email"
-                                  value={values.email}
-                                  onChange={handleChange}
-                                  onBlur={handleBlur}
+                                  allow="email"
+                                  length={50}
+                                  formik={formik}
                                   placeholder="Enter Email Address"
                                 />
-                                <span className="errorMsg">
+                                {/* <span className="errorMsg">
                                   {errors.email &&
                                     touched.email &&
                                     errors.email}
-                                </span>
+                                </span> */}
                               </div>
                               <div class="form-group">
                                 <label class="text-small">Phone *</label>
-                                <input
+                                <Input
                                   type="text"
                                   class="form-control input-control"
-                                  value={values.phone}
-                                  onChange={handleChange}
-                                  onBlur={handleBlur}
+                                  allow="numeric"
+                                    length={10}
+                                    formik={formik}
                                   name="phone"
                                   placeholder="Enter Phone Number"
                                 />
-                                <span className="errorMsg">
+                                {/* <span className="errorMsg">
                                   {errors.phone &&
                                     touched.phone &&
                                     errors.phone}
-                                </span>
+                                </span> */}
                               </div>
                               <div class="form-group">
                                 <label class="text-small">Message</label>
-                                <textarea
-                                  type="text"
+                                <Input
+                                  type="textarea"
                                   class="form-control input-control"
                                   name="message"
-                                  value={values.message}
-                                  onChange={handleChange}
-                                  onBlur={handleBlur}
+                                  allow="special"
+                                    length={200}
+                                    formik={formik}
                                   placeholder="Enter Message Here..."
-                                ></textarea>
-                                <span className="errorMsg">
+                                />
+                                {/* <span className="errorMsg">
                                   {errors.message &&
                                     touched.message &&
                                     errors.message}
-                                </span>
+                                </span> */}
                               </div>
-                             
+                              <div class="form-group">
+                                  <Error 
+                                  formik={formik} 
+                                  el={['name','email','phone','message' ]}
+                                   />
+                              </div>     
                               {this.props.saveRecordStatus == true && (
                                 <div
                                   style={{
@@ -692,7 +692,7 @@ class ContentSection extends Component {
                                 <button
                                   type="button"
                                   onClick={() => {
-                                    handleSubmit();
+                                    formik.handleSubmit();
                                   }}
                                   class="btn bha-btn-primary float-right"
                                   name="buttonsubmit"

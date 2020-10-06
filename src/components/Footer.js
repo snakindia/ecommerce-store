@@ -5,6 +5,7 @@ import InquiryNotification from './common/InquiryNotification';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
 import messages from '../utils/messages';
 import Input from './common/Input';
+import Error from './common/Error';
 import { Link } from 'react-router-dom';
 import Facebook from '../assets/images/facebook.png';
 import Linkedin from '../assets/images/linkedin.png';
@@ -194,43 +195,35 @@ class Footer extends Component {
                           }}
                           onSubmit={(values, { setSubmitting, resetForm }) => {
                             setSubmitting(true);
+                            console.log({values})
                             this.saveHandler(values);
                             //this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
                             this.props.showToast(messages.footer, TOAST_TYPE.SUCCESS);
                             resetForm()
                           }}
                         >
-                          {({
-                            values,
-                            errors,
-                            touched,
-                            handleChange,
-                            handleBlur,
-                            handleSubmit,
-                            isSubmitting,
-                            /* and other goodies */
-                          }) => (
-                              <form onSubmit={handleSubmit}>
+                          {(formik) => (
+                              <form onSubmit={formik.handleSubmit}>
                                 <MDBRow>
                                   <MDBCol md="12">
                                     <div class="form-group">
                                       <label>Name *</label>
                                       <Input
-                                        allow="spc"
+                                        allow="special"
+                                        length={50}
+                                        formik={formik}
                                         type="text"
                                         id="defaultFormCardNameEx"
                                         className="form-control"
                                         name="name"
-                                        value={values.name}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
                                         placeholder="Enter Name"
+                                        
                                       />
-                                      <span className="errorMsg">
+                                      {/* <span className="errorMsg">
                                         {errors.name &&
                                           touched.name &&
                                           errors.name}
-                                      </span>
+                                      </span> */}
                                     </div>
                                   </MDBCol>
                                 </MDBRow>
@@ -240,21 +233,21 @@ class Footer extends Component {
                                     <div class="form-group">
                                       <label>Company *</label>
                                       <Input
-                                        allow="spc"
+                                        allow="special"
+                                        length={50}
                                         type="text"
                                         id="defaultFormCardNameEx"
                                         className="form-control"
                                         placeholder="Enter Company Name"
                                         name="company"
-                                        value={values.company}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
+                                       
+                                        formik={formik}
                                       />
-                                      <span className="errorMsg">
+                                      {/* <span className="errorMsg">
                                         {errors.company &&
                                           touched.company &&
                                           errors.company}
-                                      </span>
+                                      </span> */}
                                     </div>
                                   </MDBCol>
                                 </MDBRow>
@@ -263,21 +256,22 @@ class Footer extends Component {
                                   <MDBCol md="12">
                                     <div class="form-group">
                                       <label>Phone *</label>
-                                      <input
+                                      <Input
+                                      allow="numeric"
+                                      length={10}
                                         type="text"
                                         id="defaultFormCardNameEx"
                                         className="form-control"
                                         placeholder="Enter Phone"
-                                        value={values.phone}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
+                                        
                                         name="phone"
+                                        formik={formik}
                                       />
-                                      <span className="errorMsg">
+                                      {/* <span className="errorMsg">
                                         {errors.phone &&
                                           touched.phone &&
                                           errors.phone}
-                                      </span>
+                                      </span> */}
                                     </div>
                                   </MDBCol>
                                 </MDBRow>
@@ -286,30 +280,36 @@ class Footer extends Component {
                                   <MDBCol lg="12">
                                     <div class="form-group">
                                       <label>Email *</label>
-                                      <input
+                                      <Input
+                                      allow="email"
+                                      length={50}
                                         type="text"
                                         id="defaultFormCardNameEx"
                                         className="form-control"
                                         name="email"
-                                        value={values.email}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
+                                        
+                                        formik={formik}
                                         placeholder="Enter Email Address"
                                       />
-                                      <span className="errorMsg">
+                                      {/* <span className="errorMsg">
                                         {errors.email &&
                                           touched.email &&
                                           errors.email}
-                                      </span>
+                                      </span> */}
                                     </div>
                                   </MDBCol>
+                                </MDBRow>
+                                <MDBRow>
+                                  <MDBCol lg="12">
+                                      <Error formik={formik} el={['name','company','phone','email']} />
+                                   </MDBCol>
                                 </MDBRow>
 
                                 <div class="mt-2">
                                   <button
                                     type="button"
                                     onClick={() => {
-                                      handleSubmit();
+                                      formik.handleSubmit();
                                     }}
                                     class="btn bha-btn-primary w-100"
                                   >
