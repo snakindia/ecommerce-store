@@ -43,17 +43,17 @@ class RequestAQuote extends Component {
         const res = await onSubmit({ ...values, type: this.props.isFreeBrochure ? 'Free Brochure' : 'Request a Quote' });
         if (res && res.status) {
             toggleModal();
-            showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
+            showToast("Thank you for sharing this information", TOAST_TYPE.SUCCESS);
             if (typeof res.url != 'undefined' && res.url != '') {
                 if (this.props.isFreeBrochure) {
                     window.open(res.url, '_blank');
                 }
             }
         } else if (res && res.status.error) {
-            showToast(res.status.error || 'Something Went wrong', TOAST_TYPE.ERROR);
+            showToast(res.status.error || 'We were unable to process your request at this moment. Please try after some time or call us at (888) 286-8708', TOAST_TYPE.ERROR);
         }
     } catch (e) {
-      showToast('Something Went wrong', TOAST_TYPE.ERROR);
+      showToast('We were unable to process your request at this moment. Please try after some time or call us at (888) 286-8708', TOAST_TYPE.ERROR);
     } finally {
       setSubmitting(false);
     }
