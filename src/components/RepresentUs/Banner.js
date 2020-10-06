@@ -26,7 +26,7 @@ const Banner = () => {
                                         <RBCarousel
                                             autoplay={true}
                                             pauseOnVisibility={true}
-                                            slideshowSpeed={2000}
+                                            slideshowSpeed={5000}
                                             version={4}
                                         >
 

@@ -8,7 +8,7 @@ import Input from './common/Input';
 import { Link } from 'react-router-dom';
 import Facebook from '../assets/images/facebook.png';
 import Linkedin from '../assets/images/linkedin.png';
-import Youtube from '../assets/images/youtube.png';
+import Twitter from '../assets/images/twitter.png';
 import Pintrest from '../assets/images/pintrest.png';
 import Footerlogo from '../assets/images/footer-logo.png';
 import FooterCaller from '../assets/images/call-xs.png';
@@ -41,20 +41,20 @@ class Footer extends Component {
     this.state.brochureData = this.props.freeBrochuresUserDetail;
     const { navMenuData, brochureData } = this.props;
     const { menuData } = navMenuData;
-
     const {
-      footer_menu_1_title,
-      footer_menu_2_title,
-      footer_menu_3_title,
-      footer_menu_4_title,
-      footer_menu_5_title,
-      footer_menu_1_items,
-      footer_menu_2_items,
-      footer_menu_3_items,
-      footer_menu_4_items,
-      footer_menu_5_items,
-      footer_social,
+        footer_menu_1_title,
+        footer_menu_2_title,
+        footer_menu_3_title,
+        footer_menu_4_title,
+        footer_menu_5_title,
+        footer_menu_1_items,
+        footer_menu_2_items,
+        footer_menu_3_items,
+        footer_menu_4_items,
+        footer_menu_5_items,
+        footer_social
     } = menuData;
+    
     return (
       <div>
         <div class="chat-button">
@@ -351,19 +351,40 @@ class Footer extends Component {
                   </MDBCol>
                   <MDBCol md="4" sm="4" xs="12" className="text-right">
                     <div className="socialLink">
-                      <span className="float-left">Follow us:</span>
-                      <a href="/">
-                        <img src={Facebook} alt="Facebook" />
-                      </a>
-                      <a href="/">
-                        <img src={Linkedin} alt="Linkedin" />
-                      </a>
-                      <a href="/">
-                        <img src={Youtube} alt="Youtube" />
-                      </a>
-                      <a href="/">
-                        <img src={Pintrest} alt="Pintrest" />
-                      </a>
+                    <span className="float-left">Follow us:</span>
+                    {
+                        footer_social && Object.keys(footer_social).length > 0 &&
+                        footer_social.map((item, idx) => { 
+                            if (item.type == 'facebook') {
+                                return (
+                                    <a target="_blank" href={item.url}>
+                                        <img src={Facebook} alt="Facebook" />
+                                    </a>
+                                )
+                            }
+                            
+                            if (item.type == 'twitter') {
+                                return (
+                                    <a target="_blank" href={item.url}>
+                                        <img src={Twitter} alt="Facebook" />
+                                    </a>
+                                )
+                            }
+                            
+                            if (item.type == 'Linkedln') {
+                                return (
+                                    <a target="_blank" href={item.url}>
+                                        <img  src={Linkedin} alt="Facebook" />
+                                    </a>
+                                )
+                            }
+                            
+                            
+                            
+                        })
+                                                    
+                    }
+                  
                     </div>
                   </MDBCol>
                 </MDBRow>

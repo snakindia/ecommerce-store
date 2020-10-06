@@ -677,6 +677,7 @@ text-align: center;width: 94% !important;}
 .fa-facebook, .fa-linkedin, .fa-twitter, .fa-youtube-play{border:0 !important;}
 .breadcrumb-container{background: transparent !important;position: relative !important; z-index: 0 !important;}
 .Toastify__toast { margin-top: 125px;}
+
 .image-holder{width:260px !important; height: 200px !important;}
 .image-holder img{height: 300px !important; object-fit: cover; object-position: center !important;}
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{width: auto !important;}
@@ -821,3 +822,5 @@ text-align: center;width: 94% !important;}
 body {
   -webkit-overflow-scrolling: touch;
 }
+
+.Toastify__toast-container--top-right { margin-top: 125px !important;}

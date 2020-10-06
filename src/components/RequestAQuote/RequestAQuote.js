@@ -45,7 +45,7 @@ class RequestAQuote extends Component {
             toggleModal();
             showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
             if (typeof res.url != 'undefined' && res.url != '') {
-                window.open(res.url, '_blank');
+                //window.open(res.url, '_blank');
             }
         } else if (res && res.status.error) {
             showToast(res.status.error || 'Something Went wrong', TOAST_TYPE.ERROR);
