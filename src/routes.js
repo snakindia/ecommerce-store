@@ -73,7 +73,7 @@ useEffect(()=>{
             <BrowserRouter>
                 <MetaContainer>
                     <div className="top-header navbar-fixed">
-                         {/* <SubscriptionPopUp /> */}
+                        <SubscriptionPopUp />
                         <MobileMenu t={t}/>
                         <TopBar />
                         <NavBar setT={setT} myRef={myRef}/>
