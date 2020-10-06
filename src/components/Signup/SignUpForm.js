@@ -45,7 +45,7 @@ class SignUpForm extends PureComponent {
         );
       }
     } catch (e) {
-      actions.showToast('Something went wrong', TOAST_TYPE.ERROR);
+      actions.showToast('We were unable to process your request at this moment. Please try after some time or call us at (888) 286-8708', TOAST_TYPE.ERROR);
     } finally {
       setSubmitting(false);
     }

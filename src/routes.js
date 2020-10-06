@@ -19,6 +19,7 @@ import Loader from './components/Loader/Loader'
 import SubscriptionPopUp from './components/SubscriptionPopUp/SubscriptionPopUp';
 import {setLoading} from './actions/fetchActions';
 import axios from 'axios';
+import scrollToEl from './utils/scrollToEl'
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
 const ContactBody = lazy(() => import('./components/Contact/ContactBody'));
@@ -58,7 +59,9 @@ axios.interceptors.response.use(function (response) {
     props.setLoading(false)
     return Promise.reject(error);
   });
-
+useEffect(()=>{
+  scrollToEl('#root', -600, 1)
+},[])
   const [t, setT]=useState((new Date().getTime()));
   const myRef = useRef(null) 
   const {loading}=props

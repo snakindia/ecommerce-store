@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { API_URL, API_IMAGE_PATH } from './../../constants/appConstant';
 import parseHtml from 'react-html-parser';
-
+import {Link} from 'react-router-dom'
 export default class ProductServicesPremiumBrands extends Component {
   constructor(props) {
     super(props);
@@ -44,7 +44,7 @@ export default class ProductServicesPremiumBrands extends Component {
                           brands.map((item, idx) => {
                             return (
                               <div class="col-sm-3 col-md-3 bha-mb">
-                                <a href="#">
+                                <Link to={item.page_url}>
                                   <div class="view view-first height-auto column_4">
                                     <img
                                       class="img-fluid"
@@ -57,13 +57,16 @@ export default class ProductServicesPremiumBrands extends Component {
                                     />
                                     <div class="brand-label">
                                       {item.name}
-                                      <a href={item.page_url} className="btn bha-btn-primary w-100 mt-2">View Details</a>
+                                      
                                     </div>
                                     <div class="mask">
-                                      <p>{parseHtml(item.description)}</p>
+                                      <p>{parseHtml(item.description)}
+                                      
+                                      {/* <Link to={item.page_url} className="btn bha-btn-primary w-100 mt-2">View Details</Link> */}
+                                      </p>
                                     </div>
                                   </div>
-                                </a>
+                                </Link>
                               </div>
                             );
                           })}
