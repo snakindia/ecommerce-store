@@ -24,37 +24,37 @@ class Products extends React.Component {
         };
 
     }
-    
-    
+
+
     submit = () => {
         confirmAlert({
             title: "Alert",
             message: 'This page is coming soon..',
             buttons: [
                 {
-                  label: 'Ok',
+                    label: 'Ok',
                 }
             ]
         });
     };
-    scrollToSubMenu =()=>{
-          document.getElementById('scrollablesubMenu').scrollIntoView();
-      }
-    componentDidMount(){
-        const isMobile =document.body.className =='wsactive';
-        if(isMobile){
-            return ;
+    scrollToSubMenu = () => {
+        document.getElementById('scrollablesubMenu').scrollIntoView();
+    }
+    componentDidMount() {
+        const isMobile = document.body.className == 'wsactive';
+        if (isMobile) {
+            return;
         }
-        const { navMenuData :{subMenuData}} = this.props;
+        const { navMenuData: { subMenuData } } = this.props;
         // const { subMenuData } = navMenuData;
-        let loop =true;
+        let loop = true;
         let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
-        if(subMenuArr && subMenuArr.length > 0){
-            subMenuArr.map((itemOne, i) =>{
-                if(itemOne && itemOne[0] && loop){
+        if (subMenuArr && subMenuArr.length > 0) {
+            subMenuArr.map((itemOne, i) => {
+                if (itemOne && itemOne[0] && loop) {
                     //console.log('itemOneObj',itemOne)
                     this.showMenu(itemOne[0], i, null);
-                    loop=false;
+                    loop = false;
                 }
             }
             )
@@ -62,9 +62,9 @@ class Products extends React.Component {
     }
 
     showMenu = (itemOneObj, index, e) => {
-        const isMobile =document.body.className =='wsactive';
-        const {activeLink} =this.state;
-        console.log('itemOneObj',itemOneObj)
+        const isMobile = document.body.className == 'wsactive';
+        const { activeLink } = this.state;
+        console.log('itemOneObj', itemOneObj)
         const { name, image, items, slug, _id } = itemOneObj;
         let imageSrc = '';
         if (image != '') {
@@ -73,9 +73,10 @@ class Products extends React.Component {
             imageSrc = DEFAULT_IMG_URL;
         }
 
-        this.setState({ coverImg: imageSrc, listItems: items, 
-            activeLink: isMobile && activeLink== index ? null: index
-         },()=>{
+        this.setState({
+            coverImg: isMobile && activeLink == index ? null : imageSrc, listItems: items,
+            activeLink: isMobile && activeLink == index ? null : index
+        }, () => {
             this.scrollToSubMenu()
         });
     };
@@ -84,7 +85,7 @@ class Products extends React.Component {
         const { navMenuData, baseUrl, hide } = this.props;
         const { subMenuData } = navMenuData;
         let subMenuArr = Object.keys(subMenuData).map(k => subMenuData[k]);
-
+        const isMobile = document.body.className == 'wsactive';
         return (
             <div
                 id="prdcts"
@@ -95,14 +96,16 @@ class Products extends React.Component {
                 }}
             >
                 <div className="wsshopwp clearfix">
-                    <div className="image-holder">
-                        <img
-                            src={!coverImg ? EpicCover : coverImg}
-                            alt=""
-                            width="300"
-                            height="150"
-                        />
-                    </div>
+                    {!isMobile &&
+                        <div className="image-holder">
+                            <img
+                                src={!coverImg ? EpicCover : coverImg}
+                                alt=""
+                                width="300"
+                                height="150"
+                            />
+                        </div>
+                    }
                     <ul className="wstabitem clearfix" >
                         {subMenuArr &&
                             subMenuArr.map((itemOne, i) => {
@@ -117,54 +120,64 @@ class Products extends React.Component {
                                         key={i + Math.random()}
                                         onClick={e => this.showMenu(itemOneObj, i, e)}
                                     >
+                                         {isMobile && coverImg && i==activeLink &&
+                                                <div className="image-holder">
+                                                    <img
+                                                        src={coverImg}
+                                                        alt=""
+                                                        width="300"
+                                                        height="150"
+                                                    />
+                                                </div>
+                                            }
                                         <Link data-src={Baghouse}>{name}</Link>
                                         {i == activeLink &&
-                                        <div className="subcategories wstitemright clearfix wstpngsml ">
-                                            <div className="container-fluid">
-                                                <div className="row custom-gutter-wsmenu" >
-                                                    <h3 class="wsmenu_heading">{name}</h3>
-                                                    {listItems.length > 0 && listItems.map((itemTwo, i) => {
-                                                        let url  = typeof itemTwo.page_url != 'undefined' && itemTwo.page_url != '' ? itemTwo.page_url : ''
-                                                        return (
-                                                            <div className="col-lg-3 col-md-12" key={i + 3}>
-                                                                <ul className="wstliststy04 clearfix" onClick={hide}>
-                                                                    <li>
-                                                                        <img
-                                                                            className="scale-down"
-                                                                            src={
-                                                                                itemTwo.image != ''
-                                                                                    ? API_IMAGE_PATH + 'categories/' + itemTwo._id + '/' + `${itemTwo.image}`
-                                                                                    : DEFAULT_IMG_URL
+                                            <div className="subcategories wstitemright clearfix wstpngsml ">
+                                                <div className="container-fluid">
+                                                    <div className="row custom-gutter-wsmenu" >
+                                                        <h3 class="wsmenu_heading">{name}</h3>
+                                                        {listItems.length > 0 && listItems.map((itemTwo, i) => {
+                                                            let url = typeof itemTwo.page_url != 'undefined' && itemTwo.page_url != '' ? itemTwo.page_url : ''
+                                                            return (
+                                                                <div className="col-lg-3 col-md-12" key={i + 3}>
+                                                                    <ul className="wstliststy04 clearfix" onClick={hide}>
+                                                                        <li>
+                                                                            <img
+                                                                                className="scale-down"
+                                                                                src={
+                                                                                    itemTwo.image != ''
+                                                                                        ? API_IMAGE_PATH + 'categories/' + itemTwo._id + '/' + `${itemTwo.image}`
+                                                                                        : DEFAULT_IMG_URL
+                                                                                }
+                                                                                alt="bha"
+                                                                            />
+                                                                        </li>
+                                                                        <li className="wstheading clearfix">
+                                                                            {
+                                                                                url != '' ? <Link
+                                                                                    to={url}
+                                                                                >
+                                                                                    {' '}
+                                                                                    <i class="fa fa-chevron-right pr-2"></i>
+                                                                                    {itemTwo.meta_title}
+                                                                                </Link> : <a
+                                                                                    href="#"
+                                                                                    onClick={this.submit}
+                                                                                >
+                                                                                        {' '}
+                                                                                        <i class="fa fa-chevron-right pr-2"></i>
+                                                                                        {itemTwo.meta_title}
+                                                                                    </a>
                                                                             }
-                                                                            alt="bha"
-                                                                        />
-                                                                    </li>
-                                                                    <li className="wstheading clearfix">
-                                                                    {
-                                                                        url != '' ? <Link
-                                                                            to={url}
-                                                                        >
-                                                                            {' '}
-                                                                            <i class="fa fa-chevron-right pr-2"></i>
-                                                                            {itemTwo.meta_title}
-                                                                        </Link> : <a
-                                                                        href="#"
-                                                                            onClick={this.submit}
-                                                                        >
-                                                                            {' '}
-                                                                            <i class="fa fa-chevron-right pr-2"></i>
-                                                                            {itemTwo.meta_title}
-                                                                        </a>
-                                                                    }
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        );
-                                                    })}
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                            }
+                                        }
                                     </li>
                                 );
                             })}
