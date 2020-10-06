@@ -9,16 +9,16 @@ class App extends Component {
   
 
     componentDidMount() {
-        window.timer = setInterval(() => {
-            const currentTime = localStorage.getItem("currentTime");
-            let timeDiff = Date.now() - currentTime;
-            if (timeDiff > 10000 && this.getCookie("subscriptionPopUp") != 'true') {
-//            if (timeDiff > 10000) {
-                document.getElementsByClassName("delayedPopupWindow")[0].style.display = "block";
-                document.getElementsByClassName("backgroundOverlay")[0].style.display = "block";
-            }
-        }
-        , 1000)
+//        window.timer = setInterval(() => {
+//            const currentTime = localStorage.getItem("currentTime");
+//            let timeDiff = Date.now() - currentTime;
+//            if (timeDiff > 10000 && this.getCookie("subscriptionPopUp") != 'true') {
+////            if (timeDiff > 10000) {
+//                document.getElementsByClassName("delayedPopupWindow")[0].style.display = "block";
+//                document.getElementsByClassName("backgroundOverlay")[0].style.display = "block";
+//            }
+//        }
+//        , 1000)
     }
     
     getCookie(cname) {
