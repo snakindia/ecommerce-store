@@ -139,7 +139,9 @@ and open the template in the editor.
 }
 /* .bha_heading_2 { font-size: 1.8rem !important;} */
 .caption h1 {
-  font-size: 3rem !important;
+  font-size: 3.015rem !important;
+  letter-spacing: -1.5px !important;
+  line-height: 3.5rem;
 }
 
 .bha-icon {
@@ -254,7 +256,7 @@ object-position: center !important;}
 .headerfull{height:auto !important}
 .card-body h4{font-weight:600 !important;}
 /*.modal-backdrop{z-index:0 !important}*/
-.top-header{z-index: 1000 !important}
+/*.top-header{z-index: 1000 !important}*/
 .item-pro-inner a img{height: 210px; object-fit: contain !important; object-position:center !important;}
 
 .product-card { background: #fff; padding: 0.8rem; border-radius: 0.3rem; border: 1px solid #f1f1f1;
@@ -578,14 +580,14 @@ border-radius: 0.3rem;text-transform: uppercase;font-size: 0.875rem;font-weight:
 [class^="imghvr-"] a, [class*=" imghvr-"] a{position: relative !important; }
 
 .banner-container .carousel{position: relative;}
-.bottom-navigation { top: 580px !important; position: absolute;background: rgba(115, 123, 168, 0.2);
-background: -moz-linear-gradient(top, rgba(115, 123, 168, 0.2) 0%, rgba(115, 123, 168, 0.2) 22%, rgba(115, 123, 168, 0.2) 100%);
-background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(115, 123, 168, 0.2)), color-stop(22%, rgba(115, 123, 168, 0.5)), color-stop(100%, rgba(252,252,252,1)));
-background: -webkit-linear-gradient(top, rgba(115, 123, 168, 0.2) 0%, rgba(115, 123, 168, 0.2) 22%, rgba(115, 123, 168, 0.2) 100%);
-background: -o-linear-gradient(top, rgba(115, 123, 168, 0.2) 0%, rgba(115, 123, 168, 0.2) 22%, rgba(115, 123, 168, 0.2) 100%);
-background: -ms-linear-gradient(top, rgba(115, 123, 168, 0.2) 0%, rgba(115, 123, 168, 0.2) 22%, rgba(115, 123, 168, 0.2) 100%);
-background: linear-gradient(to bottom, rgba(115, 123, 168, 0.2) 0%, rgba(115, 123, 168, 0.2) 22%, rgba(115, 123, 168, 0.2) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fcfcfc', GradientType=0 ); height: 86px; 
+.bottom-navigation { top: 540px !important; position: absolute;background: rgba(0, 0, 0, 0.1);
+background: -moz-linear-gradient(top, rgba(115, 123, 168, 0.1) 0%, rgba(115, 123, 168, 0.1) 22%, rgba(115, 123, 168, 0.1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(115, 123, 168, 0.1)), color-stop(22%, rgba(115, 123, 168, 0.5)), color-stop(100%, rgba(252,252,252,1)));
+background: -webkit-linear-gradient(top, rgba(115, 123, 168, 0.1) 0%, rgba(115, 123, 168, 0.1) 22%, rgba(115, 123, 168, 0.1) 100%);
+background: -o-linear-gradient(top, rgba(115, 123, 168, 0.1) 0%, rgba(115, 123, 168, 0.1) 22%, rgba(115, 123, 168, 0.1) 100%);
+background: -ms-linear-gradient(top, rgba(115, 123, 168, 0.1) 0%, rgba(115, 123, 168, 0.1) 22%, rgba(115, 123, 168, 0.1) 100%);
+background: linear-gradient(to bottom, rgba(115, 123, 168, 0.1) 0%, rgba(115, 123, 168, 0.1) 22%, rgba(115, 123, 168, 0.1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fcfcfc', GradientType=0 ); 
 padding-top:0.5rem !important; z-index: 10 !important;}
 .bottom-navigation a{color:#fff !important;}
 .footerPart{ bottom: 0px !important; position: absolute;background: rgba(115, 123, 168, 0.5); height: 86px !important; 
@@ -735,7 +737,7 @@ text-align: center;width: 94% !important;}
   .card-slider__container__list__card img{width: 100% !important;}
   .card-slide_container{ top: 0 !important; }
   .hero-img{height: 320px !important}
-  .checkOut-container{margin-top: 315px !important}
+  /*.checkOut-container{margin-top: 315px !important}*/
   .item-xs-caption{width: 90% !important}
   .mObiLe{margin-top: 134% !important}
   .placement-client .slick-slide{width:320px !important; margin:0px !important;}
@@ -749,13 +751,23 @@ text-align: center;width: 94% !important;}
   .card-slider__container__list__card__content__button__learn-more{text-align: center !important;}
   .card-slider__container__list__card__content{height: auto !important; padding-bottom: 1rem !important}
   .banner-slider-container .bha_heading_2{margin-top: 20px !important;}
+  .padding_news{margin-top: 310px !important}
+  .banner-container-xxs .carousel-indicators{display: none;}
+  .content-wrapper .texture-bg{margin-top: 100px !important}
+  .banner-slider-container{margin-top: 103px !important;}
 }
 
-
+@-ms-viewport{
+width: 1920px;
+}
+.bg-opeque{float:left !important; width: 100%; padding: 2rem 0 !important;
+margin: 0 !important}
+.bg-opeque h2{margin: 0 !important}
+.banner-container-xxs .carousel-indicators{bottom:110px !important}
 .chat-button{display: none}
-.caption{top:20% !important;left:3% !important}
+/*.caption{top:20% !important;left:3% !important}*/
 .caption .btn{margin-top: 30px !important}
-.placement-client .slick-slide{width:160px !important;margin:15px !important;}
+.placement-client .slick-slide{width:160px !important;margin:2px 15px !important;}
 .topbar{display: none}
 .news-inner{background: #fff !important; border:1px solid #d7d7d7 !important;}
 .call-us-mob{background: #000 !important; padding:0.2rem 0; text-align: center; font-weight: 600; font-size: 1.4rem; 
