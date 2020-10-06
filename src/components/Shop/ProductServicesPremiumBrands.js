@@ -44,7 +44,7 @@ export default class ProductServicesPremiumBrands extends Component {
                           brands.map((item, idx) => {
                             return (
                               <div class="col-sm-3 col-md-3 bha-mb">
-                                <a href="#">
+                                <Link to={item.page_url}>
                                   <div class="view view-first height-auto column_4">
                                     <img
                                       class="img-fluid"
@@ -62,11 +62,11 @@ export default class ProductServicesPremiumBrands extends Component {
                                     <div class="mask">
                                       <p>{parseHtml(item.description)}
                                       
-                                      <Link to={item.page_url} className="btn bha-btn-primary w-100 mt-2">View Details</Link>
+                                      {/* <Link to={item.page_url} className="btn bha-btn-primary w-100 mt-2">View Details</Link> */}
                                       </p>
                                     </div>
                                   </div>
-                                </a>
+                                </Link>
                               </div>
                             );
                           })}
