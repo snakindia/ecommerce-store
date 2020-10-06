@@ -444,7 +444,7 @@ color:#000 !important; font-weight: 500 !important; }
 .card-slider__container__list__card{width: 100% !important; padding:0 2px; overflow: hidden;}
 .banner-slider-container{padding:0 !important;}
 /*.banner-container-xxs{overflow: visible !important;}*/
-.banner-container-xxs{overflow: hidden !important;}
+.banner-container-xxs{overflow: visible !important;}
 /*html,body{
   height:100vh;
   width:100vw;
@@ -575,7 +575,7 @@ border-radius: 0.3rem;text-transform: uppercase;font-size: 0.875rem;font-weight:
 [class^="imghvr-"] a, [class*=" imghvr-"] a{position: relative !important; }
 
 .banner-container .carousel{position: relative;}
-.bottom-navigation { top: 565px !important; position: absolute;background: rgba(115, 123, 168, 0.2);
+.bottom-navigation { top: 580px !important; position: absolute;background: rgba(115, 123, 168, 0.2);
 background: -moz-linear-gradient(top, rgba(115, 123, 168, 0.2) 0%, rgba(115, 123, 168, 0.2) 22%, rgba(115, 123, 168, 0.2) 100%);
 background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(115, 123, 168, 0.2)), color-stop(22%, rgba(115, 123, 168, 0.5)), color-stop(100%, rgba(252,252,252,1)));
 background: -webkit-linear-gradient(top, rgba(115, 123, 168, 0.2) 0%, rgba(115, 123, 168, 0.2) 22%, rgba(115, 123, 168, 0.2) 100%);
@@ -729,8 +729,12 @@ text-align: center;width: 94% !important;}
   .card-slider__container__list__card img{width: 100% !important;}
   .card-slide_container{ top: 0 !important; }
   .hero-img{height: 320px !important}
+  .checkOut-container{margin-top: 320px !important}
+  .item-xs-caption{width: 100% !important}
+  .mObiLe{margin-top: 134% !important}
 
 }
+.mObiLe{margin-top: 0}
 .call-us-mob{background: #1e475e !important; padding:0.6rem 0; text-align: center; font-weight: 600; font-size: 1.5rem; 
   display:none;}
 .gapTop{overflow-x: hidden; margin-top:101px}

@@ -27,7 +27,7 @@ class RepresentUs extends Component {
             <div>
                 <Banner />
                 
-                <div class="content-wrapper pb-0 pt-0" style={{ "margin-top": "110%"}} >
+                <div class="content-wrapper pb-0 pt-0 mObiLe">
                     <div class="page wrap">
                         <div class="pb-2 texture-bg">
                             <h2 class="bha_heading_2 text-black text-center font-weight-bold pt-4 mb-4" style={{ "z-index": "10", "position": "relative" }} >Our Dust Extraction Systems Locations</h2>
