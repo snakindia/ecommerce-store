@@ -13,7 +13,7 @@ export default class OEM extends Component {
 
   componentDidMount() {
     axios
-      .get(API_URL + '/get_branded_category_list?fields=name,image')
+      .get(API_URL + '/get_branded_category_list?fields=name,image,slug')
       .then(res => {
         this.setState({ brands: res.data });
       });
@@ -61,6 +61,8 @@ export default class OEM extends Component {
   }
   render() {
     const { brands } = this.state;
+    console.log('brands')
+    console.log(brands)
     var settings = {
       slidesToShow: 4,
       slidesToScroll: 1,
@@ -121,12 +123,8 @@ export default class OEM extends Component {
                             />
                             <figcaption class="text-center">
                               <h4>{item.name}</h4>
-                              <button
-                                type="button"
-                                class="btn bha-btn-primary w-100 mt-2"
-                              >
-                                Shop Now!
-                              </button>
+                             
+                              <a href={item.page_url} className="btn bha-btn-primary w-100 mt-2">View Details</a>
                             </figcaption>
 
                             <div class="card-body p-0">

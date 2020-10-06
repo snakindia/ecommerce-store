@@ -8,10 +8,14 @@ import { getFaq } from './store/Actions'
 class RepresentUs extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            displayView: window.innerWidth < 450 ? '110%' : 0
+        };
     }
 
     componentDidMount() {
         this.props.getFaq();
+        document.title = 'Represent Us'
     }
 
     render() {
@@ -26,8 +30,7 @@ class RepresentUs extends Component {
         return (
             <div>
                 <Banner />
-                
-                <div class="content-wrapper pb-0 pt-0 mObiLe">
+                <div class="content-wrapper pb-0 pt-0" style={{ "margin-top": this.state.displayView}} >
                     <div class="page wrap">
                         <div class="pb-2 texture-bg">
                             <h2 class="bha_heading_2 text-black text-center font-weight-bold pt-4 mb-4" style={{ "z-index": "10", "position": "relative" }} >Our Dust Extraction Systems Locations</h2>

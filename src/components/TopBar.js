@@ -137,10 +137,10 @@ class TopBar extends Component {
               >
                 CALL US: (888) 286-8708
               </div>
-              <div className="float-sm-right">
+              <div className="float-sm-right" >
                 <ul className="toplink">
                   <li>
-                    <a href="/">
+                    <a href="#">
                       <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20"></embed>
                       Cart
                     </a>
@@ -153,24 +153,29 @@ class TopBar extends Component {
                     </li>
                   ) : (
                     <li>
-                      <a onClick={this.toggle(5)}>
+                     {/* <a onClick={this.toggle(5)}>*/}
+                    <a>
                         <embed src={Profile}  alt="" width="20" height="20"></embed>
                         login/signup
                       </a>
                     </li>
                   )}
                   
-                <span class="mobPipe">&nbsp;</span>
+                {/* <span class="mobPipe">&nbsp;</span>
                 <li id="CountryOpen"  onClick={this.showLanguage}>
-                    <a href="#"><embed src={Globe}  alt="" width="20" height="20"></embed>
+                    {/*<a href="#"><embed src={Globe}  alt="" width="20" height="20"></embed>
+                    <a>
                     EN<i class="caret border-0"></i></a>
-                </li>
+                </li>*/}
           
                   <span class="mobHide">&nbsp;</span>
-                  {/*<li><a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a></li>
-                                    <span>&nbsp;</span>*/}
+                  <li>
+                  {/*<a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>*/}
+  <a color="primary" ><img src={Globe} alt="" width="20" />EN</a> </li>
+                                    <span>&nbsp;</span>
                   <li class="mobHide">
-                    <a onClick={this.toggle(6)}>
+                    {/*<a onClick={this.toggle(6)}>*/}
+                    <a>
                       <i className="fa fa-search mr-2" /> Search
                       <i className="caret border-0" />
                     </a>

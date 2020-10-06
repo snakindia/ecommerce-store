@@ -36,7 +36,6 @@ class About extends React.Component {
     };
   
     scrollToEle(e,val, offsetVal) {
-      console.log('clicked')
       e.preventDefault();
       scrollToEl('.' + val, offsetVal, 500)
     }
