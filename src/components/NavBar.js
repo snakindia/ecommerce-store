@@ -47,12 +47,11 @@ class NavBar extends React.Component {
     window.addEventListener('load', this.handleLoad);
     this.props.fetch_dynamic_menus();
     this.props.fetch_submenu_items();
+    
   }
 
   componentDidUpdate(preveProps) {
-    console.log('->>>>>>>>>>>sr', this.props.location.pathname)
     if (preveProps.location.pathname != this.props.location.pathname) {
-      console.log('scroll');
       scrollToEl('#root', 0)
     }
   }

@@ -33,7 +33,9 @@ import { Provider } from 'react-redux';
 import Routes from './routes';
 
 import registerServiceWorker from './registerServiceWorker';
-
+window.onbeforeunload = function () {
+  window.scrollTo(0,0);
+};
 ReactDOM.render(
   <Provider store={store}>
     <Routes />
