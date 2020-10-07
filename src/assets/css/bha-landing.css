@@ -441,7 +441,7 @@ text-transform: uppercase; text-align: center;font-weight: 500;}
 .efficiency-section{background: #fff; float:left; width: 100%;padding-top: 3rem;}
 
 .hot-deals-item-wrapper.imgwrap{background: #f6f6f6; border-top:8px solid #2e3192; box-shadow: 2px 2px 20px #ddd}
-.pagewrap .filterImg{width: 375px !important; height: auto !important; border:none;}
+/*.pagewrap .filterImg{width: 375px !important; height: auto !important; border:none;}*/
 
 .baghouseFilter-section{background:url(../images/2011.jpg) top left no-repeat;
 background-position: center center; background-size: cover; float: left; width: 100%;

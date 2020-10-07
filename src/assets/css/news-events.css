@@ -153,7 +153,7 @@ padding-bottom: 0}
 background: #b9b9b9 !important; height: 6px}
 .banner-container-xx .carousel-indicators li.active { background: #6e7173 !important;}
 .banner-container-xx .carousel-inner img{height: 535px !important;}
-.banner-container-xx .carousel-indicators{bottom:40px;}
+/*.banner-container-xx .carousel-indicators{bottom:40px;}*/
 
 .banner-container-xxs{height: 460px;overflow: hidden;padding-bottom:0;}
 .banner-container-xxs .carousel-indicators li{width: 20px !important; border-radius: 0 !important;

@@ -68,12 +68,12 @@ useEffect(()=>{
     return (
         <div ref={myRef}>
          {loading &&  <Loader />}
-        <StickyContainer style={{ overflowY: 'auto' }}>
+        <StickyContainer>
             <Notification />
             <BrowserRouter>
                 <MetaContainer>
                     <div className="top-header navbar-fixed">
-                        <SubscriptionPopUp />
+                        {/* <SubscriptionPopUp />*/}
                         <MobileMenu t={t}/>
                         <TopBar />
                         <NavBar setT={setT} myRef={myRef}/>
