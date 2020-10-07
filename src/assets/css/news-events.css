@@ -12,10 +12,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endCol
 
 .news-caption{position: absolute; left: 13%; top: 12%;right: 12%;
   bottom: 12%; margin: 0;}
-.news-caption h1{font-family: 'Oswald',sans-serif;line-height: 2.5rem;
+.news-caption h1{font-family: 'Oswald',sans-serif !important;line-height: 2.5rem;
 padding:0.8rem 0;}
 .news-caption h6{font-weight: 400; font-size: 1rem;line-height: 1.5rem}
-.news-caption h4{font-family: 'Oswald',sans-serif;color: #083e70}
+.news-caption h4{font-family: 'Oswald',sans-serif !important;color: #083e70}
 .btn-readmore{padding:0.5rem 2rem; margin-top: 1.5rem;
 border-radius: 5px !important; color:#fff; position: relative; z-index: 1;
 background: #083e70;}
@@ -41,10 +41,10 @@ background:rgba(0,0,0,0.4);}
   padding:3.5rem 4rem 2rem 4rem;background:rgba(0,0,0,0.1);
   height: 400px;}
 
-.caption-inner h1{font-family: 'Oswald',sans-serif;line-height: 2.5rem;
+.caption-inner h1{font-family: 'Oswald',sans-serif !important;line-height: 2.5rem;
 padding:0.8rem 0;}
 .caption-inner h6{font-weight: 400; font-size: 1rem;line-height: 1.5rem}
-.caption-inner h4{font-family: 'Oswald',sans-serif;color: #fff}
+.caption-inner h4{font-family: 'Oswald',sans-serif !important;color: #fff}
 
 .filter{width: 200px !important;padding-right: 25px; padding-left: 10px;
   font-size: 14px; border-radius: 0.1rem;cursor: pointer;float: left;}
@@ -79,7 +79,7 @@ padding:1.5rem 1rem 1.5rem 1.5rem;}
 .share-icon.twitter-bg{background: #00acee}
 .share-icon.twitter-bg:hover{background:#058dc2}
 .share-icon:hover{color: #fff; background: #0c4172}
-.viewAll{font-family: roboto; font-weight: 600; font-size: 0.8rem;
+.viewAll{font-family: 'Roboto', sans-serif !important; font-weight: 600; font-size: 0.8rem;
   padding:0.5rem 1.5rem;/*border:1px solid #f2f2f2;*/ transition: 0.3s;
 text-transform: uppercase;position: absolute; top:42%; right: 2%;
 background: #23536b; border-radius:0.3rem}
@@ -164,7 +164,7 @@ background: #b9b9b9 !important; height: 6px}
 .item-xxs-caption { position: absolute; top: 8%;left: 6%;width: 40%;}
 .item-xxs-caption.caption-setting{top:20%; width: 50%}
 .item-xxs-caption .item_heading {font-size: 2.5rem; font-weight: 700;
-    text-transform: uppercase; font-family: 'Oswald', sans-serif;
+    text-transform: uppercase; font-family: 'Oswald', sans-serif !important;
     color: #0f416a;}
 
 .card-slide_container .hot-deals-item-wrapper.slick-slide {margin:0}

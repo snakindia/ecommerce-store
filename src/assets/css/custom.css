@@ -139,8 +139,8 @@ and open the template in the editor.
 }
 /* .bha_heading_2 { font-size: 1.8rem !important;} */
 .caption h1 {
-  font-size: 3.015rem !important;
-  letter-spacing: -1.5px !important;
+  font-size: 3rem !important;
+  /*letter-spacing: -1.5px !important;*/
   line-height: 3.5rem;
 }
 
@@ -492,7 +492,7 @@ line-height: 2rem}
     font-weight: normal;
     font-size: 4.5rem !important;
     color: #08118f;
-    font-family: 'Oswald';
+    font-family: 'Oswald', sans-serif !important;
     margin-bottom: -10px;
     font-weight: 700 !important;
     line-height: 5rem !important;
@@ -848,3 +848,5 @@ body {
 }
 
 .Toastify__toast-container--top-right { margin-top: 125px !important;}
+
+/*=======Resolution fixing============================*/
