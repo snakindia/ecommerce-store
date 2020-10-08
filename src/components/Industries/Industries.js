@@ -86,11 +86,11 @@ class Industries extends Component {
                                                 return (
                                                     <div class="hot-deals-item-wrapper pb-0">
                                                         <div class="card-slider__container__list__card">
-                                                            <a href="" target="_self">
+                                                            <a href="#">
                                                                 <img class="lazy card-slider__container__list__card__image loaded" src={API_IMAGE_PATH + 'industries/' + item.image} />
                                                             </a>
                                                             <div class="card-slider__container__list__card__content">
-                                                                <a href="/en/industrial-manufacturing/landing/red1000.html" target="_self">
+                                                                <a href="#">
                                                                     <div class="card-slider__container__list__card__content__headings">
                                                                         <h2 class="card-slider__container__list__card__content__title" style={{ "overflow-wrap": "break-word" }} >
                                                                             {item.title}
@@ -100,7 +100,7 @@ class Industries extends Component {
                                                                         </h3>
                                                                     </div>
                                                                 </a>
-                                                                <a class="card-slider__container__list__card__content__button" href="/en/industrial-manufacturing/landing/red1000.html" target="_self">
+                                                                <a class="card-slider__container__list__card__content__button" href="#" target="_self">
                                                                     <span class="card-slider__container__list__card__content__button__learn-more">
                                                                         <span>{item.title}</span>
                                                                     </span>
