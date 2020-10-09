@@ -22,6 +22,8 @@ class LeftMenu extends Component {
 
   render() {
     const { menu } = this.state;
+    console.log('menu')
+    console.log(menu)
     return (
       <div class="side-bar-menu">
         <div class="sidebar-head">Shop By Category</div>
