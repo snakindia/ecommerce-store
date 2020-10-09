@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MDBModal, MDBContainer } from 'mdbreact';
-
+import Slider from 'react-slick';
 import LeftMenu from './LeftMenu';
 import Banner from './Banner';
 import Clients from './../Clients';
@@ -38,6 +38,7 @@ class ShopNow extends Component {
 
   render() {
     const { item, showModal, visible } = this.state;
+   
     return (
 
       <div className={visible ? 'wrapper' : 'sidebar_minimize wrapper'}>
@@ -47,8 +48,10 @@ class ShopNow extends Component {
               <LeftMenu visible={visible} shrink={this.shrink} />
               <div className="main-panel">
                 <div className="content">
+
                   <div className="page-inner">
                     <div className="container-fluid pl-0 pr-0">
+                    
                       <Banner />
 
                       <Products

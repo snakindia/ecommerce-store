@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Ratings from './Ratings'
 import AddToCart from './AddToCart'
+import ContactForSale from './ContactForSale'
 import Share from './Share';
 import Favourite from './Favourite';
 import Slider from 'react-slick';
@@ -42,15 +43,28 @@ export default class QuickView extends Component {
 
     render() {
         const { item } = this.props;
-       
+
         const { regular_price, sale_price } = item;
         let diff = undefined;
         if (regular_price && sale_price) {
-            diff =(regular_price - sale_price).toFixed(2)
+            diff = (regular_price - sale_price).toFixed(2)
         }
-            let images = [];
+        let images = [];
         images = item && item.images && item.images.length > 1 ? item.images : []
         const { imageUrl, counts } = this.state;
+        const sliderImages = [
+            'https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg',
+            'http://209.59.154.198:3001/images/products/5f7ed1c5949319479ac6f175/Camfil_Frr_Dust-Collector-Pleated-and-Cartridge-Filters.png',
+            'https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg',
+            'http://209.59.154.198:3001/images/products/5f7ed1c5949319479ac6f175/Camfil_Frr_Dust-Collector-Pleated-and-Cartridge-Filters.png',
+            'https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg'
+        ];
+        const settings = {
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 5000
+        }
         return (
             <div className="modal-view-inner container-login animated fadeIn"
                 style={{
@@ -71,23 +85,29 @@ export default class QuickView extends Component {
                                     <div class="large-5 column">
                                         <Favourite />
                                         <div class="xzoom-container">
-                                            <div style={{ width: '350px' }}>
+                                            <div style={{ width: '100%' }} className="zoomer">
                                                 <Zoomer
                                                     image={imageUrl}
                                                     largeImage={imageUrl}
                                                 />
                                             </div>
-                                            <div class="thumbnails">
-                                                <Slider>
-                                                    {images.map(({ url, fileName, id }) =>
-                                                        <img
-                                                            src={url}
-                                                            onClick={e => this.changeImage(url)}
-                                                            className="img-fluid"
-                                                            alt={fileName}
-                                                        />
+                                            <div class="thumbnails product-slider-div" style={{ width: '300px' }}>
+                                                <Slider {...settings}>
+                                                    {sliderImages.map((sl, i) =>
+                                                        <div className="product-slider" style={{ width: '70px' }}>
+                                                            <img
+                                                                key={`${i}hotp`}
+                                                                src={sl}
+                                                                width="200"
+                                                                onClick={e => this.changeImage(sl)}
+                                                                className="img-fluid"
+                                                                alt=''
+                                                            />
+                                                        </div>
+
                                                     )}
                                                 </Slider>
+
                                             </div>
                                         </div>
                                     </div>
@@ -101,17 +121,16 @@ export default class QuickView extends Component {
                                 <h4 class="mt-0 mb-2">{item.name}</h4>
                                 <div class="brand_name"><span class="txtLabel">Brand:</span><span>{item.category_name}</span></div>
                                 <div class="pro_Id"><span class="txtLabel">SKU:</span>
-                                <span>{item.sku}</span></div>
+                                    <span>{item.sku}</span></div>
                                 <div class="star-rating mt-2">
                                     <Ratings />
                                 </div>
                                 <div class="pro_Price">
                                     <p class="currecny">
-                                        <span class="strike red">$ {item.regular_price}</span>
-                                        <span class="sp-price">
-                                            $ {item.sale_price || item.price}</span>
-                                        {diff &&<span class="save-offer pl-4 small">( You Save: ${diff}  )</span>}
-                                        </p>
+                                        {regular_price && <span class="strike red">$ {item.regular_price}</span>}
+                                        {sale_price && <span class="sp-price"> $ {item.sale_price || item.price}</span>}
+                                        {diff && <span class="save-offer pl-4 small">( You Save: ${diff}  )</span>}
+                                    </p>
 
                                 </div>
                                 <form class="inc_value pt-0">
@@ -132,7 +151,7 @@ export default class QuickView extends Component {
                                     </div>
                                 </form>
                                 <div class="float-left mt-4">
-                                    <AddToCart />
+                                    {(regular_price || sale_price) ? <AddToCart /> : <ContactForSale />}
 
                                 </div>
                                 <div class="social_Share">

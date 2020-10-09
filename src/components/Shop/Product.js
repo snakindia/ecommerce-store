@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Ratings from './Ratings'
 import AddToCart from './AddToCart'
+import ContactForSale from './ContactForSale'
 import Compare from './Compare';
 import Favourite from './Favourite';
+import ToolTip from './ToolTip'
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 export default class Product extends Component {
     constructor(props) {
@@ -37,7 +39,7 @@ export default class Product extends Component {
                         <img class="img-fluid"
                             src={imageUrl} alt="" />
                         <div class="product-description">
-                            {item.name && item.name.length > 20 ? `${item.name.substr(0,20)} ..` :item.name}
+                            <ToolTip text={item.name} />
                         </div>
                         {hasPrice &&
                             <div class="pro_Price text-center">
@@ -53,7 +55,8 @@ export default class Product extends Component {
                         </div>
 
                         <div class="d-block float-left w-100">
-                            {hasPrice && <AddToCart />}
+
+                            {hasPrice ? <AddToCart /> : <ContactForSale />}
                             <Compare />
                         </div>
 
