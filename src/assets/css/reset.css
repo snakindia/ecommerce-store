@@ -1,29 +1,5 @@
 
-/*@import url("https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic|Playfair+Display:400,400italic|Old+Standard+TT");
-@import url("https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Martel:200,300,400,600,700,800,900|Noto+Serif:400,400i,700,700i|PT+Serif:400,400i,700,700i|Scope+One|Source+Serif+Pro:400,600,700|Tinos:400,400i,700,700i|Vollkorn:400,400i,600,600i,700,700i,900,900i");
-@import url("https://fonts.googleapis.com/css?family=Questrial");*/
-@import url("https://fonts.googleapis.com/css?family=Taviraj:300,300i,400,400i,700,700i");
-/*@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i");
-@import url("https://fonts.googleapis.com/css?family=Crimson+Text|Lato:300,400");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
-@import url("https://fonts.googleapis.com/css?family=Unna");
-@import url("https://fonts.googleapis.com/css?family=Suranna");
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");*/
-
-/*======Layout component reset css rules=======
-button reset==*/
-/*.full {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  display: block;
-}*/
-
+/*======Layout component reset css rules=======*/
 .zoom {
   animation: scale 5s linear infinite;
 }
@@ -39,8 +15,8 @@ button reset==*/
 }
 .content-wrapper{background:#fff url(../images/Pipe-Texture.jpg);
 background-position:center; background-size: cover; width: 100%; float: left; /*padding-bottom:3rem;*/}
-.bottom-navigation{background:rgba(255,255,255, 0);width: 100%; float: left; padding:0; margin-bottom: 1rem;
-overflow: hidden; /*border-bottom: 1px solid #ddd;*/ position: absolute; bottom:-2px}
+.bottom-navigation{background:rgba(255,255,255, 0);width: 100%; float: left; padding:0;
+overflow: hidden; /*border-bottom: 1px solid #ddd;*/ position: absolute; bottom:0px}
 .bott-nav-fixed{top: 121px; z-index: 10000 !important; position: fixed !important;
 /*background: rgba(35,83,107,0.950);*/ height: 70px; padding-top:0.4rem;
 background: rgba(255,255,255,0.950); box-shadow: 0px 10px 5px -10px #d7d7d7; 
@@ -131,10 +107,9 @@ overflow: hidden;}
 .bha-client li img{width: 245px !important}
 /*======Typography setting==*/
 .bha_heading_1{background:url(../images/bha-sm-icon.png) -2px -13px no-repeat; padding-left:8rem;
-  font-family: 'Oswald', sans-serif; font-size: 3rem; text-transform: uppercase; color:#000;
+  font-family: 'Oswald', sans-serif !important; font-size: 3rem; text-transform: uppercase; color:#000;
 text-shadow: 0 0 3px #000 }
-.cursive_head{font-family: 'Satisfy', cursive; text-transform: none; font-size: 2.5rem;}
-.bha_heading_2{font-family: 'Oswald', sans-serif; font-size: 1.5rem; text-transform: uppercase; color:#fff;}
+.bha_heading_2{font-family: 'Oswald', sans-serif !important; font-size: 1.5rem; text-transform: uppercase; color:#fff;}
 figcaption h4{text-transform: uppercase; font-size: 1.125rem}
 .headtoppart span ul{margin:0; padding:0;}
 .headtoppart span ul li a{color:#000 !important; padding:0.5rem 0; border-bottom: 1px solid #f2f2f2;width: 100%;
@@ -151,7 +126,7 @@ display: block; text-decoration: none; font-size: 0.750rem !important}
 /*=====mega gallery css=====*/
 /*.wstheading{background: #f4f6f7; border:0 !important;}*/
 .wstheading{background: #555; border:0 !important;}
-.wstheading > a{color:#fff !important;font-family: 'Roboto', sans-serif; 
+.wstheading > a{color:#fff !important;font-family: 'Roboto', sans-serif !important; 
 text-transform: none; display: block;font-size: 0.750rem !important;
 font-weight: normal; padding:0 0.6rem; white-space: nowrap; text-transform: capitalize !important;}
 .wstliststy04 img > li{background: red;}
@@ -207,7 +182,7 @@ right:0; bottom:0;}*/
 .left-control i, .right-control i{color:#fff;}
 .tab-inner .tablink.current{background:#356b86;}
 .brands-head{float:right; color:#fff; font-size: 1.5rem; text-transform: uppercase; width: 11%; text-align:center; font-family: 
-'Oswald', sans-serif;  padding:0.4rem 1.2rem;background:#000; font-weight: 700; }
+'Oswald', sans-serif !important;  padding:0.4rem 1.2rem;background:#000; font-weight: 700; }
 /*.tab-inner .tablink.current:after {
   width: 0;
   height: 0;
@@ -360,7 +335,7 @@ font-size: 1.5rem; font-weight: 700;position: absolute; top:-15px; left: 47%;  b
 margin-bottom: 10px;}
 .menu-fixed {top: 116px; z-index: 100 !important; position: fixed !important; }
 .wsmenu{z-index: 10000 !important}
-.heading-h4{font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight:normal;
+.heading-h4{font-family: 'Oswald', sans-serif !important; font-size: 1.3rem; font-weight:normal;
 padding:1.5rem 0; width:100%;}
 .mv-section{background: #fff url(../images/c_bha_pro_bg.jpg); background-size: cover; background-position: center; padding:1rem; float:left; width: 100%; color:#000; position: relative;}
 .quote{font-size: 1.6rem; font-weight: 300; padding:1.5rem 0;}
@@ -450,7 +425,7 @@ border-radius: 0 !important; margin:0 !important; padding:0.8rem !important; bor
 max-height: 257px}
 .bha-left:before{ content: ""; position: absolute; top:0; left: 0; bottom: 0; right:0; background: rgba(17,63,89,0.9) }
 .bha-left-head{position: absolute; top:22%; right: 1%; z-index: 1; padding:1rem; text-align:center;color:#fff;
-font-family: 'Oswald', sans-serif; font-size: 1.5rem}
+font-family: 'Oswald', sans-serif !important; font-size: 1.5rem}
 .tab-pane a{color:#000; font-size: 0.875rem}
 /*hr{background: #f0eeee; height: 2px}*/
 
@@ -695,13 +670,13 @@ a:hover,a:focus{
 
 .banner-inner img{object-fit:cover; height:auto; width: 100%;}
 .banner-caption{position: absolute; bottom:8%; left: 1.5%; color:#fff; width: 41%; padding-right: 0; z-index: 100}
-.banner-caption .bha-inner-heading{font-family: 'Oswald', sans-serif;font-size: 2.5rem;
+.banner-caption .bha-inner-heading{font-family: 'Oswald', sans-serif !important;font-size: 2.5rem;
 text-transform: uppercase;color: #fff; font-weight: 700}
 .text-size-medium{font-size: 1.2rem;}
 .breadcrumb{background:transparent; margin-top: 0.6rem; padding-left: 0; font-weight: 500}
 .breadcrumb-bar .breadcrumb-item+.breadcrumb-item::before {content: "/";}
 .breadcrumb-item a{color:#000;}
-.display-head-2{color:#23536b; font-weight: 600; font-size: 1.7rem; font-family: 'Oswald', sans-serif;}
+.display-head-2{color:#23536b; font-weight: 600; font-size: 1.7rem; font-family: 'Oswald', sans-serif !important;}
 .description{padding:1rem 0; line-height: 28px}
 .img-wrapper{width:366px; height:247px; overflow: hidden;}
 .media-body a{color:#000;}
@@ -715,7 +690,7 @@ text-transform: uppercase;color: #fff; font-weight: 700}
 .pro-item-wrapper{background: #d9d9d9; padding:1rem 1.5rem 0; margin:0 0.3rem 0 0.1rem; float: left;}
 .pro-item-wrapper.bg-white{background: #fff; border:1px solid #ececec;}
 .item-description{padding:1.5rem 2.5rem; color:#000;}
-.item-heading{color:#23536b; font-weight: 600; font-size: 2rem; font-family: 'Oswald', sans-serif;
+.item-heading{color:#23536b; font-weight: 600; font-size: 2rem; font-family: 'Oswald', sans-serif !important;
  padding:0 7rem 0 0;}
 .item-description a:hover{color:#fff;}
 .prod-item{padding:1rem; width:100%; text-align: center;}
@@ -916,7 +891,7 @@ input[type=number]::-webkit-outer-spin-button {
 .popup-decscription{padding:0 1.5rem; font-weight: 500;font-size: 1rem;}
 .popup-decscription .small{font-size: 60%; margin-top: 0rem; color:#444;}
 .popup-display{font-size: 1.5rem; font-weight: 400; line-height: 1.5rem; margin-top: 0.8rem; 
-  margin-bottom: 0.8rem;font-family: Taviraj,Times,serif;}
+  margin-bottom: 0.8rem;font-family: 'Roboto',sans-serif !important;}
 .popup-input{width:100%; border:1px solid #555; padding:0.5rem; font-weight: 300; font-size:0.875rem;
 border-radius:0.1rem; box-shadow: 0 0 10px #f7f7f7}
 .popup-btn{width:40%; background: #23536b; color:#fff; text-transform: uppercase; padding: 0.5rem 1rem; 
@@ -926,7 +901,7 @@ border-radius:0.1rem; box-shadow: 0 0 10px #f7f7f7}
 .popup-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
   color: #000 !important;font-size: 0.9rem; text-transform: uppercase;}
 .popup-input::placeholder {color: #000 !important;font-size: 0.9rem; text-transform: uppercase;}
-.text-underline{text-decoration: underline;color:#555; font-size:0.775rem; font-weight: 400; font-family: Roboto, sans-serif}
+.text-underline{text-decoration: underline;color:#555; font-size:0.775rem; font-weight: 400; font-family: 'Roboto', sans-serif !important}
 .popup-decscription a{color:#444;font-size:0.750rem;} 
 .popup-decscription a:hover{text-decoration: underline;}
 
@@ -1182,7 +1157,7 @@ top: 40%;right: 210px; width: 300px; z-index: 1000000 !important;padding:2rem 1.
 color:#000;}
 
 .cart-link { text-align: center; position: relative; z-index: 99; }
-.cart-link li> a { display: inline-block; line-height: 1.5; font-family: 'Roboto', sans-serif; font-weight: bold; font-size: 12px; color: #FFFFFF; text-transform: uppercase; }
+.cart-link li> a { display: inline-block; line-height: 1.5; font-family: 'Roboto', sans-serif !important; font-weight: bold; font-size: 12px; color: #FFFFFF; text-transform: uppercase; }
 .cart-link li> a .fa { font-size: 18px; display: inline-block; vertical-align: middle; margin-right: 8px; color: #fff; }
 .cart-link li> a:hover { text-decoration: none; }
 .cart-box { background: #fff; position: absolute; top: 34%; right: 280px;width: 325px; 

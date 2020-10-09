@@ -101,10 +101,7 @@ class Banner extends Component {
               </RBCarousel>
             </div>
           </div>
-          
-        </div>
-        
-             <div class='bottom-navigation affixed'>
+          <div class='bottom-navigation affixed'>
            
           <div class="container">
         
@@ -133,7 +130,7 @@ class Banner extends Component {
                   className="tablink js-scroll-trigger"
                   onClick={e=>this.scrollTo(e,'#brand')}
                 >
-                  Premium OEM Brands
+                  Premium OEM & Brands
                 </Link>
               </div>
 
@@ -151,7 +148,7 @@ class Banner extends Component {
                 </Link>
               </div>
 
-              <div class="col-sm-3 col-md-3 shopNow fader"  >
+              {/*<div class="col-sm-3 col-md-3 shopNow fader"  >
                 <img src={BestSellingHoverImage} alt="" class="thumnal-icon" />
                 <img src={BestSellingImage} alt="" class="thumnal-icon" />
                 <Link
@@ -163,7 +160,7 @@ class Banner extends Component {
                 >
                   Best Selling Products
                 </Link>
-              </div>
+              </div>*/}
               
               <RequestAQuote
                     toggleModal={this.toggleQuoteModal}
@@ -176,6 +173,9 @@ class Banner extends Component {
            
             </div>
         </div>
+        </div>
+        
+        
           
       </div>
     );
