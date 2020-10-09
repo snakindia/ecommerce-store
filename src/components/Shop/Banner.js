@@ -5,79 +5,55 @@ import RBCarousel from 'react-bootstrap-carousel';
 
 class Banner extends Component {
   render() {
-    return (
-      <div class="carousel-inner" role="listbox">
-        <RBCarousel
-          autoplay={true}
-          pauseOnVisibility={true}
-          slideshowSpeed={2000}
-          version={4}
-        >
-          <div class="carousel-item item-xs active">
-            <img src={Pro01} alt="" class="img-fluid" />
-            <div class="item-xs-caption">
-              <h1 class="item_heading">Square Chuck Air Filter Cartridge</h1>
-              <p class="item-description-xs">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod didunt ut labore et dolore magna aliqua.
-              </p>
-              <p class="item-price pt-3">
-                from<span class="priceTag">$399</span>
-              </p>
-              <a
-                href="#myModal"
-                data-toggle="modal"
-                class="btn bha-btn-primary mt-2"
+      return (
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="banner-container-xs mt-0">
+              <RBCarousel
+                autoplay={true}
+                pauseOnVisibility={true}
+                slideshowSpeed={2000}
+                version={4}
+                className="item-xs"
               >
-                Shop Now
-              </a>
+                <div className="item-xs">
+                  <img src={Pro01} alt="" className="img-fluid" />
+                  <div className="item-xs-caption">
+                    <h1 className="item_heading">Square Chuck Air Filter Cartridge</h1>
+                    <p className="item-description-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                    sed do eiusmod didunt ut labore et dolore magna aliqua.</p>
+                    <p className="item-price pt-3">from<span className="priceTag">$399</span></p>
+                    <a href="#" data-toggle="modal" className="btn bha-btn-primary mt-2">Shop Now</a>
+                  </div>
+                </div>
+  
+                <div className="item-xs">
+                  <img src={ProSecond} alt="" className="img-fluid" />
+                  <div className="item-xs-caption">
+                    <h1 className="item_heading">Bin Vent Dust Collector</h1>
+                    <p className="item-description-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                    sed do eiusmod didunt ut labore et dolore magna aliqua.</p>
+                    <p className="item-price pt-3">from<span className="priceTag">$399</span></p>
+                    <a href="#myModal" data-toggle="modal" className="btn bha-btn-primary mt-2">Shop Now</a>
+                  </div>
+                </div>
+  
+                <div className="item-xs">
+                  <img src={Pro01} alt="" className="img-fluid" />
+                  <div className="item-xs-caption">
+                    <h1 className="item_heading">Square Chuck Air Filter Cartridge</h1>
+                    <p className="item-description-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                    sed do eiusmod didunt ut labore et dolore magna aliqua.</p>
+                    <p className="item-price pt-3">from<span className="priceTag">$399</span></p>
+                    <a href="#myModal" data-toggle="modal" className="btn bha-btn-primary mt-2">Shop Now</a>
+                  </div>
+                </div>
+  
+              </RBCarousel>
             </div>
           </div>
-
-          <div class="carousel-item item-xs active">
-            <img src={ProSecond} alt="" class="img-fluid" />
-            <div class="item-xs-caption">
-              <h1 class="item_heading">Bin Vent Dust Collector</h1>
-              <p class="item-description-xs">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod didunt ut labore et dolore magna aliqua.
-              </p>
-              <p class="item-price pt-3">
-                from<span class="priceTag">$399</span>
-              </p>
-              <a
-                href="#myModal"
-                data-toggle="modal"
-                class="btn bha-btn-primary mt-2"
-              >
-                Shop Now
-              </a>
-            </div>
-          </div>
-
-          <div class="carousel-item item-xs active">
-            <img src={Pro01} alt="" class="img-fluid" />
-            <div class="item-xs-caption">
-              <h1 class="item_heading">Square Chuck Air Filter Cartridge</h1>
-              <p class="item-description-xs">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod didunt ut labore et dolore magna aliqua.
-              </p>
-              <p class="item-price pt-3">
-                from<span class="priceTag">$399</span>
-              </p>
-              <a
-                href="#myModal"
-                data-toggle="modal"
-                class="btn bha-btn-primary mt-2"
-              >
-                Shop Now
-              </a>
-            </div>
-          </div>
-        </RBCarousel>{' '}
-      </div>
-    );
+        </div>
+      );
   }
 }
 

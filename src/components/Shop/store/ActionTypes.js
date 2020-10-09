@@ -1,0 +1,6 @@
+export const SHOP_LOADING = 'SHOP_LOADING';
+export const SAVE_DATA_SUCCESS = 'SAVE_DATA_SUCCESS';
+export const SAVE_DATA_ERROR = 'SAVE_DATA_ERROR';
+export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
+export const GET_DATA_ERROR = 'GET_DATA_ERROR';
+export const SHOP_FLUSH_DATA = 'SHOP_FLUSH_DATA';

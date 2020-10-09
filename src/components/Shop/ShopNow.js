@@ -1,52 +1,101 @@
 import React, { Component } from 'react';
-import { MDBModal, MDBModalBody } from 'mdbreact';
+import { MDBModal, MDBContainer } from 'mdbreact';
 
 import LeftMenu from './LeftMenu';
 import Banner from './Banner';
 import Clients from './../Clients';
-import Products from './../Home/Products';
-import TopRatedProducts from './TopRatedProducts';
+import Brands from './../Home/Products';
 import PremiumBrands from './PremiumBrands';
-import HotDeals from './HotDeals/index';
+import Products from './Products'
+import './style.css'
+import QuickView from './QuickView'
+class ShopNow extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false,
+      item: null,
+      visible: true,
+    }
+  }
+  shrink = () => {
+    const { visible } = this.state;
+    this.setState({ visible: !visible })
+  }
+  show = (item) => {
+    this.setState({
+      item,
+      showModal: true
+    })
+  }
 
-const initialValues = {
-  name: '',
-  company: '',
-  email: '',
-  phone: '',
-  message: '',
-};
+  hide = () => {
+    this.setState({
+      item: null,
+      showModal: false
+    })
+  }
 
-class ShopNOw extends Component {
   render() {
+    const { item, showModal, visible } = this.state;
     return (
-      <div className="content-wrapper topPadding">
-        <div className="pagewrap">
-          <div className="bgWhite padding-bottom">
-            <section className="pro-equipment-section">
-              <div className="container-fluid">
-                <div className="row">
-                  <div className="col-sm-3 col-md-3 padding-0">
-                    <LeftMenu />
-                  </div>
-                  <div className="col-sm-9 col-md-9 padding-0">
-                    <div className="banner-container-xs mt-0">
+
+      <div className={visible ? 'wrapper' : 'sidebar_minimize wrapper'}>
+        <div className="topPadding">
+          <div className="page wrap">
+            <div className="bg White padding-bottom">
+              <LeftMenu visible={visible} shrink={this.shrink} />
+              <div className="main-panel">
+                <div className="content">
+                  <div className="page-inner">
+                    <div className="container-fluid pl-0 pr-0">
                       <Banner />
+
+                      <Products
+                        quickView={this.show}
+                        type='hotDeals'
+                        heading="Our Hot Deals"
+                      />
+                      <Products
+                        quickView={this.show}
+                        type='bestSelling'
+                        heading="Best Selling Products"
+                      />
+                      <Products
+                        quickView={this.show}
+                        type='topRated'
+                        heading="Top Rated Products"
+                      />
+                      <Brands />
+                      <Clients />
+                      <PremiumBrands />
                     </div>
                   </div>
                 </div>
               </div>
-            </section>
-            <HotDeals />
-            <Clients />
-            <PremiumBrands />
-            <Products />
-            <TopRatedProducts />
+            </div>
           </div>
         </div>
+        <MDBContainer>
+          <MDBModal
+            isOpen={showModal}
+            toggle={this.hide}
+            centered
+            id="#myModalView"
+            className="modal-width-lg"
+          >
+            {item && <QuickView
+              item={item}
+              hide={this.hide}
+            />
+            }
+          </MDBModal>
+        </MDBContainer>
+
       </div>
+
     );
   }
 }
 
-export default ShopNOw;
+export default ShopNow;

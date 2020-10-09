@@ -20,8 +20,9 @@ export default class PremiumBrands extends Component {
   }
 
   render() {
-    const { brands } = this.state;
-
+    let { brands } = this.state;
+    const {limit} =this.props;
+    brands = brands && brands.length > 0 && limit ? brands.slice(0,limit):brands;
     var settings = {
       slidesToShow: 4,
       slidesToScroll: 1,
