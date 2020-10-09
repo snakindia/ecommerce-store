@@ -270,7 +270,7 @@ object-position: center !important;}
 .logIn .pwdlink{color: #000 !important;text-transform: none !important;padding: 0 !important;margin: 0 !important;
 font-weight:700 !important; font-size:0.875rem}
 .modal-dialog .modal-content .modal-body { position: relative; flex: 1 1 auto; padding: 0 !important;}
-.modal { position: fixed; top: 5%; right: 0; bottom: 0;left: 0; z-index: 100005 !important; display: none; overflow: hidden; outline: 0;}
+.modal { position: fixed; top: 7%; right: 0; bottom: 0;left: 0; z-index: 100005 !important; display: none; overflow: hidden; outline: 0;}
 button.close {padding: 0; background-color: transparent;border: 0;-webkit-appearance: none; -moz-appearance: none;
     appearance: none; text-align: right;}
 .close { font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: 0.5;
@@ -740,7 +740,7 @@ text-align: center;width: 94% !important;}
   /*.checkOut-container{margin-top: 315px !important}*/
   .item-xs-caption{width: 90% !important}
   .mObiLe{margin-top: 134% !important}
-  .placement-client .slick-slide{width:320px !important; margin:0px !important;}
+  .placement-client .slick-slide{width:500px !important; margin:0px !important;}
   /*.item-container{width: 100% !important}*/
   .headerfull{height:0 !important;}
   .caption .btn{margin: 0 !important}
@@ -834,7 +834,7 @@ body {
   /*.wsmenu > .wsmenu-list > li > .navtext{font-size: x-small;}*/
   .caption{top:10% !important;}
   .bottom-navigation{bottom:0 !important;}
-  .placement-client .slick-slide{width:156px !important; margin:17px !important;}
+  .placement-client .slick-slide{width:156px; margin:17px;}
 }
 
 @media(max-width: 1024px){
@@ -842,5 +842,5 @@ body {
   /*.wsmenu > .wsmenu-list > li > .navtext{font-size: x-small;}*/
   .caption{top:10% !important;}
   .bottom-navigation{bottom:0 !important;}
-  .placement-client .slick-slide{width:140px !important; margin:10px !important;}
+  .placement-client .slick-slide{width:140px ; margin:10px;}
 }
