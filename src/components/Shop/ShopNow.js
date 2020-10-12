@@ -49,7 +49,7 @@ class ShopNow extends Component {
               <div className="main-panel">
                 <div className="content">
 
-                  <div className="page-inner">
+                  <div className="shop-now-page-inner">
                     <div className="container-fluid pl-0 pr-0">
                     
                       <Banner />

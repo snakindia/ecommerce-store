@@ -37,7 +37,7 @@ export default class PremiumBrands extends Component {
                     <h2 class="bha_heading_2 z-index text-blue">Shop by premium brands</h2>
                 </div>
             </section>
-            <section class="pro-equipment-section mt-4">
+            <section class="pro-equipment-section mt-0">
                 <div class="container padding-0">
                   <div class="row">
                     {Object.keys(brands).length &&

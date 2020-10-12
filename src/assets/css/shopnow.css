@@ -8,12 +8,39 @@
 .wsshoptabing { left: -207px !important; width: 121% !important;}
   .container{max-width: 1140px;}
 }*/
-.shopnow-pagewrap{background: red !important; width:100% !important; float:left !important;}
+
 /*.slick-slide{margin:15px !important;}*/
 .shop-now-page-inner{padding: 0.3rem 1.5rem 0 2rem;}
 .bha-mb .view .mask{width: 100%;}
-.toolTipContainer{color:#000 !important;}
-.toolTipContainer span .tooltip-hover-text{color:#fff !important}
+.card-description { font-size: 0.850rem !important; font-weight: 400 !important; display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;}
+
+.toolTipContainer span .tooltip-hover-text{color:#fff !important;}
+.pro_Price .currecny span.strike{color:#afafaf !important}
+.pro_Price .currecny span.sp-price{ color: #0b5076 !important;}
+.bg-opeque { padding: 2rem 0 2rem 0 !important; float: left !important;}
+/* .placement-client .bhaClient {margin-bottom: 0;} */
+.slick-track{margin-left: 0 !important;}
+.pro-equipment-section .slick-slide{width: 25% !important; }
+a.lp-pom-button {
+  text-decoration: none;
+  color: #fff !important;
+  border-radius: 0.3rem;
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.875rem; padding:0.2rem 0.7rem;
+  line-height: 1rem;
+}
+.lp-element {
+  /* padding: 0.4rem; */
+  background: #2e3192;
+      background-color: rgb(46, 49, 146);
+}
+@media(max-width:768px){
+  .pro-equipment-section .slick-slide{width: 100% !important; }
+}
 /*=============================================================*/
 
 .topPadding {
@@ -41,13 +68,13 @@
   height: 400px !important;
   object-fit: contain !important;
 }
-.item-xxs-caption {
+.banner-item-xs-caption {
   position: absolute;
   top: 6%;
-  left: 5%;
+  left: 6%;
   width: 40%;
 }
-.item-xs-caption .item_heading {
+.banner-item-xs-caption .item_heading {
   font-size: 2.5rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -232,6 +259,7 @@
   padding-bottom: 0.875rem;
   height: 100%;
   float:left;
+  width:100%; text-align: left;
 }
 .deals-border-right {
   border-right: 1px solid #ddd;
@@ -250,6 +278,7 @@
 .hot-deals-item-wrapper .card .svg-icon img {
   width: 20px !important;
   height: 20px !important;
+
 }
 .slick-slide img {
   display: inline-block;
@@ -280,9 +309,11 @@
   border-right: 1px solid #ddd !important;
 }
 .card-description {
+  background:#fff;
   width: 60%;
   float: left;
   padding: 1.5rem 1rem 1rem;
+  text-align:left;
 }
 .card-description h6 {
   font-size: 0.9rem;
@@ -297,7 +328,7 @@
   padding: 1rem 0 0;
 }
 .pro_Price .currecny {
-  font-size: 1em;
+  font-size: 1.2em;
 }
 .currecny {
   font-weight: 500;
@@ -442,10 +473,11 @@ margin-bottom: 0.6rem}*/
 .hot-deals-item-wrapper .item-pro-inner .svg-icon img {
   width: 20px !important;
   height: 20px !important;
+  margin-left:1rem !important;
 }
 .hot-deals-item-wrapper .item-pro-inner a {
   color: #4e4c4c;
-  font-size: 0.875rem;
+  font-size: 0.875rem; vertical-align: middle;
 }
 .product-description {
   color: #000;
@@ -457,13 +489,13 @@ margin-bottom: 0.6rem}*/
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 0.2rem 1.5rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .product-xs-item .portfolio-hover {
   position: absolute;
   width: 100%;
-  height: 75%;
+  height: 56%;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -486,7 +518,7 @@ margin-bottom: 0.6rem}*/
   bottom: 0;
   right: 0;
   width: 100%;
-  height: 75%;
+  height: 56%;
   margin-top: 0;
 }
 .callToAction-xxs {

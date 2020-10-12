@@ -59,7 +59,7 @@ class Clients extends Component {
                 </section>
                 <div class="placement-client pt-0">
                     <div class="container pl-0 pr-0">
-                        <section class=" slider ">
+                        <section class="slider">
                             <Slider {...settings}>
                             {
                                 clientData &&

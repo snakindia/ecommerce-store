@@ -38,7 +38,7 @@ export default class TopRatedProducts extends Component {
           </div>
         </section>
         <section class="pro-equipment-section" id="bestSelling" style={{"float": "left"}}>
-          <div class="container-fluid pl-0 pr-0 product-xs-item">
+          <div class="container-fluid pl-0 pr-0">
             <div class="product-items slider">
               <div class="product-card-wrapper outer-wrpper">
                 <Slider {...settings}>
