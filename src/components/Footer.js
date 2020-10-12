@@ -55,7 +55,7 @@ class Footer extends Component {
         footer_menu_5_items,
         footer_social
     } = menuData;
-    return null;
+    //return null;
     return (
       <div>
         <div class="chat-button">

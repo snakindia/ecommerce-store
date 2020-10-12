@@ -45,13 +45,14 @@ class ShopNow extends Component {
 
       <div className={visible ? 'wrapper' : 'sidebar_minimize wrapper'}>
         <div className="topPadding">
-          <div className="page wrap">
-            <div className="bg White padding-bottom">
+          <div className="shopnow-pagewrap">
+            <div className="bgWhite padding-bottom">
               <LeftMenu visible={visible} shrink={this.shrink} />
               <div className="main-panel">
                 <div className="content">
 
                   <div className="page-inner">
+                  <div className="shop-now-page-inner">
                     {pathname == '/shop' ?
                       <div className="container-fluid pl-0 pr-0">
                         <Banner />
@@ -81,6 +82,7 @@ class ShopNow extends Component {
                         <PremiumBrands /> */}
                       </div>
                     }
+                  </div>
                   </div>
                 </div>
               </div>

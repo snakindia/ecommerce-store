@@ -44,8 +44,8 @@ export default class Product extends Component {
                         {hasPrice &&
                             <div class="pro_Price text-center">
 
-                                <p class=" currecny"><span class="strike">${item.regular_price}</span>
-                                    <span class="sp-price">${item.sale_price}</span></p>
+                                <div class=" currecny"><span class="strike">${item.regular_price}</span>
+                                    <span class="sp-price">${item.sale_price}</span></div>
                             </div>
                         }
                         <div className="text-center">

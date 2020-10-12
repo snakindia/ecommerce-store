@@ -6,7 +6,7 @@ const ToolTip = ({ text, length = 20 }) => {
     show = text && length && text.length > length ? true:false;
 
     return (
-        <>
+        <div className="toolTipContainer">
             {
                 show ?
                     <MDBTooltip
@@ -23,7 +23,7 @@ const ToolTip = ({ text, length = 20 }) => {
                         {text}
                     </span>
             }
-        </>
+        </div>
     );
 }
 export default ToolTip;

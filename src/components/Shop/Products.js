@@ -21,6 +21,7 @@ class Products extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: data  ? data.length > 3 ? 4 :data.length:0 ,
+      // slidesToShow: 3,
       slidesToScroll: 1,
     };
 
@@ -63,9 +64,9 @@ class Products extends Component {
                   <h2 className="bha_heading_2 z-index text-blue">{heading}</h2>
                 </div>
               </section>
-              <section className="pro-equipment-section" id="bestSelling">
-                <div className="container pl-0 pr-0">
-                  <div className="productitem slider">
+              <section className="pro-equipment-section box-shadow" id="bestSelling">
+                <div className="container-fluid pl-0 pr-0  product-xs-item">
+                  <div className="product-items slider">
                     <div className="product-card-wrapper outer-wrpper">
                       <Slider {...settings}>
                         {data.map((item, idx) => <Product
