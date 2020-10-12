@@ -6,6 +6,7 @@ import Banner from './Banner';
 import Clients from './../Clients';
 import Brands from './../Home/Products';
 import PremiumBrands from './PremiumBrands';
+import CategoryProducts from './CategoryProducts';
 import Products from './Products'
 import './style.css'
 import QuickView from './QuickView'
@@ -38,7 +39,8 @@ class ShopNow extends Component {
 
   render() {
     const { item, showModal, visible } = this.state;
-   
+    const {pathname} =this.props.location;
+    
     return (
 
       <div className={visible ? 'wrapper' : 'sidebar_minimize wrapper'}>
@@ -50,29 +52,35 @@ class ShopNow extends Component {
                 <div className="content">
 
                   <div className="page-inner">
-                    <div className="container-fluid pl-0 pr-0">
-                    
-                      <Banner />
-
-                      <Products
-                        quickView={this.show}
-                        type='hotDeals'
-                        heading="Our Hot Deals"
-                      />
-                      <Products
-                        quickView={this.show}
-                        type='bestSelling'
-                        heading="Best Selling Products"
-                      />
-                      <Products
-                        quickView={this.show}
-                        type='topRated'
-                        heading="Top Rated Products"
-                      />
-                      <Brands />
-                      <Clients />
-                      <PremiumBrands />
-                    </div>
+                    {pathname == '/shop' ?
+                      <div className="container-fluid pl-0 pr-0">
+                        <Banner />
+                        <Products
+                          quickView={this.show}
+                          type='hotDeals'
+                          heading="Our Hot Deals"
+                        />
+                        <Products
+                          quickView={this.show}
+                          type='bestSelling'
+                          heading="Best Selling Products"
+                        />
+                        <Products
+                          quickView={this.show}
+                          type='topRated'
+                          heading="Top Rated Products"
+                        />
+                        <Brands />
+                        <Clients />
+                        <PremiumBrands />
+                      </div>
+                      :
+                      <div className="container-fluid pl-0 pr-0">
+                        <CategoryProducts  quickView={this.show} match={this.props.match}/>
+                        {/* <Clients />
+                        <PremiumBrands /> */}
+                      </div>
+                    }
                   </div>
                 </div>
               </div>

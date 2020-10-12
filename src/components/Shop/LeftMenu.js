@@ -86,7 +86,7 @@ class LeftMenu extends Component {
                         <ul className="nav nav-collapse">
                           {Object.keys(item.sub_cat).length > 0 &&
                             item.sub_cat.map((subCat, idx) => <li>
-                              <Link to="">
+                              <Link to={`/category/${subCat._id}`}>
                                 <span className="sub-item">{subCat.name}</span>
                               </Link>
                             </li>

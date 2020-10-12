@@ -91,9 +91,11 @@ useEffect(()=>{
                             <Route path="/contact" component={ContactBody} />
                             <PrivateRoute path="/sign-up" component={SignUpPage} />
                             <Route path="/inner-page" component={InnerPage} />
-                            <Route path="/category" component={Category} />
+                            
                             <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
                             <Route path="/shop" component={Shop} />
+                            <Route path="/category/:id" component={Shop} />
+                            <Route path="/category" component={Category} />
                             <Route path="/newsdetail/:slug" component={NewsDetail} />
                             <Route path="/eventdetail/:slug" component={EventDetail} />
 

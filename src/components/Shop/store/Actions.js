@@ -29,13 +29,16 @@ export const flushData = () => ({
 
 })
 
-export const getProducts = (payload) => {
+export const getProducts = (payload, id=null) => {
     return dispatch => {
         dispatch(setLoading(true));
+        
         let url='getTopRatedProducts?fields=name,images,sku,product_id,regular_price,sale_price,description';
-        if(payload=='bestSelling') url='getBestSellingProducts?fields=name,regular_price,sale_price,images,sku,description';
+        if (payload && id ) url=`products?category_id=${id}`;
+        else if(payload=='bestSelling') url='getBestSellingProducts?fields=name,regular_price,sale_price,images,sku,description';
         else if(payload=='topRated') url='getTopRatedProducts?fields=name,images,sku,product_id,regular_price,sale_price,description';
         else if(payload=='hotDeals') url='getHotProductList?fields=name,regular_price,sale_price,images,sku,description';
+         
         
         Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
         )
