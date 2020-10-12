@@ -18,7 +18,7 @@ class Banner extends Component {
               >
                 <div className="item-xs">
                   <img src={Pro01} alt="" className="img-fluid" />
-                  <div className="item-xs-caption">
+                  <div className="item-xxs-caption">
                     <h1 className="item_heading">Square Chuck Air Filter Cartridge</h1>
                     <p className="item-description-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                                     sed do eiusmod didunt ut labore et dolore magna aliqua.</p>
@@ -29,7 +29,7 @@ class Banner extends Component {
   
                 <div className="item-xs">
                   <img src={ProSecond} alt="" className="img-fluid" />
-                  <div className="item-xs-caption">
+                  <div className="item-xxs-caption">
                     <h1 className="item_heading">Bin Vent Dust Collector</h1>
                     <p className="item-description-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                                     sed do eiusmod didunt ut labore et dolore magna aliqua.</p>
@@ -40,7 +40,7 @@ class Banner extends Component {
   
                 <div className="item-xs">
                   <img src={Pro01} alt="" className="img-fluid" />
-                  <div className="item-xs-caption">
+                  <div className="item-xxs-caption">
                     <h1 className="item_heading">Square Chuck Air Filter Cartridge</h1>
                     <p className="item-description-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                                     sed do eiusmod didunt ut labore et dolore magna aliqua.</p>

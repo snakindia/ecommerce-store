@@ -34,12 +34,12 @@ export default class TopRatedProducts extends Component {
       <div>
         <section class="bg-opeque pb-4">
           <div class="container-fluid">
-            <h2 class="bha_heading_2 z-index text-blue">Top Rated Products</h2>
+            <h2 class="bha_heading_2 text-blue">Top Rated Products</h2>
           </div>
         </section>
-        <section class="pro-equipment-section" id="bestSelling">
-          <div class="container pl-0 pr-0">
-            <div class="productitem slider">
+        <section class="pro-equipment-section" id="bestSelling" style={{"float": "left"}}>
+          <div class="container-fluid pl-0 pr-0 product-xs-item">
+            <div class="product-items slider">
               <div class="product-card-wrapper outer-wrpper">
                 <Slider {...settings}>
                   {products &&

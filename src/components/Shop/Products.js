@@ -20,7 +20,8 @@ class Products extends Component {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: data  ? data.length > 3 ? 4 :data.length:0 ,
+      //slidesToShow: data  ? data.length > 3 ? 4 :data.length:0 ,
+      slidesToShow: 1,
       slidesToScroll: 1,
     };
 
@@ -46,7 +47,7 @@ class Products extends Component {
                 <div className="container-fluid pl-0 pr-0 portfolio-item">
                   <div className="productitem-auto slider">
                     <Slider {...settings}>
-                      {data.map((item, idx) => <HotProduct
+                      {data.slice(0,1).map((item, idx) => <HotProduct
                         item={item}
                         quickView={this.props.quickView}
                       />)
@@ -63,9 +64,9 @@ class Products extends Component {
                   <h2 className="bha_heading_2 z-index text-blue">{heading}</h2>
                 </div>
               </section>
-              <section className="pro-equipment-section" id="bestSelling">
+              <section className="pro-equipment-section box-shadow" id="bestSelling">
                 <div className="container pl-0 pr-0">
-                  <div className="productitem slider">
+                  <div className="product-items slider">
                     <div className="product-card-wrapper outer-wrpper">
                       <Slider {...settings}>
                         {data.map((item, idx) => <Product

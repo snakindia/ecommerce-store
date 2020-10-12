@@ -1,10 +1,28 @@
 /*========================Shop Now page layout CSS===============================*/
+/*@media screen and (max-width: 1920px) {
+.wsshoptabing { left: -352px !important; width: 136% !important;}
+.container{max-width: 1280px;}
+}
+*/
+/*@media screen and (max-width: 1366px) {
+.wsshoptabing { left: -207px !important; width: 121% !important;}
+  .container{max-width: 1140px;}
+}*/
+.shopnow-pagewrap{background: red !important; width:100% !important; float:left !important;}
+/*.slick-slide{margin:15px !important;}*/
+.shop-now-page-inner{padding: 0.3rem 1.5rem 0 2rem;}
+.bha-mb .view .mask{width: 100%;}
+.toolTipContainer{color:#000 !important;}
+.toolTipContainer span .tooltip-hover-text{color:#fff !important}
+/*=============================================================*/
+
 .topPadding {
   padding-top: 7.5rem;
 }
 .banner-container-xs {
-  height: auto;
+  height: 400px;
 }
+.banner-container-xs .carousel-indicators {z-index: 1000; bottom: 15px}
 .banner-container-xs .carousel-indicators li {
   width: 20px !important;
   border-radius: 0 !important;
@@ -14,20 +32,18 @@
 .banner-container-xs .carousel-indicators li.active {
   background: #6e7173 !important;
 }
-.banner-container-xs .carousel-inner {
-  max-height: 400px !important;
-}
+
 .banner-container-xs .carousel-inner .carousel-item img {
-  min-height: 400px !important;
+  height: 400px !important;
 }
 .item-xs {
   max-width: 100% !important;
-  max-height: 400px !important;
+  height: 400px !important;
   object-fit: contain !important;
 }
-.item-xs-caption {
+.item-xxs-caption {
   position: absolute;
-  top: 8%;
+  top: 6%;
   left: 5%;
   width: 40%;
 }
@@ -215,6 +231,7 @@
   position: relative;
   padding-bottom: 0.875rem;
   height: 100%;
+  float:left;
 }
 .deals-border-right {
   border-right: 1px solid #ddd;
@@ -1278,4 +1295,10 @@ i.wishList-hover-xs{position: absolute;  top: -18%; right: 2.6%; font-size: 1.2r
 }
 .compare-widget__product:first-child .compare-widget__product-remove-trigger {
   top: 9px;
+}
+
+/*===== New layout css for shopnow page========================================*/
+.navbar-minimize .fa{font-size: 1.2rem}
+.category_head {white-space: nowrap;font-weight: 500;font-size: 1rem; color: #000 !important;
+    text-transform: uppercase;
 }
