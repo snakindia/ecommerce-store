@@ -65,7 +65,7 @@ const asyncReducer = (state = initialState, action) => {
         page_meta_details: action.data,
       });
     case 'SET_FOOTER':
-      console.log('--------------',action.data)
+      
       return Object.assign({}, state, {
         footer: action.data,
       });
