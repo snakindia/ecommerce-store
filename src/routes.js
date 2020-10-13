@@ -33,7 +33,7 @@ const Events = lazy(() => import('./components/Events'));
 const Compare = lazy(() => import('./components/Compare'));
 const Industries = lazy(() => import('./components/Industries'));
 
-const Router = (props) => {
+const Routes = (props) => {
      useEffect(() => {
           const timer = setTimeout(() => {
           const currentTime = localStorage.getItem("currentTime");
@@ -107,7 +107,7 @@ useEffect(()=>{
                            <Dynamic />
                         </Switch>
                     </Suspense>
-                    <Footer />
+                    {props.footer ? <Footer />:null}
                 </MetaContainer>
             </BrowserRouter>
         </StickyContainer>
@@ -116,6 +116,7 @@ useEffect(()=>{
 };
 const mapStateToProps = state => ({
     loading: state.asyncReducer.loading,
+    footer: state.asyncReducer.footer,
   });
   
   const mapDispatchToProps = dispatch => ({
@@ -125,4 +126,4 @@ const mapStateToProps = state => ({
   export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Router);
+  )(Routes);

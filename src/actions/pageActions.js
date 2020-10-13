@@ -19,6 +19,12 @@ export const receive_error = () => {
     type: 'RECEIVE_ERROR',
   };
 };
+export const setFooter = (data) => {
+  return {
+    type: 'SET_FOOTER',
+    data
+  };
+};
 
 export const get_about_us_details = () => {
   store.dispatch(fetch_post());

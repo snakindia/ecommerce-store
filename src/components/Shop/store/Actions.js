@@ -22,6 +22,14 @@ export const getDataError = (payload) => ({
     type: ActionTypes.GET_DATA_ERROR,
     payload
 })
+export const getMenuSuccess = (payload) => ({
+    type: ActionTypes.SHOP_GET_MENU_SUCCESS,
+    payload
+})
+export const getMenuError = (payload) => ({
+    type: ActionTypes.SHOP_GET_MENU_ERROR,
+    payload
+})
 
 
 export const flushData = () => ({
@@ -44,7 +52,6 @@ export const getProducts = (payload, id=null) => {
         )
             .then(res => {
                 dispatch(setLoading(false));
-                console.log(res.data)
                 if (res.data ) {
                     dispatch(getDataSuccess({[payload]:res.data}));
                 } else {
@@ -54,6 +61,28 @@ export const getProducts = (payload, id=null) => {
             .catch(e => {
                 dispatch(setLoading(false));
                 dispatch(getDataError({[payload]:undefined,error:e}));
+            });
+    }
+}
+
+export const getMenu = () => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        let url='get_shop_cat_sub_cat_list';
+       
+        Axios.post(`${process.env.REACT_APP_API_URL}/${url}`,
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data ) {
+                    dispatch(getMenuSuccess(res.data));
+                } else {
+                    dispatch(getMenuSuccess({}));
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                dispatch(getMenuError(e));
             });
     }
 }

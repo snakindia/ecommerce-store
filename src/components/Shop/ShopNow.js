@@ -10,6 +10,7 @@ import CategoryProducts from './CategoryProducts';
 import Products from './Products'
 import './style.css'
 import QuickView from './QuickView'
+import Footer from '../Footer'
 class ShopNow extends Component {
   constructor(props) {
     super(props);
@@ -74,12 +75,14 @@ class ShopNow extends Component {
                         <Brands />
                         <Clients />
                         <PremiumBrands />
+                        <Footer />
                       </div>
                       :
                       <div className="container-fluid pl-0 pr-0">
                         <CategoryProducts  quickView={this.show} match={this.props.match}/>
                         {/* <Clients />
                         <PremiumBrands /> */}
+                        <Footer />
                       </div>
                     }
                   </div>

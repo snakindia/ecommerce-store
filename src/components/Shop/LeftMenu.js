@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { API_URL, API_IMAGE_PATH } from './../../constants/appConstant';
-
+import {getMenu} from './store/Actions'
+import {setFooter} from '../../actions/pageActions'
 class LeftMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      menu: {},
       active: null
     };
   }
 
   componentDidMount() {
-    axios
-      .post(
-        API_URL + '/get_shop_cat_sub_cat_list'
-      )
-      .then(res => {
-        this.setState({ menu: res.data });
-      });
+   this.props.getMenu()
+   this.props.setFooter(false)
+  }
+  componentWillUnmount(){
+    this.props.setFooter(true)
   }
   
   showSubMenu = (item) => {
@@ -29,8 +28,8 @@ class LeftMenu extends Component {
   }
 
   render() {
-    const { menu,  active } = this.state;
-    const {visible } = this.props;
+    const {active } = this.state;
+    const {visible, menu } = this.props;
     return (
       <>
         <div >
@@ -108,5 +107,16 @@ class LeftMenu extends Component {
     );
   }
 }
-
-export default LeftMenu;
+const mapStateToProps = (state) => ({
+  loading: state.shop.loading,
+  menu:state.shop.menu,
+  error: state.shop.error
+});
+const mapDispatchToProps = dispatch => ({
+  getMenu: () => dispatch(getMenu()),
+  setFooter: (payload) => dispatch(setFooter(payload)),
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LeftMenu);

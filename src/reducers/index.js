@@ -6,7 +6,8 @@ const initialState = {
   abousUsDetails: {},
   freeBrochuresUserDetail: {},
   page_meta_details: {},
-  loading:false,
+  loading: false,
+  footer: true
 };
 
 const asyncReducer = (state = initialState, action) => {
@@ -62,6 +63,11 @@ const asyncReducer = (state = initialState, action) => {
     case 'RECEIVED_PAGE_META_DETAILS':
       return Object.assign({}, state, {
         page_meta_details: action.data,
+      });
+    case 'SET_FOOTER':
+      
+      return Object.assign({}, state, {
+        footer: action.data,
       });
 
     default:
