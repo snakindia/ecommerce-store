@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MDBTooltip } from 'mdbreact';
-const ToolTip = ({ text, length = 20 }) => {
+const ToolTip = ({ text, length = 35 }) => {
     
     let show = undefined;
     show = text && length && text.length > length ? true:false;
