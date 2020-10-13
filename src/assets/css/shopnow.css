@@ -40,8 +40,13 @@ a.lp-pom-button {
   background: #2e3192;
       background-color: rgb(46, 49, 146);
 }
+.list-inline .list-inline-item { 
+  border: none;
+  margin: 0 0.2rem 0 0;
+}
 @media(max-width:768px){
-  .pro-equipment-section .slick-slide{width: 100% !important; }
+.pro-equipment-section .productitem-auto .slick-slide{width: 100% !important; }
+.product-card-wrapper .slick-slide{width: 100% !important; }
 }
 /*=============================================================*/
 
@@ -449,7 +454,7 @@ i.wishList-hover {
   height: 100px;
   width: auto;
   display: block;
-  padding: 3rem 4.5rem;
+  padding: 3rem;
   text-align: center;
 }
 /*.quick-view{background:transparent;color:#23536b; display: block; border:2px solid #23536b; padding:0.5rem 1rem;

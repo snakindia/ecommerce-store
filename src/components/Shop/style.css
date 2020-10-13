@@ -981,16 +981,7 @@ body {
   .page-with-aside .page-content {
     width: calc(100% - 280px); }
 
-.footer {
-  /*border-top: 1px solid #eee;*/
-  padding:0;
-  margin-top: 1rem;
-  background: #ffffff;
- /* position: absolute;*/
-  width: 100%; }
-  .footer .container-fluid {
-    display: flex;
-    align-items: center; }
+
 
 @media screen and (min-width: 991px) {
   .sidebar_minimize .main-panel {
