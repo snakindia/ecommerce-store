@@ -114,7 +114,7 @@ class CategoryProducts extends Component {
       <section className="pro-equipment-section">
         <div className="container shorting-box border-bottom">
           <div className="row">
-            <div className="col-sm-5 col-md-5">
+            <div className="col-sm-5 col-md-5 pl-0">
               <div className="short-items">
                 <span>Short By:</span>
                 <select id="shortOption" className="form-control-select form-select"
@@ -127,7 +127,7 @@ class CategoryProducts extends Component {
                 </select>
               </div>
             </div>
-            <div className="col-sm-7 col-md-7">
+            <div className="col-sm-7 col-md-7 pr-0">
               <div className="w-100">
                 <Link type="button" onClick={e => this.setView(e, 'list')} className="grid-switcher" title="List View"><i className="fas fa-list"></i></Link>
                 <Link type="button" onClick={e => this.setView(e, 'grid')} className="grid-switcher" title="Grid View"><i className="fas fa-th"></i></Link>

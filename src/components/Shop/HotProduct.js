@@ -20,7 +20,7 @@ const HotProduct = (props) => {
         <div className="hot-deals-item-wrapper deals-border-right">
             <div className="portfolio-hover">
                 <div className="portfolio-hover-content">
-                    <div className="callToAction-xs">
+                    <div className="callToAction-xxs">
                         <p>
                             <Link type="button" onClick={e => props.quickView(item)} className="quick-view">Quick View</Link>
                             <Link to="product-details.html" className="quick-view">View Details</Link>

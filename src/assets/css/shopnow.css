@@ -47,9 +47,22 @@ a.lp-pom-button {
 @media(max-width:768px){
 .pro-equipment-section .productitem-auto .slick-slide{width: 100% !important; }
 .product-card-wrapper .slick-slide{width: 100% !important; }
+.shorting-box{margin-top: 1.5rem;}
+.short-items, #shortOption{width: 100% !important;}
+
 }
 /*=============================================================*/
 
+/*==============New css for shop now innerpage========================*/
+.ant-pagination{float: right; margin-top: 0.2rem !important; border-radius: 0;}
+.ant-pagination-simple .ant-pagination-prev, .ant-pagination-simple .ant-pagination-next{
+line-height: 0 !important;vertical-align: middle !important;background: #fff;border-radius: 100%;
+border: 1px solid #dee2e6; height: auto !important; padding:0.2rem 0 !important;}
+.ant-pagination-simple .ant-pagination-simple-pager input{border-radius: 0.3rem !important;
+border: 1px solid #23536b !important; color:#fff !important; height: auto !important;
+padding:0.2rem 0 !important; background:#23536b !important;}
+.anticon svg{margin-top:-2px !important}
+/*==============New css for shop now innerpage end here========================*/
 .topPadding {
   padding-top: 7.5rem;
 }
@@ -450,13 +463,8 @@ i.wishList-hover {
   height: 80%;
   margin-top: 0;
 }
-.callToAction-xs {
-  height: 100px;
-  width: auto;
-  display: block;
-  padding: 3rem;
-  text-align: center;
-}
+
+
 /*.quick-view{background:transparent;color:#23536b; display: block; border:2px solid #23536b; padding:0.5rem 1rem;
   border-radius: 2px; text-transform: uppercase; font-size: 0.875rem; font-weight: 600; cursor: pointer;
 margin-bottom: 0.6rem}*/
@@ -537,7 +545,7 @@ margin-bottom: 0.6rem}*/
 }
 .quick-view {
   background: transparent;
-  color: #23536b;
+  color: #23536b !important;
   display: block;
   border: 2px solid #23536b;
   padding: 0.5rem;
@@ -998,6 +1006,7 @@ a.bha-btn-secondry:hover {
   float: right;
   margin-top: 2px;
 }
+.short-items{margin: 0; padding:0 0 0.8rem; float: left;}
 .short-items .form-control-select {
   padding: 0 0.5rem !important;
   font-size: 0.875rem !important;
@@ -1013,7 +1022,7 @@ a.bha-btn-secondry:hover {
 }
 .short-items span {
   line-height: 2.3rem;
-  float: left;
+  float: left; margin-right: 0.5rem;
 }
 
 .featured-product {

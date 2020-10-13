@@ -757,7 +757,7 @@ body {
     padding-right: 2rem;
     padding-left: 2rem; } }
 .page-inner {
-  padding: 1.5rem 0; }
+  padding: 0 0rem 0 !important; }
 
 @media (min-width: 576px) {
   .page-inner {
@@ -7427,8 +7427,8 @@ div.table-responsive > div.dataTables_wrapper > div.row {
       right: 16px !important; }
 
   .page-inner {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     margin-right: auto;
     margin-left: auto; }
 
