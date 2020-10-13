@@ -83,7 +83,7 @@ class Footer extends Component {
                             })}
                         </ul>
                         <div class="breathing">
-                          <h3>{footer_menu_4_title}</h3>
+                          <h3 className="title">{footer_menu_4_title}</h3>
                           <ul class="foote-link">
                             {footer_menu_4_items &&
                               footer_menu_4_items.map((item, i) => {
