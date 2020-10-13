@@ -3,6 +3,7 @@ const initialState = {
     loading: false,
     hotDeals:undefined,
     bestSelling:undefined,
+    products:undefined,
     topRated:undefined,
     error: undefined
 }
