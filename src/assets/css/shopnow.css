@@ -1,15 +1,16 @@
 /*========================Shop Now page layout CSS===============================*/
-/*@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1920px) {
 .wsshoptabing { left: -352px !important; width: 136% !important;}
 .container{max-width: 1280px;}
 }
-*/
-/*@media screen and (max-width: 1366px) {
+
+@media screen and (max-width: 1366px) {
 .wsshoptabing { left: -207px !important; width: 121% !important;}
-  .container{max-width: 1140px;}
-}*/
+.container{max-width: 1140px;}
+}
 
 /*.slick-slide{margin:15px !important;}*/
+.shopnow-pagewrap{width:100% !important;}
 .shop-now-page-inner{padding: 0.3rem 1.5rem 0 2rem;}
 .bha-mb .view .mask{width: 100%;}
 .card-description { font-size: 0.850rem !important; font-weight: 400 !important; display: -webkit-box;
@@ -21,7 +22,8 @@
 .bg-opeque { padding: 2rem 0 2rem 0 !important; float: left !important;}
 /* .placement-client .bhaClient {margin-bottom: 0;} */
 .slick-track{margin-left: 0 !important;}
-.pro-equipment-section .slick-slide{width: 25% !important; }
+.pro-equipment-section .productitem-auto .slick-slide{width: 25% !important; }
+.product-card-wrapper .slick-slide{width: 25% !important; }
 a.lp-pom-button {
   text-decoration: none;
   color: #fff !important;
@@ -38,8 +40,13 @@ a.lp-pom-button {
   background: #2e3192;
       background-color: rgb(46, 49, 146);
 }
+.list-inline .list-inline-item { 
+  border: none;
+  margin: 0 0.2rem 0 0;
+}
 @media(max-width:768px){
-  .pro-equipment-section .slick-slide{width: 100% !important; }
+.pro-equipment-section .productitem-auto .slick-slide{width: 100% !important; }
+.product-card-wrapper .slick-slide{width: 100% !important; }
 }
 /*=============================================================*/
 
@@ -447,7 +454,7 @@ i.wishList-hover {
   height: 100px;
   width: auto;
   display: block;
-  padding: 3rem 4.5rem;
+  padding: 3rem;
   text-align: center;
 }
 /*.quick-view{background:transparent;color:#23536b; display: block; border:2px solid #23536b; padding:0.5rem 1rem;
