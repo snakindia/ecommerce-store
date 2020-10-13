@@ -16,11 +16,6 @@ import BestSellingImage from '../../assets/images/best-selling.png';
 
 import RBCarousel from 'react-bootstrap-carousel';
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css';
-import { Sticky } from 'react-sticky';
-import { Affix } from 'antd';
-import { API_URL } from '../../constants/appConstant';
-import axios from 'axios';
-import { fetch_dynamic_menus } from '../../actions/fetchActions';
 import { save_brochures_details } from '../../actions/freeBrochuresActions';
 import RequestAQuote from './../RequestAQuote/RequestAQuote';
 import { showToast } from './../Notification/notification.actions';

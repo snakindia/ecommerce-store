@@ -15,7 +15,7 @@ class LeftMenu extends Component {
   componentDidMount() {
     axios
       .post(
-        API_URL + '/product_categories/get_branded_cat_sub_cat_list?fields=name'
+        API_URL + '/get_shop_cat_sub_cat_list'
       )
       .then(res => {
         this.setState({ menu: res.data });
