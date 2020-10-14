@@ -19,7 +19,7 @@ export default class QuickView extends Component {
     }
     componentDidMount() {
         const { item } = this.props;
-        const imageUrl = item.images.length > 0 ? item.images[0].url : null;
+        const imageUrl = item &&  item.images && item.images.length > 0 ? item.images[0].url : null;
         if (imageUrl) {
             this.setState({ imageUrl })
         }

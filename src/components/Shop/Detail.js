@@ -7,6 +7,7 @@ import QuickView from './QuickView'
 import { getProduct } from './store/Actions'
 import { Link } from 'react-router-dom';
 import { Tabs } from 'antd';
+import RelatedProduct from './RelatedProduct';
 const { TabPane } = Tabs;
 
 class Detail extends Component {
@@ -27,7 +28,9 @@ class Detail extends Component {
     render() {
 
         const { product } = this.props;
-
+       
+        let related =product && product.related_products ? product.related_products :[];
+        related =[1,2,3,4,5,6,7,8,9].map(i=>related && related[0] ? related[0]:{});
         return (
 
             <div className="content-wrapper topPadding" id="content">
@@ -35,12 +38,12 @@ class Detail extends Component {
                     <div className="pagewrap">
                         <div className="bgWhite padding-bottom">
                             <div className="container-fluid" >
-                                {product ? <Breadcrumb>
-                                    <Breadcrumb.Item>Home</Breadcrumb.Item>
-                                    <Breadcrumb.Item>
+                                {product ? <Breadcrumb className="breadcrumb breadcrumb-bar pb-1 pt-2 small">
+                                    <Breadcrumb.Item className="breadcrumb-item">Home</Breadcrumb.Item>
+                                    <Breadcrumb.Item className="breadcrumb-item">
                                         <Link to="/shop">Products /Service</Link>
                                     </Breadcrumb.Item>
-                                    <Breadcrumb.Item>
+                                    <Breadcrumb.Item className="breadcrumb-item">
                                         <Link to={`/category/${product.category_id}`}>
                                             {product && product.category_name ? product.category_name : ''}
                                         </Link>
@@ -58,23 +61,25 @@ class Detail extends Component {
                                             {product ? <QuickView item={product} single={true} /> : null}
                                         </div>
                                         <div className="col-sm-3 col-md-3">
-
-                                            {/* <div className="right-content sidebar">
-                   </div> */}
+                                        <RelatedProduct items={related} />
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-lg-12">
                                             <div className="mt-4" id="review_rating">
-                                                <Tabs >
-                                                    <TabPane tab="Product Description" key="1">
+                                                <Tabs id="horizontalTab">
+                                                    <TabPane tab="Product Description" key="1" className="resp-tab-item">
                                                         <div className="resp-tabs-container" dangerouslySetInnerHTML={{ __html: product.description }}>
                                                         </div>
 
                                                     </TabPane>
-                                                    <TabPane tab="Product Reviews" key="2">
-                                                        No Product Reviews
-                                                </TabPane>
+                                                    <TabPane tab="Product Reviews" key="2"
+                                                        className="resp-tab-item">
+                                                        <div className="resp-tabs-container">
+                                                            No Product Reviews
+                                                        </div>
+
+                                                    </TabPane>
 
                                                 </Tabs>
 
@@ -83,43 +88,22 @@ class Detail extends Component {
                                     </div>
                                 </div>
                             </section>
-
-
-                            <div id="main">
-                                <div className="container" id="about_popup">
-                                    <div id="faq">
-                                        <div className="card">
-                                            <div className="card-header" id="faqhead1">
-                                                <a href="#" className="btn btn-header-link text-uppercase font-weight-bold" data-toggle="collapse" data-target="#faq1"
-                                                    aria-expanded="true" aria-controls="faq1">Compare<span> (3)</span></a>
-                                            </div>
-
-                                            <div id="faq1" className="collapse show" aria-labelledby="faqhead1" data-parent="#faq">
-                                                <div className="card-body" id="myDiv">
-                                                    <ul className="compare-widget__products">
-                                                        <li className="compare-widget__product">
-                                                            <img src="images/product/img1.jpg" alt="" className="compare-widget__image" />
-                                                            <h3 className="compare-widget__title">RCA-3D2 Replacement Solenoid Valve with Coil 1/8″ NPT 120V</h3>
-                                                            <button className="compare-widget__product-remove-trigger" title="Remove">Remove Product</button>
-                                                        </li>
-                                                        <li className="compare-widget__product">
-                                                            <img src="images/product/img2.jpg" alt="" className="compare-widget__image" />
-                                                            <h3 className="compare-widget__title">Goyen® Pentair® CA25T000-331 1″ Replacement Dust Collector Valve</h3>
-                                                            <button className="compare-widget__product-remove-trigger" title="Remove">Remove Product</button>
-                                                        </li>
-                                                        <li className="compare-widget__product">
-                                                            <img src="images/product/img6.jpg" alt="" className="compare-widget__image" />
-                                                            <h3 className="compare-widget__title">Taeha® ITSPK1 5825 Repair Kits for Taeha (Tae-ha) TH5825 Diaphragm Valve</h3>
-                                                            <button className="compare-widget__product-remove-trigger" title="Remove">Remove Product</button>
-                                                        </li>
-                                                    </ul>
-                                                    <button className="btn bha-btn-primary w-100">COMPARE SELECTED</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <section className="bg-opeque box-shadow footerItems">
+                                <div className="container-fluid">
+                                    <h2 className="bha_heading_2 z-index text-blue mb-4">Similar Category Products</h2>
                                 </div>
-                            </div>
+                            </section>
+                            <section className="pro-equipment-section box-shadow">
+                                <div className="container-fluid pl-0 pr-0 product-xs-item"></div>
+                            </section>
+                            <section className="bg-opeque">
+                                <div className="container-fluid">
+                                    <h2 className="bha_heading_2 z-index text-blue mb-4">Customers also viewed</h2>
+                                </div>
+                            </section>
+                            <section className="pro-equipment-section box-shadow">
+                                <div className="container-fluid pl-0 pr-0 product-xs-item"></div>
+                            </section>
                         </div>
                     </div>
                     : null
