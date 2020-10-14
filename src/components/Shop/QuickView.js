@@ -85,22 +85,24 @@ export default class QuickView extends Component {
                                     <div class="large-5 column">
                                         <Favourite />
                                         <div class="xzoom-container">
-                                            <div style={{ width: '100%' }} className="zoomer">
-                                                <Zoomer
-                                                    image={imageUrl}
-                                                    largeImage={imageUrl}
-                                                />
+                                            <div className="prod_gallery-sm">
+                                                <div style={{ width: '96%' }} className="zoomer">
+                                                    <Zoomer
+                                                        image={imageUrl}
+                                                        largeImage={imageUrl}
+                                                    />
+                                                </div>
                                             </div>
                                             <div class="thumbnails product-slider-div" style={{ width: '300px' }}>
                                                 <Slider {...settings}>
                                                     {sliderImages.map((sl, i) =>
-                                                        <div className="product-slider" style={{ width: '70px' }}>
+                                                        <div className="product-slider" style={{ width: '80px' }}>
                                                             <img
                                                                 key={`${i}hotp`}
                                                                 src={sl}
-                                                                width="200"
+                                                                width="780"
                                                                 onClick={e => this.changeImage(sl)}
-                                                                className="img-fluid"
+                                                                className="xzoom-gallery5"
                                                                 alt=''
                                                             />
                                                         </div>
@@ -151,7 +153,7 @@ export default class QuickView extends Component {
                                     </div>
                                 </form>
                                 <div class="float-left mt-4">
-                                    {(regular_price || sale_price) ? <AddToCart /> : <ContactForSale />}
+                                    {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase" /> : <ContactForSale />}
 
                                 </div>
                                 <div class="social_Share">
