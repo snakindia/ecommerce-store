@@ -359,7 +359,6 @@ height: 30px !important;}
   width: 35%;
   float: right;
   margin-right: 0.5rem;
-  box-sizing: ;
 }
 .pro_Price {
   margin: 5px 0;
@@ -644,9 +643,7 @@ i.wishList-hover-xs {
   color: #fff;
 }
 /*.noMargin{margin: 0;} .lftpadding{padding:0 0 0 15px ;}*/
-.category-inner {
   /*border-bottom:1px solid #f8f8f8;*/
-}
 .category-inner h3 {
   margin-bottom: 15px;
   padding: 15px;
