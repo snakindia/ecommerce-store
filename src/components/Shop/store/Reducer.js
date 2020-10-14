@@ -6,6 +6,7 @@ const initialState = {
     products:undefined,
     topRated:undefined,
     error: undefined,
+    product:undefined,
     menu:{}
 }
 
@@ -25,6 +26,11 @@ export default (state = initialState, { type, payload }) => {
 
         case ActionTypes.SHOP_GET_MENU_ERROR:
             return { ...state, loading: false  , menu:{},error:payload}
+        case ActionTypes.GET_PRODUCT_SUCCESS:
+            return { ...state, loading: false  , product:payload,error:undefined }
+
+        case ActionTypes.GET_PRODUCT_ERROR:
+            return { ...state, loading: false  , product:undefined,error:payload}
         
         case ActionTypes.SHOP_FLUSH_DATA:
             return {
@@ -33,7 +39,8 @@ export default (state = initialState, { type, payload }) => {
                 hotDeals:undefined,
                 bestSelling:undefined,
                 topRated:undefined,
-                error: undefined
+                error: undefined,
+                product:undefined
             }
 
 

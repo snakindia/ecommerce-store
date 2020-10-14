@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Ratings from './Ratings'
 import AddToCart from './AddToCart'
+import BuyNow from './BuyNow'
 import ContactForSale from './ContactForSale'
 import Share from './Share';
 import Favourite from './Favourite';
@@ -42,7 +43,7 @@ export default class QuickView extends Component {
     }
 
     render() {
-        const { item } = this.props;
+        const { item, single } = this.props;
 
         const { regular_price, sale_price } = item;
         let diff = undefined;
@@ -65,27 +66,30 @@ export default class QuickView extends Component {
             autoplay: false,
             autoplaySpeed: 5000
         }
-        const brand = item && item.tags && item.tags[0]? item.tags:'';
-        
+        const brand = item && item.tags && item.tags[0] ? item.tags : '';
+
         return (
-            <div className="modal-view-inner container-login animated fadeIn"
-                style={{
+            <div
+                className={single ? 'single-product-detail' : 'modal-view-inner container-login animated fadeIn'}
+
+                style={single ? {} : {
                     padding: '1rem',
                     background: 'rgb(255, 255, 255) none repeat scroll 0% 0%',
                     bordeRadius: '3px',
                     display: 'block'
                 }}
             >
-                <button type="button" class="close" onClick={this.props.hide}>
+                {single ? null : <button type="button" class="close" onClick={this.props.hide}>
                     <span aria-hidden="true">×</span>
                 </button>
+                }
                 <div class="container">
                     <div class="row no-gutters">
                         <div class="col-sm-6 col-md-6">
                             <section id="magnific">
                                 <div class="row">
                                     <div class="large-5 column">
-                                        <Favourite />
+                                        {single ? <Favourite />: null }
                                         <div class="xzoom-container">
                                             <div className="prod_gallery-sm">
                                                 <div style={{ width: '96%' }} className="zoomer">
@@ -138,25 +142,26 @@ export default class QuickView extends Component {
 
                                 </div>
                                 {(regular_price || sale_price) ?
-                                <form class="inc_value pt-0">
-                                    <div class="row">
-                                        <div class="col-sm-2 mt-2 mr-3">Quantity</div>
-                                        <div class="col-sm-8">
+                                    <form class="inc_value pt-0">
+                                        <div class="row">
+                                            <div class="col-sm-2 mt-2 mr-3">Quantity</div>
+                                            <div class="col-sm-8">
 
-                                            <div class="value-button inc_value decrease"
-                                                onClick={e => this.changeCounter(-1)}
-                                            >-</div>
-                                            <input type="text" id="number_modal"
-                                                onChange={this.handleInput}
-                                                class="number" value={counts} />
-                                            <div class="value-button increase"
-                                                onClick={e => this.changeCounter(+1)}
-                                            >+</div>
+                                                <div class="value-button inc_value decrease"
+                                                    onClick={e => this.changeCounter(-1)}
+                                                >-</div>
+                                                <input type="text" id="number_modal"
+                                                    onChange={this.handleInput}
+                                                    class="number" value={counts} />
+                                                <div class="value-button increase"
+                                                    onClick={e => this.changeCounter(+1)}
+                                                >+</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>: null }
+                                    </form> : null}
                                 <div class="float-left mt-4">
                                     {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase" /> : <ContactForSale />}
+                                    {(regular_price || sale_price) && single ? <BuyNow /> : null}
 
                                 </div>
                                 <div class="social_Share">

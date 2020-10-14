@@ -22,6 +22,15 @@ export const getDataError = (payload) => ({
     type: ActionTypes.GET_DATA_ERROR,
     payload
 })
+
+export const getProductSuccess = (payload) => ({
+    type: ActionTypes.GET_PRODUCT_SUCCESS,
+    payload
+})
+export const getProductError = (payload) => ({
+    type: ActionTypes.GET_PRODUCT_ERROR,
+    payload
+})
 export const getMenuSuccess = (payload) => ({
     type: ActionTypes.SHOP_GET_MENU_SUCCESS,
     payload
@@ -61,6 +70,28 @@ export const getProducts = (payload, id=null) => {
             .catch(e => {
                 dispatch(setLoading(false));
                 dispatch(getDataError({[payload]:undefined,error:e}));
+            });
+    }
+}
+export const getProduct = (id) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        
+       let url=`productDetails/${id}`;
+       
+        Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data ) {
+                    dispatch(getProductSuccess(res.data));
+                } else {
+                    dispatch(getProductError(undefined));
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                dispatch(getProductError(e));
             });
     }
 }
