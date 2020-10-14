@@ -137,6 +137,7 @@ export default class QuickView extends Component {
                                     </p>
 
                                 </div>
+                                {(regular_price || sale_price) ?
                                 <form class="inc_value pt-0">
                                     <div class="row">
                                         <div class="col-sm-2 mt-2 mr-3">Quantity</div>
@@ -153,7 +154,7 @@ export default class QuickView extends Component {
                                             >+</div>
                                         </div>
                                     </div>
-                                </form>
+                                </form>: null }
                                 <div class="float-left mt-4">
                                     {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase" /> : <ContactForSale />}
 

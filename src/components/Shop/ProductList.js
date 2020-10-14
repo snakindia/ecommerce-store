@@ -30,7 +30,7 @@ export default class ProductList extends Component {
                             <div className="callToAction-list">
                                 <p>
                                     <Link type="button" onClick={e => this.props.quickView(item)} className="quick-view">Quick View</Link>
-                                    <Link to="product-details.html" className="quick-view">View Details</Link>
+                                    <Link to={`/shop/${item.id}`} className="quick-view">View Details</Link>
                                 </p>
                             </div>
                         </div>
