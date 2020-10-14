@@ -17,7 +17,7 @@
     left: 0;
     top: 0;
 }
-/*.main-header .logo-header{width: 240px !important}*/
+
 .main-header{width: auto !important;}
 .sidebar .sidebar-wrapper{width: auto !important}
 .sidebar .nav > .nav-item a i {
@@ -46,7 +46,6 @@ margin-bottom:0 !important;}
 .main-header .btn-minimize{color:#fff !important;}
 
 .sidebar .nav > .nav-item a p{color:#f2f2f2 !important; width: 100% !important;}
-/*.sidebar .nav > .nav-item a p:hover{color:#f00 !important;}*/
 
 .sidebar .nav > .nav-item a i{color:#fff !important;}
 
@@ -55,8 +54,6 @@ margin-bottom:0 !important;}
 .sidebar .nav > .nav-item a:hover i, .sidebar .nav > .nav-item a:focus i {
   color: #00bed0 !important; }
 .sidebar .nav > .nav-item a .caret{color:#fff !important;}
-/*.sidebar .nav > .nav-item a .caret{margin-left: 0 !important;
-margin-right: 0 !important;}*/
 
 /* ------------------------------------------------------------- */
 .filter{float:left; width:10%;line-height: 35px; font-size: 1rem}
@@ -72,7 +69,7 @@ text-decoration: none; font-weight: 700}
 .action-link:hover{text-decoration: none; color:#555;}
 .action-link:focus{text-decoration: none;}
 .dropdown-menu{margin-top: 8px !important}
-/*.nav{margin-top: 5px !important;}*/
+
 .col-icon{width: 100px !important;}
 .student-search{float:left; width:60%}
 .siteLogo-container{padding:1rem 0;}
@@ -3088,7 +3085,7 @@ label.error {
   border-radius: 0px; }
 
 /*     Nav Pill     */
-.nav-pills > li:first-child > .nav-link {
+/* .nav-pills > li:first-child > .nav-link {
   border-radius: 4px 0 0 4px !important; }
 .nav-pills > li:last-child > .nav-link {
   border-radius: 0 4px 4px 0 !important; }
@@ -3180,7 +3177,7 @@ label.error {
   border: 1px solid #ffa534; }
 .nav-pills.nav-danger .nav-link.active {
   background: #f3545d;
-  border: 1px solid #f3545d; }
+  border: 1px solid #f3545d; } */
 
 /* Size Nav */
 .nav-sm .nav-link {
@@ -4955,13 +4952,7 @@ label.error {
 .toggle-off.btn-xs {
   padding-left: 12px; }
 
-/*!
-* animate.css -http://daneden.me/animate
-* Version - 3.6.0
-* Licensed under the MIT license - http://opensource.org/licenses/MIT
-*
-* Copyright (c) 2018 Daniel Eden
-*/
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -5029,7 +5020,7 @@ label.error {
   -webkit-animation-name: flash;
   animation-name: flash; }
 
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+
 @-webkit-keyframes pulse {
   from {
     -webkit-transform: scale3d(1, 1, 1);
@@ -5246,7 +5237,7 @@ label.error {
   -webkit-animation-name: tada;
   animation-name: tada; }
 
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+
 @-webkit-keyframes wobble {
   from {
     -webkit-transform: translate3d(0, 0, 0);
@@ -6725,7 +6716,7 @@ label.error {
   -webkit-animation-name: jackInTheBox;
   animation-name: jackInTheBox; }
 
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+
 @-webkit-keyframes rollIn {
   from {
     opacity: 0;
@@ -6748,7 +6739,6 @@ label.error {
   -webkit-animation-name: rollIn;
   animation-name: rollIn; }
 
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 @-webkit-keyframes rollOut {
   from {
     opacity: 1; }

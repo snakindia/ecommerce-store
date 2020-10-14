@@ -9,6 +9,7 @@ import PremiumBrands from './PremiumBrands';
 import CategoryProducts from './CategoryProducts';
 import Products from './Products'
 import './style.css'
+import './xzoom.css'
 import QuickView from './QuickView'
 import Footer from '../Footer'
 class ShopNow extends Component {
@@ -47,7 +48,7 @@ class ShopNow extends Component {
       <div className={visible ? 'wrapper' : 'sidebar_minimize wrapper'}>
         <div className="topPadding">
           <div className="shopnow-pagewrap">
-            <div className="bgWhite padding-bottom">
+            <div className="bgWhite">
               <LeftMenu visible={visible} shrink={this.shrink} />
               <div className="main-panel">
                 <div className="content">

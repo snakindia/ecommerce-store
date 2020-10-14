@@ -764,7 +764,8 @@ width: 1920px;
 /*.banner-slider-container{overflow-x: hidden !important}*/
 .tab-content{padding:15px 0 10px 15px !important}
 .hot-deals-item-wrapper{text-align: center;}
-.hot-deals-item-wrapper .item-pro-inner{padding-bottom:3rem !important;}
+.hot-deals-item-wrapper .item-pro-inner{padding-bottom:2rem !important;}
+.hot-deals-item-wrapper.imgwrap{text-align: center !important;}
 .filterImg{width:200px !important; height: 200px !important; object-fit: cover !important; 
 	object-position: center !important; border:none !important;}
 
