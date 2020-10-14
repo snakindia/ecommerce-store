@@ -56,6 +56,7 @@ a.lp-pom-button {
 .shorting-box{padding-bottom: 1rem !important;}
 .w-100{text-align: left;}
 a.lp-pom-button{width:65%; margin-left: 0 !important;}
+.ant-select{width: 100% !important;}
 
 }
 /*=============================================================*/
@@ -78,6 +79,18 @@ height: 30px !important;}
 /* .strike.red{color:#e63232 !important; background:transparent !important} */
 .pro_Price .currecny span.strike.red{color:#e63232 !important; background:transparent !important}
 .brand_name, .pro_Id{float:left; width: 100%;}
+/*===added css for left menu 14-10-2020===============================*/
+.ant-menu-submenu > .ant-menu{background:#074359 !important}
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left{border-right:none !important}
+.ant-menu-submenu-arrow::before{background:#fff !important; position: relative; z-index: 0 !important;}
+.ant-menu-submenu-arrow::after{background:#fff !important; position: relative; z-index: 0 !important;}
+.ant-menu-item, .ant-menu-submenu-title{background:none !important}
+.ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow, .ant-menu-submenu-vertical-left > .ant-menu-submenu-title .ant-menu-submenu-arrow, .ant-menu-submenu-vertical-right > .ant-menu-submenu-title .ant-menu-submenu-arrow, .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow
+{right: 5px !important;}
+.ant-menu-inline .ant-menu-submenu-title {width: calc(100% + 1px) !important;}
+.anticon{position: relative;z-index: 10 !important;margin-left:0.25rem !important}
+.anticon svg {margin-top: -5px !important;}
+
 /*==============New css for shop now innerpage end here========================*/
 .topPadding {
   padding-top: 7.5rem;

@@ -113,7 +113,7 @@ class CategoryProducts extends Component {
     const total = data && data.data ? data.data.length : 0;
     return (
       <section className="pro-equipment-section">
-        <div className="container shorting-box border-bottom">
+        <div className="container-fluid shorting-box border-bottom">
           <div className="row">
             <div className="col-sm-5 col-md-5 pl-0 pr-0">
               <div className="short-items">
@@ -185,7 +185,7 @@ class CategoryProducts extends Component {
         }
 
 
-        <div className="container box-shadow shorting-box">
+        <div className="container-fluid box-shadow shorting-box">
           <div className="row">
             <div className="col-sm-4 col-md-4">
               <div className="short-items">
