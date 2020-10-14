@@ -75,7 +75,7 @@ height: 30px !important;}
 .product-xs-item .hot-deals-item-wrapper{padding-bottom: 0;}
 .product-xs-item .outer-wrpper{margin-bottom: 0;}
 .hot-deals-item-wrapper .card{box-shadow: none;}
-
+.media a.like-button{margin-top:5rem !important}
 /* .strike.red{color:#e63232 !important; background:transparent !important} */
 .pro_Price .currecny span.strike.red{color:#e63232 !important; background:transparent !important}
 .brand_name, .pro_Id{float:left; width: 100%;}
@@ -88,13 +88,11 @@ height: 30px !important;}
 .ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow, .ant-menu-submenu-vertical-left > .ant-menu-submenu-title .ant-menu-submenu-arrow, .ant-menu-submenu-vertical-right > .ant-menu-submenu-title .ant-menu-submenu-arrow, .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow
 {right: 5px !important;}
 .ant-menu-inline .ant-menu-submenu-title {width: calc(100% + 1px) !important;}
-.anticon{position: relative;z-index: 10 !important;margin-left:0.25rem !important}
-.anticon svg {margin-top: -5px !important;}
+.anticon{position: relative;z-index: 10 !important;margin-left:0 !important}
+.anticon svg {margin-top: -2px !important;}
 
 /*==============New css for shop now innerpage end here========================*/
-.topPadding {
-  padding-top: 7.5rem;
-}
+.topPadding { padding-top: 7.5rem;}
 .banner-container-xs {
   height: 400px;
 }
