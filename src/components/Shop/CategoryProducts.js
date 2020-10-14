@@ -4,7 +4,10 @@ import Product from './Product';
 import ProductList from './ProductList';
 import { getProducts } from './store/Actions';
 import Pagination from './Pagination';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { Select } from 'antd';
+
+const { Option } = Select;
 class CategoryProducts extends Component {
   constructor(props) {
     super(props);
@@ -28,8 +31,8 @@ class CategoryProducts extends Component {
       this.setData()
     }
     const { params: { id } } = this.props.match;
-    const { params: { id:oldId } } = prevProps.match;
-    if(id !== oldId){
+    const { params: { id: oldId } } = prevProps.match;
+    if (id !== oldId) {
       this.props.getProducts('products', id);
     }
   }
@@ -84,17 +87,15 @@ class CategoryProducts extends Component {
     }, () => this.setData())
   }
 
-  changePageSize = (e) => {
-    const { value } = e.target;
-    let size = value && !isNaN(parseInt(value)) ? parseInt(value) : 20;
+  changePageSize = (resultPerPage) => {
+
     this.setState({
-      resultPerPage: size
+      resultPerPage, currentPage: 1
     }, () => this.setData())
   }
-  sort = (e) => {
-    const { value } = e.target;
+  sort = (sorting) => {
     this.setState({
-      sorting: value
+      sorting
     }, () => this.setData())
 
   }
@@ -116,15 +117,23 @@ class CategoryProducts extends Component {
           <div className="row">
             <div className="col-sm-5 col-md-5 pl-0 pr-0">
               <div className="short-items">
-                <span>Short By:</span>
-                <select id="shortOption" className="form-control-select form-select"
+                <span>Sort By:</span>
+                <Select
+                  showSearch={false}
+                  style={{ width: 200 }}
                   onChange={this.sort}
+                  defaultValue={sorting}
                 >
-                  <option value='latest' selected={sorting == 'latest'}>Default Shorting:</option>
-                  <option value='oldest' selected={sorting == 'Oldest'}>Oldest</option>
-                  <option value='AZ' selected={sorting == 'Oldest'}>By Name A-Z</option>
-                  <option value='ZA' selected={sorting == 'Oldest'}>By Name Z-A</option>
-                </select>
+                  <Option value='latest'>Newest Items</Option>
+                  <Option selected="bestselling" value="bestselling">Bestselling</Option>
+                  <Option value="AZ">Alphabetical: A to Z</Option>
+                  <Option value="ZA">Alphabetical: Z to A</Option>
+                  <Option value="avgcustomerreview">Avg. Customer Review</Option>
+                  <Option value="priceasc">Price: Low to High</Option>
+                  <Option value="pricedesc">Price: High to Low</Option>
+
+                </Select>
+
               </div>
             </div>
             <div className="col-sm-7 col-md-7 pl-0 pr-0">
@@ -161,12 +170,12 @@ class CategoryProducts extends Component {
                 <div className="col-lg-12">
                   <ul className="list-group">
                     {products.map((item, idx) =>
-                      
-                        <ProductList
-                          item={item}
-                          quickView={this.props.quickView}
-                        />
-                      
+
+                      <ProductList
+                        item={item}
+                        quickView={this.props.quickView}
+                      />
+
                     )
                     }
                   </ul>
@@ -181,16 +190,20 @@ class CategoryProducts extends Component {
             <div className="col-sm-4 col-md-4">
               <div className="short-items">
                 <span>Show:</span>
-                <select id="shortOption" className="form-control-select form-select"
-                  style={{ width: '80px !important', float: 'left', marginLeft: '1rem' }}
+                <Select
+                  showSearch={false}
+                  style={{ width: 200 }}
                   onChange={this.changePageSize}
+                  defaultValue={this.state.resultPerPage}
                 >
-                  <option value={12} selected={resultPerPage == 12}>12</option>
-                  <option value={20} selected={resultPerPage == 20}>20</option>
-                  <option value={50} selected={resultPerPage == 50}>50</option>
-                  <option value={100} selected={resultPerPage == 100}>100</option>
-                  <option value={200} selected={resultPerPage == 200}>200</option>
-                </select>
+                  <Option value={10}>10</Option>
+                  <Option value={20}>20</Option>
+                  <Option value={50}>50</Option>
+                  <Option value={100} >100</Option>
+                  <Option value={200}>200</Option>
+
+                </Select>
+
               </div>
             </div>
             <div className="col-sm-8 col-md-8">

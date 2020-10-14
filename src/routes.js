@@ -93,6 +93,7 @@ useEffect(()=>{
                             <Route path="/inner-page" component={InnerPage} />
                             
                             <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
+                            <Route path="/shop/:id" component={Shop} />
                             <Route path="/shop" component={Shop} />
                             <Route path="/category/:id" component={Shop} />
                             <Route path="/category" component={Category} />

@@ -65,6 +65,8 @@ export default class QuickView extends Component {
             autoplay: false,
             autoplaySpeed: 5000
         }
+        const brand = item && item.tags && item.tags[0]? item.tags:'';
+        
         return (
             <div className="modal-view-inner container-login animated fadeIn"
                 style={{
@@ -121,7 +123,7 @@ export default class QuickView extends Component {
                         <div class="col-sm-6 col-md-6 pl-3">
                             <div class="media-body pt-3 pr-4">
                                 <h4 class="mt-0 mb-2">{item.name}</h4>
-                                <div class="brand_name"><span class="txtLabel">Brand:</span><span>{item.category_name}</span></div>
+                                <div class="brand_name"><span class="txtLabel">Brand:</span><span>{brand}</span></div>
                                 <div class="pro_Id"><span class="txtLabel">SKU:</span>
                                     <span>{item.sku}</span></div>
                                 <div class="star-rating mt-2">
@@ -135,6 +137,7 @@ export default class QuickView extends Component {
                                     </p>
 
                                 </div>
+                                {(regular_price || sale_price) ?
                                 <form class="inc_value pt-0">
                                     <div class="row">
                                         <div class="col-sm-2 mt-2 mr-3">Quantity</div>
@@ -151,7 +154,7 @@ export default class QuickView extends Component {
                                             >+</div>
                                         </div>
                                     </div>
-                                </form>
+                                </form>: null }
                                 <div class="float-left mt-4">
                                     {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase" /> : <ContactForSale />}
 
