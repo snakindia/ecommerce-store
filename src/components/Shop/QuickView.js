@@ -65,6 +65,8 @@ export default class QuickView extends Component {
             autoplay: false,
             autoplaySpeed: 5000
         }
+        const brand = item && item.tags && item.tags[0]? item.tags:'';
+        
         return (
             <div className="modal-view-inner container-login animated fadeIn"
                 style={{
@@ -119,7 +121,7 @@ export default class QuickView extends Component {
                         <div class="col-sm-6 col-md-6 pl-3">
                             <div class="media-body pt-3 pr-4">
                                 <h4 class="mt-0 mb-2">{item.name}</h4>
-                                <div class="brand_name"><span class="txtLabel">Brand:</span><span>{item.category_name}</span></div>
+                                <div class="brand_name"><span class="txtLabel">Brand:</span><span>{brand}</span></div>
                                 <div class="pro_Id"><span class="txtLabel">SKU:</span>
                                     <span>{item.sku}</span></div>
                                 <div class="star-rating mt-2">

@@ -1,35 +1,48 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios';
 import { API_URL, API_IMAGE_PATH } from './../../constants/appConstant';
-import {getMenu} from './store/Actions'
-import {setFooter} from '../../actions/pageActions'
+import { getMenu } from './store/Actions'
+import { setFooter } from '../../actions/pageActions'
+import { Menu } from 'antd';
+import './css/antd.less'
+import { AppstoreOutlined, MailOutlined, SettingOutlined, FolderFilled } from '@ant-design/icons';
+
+const { SubMenu } = Menu;
 class LeftMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: null
+      active: null,
+      openKeys: [],
     };
+    this.rootSubmenuKeys = [];
   }
 
   componentDidMount() {
-   this.props.getMenu()
-   this.props.setFooter(false)
+    this.props.getMenu()
+    this.props.setFooter(false)
   }
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.props.setFooter(true)
   }
-  
-  showSubMenu = (item) => {
-    const { active } = this.state;
-    const id = item._id;
-    this.setState({ active: active == id ? null : id })
+  onOpenChange = openKeys => {
+    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+    if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      this.setState({ openKeys });
+    } else {
+      this.setState({
+        openKeys: latestOpenKey ? [latestOpenKey] : [],
+      });
+    }
+  };
+  push=(link)=>{
+    this.props.history.push(link)
   }
-
   render() {
-    const {active } = this.state;
-    const {visible, menu } = this.props;
+    const { active } = this.state;
+    const { visible, menu } = this.props;
     return (
       <>
         <div >
@@ -63,42 +76,69 @@ class LeftMenu extends Component {
           <div className="sidebar">
             <div className="sidebar-wrapper scrollbar-inner">
               <div className="sidebar-content">
-                <ul className="nav">
+                <Menu
+                  style={{
+                    backgroundColor: '#1f465c',
+                    color: 'white',
+                    fontSize: '13px',
+                    marginBottom: '0px',
+                    marginRight: '5px',
+                    whiteSpace: 'nowrap',
+                    fontWeight: 600,
+
+                  }}
+                  className="nav"
+                  mode="inline"
+                  openKeys={this.state.openKeys}
+                  onOpenChange={this.onOpenChange}
+
+                //style={{ width: 256 }}
+                >
                   {
-                    Object.keys(menu).length > 0 ? menu.map((item, idx) => <li
-                      key={`${idx}sm`}
-                      className={active == item._id ? 'nav-item submenu' : 'nav-item'}
-                      onClick={e => this.showSubMenu(item)}
-                    >
-                      <Link
-                        className={active == item._id ? '' : 'collapsed'}
-                        type="button"
-                      >
-                        <i className="fas fa-folder"></i>
-                        <p>{item.name}</p>
-                        <span className="caret"></span>
-                      </Link>
-                      <div
-                        className={active == item._id ? 'collapse show' : 'collapse'}
+                    Object.keys(menu).length > 0 ? menu.map((item, idx) =>
+                      <SubMenu
+                        style={{
+                          backgroundColor: '#1f465c',
+                          alignItems: 'center',
+                          color: '#fff',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          position: 'relative',
+                          marginBottom: '3px'
 
-                        id="base">
-                        <ul className="nav nav-collapse">
-                          {Object.keys(item.sub_cat).length > 0 &&
-                            item.sub_cat.map((subCat, idx) => <li>
-                              <Link to={`/category/${subCat._id}`}>
-                                <span className="sub-item">{subCat.name}</span>
-                              </Link>
-                            </li>
+                        }}
+                        className="nav-item submenu"
+                        key={`${idx}sm`}
+                        title={
+                          <span className="sub-item">{item.name}</span>
+                        }
+                        
+                        icon={<FolderFilled />}
+                      >{Object.keys(item.sub_cat).length > 0 &&
+                        item.sub_cat.map((subCat, idx) =>
+                          <Menu.Item 
+                          key={subCat._id}
+                          onClick={e=>this.push(`/category/${subCat._id}`)} 
+                          
+                          style={{
+                            backgroundColor: '#1f465c',
+                            alignItems: 'center',
+                            color: '#fff',
+                            fontSize: '14px',
+                            fontWeight: '400',
+                            position: 'relative',
+                            marginBottom: '3px'
+  
+                          }}
+                          >
+                            <span className="sub-item">{subCat.name}</span></Menu.Item>
+                        )}
+                      </SubMenu>)
 
-                            )}
-                        </ul>
-                      </div>
-                    </li>
-                    )
                       : null
                   }
 
-                </ul>
+                </Menu>
               </div>
             </div>
           </div>
@@ -109,14 +149,14 @@ class LeftMenu extends Component {
 }
 const mapStateToProps = (state) => ({
   loading: state.shop.loading,
-  menu:state.shop.menu,
+  menu: state.shop.menu,
   error: state.shop.error
 });
 const mapDispatchToProps = dispatch => ({
   getMenu: () => dispatch(getMenu()),
   setFooter: (payload) => dispatch(setFooter(payload)),
 });
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(LeftMenu);
+)(LeftMenu));
