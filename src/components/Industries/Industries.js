@@ -129,9 +129,9 @@ class Industries extends Component {
                 <div class="content-wrapper pb-0 pt-0">
                     <div class="pagewrap">
                         <div class="bgWhite pb-4">
-                            <CheckOutNews />
+                            {/* <CheckOutNews /> */}
                             <PremiumBrands />
-                            <CheckOutEvents />
+                            {/* <CheckOutEvents /> */}
                             <Clients />
                         </div>
                     </div>

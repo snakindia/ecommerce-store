@@ -40,7 +40,7 @@ class RepresentUs extends Component {
                             </div>
                         </div>
                         <Clients />
-                        <Faq data={data}/>
+                        {/* <Faq data={data}/> */}
                     </div>
                 </div>
             </div>
