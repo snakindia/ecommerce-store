@@ -153,8 +153,8 @@ class TopBar extends Component {
                     </li>
                   ) : (
                     <li>
-                     {/* <a onClick={this.toggle(5)}>*/}
-                    <a>
+                     <a onClick={this.toggle(5)}>
+                   
                         <embed src={Profile}  alt="" width="20" height="20"></embed>
                         login/signup
                       </a>

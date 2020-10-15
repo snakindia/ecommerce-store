@@ -29,7 +29,7 @@ const HotProduct = (props) => {
                 </div>
             </div>
             <div className="card d-block">
-                <Favourite className="like-button hover-hotdeal" />
+                {/* <Favourite className="like-button hover-hotdeal" /> */}
 
                 <div className="icon-wishlist"></div>
                 {sale && <div className="hot-tag">

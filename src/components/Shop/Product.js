@@ -33,7 +33,7 @@ export default class Product extends Component {
                         </div>
                     </div>
                 </div>
-                <Favourite />
+                {/* <Favourite /> */}
                 <div class="item-pro-inner">
                     <a href="#">
                         <img class="img-fluid"
