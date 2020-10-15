@@ -150,7 +150,7 @@ class About extends React.Component {
                           }}
                         >
                           <div class="row">
-                            <div class="col-lg-12 text-center">
+                            <div class="col-lg-12 text-center horz-division">
                               <Link
                                 className="js-scroll-trigger"
                                 onClick={(e) => this.scrollToEle(e,'ethics', -110)}
@@ -202,7 +202,7 @@ class About extends React.Component {
                           }}
                         >
                           <div class="row">
-                            <div class="col-lg-12 text-center">
+                            <div class="col-lg-12 text-center horz-division">
                               <Link
                                 className="js-scroll-trigger"
                                 onClick={(e) => this.scrollToEle(e,'mission',-110)}
@@ -257,7 +257,7 @@ class About extends React.Component {
                           }}
                         >
                           <div class="row">
-                            <div class="col-lg-12 text-center">
+                            <div class="col-lg-12 text-center horz-division">
                               <Link
                                 className="js-scroll-trigger"
                                 onClick={(e) => this.scrollToEle(e,'location', -110)}

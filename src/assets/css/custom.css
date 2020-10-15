@@ -281,11 +281,12 @@ button.close {padding: 0; background-color: transparent;border: 0;-webkit-appear
 .tab-menu .tablink:hover{background: #23536b; transition: 0.3s; color:#fff !important;}
 .tab-menu .tablink.current{color:#fff !important; background:#23536b;}	
  
-.seperator { background: rgba(167,14,21,1);
+/*.seperator { background: rgba(167,14,21,1);
   width: 60px; height: 30px !important; border-radius: 100px;
   line-height: 20px !important; font-size: 1.5rem !important; font-weight: 700 !important;
   position: absolute; top: -15px !important; left: 47% !important; border: 4px solid #ac2b31;
-  /* box-shadow: 0 0 2px #000; */}	
+  }*/
+.horz-division{margin-top:-10px;}	
 #message p, .uxi-widget p, .mission-text p{text-align: left;}
 .text-justify{text-align:left !important}	
 
@@ -624,7 +625,7 @@ z-index: 1000000 !important;  padding: 2rem 1.5rem 1rem !important; color: #000;
 .caption{width:100%; top:0; text-align: center;}
 .caption .bha_heading_1{height: auto !important; background: none; text-align: center;
 padding-left:0 !important;}
-.tab-menu .tablink{width: 100% !important}
+.tab-menu .tablink{width: 100%}
 [class*="col-"] { width: 100% !important;}
 .border-frame{width: 100% !important; min-height:200px !important}
 .p-10{padding:0.5rem 2rem !important; text-align:left !important; }
@@ -683,6 +684,7 @@ text-align: center;width: 94% !important;}
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{width: auto !important;}
 .wsshoptabing{width: 100% !important;}
 .wsmobileheader .wssearch i{display: none !important}
+
 }
 
 @media(min-width: 360px){
@@ -696,6 +698,7 @@ text-align: center;width: 94% !important;}
   .logIn{top:0;/*width: 100% !important; right:0 !important; background: #fff !important;*/ border:none;}
   .socialLink span{padding-right: 6px;}
   .socialLink a{margin: 0 1.5px;}
+  .tab-menu{top: 1.5rem !important;}
 
 }
 
@@ -844,6 +847,32 @@ body {
   .caption{top:10% !important;}
   .bottom-navigation{bottom:0 !important;}
   .placement-client .slick-slide{width:140px ; margin:10px;}
+  
 }
 
 .footer-main .title{color:#fff;}
+
+/* iPads (portrait and landscape) ----------- */
+@media(max-device-width : 1024px) {
+.smllogo{width:12%;padding-top:2px;}
+.wsmenu > .wsmenu-list > li > .navtext{padding: 2rem 0rem;
+    font-size: 12px;}
+/*.banner-about img{height: 400px !important}*/
+/*.tab-menu{position: absolute; bottom:30px;}*/
+}
+@media(max-device-width : 1280px) {
+  .wsmenu > .wsmenu-list > li > .navtext{padding: 1.5rem 0.5rem;}
+  /*.tab-menu{position: absolute !important;
+    bottom: 3rem !important;}
+  .tab-menu .tablink{width: 25% !important}*/
+}
+@media(max-device-width:640px){
+.banner-about{position: relative;}
+/*.tab-menu{position: absolute; bottom:20px;}
+.banner-about img{height: 100vh}
+.tab-menu .tablink{padding:0.860rem 2.1rem;}
+.tab-menu .tablink{width: auto!important}*/
+.tab-menu{margin-top: 5rem;}
+}
+
+.topbar{display: none}
