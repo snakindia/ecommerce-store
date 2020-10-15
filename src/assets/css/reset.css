@@ -296,9 +296,11 @@ background: rgb(255,255,255,0.8);}
      transform: scale(1.025); 
 }
 
-.seperator{background: rgba(167,14,21,1); width:60px; height:30px; border-radius: 100px; line-height: 25px;
-font-size: 1.5rem; font-weight: 700;position: absolute; top:-15px; left: 47%;  border:4px solid #ac2b31;
-/*box-shadow: 0 0 2px #000*/}
+.seperator{background: rgba(167,14,21,1); width:60px; height:30px; 
+  border-radius: 100px; line-height: 20px !important;font-size: 1.5rem !important; 
+  font-weight: 700 !important;margin-top:-30px !important; 
+  /*position: absolute !important; top:-15px !important; 
+  left:0; right:0; bottom:0;  */border:4px solid #ac2b31 !important;}
 
 .bha-tab{position: absolute; bottom:-50px;left:0; right:0}
 .block-ellipsis { display: block; display: -webkit-box; max-width: 100%; margin: 0 auto; line-height: auto;
@@ -319,66 +321,32 @@ font-size: 1.5rem; font-weight: 700;position: absolute; top:-15px; left: 47%;  b
 .tab-menu .tablink:hover{background: #23536b; transition: 0.3s; color:#fff;}
 .tab-menu .tablink.current{color:#fff; background:#23536b;}
 
-/*.tab-menu .tablink.current:after {
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 15px solid #23536b;
-  content: " ";
-  position: absolute;
-  bottom: -10px;
-  left: 45%;}*/
-/*.js-scroll-menu{background: #fff; width:100%; float:left; padding:0; margin:0;box-shadow: 0 0 10px #ddd;}*/
-.right-control.orange, .left-control.orange{background: #6995b1}
-.content-section{float:left; width:100%; padding:1rem; background: #fff url(../images/c_bha_pro_bg.jpg);background-size: cover; background-position: center;/* box-shadow: 0 5px 10px #000*/
-margin-bottom: 10px;}
-.menu-fixed {top: 116px; z-index: 100 !important; position: fixed !important; }
-.wsmenu{z-index: 10000 !important}
-.heading-h4{font-family: 'Oswald', sans-serif !important; font-size: 1.3rem; font-weight:normal;
-padding:1.5rem 0; width:100%;}
-.mv-section{background: #fff url(../images/c_bha_pro_bg.jpg); background-size: cover; background-position: center; padding:1rem; float:left; width: 100%; color:#000; position: relative;}
-.quote{font-size: 1.6rem; font-weight: 300; padding:1.5rem 0;}
-.font-xx{font-size: 1.2rem; font-weight: 600}
-.bha_heading_2.text-black{color:#000;}
-.text-blue{color:#235168;}
-.border-left{border-left:4px solid #6995b1 !important; padding-right:30px !important;}
-.mission-section{background: #043852 url(../images/mission_bg.jpg);height: 500px; width: 100%; float:left;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;}
-.location-section{float:left;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;}
-/*.heading{
-  background:#6995b1;
-  position:relative;
-  top:32px;
-  margin-bottom:2rem;
-  height:32px;
-  width:100px;
-}
-.heading:after,.heading:before {
-  height: 0;
-  width: 0;
-  content: "";
-  display: block;
-  position: relative;
-}
-.heading:before{
-  border-bottom: 32px solid #6995b1;
-  border-left: 12px solid transparent;
-  left: 12px;
-}
-.heading:after{
-  border-bottom: 32px solid #6995b1;
-  border-right: 12px solid transparent;
-  left: 100px;
-  top:-32px;
-}*/
+/*.tab-menu .tablink.current:after { width: 0; height: 0; border-left: 15px
+solid transparent; border-right: 15px solid transparent; border-top: 15px
+solid #23536b; content: " "; position: absolute; bottom: -10px; left: 45%;}*/
+/*.js-scroll-menu{background: #fff; width:100%; float:left; padding:0;
+margin:0;box-shadow: 0 0 10px #ddd;}*/ .right-control.orange,
+.left-control.orange{background: #6995b1} .content-section{float:left;
+width:100%; padding:1rem; background: #fff
+url(../images/c_bha_pro_bg.jpg);background-size: cover; background-position:
+center;/* box-shadow: 0 5px 10px #000*/ margin-bottom: 10px;} .menu-fixed
+{top: 116px; z-index: 100 !important; position: fixed !important; }
+.wsmenu{z-index: 10000 !important} .heading-h4{font-family: 'Oswald',
+sans-serif !important; font-size: 1.3rem; font-weight:normal; padding:1.5rem
+0; width:100%;} .mv-section{background: #fff url(../images/c_bha_pro_bg.jpg);
+background-size: cover; background-position: center; padding:1rem; float:left;
+width: 100%; color:#000; position: relative;} .quote{font-size: 1.6rem;
+font-weight: 300; padding:1.5rem 0;} .font-xx{font-size: 1.2rem; font-weight:
+600} .bha_heading_2.text-black{color:#000;} .text-blue{color:#235168;}
+.border-left{border-left:4px solid #6995b1 !important; padding-right:30px
+!important;} .mission-section{background: #043852
+url(../images/mission_bg.jpg);height: 500px; width: 100%; float:left;
+background-size: cover; background-position: 100% !important;
+background-repeat: no-repeat !important;} .location-section{float:left;
+background-size: cover !important; background-position: center !important;
+background-repeat: no-repeat !important;}
 
-.border-frame{/*border:10px solid #fff; *//*box-shadow:0 0 30px #ddd;*/ object-fit: cover; min-height: 345px; 
+.border-frame{ object-fit: cover; min-height: 345px; 
   position: relative;}
 .img-caption{position: absolute; bottom:35px; left: 0; right:0; background: #23536b; padding:0.5rem 1rem;
 color:#fff;}
@@ -1118,7 +1086,7 @@ height: 30px}
 
 /*==================================*/
 
-.sidebar{ height:auto; padding:0 0 15px 15px;}
+.sidebar{ height:auto; padding:0 0 15px 0;}
 .stick { position: fixed;width:19.6%; top: 120px;}
 .abs { position: absolute; bottom: 0px; width:89.5%;}
 
