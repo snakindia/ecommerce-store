@@ -101,7 +101,7 @@ background: #23536b; border-radius:0.3rem}
 
 
 /*============industries page layout css===========================*/
-.card-slider{background:transparent; padding-top:120px;}
+.card-slider{background:transparent;}
 .card-inner{width: 100%; position: relative;}
 .card-inner:before{content: ''; background:rgba(24,29,51,0.7); position: absolute;
  left: 0; right:0; top:0; bottom:0; width: 100%; height: auto}
@@ -209,7 +209,7 @@ z-index: 10; width: 35%}
 .project-caption-inner .bha_heading_2{font-size: 2.5rem; font-weight: 700}
 .project-caption-inner hr{width: 5%;float: left;background: #a70e15;
 height: 36px;margin: 0.4rem 0.5rem 0 0;}
-.proj-object-fit{width: 560px; height: 340px; object-fit: cover; object-position: center;
+.proj-object-fit{width: 100%; height: 340px; object-fit: cover; object-position: center;
 padding:0;overflow: hidden;}
 
 .promo-caption{display: flex;align-items: center;justify-content: center;
@@ -222,7 +222,7 @@ border-bottom: 30px solid transparent; z-index: 1}
 .promo-caption-left{display: flex;align-items: center;justify-content: center;
 padding:4rem;}
 .promo-caption-left:before{content: '';display: inline-block;position: absolute;
-top: 40%;left:-20px !important; width: 0;height: 0;
+top: 40%;left:-18px !important; width: 0;height: 0;
 border-top: 23px solid transparent;border-right: 18px solid #fff;
 border-bottom: 23px solid transparent; z-index: 1}
 
@@ -231,7 +231,8 @@ height: 341px; position: relative;}
 .promo-caption.texture-bg:before{content:''; background: rgba(255,255,255,0.9);
 top:0; left:0; right:0; bottom:0; position: absolute;}
 /*.caption-img{display: flex;align-items: center;justify-content: center;
-padding:0;}*/
+padding:0; background: red}*/
+.caption-img{display: block;padding:0;}
 .justify{text-align: justify; text-justify: inter-word;}
 .p-left{padding:0 0 3rem 4rem; position: relative;z-index: 100}
 .p-right{padding:0 4rem 3rem 1rem; position: relative;z-index: 100}

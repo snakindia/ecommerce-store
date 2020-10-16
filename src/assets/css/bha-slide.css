@@ -18,7 +18,7 @@
 
 .card-slider__container__list__card img {
     display: block;
-    width: auto;
+    width: 100%;
     -moz-transition: transform .5s cubic-bezier(0.47, 0.005, 0.095, 0.995);
     -webkit-transition: transform .5s cubic-bezier(0.47, 0.005, 0.095, 0.995);
     transition: transform .5s cubic-bezier(0.47, 0.005, 0.095, 0.995)
@@ -26,7 +26,7 @@
 
 @media only screen and (min-width: 840px) {
     .card-slider__container__list__card img {
-        height: 300px; width: auto; object-fit: cover; object-position: center;
+        height: 300px; width: 100%; object-fit: cover; object-position: center;
     }
 }
 
@@ -39,7 +39,7 @@
 @media only screen and (max-width: 767px),
 only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .card-slider__container__list__card img {
-        height: 200px
+        height: 350px
     }
 }
 
@@ -63,8 +63,9 @@ only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         -webkit-transition: top .5s cubic-bezier(0.47, 0.005, 0.095, 0.995);
         transition: top .5s cubic-bezier(0.47, 0.005, 0.095, 0.995);
         border-bottom-width: 50px;
-        right: 0px;
-        top: -50px
+        right: 0;
+        top: -50px;
+        left:0;
     }
     .card-slider__container__list__card:hover .card-slider__container__list__card__content__button {
         bottom: 0
@@ -173,6 +174,7 @@ only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         left: calc(35% - 100px);*/
     }
 }
+
 
 .card-slider__container__list__card__content__subtitle,
 .card-slider__container__list__card__content__title {
@@ -358,3 +360,20 @@ only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     transition: 1s opacity
 }
 
+@media only screen and (min-width:2560px) {
+.card-slider__container__list__card:hover .card-slider__container__list__card__content:before {
+        -moz-transition: top .5s cubic-bezier(0.47, 0.005, 0.095, 0.995);
+        -webkit-transition: top .5s cubic-bezier(0.47, 0.005, 0.095, 0.995);
+        transition: top .5s cubic-bezier(0.47, 0.005, 0.095, 0.995);
+        border-bottom-width: 100px;
+        right: 0;
+        top: -50px;
+       
+    }
+
+    .card-slider__container__list__card__content:before {
+        border-left: 250px solid transparent;
+        border-right: 250px solid transparent;
+        right: calc(50% - 240px)
+    }
+}

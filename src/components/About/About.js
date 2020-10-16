@@ -128,7 +128,7 @@ class About extends React.Component {
                               <h4 class="heading-h4" id="message">
                                 {item.title}
                               </h4>
-                              <div class="col-sm-9 col-md-9 pl-0 pr-5">
+                              <div class="col-sm-9 col-md-9 pl-0 paddingR-3">
                                 {htmlParse(item.description)}
                               </div>
 
@@ -181,7 +181,7 @@ class About extends React.Component {
                               <div class="float-left w-100">
                                 &nbsp;
                               </div>
-                              <div class="col-sm-9 col-md-9 pl-0 pr-5">
+                              <div class="col-sm-9 col-md-9 pl-0 paddingR-3">
                                 {htmlParse(item.description)}
                               </div>
                               <div class="col-sm-3 col-md-3 pl-0 pr-0">

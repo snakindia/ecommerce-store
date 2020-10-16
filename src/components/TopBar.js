@@ -137,7 +137,7 @@ class TopBar extends Component {
               >
                 CALL US: (888) 286-8708
               </div>
-              <div className="float-sm-right" >
+              <div className="rightLink" >
                 <ul className="toplink">
                   <li>
                     <a href="#">
@@ -168,11 +168,11 @@ class TopBar extends Component {
                     EN<i class="caret border-0"></i></a>
                 </li>*/}
           
-                  <span class="mobHide">&nbsp;</span>
+                  <span>&nbsp;</span>
                   <li>
                   {/*<a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>*/}
   <a color="primary" ><img src={Globe} alt="" width="20" />EN</a> </li>
-                                    <span>&nbsp;</span>
+                                    <span class="mobHide">&nbsp;</span>
                   <li class="mobHide">
                     {/*<a onClick={this.toggle(6)}>*/}
                     <a>

@@ -1,13 +1,14 @@
 
 /*========================Shop Now page layout CSS===============================*/
 @media screen and (max-width: 1920px) {
-.wsshoptabing { left: -352px !important; width: 136% !important;}
+/* .wsshoptabing { left: -352px !important; width: 136% !important;} */
 .container{max-width: 1280px;}
 }
 
 @media screen and (max-width: 1366px) {
-.wsshoptabing { left: -207px !important; width: 121% !important;}
+/* .wsshoptabing { left: -207px !important; width: 121% !important;} */
 .container{max-width: 1140px;}
+.rightLink{float:right}
 }
 
 /*.slick-slide{margin:15px !important;}*/
@@ -1375,5 +1376,7 @@ i.wishList-hover-xs{position: absolute;  top: -18%; right: 2.6%; font-size: 1.2r
 /*===== New layout css for shopnow page========================================*/
 .navbar-minimize .fa{font-size: 1.2rem}
 .category_head {white-space: nowrap;font-weight: 500;font-size: 1rem; color: #000 !important;
-    text-transform: uppercase;
-}
+    text-transform: uppercase;}
+.view{width:100% !important}
+.column_4 img{width: 100% !important;}
+/*.wsmenu > .wsmenu-list > li:hover > a{background:none !important; color:#000 !important}*/
