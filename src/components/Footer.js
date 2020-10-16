@@ -396,7 +396,7 @@ class Footer extends Component {
                 <MDBContainer fluid>
                   
                     <MDBRow>
-                      <MDBCol md="9" sm="9" xs="12">
+                      <MDBCol md="9" sm="9" xs="12" className="pl-0">
                         <p>
                           COPYRIGHT © {this.state.year} Baghouse. The following
                         are trademarks for one or more Baghouse power tools,
