@@ -58,27 +58,27 @@ export default class Products extends Component {
     const { products } = this.state;
     return (
       <div style={{"display":"none"}}>
-        <section class="bg-opeque pb-4" id="bestSelling">
-          <div class="container-fluid">
-            <h2 class="bha_heading_2 z-index text-blue">
+        <section className="bg-opeque pb-4" id="bestSelling">
+          <div className="container-fluid">
+            <h2 className="bha_heading_2 z-index text-blue">
               Best Selling Products
             </h2>
           </div>
         </section>
-        <section class="pro-equipment-section">
-          <div class="container pl-0 pr-0">
-            <div class="productitem slider">
-              <div class="product-card-wrapper outer-wrpper">
+        <section className="pro-equipment-section">
+          <div className="container pl-0 pr-0">
+            <div className="productitem slider">
+              <div className="product-card-wrapper outer-wrpper">
                 <Slider {...settings}>
                   {products &&
                     Object.keys(products).length &&
                     products.map((item, idx) => {
                       return (
-                        <div class="product-card hvr-float-shadow">
-                          <div class="item-pro-inner">
+                        <div className="product-card hvr-float-shadow">
+                          <div className="item-pro-inner">
                             <a href="http://sales.baghouseamerica.com/" target="_blank">
                               <img
-                                class="img-fluid"
+                                className="img-fluid"
                                 src={
                                   item.images.length > 0
                                     ? item.images[0].url
@@ -87,13 +87,13 @@ export default class Products extends Component {
                                 alt=""
                                 
                               />
-                              <div class="product-description">{item.name}</div>
-                              <div class="product-tag">{item.sku}</div>
+                              <div className="product-description">{item.name}</div>
+                              <div className="product-tag">{item.sku}</div>
                             </a>
                             <a
                               href="http://sales.baghouseamerica.com/"
                               target="_blank"
-                              class="btn bha-btn-primary w-100 float-left mt-4">
+                              className="btn bha-btn-primary w-100 float-left mt-4">
                               View Details
                             </a>
                           </div>

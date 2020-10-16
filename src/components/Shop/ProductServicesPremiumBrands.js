@@ -30,24 +30,24 @@ export default class ProductServicesPremiumBrands extends Component {
     };
 
     return (
-        <section class="shopping-product mt-0 pb-2">
-            <div class="bg-opeque">
-                <div class="container-fluid">
-                    <h2 class="bha_heading_2 z-index text-blue">Our premium brands</h2>
+        <section className="shopping-product mt-0 pb-2">
+            <div className="bg-opeque">
+                <div className="container-fluid">
+                    <h2 className="bha_heading_2 z-index text-blue">Our premium brands</h2>
                 </div>
             </div>
-            <div class="pagewrap">
-                <section class="grid-container mt-4">
-                   <div class="container-fluid paddingNo">
-                      <div class="row">
+            <div className="pagewrap">
+                <section className="grid-container mt-4">
+                   <div className="container-fluid paddingNo">
+                      <div className="row">
                         {Object.keys(brands).length &&
                           brands.map((item, idx) => {
                             return (
-                              <div class="col-lg-3 col-sm-6 bha-mb">
+                              <div className="col-lg-3 col-sm-6 bha-mb">
                                 <Link to={item.page_url}>
-                                  <div class="view view-first height-auto column_4">
+                                  <div className="view view-first height-auto column_4">
                                     <img
-                                      class="img-fluid"
+                                      className="img-fluid"
                                       src={
                                         item.image.length > 0
                                           ? item.image
@@ -55,11 +55,11 @@ export default class ProductServicesPremiumBrands extends Component {
                                       }
                                       alt="Card image"
                                     />
-                                    <div class="brand-label">
+                                    <div className="brand-label">
                                       {item.name}
                                       
                                     </div>
-                                    <div class="mask">
+                                    <div className="mask">
                                       <p>{parseHtml(item.description)}
                                       
                                       {/* <Link to={item.page_url} className="btn bha-btn-primary w-100 mt-2">View Details</Link> */}

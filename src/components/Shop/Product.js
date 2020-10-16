@@ -22,30 +22,30 @@ export default class Product extends Component {
         const hasPrice = item && (item.regular_price || item.sale_price) ? true : false;
         const imageUrl = item.images.length > 0 ? item.images[0].url : API_IMAGE_PATH + 'default/default.jpg';
         return (
-            <div class="hot-deals-item-wrapper">
-                <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                        <div class="callToAction-xxs">
+            <div className="hot-deals-item-wrapper">
+                <div className="portfolio-hover">
+                    <div className="portfolio-hover-content">
+                        <div className="callToAction-xxs">
                             <p>
-                                <Link type="button" onClick={e => this.props.quickView(item)} class="quick-view">Quick View</Link>
-                                <Link to={`/shop/${item.id}`} class="quick-view">View Details</Link>
+                                <Link type="button" onClick={e => this.props.quickView(item)} className="quick-view">Quick View</Link>
+                                <Link to={`/shop/${item.id}`} className="quick-view">View Details</Link>
                             </p>
                         </div>
                     </div>
                 </div>
                 {/* <Favourite /> */}
-                <div class="item-pro-inner">
+                <div className="item-pro-inner">
                     <a href="#">
-                        <img class="img-fluid"
+                        <img className="img-fluid"
                             src={imageUrl} alt="" />
-                        <div class="product-description">
+                        <div className="product-description">
                             <ToolTip text={item.name} />
                         </div>
                         {hasPrice &&
-                            <div class="pro_Price text-center">
+                            <div className="pro_Price text-center">
 
-                                <div class=" currecny"><span class="strike">${item.regular_price}</span>
-                                    <span class="sp-price">${item.sale_price}</span></div>
+                                <div className=" currecny"><span className="strike">${item.regular_price}</span>
+                                    <span className="sp-price">${item.sale_price}</span></div>
                             </div>
                         }
                         <div className="text-center">
@@ -54,7 +54,7 @@ export default class Product extends Component {
                             </div>
                         </div>
 
-                        <div class="d-block float-left w-100 text-center">
+                        <div className="d-block float-left w-100 text-center">
 
                             {hasPrice ? <AddToCart /> : <ContactForSale />}
                             <Compare />

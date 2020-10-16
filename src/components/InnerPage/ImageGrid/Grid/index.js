@@ -11,7 +11,7 @@ const Grid = props => {
           <div className="mask">
             <h2>{title}</h2>
             <p>{content}</p>
-            {/*<a href="#" class="info">Read More</a>*/}
+            {/*<a href="#" className="info">Read More</a>*/}
           </div>
         </div>
       </a>

@@ -79,7 +79,6 @@ class NavBar extends React.Component {
   };
 
   linkClicked = (p) => {
-    console.log('linkClicked', p)
     this.props.setT((new Date()).getTime())
   }
 
@@ -156,7 +155,7 @@ class NavBar extends React.Component {
                     >
                       {item.text}
                       {item.has_sub_menu &&
-                        <span><i class="fas fa-angle-down ml-4 downArrowHide"></i></span>
+                        <span><i className="fas fa-angle-down ml-4 downArrowHide"></i></span>
                       }
                     </Link>
                     {visibleSubmenu == item.id &&

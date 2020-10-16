@@ -41,20 +41,20 @@ class ProductServicesDetail extends Component {
   
     render() {
         
-    const details = this.props.data;console.log('.........................'); console.log(details);
+    const details = this.props.data;
     return (
         <div>
         {
         details && (
                
             <div>
-                <section class="breadcrumb-container" style={{"position": "relative", "z-index": "1000"}} >
-                    <div class="container-fluid">
-                        <div class="row justify-content-center">
-                            <ol class="breadcrumb breadcrumb-bar pb-0 pt-1 small">
-                                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Product/Services</a></li>
-                                <li class="breadcrumb-item active">{details.meta_title}</li>
+                <section className="breadcrumb-container" style={{"position": "relative", "z-index": "1000"}} >
+                    <div className="container-fluid">
+                        <div className="row justify-content-center">
+                            <ol className="breadcrumb breadcrumb-bar pb-0 pt-1 small">
+                                <li className="breadcrumb-item"><a href="/">Home</a></li>
+                                <li className="breadcrumb-item"><a href="#">Product/Services</a></li>
+                                <li className="breadcrumb-item active">{details.meta_title}</li>
                             </ol>
                         </div>
                     </div>
@@ -67,24 +67,24 @@ class ProductServicesDetail extends Component {
     
                 {
                 details.contents && Object.keys(details.contents).length > 0 ?  
-                    <section class="efficiency-section" style={{"position":"relative"}}>
-                    <div class="imgB_color"></div>
-                        <div class="pagewrap">
-                            <div class="container-fluid" style={{"overflow-x": "hidden"}}>
-                              <div class="row">
-                                <div class="col-sm-6 col-md-6 pl-0 animatedParent">
-                                  <h1 class="bag_jai_head text-left text-black pl-0 pr-5 animated bounceInDown">{details.contents[0].title}</h1>
-                                  <div class="imgL-container">
-                                    <div class="inner-wrap">
-                                      <img class="iMg_pos animated bounceInLeft mt-3" data-id="1" src={details.contents[0].url} alt=""/>
+                    <section className="efficiency-section" style={{"position":"relative"}}>
+                    <div className="imgB_color"></div>
+                        <div className="pagewrap">
+                            <div className="container-fluid" style={{"overflow-x": "hidden"}}>
+                              <div className="row">
+                                <div className="col-sm-6 col-md-6 pl-0 animatedParent">
+                                  <h1 className="bag_jai_head text-left text-black pl-0 pr-5 animated bounceInDown">{details.contents[0].title}</h1>
+                                  <div className="imgL-container">
+                                    <div className="inner-wrap">
+                                      <img className="iMg_pos animated bounceInLeft mt-3" data-id="1" src={details.contents[0].url} alt=""/>
                                       
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-sm-6 col-md-6 animatedParent contentDescript">
+                                <div className="col-sm-6 col-md-6 animatedParent contentDescript">
                                 {ReactHtmlParser(details.contents[0].description)}
-                                  <div class="mt-4 mb-5">
-                                    <div class="actionButton w-50">
+                                  <div className="mt-4 mb-5">
+                                    <div className="actionButton w-50">
                                       <a href="tel:+1-888-286-8708">Call for a free quote</a>
 
                                     </div>
@@ -101,18 +101,18 @@ class ProductServicesDetail extends Component {
                     
                 {
                 details.contents && Object.keys(details.contents).length > 1 ?  
-                    <section class="bag_Jail_Section">
-                        <div class="pagewrap">
-                            <div class="container-fluid pl-0 pr-0">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <h1 class="bag_jai_head font-xl text-white">{details.contents[1].title}</h1>
+                    <section className="bag_Jail_Section">
+                        <div className="pagewrap">
+                            <div className="container-fluid pl-0 pr-0">
+                                <div className="row">
+                                    <div className="col-lg-12">
+                                        <h1 className="bag_jai_head font-xl text-white">{details.contents[1].title}</h1>
                                     </div>
-                                    <div class="col-sm-6 col-md-6 ">
-                                        <div class="jail_Content_Descrpt">{ReactHtmlParser(details.contents[1].description)}</div>
+                                    <div className="col-sm-6 col-md-6 ">
+                                        <div className="jail_Content_Descrpt">{ReactHtmlParser(details.contents[1].description)}</div>
                                     </div>
-                                    <div class="col-sm-6 col-md-6 text-left pt-5 pr-4 pl-3">
-                                        <img src={details.contents[1].url} alt="..." class="img-fluid" />
+                                    <div className="col-sm-6 col-md-6 text-left pt-5 pr-4 pl-3">
+                                        <img src={details.contents[1].url} alt="..." className="img-fluid" />
                                     </div>
                                   </div>
                             </div>

@@ -96,8 +96,8 @@ class ContactForm extends Component {
                                     <form onSubmit={formik.handleSubmit}>
                                         <MDBRow toggle="true" >
                                             <MDBCol md="12">
-                                                <div class="form-group">
-                                                    <label class="mb-0">Name *</label>
+                                                <div className="form-group">
+                                                    <label className="mb-0">Name *</label>
                                                     <Input
                                                         allow="special"
                                                         length={50}
@@ -120,8 +120,8 @@ class ContactForm extends Component {
 
                                         <MDBRow>
                                             <MDBCol lg="12">
-                                                <div class="form-group">
-                                                    <label class="mb-0">Company *</label>
+                                                <div className="form-group">
+                                                    <label className="mb-0">Company *</label>
                                                     <Input
                                                         allow="special"
                                                         length={50}
@@ -144,8 +144,8 @@ class ContactForm extends Component {
 
                                         <MDBRow>
                                             <MDBCol md="12">
-                                                <div class="form-group">
-                                                    <label class="mb-0">Phone *</label>
+                                                <div className="form-group">
+                                                    <label className="mb-0">Phone *</label>
                                                     <Input
                                                         type="text"
                                                         id="defaultFormCardNameEx"
@@ -167,8 +167,8 @@ class ContactForm extends Component {
 
                                         <MDBRow>
                                             <MDBCol lg="12">
-                                                <div class="form-group">
-                                                    <label class="mb-0">Email *</label>
+                                                <div className="form-group">
+                                                    <label className="mb-0">Email *</label>
                                                     <Input
                                                         type="text"
                                                         id="defaultFormCardNameEx"
@@ -192,11 +192,11 @@ class ContactForm extends Component {
                                                 <Error formik={formik} el={['name', 'company', 'phone', 'email']} />
                                             </MDBCol>
                                         </MDBRow>
-                                        <div class="mt-2">
+                                        <div className="mt-2">
                                             <button
                                                 type="button"
                                                 onClick={formik.handleSubmit}
-                                                class="btn bha-btn-primary w-100"
+                                                className="btn bha-btn-primary w-100"
                                             >
                                                 Apply
                                 </button>

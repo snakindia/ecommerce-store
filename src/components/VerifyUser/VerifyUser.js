@@ -32,7 +32,7 @@ class VerifyUser extends Component {
   render() {
     return (
       <div>
-        <section class="banner-container" style={{ position: 'relative' }}>
+        <section className="banner-container" style={{ position: 'relative' }}>
           {this.state.status
             ? 'Your account has been verified successfully.'
             : 'Sorry, We are unable to find the details to verify the account.'}

@@ -128,7 +128,7 @@ class TopBar extends Component {
         </div>
        
         <div className="headtoppart">
-        <div class="call-us-mob">CALL US: (888) 286-8708</div>
+        <div className="call-us-mob">CALL US: (888) 286-8708</div>
           <div className="topbar">
             <div className="headerwp">
               <div
@@ -161,19 +161,19 @@ class TopBar extends Component {
                     </li>
                   )}
                   
-                {/* <span class="mobPipe">&nbsp;</span>
+                {/* <span className="mobPipe">&nbsp;</span>
                 <li id="CountryOpen"  onClick={this.showLanguage}>
                     {/*<a href="#"><embed src={Globe}  alt="" width="20" height="20"></embed>
                     <a>
-                    EN<i class="caret border-0"></i></a>
+                    EN<i className="caret border-0"></i></a>
                 </li>*/}
           
                   <span>&nbsp;</span>
                   <li>
                   {/*<a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>*/}
   <a color="primary" ><img src={Globe} alt="" width="20" />EN</a> </li>
-                                    <span class="mobHide">&nbsp;</span>
-                  <li class="mobHide">
+                                    <span className="mobHide">&nbsp;</span>
+                  <li className="mobHide">
                     {/*<a onClick={this.toggle(6)}>*/}
                     <a>
                       <i className="fa fa-search mr-2" /> Search

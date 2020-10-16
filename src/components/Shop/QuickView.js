@@ -79,18 +79,18 @@ export default class QuickView extends Component {
                     display: 'block'
                 }}
             >
-                {single ? null : <button type="button" class="close" onClick={this.props.hide}>
+                {single ? null : <button type="button" className="close" onClick={this.props.hide}>
                     <span aria-hidden="true">×</span>
                 </button>
                 }
-                <div class="container">
-                    <div class="row no-gutters">
-                        <div class="col-sm-6 col-md-6">
+                <div className="container">
+                    <div className="row no-gutters">
+                        <div className="col-sm-6 col-md-6">
                             <section id="magnific">
-                                <div class="row">
-                                    <div class="large-5 column">
+                                <div className="row">
+                                    <div className="large-5 column">
                                         {/* {single ? <Favourite />: null } */}
-                                        <div class="xzoom-container">
+                                        <div className="xzoom-container">
                                             <div className="prod_gallery-sm">
                                                 <div style={{ width: '96%' }} className="zoomer">
                                                     <Zoomer
@@ -99,7 +99,7 @@ export default class QuickView extends Component {
                                                     />
                                                 </div>
                                             </div>
-                                            <div class="thumbnails product-slider-div" style={{ width: '300px' }}>
+                                            <div className="thumbnails product-slider-div" style={{ width: '300px' }}>
                                                 <Slider {...settings}>
                                                     {sliderImages.map((sl, i) =>
                                                         <div className="product-slider" style={{ width: '80px' }}>
@@ -119,52 +119,52 @@ export default class QuickView extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="large-7 column"></div>
+                                    <div className="large-7 column"></div>
                                 </div>
                             </section>
 
                         </div>
-                        <div class="col-sm-6 col-md-6 pl-3">
-                            <div class="media-body pt-3 pr-4">
-                                <h4 class="mt-0 mb-2">{item.name}</h4>
-                                <div class="brand_name"><span class="txtLabel">Brand:</span><span>{brand}</span></div>
-                                <div class="pro_Id"><span class="txtLabel">SKU:</span>
+                        <div className="col-sm-6 col-md-6 pl-3">
+                            <div className="media-body pt-3 pr-4">
+                                <h4 className="mt-0 mb-2">{item.name}</h4>
+                                <div className="brand_name"><span className="txtLabel">Brand:</span><span>{brand}</span></div>
+                                <div className="pro_Id"><span className="txtLabel">SKU:</span>
                                     <span>{item.sku}</span></div>
-                                <div class="star-rating mt-2">
+                                <div className="star-rating mt-2">
                                     <Ratings />
                                 </div>
-                                <div class="pro_Price">
-                                    <p class="currecny">
-                                        {regular_price && <span class="strike red">$ {item.regular_price}</span>}
-                                        {sale_price && <span class="sp-price"> $ {item.sale_price || item.price}</span>}
-                                        {diff && <span class="save-offer pl-4 small">( You Save: ${diff}  )</span>}
+                                <div className="pro_Price">
+                                    <p className="currecny">
+                                        {regular_price && <span className="strike red">$ {item.regular_price}</span>}
+                                        {sale_price && <span className="sp-price"> $ {item.sale_price || item.price}</span>}
+                                        {diff && <span className="save-offer pl-4 small">( You Save: ${diff}  )</span>}
                                     </p>
 
                                 </div>
                                 {(regular_price || sale_price) ?
-                                    <form class="inc_value pt-0">
-                                        <div class="row">
-                                            <div class="col-sm-2 mt-2 mr-3">Quantity</div>
-                                            <div class="col-sm-8">
+                                    <form className="inc_value pt-0">
+                                        <div className="row">
+                                            <div className="col-sm-2 mt-2 mr-3">Quantity</div>
+                                            <div className="col-sm-8">
 
-                                                <div class="value-button inc_value decrease"
+                                                <div className="value-button inc_value decrease"
                                                     onClick={e => this.changeCounter(-1)}
                                                 >-</div>
                                                 <input type="text" id="number_modal"
                                                     onChange={this.handleInput}
-                                                    class="number" value={counts} />
-                                                <div class="value-button increase"
+                                                    className="number" value={counts} />
+                                                <div className="value-button increase"
                                                     onClick={e => this.changeCounter(+1)}
                                                 >+</div>
                                             </div>
                                         </div>
                                     </form> : null}
-                                <div class="float-left mt-4">
+                                <div className="float-left mt-4">
                                     {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase" /> : <ContactForSale />}
                                     {(regular_price || sale_price) && single ? <BuyNow /> : null}
 
                                 </div>
-                                <div class="social_Share">
+                                <div className="social_Share">
                                     <p>
                                         <Share item={item} />
                                     </p>

@@ -28,8 +28,6 @@ class LeftMenu extends Component {
     this.props.setFooter(true)
   }
   onOpenChange = keys => {
-   console.log(keys);
-  
    const {openKeys} =this.state;
    keys =keys.filter(key=>!openKeys.includes(key))
    this.setState({openKeys :keys});
@@ -56,8 +54,8 @@ class LeftMenu extends Component {
               <button className="topbar-toggler more"><i className="fa fa-ellipsis-v"></i></button>
               <div className="navbar-minimize" onClick={this.props.shrink}>
                 {!visible ?
-                  <button class="btn btn-minimize btn-rounded toggled">
-                    <i class="fa fa-ellipsis-v">
+                  <button className="btn btn-minimize btn-rounded toggled">
+                    <i className="fa fa-ellipsis-v">
                     </i>
                   </button>
                   :

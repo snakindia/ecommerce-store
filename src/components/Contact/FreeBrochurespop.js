@@ -24,7 +24,7 @@ class ModalPage extends Component {
   render() {
     return (
       <MDBContainer>
-        <div class="chat-button free-signup signup-fixed">
+        <div className="chat-button free-signup signup-fixed">
           <a
             onClick={this.toggle(14)}
             data-toggle="modal"
@@ -35,11 +35,11 @@ class ModalPage extends Component {
         </div>
 
         <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
-          <div class="loginInner container-login animated fadeIn">
-            <button type="button" class="close" onClick={this.toggle(14)}>
+          <div className="loginInner container-login animated fadeIn">
+            <button type="button" className="close" onClick={this.toggle(14)}>
               <span aria-hidden="true">×</span>
             </button>
-            <h2 class="bha_heading_2 font-weight-bold text-black">
+            <h2 className="bha_heading_2 font-weight-bold text-black">
               Free Brochures
             </h2>
 
@@ -103,17 +103,17 @@ class ModalPage extends Component {
                   /* and other goodies */
                 }) => (
                   <form onSubmit={handleSubmit}>
-                    <p class="mt-3">
+                    <p className="mt-3">
                       Sign up to receive the lates infor on new Baghouse
                       products, special offers and more.
                     </p>
-                    <div class="row">
-                      <div class="col-sm-6 col-md-6">
-                        <div class="form-group mb-1">
+                    <div className="row">
+                      <div className="col-sm-6 col-md-6">
+                        <div className="form-group mb-1">
                           <label for="">Name *</label>
                           <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             id=""
                             name="fname"
                             value={values.fname}
@@ -126,12 +126,12 @@ class ModalPage extends Component {
                           </span>
                         </div>
                       </div>
-                      <div class="col-sm-6 col-md-6">
-                        <div class="form-group mb-1">
+                      <div className="col-sm-6 col-md-6">
+                        <div className="form-group mb-1">
                           <label for="">Phone *</label>
                           <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             id=""
                             value={values.phone}
                             onChange={handleChange}
@@ -145,13 +145,13 @@ class ModalPage extends Component {
                         </div>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <div class="form-group mb-1">
+                    <div className="row">
+                      <div className="col-lg-12">
+                        <div className="form-group mb-1">
                           <label for="">Email Address *</label>
                           <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             id=""
                             name="email"
                             value={values.email}
@@ -164,12 +164,12 @@ class ModalPage extends Component {
                           </span>
                         </div>
                       </div>
-                      <div class="col-lg-12">
-                        <div class="form-group mb-1">
+                      <div className="col-lg-12">
+                        <div className="form-group mb-1">
                           <label for="">Company Name *</label>
                           <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             id=""
                             name="companyname"
                             value={values.companyname}
@@ -191,13 +191,13 @@ class ModalPage extends Component {
                   You can unsubscribe at any time. See Updated Privacy 
                   Policy or Contact Us at support.bhaghouse@gamil.com.
                 </small> --> */}
-                    <div class="mt-2 free-brocher">
+                    <div className="mt-2 free-brocher">
                       <button
                         type="button"
                         onClick={() => {
                           handleSubmit();
                         }}
-                        class="btn bha-btn-primary w-100"
+                        className="btn bha-btn-primary w-100"
                       >
                         subscribe
                       </button>

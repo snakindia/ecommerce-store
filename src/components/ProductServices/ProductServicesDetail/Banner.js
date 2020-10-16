@@ -4,14 +4,14 @@ import ProducstServiceContactForm from './ProducstServiceContactForm';
 const Banner = ({ content }) => {
     let pdf_url = '';
     return (
-        <section class="hero-header" style={{"background": "none"}}>
-            <img src={content.banner_image} alt="..." class="img-fluid banner-img-100"/>
-            <div class="pagewrap" style={{"position": "absolute", "top":"30%"}}>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-8 col-md-8 pt-5 pl-0" style={{"position": "relative"}}>
-                            <div class="innerPageform">
-                                <div class="type1">{content.banner_title}</div>
+        <section className="hero-header" style={{"background": "none"}}>
+            <img src={content.banner_image} alt="..." className="img-fluid banner-img-100"/>
+            <div className="pagewrap" style={{"position": "absolute", "top":"30%"}}>
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-sm-8 col-md-8 pt-5 pl-0" style={{"position": "relative"}}>
+                            <div className="innerPageform">
+                                <div className="type1">{content.banner_title}</div>
                             </div>
                         </div>
                         {

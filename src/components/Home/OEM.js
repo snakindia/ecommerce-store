@@ -27,9 +27,9 @@ export default class OEM extends Component {
         {Object.keys(brands).length &&
           brands.map((item, idx) => {
             return (
-              <div class="product-item-wrapper">
-                <div class="card">
-                  <figure class="imghvr-shutter-in-out-vert">
+              <div className="product-item-wrapper">
+                <div className="card">
+                  <figure className="imghvr-shutter-in-out-vert">
                     <img
                       src={
                         item.image.length > 0
@@ -38,18 +38,18 @@ export default class OEM extends Component {
                       }
                       alt="Card image"
                     />
-                    <figcaption class="text-center">
+                    <figcaption className="text-center">
                       <h4>{item.name}</h4>
                       <button
                         type="button"
-                        class="btn bha-btn-primary w-100 mt-2"
+                        className="btn bha-btn-primary w-100 mt-2"
                       >
                         Shop Now!
                       </button>
                     </figcaption>
 
-                    <div class="card-body p-0">
-                      <h4 class="card-title">{item.name}</h4>
+                    <div className="card-body p-0">
+                      <h4 className="card-title">{item.name}</h4>
                     </div>
                   </figure>
                 </div>
@@ -61,8 +61,6 @@ export default class OEM extends Component {
   }
   render() {
     const { brands } = this.state;
-    console.log('brands')
-    console.log(brands)
     var settings = {
       slidesToShow: 4,
       slidesToScroll: 1,
@@ -97,22 +95,22 @@ export default class OEM extends Component {
     };
     return (
       <div>
-        <section class="pb-4 bg-opeque" id="brand">
-          <div class="container-fluid">
-            <h2 class="bha_heading_2 z-index text-blue">Premium OEM Brands</h2>
+        <section className="pb-4 bg-opeque" id="brand">
+          <div className="container-fluid">
+            <h2 className="bha_heading_2 z-index text-blue">Premium OEM Brands</h2>
           </div>
         </section>
 
-        <section class="pro-equipment-section">
-          <div class="container pl-0 pr-0">
-            <div class="productitem slider">
+        <section className="pro-equipment-section">
+          <div className="container pl-0 pr-0">
+            <div className="productitem slider">
               <Slider {...settings}>
                 {Object.keys(brands).length &&
                   brands.map((item, idx) => {
                     return (
-                      <div class="product-item-wrapper">
-                        <div class="card">
-                          <figure class="imghvr-shutter-in-out-vert">
+                      <div className="product-item-wrapper">
+                        <div className="card">
+                          <figure className="imghvr-shutter-in-out-vert">
                             <img
                               src={
                                 item.image.length > 0
@@ -121,14 +119,14 @@ export default class OEM extends Component {
                               }
                               alt="Card image"
                             />
-                            <figcaption class="text-center">
+                            <figcaption className="text-center">
                               <h4>{item.name}</h4>
                              
                               <a href={item.page_url} className="btn bha-btn-primary w-100 mt-2">View Details</a>
                             </figcaption>
 
-                            <div class="card-body p-0">
-                              <h4 class="card-title">{item.name}</h4>
+                            <div className="card-body p-0">
+                              <h4 className="card-title">{item.name}</h4>
                             </div>
                           </figure>
                         </div>

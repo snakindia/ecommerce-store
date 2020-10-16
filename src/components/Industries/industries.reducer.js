@@ -11,8 +11,6 @@ export default (state = initialState, action) => {
     switch (type) {
       
         case FETCH_INDUSTRIES_DETAIL:
-            console.log('action.payload');
-            console.log(action.payload);
             return { ...state, ...action.payload };
 
         case `${FETCH_INDUSTRIES_DETAIL}_START`:

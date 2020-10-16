@@ -98,12 +98,12 @@ class Banner extends Component {
           </div>
           <div class='bottom-navigation affixed'>
            
-          <div class="container">
+          <div className="container">
         
-            <div class="row justify-content-center">
-              <div class="col-sm-3 col-md-3 shopNow fader" >
-                <img src={CompanyHoverImage} alt="" class="thumnal-icon" />
-                <img src={CompanyImage} alt="" class="thumnal-icon" />
+            <div className="row justify-content-center">
+              <div className="col-sm-3 col-md-3 shopNow fader" >
+                <img src={CompanyHoverImage} alt="" className="thumnal-icon" />
+                <img src={CompanyImage} alt="" className="thumnal-icon" />
                 <Link
                     className="tablink js-scroll-trigger"
                     // spy={true}
@@ -115,11 +115,11 @@ class Banner extends Component {
                 </Link>
               </div>
 
-              <div class="col-sm-3 col-md-3 request-Quote fader pr-0" 
+              <div className="col-sm-3 col-md-3 request-Quote fader pr-0" 
               //onClick={this.scrollToBrandsEle}
               >
-                <img src={BrandHoverImage} alt="" class="thumnal-icon" />
-                <img src={BrandImage} alt="" class="thumnal-icon" />
+                <img src={BrandHoverImage} alt="" className="thumnal-icon" />
+                <img src={BrandImage} alt="" className="thumnal-icon" />
                 <Link
                   // to="brand"
                   className="tablink js-scroll-trigger"
@@ -129,9 +129,9 @@ class Banner extends Component {
                 </Link>
               </div>
 
-              <div class="col-sm-3 col-md-3 request-Quote fader pl-3">
-                <img src={EquipmentHoverImage} alt="" class="thumnal-icon" />
-                <img src={EquipmentImage} alt="" class="thumnal-icon" />
+              <div className="col-sm-3 col-md-3 request-Quote fader pl-3">
+                <img src={EquipmentHoverImage} alt="" className="thumnal-icon" />
+                <img src={EquipmentImage} alt="" className="thumnal-icon" />
                 <Link
                     className="tablink js-scroll-trigger"
                     // spy={true}
@@ -143,9 +143,9 @@ class Banner extends Component {
                 </Link>
               </div>
 
-              {/*<div class="col-sm-3 col-md-3 shopNow fader"  >
-                <img src={BestSellingHoverImage} alt="" class="thumnal-icon" />
-                <img src={BestSellingImage} alt="" class="thumnal-icon" />
+              {/*<div className="col-sm-3 col-md-3 shopNow fader"  >
+                <img src={BestSellingHoverImage} alt="" className="thumnal-icon" />
+                <img src={BestSellingImage} alt="" className="thumnal-icon" />
                 <Link
                     className="tablink js-scroll-trigger"
                     // spy={true}

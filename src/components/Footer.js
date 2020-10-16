@@ -58,21 +58,21 @@ class Footer extends Component {
     //return null;
     return (
       <div>
-        <div class="chat-button">
+        <div className="chat-button">
           <a href="/">
-            <img src={Chat} class="mr-2" alt="" width="30" />
+            <img src={Chat} className="mr-2" alt="" width="30" />
           </a>
         </div>
         <MDBFooter className="footer">
-          <div class="footer-section">
-            <div class="pagewrap">
-              <div class="footer-main pt-5">
-                <div class="row flex-column-reverse flex-md-row pl-0">
+          <div className="footer-section">
+            <div className="pagewrap">
+              <div className="footer-main pt-5">
+                <div className="row flex-column-reverse flex-md-row pl-0">
                   <MDBCol md="8">
                     <MDBRow>
                       <MDBCol md="4">
                         <h3 className="title">{footer_menu_1_title}</h3>
-                        <ul class="foote-link">
+                        <ul className="foote-link">
                           {footer_menu_1_items &&
                             footer_menu_1_items.map((item, i) => {
                               return (
@@ -82,9 +82,9 @@ class Footer extends Component {
                               );
                             })}
                         </ul>
-                        <div class="breathing">
+                        <div className="breathing">
                           <h3 className="title">{footer_menu_4_title}</h3>
-                          <ul class="foote-link">
+                          <ul className="foote-link">
                             {footer_menu_4_items &&
                               footer_menu_4_items.map((item, i) => {
                                 return (
@@ -98,7 +98,7 @@ class Footer extends Component {
                       </MDBCol>
                       <MDBCol md="4">
                         <h3 className="title">{footer_menu_2_title}</h3>
-                        <ul class="foote-link">
+                        <ul className="foote-link">
                           {footer_menu_2_items &&
                             footer_menu_2_items.map((item, i) => {
                               return (
@@ -111,7 +111,7 @@ class Footer extends Component {
                       </MDBCol>
                       <MDBCol md="4">
                         <h3 className="title">{footer_menu_3_title}</h3>
-                        <ul class="foote-link">
+                        <ul className="foote-link">
                           {footer_menu_3_items &&
                             footer_menu_3_items.map((item, i) => {
                               return (
@@ -126,7 +126,7 @@ class Footer extends Component {
                     <MDBRow className="mt-4">
                       <MDBCol md="4">
                         <h3 className="title">{footer_menu_5_title}</h3>
-                        <ul class="foote-link">
+                        <ul className="foote-link">
                           {footer_menu_5_items &&
                             footer_menu_5_items.map((item, i) => {
                               return (
@@ -195,7 +195,6 @@ class Footer extends Component {
                           }}
                           onSubmit={(values, { setSubmitting, resetForm }) => {
                             setSubmitting(true);
-                            console.log({values})
                             this.saveHandler(values);
                             //this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
                             this.props.showToast(messages.footer, TOAST_TYPE.SUCCESS);
@@ -206,7 +205,7 @@ class Footer extends Component {
                               <form onSubmit={formik.handleSubmit}>
                                 <MDBRow>
                                   <MDBCol md="12">
-                                    <div class="form-group">
+                                    <div className="form-group">
                                       <label>Name *</label>
                                       <Input
                                         allow="special"
@@ -230,7 +229,7 @@ class Footer extends Component {
 
                                 <MDBRow>
                                   <MDBCol lg="12">
-                                    <div class="form-group">
+                                    <div className="form-group">
                                       <label>Company *</label>
                                       <Input
                                         allow="special"
@@ -254,7 +253,7 @@ class Footer extends Component {
 
                                 <MDBRow>
                                   <MDBCol md="12">
-                                    <div class="form-group">
+                                    <div className="form-group">
                                       <label>Phone *</label>
                                       <Input
                                       allow="numeric"
@@ -278,7 +277,7 @@ class Footer extends Component {
 
                                 <MDBRow>
                                   <MDBCol lg="12">
-                                    <div class="form-group">
+                                    <div className="form-group">
                                       <label>Email *</label>
                                       <Input
                                       allow="email"
@@ -305,13 +304,13 @@ class Footer extends Component {
                                    </MDBCol>
                                 </MDBRow>
 
-                                <div class="mt-2">
+                                <div className="mt-2">
                                   <button
                                     type="button"
                                     onClick={() => {
                                       formik.handleSubmit();
                                     }}
-                                    class="btn bha-btn-primary w-100"
+                                    className="btn bha-btn-primary w-100"
                                   >
                                     Apply
                                 </button>
@@ -339,11 +338,11 @@ class Footer extends Component {
               </div>
             </div>
             <div className="footer-bottom">
-              <div class="pagewrap">
+              <div className="pagewrap">
                 <MDBRow>
                   <MDBCol sm="6" md="6" style={{ position: 'relative' }}>
                     <img
-                      class="img-fluid callerLady"
+                      className="img-fluid callerLady"
                       src={FooterCaller}
                       alt=""
                     />
@@ -402,7 +401,7 @@ class Footer extends Component {
                         are trademarks for one or more Baghouse power tools,
                         accessories, anchors and concrete adhesives.
                       </p>
-                        <ul class="footer-middle-list">
+                        <ul className="footer-middle-list">
                           <li>
                             <a href="/">Updated Privacy Policy</a>
                             <span>|</span>

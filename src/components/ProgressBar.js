@@ -18,7 +18,6 @@ class ProgressBar extends React.Component {
     countDown = () => {
         let percent = this.state.percent + 1;
         this.setState({ percent });
-        console.log('this.timer2 == this.timer2 == ', percent)
         if (percent >=100) {
             clearInterval(this.timer);
             setTimeout(()=>{

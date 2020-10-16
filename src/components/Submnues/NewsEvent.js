@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 const NewsEvent = (props) => {
     const {hide } = props;
       return (
-        <ul class="sub-menu"
+        <ul className="sub-menu"
         onClick={hide}
         >
             <li aria-haspopup="true"><Link to="/news" >News</Link></li>

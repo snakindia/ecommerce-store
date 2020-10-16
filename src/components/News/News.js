@@ -66,9 +66,9 @@ class News extends Component {
         <div className="content-wrapper pb-0">
           <div className="pagewrap">
             <div className="bgWhite pb-4">
-                <section class="bg-opeque pt-4 animatedParent" style={{"overflow-x": "hidden", "margin-top":"100px"}} >
-                    <div class="container-fluid">
-                        <h2 class="bha_heading_2 pb-0 text-blue text-center">{pageType == 'News' ? 'NEWS' : 'EVENTS' }</h2>
+                <section className="bg-opeque pt-4 animatedParent" style={{"overflow-x": "hidden", "margin-top":"100px"}} >
+                    <div className="container-fluid">
+                        <h2 className="bha_heading_2 pb-0 text-blue text-center">{pageType == 'News' ? 'NEWS' : 'EVENTS' }</h2>
                     </div>
                 </section>
               

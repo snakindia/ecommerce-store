@@ -32,25 +32,25 @@ export default class TopRatedProducts extends Component {
     const { products } = this.state;
     return (
       <div>
-        <section class="bg-opeque pb-4">
-          <div class="container-fluid">
-            <h2 class="bha_heading_2 text-blue">Top Rated Products</h2>
+        <section className="bg-opeque pb-4">
+          <div className="container-fluid">
+            <h2 className="bha_heading_2 text-blue">Top Rated Products</h2>
           </div>
         </section>
-        <section class="pro-equipment-section" id="bestSelling" style={{"float": "left"}}>
-          <div class="container-fluid pl-0 pr-0">
-            <div class="product-items slider">
-              <div class="product-card-wrapper outer-wrpper">
+        <section className="pro-equipment-section" id="bestSelling" style={{"float": "left"}}>
+          <div className="container-fluid pl-0 pr-0">
+            <div className="product-items slider">
+              <div className="product-card-wrapper outer-wrpper">
                 <Slider {...settings}>
                   {products &&
                     Object.keys(products).length &&
                     products.map((item, idx) => {
                       return (
-                        <div class="product-card hvr-float-shadow">
-                          <div class="item-pro-inner">
+                        <div className="product-card hvr-float-shadow">
+                          <div className="item-pro-inner">
                             <a href="#">
                               <img
-                                class="img-fluid"
+                                className="img-fluid"
                                 src={
                                   item.images.length > 0
                                     ? item.images[0].url
@@ -59,12 +59,12 @@ export default class TopRatedProducts extends Component {
                                 alt=""
                                 style={{ width: '130px', height: '200px' }}
                               />
-                              <div class="product-description">{item.name}</div>
-                              <div class="product-tag">{item.sku}</div>
+                              <div className="product-description">{item.name}</div>
+                              <div className="product-tag">{item.sku}</div>
                             </a>
                             <a
                               href="#"
-                              class="btn bha-btn-primary w-100 float-left mt-4"
+                              className="btn bha-btn-primary w-100 float-left mt-4"
                             >
                               View Details
                             </a>
