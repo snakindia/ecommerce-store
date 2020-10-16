@@ -195,7 +195,7 @@ class ContentSection extends Component {
                             </div>
 
                             <div class="row ">
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal phone-font-size email-font-size">
@@ -205,7 +205,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -215,7 +215,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -225,7 +225,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -235,7 +235,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -285,7 +285,7 @@ class ContentSection extends Component {
                             </div>
 
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -295,7 +295,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -305,7 +305,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -315,7 +315,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -325,7 +325,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -377,7 +377,7 @@ class ContentSection extends Component {
                             </div>
 
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -387,7 +387,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -397,7 +397,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -407,7 +407,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -417,7 +417,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -466,7 +466,7 @@ class ContentSection extends Component {
                               conversation today!
                             </div>
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -476,7 +476,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -486,7 +486,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -496,7 +496,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
@@ -506,7 +506,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-100">
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">

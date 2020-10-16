@@ -43,7 +43,7 @@ export default class ProductServicesPremiumBrands extends Component {
                         {Object.keys(brands).length &&
                           brands.map((item, idx) => {
                             return (
-                              <div class="col-sm-3 col-md-3 bha-mb">
+                              <div class="col-lg-3 col-sm-6 bha-mb">
                                 <Link to={item.page_url}>
                                   <div class="view view-first height-auto column_4">
                                     <img

@@ -137,7 +137,7 @@ class TopBar extends Component {
               >
                 CALL US: (888) 286-8708
               </div>
-              <div className="float-sm-right" >
+              <div className="rightLink" >
                 <ul className="toplink">
                   <li>
                     <a href="#">

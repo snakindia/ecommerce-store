@@ -341,7 +341,7 @@ class Footer extends Component {
             <div className="footer-bottom">
               <div class="pagewrap">
                 <MDBRow>
-                  <MDBCol lg="8" style={{ position: 'relative' }}>
+                  <MDBCol sm="6" md="6" style={{ position: 'relative' }}>
                     <img
                       class="img-fluid callerLady"
                       src={FooterCaller}
@@ -349,9 +349,9 @@ class Footer extends Component {
                     />
                     <span className="call-us">CALL US: (888) 286-8708</span>
                   </MDBCol>
-                  <MDBCol md="4" sm="4" xs="12" className="text-right">
+                  <MDBCol md="6" sm="6" xs="12" className="text-sm-right">
                     <div className="socialLink">
-                    <span className="float-left">Follow us:</span>
+                    <span className="text-right">Follow us:</span>
                     {
                         footer_social && Object.keys(footer_social).length > 0 &&
                         footer_social.map((item, idx) => { 
@@ -394,7 +394,7 @@ class Footer extends Component {
             <div className="copyright">
               <div className="pagewrap">
                 <MDBContainer fluid>
-                  <div className="row">
+                  
                     <MDBRow>
                       <MDBCol md="9" sm="9" xs="12">
                         <p>
@@ -433,12 +433,12 @@ class Footer extends Component {
                         md="3"
                         sm="3"
                         xs="12"
-                        className="float-right-sm pt-3 pr-4"
+                        className="text-right pr-0"
                       >
-                        <img className="w-100" src={Footerlogo} alt="" />
+                        <img className="img-fluid" src={Footerlogo} alt="" />
                       </MDBCol>
                     </MDBRow>
-                  </div>
+                  
                 </MDBContainer>
               </div>
             </div>

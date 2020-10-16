@@ -1290,7 +1290,7 @@ video {
 
   .wsmenu > .wsmenu-list > li:hover > a {
     /*background-color: rgba(0, 0, 0, 0.08);*/
-    background: #000;
+    /*background: #000;*/
     text-decoration: none;
   }
 
