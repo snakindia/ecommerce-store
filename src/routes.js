@@ -16,6 +16,7 @@ import NewsDetail from './components/News/NewsDetail';
 import EventDetail from './components/Events/EventDetail';
 import Dynamic from './components/Dynamic/Dynamic';
 import RepresentUs from './components/RepresentUs/RepresentUs';
+import ProgressBar from './components/ProgressBar'
 import Loader from './components/Loader/Loader'
 import SubscriptionPopUp from './components/SubscriptionPopUp/SubscriptionPopUp';
 import {setLoading} from './actions/fetchActions';
@@ -67,13 +68,19 @@ useEffect(()=>{
   const myRef = useRef(null) 
   const {loading}=props
     return (
+      <BrowserRouter>
+      <ProgressBar />
         <div ref={myRef}>
+         
          {loading &&  <Loader />}
         <StickyContainer>
             <Notification />
-            <BrowserRouter>
+            
+            
                 <MetaContainer>
+                
                     <div className="top-header navbar-fixed">
+                   
                         {/* <SubscriptionPopUp />*/}
                         <MobileMenu t={t}/>
                         <TopBar />
@@ -111,9 +118,10 @@ useEffect(()=>{
                     </Suspense>
                     {props.footer ? <Footer />:null}
                 </MetaContainer>
-            </BrowserRouter>
+           
         </StickyContainer>
         </div>
+        </BrowserRouter>
     );
 };
 const mapStateToProps = state => ({

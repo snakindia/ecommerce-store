@@ -89,7 +89,7 @@ export default class QuickView extends Component {
                             <section id="magnific">
                                 <div class="row">
                                     <div class="large-5 column">
-                                        {single ? <Favourite />: null }
+                                        {/* {single ? <Favourite />: null } */}
                                         <div class="xzoom-container">
                                             <div className="prod_gallery-sm">
                                                 <div style={{ width: '96%' }} className="zoomer">
@@ -166,7 +166,7 @@ export default class QuickView extends Component {
                                 </div>
                                 <div class="social_Share">
                                     <p>
-                                        <Share />
+                                        <Share item={item} />
                                     </p>
                                 </div>
                             </div>
