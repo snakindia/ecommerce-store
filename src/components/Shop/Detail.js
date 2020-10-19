@@ -57,7 +57,7 @@ class Detail extends Component {
                             <section >
                                 <div className="container-fluid">
                                     <div className="row">
-                                        <div className="col-sm-9 col-md-9">
+                                        <div className="col-lg-9 col-sm-12">
                                             {product ? <QuickView item={product} single={true} /> : null}
                                         </div>
                                         <div className="col-sm-3 col-md-3">

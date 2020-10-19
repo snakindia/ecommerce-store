@@ -1086,7 +1086,7 @@ height: 30px}
 
 /*==================================*/
 
-.sidebar{ height:auto; padding:0 0 15px 0;}
+.aside{ height:auto; padding:0 0 15px 0;}
 .stick { position: fixed;width:19.6%; top: 120px;}
 .abs { position: absolute; bottom: 0px; width:89.5%;}
 

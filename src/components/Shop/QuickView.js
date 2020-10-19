@@ -78,7 +78,7 @@ export default class QuickView extends Component {
                                 <div className="row">
                                     <div className="large-5 column">
                                         {/* {single ? <Favourite />: null } */}
-                                        <div className="xzoom-container">
+                                        <div className="xzoom-container mt-3">
                                             <div className="prod_gallery-sm">
                                                 <div style={{ width: '96%' }} className="zoomer">
                                                     <Zoomer
@@ -113,8 +113,10 @@ export default class QuickView extends Component {
 
                         </div>
                         <div className="col-sm-6 col-md-6 pl-3">
-                            <div className="media-body pt-3 pr-4">
-                                <h4 className="mt-0 mb-2">{item.name}</h4>
+                            <div className="media-body pt-3 pr-0">
+                                <div className="pro_Info">
+                                <h1 className="mt-0 mb-2">{item.name}</h1>
+                                </div>
                                 <div className="brand_name"><span className="txtLabel">Brand:</span><span>{brand}</span></div>
                                 <div className="pro_Id"><span className="txtLabel">SKU:</span>
                                     <span>{item.sku}</span></div>
@@ -132,7 +134,7 @@ export default class QuickView extends Component {
                                 {(regular_price || sale_price) ?
                                     <form className="inc_value pt-0">
                                         <div className="row">
-                                            <div className="col-sm-2 mt-2 mr-3">Quantity</div>
+                                            <div className="col-sm-2 mt-1 mr-3">Quantity</div>
                                             <div className="col-sm-8">
 
                                               <Quantity  callback={this.callback} id={item._id || item.id}/>
