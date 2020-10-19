@@ -919,3 +919,10 @@ body {
 
 /*=====New css for fixing UI-19/10/2020=================================*/
 .errorMsg{font-weight: 600; margin-bottom: 0 !important; font-size: 0.875rem; color:#d60b15 !important}
+.item-xs-caption .item_heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif !important;
+  color: #0f416a;
+}

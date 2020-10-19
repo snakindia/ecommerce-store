@@ -1384,4 +1384,6 @@ a.bha-btn-secondry:hover {
 .resp-tabs-container{padding:1rem 0}
 .single-product-detail .media-body h4{font-size: 1rem;}
 
+/*==============New css for shopnow UI fixing=====================================*/
 .call-us{white-space: nowrap}
+.hot-deals-item-wrapper .card a{padding-right:0.5rem;}

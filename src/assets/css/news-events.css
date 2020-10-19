@@ -105,7 +105,7 @@ background: #23536b; border-radius:0.3rem}
 .card-inner{width: 100%; position: relative;}
 .card-inner:before{content: ''; background:rgba(24,29,51,0.7); position: absolute;
  left: 0; right:0; top:0; bottom:0; width: 100%; height: auto}
-.hero-img{width: 100%; object-fit: cover;height: 565px}
+.hero-img{width: 100%; object-fit: cover;height: 570px}
 .card-caption{position: absolute; top:20%; left: 0; right:0; text-align: center;
  color:#fff; width: 50%; margin: auto;}
 .card-slide_container{position: absolute;width: 100%;
