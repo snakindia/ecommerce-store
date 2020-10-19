@@ -6,7 +6,7 @@ const Favourite = ({className}) => {
     const onClick =()=>{
         setLike(!liked)
     }
-    let c =className ? className :"like-button hover-btn mt-2";
+    let c =className ? className :"like-button hover-btn mt-3";
     c =liked ? `${c} is-active`: c;
     return (
         <Link type="button" className={c} onClick={onClick}>

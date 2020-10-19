@@ -1380,3 +1380,24 @@ i.wishList-hover-xs{position: absolute;  top: -18%; right: 2.6%; font-size: 1.2r
 .view{width:100% !important}
 .column_4 img{width: 100% !important;}
 /*.wsmenu > .wsmenu-list > li:hover > a{background:none !important; color:#000 !important}*/
+
+/*======Details Page====*/
+.related-warapper .location img{border:1px solid #f4f4f4;margin:0.8rem 0.8rem 0.4rem 0 !important}
+.featured-product .slick-arrow.slick-prev{position:absolute; top:-35px; left:210px; 
+  background:none !important;}
+.featured-product .slick-arrow.slick-prev:hover{background:none !important}
+.featured-product .slick-arrow.slick-next{position:absolute; top:-35px; left:240px; 
+  background:none !important}
+.featured-product .slick-arrow.slick-next:hover{background:none !important}
+.ant-tabs-tab{color:#888 !important}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{color:#23536b !important}
+/* .ant-tabs-tab-btn{color: #23536b !important;} */
+/* .ant-tabs-tab-active{border-bottom: 2px solid #24546c !important;} */
+/* .ant-tabs-tab{border-bottom: 2px solid #ddd !important;} */
+.ant-tabs-ink-bar{background-color:#24546c !important;}
+/* .xzoom-container .thumbnails{width:350px !important} */
+.media-body .star-rating{width:100%; float: left;}
+.ant-tabs-top > .ant-tabs-nav, .ant-tabs-bottom > .ant-tabs-nav, .ant-tabs-top > div > .ant-tabs-nav, .ant-tabs-bottom > div > .ant-tabs-nav{
+  margin-bottom:0 !important;}
+.resp-tabs-container{padding:1rem 0}
+.single-product-detail .media-body h4{font-size: 1rem;}

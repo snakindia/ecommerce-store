@@ -50,10 +50,10 @@ const RelatedProduct = ({ items }) => {
         })
     }
     return (
-        <div className="right-content sidebar">
+        <div className="right-content aside">
             <div id="accordion" className="myaccordion">
-                <div className="featured-product pl-0 pr-0 pt-1">
-                    <div >
+                <div className="featured-product pl-0 pr-0 pt-3">
+                    <div>
                         <h6>Featured Products</h6>
                     </div>
                     <Slider {...settings}>

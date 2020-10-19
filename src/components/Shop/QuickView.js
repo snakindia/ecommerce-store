@@ -90,7 +90,7 @@ export default class QuickView extends Component {
                                 <div class="row">
                                     <div class="large-5 column">
                                         {single ? <Favourite />: null }
-                                        <div class="xzoom-container">
+                                        <div class="xzoom-container mt-3">
                                             <div className="prod_gallery-sm">
                                                 <div style={{ width: '96%' }} className="zoomer">
                                                     <Zoomer
@@ -125,8 +125,10 @@ export default class QuickView extends Component {
 
                         </div>
                         <div class="col-sm-6 col-md-6 pl-3">
-                            <div class="media-body pt-3 pr-4">
-                                <h4 class="mt-0 mb-2">{item.name}</h4>
+                            <div class="media-body pt-3 pr-0">
+                                <div className="pro_Info">
+                                <h1 class="mt-0 mb-2">{item.name}</h1>
+                                </div>
                                 <div class="brand_name"><span class="txtLabel">Brand:</span><span>{brand}</span></div>
                                 <div class="pro_Id"><span class="txtLabel">SKU:</span>
                                     <span>{item.sku}</span></div>
@@ -144,7 +146,7 @@ export default class QuickView extends Component {
                                 {(regular_price || sale_price) ?
                                     <form class="inc_value pt-0">
                                         <div class="row">
-                                            <div class="col-sm-2 mt-2 mr-3">Quantity</div>
+                                            <div class="col-sm-2 mt-1 mr-3">Quantity</div>
                                             <div class="col-sm-8">
 
                                                 <div class="value-button inc_value decrease"
@@ -160,7 +162,7 @@ export default class QuickView extends Component {
                                         </div>
                                     </form> : null}
                                 <div class="float-left mt-4">
-                                    {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase" /> : <ContactForSale />}
+                                    {(regular_price || sale_price) ? <AddToCart className="btn bha-btn-primary text-uppercase" /> : <ContactForSale />}
                                     {(regular_price || sale_price) && single ? <BuyNow /> : null}
 
                                 </div>
