@@ -9,6 +9,7 @@ import { StickyContainer } from 'react-sticky';
 import MetaContainer from './components/MetaData';
 import Notification from './components/Notification';
 import Shop from './components/Shop';
+import Cart from './components/Shop/Cart';
 import Detail from './components/Shop/Detail';
 import PrivateRoute from './PrivateRoute';
 import Category from './components/Category';
@@ -101,8 +102,10 @@ useEffect(()=>{
                             <Route path="/inner-page" component={InnerPage} />
                             
                             <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
+                            <Route path="/shop/cart" component={Cart} />
                             <Route path="/shop/:id" component={Detail} />
                             <Route path="/shop" component={Shop} />
+                            
                             <Route path="/category/:id" component={Shop} />
                             <Route path="/category" component={Category} />
                             <Route path="/newsdetail/:slug" component={NewsDetail} />

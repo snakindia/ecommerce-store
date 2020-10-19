@@ -64,10 +64,10 @@ class NavBar extends React.Component {
   }
 
   showMenu = (itemOneObj, index, e) => {
-    const { name, image, items, slug, _id } = itemOneObj;
+    const { name, image, items, slug, id } = itemOneObj;
     let imageSrc = '';
     if (image != '') {
-      imageSrc = `${categoryImageUrl}/${_id}/${image}`;
+      imageSrc = `${categoryImageUrl}/${id}/${image}`;
     } else {
       imageSrc = DEFAULT_IMG_URL;
     }
@@ -174,7 +174,7 @@ class NavBar extends React.Component {
                 <li>
                   <a
                     id="requestAQuote"
-                    href="javascript:void(0)"
+                   onClick={e=> e.preventDefault()}
                     onClick={this.toggleQuoteModal}
                     className="bha-btn-secondry hotLink mr-2 ml-2"
                   >

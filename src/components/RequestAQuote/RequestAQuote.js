@@ -29,7 +29,7 @@ class RequestAQuote extends Component {
           if (subMenuData[key] && subMenuData[key][0] && subMenuData[key][0].items && subMenuData[key][0].items.length > 0) {
             subMenuData[key][0].items.map(item => {
 
-              if (item._id == values.category_id) {
+              if (item.id == values.category_id) {
                 values.category_name = item.name;
               }
             })
@@ -78,7 +78,7 @@ class RequestAQuote extends Component {
           subMenuData[key][0].items.map(item => {
             categories.push({
               label: item.name,
-              value: item._id
+              value: item.id
             })
           })
         }

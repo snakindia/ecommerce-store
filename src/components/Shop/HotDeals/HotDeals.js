@@ -110,7 +110,7 @@ history.push('/compare');
           >
             {deals.map(item => (
               <DealCard
-                key={item._id}
+                key={item.id}
                 dealData={item}
                 openQuickDeal={openQuickDeal}
                 addToCompare={addCompare}

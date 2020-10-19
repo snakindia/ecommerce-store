@@ -79,7 +79,7 @@ class News extends Component {
                                 <div className="row no-gutters">
                                     {newsList.map(item => (
                                       <NewsCard
-                                        key={item._id}
+                                        key={item.id}
                                         newsData={item}
                                         pageType={pageType}
                                       />

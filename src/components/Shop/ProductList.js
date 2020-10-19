@@ -51,7 +51,7 @@ export default class ProductList extends Component {
                             </div>
                         }
                         <div className="d-block float-left w-100 mt-4">
-                            {hasPrice ? <AddToCart /> : <ContactForSale />}
+                            {hasPrice ? <AddToCart item={item}/> : <ContactForSale />}
                             <Compare />
                         </div>
                     </div>

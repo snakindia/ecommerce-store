@@ -49,6 +49,7 @@ class ProgressBar extends React.Component {
                     fontSize:'2px',
                     //opacity: percent >0 && percent <100 ? 1:0,
                     display:'block',
+                    position:'fixed'
                    // backgroundColor:percent >0 && percent <100 ? 'transparent':'black',
                 }}
                 percent={percent}

@@ -96,7 +96,7 @@ class Banner extends Component {
               </RBCarousel>
             </div>
           </div>
-          <div class='bottom-navigation affixed'>
+          <div className='bottom-navigation affixed'>
            
           <div className="container">
         
@@ -106,6 +106,7 @@ class Banner extends Component {
                 <img src={CompanyImage} alt="" className="thumnal-icon" />
                 <Link
                     className="tablink js-scroll-trigger"
+                    to="/"
                     // spy={true}
                     // smooth={true}
                     // to="company"
@@ -121,7 +122,7 @@ class Banner extends Component {
                 <img src={BrandHoverImage} alt="" className="thumnal-icon" />
                 <img src={BrandImage} alt="" className="thumnal-icon" />
                 <Link
-                  // to="brand"
+                  to="/"
                   className="tablink js-scroll-trigger"
                   onClick={e=>this.scrollTo(e,'#brand')}
                 >
@@ -134,7 +135,7 @@ class Banner extends Component {
                 <img src={EquipmentImage} alt="" className="thumnal-icon" />
                 <Link
                     className="tablink js-scroll-trigger"
-                    // spy={true}
+                    to="/"
                     // smooth={true}
                     // to="product"
                     onClick={e=>this.scrollTo(e,'#product')}

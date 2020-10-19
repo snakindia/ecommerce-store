@@ -113,8 +113,8 @@ class LeftMenu extends Component {
                       >{Object.keys(item.sub_cat).length > 0 &&
                         item.sub_cat.map((subCat, idx) =>
                           <Menu.Item 
-                          key={subCat._id}
-                          onClick={e=>this.push(`/category/${subCat._id}`)} 
+                          key={subCat.id}
+                          onClick={e=>this.push(`/category/${subCat.id}`)} 
                           
                           style={{
                             backgroundColor: '#1f465c',

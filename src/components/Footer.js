@@ -356,7 +356,7 @@ class Footer extends Component {
                         footer_social.map((item, idx) => { 
                             if (item.type == 'facebook') {
                                 return (
-                                    <a target="_blank" href={item.url}>
+                                    <a target="_blank" href={item.url} key={`${item.url}${idx}`}>
                                         <img src={Facebook} alt="Facebook" />
                                     </a>
                                 )
@@ -364,7 +364,7 @@ class Footer extends Component {
                             
                             if (item.type == 'twitter') {
                                 return (
-                                    <a target="_blank" href={item.url}>
+                                    <a target="_blank" href={item.url} key={`${item.url}${idx}`}>
                                         <img src={Twitter} alt="Facebook" />
                                     </a>
                                 )
@@ -372,7 +372,7 @@ class Footer extends Component {
                             
                             if (item.type == 'Linkedln') {
                                 return (
-                                    <a target="_blank" href={item.url}>
+                                    <a target="_blank" href={item.url} key={`${item.url}${idx}`}>
                                         <img  src={Linkedin} alt="Facebook" />
                                     </a>
                                 )

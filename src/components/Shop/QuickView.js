@@ -8,6 +8,7 @@ import Share from './Share';
 import Favourite from './Favourite';
 import Slider from 'react-slick';
 import Zoomer from "./Zoomer";
+import Quantity from "./Quantity";
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 export default class QuickView extends Component {
     constructor(props) {
@@ -25,21 +26,14 @@ export default class QuickView extends Component {
         }
 
     }
+    
 
-    changeCounter = (payload) => {
-        let { counts } = this.state;
-        counts = counts + (payload);
-        this.setState({ counts })
-    }
-
-    handleInput = (e) => {
-        const { value } = e.target;
-        if (!isNaN(value)) {
-            this.setState({ counts: value })
-        }
-    }
+    
     changeImage = (imageUrl) => {
         this.setState({ imageUrl })
+    }
+    callback =(counts)=>{
+       this.setState({counts})
     }
 
     render() {
@@ -53,13 +47,7 @@ export default class QuickView extends Component {
         let images = [];
         images = item && item.images && item.images.length > 1 ? item.images : []
         const { imageUrl, counts } = this.state;
-        const sliderImages = [
-            'https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg',
-            'http://209.59.154.198:3001/images/products/5f7ed1c5949319479ac6f175/Camfil_Frr_Dust-Collector-Pleated-and-Cartridge-Filters.png',
-            'https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg',
-            'http://209.59.154.198:3001/images/products/5f7ed1c5949319479ac6f175/Camfil_Frr_Dust-Collector-Pleated-and-Cartridge-Filters.png',
-            'https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg'
-        ];
+        const sliderImages = images;
         const settings = {
             slidesToShow: 4,
             slidesToScroll: 1,
@@ -149,20 +137,12 @@ export default class QuickView extends Component {
                                             <div className="col-sm-2 mt-1 mr-3">Quantity</div>
                                             <div className="col-sm-8">
 
-                                                <div className="value-button inc_value decrease"
-                                                    onClick={e => this.changeCounter(-1)}
-                                                >-</div>
-                                                <input type="text" id="number_modal"
-                                                    onChange={this.handleInput}
-                                                    className="number" value={counts} />
-                                                <div className="value-button increase"
-                                                    onClick={e => this.changeCounter(+1)}
-                                                >+</div>
+                                              <Quantity  callback={this.callback} id={item.id || item.id}/>
                                             </div>
                                         </div>
                                     </form> : null}
                                 <div className="float-left mt-4">
-                                    {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase" /> : <ContactForSale />}
+                                    {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase"  item={item} qty ={this.state.counts}/> : <ContactForSale />}
                                     {(regular_price || sale_price) && single ? <BuyNow /> : null}
 
                                 </div>

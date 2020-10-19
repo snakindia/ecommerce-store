@@ -39,6 +39,15 @@ export const getMenuError = (payload) => ({
     type: ActionTypes.SHOP_GET_MENU_ERROR,
     payload
 })
+export const addProduct = (payload, qty=1) => ({
+    type: ActionTypes.ADD_TO_CART,
+    payload,
+    qty
+})
+export const removeProduct = (payload) => ({
+    type: ActionTypes.REMOVE_FROM_CART,
+    payload
+})
 
 
 export const flushData = () => ({

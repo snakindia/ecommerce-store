@@ -1,31 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem,
-  MDBIcon,
-} from 'mdbreact';
-import {
-  MDBContainer,
-  MDBBtn,
-  MDBModal,
-  MDBModalBody,
-  MDBModalHeader,
-  MDBModalFooter,
-} from 'mdbreact';
+import { MDBModal, } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Cart from '../assets/icon/cart.svg';
 import Profile from '../assets/icon/profile.svg';
 import Globe from '../assets/icon/globe.svg';
+import { Link } from 'react-router-dom'
 import { Formik } from 'formik';
 import base64 from 'buffer';
 import { setUserSession } from '../utils/Common';
@@ -33,7 +13,7 @@ import { API_AJAX_URL, API_URL } from '../constants/appConstant';
 import parseHtml from 'react-html-parser';
 import { POST } from '../services/httpService';
 import GoogleTranslator from './common/GoogleTranslator';
-
+import { Popover } from 'antd';
 import {
   getAuthToken,
   removeAuthDetails,
@@ -42,7 +22,7 @@ import {
 import { signInUrl } from '../constants/urls';
 import { getUserDetail, signOutUser } from '../actions/authActions';
 //import CookieHandler from '../utils/cookieHandler.js';
-
+import MiniCart from './Shop/MinCart'
 class TopBar extends Component {
   constructor(props) {
     super(props);
@@ -53,7 +33,7 @@ class TopBar extends Component {
       errors: {},
       loginError: null,
     };
-    this.ref =React.createRef(null);
+    this.ref = React.createRef(null);
   }
 
   componentDidMount() {
@@ -66,7 +46,7 @@ class TopBar extends Component {
       modal5: false,
       modal6: false,
       loginError: null,
-      showLanguage:undefined
+      showLanguage: undefined
     });
     this.setState({
       [modalNumber]: !this.state[modalNumber],
@@ -83,16 +63,16 @@ class TopBar extends Component {
             item.slug == '/sign-up' ? (
               <small>{parseHtml(item.content)}</small>
             ) : (
-              ''
-            )
+                ''
+              )
           )}
       </div>
     );
   }
 
- showLanguage =()=>{
-    const {showLanguage} =this.state;
-    this.setState({showLanguage:showLanguage ? false :true})
+  showLanguage = () => {
+    const { showLanguage } = this.state;
+    this.setState({ showLanguage: showLanguage ? false : true })
   }
 
   onFormSubmit = (values, { setSubmitting }) => {
@@ -117,18 +97,26 @@ class TopBar extends Component {
     removeAuthDetails();
     this.props.signOutUser();
   };
-  
+
   render() {
-    const { authenticated, userDetails } = this.props;
-    const { showLanguage} = this.state;
+    const { authenticated, userDetails, cart } = this.props;
+    let productsInCart = 0;
+    if (Object.keys(cart) && Object.keys(cart).length > 0) {
+      for (const datum of Object.keys(cart)) {
+        if (cart[datum]) {
+          productsInCart = productsInCart + cart[datum].qty;
+        }
+      }
+    }
+    const { showLanguage } = this.state;
     return (
       <div>
-        <div style={{display: showLanguage ? 'block':'none'}}>
-            <GoogleTranslator />
+        <div style={{ display: showLanguage ? 'block' : 'none' }}>
+          <GoogleTranslator />
         </div>
-       
+
         <div className="headtoppart">
-        <div className="call-us-mob">CALL US: (888) 286-8708</div>
+          <div className="call-us-mob">CALL US: (888) 286-8708</div>
           <div className="topbar">
             <div className="headerwp">
               <div
@@ -140,10 +128,26 @@ class TopBar extends Component {
               <div className="rightLink" >
                 <ul className="toplink">
                   <li>
-                    <a href="#">
-                      <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20"></embed>
+                    {productsInCart > 0 ?
+                      <Popover placement="bottom" title='' content={<MiniCart />} trigger="click"
+                        overlayStyle={{ zIndex: 10001,position:'fixed' }}
+                        overlayClassName="mini-cart-popup"
+                      >
+                        <Link to="" onClick={e => e.preventDefault()}>
+                          <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20" style={{ marginRight: '2px' }}></embed>
+                          <div style={{
+                            width: '20px', height: '20px', borderRadius: '100px', textAlign: 'center', margin: '0 5px 0 2px',
+                            lineHeight: '20px', background: '#f00'
+                          }}>{productsInCart}</div>
                       Cart
-                    </a>
+                    </Link>
+                      </Popover>
+                      :
+                      <Link to="" onClick={e => e.preventDefault()}>
+                        <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20"></embed>
+                   Cart
+                 </Link>
+                    }
                   </li>
                   <span>&nbsp;</span>
                   {authenticated ? (
@@ -152,27 +156,27 @@ class TopBar extends Component {
                       <button onClick={this.onSignOut}>SignOut</button>
                     </li>
                   ) : (
-                    <li>
-                     <a onClick={this.toggle(5)}>
-                   
-                        <embed src={Profile}  alt="" width="20" height="20"></embed>
+                      <li>
+                        <a onClick={this.toggle(5)}>
+
+                          <embed src={Profile} alt="" width="20" height="20"></embed>
                         login/signup
                       </a>
-                    </li>
-                  )}
-                  
-                {/* <span className="mobPipe">&nbsp;</span>
+                      </li>
+                    )}
+
+                  {/* <span className="mobPipe">&nbsp;</span>
                 <li id="CountryOpen"  onClick={this.showLanguage}>
                     {/*<a href="#"><embed src={Globe}  alt="" width="20" height="20"></embed>
                     <a>
                     EN<i className="caret border-0"></i></a>
                 </li>*/}
-          
+
                   <span>&nbsp;</span>
                   <li>
-                  {/*<a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>*/}
-  <a color="primary" ><img src={Globe} alt="" width="20" />EN</a> </li>
-                                    <span className="mobHide">&nbsp;</span>
+                    {/*<a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>*/}
+                    <a color="primary" ><img src={Globe} alt="" width="20" />EN</a> </li>
+                  <span className="mobHide">&nbsp;</span>
                   <li className="mobHide">
                     {/*<a onClick={this.toggle(6)}>*/}
                     <a>
@@ -221,83 +225,83 @@ class TopBar extends Component {
                 isSubmitting,
                 /* and other goodies */
               }) => (
-                <form>
-                  <div className="row">
-                    <div className="col-sm-6 col-md-6 border-right border-secondary">
-                      <h4 className="login-heading font-xx">Account Sign In</h4>
-                      <div className="form-group mb-2">
-                        {/* <!-- <label>Mobile / Email Address</label> --> */}
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="email"
-                          onChange={e => {
-                            this.setState({ loginError: null });
-                            handleChange(e);
-                          }}
-                          onBlur={handleBlur}
-                          value={values.email}
-                          placeholder="Email Address"
-                        />
-                        <span className="errorMsg">
-                          {errors.email && touched.email && errors.email}
-                        </span>
-                      </div>
-                      <div className="form-group pb-0 mb-3">
-                        {/* <!-- <label>Password</label> --> */}
-                        <input
-                          type="password"
-                          className="form-control"
-                          onChange={e => {
-                            this.setState({ loginError: null });
-                            handleChange(e);
-                          }}
-                          onBlur={handleBlur}
-                          value={values.password}
-                          name="password"
-                          placeholder="Password"
-                        />
-                        <div className="errorMsg">
-                          {errors.password &&
-                            touched.password &&
-                            errors.password}
+                  <form>
+                    <div className="row">
+                      <div className="col-sm-6 col-md-6 border-right border-secondary">
+                        <h4 className="login-heading font-xx">Account Sign In</h4>
+                        <div className="form-group mb-2">
+                          {/* <!-- <label>Mobile / Email Address</label> --> */}
+                          <input
+                            type="text"
+                            className="form-control"
+                            name="email"
+                            onChange={e => {
+                              this.setState({ loginError: null });
+                              handleChange(e);
+                            }}
+                            onBlur={handleBlur}
+                            value={values.email}
+                            placeholder="Email Address"
+                          />
+                          <span className="errorMsg">
+                            {errors.email && touched.email && errors.email}
+                          </span>
+                        </div>
+                        <div className="form-group pb-0 mb-3">
+                          {/* <!-- <label>Password</label> --> */}
+                          <input
+                            type="password"
+                            className="form-control"
+                            onChange={e => {
+                              this.setState({ loginError: null });
+                              handleChange(e);
+                            }}
+                            onBlur={handleBlur}
+                            value={values.password}
+                            name="password"
+                            placeholder="Password"
+                          />
+                          <div className="errorMsg">
+                            {errors.password &&
+                              touched.password &&
+                              errors.password}
+                          </div>
+                        </div>
+                        <a href="/" className="pwdlink">
+                          Forgot Password?
+                      </a>
+                        <div className="form-group">
+                          <span className="errorMsg">
+                            {this.state.loginError}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              handleSubmit();
+                            }}
+                            className="btn bha-btn-primary w-100 mt-3"
+                          >
+                            Sign in
+                        </button>
+                          {/* <!-- <span className="float-right mt-4 text-muted"><a className="forgotpwd" href="forgot-pwd.html">Forgot Password?</a></span> --> */}
                         </div>
                       </div>
-                      <a href="/" className="pwdlink">
-                        Forgot Password?
-                      </a>
-                      <div className="form-group">
-                        <span className="errorMsg">
-                          {this.state.loginError}
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            handleSubmit();
-                          }}
-                          className="btn bha-btn-primary w-100 mt-3"
-                        >
-                          Sign in
-                        </button>
-                        {/* <!-- <span className="float-right mt-4 text-muted"><a className="forgotpwd" href="forgot-pwd.html">Forgot Password?</a></span> --> */}
-                      </div>
-                    </div>
-                    <div className="col-sm-6 col-md-6">
-                      <h4 className="login-heading font-xx">WHY JOIN?</h4>
-                      {this.displaySignupContent()}
-                      <div className="form-group">
-                        <a
-                          href="/sign-up"
-                          className="btn bha-btn-primary w-100 mt-3"
-                        >
-                          Sign up
+                      <div className="col-sm-6 col-md-6">
+                        <h4 className="login-heading font-xx">WHY JOIN?</h4>
+                        {this.displaySignupContent()}
+                        <div className="form-group">
+                          <a
+                            href="/sign-up"
+                            className="btn bha-btn-primary w-100 mt-3"
+                          >
+                            Sign up
                         </a>
-                        {/* <!-- <span className="float-right mt-4 text-muted"><a className="forgotpwd" href="forgot-pwd.html">Forgot Password?</a></span> --> */}
+                          {/* <!-- <span className="float-right mt-4 text-muted"><a className="forgotpwd" href="forgot-pwd.html">Forgot Password?</a></span> --> */}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </form>
-              )}
+                  </form>
+                )}
             </Formik>
           </div>
         </MDBModal>
@@ -345,11 +349,12 @@ class TopBar extends Component {
   }
 }
 
-const mapStateToProps = ({ asyncReducer, auth }) => {
+const mapStateToProps = ({ asyncReducer, auth, shop }) => {
   return {
     page_details: asyncReducer.page_meta_details,
     authenticated: auth.authenticated,
     userDetails: auth.customer_settings,
+    cart: shop.cart
   };
 };
 

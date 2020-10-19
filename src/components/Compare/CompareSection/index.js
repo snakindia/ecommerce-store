@@ -50,7 +50,7 @@ const CompareSection = ({
               <div className="card-body" id="myDiv">
                 <ul className="compare-widget__products">
                   {deals.map(item => (
-                    <li key={item._id} className="compare-widget__product">
+                    <li key={item.id} className="compare-widget__product">
                       <Image
                         src="images/product/img1.jpg"
                         alt=""
@@ -60,7 +60,7 @@ const CompareSection = ({
                       <button
                         className="compare-widget__product-remove-trigger"
                         title="Remove"
-                        onClick={() => removeDeal(item._id)}
+                        onClick={() => removeDeal(item.id)}
                       >
                         Remove Product
                       </button>

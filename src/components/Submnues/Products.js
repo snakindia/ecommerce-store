@@ -63,10 +63,10 @@ class Products extends React.Component {
     showMenu = (itemOneObj, index, e) => {
         const isMobile = document.body.className == 'wsactive';
         const { activeLink } = this.state;
-        const { name, image, items, slug, _id } = itemOneObj;
+        const { name, image, items, slug, id } = itemOneObj;
         let imageSrc = '';
         if (image != '') {
-            imageSrc = `${categoryImageUrl}/${_id}/${image}`;
+            imageSrc = `${categoryImageUrl}/${id}/${image}`;
         } else {
             imageSrc = DEFAULT_IMG_URL;
         }
@@ -108,7 +108,7 @@ class Products extends React.Component {
                         {subMenuArr &&
                             subMenuArr.map((itemOne, i) => {
                                 let itemOneObj = itemOne && itemOne[0];
-                                const { name, image, items, slug, _id } = itemOneObj;
+                                const { name, image, items, slug, id } = itemOneObj;
                                 return (
                                     <li
                                         className={
@@ -144,7 +144,7 @@ class Products extends React.Component {
                                                                                 className="scale-down"
                                                                                 src={
                                                                                     itemTwo.image != ''
-                                                                                        ? API_IMAGE_PATH + 'categories/' + itemTwo._id + '/' + `${itemTwo.image}`
+                                                                                        ? API_IMAGE_PATH + 'categories/' + itemTwo.id + '/' + `${itemTwo.image}`
                                                                                         : DEFAULT_IMG_URL
                                                                                 }
                                                                                 alt="bha"
