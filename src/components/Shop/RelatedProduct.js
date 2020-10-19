@@ -60,8 +60,8 @@ const RelatedProduct = ({ items }) => {
                         {
                             Object.keys(data) && Object.keys(data).length > 0 && Object.keys(data).map(key => {
                                 return (
-                                    <div className="related-warapper">
-                                        {data[key] && data[key].length > 0 && data[key].map((item, i) => <Product item={item} />)}
+                                    <div className="related-warapper" key={`RelatedProduct${Math.random()}`}>
+                                        {data[key] && data[key].length > 0 && data[key].map((item, i) => <Product item={item} key={`RelatedProductiem${Math.random()}`}/>)}
                                     </div>
                                 )
 

@@ -174,7 +174,7 @@ class NavBar extends React.Component {
                 <li>
                   <a
                     id="requestAQuote"
-                    href="javascript:void(0)"
+                   onClick={e=> e.preventDefault()}
                     onClick={this.toggleQuoteModal}
                     className="bha-btn-secondry hotLink mr-2 ml-2"
                   >

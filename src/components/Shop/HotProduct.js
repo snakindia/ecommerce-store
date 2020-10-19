@@ -14,6 +14,10 @@ const HotProduct = (props) => {
         sale = (((regular_price - sale_price) * 100) / regular_price).toFixed(0)
     }
 
+    const clickHandler =(e)=>{
+        e.preventDefault()
+        props.quickView(item)
+    }
     const imageUrl = item.images.length > 0 ? item.images[0].url : API_IMAGE_PATH + 'default/default.jpg';
     const hasPrice = item && (item.regular_price || item.sale_price) ? true : false;
     return (
@@ -22,7 +26,7 @@ const HotProduct = (props) => {
                 <div className="portfolio-hover-content">
                     <div className="callToAction-xxs">
                         <p>
-                            <Link type="button" onClick={e => props.quickView(item)} className="quick-view">Quick View</Link>
+                            <Link type="button" onClick={e =>clickHandler(e)} className="quick-view" to="/">Quick View</Link>
                             <Link to={`/shop/${item.id}`} className="quick-view">View Details</Link>
                         </p>
                     </div>

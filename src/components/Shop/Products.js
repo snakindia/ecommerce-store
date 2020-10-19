@@ -48,6 +48,7 @@ class Products extends Component {
                   <div className="productitem-auto slider">
                     <Slider {...settings}>
                       {data.map((item, idx) => <HotProduct
+                        key={`HotProduct${idx}`}
                         item={item}
                         quickView={this.props.quickView}
                       />)
