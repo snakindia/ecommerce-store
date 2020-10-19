@@ -96,7 +96,7 @@ class Banner extends Component {
               </RBCarousel>
             </div>
           </div>
-          <div class='bottom-navigation affixed'>
+          <div className='bottom-navigation affixed'>
            
           <div className="container">
         
