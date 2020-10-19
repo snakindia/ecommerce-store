@@ -56,7 +56,7 @@ export default class Product extends Component {
 
                         <div className="d-block float-left w-100 text-center">
 
-                            {hasPrice ? <AddToCart /> : <ContactForSale />}
+                            {hasPrice ? <AddToCart  item={item}/> : <ContactForSale />}
                             <Compare />
                         </div>
 
