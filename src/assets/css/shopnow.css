@@ -1387,3 +1387,9 @@ a.bha-btn-secondry:hover {
 /*==============New css for shopnow UI fixing=====================================*/
 .call-us{white-space: nowrap}
 .hot-deals-item-wrapper .card a{padding-right:0.5rem;}
+.cart-footer .button{margin-right:0.8rem; width:auto}
+.cart-footer .button:last-child{margin-right:0 !important}
+.corner-right span i{font-size: 0.650rem;}
+.item-list .item .cart-thumbnail img{padding:0.2rem}
+.item-list .item .details .sp-price{padding:0 0 0.8rem 0;}
+.ant-popover-inner-content{padding:0 !important}
