@@ -137,7 +137,7 @@ export default class QuickView extends Component {
                                             <div className="col-sm-2 mt-1 mr-3">Quantity</div>
                                             <div className="col-sm-8">
 
-                                              <Quantity  callback={this.callback} id={item._id || item.id}/>
+                                              <Quantity  callback={this.callback} id={item.id || item.id}/>
                                             </div>
                                         </div>
                                     </form> : null}

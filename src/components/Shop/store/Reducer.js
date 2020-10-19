@@ -37,15 +37,15 @@ export default (state = initialState, { type, payload, qty }) => {
             let { cart } = state;
             let quantities = 0;
             if(qty==0){
-                delete cart[payload._id];
+                delete cart[payload.id];
                 return { ...state, cart: { ...cart } }
             } else {
-            if (Object.keys(cart) && Object.keys(cart).length > 0 && Object.keys(cart).includes(payload._id)) {
-                quantities = cart[payload._id].qty;
+            if (Object.keys(cart) && Object.keys(cart).length > 0 && Object.keys(cart).includes(payload.id)) {
+                quantities = cart[payload.id].qty;
                 quantities =qty && qty =='add' ? quantities+1: qty;
                     cart = {
                         ...cart,
-                        [payload._id]: { item: payload, qty:quantities }
+                        [payload.id]: { item: payload, qty:quantities }
                     }
                 
                
@@ -53,7 +53,7 @@ export default (state = initialState, { type, payload, qty }) => {
                 quantities =qty && qty =='add' ? quantities+1: qty;
                 cart = {
                     ...cart,
-                    [payload._id]: { item: payload, qty: quantities }
+                    [payload.id]: { item: payload, qty: quantities }
                 }
             }
             return { ...state, cart }

@@ -9,7 +9,7 @@ const Product = (props) => {
     const { item, qty } = props.data;
     const remove = (e) => {
         e.preventDefault();
-        props.remove(item._id);
+        props.remove(item.id);
     }
     const callback =(counts)=>{
             props.QuantityHandler(item, counts)
@@ -26,7 +26,7 @@ const Product = (props) => {
         <ToolTip text={item.name} length={200} />
         </td>
         <td style={{verticalAlign: 'middle'}}>
-            <Quantity qty={qty} id={item._id || item.id} callback={callback}/>
+            <Quantity qty={qty} id={item.id || item.id} callback={callback}/>
        </td>
         <td style={{verticalAlign: 'middle'}}>$ {item.regular_price}</td>
         <td style={{verticalAlign: 'middle'}}>$ {price}</td>

@@ -15,7 +15,7 @@ const DealCard = ({ dealData, openQuickDeal, addToCompare, comparedDeals}) => {
   }
 
   const isCompared = (id) => {
-    let existingData = comparedDeals.find(item=> item._id === id);
+    let existingData = comparedDeals.find(item=> item.id === id);
     if(existingData) {
       return true;
     } else {
@@ -86,7 +86,7 @@ const DealCard = ({ dealData, openQuickDeal, addToCompare, comparedDeals}) => {
           <a
             href="#!"
             className={
-              isCompared(dealData._id)
+              isCompared(dealData.id)
                 ? 'svg-icon compare-link link-active'
                 : 'svg-icon svg-icon compare-link'
             }

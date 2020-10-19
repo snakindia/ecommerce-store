@@ -8,7 +8,7 @@ const Product = (props) => {
     const { item,qty } = props.data;
     const remove = (e) => {
         e.preventDefault();
-        props.remove(item._id);
+        props.remove(item.id);
     }
     const price =qty * item.regular_price;
     const imageUrl = item.images.length > 0 ? item.images[0].url : API_IMAGE_PATH + 'default/default.jpg';
@@ -20,10 +20,10 @@ const Product = (props) => {
                         <span><i className="fa fa-times"></i></span>
                     </div>
                 </div>
-                <Link to={`/shop/${item._id}`}><img src={imageUrl} alt="" /></Link>
+                <Link to={`/shop/${item.id}`}><img src={imageUrl} alt="" /></Link>
             </div>
             <div className="details">
-                <div className="item-title"><Link to={`/shop/${item._id}`}>
+                <div className="item-title"><Link to={`/shop/${item.id}`}>
                     <ToolTip text={item.name} />
                 </Link></div>
                 <span className="sp-price quantity">Qty:{qty}</span>

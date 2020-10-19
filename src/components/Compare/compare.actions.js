@@ -4,7 +4,7 @@ export { ADD_TO_COMPARE, REMOVE_FROM_COMPARE };
 
 const addToCompare = comparedData => (dispatch, getState) => {
   const data = getState().compare.comparedDeals || [];
-  let existed_item = data.find(item => item._id === comparedData._id);
+  let existed_item = data.find(item => item.id === comparedData.id);
   if (data.length < 3) {
     if (existed_item) {
       dispatch({
@@ -24,7 +24,7 @@ const addToCompare = comparedData => (dispatch, getState) => {
 
 const removeFromCompare = id => (dispatch, getState) => {
   const data = getState().compare.comparedDeals || [];
-  let new_items = data.filter(item => item._id !== id);
+  let new_items = data.filter(item => item.id !== id);
   dispatch({ type: REMOVE_FROM_COMPARE, payload: new_items, error: '' });
 };
 export { addToCompare, removeFromCompare };
