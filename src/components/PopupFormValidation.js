@@ -96,7 +96,7 @@ export default class PopupFormValidation extends Component {
           <form>
             <MDBRow>
               <MDBCol md="6">
-                <div class="form-group">
+                <div className="form-group">
                   <label htmlFor="" className="white-text font-weight-bold">
                     Name*
                   </label>
@@ -113,7 +113,7 @@ export default class PopupFormValidation extends Component {
                 <div className="errorMsg">{this.state.errors.username}</div>
               </MDBCol>
               <MDBCol md="6">
-                <div class="form-group">
+                <div className="form-group">
                   <label htmlFor="" className="white-text font-weight-bold">
                     Phone*
                   </label>
@@ -132,7 +132,7 @@ export default class PopupFormValidation extends Component {
             </MDBRow>
             <MDBRow>
               <MDBCol lg="12">
-                <div class="form-group">
+                <div className="form-group">
                   <label htmlFor="" className="white-text font-weight-bold">
                     Email Address *
                   </label>
@@ -151,7 +151,7 @@ export default class PopupFormValidation extends Component {
             </MDBRow>
             <MDBRow>
               <MDBCol lg="12">
-                <div class="form-group">
+                <div className="form-group">
                   <label htmlFor="" className="white-text font-weight-bold">
                     Company Name *
                   </label>
@@ -166,17 +166,17 @@ export default class PopupFormValidation extends Component {
                   />
                 </div>
                 <div className="errorMsg">{this.state.errors.companyname}</div>
-                {/* <div class="chat-button pulse"><a href="/"><img src={Chat} class="mr-2" alt="" width="30" />Live Chat</a></div> */}
+                {/* <div className="chat-button pulse"><a href="/"><img src={Chat} className="mr-2" alt="" width="30" />Live Chat</a></div> */}
               </MDBCol>
             </MDBRow>
-            <p class="mt-3">
+            <p className="mt-3">
               By signing up you agre to receive emails from Bhaghouse with new,
               special offers, promotions and other information. You can
               unsubscribe at any time. See Updated Privacy Policy or Contact Us
               at support.bhaghouse@gamil.com.
             </p>
-            <div class="mt-5">
-              <button type="button" class="btn bha-btn-primary w-100">
+            <div className="mt-5">
+              <button type="button" className="btn bha-btn-primary w-100">
                 subscribe
               </button>
             </div>

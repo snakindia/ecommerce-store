@@ -8,131 +8,131 @@ import Torit from '../../../assets/images/torit.jpg';
 
 const Certificates = (is_certified) => {
   return (
-    <section class="certificate-section" style={{"margin-top": "8%"}}>
-         <div class="pagewrap">
-            <div class="awardTag">
-                <div class="container-fluid">
-                    <div class="row justify_center">  
-                        <img src={AW01} class="img-fluid" alt="..." width="150" />
-                        <img src={AW02} class="img-fluid" alt="..." width="150" />
-                        <img src={AW03} class="img-fluid" alt="..." width="150" />
-                        <img src={AW04} class="img-fluid" alt="..." width="150" />
+    <section className="certificate-section" style={{"margin-top": "8%"}}>
+         <div className="pagewrap">
+            <div className="awardTag">
+                <div className="container-fluid">
+                    <div className="row justify_center">  
+                        <img src={AW01} className="img-fluid" alt="..." width="150" />
+                        <img src={AW02} className="img-fluid" alt="..." width="150" />
+                        <img src={AW03} className="img-fluid" alt="..." width="150" />
+                        <img src={AW04} className="img-fluid" alt="..." width="150" />
                     </div>
                 </div>
             </div>
         </div>
         
         { is_certified == true ?
-            <div class="compaire-container">
-                <div class="text-center">
-                    <div class="container content-padding">
-                        <div class="row align-items-center card-gutter">
-                            <div class="col-lg-4">
-                                <div class="card-1 mx-auto mt-2 border-blue color--border">
-                                    <div class="card-body p-0 pt-0 pb-0">
+            <div className="compaire-container">
+                <div className="text-center">
+                    <div className="container content-padding">
+                        <div className="row align-items-center card-gutter">
+                            <div className="col-lg-4">
+                                <div className="card-1 mx-auto mt-2 border-blue color--border">
+                                    <div className="card-body p-0 pt-0 pb-0">
                                         <div style={{"height": "110px"}}></div>
-                                        <h3 class="card-name text-gracy">Dust Collector Catridge Filters</h3>
-                                        <h2 class="text-uppercase font-weight-bold mb-4 text-blue">Others</h2>
-                                        <ul class="list-unstyled">
-                                            <li class="card-list-item">Merv Raiting:<span class="font-weight-bold ml-3">14</span></li>
-                                            <li class="card-list-item">Price: <span class="font-weight-bold ml-3">$</span></li> 
-                                            <li class="card-list-item">
-                                                <div class="star-rating">
-                                                    <ul class="list-inline">
-                                                        <span class="mr-3 ml-0 pl-0">Rating:</span>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        <h3 className="card-name text-gracy">Dust Collector Catridge Filters</h3>
+                                        <h2 className="text-uppercase font-weight-bold mb-4 text-blue">Others</h2>
+                                        <ul className="list-unstyled">
+                                            <li className="card-list-item">Merv Raiting:<span className="font-weight-bold ml-3">14</span></li>
+                                            <li className="card-list-item">Price: <span className="font-weight-bold ml-3">$</span></li> 
+                                            <li className="card-list-item">
+                                                <div className="star-rating">
+                                                    <ul className="list-inline">
+                                                        <span className="mr-3 ml-0 pl-0">Rating:</span>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
                                                     </ul>
                                                 </div>
                                             </li>
-                                            <li class="card-list-item">Contact:<span class="font-weight-bold ml-3">Not Available</span></li>
-                                            <li class="card-list-item">Satisfaction Guarantee:
-                                                <span class="font-weight-bold ml-3">No Returns</span>
+                                            <li className="card-list-item">Contact:<span className="font-weight-bold ml-3">Not Available</span></li>
+                                            <li className="card-list-item">Satisfaction Guarantee:
+                                                <span className="font-weight-bold ml-3">No Returns</span>
                                             </li>
-                                            <li class="card-list-item">Lead Time:<span class="font-weight-bold ml-3">17 days</span></li>
+                                            <li className="card-list-item">Lead Time:<span className="font-weight-bold ml-3">17 days</span></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-4">
-                                <div class="card-2 mx-auto border-red border-blue">
-                                    <div class="card-body p-0 pb-0 pt-5">
-                                        <img src={BagHouse} class="card-img-fit" alt="..." />
-                                        <h3 class="card-name text-gracy">Dust Collector Catridge Filters</h3>
-                                        <h2 class="text-uppercase font-weight-bold mb-4 text-blue">Baghouse America</h2>
-                                        <ul class="list-unstyled">
-                                            <li class="card-list-item">Merv Raiting:<span class="font-weight-bold ml-3">15</span></li>
-                                            <li class="card-list-item">Price: <span class="font-weight-bold ml-3">$$</span></li>
-                                            <li class="card-list-item">
-                                                <div class="star-rating">
-                                                    <ul class="list-inline">
-                                                        <span class="mr-3 ml-0 pl-0">Rating:</span>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                            <div className="col-lg-4">
+                                <div className="card-2 mx-auto border-red border-blue">
+                                    <div className="card-body p-0 pb-0 pt-5">
+                                        <img src={BagHouse} className="card-img-fit" alt="..." />
+                                        <h3 className="card-name text-gracy">Dust Collector Catridge Filters</h3>
+                                        <h2 className="text-uppercase font-weight-bold mb-4 text-blue">Baghouse America</h2>
+                                        <ul className="list-unstyled">
+                                            <li className="card-list-item">Merv Raiting:<span className="font-weight-bold ml-3">15</span></li>
+                                            <li className="card-list-item">Price: <span className="font-weight-bold ml-3">$$</span></li>
+                                            <li className="card-list-item">
+                                                <div className="star-rating">
+                                                    <ul className="list-inline">
+                                                        <span className="mr-3 ml-0 pl-0">Rating:</span>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
                                                     </ul>
                                                 </div>
                                             </li>
-                                            <li class="card-list-item">
-                                                <div class="call-section">
-                                                    <div class="callLabel">Contact: </div>
-                                                    <div class="float-right mr-3">
-                                                        <a href="#" class="callBtn">Order Online</a>
-                                                        <div class="mt-0 mb-0 text-center">or</div>
-                                                        <a href="#" class="callBtn">
+                                            <li className="card-list-item">
+                                                <div className="call-section">
+                                                    <div className="callLabel">Contact: </div>
+                                                    <div className="float-right mr-3">
+                                                        <a href="#" className="callBtn">Order Online</a>
+                                                        <div className="mt-0 mb-0 text-center">or</div>
+                                                        <a href="#" className="callBtn">
                                                             <div>Call for Pricing</div>
                                                             <div>(1-888-261-3538)</div>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="card-list-item">Satisfaction Guarantee: <span class="font-weight-bold ml-3">Yes</span></li>
-                                            <li class="card-list-item">Lead Time: <span class="font-weight-bold ml-3">In Stock</span></li>
+                                            <li className="card-list-item">Satisfaction Guarantee: <span className="font-weight-bold ml-3">Yes</span></li>
+                                            <li className="card-list-item">Lead Time: <span className="font-weight-bold ml-3">In Stock</span></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-4">
-                                <div class="card-3 mx-auto border-blue color--border mt-1">
-                                    <div class="card-body p-0 pt-0 pb-0">
-                                        <img src={Torit} class="card-img-fit" alt="..." />
-                                        <h3 class="card-name text-gracy">Dust Collector Catridge Filters</h3>
-                                        <h2 class="text-uppercase font-weight-bold mb-4 text-blue">Donaldson Torit</h2>
-                                        <ul class="list-unstyled">
-                                            <li class="card-list-item">Merv Raiting:<span class="font-weight-bold ml-3">15</span></li>
-                                            <li class="card-list-item">Price: <span class="font-weight-bold ml-3">$$$$</span></li>
-                                            <li class="card-list-item">
-                                                <div class="star-rating">
-                                                    <ul class="list-inline">
-                                                        <span class="mr-3 ml-0 pl-0">Rating:</span>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                            <div className="col-lg-4">
+                                <div className="card-3 mx-auto border-blue color--border mt-1">
+                                    <div className="card-body p-0 pt-0 pb-0">
+                                        <img src={Torit} className="card-img-fit" alt="..." />
+                                        <h3 className="card-name text-gracy">Dust Collector Catridge Filters</h3>
+                                        <h2 className="text-uppercase font-weight-bold mb-4 text-blue">Donaldson Torit</h2>
+                                        <ul className="list-unstyled">
+                                            <li className="card-list-item">Merv Raiting:<span className="font-weight-bold ml-3">15</span></li>
+                                            <li className="card-list-item">Price: <span className="font-weight-bold ml-3">$$$$</span></li>
+                                            <li className="card-list-item">
+                                                <div className="star-rating">
+                                                    <ul className="list-inline">
+                                                        <span className="mr-3 ml-0 pl-0">Rating:</span>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
+                                                        <li className="list-inline-item"><i className="fa fa-star"></i></li>
                                                     </ul>
                                                 </div>
                                             </li>
-                                            <li class="card-list-item">
-                                                <div class="xsheight">
-                                                    <div class="callLabel">Contact: </div>
-                                                    <div class="float-right mr-3">
-                                                    <a href="#" class="callBtn">
+                                            <li className="card-list-item">
+                                                <div className="xsheight">
+                                                    <div className="callLabel">Contact: </div>
+                                                    <div className="float-right mr-3">
+                                                    <a href="#" className="callBtn">
                                                      <div>Call for Pricing</div>
                                                      <div>(1-888-261-3538)</div>
                                                    </a>
                                                     </div>
                                                 </div>
                                             </li>
-                                          <li class="card-list-item">Satisfaction Guarantee: <span class="font-weight-bold ml-3">Re-Stocking Fee</span></li>
-                                          <li class="card-list-item">Lead Time: <span class="font-weight-bold ml-3">In Stock</span></li>
+                                          <li className="card-list-item">Satisfaction Guarantee: <span className="font-weight-bold ml-3">Re-Stocking Fee</span></li>
+                                          <li className="card-list-item">Lead Time: <span className="font-weight-bold ml-3">In Stock</span></li>
                                         </ul>
                                     </div>
                                 </div>

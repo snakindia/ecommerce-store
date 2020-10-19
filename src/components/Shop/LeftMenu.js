@@ -27,21 +27,16 @@ class LeftMenu extends Component {
   componentWillUnmount() {
     this.props.setFooter(true)
   }
-  onOpenChange = openKeys => {
-    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
-    if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      this.setState({ openKeys });
-    } else {
-      this.setState({
-        openKeys: latestOpenKey ? [latestOpenKey] : [],
-      });
-    }
-  };
+  onOpenChange = keys => {
+   const {openKeys} =this.state;
+   keys =keys.filter(key=>!openKeys.includes(key))
+   this.setState({openKeys :keys});
+  }
   push=(link)=>{
     this.props.history.push(link)
   }
   render() {
-    const { active } = this.state;
+    const { active, openKeys } = this.state;
     const { visible, menu } = this.props;
     return (
       <>
@@ -59,8 +54,8 @@ class LeftMenu extends Component {
               <button className="topbar-toggler more"><i className="fa fa-ellipsis-v"></i></button>
               <div className="navbar-minimize" onClick={this.props.shrink}>
                 {!visible ?
-                  <button class="btn btn-minimize btn-rounded toggled">
-                    <i class="fa fa-ellipsis-v">
+                  <button className="btn btn-minimize btn-rounded toggled">
+                    <i className="fa fa-ellipsis-v">
                     </i>
                   </button>
                   :
@@ -89,7 +84,8 @@ class LeftMenu extends Component {
                   }}
                   className="nav"
                   mode="inline"
-                  openKeys={this.state.openKeys}
+                  multiple={false}
+                  openKeys={openKeys}
                   onOpenChange={this.onOpenChange}
 
                 //style={{ width: 256 }}

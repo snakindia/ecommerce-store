@@ -22,15 +22,13 @@ import { Link, Redirect, withRouter  } from 'react-router-dom';
 //    onBtnClick = (url) => {
 //        if (url != '') {
 //            
-//        console.log(' this.props')
-//        console.log(this.props)
+
 //            hashHistory.push('/deepak');
 //        }
 //      }
   
   redirect=(e,page_url)=>{
     e.preventDefault()
-    console.log({page_url})
     this.props.history.push(page_url)
   }
   drawData() {
@@ -105,16 +103,16 @@ import { Link, Redirect, withRouter  } from 'react-router-dom';
   render() {
     return (
       <div>
-        <section class="bg-opeque pb-4" id="product">
-          <div class="container-fluid">
-            <h2 class="bha_heading_2 z-index text-blue">
+        <section className="bg-opeque pb-4" id="product">
+          <div className="container-fluid">
+            <h2 className="bha_heading_2 z-index text-blue">
               Products parts & Equipment
             </h2>
           </div>
         </section>
-        <section class="pro-equipment-section">
-          <div class="container pl-0 pr-0">
-            <div class="productitem slider">{this.drawData()}</div>
+        <section className="pro-equipment-section">
+          <div className="container pl-0 pr-0">
+            <div className="productitem slider">{this.drawData()}</div>
           </div>
         </section>
       </div>

@@ -57,17 +57,17 @@ class Clients extends Component {
                         </h2>
                     </div>
                 </section>
-                <div class="placement-client pt-0">
-                    <div class="container pl-0 pr-0">
-                        <section class="slider">
+                <div className="placement-client pt-0">
+                    <div className="container pl-0 pr-0">
+                        <section className="slider">
                             <Slider {...settings}>
                             {
                                 clientData &&
                                 Object.keys(clientData).length > 0 &&
                                 clientData.map((item, idx) => {
                                     return (
-                                        <div class="item-container">
-                                            <div class="thumbnail">
+                                        <div className="item-container">
+                                            <div className="thumbnail">
                                                 <img className="filterNone" src={item.url} alt="" />
                                             </div>
                                         </div>

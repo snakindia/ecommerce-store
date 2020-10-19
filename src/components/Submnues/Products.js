@@ -52,7 +52,6 @@ class Products extends React.Component {
         if (subMenuArr && subMenuArr.length > 0) {
             subMenuArr.map((itemOne, i) => {
                 if (itemOne && itemOne[0] && loop) {
-                    //console.log('itemOneObj',itemOne)
                     this.showMenu(itemOne[0], i, null);
                     loop = false;
                 }
@@ -64,7 +63,6 @@ class Products extends React.Component {
     showMenu = (itemOneObj, index, e) => {
         const isMobile = document.body.className == 'wsactive';
         const { activeLink } = this.state;
-        console.log('itemOneObj', itemOneObj)
         const { name, image, items, slug, _id } = itemOneObj;
         let imageSrc = '';
         if (image != '') {
@@ -135,7 +133,7 @@ class Products extends React.Component {
                                             <div className="subcategories wstitemright clearfix wstpngsml ">
                                                 <div className="container-fluid">
                                                     <div className="row custom-gutter-wsmenu" >
-                                                        <h3 class="wsmenu_heading">{name}</h3>
+                                                        <h3 className="wsmenu_heading">{name}</h3>
                                                         {listItems.length > 0 && listItems.map((itemTwo, i) => {
                                                             let url = typeof itemTwo.page_url != 'undefined' && itemTwo.page_url != '' ? itemTwo.page_url : ''
                                                             return (
@@ -158,14 +156,14 @@ class Products extends React.Component {
                                                                                     to={url}
                                                                                 >
                                                                                     {' '}
-                                                                                    <i class="fa fa-chevron-right pr-2"></i>
+                                                                                    <i className="fa fa-chevron-right pr-2"></i>
                                                                                     {itemTwo.meta_title}
                                                                                 </Link> : <a
                                                                                     href="#"
                                                                                     onClick={this.submit}
                                                                                 >
                                                                                         {' '}
-                                                                                        <i class="fa fa-chevron-right pr-2"></i>
+                                                                                        <i className="fa fa-chevron-right pr-2"></i>
                                                                                         {itemTwo.meta_title}
                                                                                     </a>
                                                                             }

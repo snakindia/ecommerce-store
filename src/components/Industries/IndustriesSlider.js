@@ -16,15 +16,15 @@ class IndustriesSlider extends Component {
 
         const details = this.props.data;
         return (
-            <section class="banner-slider-container">
-                <div class="container-fluid pb-3 pt-3 pl-0 pr-0">
-                    <h2 class="bha_heading_2 text-black text-center font-weight-bold pt-3 mb-4" style={{ "z-index": "1", "position": "relative" }} >
+            <section className="banner-slider-container">
+                <div className="container-fluid pb-3 pt-3 pl-0 pr-0">
+                    <h2 className="bha_heading_2 text-black text-center font-weight-bold pt-3 mb-4" style={{ "z-index": "1", "position": "relative" }} >
                         Industries Served by Air Filtration Systems</h2>
-                    <div class="row no-gutters">
-                        <div class="col-lg-12">
-                            <div id="industrybanner" class="banner-container-xx mt-0 " style={{ "position": "relative" }} >
-                                <div id="carousel" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner" role="listbox">
+                    <div className="row no-gutters">
+                        <div className="col-lg-12">
+                            <div id="industrybanner" className="banner-container-xx mt-0 " style={{ "position": "relative" }} >
+                                <div id="carousel" className="carousel slide" data-ride="carousel">
+                                    <div className="carousel-inner" role="listbox">
                                         <div id="IndustriesSlider" className="align-right-contactform">
                                             <ContactForm />
                                         </div>
@@ -37,11 +37,11 @@ class IndustriesSlider extends Component {
                                             {details &&
                                                 details.map((item, i) => {
                                                     return (
-                                                        <div class="carousel-item active">
-                                                            <img src={API_IMAGE_PATH + 'industries/' + item.image} alt="" class="img-fluid" />
-                                                            <div class="item-xs-caption caption-setting">
-                                                                <h1 class="item_heading text-white">{item.title}</h1>
-                                                                <p class="item-description-xs text-white"> {ReactHtmlParser(item.content)}</p>
+                                                        <div className="carousel-item active">
+                                                            <img src={API_IMAGE_PATH + 'industries/' + item.image} alt="" className="img-fluid" />
+                                                            <div className="item-xs-caption caption-setting">
+                                                                <h1 className="item_heading text-white">{item.title}</h1>
+                                                                <p className="item-description-xs text-white"> {ReactHtmlParser(item.content)}</p>
                                                             </div>
                                                         </div>
                                                     );

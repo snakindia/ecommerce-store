@@ -8,12 +8,17 @@ const Pagination = (props) => {
         onChange(e)
     }
     return (
-        <P simple
-            current={current}
-            total={total}
-            pageSize={size}
-            onChange={onChangeHandler}
-        />
+        <>
+            { total > size ?
+                <P simple
+                    current={current}
+                    total={total}
+                    pageSize={size}
+                    onChange={onChangeHandler}
+                />
+                : null
+            }
+        </>
     );
 }
 export default Pagination;

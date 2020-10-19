@@ -49,25 +49,25 @@ class ProductServicesClients extends Component {
       ]
         };
         return (
-            <section class="clientBg">
-                <div class="bg-opeque" id="company">
-                    <div class="container-fluid">
-                        <h2 class="bha_heading_2 z-index text-blue">
+            <section className="clientBg">
+                <div className="bg-opeque" id="company">
+                    <div className="container-fluid">
+                        <h2 className="bha_heading_2 z-index text-blue">
                             Companies using our products
                         </h2>
                     </div>
                 </div>
-                <div class="placement-client pt-0" style={{"padding":"1rem 3rem"}}>
-                    <div class="container-fluid">
-                        <section class="slider ">
+                <div className="placement-client pt-0" style={{"padding":"1rem 3rem"}}>
+                    <div className="container-fluid">
+                        <section className="slider ">
                             <Slider {...settings}>
                             {
                                 clientData &&
                                 Object.keys(clientData).length > 0 &&
                                 clientData.map((item, idx) => {
                                     return (
-                                        <div class="item-container">
-                                            <div class="thumbnail">
+                                        <div className="item-container">
+                                            <div className="thumbnail">
                                                 <img className="filterNone" src={item.url} alt=""  />
                                             </div>
                                         </div>

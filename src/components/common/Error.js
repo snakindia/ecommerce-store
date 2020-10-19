@@ -18,7 +18,6 @@ class  Error extends React.Component {
             for(const ele of el){
                 const hasError = errors[ele] && touched[ele] ? errors[ele]:null;
                 if(hasError){
-                    console.log('fff',  errors[ele])
                     this.setState({firstEl:hasError})
                     break;
                 }
@@ -50,10 +49,7 @@ class  Error extends React.Component {
                 }
             }
         }
-        //const {firstEl} =this.state;
-        console.log(errors)
-        console.log(touched)
-        console.log(values)
+       
     return (
         <div className="errorMsg">
             {firstEl ? firstEl:''}

@@ -35,12 +35,9 @@ export class MapContainer extends Component {
 
 
   toggleModal = (mapProps, map, clickEvent) => {
-    console.log(clickEvent);
     if(clickEvent){
       const lat =clickEvent.latLng.lat();
       const lng =clickEvent.latLng.lng();
-      console.log({lat})
-      console.log({lng})
       if(lat && lng){
         this.getCountry(lat,lng)
       }
@@ -61,7 +58,6 @@ export class MapContainer extends Component {
   getCountry =(lat,lng)=>{
     const url =`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${googleKey}`;
     axios.get(url).then(res=>{
-      console.log(res.data.results)
       if(res && res.data && res.data.results && res.data.results.length > 0){
         let data =res.data.results;
         data =data.pop();

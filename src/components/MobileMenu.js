@@ -15,13 +15,12 @@ class MobileMenu extends React.Component {
   }
 
   clickHandler = () => {
-    console.log('click---')
+   
     const { isMenuOpen } = this.state;
     document.body.className = isMenuOpen ? '' : 'wsactive';
     this.setState({ isMenuOpen: !isMenuOpen })
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log('did---',this.props.t)
     if (prevProps.location.pathname != this.props.location.pathname) {
       document.body.className = '';
       this.setState({ isMenuOpen: false })

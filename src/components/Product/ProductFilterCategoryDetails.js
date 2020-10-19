@@ -8,12 +8,12 @@ export default class ProductFilterCategoryDetails extends Component {
   render() {
     return (
       <div>
-        <div class="prodcut-container">
+        <div className="prodcut-container">
           <div id="produt-shorting">
-            <div class="short-items">12,257 result(s) found</div>
+            <div className="short-items">12,257 result(s) found</div>
           </div>
-          <div class="text-right-sm pr-3">
-            <select id="shortOption" class="form-control form-select">
+          <div className="text-right-sm pr-3">
+            <select id="shortOption" className="form-control form-select">
               <option>Newest:</option>
               <option>Oldest</option>
               <option>By Name A-Z</option>
@@ -22,27 +22,27 @@ export default class ProductFilterCategoryDetails extends Component {
           </div>
         </div>
         {/* Product List Below */}
-        <div class="product-inner pt-3">
-          <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <div class="product-card-wrapper outer-wrpper">
-                <em class="product-card__ribbon-wrapper">
-                  <span class="product-card__ribbon product-card__ribbon--is-new">
+        <div className="product-inner pt-3">
+          <div className="row">
+            <div className="col-sm-6 col-md-6 col-lg-3">
+              <div className="product-card-wrapper outer-wrpper">
+                <em className="product-card__ribbon-wrapper">
+                  <span className="product-card__ribbon product-card__ribbon--is-new">
                     New
                   </span>
                 </em>
-                <div class="product-card hvr-float-shadow">
-                  <div class="item-pro-inner">
+                <div className="product-card hvr-float-shadow">
+                  <div className="item-pro-inner">
                     <a href="#">
-                      <img class="img-fluid" src={Item1} alt="" />
-                      <div class="product-description">
+                      <img className="img-fluid" src={Item1} alt="" />
+                      <div className="product-description">
                         Goyen® K4502 (M2162) Replacement Repair Kit
                       </div>
-                      <div class="product-tag">DCS574W1</div>
+                      <div className="product-tag">DCS574W1</div>
                     </a>
                     <a
                       href="#"
-                      class="btn bha-btn-primary w-100 float-left mt-4"
+                      className="btn bha-btn-primary w-100 float-left mt-4"
                     >
                       View Details
                     </a>
@@ -50,20 +50,20 @@ export default class ProductFilterCategoryDetails extends Component {
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <div class="product-card-wrapper outer-wrpper">
-                <div class="product-card hvr-float-shadow">
-                  <div class="item-pro-inner">
+            <div className="col-sm-6 col-md-6 col-lg-3">
+              <div className="product-card-wrapper outer-wrpper">
+                <div className="product-card hvr-float-shadow">
+                  <div className="item-pro-inner">
                     <a href="#">
-                      <img class="img-fluid" src={Item2} alt="" />
-                      <div class="product-description">
+                      <img className="img-fluid" src={Item2} alt="" />
+                      <div className="product-description">
                         Goyen® K4502 (M2162) Replacement Repair Kit
                       </div>
-                      <div class="product-tag">DCS574W1</div>
+                      <div className="product-tag">DCS574W1</div>
                     </a>
                     <a
                       href="#"
-                      class="btn bha-btn-primary w-100 float-left mt-4"
+                      className="btn bha-btn-primary w-100 float-left mt-4"
                     >
                       View Details
                     </a>
@@ -71,20 +71,20 @@ export default class ProductFilterCategoryDetails extends Component {
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <div class="product-card-wrapper outer-wrpper">
-                <div class="product-card hvr-float-shadow">
-                  <div class="item-pro-inner">
+            <div className="col-sm-6 col-md-6 col-lg-3">
+              <div className="product-card-wrapper outer-wrpper">
+                <div className="product-card hvr-float-shadow">
+                  <div className="item-pro-inner">
                     <a href="#">
-                      <img class="img-fluid" src={Item3} alt="" />
-                      <div class="product-description">
+                      <img className="img-fluid" src={Item3} alt="" />
+                      <div className="product-description">
                         Goyen® K4502 (M2162) Replacement Repair Kit
                       </div>
-                      <div class="product-tag">DCS574W1</div>
+                      <div className="product-tag">DCS574W1</div>
                     </a>
                     <a
                       href="#"
-                      class="btn bha-btn-primary w-100 float-left mt-4"
+                      className="btn bha-btn-primary w-100 float-left mt-4"
                     >
                       View Details
                     </a>
@@ -92,42 +92,20 @@ export default class ProductFilterCategoryDetails extends Component {
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <div class="product-card-wrapper outer-wrpper">
-                <div class="product-card hvr-float-shadow">
-                  <div class="item-pro-inner">
+            <div className="col-sm-6 col-md-6 col-lg-3">
+              <div className="product-card-wrapper outer-wrpper">
+                <div className="product-card hvr-float-shadow">
+                  <div className="item-pro-inner">
                     <a href="#">
-                      <img class="img-fluid" src={Item4} alt="" />
-                      <div class="product-description">
+                      <img className="img-fluid" src={Item4} alt="" />
+                      <div className="product-description">
                         Goyen® K4502 (M2162) Replacement Repair Kit
                       </div>
-                      <div class="product-tag">DCS574W1</div>
+                      <div className="product-tag">DCS574W1</div>
                     </a>
                     <a
                       href="#"
-                      class="btn bha-btn-primary w-100 float-left mt-4"
-                    >
-                      View Details
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <div class="product-card-wrapper outer-wrpper">
-                <div class="product-card hvr-float-shadow">
-                  <div class="item-pro-inner">
-                    <a href="#">
-                      <img class="img-fluid" src={Item1} alt="" />
-                      <div class="product-description">
-                        Goyen® K4502 (M2162) Replacement Repair Kit
-                      </div>
-                      <div class="product-tag">DCS574W1</div>
-                    </a>
-                    <a
-                      href="#"
-                      class="btn bha-btn-primary w-100 float-left mt-4"
+                      className="btn bha-btn-primary w-100 float-left mt-4"
                     >
                       View Details
                     </a>
@@ -136,20 +114,20 @@ export default class ProductFilterCategoryDetails extends Component {
               </div>
             </div>
 
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <div class="product-card-wrapper outer-wrpper">
-                <div class="product-card hvr-float-shadow">
-                  <div class="item-pro-inner">
+            <div className="col-sm-6 col-md-6 col-lg-3">
+              <div className="product-card-wrapper outer-wrpper">
+                <div className="product-card hvr-float-shadow">
+                  <div className="item-pro-inner">
                     <a href="#">
-                      <img class="img-fluid" src={Item2} alt="" />
-                      <div class="product-description">
+                      <img className="img-fluid" src={Item1} alt="" />
+                      <div className="product-description">
                         Goyen® K4502 (M2162) Replacement Repair Kit
                       </div>
-                      <div class="product-tag">DCS574W1</div>
+                      <div className="product-tag">DCS574W1</div>
                     </a>
                     <a
                       href="#"
-                      class="btn bha-btn-primary w-100 float-left mt-4"
+                      className="btn bha-btn-primary w-100 float-left mt-4"
                     >
                       View Details
                     </a>
@@ -158,25 +136,47 @@ export default class ProductFilterCategoryDetails extends Component {
               </div>
             </div>
 
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <div class="product-card-wrapper outer-wrpper">
-                <em class="product-card__ribbon-wrapper">
-                  <span class="product-card__ribbon product-card__ribbon--is-new">
+            <div className="col-sm-6 col-md-6 col-lg-3">
+              <div className="product-card-wrapper outer-wrpper">
+                <div className="product-card hvr-float-shadow">
+                  <div className="item-pro-inner">
+                    <a href="#">
+                      <img className="img-fluid" src={Item2} alt="" />
+                      <div className="product-description">
+                        Goyen® K4502 (M2162) Replacement Repair Kit
+                      </div>
+                      <div className="product-tag">DCS574W1</div>
+                    </a>
+                    <a
+                      href="#"
+                      className="btn bha-btn-primary w-100 float-left mt-4"
+                    >
+                      View Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-sm-6 col-md-6 col-lg-3">
+              <div className="product-card-wrapper outer-wrpper">
+                <em className="product-card__ribbon-wrapper">
+                  <span className="product-card__ribbon product-card__ribbon--is-new">
                     New
                   </span>
                 </em>
-                <div class="product-card hvr-float-shadow">
-                  <div class="item-pro-inner">
+                <div className="product-card hvr-float-shadow">
+                  <div className="item-pro-inner">
                     <a href="#">
-                      <img class="img-fluid" src={Item3} alt="" />
-                      <div class="product-description">
+                      <img className="img-fluid" src={Item3} alt="" />
+                      <div className="product-description">
                         Goyen® K4502 (M2162) Replacement Repair Kit
                       </div>
-                      <div class="product-tag">DCS574W1</div>
+                      <div className="product-tag">DCS574W1</div>
                     </a>
                     <a
                       href="#"
-                      class="btn bha-btn-primary w-100 float-left mt-4"
+                      className="btn bha-btn-primary w-100 float-left mt-4"
                     >
                       View Details
                     </a>
@@ -185,20 +185,20 @@ export default class ProductFilterCategoryDetails extends Component {
               </div>
             </div>
 
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <div class="product-card-wrapper outer-wrpper">
-                <div class="product-card hvr-float-shadow">
-                  <div class="item-pro-inner">
+            <div className="col-sm-6 col-md-6 col-lg-3">
+              <div className="product-card-wrapper outer-wrpper">
+                <div className="product-card hvr-float-shadow">
+                  <div className="item-pro-inner">
                     <a href="#">
-                      <img class="img-fluid" src={Item4} alt="" />
-                      <div class="product-description">
+                      <img className="img-fluid" src={Item4} alt="" />
+                      <div className="product-description">
                         Goyen® K4502 (M2162) Replacement Repair Kit
                       </div>
-                      <div class="product-tag">DCS574W1</div>
+                      <div className="product-tag">DCS574W1</div>
                     </a>
                     <a
                       href="#"
-                      class="btn bha-btn-primary w-100 float-left mt-4"
+                      className="btn bha-btn-primary w-100 float-left mt-4"
                     >
                       View Details
                     </a>
@@ -207,25 +207,25 @@ export default class ProductFilterCategoryDetails extends Component {
               </div>
             </div>
 
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <div class="product-card-wrapper outer-wrpper">
-                <em class="product-card__ribbon-wrapper">
-                  <span class="product-card__ribbon product-card__ribbon--is-new">
+            <div className="col-sm-6 col-md-6 col-lg-3">
+              <div className="product-card-wrapper outer-wrpper">
+                <em className="product-card__ribbon-wrapper">
+                  <span className="product-card__ribbon product-card__ribbon--is-new">
                     New
                   </span>
                 </em>
-                <div class="product-card hvr-float-shadow">
-                  <div class="item-pro-inner">
+                <div className="product-card hvr-float-shadow">
+                  <div className="item-pro-inner">
                     <a href="#">
-                      <img class="img-fluid" src={Item4} alt="" />
-                      <div class="product-description">
+                      <img className="img-fluid" src={Item4} alt="" />
+                      <div className="product-description">
                         Goyen® K4502 (M2162) Replacement Repair Kit
                       </div>
-                      <div class="product-tag">DCS574W1</div>
+                      <div className="product-tag">DCS574W1</div>
                     </a>
                     <a
                       href="#"
-                      class="btn bha-btn-primary w-100 float-left mt-4"
+                      className="btn bha-btn-primary w-100 float-left mt-4"
                     >
                       View Details
                     </a>
@@ -234,20 +234,20 @@ export default class ProductFilterCategoryDetails extends Component {
               </div>
             </div>
 
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <div class="product-card-wrapper outer-wrpper">
-                <div class="product-card hvr-float-shadow">
-                  <div class="item-pro-inner">
+            <div className="col-sm-6 col-md-6 col-lg-3">
+              <div className="product-card-wrapper outer-wrpper">
+                <div className="product-card hvr-float-shadow">
+                  <div className="item-pro-inner">
                     <a href="#">
-                      <img class="img-fluid" src={Item4} alt="" />
-                      <div class="product-description">
+                      <img className="img-fluid" src={Item4} alt="" />
+                      <div className="product-description">
                         Goyen® K4502 (M2162) Replacement Repair Kit
                       </div>
-                      <div class="product-tag">DCS574W1</div>
+                      <div className="product-tag">DCS574W1</div>
                     </a>
                     <a
                       href="#"
-                      class="btn bha-btn-primary w-100 float-left mt-4"
+                      className="btn bha-btn-primary w-100 float-left mt-4"
                     >
                       View Details
                     </a>

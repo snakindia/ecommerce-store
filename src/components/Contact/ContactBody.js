@@ -6,8 +6,8 @@ export default class ContactBody extends Component {
   render() {
     return (
       <div>
-        <div class="banner-container">
-            <img src={Mapimg} alt="" class="d-block bha_h_100" style={{position: "relative"}} />
+        <div className="banner-container">
+            <img src={Mapimg} alt="" className="d-block bha_h_100" style={{position: "relative"}} />
         </div>
         <ContentSection />
       </div>

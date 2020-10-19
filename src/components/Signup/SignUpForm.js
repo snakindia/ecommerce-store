@@ -78,7 +78,7 @@ class SignUpForm extends PureComponent {
           handleSubmit,
           isSubmitting,
         }) => (
-          <Form class="formPadding">
+          <Form className="formPadding">
             {isSubmitting ? <div>Loading...</div> : null}
             <div className="row">
               <div className="col-sm-6 col-md-6 pl-0">

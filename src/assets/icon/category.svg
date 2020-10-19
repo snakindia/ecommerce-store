@@ -6,13 +6,13 @@
       }
     </style>
   </defs>
-  <rect class="cls-1" x="2.344" y="2.344" width="4" height="4"/>
-  <rect id="Rectangle_1_copy" data-name="Rectangle 1 copy" class="cls-1" x="9" y="2.344" width="4" height="4"/>
-  <rect id="Rectangle_1_copy_2" data-name="Rectangle 1 copy 2" class="cls-1" x="15.656" y="2.344" width="4" height="4"/>
-  <rect id="Rectangle_1_copy_3" data-name="Rectangle 1 copy 3" class="cls-1" x="2.344" y="9" width="4" height="4"/>
-  <rect id="Rectangle_1_copy_3-2" data-name="Rectangle 1 copy 3" class="cls-1" x="9" y="9" width="4" height="4"/>
-  <rect id="Rectangle_1_copy_3-3" data-name="Rectangle 1 copy 3" class="cls-1" x="15.656" y="9" width="4" height="4"/>
-  <rect id="Rectangle_1_copy_4" data-name="Rectangle 1 copy 4" class="cls-1" x="2.344" y="15.656" width="4" height="4"/>
-  <rect id="Rectangle_1_copy_4-2" data-name="Rectangle 1 copy 4" class="cls-1" x="9" y="15.656" width="4" height="4"/>
-  <rect id="Rectangle_1_copy_4-3" data-name="Rectangle 1 copy 4" class="cls-1" x="15.656" y="15.656" width="4" height="4"/>
+  <rect className="cls-1" x="2.344" y="2.344" width="4" height="4"/>
+  <rect id="Rectangle_1_copy" data-name="Rectangle 1 copy" className="cls-1" x="9" y="2.344" width="4" height="4"/>
+  <rect id="Rectangle_1_copy_2" data-name="Rectangle 1 copy 2" className="cls-1" x="15.656" y="2.344" width="4" height="4"/>
+  <rect id="Rectangle_1_copy_3" data-name="Rectangle 1 copy 3" className="cls-1" x="2.344" y="9" width="4" height="4"/>
+  <rect id="Rectangle_1_copy_3-2" data-name="Rectangle 1 copy 3" className="cls-1" x="9" y="9" width="4" height="4"/>
+  <rect id="Rectangle_1_copy_3-3" data-name="Rectangle 1 copy 3" className="cls-1" x="15.656" y="9" width="4" height="4"/>
+  <rect id="Rectangle_1_copy_4" data-name="Rectangle 1 copy 4" className="cls-1" x="2.344" y="15.656" width="4" height="4"/>
+  <rect id="Rectangle_1_copy_4-2" data-name="Rectangle 1 copy 4" className="cls-1" x="9" y="15.656" width="4" height="4"/>
+  <rect id="Rectangle_1_copy_4-3" data-name="Rectangle 1 copy 4" className="cls-1" x="15.656" y="15.656" width="4" height="4"/>
 </svg>

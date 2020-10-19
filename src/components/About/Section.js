@@ -44,7 +44,7 @@ var Section = React.createClass({
     return (
       <div>
         <Link
-          activeClass="active"
+          activeclassName="active"
           to="test1"
           spy={true}
           smooth={true}
@@ -55,7 +55,7 @@ var Section = React.createClass({
           Test 1
         </Link>
         <Link
-          activeClass="active"
+          activeclassName="active"
           to="test1"
           spy={true}
           smooth={true}
@@ -75,7 +75,7 @@ var Section = React.createClass({
           Test 6 (anchor)
         </Link>
         <Button
-          activeClass="active"
+          activeclassName="active"
           className="btn"
           type="submit"
           value="Test 2"

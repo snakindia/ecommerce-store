@@ -42,52 +42,52 @@ class NewsDetail extends Component {
     const details = this.props.data;
     const newsList = this.props.newsList;
     return (
-    <div class="pagewrap">
-            <div class="bgWhite pb-4">
-              <section class="bg-opeque pt-5 animatedParent gapTop">
-                <div class="container-fluid">
-                  <h2 class="bha_heading_2 pt-2 pl-2 text-blue text-left">
+    <div className="pagewrap">
+            <div className="bgWhite pb-4">
+              <section className="bg-opeque pt-5 animatedParent gapTop">
+                <div className="container-fluid">
+                  <h2 className="bha_heading_2 pt-2 pl-2 text-blue text-left">
                     {details.title}
                   </h2>
-                  <p class="text-left pl-2 text-muted">{dateConversion(details.date_created)}</p>
-                  <div class="share-link">
+                  <p className="text-left pl-2 text-muted">{dateConversion(details.date_created)}</p>
+                  <div className="share-link">
                     <FacebookShareButton url={window.location.href} quote={window.location.href} > 
-                        <a href=""><i class="fa fa-facebook"></i>facebook</a>
+                        <a href=""><i className="fa fa-facebook"></i>facebook</a>
                     </FacebookShareButton>
                     <TwitterShareButton url={window.location.href}> 
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i>Twitter</a>
+                        <a href="#" className="twitter"><i className="fa fa-twitter"></i>Twitter</a>
                     </TwitterShareButton>
                   </div>
                 </div>
               </section>
-              <section class="pro-equipment-section pagewrap-inner">
-              <div class="container pl-1 pr-1">
-              <div class="row">
-                <div class="animatedParent">
-                  <div class="row no-gutters">
-                      <div class="col-sm-9 col-md-9 pl-2">
-                        <img src={details.image} alt="" class="img-fluid object-fit-lg" />
-                        <div class="mt-4 float-left">
+              <section className="pro-equipment-section pagewrap-inner">
+              <div className="container pl-1 pr-1">
+              <div className="row">
+                <div className="animatedParent">
+                  <div className="row no-gutters">
+                      <div className="col-sm-9 col-md-9 pl-2">
+                        <img src={details.image} alt="" className="img-fluid object-fit-lg" />
+                        <div className="mt-4 float-left">
                           {ReactHtmlParser(details.content)}
-                          <div class="loadMorebtn p-0"><a href="/news" class="btn bha-btn-primary float-left">Go Back</a></div>
+                          <div className="loadMorebtn p-0"><a href="/news" className="btn bha-btn-primary float-left">Go Back</a></div>
                         </div>
                       </div>
                      
-                        <div class="col-sm-3 col-md-3">
-                            <div class="featured-product feature-sticky">
+                        <div className="col-sm-3 col-md-3">
+                            <div className="featured-product feature-sticky">
                                 <h6>Latest News</h6>
                                 {
                                     newsList &&
                                     Object.keys(newsList).length > 0 &&
                                     newsList.map((item, idx) => {
                                         return (
-                                            <div class="location">
+                                            <div className="location">
                                                 <a href={'/newsdetail/' + item.slug }>
-                                                  <img class="bha-flag" src={item.image} alt="" />
+                                                  <img className="bha-flag" src={item.image} alt="" />
                                                   </a>
-                                                <div class="description-xxs"><a href={'/newsdetail/' + item.slug }>{item.title}</a></div>
-                                                <div class="pro_Price p-0">
-                                                    <p class="text-left pl-2 text-muted">{dateConversion(item.date_created)}</p>
+                                                <div className="description-xxs"><a href={'/newsdetail/' + item.slug }>{item.title}</a></div>
+                                                <div className="pro_Price p-0">
+                                                    <p className="text-left pl-2 text-muted">{dateConversion(item.date_created)}</p>
                                                 </div>
                                             </div>
                                         );

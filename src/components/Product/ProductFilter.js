@@ -5,12 +5,12 @@ import ProductFilterCategoryDetails from '../Product/ProductFilterCategoryDetail
 export default class ProductFilter extends Component {
   render() {
     return (
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-3 col-md-6">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-lg-3 col-md-6">
             <ProductFilterCategory />
           </div>
-          <div class="col-sm-9 col-md-9">
+          <div className="col-sm-9 col-md-9">
             <ProductFilterCategoryDetails />
           </div>
         </div>

@@ -116,8 +116,8 @@ class ContactForm extends Component {
                                         <form onSubmit={handleSubmit}>
                                             <MDBRow toggle="true" >
                                                 <MDBCol md="12">
-                                                    <div class="form-group">
-                                                        <label class="mb-0">Name *</label>
+                                                    <div className="form-group">
+                                                        <label className="mb-0">Name *</label>
                                                         <Input
                                                             allow="spc"
                                                             type="text"
@@ -140,8 +140,8 @@ class ContactForm extends Component {
 
                                             <MDBRow>
                                                 <MDBCol lg="12">
-                                                    <div class="form-group">
-                                                        <label class="mb-0">Company *</label>
+                                                    <div className="form-group">
+                                                        <label className="mb-0">Company *</label>
                                                         <Input
                                                             allow="spc"
                                                             type="text"
@@ -164,8 +164,8 @@ class ContactForm extends Component {
 
                                             <MDBRow>
                                                 <MDBCol md="12">
-                                                    <div class="form-group">
-                                                        <label class="mb-0">Phone *</label>
+                                                    <div className="form-group">
+                                                        <label className="mb-0">Phone *</label>
                                                         <input
                                                             type="text"
                                                             id="defaultFormCardNameEx"
@@ -187,8 +187,8 @@ class ContactForm extends Component {
 
                                             <MDBRow>
                                                 <MDBCol lg="12">
-                                                    <div class="form-group">
-                                                        <label class="mb-0">Email *</label>
+                                                    <div className="form-group">
+                                                        <label className="mb-0">Email *</label>
                                                         <input
                                                             type="text"
                                                             id="defaultFormCardNameEx"
@@ -209,8 +209,8 @@ class ContactForm extends Component {
                                             </MDBRow>
                                             <MDBRow>
                                                 <MDBCol lg="12">
-                                                    <div class="form-group">
-                                                        <label class="mb-0">Country *</label>
+                                                    <div className="form-group">
+                                                        <label className="mb-0">Country *</label>
                                                         <input
                                                             type="text"
                                                             id="defaultFormCardNameEx"
@@ -231,8 +231,8 @@ class ContactForm extends Component {
                                             </MDBRow>
                                             <MDBRow>
                                                 <MDBCol lg="12">
-                                                    <div class="form-group">
-                                                        <label class="mb-0">Description *</label>
+                                                    <div className="form-group">
+                                                        <label className="mb-0">Description *</label>
                                                         <Field
                                                             component="textarea"
                                                             rows="2"
@@ -254,11 +254,11 @@ class ContactForm extends Component {
                                                 </MDBCol>
                                             </MDBRow>
 
-                                            <div class="mt-2">
+                                            <div className="mt-2">
                                                 <button
                                                     type="button"
                                                     onClick={handleSubmit}
-                                                    class="btn bha-btn-primary w-100"
+                                                    className="btn bha-btn-primary w-100"
                                                 >
                                                     Apply
                                 </button>

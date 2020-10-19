@@ -8,107 +8,107 @@ import Item6 from '../../assets/images/thumbnail-img/item6.jpg';
 export default class BrandCategoryContant extends Component {
   render() {
     return (
-      <section class="content-section">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-3">
+      <section className="content-section">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-6 col-md-6 col-lg-3">
               <a href="product.html">
-                <div class="page_link_item">
-                  <img src={Item1} alt="" class="image" />
-                  <div class="overlay">Goyan</div>
+                <div className="page_link_item">
+                  <img src={Item1} alt="" className="image" />
+                  <div className="overlay">Goyan</div>
                 </div>
               </a>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
+            <div className="col-sm-6 col-md-6 col-lg-3">
               <a href="product.html">
-                <div class="page_link_item">
-                  <img src={Item2} alt="" class="image" />
-                  <div class="overlay">Mecair</div>
+                <div className="page_link_item">
+                  <img src={Item2} alt="" className="image" />
+                  <div className="overlay">Mecair</div>
                 </div>
               </a>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
+            <div className="col-sm-6 col-md-6 col-lg-3">
               <a href="product.html">
-                <div class="page_link_item">
-                  <img src={Item3} alt="" class="image" />
-                  <div class="overlay">Asco</div>
+                <div className="page_link_item">
+                  <img src={Item3} alt="" className="image" />
+                  <div className="overlay">Asco</div>
                 </div>
               </a>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
+            <div className="col-sm-6 col-md-6 col-lg-3">
               <a href="product.html">
-                <div class="page_link_item">
-                  <img src={Item4} alt="" class="image" />
-                  <div class="overlay">Donaldson Torit</div>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <a href="product.html">
-                <div class="page_link_item">
-                  <img src={Item5} alt="" class="image" />
-                  <div class="overlay">Mecair</div>
+                <div className="page_link_item">
+                  <img src={Item4} alt="" className="image" />
+                  <div className="overlay">Donaldson Torit</div>
                 </div>
               </a>
             </div>
 
-            <div class="col-sm-6 col-md-6 col-lg-3">
+            <div className="col-sm-6 col-md-6 col-lg-3">
               <a href="product.html">
-                <div class="page_link_item">
-                  <img src={Item6} alt="" class="image" />
-                  <div class="overlay">Goyan</div>
+                <div className="page_link_item">
+                  <img src={Item5} alt="" className="image" />
+                  <div className="overlay">Mecair</div>
                 </div>
               </a>
             </div>
 
-            <div class="col-sm-6 col-md-6 col-lg-3">
+            <div className="col-sm-6 col-md-6 col-lg-3">
               <a href="product.html">
-                <div class="page_link_item">
-                  <img src={Item4} alt="" class="image" />
-                  <div class="overlay">Donaldson Torit</div>
+                <div className="page_link_item">
+                  <img src={Item6} alt="" className="image" />
+                  <div className="overlay">Goyan</div>
                 </div>
               </a>
             </div>
 
-            <div class="col-sm-6 col-md-6 col-lg-3">
+            <div className="col-sm-6 col-md-6 col-lg-3">
+              <a href="product.html">
+                <div className="page_link_item">
+                  <img src={Item4} alt="" className="image" />
+                  <div className="overlay">Donaldson Torit</div>
+                </div>
+              </a>
+            </div>
+
+            <div className="col-sm-6 col-md-6 col-lg-3">
               <a href="#">
-                <div class="page_link_item">
-                  <img src={Item3} alt="" class="image" />
-                  <div class="overlay">Asco</div>
+                <div className="page_link_item">
+                  <img src={Item3} alt="" className="image" />
+                  <div className="overlay">Asco</div>
                 </div>
               </a>
             </div>
 
-            <div class="col-sm-6 col-md-6 col-lg-3">
+            <div className="col-sm-6 col-md-6 col-lg-3">
               <a href="product.html">
-                <div class="page_link_item">
-                  <img src={Item1} alt="" class="image" />
-                  <div class="overlay">Goyan</div>
+                <div className="page_link_item">
+                  <img src={Item1} alt="" className="image" />
+                  <div className="overlay">Goyan</div>
                 </div>
               </a>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
+            <div className="col-sm-6 col-md-6 col-lg-3">
               <a href="product.html">
-                <div class="page_link_item">
-                  <img src={Item2} alt="" class="image" />
-                  <div class="overlay">Mecair</div>
+                <div className="page_link_item">
+                  <img src={Item2} alt="" className="image" />
+                  <div className="overlay">Mecair</div>
                 </div>
               </a>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
+            <div className="col-sm-6 col-md-6 col-lg-3">
               <a href="product.html">
-                <div class="page_link_item">
-                  <img src={Item3} alt="" class="image" />
-                  <div class="overlay">Asco</div>
+                <div className="page_link_item">
+                  <img src={Item3} alt="" className="image" />
+                  <div className="overlay">Asco</div>
                 </div>
               </a>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
+            <div className="col-sm-6 col-md-6 col-lg-3">
               <a href="product.html">
-                <div class="page_link_item">
-                  <img src={Item4} alt="" class="image" />
-                  <div class="overlay">Donaldson Torit</div>
+                <div className="page_link_item">
+                  <img src={Item4} alt="" className="image" />
+                  <div className="overlay">Donaldson Torit</div>
                 </div>
               </a>
             </div>
