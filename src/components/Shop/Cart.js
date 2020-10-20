@@ -92,16 +92,16 @@ const Cart = (props) => {
                                     <div className="col-sm-12 col-md-12 margin-btm30">
                                         <div className="row">
                                             <div className="col-sm-6 col-md-6">
-                                                <Link to="/shop" className="btn btn-bha-primary font-weight-bold plr text-uppercase" >
-                                                    <i className="fas fa-angle-left"></i>Continue Shopping
+                                                <Link to="/shop" className="btn bha-btn-primary plr" >
+                                                    <i className="fas fa-angle-left mr-2"></i>Continue Shopping
                                                 </Link>
                                             </div>
                                             <div className="col-sm-6 col-md-6">
-                                                <div 
+                                                <div className="float-sm-right"
                                                 //style="float: right;"
                                                 >
                                                     <Link to="/shop/checkout" className="btn bha-btn-secondry plr"> Continue Shopping
-                                                        <i className="fas fa-angle-right"></i>
+                                                        <i className="fas fa-angle-right ml-2"></i>
                                                     </Link>
                                                 </div>
                                             </div>

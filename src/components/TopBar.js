@@ -138,7 +138,7 @@ class TopBar extends Component {
                           <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20" style={{ marginRight: '2px' }}></embed>
                           <div style={{
                             width: '20px', height: '20px', borderRadius: '100px', textAlign: 'center', margin: '0 5px 0 2px',
-                            lineHeight: '20px', background: '#f00', position:'absolute', left:"77px"
+                            lineHeight: '20px', background: '#f00'
                           }}>{productsInCart}</div>
                       Cart
                     </Link>
@@ -165,7 +165,7 @@ class TopBar extends Component {
                         onFormSubmit={this.onFormSubmit}/>
                       } trigger="click"
                         overlayStyle={{ zIndex: 10001,position:'fixed' }}
-                        overlayClassName="mini-cart-popup"
+                        overlayClassName="mini-cart-popup signInBox"
                       >
                         <Link to="" onClick={e => e.preventDefault()} id="loginpopover">
                           <embed src={Profile} alt="" width="20" height="20"></embed>

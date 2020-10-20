@@ -43,7 +43,7 @@ export default class PremiumBrands extends Component {
                     {Object.keys(brands).length &&
                       brands.map((item, idx) => {
                         return (
-                          <div className="col-sm-3 col-md-3 bha-mb" key={`PremiumBrands${idx}`}>
+                          <div className="col-lg-3 col-sm-6 col-md-6 bha-mb" key={`PremiumBrands${idx}`}>
                             <a href="#">
                               <div
                                 className="view view-first"

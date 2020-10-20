@@ -1,6 +1,5 @@
 /*!-------------------------------------------------------------------*/
-.sidebar_minimize .sidebar{width:75px !important; transition: none !important;
-background:#234c63 !important}
+
 .ant-menu-inline .ant-menu-submenu-title{padding-right: 20px !important;}
 .sidebar_minimize .logo-header { width: 95px; transition: all .3s; padding: 0px;
     text-align: center;}

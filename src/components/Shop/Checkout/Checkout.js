@@ -47,7 +47,7 @@ class Checkout extends Component {
                         <section >
                             <div className="container-fluid">
                                 <div className="row">
-                                    <div className="col-sm-8 col-md-8 left-content">
+                                    <div className="col-sm-12 col-md-8 left-content">
                                         <div className="row">
                                             <div className="col-sm-12 col-md-12">
 
@@ -107,7 +107,7 @@ class Checkout extends Component {
                                                                                     <h5>$75.70</h5>
 
                                                                                     <div className="form-group mt-3 mb-3">
-                                                                                        <a href="thank-you.html" className="btn bha-btn-primary margin-left-mobile15" name="buttonsubmit">Place Order</a>
+                                                                                        <a href="thank-you.html" className="btn bha-btn-primary margin-left-mobile15 w-100 text-center" name="buttonsubmit">Place Order</a>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -121,13 +121,13 @@ class Checkout extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-sm-4 col-md-4">
+                                    <div className="col-sm-12 col-md-4">
 
-                                        <div className="right-content aside">
+                                        <div className="right-content aside margin-top30">
                                             <div id="accordion" className="myaccordion">
                                                 <div className="border-0">
                                                     <div id="collapseTwo" className="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-                                                        <div className="card-body card-body margin-top p-0">
+                                                        <div className="card-body margin-top p-0">
                                                             <div className="col-sm-12 col-md-12">
                                                                 <div className="row">
                                                                     <div className="order-summary">
@@ -169,9 +169,9 @@ class Checkout extends Component {
 
                                                                                     <tr>
 
-                                                                                        <td  ></td>
-                                                                                        <td  ><strong>Subtotal</strong></td>
-                                                                                        <td  >$ 45874.70</td>
+                                                                                        <td></td>
+                                                                                        <td><strong>Subtotal</strong></td>
+                                                                                        <td>$ 45874.70</td>
 
                                                                                     </tr>
                                                                                     <tr>
@@ -190,17 +190,17 @@ class Checkout extends Component {
                                                                                     <tr>
                                                                                         <td colSpan="3">
                                                                                             <form>
-                                                                                                <div className="col-lg-12 padding-left0">
+                                                                                                <div className="col-lg-12">
                                                                                                     <div className="row">
-                                                                                                        <div className="col-sm-9 col-md-9 col-xs-12">
+                                                                                                        <div className="col-sm-8 col-md-8 pl-0 ">
                                                                                                             <div className="form-group mt-3">
                                                                                                                 <input type="text" className="form-control input-control" name="email" placeholder="Coupon/Gift Certificate code" />
 
                                                                                                             </div>
                                                                                                         </div>
-                                                                                                        <div className="col-sm-3 col-md-3 col-xs-12 padding-left0">
+                                                                                                        <div className="col-sm-4 col-md-4 pr-0 pl-0 col-pl-0-mob">
                                                                                                             <div className="form-group mt-3">
-                                                                                                                <button type="button" className="btn bha-btn-apply margin-left-mobile15" name="buttonsubmit">Apply</button>
+                                                                                                                <button type="button" className="btn bha-btn-apply w-100 text-center" name="buttonsubmit">Apply</button>
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
@@ -211,7 +211,7 @@ class Checkout extends Component {
                                                                                     <tr>
                                                                                         <td className="total-bg"  ><strong>Total</strong></td>
                                                                                         <td className="total-bg"  ></td>
-                                                                                        <td className="total-bg"  >$ 75.70</td>
+                                                                                        <td className="total-bg"  ><strong>$ 75.70</strong></td>
                                                                                     </tr>
                                                                                 </tbody>
                                                                             </table>

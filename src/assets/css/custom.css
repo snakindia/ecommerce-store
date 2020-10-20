@@ -699,6 +699,7 @@ text-align: center;width: 94% !important;}
   .socialLink span{padding-right: 6px;}
   .socialLink a{margin: 0 1.5px;}
   /* .tab-menu{top: 1.5rem !important;} */
+  .col-pr-0-mob{padding-right:0 !important}
 
 }
 
@@ -756,6 +757,8 @@ text-align: center;width: 94% !important;}
   .banner-container-xxs .carousel-indicators{display: none;}
   .content-wrapper .texture-bg{margin-top: 60px !important}
   .banner-slider-container{margin-top: 103px !important;}
+  .padding-left0{padding-left:1rem !important}
+  
 }
 
 
@@ -886,7 +889,9 @@ body {
   /* .card-slider{padding-top:120px !important} */
   .card-slider__container__list__card img { height: 350px}
   .main-panel{width:100% !important}
-  
+  .col-pl-0-mob{padding-left:0}
+  .signInBox{width:100% !important}
+  .banner-container-xxs{margin-top:40px !important}
 }
 
 @media(max-width:812px){
@@ -926,3 +931,9 @@ body {
   font-family: 'Oswald', sans-serif !important;
   color: #0f416a;
 }
+
+.ant-popover-inner-content form{padding:1rem 1rem 1rem 1rem}
+.signInBox{width:550px;}
+.ant-popover-inner-content .login-heading{border-bottom: 0; padding:1rem 0 !important}
+.pwdlink { color: #000 !important; text-transform: none !important; padding: 0 !important;
+   margin: 0 !important; font-weight: 500;}

@@ -418,20 +418,15 @@ color:#000;
 }
 
 .theBox_2{
-display: none;
-border: 1px solid #000;
-/*width: 380px;*/
-/*height: 200px;*/
-background-color: #e5e5e5;
-position: absolute;
-top:30%;
-right:30%;
-width: 600px;
+display: block;
+/*border: 1px solid #000;*/
+width: 500px;
 z-index: 1000000 !important;
-padding:2rem 1.5rem 1rem;
+padding:1rem !important;
 color:#000;
 }
 
+.theBox_2 .ant-popover-inner{box-shadow: none}
 .seachbox{
 display: none; /*border-top:1px solid #ddd;*/
 background-color: #fff;

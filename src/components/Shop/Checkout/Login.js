@@ -51,7 +51,7 @@ const Login = (props) => {
                         </div>
                         <div className="col-sm-4 col-md-4 padding-left0">
                             <div className="form-group mt-3">
-                                <button onClick={validateEmail} type="button" className="btn bha-btn-primary margin-left-mobile15" name="buttonsubmit">CONTINUE AS GUEST</button>
+                                <button onClick={validateEmail} type="button" className="btn bha-btn-primary margin-left-mobile15 w-100 text-center" name="buttonsubmit">CONTINUE AS GUEST</button>
                             </div>
                         </div>
                     </div>

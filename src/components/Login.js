@@ -48,7 +48,7 @@ export default class Login extends Component {
                             <div className="row">
                                 <div className="col-sm-6 col-md-6 border-right border-secondary">
                                     <h4 className="login-heading font-xx">Account Sign In</h4>
-                                    <div className="form-group mb-2">
+                                    <div className="form-group">
                                         {/* <!-- <label>Mobile / Email Address</label> --> */}
                                         <input
                                             type="text"
@@ -115,7 +115,7 @@ export default class Login extends Component {
                                             className="btn bha-btn-primary w-100 mt-3"
                                         >
                                             Sign up
-              </a>
+                                        </a>
                                         {/* <!-- <span className="float-right mt-4 text-muted"><a className="forgotpwd" href="forgot-pwd.html">Forgot Password?</a></span> --> */}
                                     </div>
                                 </div>

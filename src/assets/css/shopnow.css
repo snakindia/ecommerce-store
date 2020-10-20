@@ -3,6 +3,7 @@
 @media screen and (max-width: 1920px) {
 /* .wsshoptabing { left: -352px !important; width: 136% !important;} */
 .container{max-width: 1280px;}
+.rightLink{float:right}
 }
 
 @media screen and (max-width: 1366px) {
@@ -400,7 +401,7 @@ height: 30px !important;}
   position: absolute;
   left: 0;
   z-index: 1;
-  padding: 0.1rem 0.4rem;
+  padding: 0 0.4rem;
   top: 0;
 }
 .discount {
@@ -408,9 +409,9 @@ height: 30px !important;}
   font-size: 0.9rem;
   font-weight: 500;
   position: absolute;
-  right: 55%;
+  right: 50%;
   z-index: 1;
-  padding: 0.1rem 0.4rem;
+  padding: 0 0.4rem;
   top: 0;
 }
 .hot-tag::before {
@@ -419,7 +420,7 @@ height: 30px !important;}
   top: 0;
   left: 0;
   background: #c9111b;
-  width: 50%;
+  width: 60%;
   transform-origin: top left;
   left: 0px;
   bottom: 0;
@@ -1393,3 +1394,19 @@ a.bha-btn-secondry:hover {
 .item-list .item .cart-thumbnail img{padding:0.2rem}
 .item-list .item .details .sp-price{padding:0 0 0.8rem 0;}
 .ant-popover-inner-content{padding:0 !important}
+/*=======Added New css for shop now process 20/10/2020============================*/
+table th{font-size: 1rem; font-weight: 500;}
+.ant-collapse-content > .ant-collapse-content-box{padding:0;}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header{background:#e5e8e9; font-weight: 600; 
+  font-size: 0.950rem;border-bottom:1px solid #ccc !important; padding-left:12px !important}
+.ant-collapse{border:0 !important}
+.ant-collapse-content{background:#eceff1 !important;
+  border-bottom:0 !important}
+.ant-collapse-content > .ant-collapse-content-box{background:#fff !important;margin: 1rem 0.3rem;}
+/* .ant-collapse > .ant-collapse-item{ border-bottom:2px solid #ccc !important} */
+.ant-collapse .ant-collapse-item .ant-collapse-header .ant-collapse-arrow{ right:16px !important;
+position: absolute; left:initial !important}
+
+.col-pl-0{padding:0}
+.col-pr-0{padding:0}
+.total-bg strong{font-weight: 700 !important;}
