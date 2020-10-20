@@ -56,7 +56,7 @@ const HotProduct = (props) => {
                 </div>
                 <div className="d-block float-left w-100 pl-3">
                     {hasPrice ? <AddToCart item={item} qty="add"/> : <ContactForSale />}
-                    <Link type="button" className="svg-icon bottom_menu compare-link">
+                    <Link type="button" className="svg-icon bottom_menu compare-link" to="/">
                         <i className="fa fa-random mr-2 ml-2" area-hidden="true"></i>
                         Compare
                     </Link>

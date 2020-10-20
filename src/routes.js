@@ -10,6 +10,7 @@ import MetaContainer from './components/MetaData';
 import Notification from './components/Notification';
 import Shop from './components/Shop';
 import Cart from './components/Shop/Cart';
+import Checkout from './components/Shop/Checkout/Checkout';
 import Detail from './components/Shop/Detail';
 import PrivateRoute from './PrivateRoute';
 import Category from './components/Category';
@@ -103,6 +104,7 @@ useEffect(()=>{
                             
                             <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
                             <Route path="/shop/cart" component={Cart} />
+                            <Route path="/shop/checkout" component={Checkout} />
                             <Route path="/shop/:id" component={Detail} />
                             <Route path="/shop" component={Shop} />
                             

@@ -39,15 +39,7 @@ export const getMenuError = (payload) => ({
     type: ActionTypes.SHOP_GET_MENU_ERROR,
     payload
 })
-export const addProduct = (payload, qty=1) => ({
-    type: ActionTypes.ADD_TO_CART,
-    payload,
-    qty
-})
-export const removeProduct = (payload) => ({
-    type: ActionTypes.REMOVE_FROM_CART,
-    payload
-})
+
 
 
 export const flushData = () => ({
@@ -123,6 +115,38 @@ export const getMenu = () => {
             .catch(e => {
                 dispatch(setLoading(false));
                 dispatch(getMenuError(e));
+            });
+    }
+}
+export const addProductAction = (payload, qty=1) => ({
+    type: ActionTypes.ADD_TO_CART,
+    payload,
+    qty
+});
+export const removeProduct = (payload) => ({
+    type: ActionTypes.REMOVE_FROM_CART,
+    payload
+})
+export const addProduct = (payload, qty=1) => {
+    return dispatch => {
+        return dispatch(addProductAction(payload, qty));
+        dispatch(setLoading(true));
+        
+       let url=`ajax/cart/items`;
+       
+        Axios.post(`${process.env.REACT_APP_API_URL}/${url}`,{product_id:payload.id, quantity:qty}
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data ) {
+                    dispatch(addProductAction(payload, qty));
+                } else {
+                    dispatch(getProductError(undefined));
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                dispatch(getProductError(e));
             });
     }
 }
