@@ -779,8 +779,8 @@ text-align: center;width: 94% !important;}
 .chat-button{display: none}
 /*.caption{top:20% !important;left:3% !important}*/
 .caption .btn{margin-top: 30px !important}
-.placement-client .slick-slide{width:160px !important;margin:0 8px 0 8px !important;}
-/* .placement-client .slick-slide{width:170px !important;margin:0 7px 0 7px !important;} */
+/* .placement-client .slick-slide{width:160px;margin:0 8px 0 8px !important;} */
+.placement-client .slick-slide{width:170px !important;margin:0 10px 0 10px !important;}
 
 /*.topbar{display: none}*/
 .news-inner{background: #fff !important; border:1px solid #d7d7d7 !important;}
