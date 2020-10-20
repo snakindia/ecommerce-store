@@ -399,7 +399,7 @@ font-family: 'Oswald', sans-serif !important; font-size: 1.5rem}
 
 /*=====Login hover ===========*/
 .toplink{display: block; margin:0; padding: 0; list-style-type: none;}
-.toplink li{float:left; display: inline-block; margin:8px 15px;/* background: #e5e5e5*/}/*
+.toplink li{float:left; display: inline-block; /*margin:8px 15px;*/ margin:8px 20px 0 20px;/* background: #e5e5e5*/}/*
 .toplink li:hover{ background: #e5e5e5}*/
 .toplink li a img{margin:0 10px;}
 .toplink span{ border-right:1px solid #fff; float:left; height: 12px; margin-top: 15px}

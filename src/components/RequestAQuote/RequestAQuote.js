@@ -242,7 +242,7 @@ class RequestAQuote extends Component {
                       </div> : ''
                     }
                   </div>
-                  <div className="col-lg-12">
+                  <div className="col-lg-12 pl-0 pr-0">
 
                     <Error formik={formik} el={['name', 'phone', 'email', 'company', 'category_id', 'message']} />
                   </div>

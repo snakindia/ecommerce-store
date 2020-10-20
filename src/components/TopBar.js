@@ -138,7 +138,7 @@ class TopBar extends Component {
                           <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20" style={{ marginRight: '2px' }}></embed>
                           <div style={{
                             width: '20px', height: '20px', borderRadius: '100px', textAlign: 'center', margin: '0 5px 0 2px',
-                            lineHeight: '20px', background: '#f00'
+                            lineHeight: '20px', background: '#f00', position:'absolute', left:"77px"
                           }}>{productsInCart}</div>
                       Cart
                     </Link>

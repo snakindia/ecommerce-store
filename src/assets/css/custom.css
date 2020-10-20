@@ -236,7 +236,7 @@ h6 {
 }
 
 /*==========Added new css rules for override existing css 16-August-2020=================*/
-.wsshoptabing {left: -210px !important;width: 115% !important;}
+.wsshoptabing {left: -213px !important;width: 122% !important;}
 #brand{border-bottom:0 !important;}
 .form-group .form-control {
   height: calc(1.5rem + 0.75rem + 2px) !important;
@@ -271,7 +271,7 @@ object-position: center !important;}
 .logIn .pwdlink{color: #000 !important;text-transform: none !important;padding: 0 !important;margin: 0 !important;
 font-weight:700 !important; font-size:0.875rem}
 .modal-dialog .modal-content .modal-body { position: relative; flex: 1 1 auto; padding: 0 !important;}
-.modal { position: fixed; top: 7%; right: 0; bottom: 0;left: 0; z-index: 100005 !important; display: none; overflow: hidden; outline: 0;}
+.modal { position: fixed; top: 3%; right: 0; bottom: 0;left: 0; z-index: 1000005 !important; display: none; overflow: hidden; outline: 0;}
 button.close {padding: 0; background-color: transparent;border: 0;-webkit-appearance: none; -moz-appearance: none;
     appearance: none; text-align: right;}
 .close { font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: 0.5;
@@ -388,7 +388,7 @@ position: absolute;top: 15%;right: 5%;}
 /*======Project page==================*/
 .promo-caption{text-align: left !important;}
 .pagewrap-inner p{padding-right:0 !important;}
-.p-right, .p-left{height: 235px; margin-top: -1rem;
+.p-right, .p-left{height: 240px; margin-top: -1rem;
     display: -webkit-box;width: auto;-webkit-line-clamp: 7;
     -webkit-box-orient: vertical; overflow: hidden;text-overflow: ellipsis;}
 
@@ -433,7 +433,6 @@ figcaption h4{font-weight: 500 !important}
 
 .wsmenu{width: auto !important;}
 .smllogo {padding: 2px 0px 0 0; margin: 0; float: left; width: 6%;}
-.wsshoptabing {left: -206px !important; width: 121% !important;}
 .anchor-logo { padding-top: 12px !important; padding-left: 0 !important;
     margin-left: -10px !important;}
 .caption-inner .bha_heading_2{font-size: 2.5rem !important; font-weight: 700;}
@@ -691,8 +690,8 @@ text-align: center;width: 94% !important;}
 @media(min-width: 360px){
   .topbar {background: #000; width: 100% !important; padding-left: 5% !important;}
   /*.modal-dialog{margin-top: 0;}*/
-  .top{margin-left:0 !important; margin-right: 8% !important; margin-top: 0 !important; 
-    padding-left:8% !important; padding-right:8% !important;}
+  /* .top{margin-left:0 !important; margin-right: 8% !important; margin-top: 0 !important; 
+    padding-left:8% !important; padding-right:8% !important;} */
   /*.modal{top:0px;}*/
   label{margin-bottom: 0 !important}
   .bha-btn-primary {white-space: nowrap;}
@@ -738,7 +737,7 @@ text-align: center;width: 94% !important;}
   .banner-container-xxs{overflow-x: unset !important;}
   .card-slider__container__list__card img{width: 100% !important;}
   .card-slide_container{ top: 0 !important; }
-  .hero-img{height: 320px !important}
+  .hero-img{height: 320px !important;}
   /*.checkOut-container{margin-top: 315px !important}*/
   .item-xs-caption{width: 90% !important}
   .mObiLe{margin-top: 134% !important}
@@ -759,9 +758,7 @@ text-align: center;width: 94% !important;}
   .banner-slider-container{margin-top: 103px !important;}
 }
 
-@-ms-viewport{
-width: 1920px;
-}
+
 #root{overflow-x: hidden !important;}
 /*.banner-slider-container{overflow-x: hidden !important}*/
 .tab-content{padding:15px 0 20px 15px !important}
@@ -782,7 +779,9 @@ width: 1920px;
 .chat-button{display: none}
 /*.caption{top:20% !important;left:3% !important}*/
 .caption .btn{margin-top: 30px !important}
-.placement-client .slick-slide{width:160px !important;margin:0 0 0 15px !important;}
+/* .placement-client .slick-slide{width:160px;margin:0 8px 0 8px !important;} */
+.placement-client .slick-slide{width:170px !important;margin:0 10px 0 10px !important;}
+
 /*.topbar{display: none}*/
 .news-inner{background: #fff !important; border:1px solid #d7d7d7 !important;}
 .call-us-mob{background: #000 !important; padding:0.2rem 0; text-align: center; font-weight: 600; font-size: 1.4rem; 
@@ -849,7 +848,7 @@ body {
   /* .rightLink{display:flex; justify-content: center !important;} */
   .tab-menu{float: left; margin-bottom:0 !important}
   .call-us{white-space: nowrap !important;}
-  .wsmenu > .wsmenu-list > li > .navtext{padding:25px 3px !important}
+  .wsmenu > .wsmenu-list > li > .navtext{padding:25px 3px !important; margin: 0 2px !important}
   .bha-left img{height:370px}
 
 
@@ -886,6 +885,7 @@ body {
   .padding_news { margin-top: 500px !important;}
   /* .card-slider{padding-top:120px !important} */
   .card-slider__container__list__card img { height: 350px}
+  .main-panel{width:100% !important}
   
 }
 
@@ -908,12 +908,7 @@ body {
 .bha-left { background: #ddd; width: 100%; position: relative; overflow: visible; padding-bottom: 0;
    height: auto !important;}
 .banner-img-100{height: auto}
-/* .wsmenu > .wsmenu-list > li > .navtext {
-  line-height: 16px;
-  text-align: right;
-  padding: 25px 10px !important;
-  margin: 0 2px;
-} */
+.wsmenu > .wsmenu-list > li > .navtext { padding: 25px 10px; margin: 0 5px;}
 .card-slide_container{bottom:0 !important}
 /* .bha-btn-secondry:hover{background:#a70e15} */
 
@@ -921,3 +916,13 @@ body {
 #representus-contact .form-group label{color:#fff !important}
 .footer-main .broucher-inner .form-group label{color:#fff}
 .footer-main .broucher-inner .btn{margin: 0.450rem 0 !important;}
+
+/*=====New css for fixing UI-19/10/2020=================================*/
+.errorMsg{font-weight: 600; margin-bottom: 0 !important; font-size: 0.875rem; color:#d60b15 !important}
+.item-xs-caption .item_heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif !important;
+  color: #0f416a;
+}
