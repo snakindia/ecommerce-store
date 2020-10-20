@@ -10,7 +10,8 @@ const Product = (props) => {
         e.preventDefault();
         props.remove(item.id);
     }
-    const price =qty * item.regular_price;
+    let price = item.sale_price ? item.sale_price: item.regular_price;
+    price =qty * price;
     const imageUrl = item.images.length > 0 ? item.images[0].url : API_IMAGE_PATH + 'default/default.jpg';
     return (
         <li className="item clearfix">
@@ -43,7 +44,7 @@ const MiniCart = (props) => {
     if(Object.keys(cart) && Object.keys(cart).length > 0){
         for (const datum of Object.keys(cart)){
             if(cart[datum]){
-                const price =cart[datum].item.regular_price;
+                const price = cart[datum].item.sale_price ? cart[datum].item.sale_price: cart[datum].item.regular_price;;
                 const qty =cart[datum].qty;
                 subtotal =subtotal +(price*qty);
             }
