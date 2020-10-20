@@ -50,17 +50,17 @@ function Summary(props) {
 							                	  <div className="row">
     							                	<div className="col-sm-9 col-md-9 col-xs-12">
   							                  		<div className="form-group mt-3">
-                                                      <input
-                                                      onChange={e=>setCoupon(e.target.value)}
-                                                      value={coupon}
-                                                       type="text" className="form-control input-control" name="" placeholder="Coupon/Gift Certificate code"
-                                                      />
+                                        <input
+                                        onChange={e=>setCoupon(e.target.value)}
+                                        value={coupon}
+                                          type="text" className="form-control input-control" name="" placeholder="Coupon/Gift Certificate code"
+                                        />
   							                   		
   							                  		</div>
     							              		</div>
     							              	  <div className="col-sm-3 col-md-3 col-xs-12 padding-left0">    							
     							                  	<div className="form-group mt-3">
-    							                    	<button onClick={onClickApply} type="button" className="btn bha-btn-apply margin-left-mobile15" name="buttonsubmit">Apply</button>
+    							                    	<button onClick={onClickApply} type="button" className="btn bha-btn-apply margin-left-mobile15 w-100 text-center" name="buttonsubmit">Apply</button>
     							                  	</div>
     							                   </div>
 							                     </div>
