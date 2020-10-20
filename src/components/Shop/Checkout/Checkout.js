@@ -16,6 +16,8 @@ class Checkout extends Component {
             showModal: false,
             item: null,
             visible: true,
+            email:'',
+            step:1
         }
     }
 
@@ -24,8 +26,16 @@ class Checkout extends Component {
         // this.props.getProduct(id);
     }
 
+    setEmail =(email)=>{
+        this.setState({email})
+    }
+
+    next =(step)=>{
+        this.setState({step})
+    }
     render() {
-        const {authenticated,}=this.props;
+        const {authenticated,user}=this.props;
+        const {step}=this.state;
 
 
         return (
@@ -44,11 +54,17 @@ class Checkout extends Component {
                                                 <h1 className="bha_heading_2 text-blue padding-top30 padding-btm30">Check Out</h1>
                                                 <div id="accordion">
                                                     <Collapse
-                                                        defaultActiveKey={['1']}
+                                                        defaultActiveKey={[step.toString()]}
                                                     // onChange={callback}
                                                     >
                                                         <Panel header="1. Customer" key="1">
-                                                            <Login />
+                                                            <Login 
+                                                            user={user}
+                                                             authenticated={authenticated}
+                                                             setEmail={this.setEmail}
+                                                             email={this.state.email}
+                                                             next ={this.next}
+                                                             />
 
                                                         </Panel>
                                                         <Panel header="2. Shipping" key="2">
@@ -172,7 +188,7 @@ class Checkout extends Component {
                                                                                         <td  >$0.00</td>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <td colspan="3">
+                                                                                        <td colSpan="3">
                                                                                             <form>
                                                                                                 <div className="col-lg-12 padding-left0">
                                                                                                     <div className="row">
@@ -229,6 +245,7 @@ const mapStateToProps = (state) => ({
     product: state.shop.product,
     error: state.shop.error,
     authenticated: state.auth.authenticated,
+    user: state.auth.customer_settings,
 });
 const mapDispatchToProps = dispatch => ({
     //getProduct: (id) => dispatch(getProduct(id)),
