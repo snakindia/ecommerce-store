@@ -46,7 +46,7 @@ function Summary(props) {
                                     </div>
 
                                     <div className="table-responsive">
-                                    <div className="col-lg-12 padding-left0">
+                                    <div className="col-lg-12">
 							                	  <div className="row">
     							                	<div className="col-sm-9 col-md-9 col-xs-12">
   							                  		<div className="form-group mt-3">
