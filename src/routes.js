@@ -8,6 +8,7 @@ import MobileMenu from './components/MobileMenu';
 import { StickyContainer } from 'react-sticky';
 import MetaContainer from './components/MetaData';
 import Notification from './components/Notification';
+import Accounts from './components/Accounts/Accounts';
 import Shop from './components/Shop';
 import Cart from './components/Shop/Cart';
 import Checkout from './components/Shop/Checkout/Checkout';
@@ -22,6 +23,7 @@ import ProgressBar from './components/ProgressBar'
 import Loader from './components/Loader/Loader'
 import SubscriptionPopUp from './components/SubscriptionPopUp/SubscriptionPopUp';
 import {setLoading} from './actions/fetchActions';
+import {getCart} from './components/Shop/store/Actions';
 import axios from 'axios';
 import scrollToEl from './utils/scrollToEl'
 const App = lazy(() => import('./App'));
@@ -43,6 +45,7 @@ const Routes = (props) => {
           const currentTime = localStorage.getItem("currentTime");
             let timeDiff = Date.now() - currentTime;
         }, 1000);
+        props.getCart()
   }, []);
   axios.interceptors.request.use(function(req) {
     
@@ -103,6 +106,7 @@ useEffect(()=>{
                             <Route path="/inner-page" component={InnerPage} />
                             
                             <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
+                            <Route path="/accounts" component={Accounts} />
                             <Route path="/shop/cart" component={Cart} />
                             <Route path="/shop/checkout" component={Checkout} />
                             <Route path="/shop/:id" component={Detail} />
@@ -135,7 +139,8 @@ const mapStateToProps = state => ({
   });
   
   const mapDispatchToProps = dispatch => ({
-    setLoading:payload=>dispatch(setLoading(payload))
+    setLoading:payload=>dispatch(setLoading(payload)),
+    getCart:()=>dispatch(getCart())
   });
   
   export default connect(
