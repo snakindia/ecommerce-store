@@ -1403,10 +1403,31 @@ table th{font-size: 1rem; font-weight: 500;}
 .ant-collapse-content{background:#eceff1 !important;
   border-bottom:0 !important}
 .ant-collapse-content > .ant-collapse-content-box{background:#fff !important;margin: 1rem 0.3rem;}
-/* .ant-collapse > .ant-collapse-item{ border-bottom:2px solid #ccc !important} */
 .ant-collapse .ant-collapse-item .ant-collapse-header .ant-collapse-arrow{ right:16px !important;
 position: absolute; left:initial !important}
+.ant-collapse-content-box .card-body{padding:0}
+.ant-table-row:last-child{background-color: #f1f1f1;}
+.ant-table-cell:last-child{text-align: right;}
+.ant-table-row:last-child td{font-size: 1.25rem !important; color: #333; font-weight: 500 !important;}
 
 .col-pl-0{padding:0}
 .col-pr-0{padding:0}
 .total-bg strong{font-weight: 700 !important;}
+
+.btn-bha-lg{text-align:center; font-weight: 500;text-transform: uppercase; 
+  border-radius: 0.3rem; color:#fff;padding: 0.4rem 0.8rem !important;}
+.btn-bha-lg.darkBlue{background:#23536b;}
+.btn-bha-lg.darkBlue:hover{background:#5ea7bd;}
+.btn-bha-lg.darkRed{background:#a70e15;}
+.btn-bha-lg.darkRed:hover{background:#8f070e;}
+.btn-bha-lg:hover{color:#fff}
+
+.cart-footer .button {
+  margin-right: 0.5rem;
+  width: 48.5%;
+}
+
+@media(max-width:768px){
+.btn-bha-lg{display: block; width:100%; margin: 1rem 0 0.3rem;}
+.ant-popover{width: 100% !important;}
+}

@@ -220,7 +220,7 @@ class Checkout extends Component {
                                     </div>
                                     <div className="col-sm-12 col-md-4">
 
-                                        <div className="right-content aside">
+                                        <div className="right-content aside margin-top30">
                                             <Summary dataSource={dataSource}/>
                                              </div>
                                     </div>

@@ -110,16 +110,16 @@ const Cart = (props) => {
                                         </div>
                                         <div className="col-sm-12 col-md-12 margin-btm30">
                                             <div className="row">
-                                                <div className="col-sm-6 col-md-6">
-                                                    <Link to="/shop" className="btn bha-btn-primary plr" >
-                                                        <i className="fas fa-angle-left"></i>Continue Shopping
+                                                <div className="col-lg-3 col-sm-6 col-md-6">
+                                                    <Link to="/shop" className="btn-bha-lg darkBlue" >
+                                                        <i className="fas fa-angle-left mr-2"></i>Continue Shopping
                                                 </Link>
                                                 </div>
-                                                <div className="col-sm-6 col-md-6">
-                                                    <div className="" style={{float: 'right'}}>
-                                                        <Link to="/shop/checkout" className="bha-btn-secondry Procced-to-Checkout font-weight-bold" >
+                                                <div className="col-lg-3 col-sm-6 col-md-6 offset-md-6 float-right">
+                                                    <div className="text-right">
+                                                        <Link to="/shop/checkout" className="btn-bha-lg darkRed" >
                                                             Procced to Checkout
-                                                            <i className="fas fa-angle-right"></i>
+                                                            <i className="fas fa-angle-right ml-2"></i>
                                                             </Link>
                                                     </div>
                                                     
