@@ -5,14 +5,15 @@ import { removeProduct, addProduct } from './store/Actions';
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 import ToolTip from './ToolTip';
 const Product = (props) => {
-    const { item,qty } = props.data;
+    const item = props.data;
     const remove = (e) => {
         e.preventDefault();
-        props.remove(item.id);
+        props.remove(item.product_id);
     }
-    let price = item.sale_price ? item.sale_price: item.regular_price;
-    price =qty * price;
-    const imageUrl = item.images.length > 0 ? item.images[0].url : API_IMAGE_PATH + 'default/default.jpg';
+    // let price = item.sale_price ? item.sale_price: item.regular_price;
+    // price =qty * price;
+    // const imageUrl = item.images.length > 0 ? item.images[0].url : API_IMAGE_PATH + 'default/default.jpg';
+    const imageUrl = item.image_url ? item.image_url : API_IMAGE_PATH + 'default/default.jpg';
     return (
         <li className="item clearfix">
             <div className="cart-thumbnail">
@@ -21,40 +22,34 @@ const Product = (props) => {
                         <span><i className="fa fa-times"></i></span>
                     </div>
                 </div>
-                <Link to={`/shop/${item.id}`}><img src={imageUrl} alt="" /></Link>
+                <Link to={`/shop/${item.product_id}`}><img src={imageUrl} alt="" /></Link>
             </div>
             <div className="details">
-                <div className="item-title"><Link to={`/shop/${item.id}`}>
+                <div className="item-title"><Link to={`/shop/${item.product_id}`}>
                     <ToolTip text={item.name} />
                 </Link></div>
-                <span className="sp-price quantity">Qty:{qty}</span>
-                <span className="sp-price text-sm-right">${price}</span>
+                <span className="sp-price quantity">Qty:{item.quantity}</span>
+                <span className="sp-price text-sm-right">${item.price_total}</span>
 
             </div>
         </li>
     )
 }
 const MiniCart = (props) => {
-    const { item, className, cart } = props;
-    const onClick = (e) => {
-        e.preventDefault();
-        props.addProduct(item)
-    }
-    let subtotal =0;
-    if(Object.keys(cart) && Object.keys(cart).length > 0){
-        for (const datum of Object.keys(cart)){
-            if(cart[datum]){
-                const price = cart[datum].item.sale_price ? cart[datum].item.sale_price: cart[datum].item.regular_price;;
-                const qty =cart[datum].qty;
-                subtotal =subtotal +(price*qty);
-            }
-        }
-    }
+    const {cart } = props;
+   
+    let subtotal = cart ? cart.subtotal: 0;
+    let tax = cart ? cart.tax_total: 0;
+    let shipping = cart ? cart.shipping_total: 0;
+    let total = cart ? cart.grand_total: 0;
+    let items = cart ? cart.items:[];
+    let counts =0;
+    counts = items && items.length > 0 ? items.map(i=> counts + i.quantity):counts;
     return (
         <div className="cart-box-changed-to-min-cart" >
             <ul className="item-list">
-                {Object.keys(cart) && Object.keys(cart).length > 0 ? Object.keys(cart).map((key,i)=>
-                <Product key={`cart${key}`} data={cart[key]} remove={props.removeProduct} />
+                {items && items.length > 0 ? items.map(data=>
+                <Product key={`cart${data.id}`} data={data} remove={props.removeProduct} />
                 ) : null}
                
             </ul>

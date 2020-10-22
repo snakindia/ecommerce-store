@@ -1,5 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 import Axios from 'axios';
+Axios.defaults.withCredentials = true;
 export const setLoading = (payload) => ({
     type: ActionTypes.SHOP_LOADING,
     payload
@@ -119,35 +120,53 @@ export const getMenu = () => {
             });
     }
 }
-export const addProductAction = (payload, qty=1) => ({
+export const addProductAction = (payload) => ({
     type: ActionTypes.ADD_TO_CART,
     payload,
-    qty
 });
-export const removeProduct = (payload) => ({
+export const removeProductAction = (payload) => ({
     type: ActionTypes.REMOVE_FROM_CART,
     payload
 });
 
-export const addProduct = (payload, qty=1) => {
+export const removeProduct = (payload) => {
     return dispatch => {
-       //return dispatch(addProductAction(payload, qty));
         dispatch(setLoading(true));
-        
-       let url=`cart/items`;
-       qty = qty=='add' ? 1: qty;
-       //const data ={product_id:payload.id, quantity:qty,variant_id:null};
-       const data ={
-        "product_id":"5f86c51930a929c68ddb364a",
-        "quantity":1,
-        "variant_id":null    
-        }
-        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/${url}`,data
+       let url=`cart/items/${payload}`;
+        Axios.delete(`${process.env.REACT_APP_API_AJAX_URL}/${url}`,{withCredentials: true,
+            crossDomain:true,
+            }
         )
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data ) {
-                    dispatch(addProductAction(payload, qty));
+                    dispatch(removeProductAction(res.data));
+                } else {
+                   // dispatch(getProductError(undefined));
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                dispatch(getProductError(e));
+            });
+    }
+}
+export const addProduct = (payload, qty=1) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+       let url=`cart/items`;
+       qty = qty=='add' ? 1: qty;
+       const data ={product_id:payload.product_id ? payload.product_id: payload.id , quantity:qty,variant_id:null};
+        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/${url}`,data,
+        {withCredentials: true,
+            crossDomain:true,
+            }
+        )
+            .then(res => {
+                console.log(res)
+                dispatch(setLoading(false));
+                if (res.data ) {
+                    dispatch(addProductAction(res.data));
                 } else {
                     dispatch(getProductError(undefined));
                 }
@@ -160,43 +179,52 @@ export const addProduct = (payload, qty=1) => {
 }
 export const getCart = () => {
     return dispatch => {
-        var config = {
-            method: 'get',
-            url: 'http://209.59.154.198:3001/ajax/cart',
-            headers: { 
-              'Cookie': 'order_id=s:5f9009e5c2f31b3b2065806a.kw6CXaEEX6/Z4bUxuy+JWNHfnSM0cDaZWEbyc07m0/4',
-              withCredentials: true
-            },
-            withCredentials: true
-          };
-          
-          
-          Axios(config)
-          .then(function (response) {
-            console.log(JSON.stringify(response.data));
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-          
-        // dispatch(setLoading(true));
-        // Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`,{
-        //     headers: {
-        //         Cookie: "order_id=s%3A5f8ffebec2f31b3b20658054.j84ANoNuUPmzJkAc1I205i4LDLArenwDJ4NM1XRur1Y;"
-        //     }
-        // }
-        // )
-        //     .then(res => {
-        //         dispatch(setLoading(false));
-        //         if (res.data ) {
-        //             //dispatch(addProductAction(payload, qty));
-        //         } else {
-        //            // dispatch(getProductError(undefined));
-        //         }
-        //     })
-        //     .catch(e => {
-        //         dispatch(setLoading(false));
-        //         dispatch(getProductError(e));
-        //     });
+        dispatch(setLoading(true));
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`, 
+        {withCredentials: true,
+        crossDomain:true,
+        }
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data ) {
+                    console.log('->>>>>>>>>>>>.',res)
+                   dispatch(addProductAction(res.data));
+                } else {
+                   // dispatch(getProductError(undefined));
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                dispatch(getProductError(e));
+            });
+    }
+}
+
+
+
+
+export const addOrder = (payload) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+       let url=`cart/checkout`;
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/${url}`,payload,
+            {
+                withCredentials: true,
+                crossDomain:true,
+            }
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data ) {
+                    //dispatch(addProductAction(res.data));
+                } else {
+                    //dispatch(getProductError(undefined));
+                }
+            })
+            .catch(e => {
+                //dispatch(setLoading(false));
+               // dispatch(getProductError(e));
+            });
     }
 }

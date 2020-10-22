@@ -11,7 +11,7 @@ const initialState = {
     cart: {}
 }
 
-export default (state = initialState, { type, payload, qty }) => {
+export default (state = initialState, { type, payload }) => {
     switch (type) {
         case ActionTypes.SHOP_LOADING:
             return { ...state, loading: payload }
@@ -34,34 +34,9 @@ export default (state = initialState, { type, payload, qty }) => {
             return { ...state, loading: false, product: undefined, error: payload }
 
         case ActionTypes.ADD_TO_CART:
-            let { cart } = state;
-            let quantities = 0;
-            if(qty==0){
-                delete cart[payload.id];
-                return { ...state, cart: { ...cart } }
-            } else {
-            if (Object.keys(cart) && Object.keys(cart).length > 0 && Object.keys(cart).includes(payload.id)) {
-                quantities = cart[payload.id].qty;
-                quantities =qty && qty =='add' ? quantities+1: qty;
-                    cart = {
-                        ...cart,
-                        [payload.id]: { item: payload, qty:quantities }
-                    }
-                
-               
-            } else {
-                quantities =qty && qty =='add' ? quantities+1: qty;
-                cart = {
-                    ...cart,
-                    [payload.id]: { item: payload, qty: quantities }
-                }
-            }
-            return { ...state, cart }
-        }
+            return { ...state, cart:payload }
         case ActionTypes.REMOVE_FROM_CART:
-            let carts = state.cart;
-            delete carts[payload];
-            return { ...state, cart: { ...carts } }
+            return { ...state, cart:payload }
 
         case ActionTypes.SHOP_FLUSH_DATA:
             return {

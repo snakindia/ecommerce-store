@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Breadcrumb } from 'antd';
 import QuickView from '../QuickView'
-//import { getProduct } from '../store/Actions'
+import { addOrder } from '../store/Actions'
 import { Link } from 'react-router-dom';
 import { Collapse } from 'antd';
 import { Card } from 'antd';
@@ -82,6 +82,21 @@ class Checkout extends Component {
         console.log({ e });
     }
 
+    placeOrder =(e)=>{
+        e.preventDefault();
+        const {cart} =this.props;
+        const {email, billingAddress, shippingAddress} =this.props;
+        console.log(email, billingAddress, shippingAddress)
+        const data ={
+            ...cart,
+            email,
+            billing_address:billingAddress,
+            shipping_address:shippingAddress,
+        }
+        console.log(data)
+        this.props.addOrder(data);
+    }
+
 
     render() {
         const { authenticated, user,cart } = this.props;
@@ -92,27 +107,28 @@ class Checkout extends Component {
                 <button className="SignOut">Sign Out</button>
             </div> : null}
         </div>
-        let subtotal = 0;
-        let shipping = 0;
-        let tax = 0;
-        let total = 0;
+        let subtotal = cart ? cart.subtotal: 0;
+        let tax = cart ? cart.tax_total: 0;
+        let shipping = cart ? cart.shipping_total: 0;
+        let total = cart ? cart.grand_total: 0;
+        let items = cart ? cart.items:[];
+        let productsInCart = 0;
+        if(cart && cart.items && cart.items.length > 0){
+          for (const item of cart.items) {
+              productsInCart = productsInCart + item.quantity;
+          }
+        }
         let  dataSource =[];
-        if (Object.keys(cart) && Object.keys(cart).length > 0) {
-            for (const datum of Object.keys(cart)) {
-                if (cart[datum]) {
-                    
-                    const price = cart[datum].item.sale_price ? cart[datum].item.sale_price: cart[datum].item.regular_price;
-                    const qty = cart[datum].qty;
-                    subtotal = subtotal + (price * qty);
-                    const item ={
-                        name:cart[datum].item.name,
-                        qty:cart[datum].qty,
-                        price:`$${price}`
+        if (items && items.length > 0) {
+            for (const item of items) {
+                    const datum ={
+                        name:item.name,
+                        qty:item.quantity,
+                        price:`$${item.price ? item.price:0}`
                     };
-                    dataSource.push(item);
+                    dataSource.push(datum);
                 }
             }
-        }
         dataSource.push({
             name:'',
             qty:'Subtotal',
@@ -129,7 +145,7 @@ class Checkout extends Component {
             price:tax ? `$${tax}`:'$0.00'
         });
     
-        total =subtotal+shipping+tax;
+        
         dataSource.push({
             name:'Total',
             qty:'',
@@ -204,7 +220,7 @@ class Checkout extends Component {
                                                                                     <h5>${total}</h5>
 
                                                                                     <div className="form-group mt-3 mb-3">
-                                                                                        <a href="thank-you.html" className="btn bha-btn-primary margin-left-mobile15 w-100 text-center" name="buttonsubmit">Place Order</a>
+                                                                                        <Link  onClick={this.placeOrder} type="button" to="" className="btn bha-btn-primary margin-left-mobile15 w-100 text-center" name="buttonsubmit">Place Order</Link>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -247,7 +263,7 @@ const mapStateToProps = (state) => ({
     user: state.auth.customer_settings,
 });
 const mapDispatchToProps = dispatch => ({
-    //getProduct: (id) => dispatch(getProduct(id)),
+    addOrder: (payload) => dispatch(addOrder(payload)),
 });
 export default connect(
     mapStateToProps,

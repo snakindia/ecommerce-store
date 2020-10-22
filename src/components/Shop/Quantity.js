@@ -5,15 +5,19 @@ class Quantity extends Component {
         super(props);
         this.state = {
             counts: 0,
+            oldcounts: 0,
         };
     }
     componentDidMount(){
         const {cart, id}=this.props;
         let qty=0;
-        if(cart && cart[id]){
-          qty =cart[id].qty;
+        if(cart && cart.items && cart.items.length > 0){
+          const item = cart.items.filter(i=>i.product_id ===id);
+          if(item && item[0]){
+              qty = item[0].quantity;
+          }
         }
-        this.setState({counts:qty})
+        this.setState({counts:qty, oldcounts:qty})
     }
     changeCounter = (payload) => {
         let { counts } = this.state;
@@ -34,7 +38,7 @@ class Quantity extends Component {
     }
     callback =()=>{
         if(this.props.callback){
-            this.props.callback(this.state.counts)
+            this.props.callback( this.state.counts)
         }
        
         

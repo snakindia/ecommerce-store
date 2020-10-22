@@ -6,18 +6,19 @@ import { API_IMAGE_PATH } from './../../constants/appConstant';
 import ToolTip from './ToolTip';
 import Quantity from './Quantity';
 const Product = (props) => {
-    const { item, qty } = props.data;
+    const item = props.data;
     const remove = (e) => {
         e.preventDefault();
-        props.remove(item.id);
+        props.remove(item.product_id);
     }
     const callback = (counts) => {
         props.QuantityHandler(item, counts)
 
     }
-    const price = qty * item.sale_price ? item.sale_price : item.regular_price;;
-    const total = qty * price;
-    const imageUrl = item.images.length > 0 ? item.images[0].url : API_IMAGE_PATH + 'default/default.jpg';
+    // const price = qty * item.sale_price ? item.sale_price : item.regular_price;;
+    // const total = qty * price;
+    // const imageUrl = item.images.length > 0 ? item.images[0].url : API_IMAGE_PATH + 'default/default.jpg';
+    const imageUrl = item.image_url ? item.image_url : API_IMAGE_PATH + 'default/default.jpg';
     return (
         <tr>
             <th scope="row">
@@ -27,10 +28,10 @@ const Product = (props) => {
                 <ToolTip text={item.name} length={200} />
             </td>
             <td style={{ verticalAlign: 'middle' }}>
-                <Quantity qty={qty} id={item.id || item.id} callback={callback} />
+                <Quantity qty={item.quantity} id={item.product_id} callback={callback} />
             </td>
-            <td style={{ verticalAlign: 'middle' }}>$ {item.sale_price ? item.sale_price : item.regular_price}</td>
-            <td style={{ verticalAlign: 'middle' }}>$ {total}</td>
+            <td style={{ verticalAlign: 'middle' }}>$ {item.price}</td>
+            <td style={{ verticalAlign: 'middle' }}>$ {item.price_total}</td>
             <td style={{ verticalAlign: 'middle' }} align="right" onClick={e => remove(e)}><i className="fa fa-close not-liked bouncy"></i></td>
         </tr>
 
@@ -38,26 +39,22 @@ const Product = (props) => {
 }
 const Cart = (props) => {
     const { item, className, cart } = props;
+    
     const onClick = (e) => {
         e.preventDefault();
         props.addProduct(item)
     }
-    let subtotal = 0;
-    let shipping = 0;
-    let tax = 0;
-    let total = 0;
-    let counts = 0;
-    if (Object.keys(cart) && Object.keys(cart).length > 0) {
-        for (const datum of Object.keys(cart)) {
-            if (cart[datum]) {
-                const price = cart[datum].item.sale_price ? cart[datum].item.sale_price : cart[datum].item.regular_price;
-                const qty = cart[datum].qty;
-                counts = counts + qty;
-                subtotal = subtotal + (price * qty);
-            }
-        }
+    let subtotal = cart ? cart.subtotal: 0;
+    let tax = cart ? cart.tax_total: 0;
+    let shipping = cart ? cart.shipping_total: 0;
+    let total = cart ? cart.grand_total: 0;
+    let items = cart ? cart.items:[];
+    let productsInCart = 0;
+    if(cart && cart.items && cart.items.length > 0){
+      for (const item of cart.items) {
+          productsInCart = productsInCart + item.quantity;
+      }
     }
-    total = subtotal + shipping + tax;
     return (
         <div className="content-wrapper topPadding" id="content">
             <div className="pagewrap">
@@ -83,16 +80,16 @@ const Cart = (props) => {
                                                             <th scope="col"> </th>
                                                         </tr>
                                                     </thead>
-                                                    {Object.keys(cart) && Object.keys(cart).length > 0 ? Object.keys(cart).map((key, i) =>
+                                                    {items && items.length > 0 ? items.map(data =>
                                                         <Product
-                                                            key={`cart${key}`}
-                                                            data={cart[key]}
+                                                            key={`cart${data.id}`}
+                                                            data={data}
                                                             QuantityHandler={props.addProduct}
                                                             remove={props.removeProduct}
                                                         />
                                                     ) : null}
                                                     <tr>
-                                                        <td colSpan="4" className="no-border" style={{ textAlign: 'right' }}>Subtotal (${counts} items) </td>
+                                                        <td colSpan="4" className="no-border" style={{ textAlign: 'right' }}>Subtotal (${productsInCart} items) </td>
                                                         <td colSpan="2" className="no-border">${subtotal}</td>
                                                     </tr>
                                                     <tr>

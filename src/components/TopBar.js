@@ -102,11 +102,11 @@ class TopBar extends Component {
   render() {
     const { authenticated, userDetails, cart } = this.props;
     let productsInCart = 0;
-    if (Object.keys(cart) && Object.keys(cart).length > 0) {
-      for (const datum of Object.keys(cart)) {
-        if (cart[datum]) {
-          productsInCart = productsInCart + cart[datum].qty;
-        }
+    if(cart && cart.items && cart.items.length > 0){
+      for (const item of cart.items) {
+       
+          productsInCart = productsInCart + item.quantity;
+      
       }
     }
     const { showLanguage } = this.state;

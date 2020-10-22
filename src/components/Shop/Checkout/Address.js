@@ -11,14 +11,15 @@ function Address(props) {
         first_name: data && data.first_name ? data.first_name : '',
         last_name: data && data.last_name ? data.last_name : '',
         phone: data && data.phone ? data.phone : '',
-        address: data && data.address ? data.address : '',
+        address1: data && data.address1 ? data.address1 : '',
         address2: data && data.address2 ? data.address2 : '',
         city: data && data.city ? data.city : '',
         state: data && data.state ? data.state : '',
-        zip: data && data.zip ? data.zip : '',
+        postal_code: data && data.postal_code ? data.postal_code : '',
         country: data && data.country ? data.country : '',
         company: data && data.company ? data.company : '',
         same: data && data.same ? data.same : '',
+        full_name: data && data.first_name && data.last_name ? data.first_name + ' '+ data.last_name : '',
     }
 
 
@@ -38,11 +39,11 @@ function Address(props) {
                 if (!values.last_name) errors.last_name = 'Last Name is Required';
                 if (!values.phone) errors.phone = 'Phone  is Required';
 
-                if (!values.address) errors.address = 'Address is Required';
+                if (!values.address1) errors.address1 = 'Address is Required';
                 // if (!values.address2) errors.address ='First Name is Required';
                 if (!values.city) errors.city = 'City is Required';
                 if (!values.state) errors.state = 'State/Province is Required';
-                if (!values.zip) errors.zip = 'Postal Code is Required';
+                if (!values.postal_code) errors.postal_code = 'Postal Code is Required';
                 // if (!values.country) errors.country = 'Country is Required';
                 console.log({errors});
                 return errors;
@@ -79,7 +80,7 @@ function Address(props) {
                         <Input
                             allow="special"
                             length={200}
-                            name="address"
+                            name="address1"
                             formik={formikProps}
                             className="form-control input-control"
                             placeholder="Address"
@@ -134,7 +135,7 @@ function Address(props) {
                         <Input
                             allow="numeric"
                             length={6}
-                            name="zip"
+                            name="postal_code"
                             formik={formikProps}
                             className="form-control input-control"
                             placeholder="Postal Code"
