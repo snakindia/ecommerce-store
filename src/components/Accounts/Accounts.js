@@ -1,7 +1,9 @@
 import { Link, Route, Switch, Redirect } from 'react-router-dom';
 import React, { useState } from 'react';
 import { Menu } from 'antd';
+import { connect } from 'react-redux'
 import Dashboard from './Dashboard';
+import { getOrders, getOrderDetail,  getShippingMethod, getPaymentSettingsMethod } from './store/Actions';
 class Accounts extends React.Component {
     constructor(props) {
         super(props);
@@ -20,6 +22,9 @@ class Accounts extends React.Component {
         e.preventDefault();
 
     }
+     componentDidMount(){
+         this.props.getOrders()
+     }
     render() {
         return (
             <div className="content-wrapper topPadding" id="content">
@@ -100,7 +105,25 @@ class Accounts extends React.Component {
         )
     }
 }
-
-export default Accounts;
+const mapStateToProps = (state) => ({
+    loadingCart: state.accounts.loadingCart,
+    loading: state.accounts.loading,
+    
+    error: state.accounts.error,
+    paymentMethods: state.accounts.paymentMethods,
+    paymentMethodsSettings: state.accounts.paymentMethodsSettings,
+    shippingMethods: state.accounts.shippingMethods,
+    checkoutSuccess : state.accounts.checkoutSuccess,
+    authenticated: state.auth.authenticated,
+    user: state.auth.customer_settings,
+});
+const mapDispatchToProps = dispatch => ({
+    getOrders: (payload) => dispatch(getOrders(payload)),
+    getOrderDetail: (id) => dispatch(getOrderDetail(id)),
+});
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Accounts);
 
 

@@ -16,6 +16,7 @@ import industries from './components/Industries/industries.reducer';
 import representus from './components/RepresentUs/store/Reducer';
 import privacyPolicy from './components/PrivacyPolicy/privacypolicy.reducer';
 import shop from './components/Shop/store/Reducer'
+import accounts from './components/Accounts/store/Reducer'
 const logger = createLogger({ collapsed: true });
 const rootReducer = combineReducers({
     asyncReducer,
@@ -31,7 +32,8 @@ const rootReducer = combineReducers({
     industries,
     representus,
     privacyPolicy,
-    shop
+    shop,
+    accounts
 });
 const store = createStore(
   rootReducer,

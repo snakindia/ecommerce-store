@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Breadcrumb } from 'antd';
+import Loader from '../../Loader/Loader'
 import QuickView from '../QuickView'
-import { addOrder, updateAddress, getPaymentMethod , getShippingMethod,getPaymentSettingsMethod} from '../store/Actions';
+import { addOrder, updateAddress, getPaymentMethod, getShippingMethod, getPaymentSettingsMethod } from '../store/Actions';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'antd';
 import { Card } from 'antd';
@@ -10,7 +11,9 @@ import Login from './Login'
 import Address from './Address'
 import Summary from './Summary';
 import Payment from './Payment';
+import ShippingMethod from './ShippingMethod';
 import PaypalExpress from './PaypalExpress';
+import Thankyou from './Thankyou';
 const { Panel } = Collapse;
 
 class Checkout extends Component {
@@ -35,24 +38,39 @@ class Checkout extends Component {
     componentDidUpdate(prevProps) {
         const { cart } = this.props;
         if (cart && cart !== prevProps.cart) {
-            const { email, billing_address, shipping_address } = cart;
+            const { email, billing_address, shipping_address, payment_method_id, shipping_method_id, payment_method_gateway } = cart;
+            let step = 1;
+            if (payment_method_id && payment_method_gateway == 'paypal-checkout') {
+                step = 6;
+            } else if (shipping_method_id) {
+                step = 5;
+            } else if (shipping_address && shipping_address.address1 && billing_address && billing_address.address1) {
+                step = 4;
+            } else if (billing_address && billing_address.address1) {
+                step = 3;
+            } else if (email) {
+                step = 2;
+            }
             this.setState({
-                email:email ? email:'',
-                billingAddress: billing_address && billing_address.address1 ? billing_address: undefined,
-                shippingAddress: shipping_address && shipping_address.address1 ? shipping_address: undefined,
-                step:shipping_address && shipping_address.address1 && billing_address && billing_address.address1 ? 4:billing_address && billing_address.address1 ? 3:email ?2 :1
+                email: email ? email : '',
+                billingAddress: billing_address && billing_address.address1 ? billing_address : undefined,
+                shippingAddress: shipping_address && shipping_address.address1 ? shipping_address : undefined,
+                step
             })
-            
-            
-            
+            if(step==6){
+                this.props.getPaymentSettingsMethod();
+            }
+
+
+
         }
     }
 
     setEmail = (email) => {
         this.setState({ email });
-        const {cart} =this.props;
-        const payload ={
-            ...cart,email
+        const { cart } = this.props;
+        const payload = {
+            ...cart, email
         }
         this.props.updateAddress(payload, null);
 
@@ -91,13 +109,13 @@ class Checkout extends Component {
         const payload = {
             ...cart,
             email,
-           
+
             billing_address: billingAddress,
             shipping_address: shippingAddress,
             full_name: `${shippingAddress.first_name} ${shippingAddress.last_name}`,
-            first_name:shippingAddress.first_name,
-            last_name:shippingAddress.last_name,
-            mobile:shippingAddress.phone,
+            first_name: shippingAddress.first_name,
+            last_name: shippingAddress.last_name,
+            mobile: shippingAddress.phone,
         }
         console.log(data);
         this.props.updateAddress(payload, type);
@@ -105,7 +123,8 @@ class Checkout extends Component {
     }
 
     openPanel = (e) => {
-        const { email, billingAddress, shippingAddress } = this.state;
+        const { email, billingAddress, shippingAddress,  } = this.state;
+        const { payment_method_id, shipping_method_id, payment_method_gateway} = this.props.cart;
         if (e && e.length > 1 && e[1]) {
             const step = e[1];
             if (step == 1) {
@@ -116,6 +135,10 @@ class Checkout extends Component {
             } else if (step == 3 && shippingAddress) {
                 this.setState({ step })
             } else if (step == 4 && billingAddress) {
+                this.setState({ step })
+            }else if (step == 5 && shipping_method_id) {
+                this.setState({ step })
+            }else if (step == 6 && payment_method_id && payment_method_gateway == 'paypal-checkout') {
                 this.setState({ step })
             }
         }
@@ -131,8 +154,8 @@ class Checkout extends Component {
             email,
             billing_address: billingAddress,
             shipping_address: shippingAddress,
-            first_name:billingAddress.first_name,
-            last_name:billingAddress.last_name,
+            first_name: billingAddress.first_name,
+            last_name: billingAddress.last_name,
             ...payment_method
         }
         console.log(data)
@@ -148,27 +171,28 @@ class Checkout extends Component {
                 payment_method_gateway: method[0].gateway,
                 payment_method_id: method[0].id,
             }
-            console.log({data})
+            console.log({ data })
             this.placeOrder(data);
         }
 
     }
 
-    paymentMethodHandler =(id)=>{
-        this.props.updateAddress({payment_method_id:id});
-        setTimeout(()=>{
+    paymentMethodHandler = (id) => {
+        this.props.updateAddress({ payment_method_id: id });
+        setTimeout(() => {
             this.props.getPaymentSettingsMethod();
-        },500)
-        
+        }, 500)
+
     }
 
-    shippingMethodHandler =(id)=>{
-        this.props.updateAddress({shipping_method_id:id});
+    shippingMethodHandler = (id) => {
+
+        this.props.updateAddress({ shipping_method_id: id });
     }
 
 
     render() {
-        const { authenticated, user, cart, paymentMethods,shippingMethods } = this.props;
+        const { authenticated, user, cart, paymentMethods, shippingMethods,checkoutSuccess, orderId } = this.props;
         const { step, email, shippingAddress, billingAddress } = this.state;
         const headerOne = <div className="headerone"><h5 className="hh1">1. Customer</h5>
             {email ? <div className="info">
@@ -214,7 +238,6 @@ class Checkout extends Component {
             price: tax ? `$${tax}` : '$0.00'
         });
 
-
         dataSource.push({
             name: 'Total',
             qty: '',
@@ -222,12 +245,16 @@ class Checkout extends Component {
         });
         return (
 
-
+            <>
+            {this.props.loadingCart && <Loader />}
             <div className="content-wrapper topPadding" id="content">
                 <div className="pagewrap">
                     <div className="bgWhite padding-bottom">
                         <section >
                             <div className="container-fluid">
+                                {
+                                    checkoutSuccess ? <Thankyou orderId={orderId}/>: <>
+                                
                                 {cart ?
 
                                     <div className="row">
@@ -251,23 +278,37 @@ class Checkout extends Component {
                                                                 />
                                                                 }
                                                             </Panel>
-                                                            <Panel header="2. Shipping" key="2" >
+                                                            <Panel header="2. Shipping Address" key="2" >
                                                                 <Address type="shipping" submit={this.shippingSave} data={shippingAddress} />
                                                             </Panel>
-                                                            <Panel header="3. Billing" key="3" >
+                                                            <Panel header="3. Billing Address" key="3" >
                                                                 <Address type="billing" submit={this.shippingSave} data={billingAddress} />
                                                             </Panel>
-                                                            <Panel header="4. Payment" key="4" >
-                                                                
-                                                                <Payment
-                                                                 data={paymentMethods} 
-                                                                 shippingMethods={shippingMethods} 
-                                                                 total={total} submit={this.submit}
-                                                                 shippingMethodHandler={this.shippingMethodHandler}
-                                                                 paymentMethodHandler={this.paymentMethodHandler}
-                                                                  />
-                                                                  <PaypalExpress />
+                                                            <Panel header="4. Shipping Method" key="4" >
+                                                                <ShippingMethod
+                                                                    shipping_method_id={cart && cart.shipping_method_id ? cart.shipping_method_id: ''}
+                                                                    shippingMethods={shippingMethods}
+                                                                    shippingMethodHandler={this.shippingMethodHandler}
+                                                                />
                                                             </Panel>
+                                                            <Panel header="5. Payment Method" key="5" >
+
+                                                                <Payment
+                                                                    data={paymentMethods}
+                                                                    payment_method_id={cart && cart.payment_method_id ? cart.payment_method_id: ''}
+                                                                    total={total} 
+                                                                    submit={this.submit}
+                                                                    hide={cart.payment_method_id && cart.payment_method_gateway == 'paypal-checkout'}
+                                                                    paymentMethodHandler={this.paymentMethodHandler}
+                                                                />
+
+                                                            </Panel>
+                                                            {cart.payment_method_id && cart.payment_method_gateway == 'paypal-checkout' ?
+                                                                <Panel header="6. Payment " key="6" >
+                                                                    <PaypalExpress />
+                                                                </Panel>
+                                                                : null
+                                                            }
                                                         </Collapse>
                                                     </div>
                                                 </div>
@@ -282,9 +323,11 @@ class Checkout extends Component {
                                     </div>
                                     :
                                     <div className="row">
-                                        <div className="col-sm-12 col-md-8 left-content">Your Cart Empty</div>
+                                        <div className="col-sm-12 col-md-8 left-content">{ this.props.error && this.props.loadingCart ? 'Opps something went wrong...':this.props.loadingCart ? '':'Your Cart Empty'}</div>
                                     </div>
                                 }
+                                </>
+                      }   
                             </div>
                         </section>
 
@@ -294,18 +337,21 @@ class Checkout extends Component {
                     </div>
                 </div>
             </div>
-
+                                </>
 
         );
     }
 }
 const mapStateToProps = (state) => ({
+    loadingCart: state.shop.loadingCart,
     loading: state.shop.loading,
     cart: state.shop.cart,
     error: state.shop.error,
     paymentMethods: state.shop.paymentMethods,
     paymentMethodsSettings: state.shop.paymentMethodsSettings,
     shippingMethods: state.shop.shippingMethods,
+    checkoutSuccess : state.shop.checkoutSuccess,
+    orderId: state.shop.orderId,
     authenticated: state.auth.authenticated,
     user: state.auth.customer_settings,
 });

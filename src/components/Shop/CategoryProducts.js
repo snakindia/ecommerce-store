@@ -6,7 +6,7 @@ import { getProducts } from './store/Actions';
 import Pagination from './Pagination';
 import { Link } from 'react-router-dom';
 import { Select } from 'antd';
-
+import Loader from '../Loader/Loader'
 const { Option } = Select;
 class CategoryProducts extends Component {
   constructor(props) {
@@ -109,9 +109,11 @@ class CategoryProducts extends Component {
 
   render() {
     const { currentPage, resultPerPage, products, sorting, view } = this.state;
-    const { data } = this.props;
+    const { data,loading } = this.props;
     const total = data && data.data ? data.data.length : 0;
     return (
+      <>
+            {this.props.loadingCart && <Loader />}
       <section className="pro-equipment-section">
         {
           total && total > 0 ? <>
@@ -222,16 +224,21 @@ class CategoryProducts extends Component {
                 </div>
               </div>
             </div>
-          </> :
-            <h1 className="noprodct">No Product Found</h1>
+          </> :<>
+          {
+            this.props.error ? 'Opps something went wrong...': <h1 className="noprodct">No Product Found</h1>
+          }
+          </>
+            
         }
       </section>
+      </>
     )
   }
 
 }
 const mapStateToProps = (state) => ({
-  loading: state.shop.loading,
+  loading: state.shop.loadingProduct,
   data: state.shop.products,
   error: state.shop.error
 });

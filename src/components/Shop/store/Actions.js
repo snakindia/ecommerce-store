@@ -47,10 +47,15 @@ export const flushData = () => ({
     type: ActionTypes.SHOP_FLUSH_DATA,
 
 })
+export const setProductLoading = (payload) => ({
+    type: ActionTypes.SHOP_PRODUCT_LOADING,
+    payload
+
+})
 
 export const getProducts = (payload, id = null) => {
     return dispatch => {
-        dispatch(setLoading(true));
+        dispatch(setProductLoading(true));
 
         let url = 'getTopRatedProducts?fields=name,images,sku,product_id,regular_price,sale_price,description';
         if (payload && id) url = `products?category_id=${id}`;
@@ -62,7 +67,7 @@ export const getProducts = (payload, id = null) => {
         Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
         )
             .then(res => {
-                dispatch(setLoading(false));
+                dispatch(setProductLoading(false));
                 if (res.data) {
                     dispatch(getDataSuccess({ [payload]: res.data }));
                 } else {
@@ -70,21 +75,21 @@ export const getProducts = (payload, id = null) => {
                 }
             })
             .catch(e => {
-                dispatch(setLoading(false));
+                dispatch(setProductLoading(false));
                 dispatch(getDataError({ [payload]: undefined, error: e }));
             });
     }
 }
 export const getProduct = (id) => {
     return dispatch => {
-        dispatch(setLoading(true));
+        dispatch(setProductLoading(true));
 
         let url = `productDetails/${id}`;
 
         Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
         )
             .then(res => {
-                dispatch(setLoading(false));
+                dispatch(setProductLoading(false));
                 if (res.data) {
                     dispatch(getProductSuccess(res.data));
                 } else {
@@ -92,7 +97,7 @@ export const getProduct = (id) => {
                 }
             })
             .catch(e => {
-                dispatch(setLoading(false));
+                dispatch(setProductLoading(false));
                 dispatch(getProductError(e));
             });
     }
@@ -185,9 +190,16 @@ export const addProduct = (payload, qty = 1) => {
             });
     }
 }
+
+export const setCartLoading = (payload) => ({
+    type: ActionTypes.SHOP_CART_LOADING,
+    payload
+
+})
+
 export const getCart = () => {
     return dispatch => {
-        dispatch(setLoading(true));
+        dispatch(setCartLoading(true));
         Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`,
             {
                 withCredentials: true,
@@ -195,7 +207,7 @@ export const getCart = () => {
             }
         )
             .then(res => {
-                dispatch(setLoading(false));
+                dispatch(setCartLoading(false));
                 if (res.data) {
 
                     dispatch(addProductAction(res.data));
@@ -204,7 +216,7 @@ export const getCart = () => {
                 }
             })
             .catch(e => {
-                dispatch(setLoading(false));
+                dispatch(setCartLoading(false));
                 dispatch(getProductError(e));
             });
     }
@@ -339,6 +351,17 @@ export const updateAddress = (payload, type) => {
     }
 }
 
+export const orderSuccess = (payload) => ({
+    type: ActionTypes.ORDER_SUCCESS,
+    payload
+
+})
+
+export const orderError = (payload) => ({
+    type: ActionTypes.ORDER_ERROR,
+    payload
+
+})
 
 
 export const addOrder = (payload) => {
@@ -354,14 +377,14 @@ export const addOrder = (payload) => {
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
-                    //dispatch(addProductAction(res.data));
+                   // dispatch(orderSuccess(res.data));
                 } else {
-                    //dispatch(getProductError(undefined));
+                    dispatch(orderError(undefined));
                 }
             })
             .catch(e => {
-                //dispatch(setLoading(false));
-                // dispatch(getProductError(e));
+                dispatch(setLoading(false));
+                dispatch(orderError(e));
             });
     }
 }
