@@ -1,15 +1,20 @@
 import React from 'react';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 import { connect } from 'react-redux';
+import { addOrder, getCart} from '../store/Actions';
 class PaypalExpress extends React.Component {
 
     render() {
-        const { paymentSettings } = this.props;
+        const { paymentSettings,cart } = this.props;
 
 
         const onSuccess = (payment) => {
             // Congratulation, it came here means everything's fine!
             console.log("The payment was succeeded!", payment);
+            this.props.getCart();
+            setTimeout(()=>{
+                this.props.addOrder(cart);  
+            },500)
             // You can bind the "payment" object's value to your state or props or whatever here, please see below for sample returned data
         }
 
@@ -32,8 +37,8 @@ class PaypalExpress extends React.Component {
         // Document on Paypal's currency code: https://developer.paypal.com/docs/classic/api/currency_codes/
 
         const client = {
-            sandbox: paymentSettings && paymentSettings.client ? paymentSettings.client : null,
-            production: paymentSettings && paymentSettings.client ? paymentSettings.client : null,
+            sandbox: paymentSettings && paymentSettings.client ? paymentSettings.client : 'Aa6VOh30MgnT4G1x1MVUumKLwgk1iPJM9E3FTZS0o5SOjTcatvS6lnJVhxgoSwq4EWJFeFjoi9nSV9fg',
+            production: paymentSettings && paymentSettings.client ? paymentSettings.client : 'Aa6VOh30MgnT4G1x1MVUumKLwgk1iPJM9E3FTZS0o5SOjTcatvS6lnJVhxgoSwq4EWJFeFjoi9nSV9fg',
         }
         // In order to get production's app-ID, you will have to send your app to Paypal for approval first
         // For sandbox app-ID (after logging into your developer account, please locate the "REST API apps" section, click "Create App"):
@@ -45,11 +50,11 @@ class PaypalExpress extends React.Component {
 
 
         return (
-            <>
+            <>paypal button appearing
                 {
-                    paymentSettings ?
+                    // paymentSettings ?
                         <PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
-                        : null
+                        // : null
                 }
             </>
         );
@@ -59,10 +64,13 @@ class PaypalExpress extends React.Component {
 const mapStateToProps = (state) => ({
     loading: state.shop.loading,
     error: state.shop.error,
+    cart: state.shop.cart,
     paymentMethods: state.shop.paymentMethods,
     paymentSettings: state.shop.paymentSettings,
 });
 const mapDispatchToProps = dispatch => ({
+    getCart: () => dispatch(getCart()),
+    addOrder: (payload) => dispatch(addOrder(null)),
 });
 export default connect(
     mapStateToProps,

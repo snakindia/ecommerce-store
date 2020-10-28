@@ -91,8 +91,13 @@ class Checkout extends Component {
         const payload = {
             ...cart,
             email,
+           
             billing_address: billingAddress,
             shipping_address: shippingAddress,
+            full_name: `${shippingAddress.first_name} ${shippingAddress.last_name}`,
+            first_name:shippingAddress.first_name,
+            last_name:shippingAddress.last_name,
+            mobile:shippingAddress.phone,
         }
         console.log(data);
         this.props.updateAddress(payload, type);

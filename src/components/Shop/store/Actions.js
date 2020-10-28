@@ -265,7 +265,6 @@ export const getPaymentSettingsMethod = () => {
         )
             .then(res => {
                 dispatch(setLoading(false));
-                console.log('ddddddd',res.data);
                 if (res.data) {
                     dispatch(getPaymentMethodSettingsSuccess(res.data));
                 } else {
