@@ -26,9 +26,6 @@ import {setLoading} from './actions/fetchActions';
 import {getCart} from './components/Shop/store/Actions';
 import axios from 'axios';
 import scrollToEl from './utils/scrollToEl';
-import Cookies from 'universal-cookie';
-import { v4 as uuidv4 } from 'uuid';
-const cookies = new Cookies();
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
 const ContactBody = lazy(() => import('./components/Contact/ContactBody'));
@@ -41,19 +38,9 @@ const News = lazy(() => import('./components/News'));
 const Events = lazy(() => import('./components/Events'));
 const Compare = lazy(() => import('./components/Compare'));
 const Industries = lazy(() => import('./components/Industries'));
-const cookieCheck =()=>{
-  let order_id =cookies.get('order_id');
-  if(!order_id){
-    let d = new Date();
-    d.setTime(d.getTime() + (7*24*3600*1000));
-    //7 days
-    //console.log({d})
-    cookies.set("order_id", uuidv4(), {path: "/", expires: d});
-  }
-}
+
 const Routes = (props) => {
      useEffect(() => {
-          //cookieCheck();
           const timer = setTimeout(() => {
           const currentTime = localStorage.getItem("currentTime");
             let timeDiff = Date.now() - currentTime;

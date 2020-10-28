@@ -8,7 +8,10 @@ const initialState = {
     error: undefined,
     product: undefined,
     menu: {},
-    cart: {}
+    cart: undefined,
+    paymentMethods:undefined,
+    shippingMethods:undefined,
+    paymentSettings:undefined,
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -37,6 +40,24 @@ export default (state = initialState, { type, payload }) => {
             return { ...state, cart:payload }
         case ActionTypes.REMOVE_FROM_CART:
             return { ...state, cart:payload }
+
+
+        case ActionTypes.GET_PAYMENT_METHOD_ERROR:
+                    return { ...state, paymentMethods:null, error:payload }
+        case ActionTypes.GET_PAYMENT_METHOD_SUCCESS:
+                    return { ...state, paymentMethods:payload }
+
+        case ActionTypes.GET_PAYMENT_METHOD_SETTINGS_ERROR:
+                    return { ...state, paymentSettings:null, error:payload }
+        case ActionTypes.GET_PAYMENT_METHOD_SETTINGS_SUCCESS:
+                    return { ...state, paymentSettings:payload }
+                    
+
+        case ActionTypes.GET_SHIPPING_METHOD_ERROR:
+                    return { ...state, shippingMethods:null, error:payload }
+        case ActionTypes.GET_SHIPPING_METHOD_SUCCESS:
+                    return { ...state, shippingMethods:payload }
+                    
 
         case ActionTypes.SHOP_FLUSH_DATA:
             return {

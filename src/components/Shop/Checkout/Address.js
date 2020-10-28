@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom'
 import React, { useRef, useState, useEffect } from 'react';
 import Input from '../../common/Input'
 import Error from '../../common/Error'
+import {Select} from 'antd';
+import countries from './countries';
+const {Option}= Select;
 function Address(props) {
-
+    
     const { data, type } = props;
     const initialFormValue = {
         first_name: data && data.first_name ? data.first_name : '',
@@ -22,7 +25,9 @@ function Address(props) {
         full_name: data && data.first_name && data.last_name ? data.first_name + ' '+ data.last_name : '',
     }
 
-
+    const onSelect =(cc)=>{
+        
+    }
     return (
         <Formik
             enableReinitialize
@@ -129,6 +134,18 @@ function Address(props) {
                             className="form-control input-control"
                             placeholder="State/Province(Optional)"
                         />
+                    </div>
+                    <div className="form-group">
+                        <label className="text-small">Country</label>
+                        <Select
+                        style={{width:'100%'}}
+                        defaultValue={formikProps.values.country}
+                        onSelect={country=>{formikProps.setFieldTouched('country',true); formikProps.setFieldValue('country',country)}}
+                        >
+                            {countries && countries.length > 0 && countries.map(country=>
+                            <Option value={country.name} key={country.name}>{country.name}</Option>
+                                )}
+                        </Select>
                     </div>
                     <div className="form-group">
                         <label className="text-small">Postal Code</label>

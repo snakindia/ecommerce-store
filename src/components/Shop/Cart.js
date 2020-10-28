@@ -28,7 +28,7 @@ const Product = (props) => {
                 <ToolTip text={item.name} length={200} />
             </td>
             <td style={{ verticalAlign: 'middle' }}>
-                <Quantity qty={item.quantity} id={item.product_id} callback={callback} />
+                <Quantity qty={item.quantity} id={item.product_id} dependent={true} callback={callback} />
             </td>
             <td style={{ verticalAlign: 'middle' }}>$ {item.price}</td>
             <td style={{ verticalAlign: 'middle' }}>$ {item.price_total}</td>
@@ -39,21 +39,21 @@ const Product = (props) => {
 }
 const Cart = (props) => {
     const { item, className, cart } = props;
-    
+
     const onClick = (e) => {
         e.preventDefault();
         props.addProduct(item)
     }
-    let subtotal = cart ? cart.subtotal: 0;
-    let tax = cart ? cart.tax_total: 0;
-    let shipping = cart ? cart.shipping_total: 0;
-    let total = cart ? cart.grand_total: 0;
-    let items = cart ? cart.items:[];
+    let subtotal = cart ? cart.subtotal : 0;
+    let tax = cart ? cart.tax_total : 0;
+    let shipping = cart ? cart.shipping_total : 0;
+    let total = cart ? cart.grand_total : 0;
+    let items = cart ? cart.items : [];
     let productsInCart = 0;
-    if(cart && cart.items && cart.items.length > 0){
-      for (const item of cart.items) {
-          productsInCart = productsInCart + item.quantity;
-      }
+    if (cart && cart.items && cart.items.length > 0) {
+        for (const item of cart.items) {
+            productsInCart = productsInCart + item.quantity;
+        }
     }
     return (
         <div className="content-wrapper topPadding" id="content">
@@ -63,69 +63,75 @@ const Cart = (props) => {
                     //style="float: left; width: 100%"
                     >
                         <div className="container-fluid">
-                            <div className="row">
-                                <div className="col-sm-12 col-md-12 left-content">
-                                    <div className="row">
-                                        <div className="col-sm-12 col-md-12">
-                                            <h1 className="bha_heading_2 text-blue padding-top30">Cart</h1>
-                                            <div className="table-responsive">
-                                                <table className="table">
-                                                    <thead>
+                            {cart ?
+                                <div className="row">
+                                    <div className="col-sm-12 col-md-12 left-content">
+                                        <div className="row">
+                                            <div className="col-sm-12 col-md-12">
+                                                <h1 className="bha_heading_2 text-blue padding-top30">Cart</h1>
+                                                <div className="table-responsive">
+                                                    <table className="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Product</th>
+                                                                <th scope="col"></th>
+                                                                <th scope="col">Quantity</th>
+                                                                <th scope="col">Item Price</th>
+                                                                <th scope="col">Total</th>
+                                                                <th scope="col"> </th>
+                                                            </tr>
+                                                        </thead>
+                                                        {items && items.length > 0 ? items.map(data =>
+                                                            <Product
+                                                                key={`cart${data.id}`}
+                                                                data={data}
+                                                                QuantityHandler={props.addProduct}
+                                                                remove={props.removeProduct}
+                                                            />
+                                                        ) : null}
                                                         <tr>
-                                                            <th scope="col">Product</th>
-                                                            <th scope="col"></th>
-                                                            <th scope="col">Quantity</th>
-                                                            <th scope="col">Item Price</th>
-                                                            <th scope="col">Total</th>
-                                                            <th scope="col"> </th>
+                                                            <td colSpan="4" className="no-border" style={{ textAlign: 'right' }}>Subtotal (${productsInCart} items) </td>
+                                                            <td colSpan="2" className="no-border">${subtotal}</td>
                                                         </tr>
-                                                    </thead>
-                                                    {items && items.length > 0 ? items.map(data =>
-                                                        <Product
-                                                            key={`cart${data.id}`}
-                                                            data={data}
-                                                            QuantityHandler={props.addProduct}
-                                                            remove={props.removeProduct}
-                                                        />
-                                                    ) : null}
-                                                    <tr>
-                                                        <td colSpan="4" className="no-border" style={{ textAlign: 'right' }}>Subtotal (${productsInCart} items) </td>
-                                                        <td colSpan="2" className="no-border">${subtotal}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colSpan="4" className="no-border" style={{ textAlign: 'right' }} >Shipping (Flat Rate)</td>
-                                                        <td colSpan="2" className="no-border">${shipping}</td>
-                                                    </tr>
-                                                    <tr style={{ backgroundColor: '#f1f1f1' }}>
-                                                        <td colSpan="4" className="no-border" ><h4>Total</h4> </td>
-                                                        <td colSpan="2" className="no-border"><h4>${total}</h4></td>
-                                                    </tr>
-                                                    <tbody>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-12 col-md-12 margin-btm30">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-sm-6 col-md-6">
-                                                    <Link to="/shop" className="btn-bha-lg darkBlue" >
-                                                        <i className="fas fa-angle-left mr-2"></i>Continue Shopping
-                                                </Link>
+                                                        <tr>
+                                                            <td colSpan="4" className="no-border" style={{ textAlign: 'right' }} >Shipping (Flat Rate)</td>
+                                                            <td colSpan="2" className="no-border">${shipping}</td>
+                                                        </tr>
+                                                        <tr style={{ backgroundColor: '#f1f1f1' }}>
+                                                            <td colSpan="4" className="no-border" ><h4>Total</h4> </td>
+                                                            <td colSpan="2" className="no-border"><h4>${total}</h4></td>
+                                                        </tr>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
-                                                <div className="col-lg-3 col-sm-6 col-md-6 offset-md-6 float-right">
-                                                    <div className="text-right">
-                                                        <Link to="/shop/checkout" className="btn-bha-lg darkRed" >
-                                                            Procced to Checkout
+                                            </div>
+                                            <div className="col-sm-12 col-md-12 margin-btm30">
+                                                <div className="row">
+                                                    <div className="col-lg-3 col-sm-6 col-md-6">
+                                                        <Link to="/shop" className="btn-bha-lg darkBlue" >
+                                                            <i className="fas fa-angle-left mr-2"></i>Continue Shopping
+                                                </Link>
+                                                    </div>
+                                                    <div className="col-lg-3 col-sm-6 col-md-6 offset-md-6 float-right">
+                                                        <div className="text-right">
+                                                            <Link to="/shop/checkout" className="btn-bha-lg darkRed" >
+                                                                Procced to Checkout
                                                             <i className="fas fa-angle-right ml-2"></i>
                                                             </Link>
+                                                        </div>
+
                                                     </div>
-                                                    
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                :
+                                <div className="row">
+                                    <div className="col-sm-12 col-md-8 left-content">Your Cart Empty</div>
+                                </div>
+                            }
                         </div>
                     </section>
                     <section className="bg-opeque box-shadow footerItems">

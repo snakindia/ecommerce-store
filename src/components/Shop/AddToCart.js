@@ -7,6 +7,7 @@ import {removeProduct, addProduct} from './store/Actions';
 const AddToCart = (props) => {
     const {item, className, qty} =props;
     const onClick =(e)=>{
+      console.log({qty});
         e.preventDefault();
         props.addProduct(item, qty)
     }

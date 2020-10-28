@@ -48,44 +48,44 @@ export const flushData = () => ({
 
 })
 
-export const getProducts = (payload, id=null) => {
+export const getProducts = (payload, id = null) => {
     return dispatch => {
         dispatch(setLoading(true));
-        
-        let url='getTopRatedProducts?fields=name,images,sku,product_id,regular_price,sale_price,description';
-        if (payload && id ) url=`products?category_id=${id}`;
-        else if(payload=='bestSelling') url='getBestSellingProducts?fields=name,regular_price,sale_price,images,sku,description';
-        else if(payload=='topRated') url='getTopRatedProducts?fields=name,images,sku,product_id,regular_price,sale_price,description';
-        else if(payload=='hotDeals') url='getHotProductList?fields=name,regular_price,sale_price,images,sku,description';
-         
-        
+
+        let url = 'getTopRatedProducts?fields=name,images,sku,product_id,regular_price,sale_price,description';
+        if (payload && id) url = `products?category_id=${id}`;
+        else if (payload == 'bestSelling') url = 'getBestSellingProducts?fields=name,regular_price,sale_price,images,sku,description';
+        else if (payload == 'topRated') url = 'getTopRatedProducts?fields=name,images,sku,product_id,regular_price,sale_price,description';
+        else if (payload == 'hotDeals') url = 'getHotProductList?fields=name,regular_price,sale_price,images,sku,description';
+
+
         Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
         )
             .then(res => {
                 dispatch(setLoading(false));
-                if (res.data ) {
-                    dispatch(getDataSuccess({[payload]:res.data}));
+                if (res.data) {
+                    dispatch(getDataSuccess({ [payload]: res.data }));
                 } else {
-                    dispatch(getDataError({[payload]:[]}));
+                    dispatch(getDataError({ [payload]: [] }));
                 }
             })
             .catch(e => {
                 dispatch(setLoading(false));
-                dispatch(getDataError({[payload]:undefined,error:e}));
+                dispatch(getDataError({ [payload]: undefined, error: e }));
             });
     }
 }
 export const getProduct = (id) => {
     return dispatch => {
         dispatch(setLoading(true));
-        
-       let url=`productDetails/${id}`;
-       
+
+        let url = `productDetails/${id}`;
+
         Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
         )
             .then(res => {
                 dispatch(setLoading(false));
-                if (res.data ) {
+                if (res.data) {
                     dispatch(getProductSuccess(res.data));
                 } else {
                     dispatch(getProductError(undefined));
@@ -101,20 +101,20 @@ export const getProduct = (id) => {
 export const getMenu = () => {
     return dispatch => {
         dispatch(setLoading(true));
-        let url='get_shop_cat_sub_cat_list';
-       
+        let url = 'get_shop_cat_sub_cat_list';
+
         Axios.post(`${process.env.REACT_APP_API_URL}/${url}`,
         )
             .then(res => {
                 dispatch(setLoading(false));
-                if (res.data ) {
+                if (res.data) {
                     dispatch(getMenuSuccess(res.data));
                 } else {
                     dispatch(getMenuSuccess({}));
                 }
             })
             .catch(e => {
-                console.log({e})
+                console.log({ e })
                 dispatch(setLoading(false));
                 dispatch(getMenuError(e));
             });
@@ -132,17 +132,18 @@ export const removeProductAction = (payload) => ({
 export const removeProduct = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
-       let url=`cart/items/${payload}`;
-        Axios.delete(`${process.env.REACT_APP_API_AJAX_URL}/${url}`,{withCredentials: true,
-            crossDomain:true,
-            }
+        let url = `cart/items/${payload}`;
+        Axios.delete(`${process.env.REACT_APP_API_AJAX_URL}/${url}`, {
+            withCredentials: true,
+            crossDomain: true,
+        }
         )
             .then(res => {
                 dispatch(setLoading(false));
-                if (res.data ) {
+                if (res.data) {
                     dispatch(removeProductAction(res.data));
                 } else {
-                   // dispatch(getProductError(undefined));
+                    // dispatch(getProductError(undefined));
                 }
             })
             .catch(e => {
@@ -151,21 +152,28 @@ export const removeProduct = (payload) => {
             });
     }
 }
-export const addProduct = (payload, qty=1) => {
+export const addProduct = (payload, qty = 1) => {
     return dispatch => {
         dispatch(setLoading(true));
-       let url=`cart/items`;
-       qty = qty=='add' ? 1: qty;
-       const data ={product_id:payload.product_id ? payload.product_id: payload.id , quantity:qty,variant_id:null};
-        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/${url}`,data,
-        {withCredentials: true,
-            crossDomain:true,
+        let url = `cart/items`;
+        qty = qty == 'add' ? 1 : qty;
+        const data = {
+            product_id: payload.product_id ? payload.product_id : payload.id,
+            quantity: qty,
+            variant_id: null,
+            quantity_update: true,
+            quantity_type : true,
+        };
+        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/${url}`, data,
+            {
+                withCredentials: true,
+                crossDomain: true,
             }
         )
             .then(res => {
                 console.log(res)
                 dispatch(setLoading(false));
-                if (res.data ) {
+                if (res.data) {
                     dispatch(addProductAction(res.data));
                 } else {
                     dispatch(getProductError(undefined));
@@ -180,18 +188,149 @@ export const addProduct = (payload, qty=1) => {
 export const getCart = () => {
     return dispatch => {
         dispatch(setLoading(true));
-        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`, 
-        {withCredentials: true,
-        crossDomain:true,
-        }
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`,
+            {
+                withCredentials: true,
+                crossDomain: true,
+            }
         )
             .then(res => {
                 dispatch(setLoading(false));
-                if (res.data ) {
-                    console.log('->>>>>>>>>>>>.',res)
-                   dispatch(addProductAction(res.data));
+                if (res.data) {
+
+                    dispatch(addProductAction(res.data));
                 } else {
-                   // dispatch(getProductError(undefined));
+                    // dispatch(getProductError(undefined));
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                dispatch(getProductError(e));
+            });
+    }
+}
+
+export const getPaymentMethodSuccess = (payload) => ({
+    type: ActionTypes.GET_PAYMENT_METHOD_SUCCESS,
+    payload,
+});
+export const getPaymentMethodError = (payload) => ({
+    type: ActionTypes.GET_PAYMENT_METHOD_ERROR,
+    payload
+});
+export const getPaymentMethod = () => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/payment_methods`,
+            {
+                withCredentials: true,
+                crossDomain: true,
+            },
+            
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data) {
+                    dispatch(getPaymentMethodSuccess(res.data));
+                } else {
+                     dispatch(getPaymentMethodError(undefined));
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                dispatch(getPaymentMethodError(e));
+            });
+    }
+}
+
+export const getPaymentMethodSettingsSuccess = (payload) => ({
+    type: ActionTypes.GET_PAYMENT_METHOD_SETTINGS_SUCCESS,
+    payload,
+});
+export const getPaymentMethodSettingsError = (payload) => ({
+    type: ActionTypes.GET_PAYMENT_METHOD_SETTINGS_ERROR,
+    payload
+});
+export const getPaymentSettingsMethod = () => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/payment_form_settings`,
+            {
+                withCredentials: true,
+                crossDomain: true,
+            },
+            
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                console.log('ddddddd',res.data);
+                if (res.data) {
+                    dispatch(getPaymentMethodSettingsSuccess(res.data));
+                } else {
+                     dispatch(getPaymentMethodSettingsError(undefined));
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                dispatch(getPaymentMethodSettingsError(e));
+            });
+    }
+}
+
+export const getShippingMethodSuccess = (payload) => ({
+    type: ActionTypes.GET_SHIPPING_METHOD_SUCCESS,
+    payload,
+});
+export const getShippingMethodError = (payload) => ({
+    type: ActionTypes.GET_SHIPPING_METHOD_ERROR,
+    payload
+});
+export const getShippingMethod = () => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/shipping_methods`,
+            {
+                withCredentials: true,
+                crossDomain: true,
+            },
+            
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data) {
+                    dispatch(getShippingMethodSuccess(res.data));
+                } else {
+                     dispatch(getShippingMethodError(undefined));
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                dispatch(getShippingMethodError(e));
+            });
+    }
+}
+
+
+export const updateAddress = (payload, type) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`,payload,
+            {
+                withCredentials: true,
+                crossDomain: true,
+            },
+            
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data) {
+                    dispatch(addProductAction(res.data));
+                } else {
+                    // dispatch(getProductError(undefined));
                 }
             })
             .catch(e => {
@@ -203,20 +342,19 @@ export const getCart = () => {
 
 
 
-
 export const addOrder = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
-       let url=`cart/checkout`;
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/${url}`,payload,
+        let url = `cart/checkout`;
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/${url}`, payload,
             {
                 withCredentials: true,
-                crossDomain:true,
+                crossDomain: true,
             }
         )
             .then(res => {
                 dispatch(setLoading(false));
-                if (res.data ) {
+                if (res.data) {
                     //dispatch(addProductAction(res.data));
                 } else {
                     //dispatch(getProductError(undefined));
@@ -224,7 +362,7 @@ export const addOrder = (payload) => {
             })
             .catch(e => {
                 //dispatch(setLoading(false));
-               // dispatch(getProductError(e));
+                // dispatch(getProductError(e));
             });
     }
 }

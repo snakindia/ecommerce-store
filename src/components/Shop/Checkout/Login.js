@@ -5,6 +5,7 @@ import {removeProduct, addProduct} from '../store/Actions';
 import { Next } from 'react-bootstrap/esm/PageItem';
 const Login = (props) => {
     const [error, setError]= useState(false)
+    const [email, setEmail]= useState(props.email ? props.email :'')
    const signIn =(e)=>{
        e.preventDefault();
        const el =document.getElementById('loginpopover');
@@ -17,14 +18,15 @@ const Login = (props) => {
         const {value} =e.target;
         const isValid= (/^[a-zA-Z0-9@-_.]*$/i.test(value))
         if(isValid && value.length <=50){
-            props.setEmail(value)
+           setEmail(value)
         }
    
    }
    const  validateEmail=()=> {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if(re.test(String(props.email).toLowerCase())){
+    if(re.test(String(email).toLowerCase())){
         setError(false);
+        props.setEmail(email)
         props.next(2)
     } else {
         setError(true)
@@ -40,7 +42,7 @@ const Login = (props) => {
                             <div className="form-group mt-3">
                                 <input type="text" 
                                 className="form-control input-control" 
-                                value={props.email}
+                                value={email}
                                 onChange={onChange}
                                 name="email" placeholder="Email Address"
                                  />

@@ -4,14 +4,14 @@ class Quantity extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            counts: 0,
-            oldcounts: 0,
+            counts: 1,
+            oldcounts: 1,
         };
     }
     componentDidMount(){
-        const {cart, id}=this.props;
-        let qty=0;
-        if(cart && cart.items && cart.items.length > 0){
+        const {cart, id, dependent}=this.props;
+        let qty=1;
+        if(dependent && cart && cart.items && cart.items.length > 0){
           const item = cart.items.filter(i=>i.product_id ===id);
           if(item && item[0]){
               qty = item[0].quantity;
@@ -19,6 +19,21 @@ class Quantity extends Component {
         }
         this.setState({counts:qty, oldcounts:qty})
     }
+    componentDidUpdate(prevProps){
+        const {cart, id, dependent}=this.props;
+        if(prevProps.cart !=cart ){
+            let qty=0;
+            if(!dependent && cart && cart.items && cart.items.length > 0){
+            const item = cart.items.filter(i=>i.product_id ===id);
+            if(item && item[0]){
+                qty = item[0].quantity;
+            }
+            }
+            this.setState({counts:qty, oldcounts:qty})
+        }
+        
+    }
+
     changeCounter = (payload) => {
         let { counts } = this.state;
         if(counts > 0 || counts ===0 && payload == 1){
@@ -38,7 +53,19 @@ class Quantity extends Component {
     }
     callback =()=>{
         if(this.props.callback){
-            this.props.callback( this.state.counts)
+            const {cart, id, dependent}=this.props;
+            const {counts, oldcounts}=this.state;
+            const n =counts + oldcounts;
+            console.log('newwwwwwwwwwwwww',n);
+            console.log('dependent',dependent);
+            if(dependent){
+                this.props.callback( this.state.counts);
+            } else {
+                
+                this.props.callback(n);
+            }
+            
+
         }
        
         
