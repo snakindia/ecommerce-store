@@ -40,6 +40,15 @@ export default (state = initialState, { type, payload }) => {
                 loading: false,
             }
 
+        case ActionTypes.GET_ACCOUNTS_ORDERS_CANCEL_SUCCESS:
+                return {
+                    ...state,
+                    order: payload,
+                    error: undefined,
+                    loading: false,
+                }
+        
+
 
         case ActionTypes.ACCOUNTS_FLUSH_DATA:
             return {

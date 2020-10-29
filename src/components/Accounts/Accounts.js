@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { Menu } from 'antd';
 import { connect } from 'react-redux'
 import Dashboard from './Dashboard';
+import Orders from './Orders';
+import Order from './Order';
+import './style.css';
 import { getOrders, getOrderDetail,  getShippingMethod, getPaymentSettingsMethod } from './store/Actions';
 class Accounts extends React.Component {
     constructor(props) {
@@ -23,7 +26,8 @@ class Accounts extends React.Component {
 
     }
      componentDidMount(){
-         this.props.getOrders()
+         this.props.getOrders();
+         console.log(this.props)
      }
     render() {
         return (
@@ -84,13 +88,14 @@ class Accounts extends React.Component {
                                     <div className="col-sm-9 col-md-9">
                                         <div className="tabContainer">
                                             <Switch>
-                                                <Route path="/my-orders" component={Dashboard} />
-                                                <Route path="/order-details/:id" component={Dashboard} />
-                                                <Route path="/order-details" component={Dashboard} />
+                                                
+                                                <Route path="/accounts/my-orders/:id" component={Order} />
+                                                <Route path="/accounts/my-orders" component={Orders} />
+                                                <Route path="/order-details" component={Orders} />
                                                 <Route path="/address-book" component={Dashboard} />
                                                 <Route path="/wishlist" component={Dashboard} />
                                                 <Route path="/account-details" component={Dashboard} />
-                                                <Route path="/" component={Dashboard} />
+                                                <Route  path="/" component={Dashboard} />
                                             </Switch>
                                         </div>
                                     </div>

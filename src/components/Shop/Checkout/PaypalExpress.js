@@ -53,12 +53,19 @@ class PaypalExpress extends React.Component {
             shape: paymentSettings && paymentSettings.shape ? paymentSettings.shape : 'pill',
            
         };
-
+        let paymentOptions ={};
+        const notify_url =paymentSettings && paymentSettings.notify_url ? paymentSettings.notify_url:'';
+        if(paymentSettings && paymentSettings.notify_url){
+            paymentOptions.notify_url=paymentSettings.notify_url;
+        }
         return (
             <>
                 {
                      paymentSettings ?
-                        <PaypalExpressBtn style={style} env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
+                        <PaypalExpressBtn
+                        notify_url={notify_url}
+                        //paymentOptions={paymentOptions}
+                         style={style} env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
                          : null
                 }
             </>
