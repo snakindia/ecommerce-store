@@ -1,4 +1,4 @@
-import { GET_USER_DETAILS, SIGN_OUT_USER } from '../actions/authActions';
+import { GET_USER_DETAILS, SIGN_OUT_USER, LOADING_AUTH } from '../actions/authActions';
 
 const initialState = {
   token: null,
@@ -6,6 +6,7 @@ const initialState = {
   order_statuses: null,
   customer_settings: null,
   error: '',
+  auth_loading:undefined
 };
 
 export default (state = initialState, action) => {
@@ -16,9 +17,11 @@ export default (state = initialState, action) => {
 
     case `${GET_USER_DETAILS}_ERROR`:
       return { ...state, token: null, authenticated: false, error: error };
+    case `${GET_USER_DETAILS}_ERROR`:
+          return { ...state, token: null, authenticated: false, error: error };
 
-    case SIGN_OUT_USER:
-      return { ...initialState };
+    case LOADING_AUTH:
+      return { ...state, auth_loading:payload};
 
     default:
       return state;

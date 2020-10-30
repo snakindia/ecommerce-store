@@ -108,3 +108,53 @@ export const cancelOrder = (payload) => {
             });
     }
 }
+
+export const updateDetail = (payload) => {
+    return dispatch => {
+        const token =localStorage.getItem('authToken');
+        const headers= { Authorization: `Bearer ${token}`, withCredentials: true } ;
+        dispatch(setLoading(true));
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/customer-account`,
+        {...payload,token},
+        headers
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data) {
+                    openNotificationWithIcon('success', 'Info updated')
+                    //dispatch(cancelOrdersSuccess(res.data));
+                } else {
+                    openNotificationWithIcon('error', 'Oops!! something went wrong')
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                openNotificationWithIcon('error', 'Oops!! something went wrong')
+            });
+    }
+}
+export const changePassword = (payload) => {
+
+    return dispatch => {
+        
+        dispatch(setLoading(true));
+        
+        let url = `orders/${payload.id}`;
+
+        Axios.put(`${process.env.REACT_APP_API_URL}/${url}`,payload
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data) {
+                    openNotificationWithIcon('success', 'Order canceled')
+                    dispatch(cancelOrdersSuccess(res.data));
+                } else {
+                    openNotificationWithIcon('error', 'Oops!! something went wrong')
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                openNotificationWithIcon('error', 'Oops!! something went wrong')
+            });
+    }
+}

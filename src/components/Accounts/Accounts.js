@@ -1,13 +1,13 @@
 import { Link, Route, Switch, Redirect } from 'react-router-dom';
-import React, { useState } from 'react';
+import React from 'react';
 import { Menu } from 'antd';
-import { connect } from 'react-redux'
 import Dashboard from './Dashboard';
 import Orders from './Orders';
 import Order from './Order';
+import Address from './Address';
+import AccountDetail from './AccountDetail';
 import './style.css';
-import { getOrders, getOrderDetail,  getShippingMethod, getPaymentSettingsMethod } from './store/Actions';
-class Accounts extends React.Component {
+export default class Accounts extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,12 +23,11 @@ class Accounts extends React.Component {
 
     logout =(e)=>{
         e.preventDefault();
+        localStorage.clear();
+        window.location.reload();
 
     }
-     componentDidMount(){
-         this.props.getOrders();
-         console.log(this.props)
-     }
+    
     render() {
         return (
             <div className="content-wrapper topPadding" id="content">
@@ -91,10 +90,9 @@ class Accounts extends React.Component {
                                                 
                                                 <Route path="/accounts/my-orders/:id" component={Order} />
                                                 <Route path="/accounts/my-orders" component={Orders} />
-                                                <Route path="/order-details" component={Orders} />
-                                                <Route path="/address-book" component={Dashboard} />
+                                                <Route path="/accounts/address-book" component={Address} />
+                                                <Route path="/accounts/account-details" component={AccountDetail} />
                                                 <Route path="/wishlist" component={Dashboard} />
-                                                <Route path="/account-details" component={Dashboard} />
                                                 <Route  path="/" component={Dashboard} />
                                             </Switch>
                                         </div>
@@ -110,25 +108,5 @@ class Accounts extends React.Component {
         )
     }
 }
-const mapStateToProps = (state) => ({
-    loadingCart: state.accounts.loadingCart,
-    loading: state.accounts.loading,
-    
-    error: state.accounts.error,
-    paymentMethods: state.accounts.paymentMethods,
-    paymentMethodsSettings: state.accounts.paymentMethodsSettings,
-    shippingMethods: state.accounts.shippingMethods,
-    checkoutSuccess : state.accounts.checkoutSuccess,
-    authenticated: state.auth.authenticated,
-    user: state.auth.customer_settings,
-});
-const mapDispatchToProps = dispatch => ({
-    getOrders: (payload) => dispatch(getOrders(payload)),
-    getOrderDetail: (id) => dispatch(getOrderDetail(id)),
-});
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Accounts);
 
 

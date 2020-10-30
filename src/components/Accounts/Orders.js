@@ -1,12 +1,10 @@
-import { Link, Route, Switch, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { connect } from 'react-redux'
-import { getOrders, getOrderDetail } from './store/Actions';
+import { getOrderDetail } from './store/Actions';
 import { Tabs } from 'antd';
 import Pagination from '../Shop/Pagination';
 import { Select } from 'antd';
-import Loader from '../Loader/Loader';
-import Moment from 'react-moment';
 import moment from 'moment';
 const { Option } = Select;
 const { TabPane } = Tabs;
@@ -29,8 +27,11 @@ class Orders extends React.Component {
         'Order On Hold']
     };
   }
-  componentDidMount() {
-    this.props.getOrders()
+  
+  componentDidMount(){
+   if(this.props.data && this.props.data.data !== this.state.items){
+     this.setData();
+   }
   }
   componentDidUpdate(prevProps) {
     if (prevProps.data !== this.props.data) {
@@ -55,6 +56,7 @@ class Orders extends React.Component {
 
     return data;
   }
+
 
   setData = () => {
     let { data } = this.props;
@@ -93,7 +95,7 @@ class Orders extends React.Component {
   }
   render() {
     const { currentPage, resultPerPage, items, duration, status, statusOption, found, tab } = this.state;
-    const { data ,loading} = this.props;
+    const { loading} = this.props;
 
     return (
       <div className="tabContainer">
@@ -220,18 +222,12 @@ class Orders extends React.Component {
 const mapStateToProps = (state) => ({
   loadingCart: state.accounts.loadingCart,
   loading: state.accounts.loading,
-  data: state.accounts.orders,
-
   error: state.accounts.error,
-  paymentMethods: state.accounts.paymentMethods,
-  paymentMethodsSettings: state.accounts.paymentMethodsSettings,
-  shippingMethods: state.accounts.shippingMethods,
-  checkoutSuccess: state.accounts.checkoutSuccess,
   authenticated: state.auth.authenticated,
   user: state.auth.customer_settings,
+  data: state.auth.order_statuses,
 });
 const mapDispatchToProps = dispatch => ({
-  getOrders: (payload) => dispatch(getOrders(payload)),
   getOrderDetail: (id) => dispatch(getOrderDetail(id)),
 });
 export default connect(

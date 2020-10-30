@@ -72,13 +72,13 @@ useEffect(()=>{
 },[])
   const [t, setT]=useState((new Date().getTime()));
   const myRef = useRef(null) 
-  const {loading}=props
+  const {loading, auth_loading}=props
     return (
       <BrowserRouter>
       <ProgressBar />
         <div ref={myRef}>
          
-         {loading &&  <Loader />}
+         {(loading || auth_loading) &&  <Loader />}
         <StickyContainer>
             <Notification />
             
@@ -93,6 +93,7 @@ useEffect(()=>{
                         <NavBar setT={setT} myRef={myRef}/>
                     </div>
                     <Suspense fallback={<div>Loading...</div>}>
+                      {auth_loading===false ? 
                         <Switch>
                             <Route exact path="/" component={App} />} />
                             {/* <Route path="/:param1/:param2" component={ProductService} /> */}
@@ -107,7 +108,8 @@ useEffect(()=>{
                             <Route path="/inner-page" component={InnerPage} />
                             
                             <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
-                            <Route path="/accounts" component={Accounts} />
+                            {props.authenticated ? <Route path="/accounts" component={Accounts} />: <Redirect to="/" />}
+                            
                             <Route path="/shop/cart" component={Cart} />
                             <Route path="/shop/checkout" component={Checkout} />
                             <Route path="/shop/:id" component={Detail} />
@@ -125,6 +127,7 @@ useEffect(()=>{
                             <Route path="/industries" component={Industries} />
                            <Dynamic />
                         </Switch>
+                        :null }
                     </Suspense>
                     {props.footer ? <Footer />:null}
                 </MetaContainer>
@@ -137,6 +140,8 @@ useEffect(()=>{
 const mapStateToProps = state => ({
     loading: state.asyncReducer.loading,
     footer: state.asyncReducer.footer,
+    authenticated: state.auth.authenticated,
+    auth_loading: state.auth.auth_loading,
   });
   
   const mapDispatchToProps = dispatch => ({
