@@ -1,4 +1,11 @@
-exports.sliderSettings={
+import {notification  as antdNotification} from 'antd';
+const notification = (type, message) => {
+  antdNotification[type]({
+    message, top:100,duration:2
+    
+  });
+};
+const sliderSettings={
         dots: true,
         infinite: true,
         speed: 500,
@@ -31,3 +38,4 @@ exports.sliderSettings={
           }
         ]
 }
+export { sliderSettings, notification }; 

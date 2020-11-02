@@ -1,4 +1,5 @@
 import React from 'react';
+// import PaypalExpressBtn from 'react-paypal-express-checkout';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 import { connect } from 'react-redux';
 import { addOrder, getCart} from '../store/Actions';
@@ -53,18 +54,24 @@ class PaypalExpress extends React.Component {
             shape: paymentSettings && paymentSettings.shape ? paymentSettings.shape : 'pill',
            
         };
-        let paymentOptions ={};
-        const notify_url =paymentSettings && paymentSettings.notify_url ? paymentSettings.notify_url:'';
-        if(paymentSettings && paymentSettings.notify_url){
-            paymentOptions.notify_url=paymentSettings.notify_url;
-        }
+        let order_id =paymentSettings && paymentSettings.order_id ? paymentSettings.order_id : '';
+        let paymentOptions ={transactions: [
+            { 
+                 custom:order_id, 
+                amount: 
+                {
+                 total, currency, 
+                
+                }
+             }
+        ]};
+        
         return (
             <>
                 {
                      paymentSettings ?
                         <PaypalExpressBtn
-                        notify_url={notify_url}
-                        //paymentOptions={paymentOptions}
+                        paymentOptions={paymentOptions}
                          style={style} env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
                          : null
                 }

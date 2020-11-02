@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { MDBModal, } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { doLogin } from '../components/Accounts/store/Actions';
 import Cart from '../assets/icon/cart.svg';
 import Profile from '../assets/icon/profile.svg';
 import Globe from '../assets/icon/globe.svg';
@@ -77,21 +78,23 @@ class TopBar extends Component {
   }
 
   onFormSubmit = (values, { setSubmitting }) => {
-    POST({ url: signInUrl, payload: values })
-      .then(response => {
-        if (response.data.status && response.data.token) {
-          setAuthDetails(response.data.token);
-          this.setState({
-            modal5: false,
-          });
-          this.props.getUserDetail(response.data.token);
-        } else {
-          this.setState({ loginError: 'We were unable to process your request at this moment. Please try after some time or call us at (888) 286-8708' });
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    console.log('logginggg');
+    this.props.doLogin(values);
+    // POST({ url: signInUrl, payload: values })
+    //   .then(response => {
+    //     if (response.data.status && response.data.token) {
+    //       setAuthDetails(response.data.token);
+    //       this.setState({
+    //         modal5: false,
+    //       });
+    //       this.props.getUserDetail(response.data.token);
+    //     } else {
+    //       this.setState({ loginError: 'We were unable to process your request at this moment. Please try after some time or call us at (888) 286-8708' });
+    //     }
+    //   })
+    //   .catch(error => {
+    //     console.log('d',error);
+    //   });
   };
 
   onSignOut = () => {
@@ -151,9 +154,9 @@ class TopBar extends Component {
                     }
                   </li>
                   <span>&nbsp;</span>
-                  {authenticated ? (
+                  {authenticated && userDetails && userDetails.first_name ? (
                     <li>
-                      {userDetails.full_name}
+                      {userDetails.first_name}
                       <button onClick={this.onSignOut}>SignOut</button>
                     </li>
                   ) : (
@@ -262,4 +265,4 @@ const mapStateToProps = ({ asyncReducer, auth, shop }) => {
   };
 };
 
-export default connect(mapStateToProps, { getUserDetail, signOutUser })(TopBar);
+export default connect(mapStateToProps, { getUserDetail, signOutUser,doLogin })(TopBar);

@@ -1,4 +1,5 @@
 import { GET_USER_DETAILS, SIGN_OUT_USER, LOADING_AUTH } from '../actions/authActions';
+import { LOGIN_SUCCESS } from '../components/Accounts/store/ActionTypes';
 
 const initialState = {
   token: null,
@@ -19,6 +20,12 @@ export default (state = initialState, action) => {
       return { ...state, token: null, authenticated: false, error: error };
     case `${GET_USER_DETAILS}_ERROR`:
           return { ...state, token: null, authenticated: false, error: error };
+    case LOGIN_SUCCESS:
+          localStorage.setItem('authToken',payload.token);
+          return { ...state, token: payload.token, authenticated: true, error: '' };
+  case SIGN_OUT_USER:
+            localStorage.setItem('authToken',null);
+            return { ...state, token: null, authenticated: undefined, error: '' };
 
     case LOADING_AUTH:
       return { ...state, auth_loading:payload};

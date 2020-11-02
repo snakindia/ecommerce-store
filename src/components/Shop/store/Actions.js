@@ -1,5 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 import Axios from 'axios';
+import {notification } from '../../../utils/helper';
 Axios.defaults.withCredentials = true;
 export const setLoading = (payload) => ({
     type: ActionTypes.SHOP_LOADING,
@@ -72,11 +73,13 @@ export const getProducts = (payload, id = null) => {
                     dispatch(getDataSuccess({ [payload]: res.data }));
                 } else {
                     dispatch(getDataError({ [payload]: [] }));
+                    //notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
                 dispatch(setProductLoading(false));
                 dispatch(getDataError({ [payload]: undefined, error: e }));
+                notification('error', 'Oops!! something went wrong')
             });
     }
 }
@@ -94,11 +97,13 @@ export const getProduct = (id) => {
                     dispatch(getProductSuccess(res.data));
                 } else {
                     dispatch(getProductError(undefined));
+                    //notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
                 dispatch(setProductLoading(false));
                 dispatch(getProductError(e));
+                notification('error', 'Oops!! something went wrong')
             });
     }
 }
@@ -116,12 +121,14 @@ export const getMenu = () => {
                     dispatch(getMenuSuccess(res.data));
                 } else {
                     dispatch(getMenuSuccess({}));
+                    //notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
                 console.log({ e })
                 dispatch(setLoading(false));
                 dispatch(getMenuError(e));
+                notification('error', 'Oops!! something went wrong')
             });
     }
 }
@@ -148,12 +155,14 @@ export const removeProduct = (payload) => {
                 if (res.data) {
                     dispatch(removeProductAction(res.data));
                 } else {
+                    //notification('error', 'Oops!! something went wrong')
                     // dispatch(getProductError(undefined));
                 }
             })
             .catch(e => {
                 dispatch(setLoading(false));
                 dispatch(getProductError(e));
+                notification('error', 'Oops!! something went wrong')
             });
     }
 }
@@ -182,11 +191,13 @@ export const addProduct = (payload, qty = 1) => {
                     dispatch(addProductAction(res.data));
                 } else {
                     dispatch(getProductError(undefined));
+                   // notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
                 dispatch(setLoading(false));
                 dispatch(getProductError(e));
+                notification('error', 'Oops!! something went wrong')
             });
     }
 }
@@ -213,11 +224,13 @@ export const getCart = () => {
                     dispatch(addProductAction(res.data));
                 } else {
                     // dispatch(getProductError(undefined));
+                   // notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
                 dispatch(setCartLoading(false));
                 dispatch(getProductError(e));
+                notification('error', 'Oops!! something went wrong')
             });
     }
 }
@@ -252,6 +265,7 @@ export const getPaymentMethod = () => {
             .catch(e => {
                 dispatch(setLoading(false));
                 dispatch(getPaymentMethodError(e));
+                
             });
     }
 }
@@ -281,11 +295,13 @@ export const getPaymentSettingsMethod = () => {
                     dispatch(getPaymentMethodSettingsSuccess(res.data));
                 } else {
                      dispatch(getPaymentMethodSettingsError(undefined));
+                     //notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
                 dispatch(setLoading(false));
                 dispatch(getPaymentMethodSettingsError(e));
+                notification('error', 'Oops!! something went wrong')
             });
     }
 }
@@ -315,11 +331,13 @@ export const getShippingMethod = () => {
                     dispatch(getShippingMethodSuccess(res.data));
                 } else {
                      dispatch(getShippingMethodError(undefined));
+                     //notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
                 dispatch(setLoading(false));
                 dispatch(getShippingMethodError(e));
+                notification('error', 'Oops!! something went wrong')
             });
     }
 }
@@ -377,14 +395,17 @@ export const addOrder = (payload) => {
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
-                   // dispatch(orderSuccess(res.data));
+                    dispatch(orderSuccess(res.data));
+                    notification('success', 'Order Placed Succesfully')
                 } else {
                     dispatch(orderError(undefined));
+                    notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
                 dispatch(setLoading(false));
                 dispatch(orderError(e));
+                notification('error', 'Oops!! something went wrong')
             });
     }
 }
