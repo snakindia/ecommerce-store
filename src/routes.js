@@ -108,7 +108,7 @@ useEffect(()=>{
                             <Route path="/inner-page" component={InnerPage} />
                             
                             <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
-                            {props.authenticated ? <Route path="/accounts" component={Accounts} />: <Redirect to="/" />}
+                            
                             
                             <Route path="/shop/cart" component={Cart} />
                             <Route path="/shop/checkout" component={Checkout} />
@@ -125,7 +125,8 @@ useEffect(()=>{
                             <Route path="/compare" component={Compare} />
                             <Route path="/represent-us" component={RepresentUs} />
                             <Route path="/industries" component={Industries} />
-                           <Dynamic />
+                            <Dynamic />
+                            {props.authenticated ? <Route path="/accounts" component={Accounts} />: <Redirect to="/" />}
                         </Switch>
                         :null }
                     </Suspense>
