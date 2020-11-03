@@ -21,6 +21,7 @@ function Payment(props) {
             initialValues={initialFormValue}
             onSubmit={(values, { setSubmitting, resetForm, errors }) => {
                 setSubmitting(false);
+                console.log('placing order',values);
                 props.submit(values)
             }}
             validate={values => {

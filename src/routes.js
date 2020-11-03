@@ -24,6 +24,7 @@ import Loader from './components/Loader/Loader'
 import SubscriptionPopUp from './components/SubscriptionPopUp/SubscriptionPopUp';
 import {setLoading} from './actions/fetchActions';
 import {getCart} from './components/Shop/store/Actions';
+import {getOrderStatus} from './components/Accounts/store/Actions';
 import axios from 'axios';
 import scrollToEl from './utils/scrollToEl';
 const App = lazy(() => import('./App'));
@@ -46,6 +47,7 @@ const Routes = (props) => {
             let timeDiff = Date.now() - currentTime;
         }, 1000);
         props.getCart()
+        props.getOrderStatus()
   }, []);
   axios.interceptors.request.use(function(req) {
     
@@ -125,8 +127,9 @@ useEffect(()=>{
                             <Route path="/compare" component={Compare} />
                             <Route path="/represent-us" component={RepresentUs} />
                             <Route path="/industries" component={Industries} />
-                            <Dynamic />
                             {props.authenticated ? <Route path="/accounts" component={Accounts} />: <Redirect to="/" />}
+                            <Dynamic />
+                            
                         </Switch>
                         :null }
                     </Suspense>
@@ -147,6 +150,7 @@ const mapStateToProps = state => ({
   
   const mapDispatchToProps = dispatch => ({
     setLoading:payload=>dispatch(setLoading(payload)),
+    getOrderStatus:()=>dispatch(getOrderStatus()),
     getCart:()=>dispatch(getCart())
   });
   

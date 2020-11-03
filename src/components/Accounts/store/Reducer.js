@@ -5,6 +5,7 @@ const initialState = {
     order: undefined,
     error: undefined,
     orderId: undefined,
+    statuses: undefined,
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -46,6 +47,11 @@ export default (state = initialState, { type, payload }) => {
                     order: payload,
                     error: undefined,
                     loading: false,
+                }
+        case ActionTypes.GET_ACCOUNTS_ORDERS_STATUS_SUCCESS:
+                return {
+                    ...state,
+                    statuses: payload,
                 }
         
 

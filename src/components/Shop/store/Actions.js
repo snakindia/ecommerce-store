@@ -211,7 +211,13 @@ export const setCartLoading = (payload) => ({
 export const getCart = () => {
     return dispatch => {
         dispatch(setCartLoading(true));
-        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`,
+        const auth =localStorage.getItem('authToken');
+       const email =localStorage.getItem('BHAuserEmail');
+       let payload ={}
+        if(auth && email){
+           payload.email =email; 
+        }
+        Axios[auth && email ? 'put' :'get'](`${process.env.REACT_APP_API_AJAX_URL}/cart`,payload,
             {
                 withCredentials: true,
                 crossDomain: true,
@@ -294,14 +300,14 @@ export const getPaymentSettingsMethod = () => {
                 if (res.data) {
                     dispatch(getPaymentMethodSettingsSuccess(res.data));
                 } else {
-                     dispatch(getPaymentMethodSettingsError(undefined));
+                     //dispatch(getPaymentMethodSettingsError(undefined));
                      //notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
                 dispatch(setLoading(false));
-                dispatch(getPaymentMethodSettingsError(e));
-                notification('error', 'Oops!! something went wrong')
+                //dispatch(getPaymentMethodSettingsError(e));
+                //notification('error', 'Oops!! something went wrong')
             });
     }
 }
@@ -395,7 +401,7 @@ export const addOrder = (payload) => {
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
-                    dispatch(orderSuccess(res.data));
+                    dispatch(orderSuccess(res.data.id));
                     notification('success', 'Order Placed Succesfully')
                 } else {
                     dispatch(orderError(undefined));

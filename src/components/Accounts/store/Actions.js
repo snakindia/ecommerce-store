@@ -106,6 +106,10 @@ export const cancelOrdersSuccess = (payload) => ({
     type: ActionTypes.GET_ACCOUNTS_ORDERS_CANCEL_SUCCESS,
     payload
 })
+export const getOrderStatusSuccess = (payload) => ({
+    type: ActionTypes.GET_ACCOUNTS_ORDERS_STATUS_SUCCESS,
+    payload
+})
 
 export const cancelOrder = (payload) => {
 
@@ -179,6 +183,21 @@ export const changePassword = (payload) => {
             .catch(e => {
                 dispatch(setLoading(false));
                 notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
+export const getOrderStatus = () => {
+
+    return dispatch => {
+        let url = `order_statuses`;
+        Axios.get(`${process.env.REACT_APP_API_URL}/${url}`
+        )
+            .then(res => {
+                if (res.data) {
+                    dispatch(getOrderStatusSuccess(res.data));
+                } 
+            })
+            .catch(e => {
             });
     }
 }
