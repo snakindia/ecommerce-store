@@ -30,10 +30,10 @@ class Orders extends React.Component {
   }
   
   componentDidMount(){
-    const token =localStorage.getItem('authToken');
-    if(token){
-      this.props.getUserDetail(token)
-    }
+    // const token =localStorage.getItem('authToken');
+    // if(token){
+    //   this.props.getUserDetail(token)
+    // }
    if(this.props.data && this.props.data.data !== this.state.items){
      this.setData();
    }

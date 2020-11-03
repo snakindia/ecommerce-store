@@ -311,10 +311,10 @@ class Checkout extends Component {
                                                                             }
                                                                         </Panel>
                                                                         <Panel header="2. Shipping Address" key="2" >
-                                                                            <Address oldAddress={address && address.shipping ? address.shipping: null} type="shipping" submit={this.shippingSave} data={shippingAddress} />
+                                                                            <Address authenticated ={authenticated} oldAddress={address && address.shipping ? address.shipping: null} type="shipping" submit={this.shippingSave} data={shippingAddress} />
                                                                         </Panel>
                                                                         <Panel header="3. Billing Address" key="3" >
-                                                                            <Address  oldAddress={address && address.billing ? address.billing: null} type="billing" submit={this.shippingSave} data={billingAddress} />
+                                                                            <Address authenticated={authenticated} oldAddress={address && address.billing ? address.billing: null} type="billing" submit={this.shippingSave} data={billingAddress} />
                                                                         </Panel>
                                                                         <Panel header="4. Shipping Method" key="4" >
                                                                             <ShippingMethod

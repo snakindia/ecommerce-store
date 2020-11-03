@@ -14,15 +14,15 @@ const { Option } = Select;
 // formatAddress
 function Address(props) {
    let defaultAddressIndex =undefined;
-    const { data, type } = props;
+    const { data, type,authenticated } = props;
     let { oldAddress } = props;
     
-    if(data && data.address1){
+    if(authenticated && data && data.address1){
         const cartAddress =formatAddress(data);
         defaultAddressIndex=0;
         oldAddress.push(cartAddress);
     }
-    if (oldAddress && oldAddress.length > 0) {
+    if (authenticated && oldAddress && oldAddress.length > 0) {
         oldAddress = oldAddress.reverse();
     }
    
@@ -40,7 +40,7 @@ function Address(props) {
         same: data && data.same ? data.same : '',
         full_name: data && data.first_name && data.last_name ? data.first_name + ' ' + data.last_name : '',
     }
-    if (!data && oldAddress && oldAddress.length > 0) {
+    if (authenticated && !data && oldAddress && oldAddress.length > 0) {
         initialFormValue = Object.assign(initialFormValue, oldAddress[0]);
     }
     const [addNew ,showAddNew] =useState(oldAddress && oldAddress.length > 0 ? false: true)
