@@ -35,6 +35,14 @@ class Checkout extends Component {
     componentDidMount() {
         this.props.getPaymentMethod();
         this.props.getShippingMethod();
+        const { cart , authenticated, user} = this.props;
+        if(authenticated && user && user.email){
+            const payload = {
+                ...cart, email:user.email
+            }
+            this.props.updateAddress(payload, null);
+        }
+        
 
     }
     componentDidUpdate(prevProps) {

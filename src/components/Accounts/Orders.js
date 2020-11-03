@@ -6,6 +6,7 @@ import { Tabs } from 'antd';
 import Pagination from '../Shop/Pagination';
 import { Select } from 'antd';
 import moment from 'moment';
+import {getUserDetail} from '../../actions/authActions'
 const { Option } = Select;
 const { TabPane } = Tabs;
 class Orders extends React.Component {
@@ -29,6 +30,10 @@ class Orders extends React.Component {
   }
   
   componentDidMount(){
+    const token =localStorage.getItem('authToken');
+    if(token){
+      this.props.getUserDetail(token)
+    }
    if(this.props.data && this.props.data.data !== this.state.items){
      this.setData();
    }
@@ -229,6 +234,7 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = dispatch => ({
   getOrderDetail: (id) => dispatch(getOrderDetail(id)),
+  getUserDetail: (payload) => dispatch(getUserDetail(payload)),
 });
 export default connect(
   mapStateToProps,

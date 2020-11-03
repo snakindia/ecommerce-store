@@ -211,13 +211,8 @@ export const setCartLoading = (payload) => ({
 export const getCart = () => {
     return dispatch => {
         dispatch(setCartLoading(true));
-        const auth =localStorage.getItem('authToken');
-       const email =localStorage.getItem('BHAuserEmail');
-       let payload ={}
-        if(auth && email){
-           payload.email =email; 
-        }
-        Axios[auth && email ? 'put' :'get'](`${process.env.REACT_APP_API_AJAX_URL}/cart`,payload,
+        
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`,
             {
                 withCredentials: true,
                 crossDomain: true,
