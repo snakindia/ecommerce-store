@@ -1,7 +1,7 @@
 import * as ActionTypes from './ActionTypes';
 import Axios from 'axios';
 import {notification } from '../../../utils/helper';
-import { getUserDetail, signOutUser } from '../../../actions/authActions';
+//import { getUserDetail, signOutUser } from '../../../actions/authActions';
 Axios.defaults.withCredentials = true;
 export const setLoading = (payload) => ({
     type: ActionTypes.ACCOUNTS_LOADING,
@@ -19,34 +19,9 @@ export const flushData = () => ({
     type: ActionTypes.ACCOUNTS_FLUSH_DATA,
 
 })
-export const loginSuccess = (payload) => ({
-    type: ActionTypes.LOGIN_SUCCESS,
-    payload
 
-})
 
-export const doLogin = (payload) => {
-    return dispatch => {
-        dispatch(setLoading(true));
-        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/login`,payload
-        )
-            .then(res => {
-                dispatch(setLoading(false));
-                if (res.data && res.data.status && res.data.token) {
-                    dispatch(loginSuccess(res.data ));
-                    dispatch(getUserDetail(res.data.token));
-                } else {
-                    notification('error', 'Credentials Invalid')
-                }
-            })
-            .catch(e => {
-                 console.log({e})
-                notification('error', 'Oops!! something went wrong')
-                dispatch(setLoading(false));
-               
-            });
-    }
-}
+
 
 
 export const getOrders = (payload, id = null) => {
@@ -201,3 +176,67 @@ export const getOrderStatus = () => {
             });
     }
 }
+//login, 
+export const setLoadingAuth = (payload) => ({
+    type: ActionTypes.SET_AUTH_LOADING,
+    payload
+
+})
+export const loginSuccess = (payload) => ({
+    type: ActionTypes.LOGIN_SUCCESS,
+    payload
+
+})
+export const doLogin = (payload) => {
+    return dispatch => {
+        dispatch(setLoadingAuth(true));
+        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/login`,payload
+        )
+            .then(res => {
+                dispatch(setLoadingAuth(false));
+                if (res.data && res.data.status && res.data.token) {
+                    localStorage.setItem('bhaAuth',res.data.token)
+                    dispatch(getUser());
+                } else {
+                    notification('error', 'Credentials Invalid')
+                }
+            })
+            .catch(e => {
+                notification('error', 'Oops!! something went wrong')
+                dispatch(setLoadingAuth(false));
+               
+            });
+    }
+}
+export const getUserDetailSuccess = (payload) => ({
+    type: ActionTypes.GET_USER_SUCCESS,payload
+})
+export const getUser = () => {
+    return dispatch => {
+       
+        const token=localStorage.getItem('bhaAuth');
+        console.log({token});
+        if(token){
+            dispatch(setLoadingAuth(true));
+            Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/customer-account`,{token}
+        )
+            .then(res => {
+                dispatch(setLoadingAuth(false));
+                if (res.data && res.data && res.data.data) {
+                    dispatch(getUserDetailSuccess(res.data.data ));
+                } else {
+                    notification('error', 'Oops!! something went wrong')
+                }
+            })
+            .catch(e => {
+                notification('error', 'Oops!! something went wrong')
+                dispatch(setLoadingAuth(false));
+               
+            });
+        }
+        
+    }
+}
+export const logout = () => ({
+    type: ActionTypes.LOGOUT_SUCCESS,
+})

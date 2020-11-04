@@ -1,17 +1,46 @@
 import * as ActionTypes from './ActionTypes';
 const initialState = {
     loading: false,
+    authloading: undefined,
     orders: undefined,
     order: undefined,
     error: undefined,
     orderId: undefined,
     statuses: undefined,
+    authenticated: undefined,
+    user: undefined,
+
 }
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
         case ActionTypes.ACCOUNTS_LOADING:
             return { ...state, loading: payload }
+        case ActionTypes.SET_AUTH_LOADING:
+            return { ...state, authloading: payload }
+
+        case ActionTypes.LOGOUT_SUCCESS:
+            localStorage.clear();
+            return {
+                ...state,
+                authloading: false,
+                orders: undefined,
+                order: undefined,
+                error: undefined,
+                orderId: undefined,
+                authenticated: undefined,
+                user: undefined,
+            }
+        case ActionTypes.GET_USER_SUCCESS:
+            console.log(payload);
+            return {
+                ...state,
+                authloading: false,
+                orders: payload && payload.order_statuses ? payload.order_statuses: undefined ,
+                error: undefined,
+                authenticated: true,
+                user: payload && payload.customer_settings ? payload.customer_settings: undefined,
+            }
 
         case ActionTypes.GET_ACCOUNTS_ORDERS_SUCCESS:
             return {
@@ -42,18 +71,18 @@ export default (state = initialState, { type, payload }) => {
             }
 
         case ActionTypes.GET_ACCOUNTS_ORDERS_CANCEL_SUCCESS:
-                return {
-                    ...state,
-                    order: payload,
-                    error: undefined,
-                    loading: false,
-                }
+            return {
+                ...state,
+                order: payload,
+                error: undefined,
+                loading: false,
+            }
         case ActionTypes.GET_ACCOUNTS_ORDERS_STATUS_SUCCESS:
-                return {
-                    ...state,
-                    statuses: payload,
-                }
-        
+            return {
+                ...state,
+                statuses: payload,
+            }
+
 
 
         case ActionTypes.ACCOUNTS_FLUSH_DATA:
