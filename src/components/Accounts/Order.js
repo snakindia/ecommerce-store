@@ -1,7 +1,8 @@
 import { Link, Route, Switch, Redirect } from 'react-router-dom';
 import React from 'react';
 import { connect } from 'react-redux'
-import { getOrderDetail,cancelOrder } from './store/Actions';
+import { getOrderDetail, cancelOrder } from './store/Actions';
+import {formatPhone} from '../../utils/helper'
 import Loader from '../Loader/Loader';
 import moment from 'moment';
 class Order extends React.Component {
@@ -9,11 +10,22 @@ class Order extends React.Component {
         const { match: { params: { id } } } = this.props;
         this.props.getOrderDetail(id)
     }
-    cancelIt =(e)=>{
+    cancelIt = (e) => {
         e.preventDefault();
-        const { match: { params: { id } } } = this.props;
-        const status_id='5f9a6bb5d5bf4b236045d17a';
-        this.props.cancelOrder({id, status_id});
+        const { statuses, match: { params: { id } } } = this.props;
+        let cancelId;
+        if (statuses && statuses.length > 0) {
+            for (const st of statuses) {
+                if (st.name == 'Order Cancelled') {
+                    cancelId = st.id;
+                }
+            }
+        }
+
+        if (cancelId) {
+            this.props.cancelOrder({ id, status_id: cancelId });
+        }
+
     }
 
     render() {
@@ -27,17 +39,30 @@ class Order extends React.Component {
             'Order In Process',
             'Order In Transit',
             'Order Delivered'];
-        const canCancelOption =[
+        const canCancelOption = [
             'Order Received',
             'Order In Process',
-            'Order In Transit'
-        ]
+            'Order In Transit',
+            ''
+        ];
+        const attributes = [
+
+            { attribute: 'status', label: 'Order Status' },
+            { attribute: 'number', label: 'Order ID' },
+            { attribute: 'tracking_number', label: 'Tracking number' },
+            { attribute: 'shipping_status', label: 'Shipping status' },
+            { attribute: 'shipping_method', label: 'Shipping method' },
+            { attribute: 'payment_method', label: 'Payment method' },
+            { attribute: 'comments', label: 'Comments' },
+            { attribute: 'note', label: 'Note' },
+        ];
+
         return (
             <div className="tabContainer">
                 {item ?
                     <div className="tabs">
-                        {canCancelOption.includes(item.status) ? 
-                        <span className="add-address"><a onClick={e=>this.cancelIt(e)}>Cancel Order</a></span>: null }
+                        {canCancelOption.includes(item.status) ?
+                            <span className="add-address"><a onClick={e => this.cancelIt(e)}>Cancel Order</a></span> : null}
                         <input type="radio" name="tabs" id="tabone" checked="checked" />
                         <label for="tabone">Order Details</label>
                         <div className="tab">
@@ -46,36 +71,46 @@ class Order extends React.Component {
                                     <div className="row">
                                         <div className="container px-1 px-md-4 py-5 mx-auto pa0">
                                             <div className="card">
-                                                <div className="row d-flex justify-content-between px-3">
-                                                    <div className="d-flex flex-column pa">
-                                                        <p className="mb-0">Order placed on <span>{moment(item.date_created).format('MMM D , YYYY').toString()}</span></p>
-                                                        <p>Order#<span className="font-weight-bold">{item.number}</span></p>
+                                            <div className="col-md-12">
+                                                <div className="row d-flex justify-content-between col-md-6">
+                                                    
+                                                        {item.paid && <p className="paid">Paid</p>}
+                                                        <p className="mb-0">Order Date <span>{moment(item.date_created).format('MMM D , YYYY,  hh:mm A').toString()}</span></p>
+                                                        {attributes.map(att =>
+                                                            <div className="col-md-12">
+                                                                <div className="col-md-6">{att.label}</div>
+                                                                <div className="col-md-6">{item && item[att.attribute] ? item[att.attribute] : ''}</div>
+                                                            </div>
+                                                        )}
+
                                                     </div>
+                                                    <div className="row d-flex justify-content-between col-md-6">
                                                     <div className="d-flex flex-column pa">
                                                         <p className="mb-0">Expected Arrival <span>Aug 29, 2020</span></p>
                                                         <p>USPS <span className="font-weight-bold">{item.tracking_number}</span></p>
                                                     </div>
 
                                                 </div>
+                                                </div>
                                                 {statusOption.includes(item.status) ? <>
                                                     <div className="row d-flex justify-content-center padding-lr0">
                                                         <div className="col-12 padding-lr0">
                                                             <ul id="progressbar" className="text-center">
-                                                            {statusOption.map(op=><li
-                                                             className={statusOption.indexOf(op) <= statusOption.indexOf(item.status) ? 'active step0': 'step0'}
-                                                              key={`as${op}`}></li>
-                                                            )}
+                                                                {statusOption.map(op => <li
+                                                                    className={statusOption.indexOf(op) <= statusOption.indexOf(item.status) ? 'active step0' : 'step0'}
+                                                                    key={`as${op}`}></li>
+                                                                )}
                                                             </ul>
                                                         </div>
                                                     </div>
                                                     <div className="row justify-content-between top">
-                                                        {statusOption.map(op=><div key={op} className="row d-flex icon-content">
+                                                        {statusOption.map(op => <div key={op} className="row d-flex icon-content">
                                                             <div className="d-flex flex-column">
                                                                 <p className="font-weight-bold small text-left">{op}</p>
                                                             </div>
                                                         </div>)}
-                                                        
-                                                       
+
+
                                                     </div>
                                                 </>
                                                     : <h4 className="redwarn">{item.status}</h4>
@@ -103,7 +138,7 @@ class Order extends React.Component {
                                                         </div>
                                                         <div className="float-left padding-top15">
                                                             <i className="fa fa-phone bha-icon"></i>
-                                                            <span className="font-weight-bold" style={{ fontSize: '0.9rem' }}>{address.phone} </span>
+                                                            <span className="font-weight-bold" style={{ fontSize: '0.9rem' }}>{formatPhone(address.phone)} </span>
 
                                                         </div>
                                                     </div>
@@ -147,9 +182,22 @@ class Order extends React.Component {
                                                                             <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Shipping (Flat Rate)</td>
                                                                             <td colspan="1" className="no-border">${item.shipping_total}</td>
                                                                         </tr>
+                                                                         <tr>
+                                                                            <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Tax</td>
+                                                                            <td colspan="1" className="no-border">${item.tax_total}</td>
+                                                                        </tr>
+                                                                         <tr>
+                                                                            <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Discount</td>
+                                                                            <td colspan="1" className="no-border">${item.discount_total}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Grand Total</td>
+                                                                            <td colspan="1" className="no-border">${item.grand_total}</td>
+                                                                        </tr>
+                                                                       
                                                                         <tr style={{ backgroundColor: '#f1f1f1' }}>
-                                                                            <td colspan="3" className="no-border" style={{ textAlign: 'right' }}><h4>Total</h4> </td>
-                                                                            <td colspan="1" className="no-border"><h4>${item.grand_total}</h4></td>
+                                                                            <td colspan="3" className="no-border" style={{ textAlign: 'right' }}><h4>Amount Paid</h4> </td>
+                                                                            <td colspan="1" className="no-border"><h4>${item.paid ? item.grand_total :0}</h4></td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -176,7 +224,7 @@ const mapStateToProps = (state) => ({
     loadingCart: state.accounts.loadingCart,
     loading: state.accounts.loading,
     item: state.accounts.order,
-
+    statuses: state.accounts.statuses,
     error: state.accounts.error,
     authenticated: state.auth.authenticated,
     user: state.auth.customer_settings,

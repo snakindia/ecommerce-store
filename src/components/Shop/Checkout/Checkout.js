@@ -35,6 +35,12 @@ class Checkout extends Component {
     componentDidMount() {
         this.props.getPaymentMethod();
         this.props.getShippingMethod();
+        this.checkForUser();
+        
+
+    }
+
+    checkForUser =()=>{
         const { cart , authenticated, user} = this.props;
         if(authenticated && user && user.email){
             const payload = {
@@ -42,9 +48,8 @@ class Checkout extends Component {
             }
             this.props.updateAddress(payload, null);
         }
-        
-
     }
+
     componentDidUpdate(prevProps) {
         const { cart } = this.props;
 
@@ -61,6 +66,8 @@ class Checkout extends Component {
                 step = 3;
             } else if (email) {
                 step = 2;
+            } else {
+                this.checkForUser();
             }
             this.setState({
                 email: email ? email : '',
@@ -173,10 +180,13 @@ class Checkout extends Component {
             shipping_address: shippingAddress,
             first_name: billingAddress.first_name,
             last_name: billingAddress.last_name,
-            ...payment_method,status_id, 
+            ...payment_method,
+            status_id, 
+            status_id,
+            status:'Order Received', 
             customer_id :authenticated && user && user.id ? user.id:''
         }
-        console.log(data)
+        
         this.props.addOrder(data);
     }
 
@@ -190,9 +200,10 @@ class Checkout extends Component {
                 payment_method: method[0].name,
                 payment_method_gateway: method[0].gateway,
                 payment_method_id: method[0].id,
-                status_id
+                status_id,
+                status:'Order Received', 
             }
-            console.log({ data })
+            
             this.placeOrder(data);
         }
 
@@ -384,9 +395,9 @@ const mapStateToProps = (state) => ({
     shippingMethods: state.shop.shippingMethods,
     checkoutSuccess: state.shop.checkoutSuccess,
     orderId: state.shop.orderId,
-    authenticated: state.auth.authenticated,
-    user: state.auth.customer_settings,
-    order_statuses: state.auth.order_statuses,
+    authenticated: state.accounts.authenticated,
+    user: state.accounts.user,
+    order_statuses: state.accounts.orders,
     statuses: state.accounts.statuses,
 });
 const mapDispatchToProps = dispatch => ({

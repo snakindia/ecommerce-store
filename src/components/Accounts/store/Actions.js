@@ -24,25 +24,30 @@ export const flushData = () => ({
 
 
 
-export const getOrders = (payload, id = null) => {
+export const getOrders = () => {
     return dispatch => {
-        dispatch(setLoading(true));
-
-        Axios.get(`${process.env.REACT_APP_API_URL}/orders`,
+       
+        const token=localStorage.getItem('bhaAuth');
+        
+        if(token){
+            dispatch(setLoading(true));
+            Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/customer-account`,{token}
         )
             .then(res => {
                 dispatch(setLoading(false));
-                if (res.data) {
-                    dispatch(getOrdersSuccess(res.data ));
+                if (res.data && res.data.order_statuses) {
+                    console.log(res.data)
+                   dispatch(getOrdersSuccess(res.data.order_statuses ));
                 } else {
-                    dispatch(getOrdersError());
+                    //dispatch(getOrdersError());
                 }
             })
             .catch(e => {
                 notification('error', 'Oops!! something went wrong')
                 dispatch(setLoading(false));
-                dispatch(getOrdersError(e));
+                //dispatch(getOrdersError(e));
             });
+        }
     }
 }
 
@@ -100,6 +105,7 @@ export const cancelOrder = (payload) => {
                 dispatch(setLoading(false));
                 if (res.data) {
                     notification('success', 'Order canceled')
+                    dispatch(getOrders());
                     dispatch(cancelOrdersSuccess(res.data));
                 } else {
                     notification('error', 'Oops!! something went wrong')

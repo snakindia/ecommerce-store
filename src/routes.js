@@ -96,7 +96,7 @@ const Routes = (props) => {
               <NavBar setT={setT} myRef={myRef} />
             </div>
             <Suspense fallback={<div>Loading...</div>}>
-              {auth_loading === false ?
+              {/* {auth_loading === false ? */}
                 <Switch>
                   <Route exact path="/" component={App} />} />
                             {/* <Route path="/:param1/:param2" component={ProductService} /> */}
@@ -128,12 +128,12 @@ const Routes = (props) => {
                   <Route path="/compare" component={Compare} />
                   <Route path="/represent-us" component={RepresentUs} />
                   <Route path="/industries" component={Industries} />
-                  {props.authenticated ? <Route path="/accounts" component={Accounts} /> : <Redirect to="/" />}
+                 <Route path="/accounts" component={Accounts} />
                   
                   <Dynamic />
 
                 </Switch>
-                : null}
+                {/* : null} */}
             </Suspense>
             {props.footer ? <Footer /> : null}
           </MetaContainer>

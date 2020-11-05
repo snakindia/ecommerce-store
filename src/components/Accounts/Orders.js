@@ -6,7 +6,6 @@ import { Tabs } from 'antd';
 import Pagination from '../Shop/Pagination';
 import { Select } from 'antd';
 import moment from 'moment';
-import {getUserDetail} from '../../actions/authActions'
 const { Option } = Select;
 const { TabPane } = Tabs;
 class Orders extends React.Component {
@@ -30,29 +29,42 @@ class Orders extends React.Component {
   }
   
   componentDidMount(){
-    // const token =localStorage.getItem('authToken');
-    // if(token){
-    //   this.props.getUserDetail(token)
-    // }
-   if(this.props.data && this.props.data.data !== this.state.items){
-     this.setData();
-   }
+      // this.props.getUserDetail()
+      this.setOrderStatuses(this.props.statuses);
+       this.setData()
   }
   componentDidUpdate(prevProps) {
-    if (prevProps.data !== this.props.data) {
+    if (prevProps.orderSyncTime !== this.props.orderSyncTime) {
       this.setData()
+    }
+    if(prevProps.statuses !== this.props.statuses){
+      this.setOrderStatuses(this.props.statuses)
     }
   }
 
+  setOrderStatuses =(items)=>{
+    let statusOption = items && items.length > 0 ? items.map(item=>item.name):[];
+    statusOption =statusOption.filter(s=>s!=='Order Cancelled');
+    statusOption =statusOption.filter(d=>d);
+    
+    this.setState({statusOption})
+  }
+
   sortData = (data) => {
-    let { duration, status, tab, statusOption } = this.state;
+    const { duration, status, tab, statusOption } = this.state;
     const dt = moment().subtract(duration, 'months');
-    statusOption.push('');
-    const shouldStatus = tab == '1' ? status ? [status] : statusOption : ['Order Cancelled'];
-    console.log({ shouldStatus })
+   
+    let shouldStatus = tab == '1' ? status ? [status] : statusOption : ['Order Cancelled'];
+    //console.log('->>>>>>>>>>>>2',shouldStatus )
+    const hasEmpty = shouldStatus && shouldStatus.length >0 ? shouldStatus.filter(df=>!df):false;
+   // console.log('->>>>>>>>>>>>hasEmpty',hasEmpty )
+    if(tab==1 && !status && (!hasEmpty || hasEmpty && hasEmpty.length ==0) ){
+      shouldStatus.unshift('')
+    }
+   // console.log('->>>>>>>>>>>>2w',shouldStatus )
     data = data.sort((a, b) => {
-      if (a.date_updated < b.date_updated) return -1;
-      if (a.date_updated > b.date_updated) return 1;
+      if (a.date_updated > b.date_updated) return -1;
+      if (a.date_updated < b.date_updated) return 1;
       return 0;
     });
     data = data.filter(datum => shouldStatus.includes(datum.status) && dt < moment(datum.date_created))
@@ -144,8 +156,7 @@ class Orders extends React.Component {
                           onChange={this.setStatus}
                           defaultValue={status}
                         >
-                          <Option value="">Filter order by</Option>
-                          {statusOption.map(op => <Option key={op} value={op}>{op}</Option>)}
+                          {statusOption.map(op => op ?  <Option key={op} value={op}>{op}</Option> : <Option value="">Filter order by</Option> )}
 
                         </Select>
                         }
@@ -176,7 +187,7 @@ class Orders extends React.Component {
                             <div className="text-left">
                               <div className="lfloat-left">
                                 <h5 className="location_head">
-                                  <Link to={`/accounts/my-orders/${item.id}`}>ORDER # -  {item.id}</Link></h5>
+                                  <Link to={`/accounts/my-orders/${item.id}`}>ORDER # -  {item.number}</Link></h5>
                                 <div className="pro_Price p-0">
                                   <p className=" currecny">
                                     <span className="sp-price">${item.grand_total}</span></p>
@@ -229,12 +240,13 @@ const mapStateToProps = (state) => ({
   loading: state.accounts.loading,
   error: state.accounts.error,
   authenticated: state.auth.authenticated,
-  user: state.auth.customer_settings,
-  data: state.auth.order_statuses,
+  user: state.accounts.user,
+  data: state.accounts.orders,
+  statuses: state.accounts.statuses,
+  orderSyncTime: state.accounts.orderSyncTime,
 });
 const mapDispatchToProps = dispatch => ({
   getOrderDetail: (id) => dispatch(getOrderDetail(id)),
-  getUserDetail: (payload) => dispatch(getUserDetail(payload)),
 });
 export default connect(
   mapStateToProps,

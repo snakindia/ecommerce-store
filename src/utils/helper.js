@@ -100,4 +100,4 @@ const getAddress =(orders)=>{
    shipping =shipping.map(item=>getData(item));
    return {billing, shipping}
   }
-export { sliderSettings, notification, getAddress,getData }; 
+export { sliderSettings, notification, getAddress,getData,formatPhone }; 

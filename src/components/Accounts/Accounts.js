@@ -1,4 +1,5 @@
 import { Link, Route, Switch, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux'
 import React from 'react';
 import { Menu } from 'antd';
 import Dashboard from './Dashboard';
@@ -6,8 +7,10 @@ import Orders from './Orders';
 import Order from './Order';
 import Address from './Address';
 import AccountDetail from './AccountDetail';
+import Loader from '../Loader/Loader';
+import { getUser } from './store/Actions';
 import './style.css';
-export default class Accounts extends React.Component {
+ class Accounts extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,6 +19,11 @@ export default class Accounts extends React.Component {
             visible: true,
         }
     }
+
+    componentDidMount(){
+        this.props.getUser();
+    }
+
     handleClick = e => {
         console.log('click ', e);
     };
@@ -29,8 +37,11 @@ export default class Accounts extends React.Component {
     }
     
     render() {
+        const {authenticated, user,loading}=this.props;
         return (
             <div className="content-wrapper topPadding" id="content">
+                {loading ? <Loader /> :null}
+                {!loading && authenticated && user ? 
                 <div className="pagewrap">
                     <div className="bgWhite">
                         <div className="container-fluid">
@@ -102,6 +113,8 @@ export default class Accounts extends React.Component {
                         </section>
                     </div>
                 </div>
+                : <p>Please login to view your account details</p> 
+                }
             </div>
 
 
@@ -109,4 +122,16 @@ export default class Accounts extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    authenticated: state.accounts.authenticated,
+    user: state.accounts.user,
+    loading:state.accounts.authloading
+});
+const mapDispatchToProps = dispatch => ({
+    getUser: () => dispatch(getUser()),
+});
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Accounts);
 
