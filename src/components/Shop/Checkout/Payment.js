@@ -10,8 +10,7 @@ function Payment(props) {
         methods = data.filter(i => i.enabled)
     }
     const initialFormValue = {
-        payment_method: '',
-        shipping_method: '',
+        payment_method: props.payment_method_id ,
 
     }
 
@@ -22,15 +21,13 @@ function Payment(props) {
             initialValues={initialFormValue}
             onSubmit={(values, { setSubmitting, resetForm, errors }) => {
                 setSubmitting(false);
-                console.log('submitting')
+                console.log('placing order',values);
                 props.submit(values)
             }}
             validate={values => {
 
                 const errors = {};
                 if (!values.payment_method) errors.payment_method = 'Select a Payment Method';
-                if (!values.shipping_method) errors.shipping_method = 'Select a Shipping Method';
-                console.log({ errors })
                 return errors;
             }}
         >
@@ -39,25 +36,6 @@ function Payment(props) {
                     <div className="row">
                         <div className="col-lg-12"  >
                             <div className="row">
-                                <div className="col-sm-12 col-md-12">
-                                    {shippingMethods && shippingMethods.length > 0 && shippingMethods.map(shipping =>
-                                        <div className="form-group">
-                                            <div>
-                                                <Field
-                                                    type="radio"
-                                                    className="mr-2 mt-3"
-                                                    name="shipping_method"
-                                                    value={shipping.id}
-                                                    id={shipping.id}
-                                                    onClick={e=>props.shippingMethodHandler(shipping.id)}
-                                                />
-                                                {shipping.name}
-                                            </div>
-
-                                        </div>
-                                    )}
-                                </div>
-
                                 <div className="col-sm-12 col-md-12">
                                     {methods && methods.length > 0 && methods.map(method =>
                                         <div className="form-group">
@@ -68,7 +46,7 @@ function Payment(props) {
                                                     name="payment_method"
                                                     value={method.id}
                                                     id={method.id}
-                                                    onClick={e=>props.paymentMethodHandler(method.id)}
+                                                    onClick={e => props.paymentMethodHandler(method.id)}
                                                 />
                                                 {method.name}
                                             </div>
@@ -82,22 +60,22 @@ function Payment(props) {
                                 <Error formik={formikProps} name="method" el={['method']} />
                                 <div className="col-sm-12 col-md-12 mt-3">
                                     <h5>${total}</h5>
-                                    <div className="form-group mt-3 mb-3">
-                                        <button
-                                            type="submit"
-                                            className="btn bha-btn-primary margin-left-mobile15 text-center"
-                                        >
-                                            Place Order
-                                            </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="form-group mt-3">
-                    <button type="submit" className="btn bha-btn-primary float-right" name="buttonsubmit">Submit</button>
-                </div>
+                
+                    <div className="form-group mt-3">
+                        {!props.hide ? 
+                        <button 
+                        type="submit"
+                         className="btn bha-btn-primary float-right" name="buttonsubmit"> Place Order</button>
+                            :
+                            null
+                        }
+                         </div>
+               
 
             </Form>
             }

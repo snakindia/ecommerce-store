@@ -1,8 +1,16 @@
 import { Link, Route, Switch, Redirect } from 'react-router-dom';
-import React, { useState } from 'react';
+import { connect } from 'react-redux'
+import React from 'react';
 import { Menu } from 'antd';
 import Dashboard from './Dashboard';
-class Accounts extends React.Component {
+import Orders from './Orders';
+import Order from './Order';
+import Address from './Address';
+import AccountDetail from './AccountDetail';
+import Loader from '../Loader/Loader';
+import { getUser } from './store/Actions';
+import './style.css';
+ class Accounts extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,6 +19,11 @@ class Accounts extends React.Component {
             visible: true,
         }
     }
+
+    componentDidMount(){
+        this.props.getUser();
+    }
+
     handleClick = e => {
         console.log('click ', e);
     };
@@ -18,11 +31,18 @@ class Accounts extends React.Component {
 
     logout =(e)=>{
         e.preventDefault();
+        localStorage.clear();
+        window.location.reload();
 
     }
+    
     render() {
+        const {authenticated, user,loading, orderSyncTime}=this.props;
+        
         return (
             <div className="content-wrapper topPadding" id="content">
+                {loading ? <Loader /> :null}
+                {!loading && authenticated && user ? 
                 <div className="pagewrap">
                     <div className="bgWhite">
                         <div className="container-fluid">
@@ -57,11 +77,11 @@ class Accounts extends React.Component {
                                                         My Address Book
                                                 </Link>
                                                 </Menu.Item>
-                                                <Menu.Item key="wishlist" >
+                                                {/* <Menu.Item key="wishlist" >
                                                     <Link to="/accounts/wishlist">
                                                         My Wishlist
                                                 </Link>
-                                                </Menu.Item>
+                                                </Menu.Item> */}
                                                 <Menu.Item key="detail" >
                                                     <Link to="/accounts/account-details">
                                                         Account Details
@@ -79,13 +99,14 @@ class Accounts extends React.Component {
                                     <div className="col-sm-9 col-md-9">
                                         <div className="tabContainer">
                                             <Switch>
-                                                <Route path="/my-orders" component={Dashboard} />
-                                                <Route path="/order-details/:id" component={Dashboard} />
-                                                <Route path="/order-details" component={Dashboard} />
-                                                <Route path="/address-book" component={Dashboard} />
+                                                
+                                                <Route path="/accounts/my-orders/:id" component={Order} />
+                                                <Route path="/accounts/my-orders" component={Orders} />
+                                                {/* <Route path="/accounts/my-orders" render={props => <Orders key={orderSyncTime} {...props} />} /> */}
+                                                <Route path="/accounts/address-book" component={Address} />
+                                                <Route path="/accounts/account-details" component={AccountDetail} />
                                                 <Route path="/wishlist" component={Dashboard} />
-                                                <Route path="/account-details" component={Dashboard} />
-                                                <Route path="/" component={Dashboard} />
+                                                <Route  path="/" component={Dashboard} />
                                             </Switch>
                                         </div>
                                     </div>
@@ -94,6 +115,8 @@ class Accounts extends React.Component {
                         </section>
                     </div>
                 </div>
+                : <p>Please login to view your account details</p> 
+                }
             </div>
 
 
@@ -101,6 +124,16 @@ class Accounts extends React.Component {
     }
 }
 
-export default Accounts;
-
+const mapStateToProps = (state) => ({
+    authenticated: state.accounts.authenticated,
+    user: state.accounts.user,
+    loading:state.accounts.authloading,
+});
+const mapDispatchToProps = dispatch => ({
+    getUser: () => dispatch(getUser()),
+});
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Accounts);
 

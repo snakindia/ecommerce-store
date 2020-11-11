@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { MDBModal, } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { doLogin, logout } from '../components/Accounts/store/Actions';
 import Cart from '../assets/icon/cart.svg';
 import Profile from '../assets/icon/profile.svg';
 import Globe from '../assets/icon/globe.svg';
@@ -14,14 +15,6 @@ import parseHtml from 'react-html-parser';
 import { POST } from '../services/httpService';
 import GoogleTranslator from './common/GoogleTranslator';
 import { Popover } from 'antd';
-import {
-  getAuthToken,
-  removeAuthDetails,
-  setAuthDetails,
-} from '../services/authService';
-import { signInUrl } from '../constants/urls';
-import { getUserDetail, signOutUser } from '../actions/authActions';
-//import CookieHandler from '../utils/cookieHandler.js';
 import MiniCart from './Shop/MinCart';
 import Login from './Login'
 class TopBar extends Component {
@@ -36,11 +29,6 @@ class TopBar extends Component {
     };
     this.ref = React.createRef(null);
   }
-
-  componentDidMount() {
-    this.props.getUserDetail(getAuthToken());
-  }
-
   toggle = nr => () => {
     let modalNumber = 'modal' + nr;
     this.setState({
@@ -77,26 +65,12 @@ class TopBar extends Component {
   }
 
   onFormSubmit = (values, { setSubmitting }) => {
-    POST({ url: signInUrl, payload: values })
-      .then(response => {
-        if (response.data.status && response.data.token) {
-          setAuthDetails(response.data.token);
-          this.setState({
-            modal5: false,
-          });
-          this.props.getUserDetail(response.data.token);
-        } else {
-          this.setState({ loginError: 'We were unable to process your request at this moment. Please try after some time or call us at (888) 286-8708' });
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    this.props.doLogin(values);
+   
   };
 
   onSignOut = () => {
-    removeAuthDetails();
-    this.props.signOutUser();
+    this.props.logout();
   };
 
   render() {
@@ -151,9 +125,9 @@ class TopBar extends Component {
                     }
                   </li>
                   <span>&nbsp;</span>
-                  {authenticated ? (
+                  {authenticated && userDetails && userDetails.first_name ? (
                     <li>
-                      {userDetails.full_name}
+                      {userDetails.first_name}
                       <button onClick={this.onSignOut}>SignOut</button>
                     </li>
                   ) : (
@@ -182,18 +156,19 @@ class TopBar extends Component {
                     EN<i className="caret border-0"></i></a>
                 </li>*/}
 
-                  <span>&nbsp;</span>
-                  <li>
+                  {/* <span>&nbsp;</span> */}
+                  {/* <li> */}
                     {/*<a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>*/}
-                    <a color="primary" ><img src={Globe} alt="" width="20" />EN</a> </li>
-                  <span className="mobHide">&nbsp;</span>
-                  <li className="mobHide">
+                    {/* <a color="primary" ><img src={Globe} alt="" width="20" />EN</a>  */}
+                    {/* </li> */}
+                  {/* <span className="mobHide">&nbsp;</span> */}
+                  {/* <li className="mobHide"> */}
                     {/*<a onClick={this.toggle(6)}>*/}
-                    <a>
+                    {/* <a>
                       <i className="fa fa-search mr-2" /> Search
                       <i className="caret border-0" />
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -253,13 +228,13 @@ class TopBar extends Component {
   }
 }
 
-const mapStateToProps = ({ asyncReducer, auth, shop }) => {
+const mapStateToProps = ({ asyncReducer, auth, shop,accounts }) => {
   return {
     page_details: asyncReducer.page_meta_details,
-    authenticated: auth.authenticated,
-    userDetails: auth.customer_settings,
+    authenticated: accounts.authenticated,
+    userDetails: accounts.user,
     cart: shop.cart
   };
 };
 
-export default connect(mapStateToProps, { getUserDetail, signOutUser })(TopBar);
+export default connect(mapStateToProps, {doLogin, logout })(TopBar);

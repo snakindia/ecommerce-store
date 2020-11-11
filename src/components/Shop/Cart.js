@@ -134,7 +134,7 @@ const Cart = (props) => {
                             }
                         </div>
                     </section>
-                    <section className="bg-opeque box-shadow footerItems">
+                    {/* <section className="bg-opeque box-shadow footerItems">
                         <div className="container-fluid">
                             <h2 className="bha_heading_2 z-index text-blue mb-4">Similar Category Products</h2>
                         </div>
@@ -155,7 +155,7 @@ const Cart = (props) => {
                         <div className="container-fluid pl-0 pr-0 product-xs-item">
 
                         </div>
-                    </section>
+                    </section> */}
 
                 </div>
             </div>

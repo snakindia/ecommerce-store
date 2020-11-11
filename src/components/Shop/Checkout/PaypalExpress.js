@@ -1,4 +1,5 @@
 import React from 'react';
+// import PaypalExpressBtn from 'react-paypal-express-checkout';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 import { connect } from 'react-redux';
 import { addOrder, getCart} from '../store/Actions';
@@ -47,14 +48,32 @@ class PaypalExpress extends React.Component {
         //   => https://developer.paypal.com/docs/classic/lifecycle/goingLive/
 
         // NB. You can also have many Paypal express checkout buttons on page, just pass in the correct amount and they will work!
-
-
-        return (
-            <>paypal button appearing
+        let style = {
+            size: paymentSettings && paymentSettings.size ? paymentSettings.size  :'small',
+            color: paymentSettings && paymentSettings.color ? paymentSettings.color :'gold',
+            shape: paymentSettings && paymentSettings.shape ? paymentSettings.shape : 'pill',
+           
+        };
+        let order_id =paymentSettings && paymentSettings.order_id ? paymentSettings.order_id : '';
+        let paymentOptions ={transactions: [
+            { 
+                 custom:order_id, 
+                amount: 
                 {
-                    // paymentSettings ?
-                        <PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
-                        // : null
+                 total, currency, 
+                
+                }
+             }
+        ]};
+        
+        return (
+            <>
+                {
+                     paymentSettings ?
+                        <PaypalExpressBtn
+                        paymentOptions={paymentOptions}
+                         style={style} env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
+                         : null
                 }
             </>
         );
