@@ -85,7 +85,7 @@ function Payment(props) {
                                     <div className="form-group mt-3 mb-3">
                                         <button
                                             type="submit"
-                                            className="btn bha-btn-primary margin-left-mobile15 w-100 text-center"
+                                            className="btn bha-btn-primary margin-left-mobile15 text-center"
                                         >
                                             Place Order
                                             </button>

@@ -282,7 +282,7 @@ class Checkout extends Component {
                                     </div>
                                     :
                                     <div className="row">
-                                        <div className="col-sm-12 col-md-8 left-content">Your Cart Empty</div>
+                                        <div className="col-lg-12 emptyCart">Your Cart is Empty</div>
                                     </div>
                                 }
                             </div>

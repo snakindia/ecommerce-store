@@ -56,7 +56,7 @@ function Address(props) {
         >
             {formikProps => <Form id="msform" className="step4">
 
-                <div className="col-lg-12" >
+                <div className="col-lg-12 pl-0 pr-0" >
 
                     <div className="form-group">
                         <label className="text-small">First Name *</label>
@@ -171,20 +171,20 @@ function Address(props) {
                     </div>
 
                     {type == 'shipping' ? <div className="form-group">
-                        <p>
-                            <small>
+                        
+                            <small className="sm-pad-all">
                             <Field
                                 name="same"
-                                className="mr-2"
+                                className="mr-3"
                                 type="checkbox"
                             />
                              My billing address is the same as my shipping address.
                             </small>
-                            </p>
+                            <button type="submit" className="btn bha-btn-primary float-right mt-2 mr-0" name="buttonsubmit">Submit</button>
                     </div> :null }
-                    <div className="form-group mt-3">
-                              <button type="submit" className="btn bha-btn-primary float-right" name="buttonsubmit">Submit</button>
-                    </div>
+                    {/*<div className="form-group mt-3">
+                        <button type="submit" className="btn bha-btn-primary float-right" name="buttonsubmit">Submit</button>
+                            </div>*/}
                 </div>
             </Form>
             }
