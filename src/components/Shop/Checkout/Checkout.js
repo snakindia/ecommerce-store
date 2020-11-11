@@ -224,7 +224,7 @@ class Checkout extends Component {
 
 
     render() {
-        const { authenticated, user, cart, paymentMethods, shippingMethods, checkoutSuccess, orderId,order_statuses } = this.props;
+        const { authenticated, user, cart, paymentMethods, shippingMethods, checkoutSuccess, order,order_statuses } = this.props;
         const { step, email, shippingAddress, billingAddress } = this.state;
         const headerOne = <div className="headerone"><h5 className="hh1">1. Customer</h5>
             {authenticated && user && user.email ? <div className="info">
@@ -296,7 +296,7 @@ class Checkout extends Component {
                             <section >
                                 <div className="container-fluid">
                                     {
-                                        checkoutSuccess ? <Thankyou orderId={orderId} /> : <>
+                                        checkoutSuccess ? <Thankyou order={order} /> : <>
 
                                             {cart ?
 
@@ -394,7 +394,7 @@ const mapStateToProps = (state) => ({
     paymentMethodsSettings: state.shop.paymentMethodsSettings,
     shippingMethods: state.shop.shippingMethods,
     checkoutSuccess: state.shop.checkoutSuccess,
-    orderId: state.shop.orderId,
+    order: state.shop.order,
     authenticated: state.accounts.authenticated,
     user: state.accounts.user,
     order_statuses: state.accounts.orders,

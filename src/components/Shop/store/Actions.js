@@ -396,7 +396,7 @@ export const addOrder = (payload) => {
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data && res.data.number) {
-                    dispatch(orderSuccess(res.data.number));
+                    dispatch(orderSuccess(res.data));
                     notification('success', 'Order Placed Succesfully')
                 } else {
                     dispatch(orderError(undefined));

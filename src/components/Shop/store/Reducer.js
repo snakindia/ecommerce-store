@@ -35,7 +35,7 @@ export default (state = initialState, { type, payload }) => {
 
         case ActionTypes.ORDER_SUCCESS:
             return {
-                ...state, checkoutSuccess: payload, orderId: payload,
+                ...state, checkoutSuccess: payload, order: payload,
                 cart: undefined,
                 paymentMethods: undefined,
                 shippingMethods: undefined,

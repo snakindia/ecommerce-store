@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { connect } from 'react-redux'
-import { getOrderDetail } from './store/Actions';
+import { getOrderDetail,getOrders } from './store/Actions';
 import { Tabs } from 'antd';
 import Pagination from '../Shop/Pagination';
 import { Select } from 'antd';
@@ -29,24 +29,21 @@ class Orders extends React.Component {
   }
   
   componentDidMount(){
-      // this.props.getUserDetail()
-      this.setOrderStatuses(this.props.statuses);
-       this.setData()
+       this.props.getOrders()
+        this.setOrderStatuses(this.props.statuses);
   }
   componentDidUpdate(prevProps) {
-    if (prevProps.orderSyncTime !== this.props.orderSyncTime) {
+    if (prevProps.data !== this.props.data) {
       this.setData()
     }
-    if(prevProps.statuses !== this.props.statuses){
-      this.setOrderStatuses(this.props.statuses)
-    }
+   
   }
 
   setOrderStatuses =(items)=>{
     let statusOption = items && items.length > 0 ? items.map(item=>item.name):[];
     statusOption =statusOption.filter(s=>s!=='Order Cancelled');
     statusOption =statusOption.filter(d=>d);
-    
+    //return statusOption;
     this.setState({statusOption})
   }
 
@@ -83,6 +80,7 @@ class Orders extends React.Component {
     items = this.sortData(items);
     const found = items ? items.length : 0;
     items = items.slice((currentPage - 1) * resultPerPage, currentPage * resultPerPage);
+    
     this.setState({
       items, found
     })
@@ -111,9 +109,10 @@ class Orders extends React.Component {
 
   }
   render() {
-    const { currentPage, resultPerPage, items, duration, status, statusOption, found, tab } = this.state;
+    const { currentPage, resultPerPage,  duration, status, tab,items, found,statusOption } = this.state;
     const { loading} = this.props;
-
+   
+  
     return (
       <div className="tabContainer">
         <div className="tabs">
@@ -247,6 +246,7 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = dispatch => ({
   getOrderDetail: (id) => dispatch(getOrderDetail(id)),
+  getOrders: () => dispatch(getOrders()),
 });
 export default connect(
   mapStateToProps,

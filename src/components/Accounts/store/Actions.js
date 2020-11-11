@@ -30,14 +30,15 @@ export const getOrders = () => {
         const token=localStorage.getItem('bhaAuth');
         
         if(token){
+            //dispatch(flushData());
             dispatch(setLoading(true));
             Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/customer-account`,{token}
         )
             .then(res => {
                 dispatch(setLoading(false));
-                if (res.data && res.data.order_statuses) {
-                    console.log(res.data)
-                   dispatch(getOrdersSuccess(res.data.order_statuses ));
+                if (res.data && res.data.data && res.data.data.order_statuses) {
+                   
+                   dispatch(getOrdersSuccess(res.data.data.order_statuses ));
                 } else {
                     //dispatch(getOrdersError());
                 }
@@ -105,7 +106,7 @@ export const cancelOrder = (payload) => {
                 dispatch(setLoading(false));
                 if (res.data) {
                     notification('success', 'Order canceled')
-                    dispatch(getOrders());
+                    dispatch(flushData());
                     dispatch(cancelOrdersSuccess(res.data));
                 } else {
                     notification('error', 'Oops!! something went wrong')
