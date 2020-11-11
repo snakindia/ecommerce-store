@@ -37,7 +37,8 @@ import './style.css';
     }
     
     render() {
-        const {authenticated, user,loading}=this.props;
+        const {authenticated, user,loading, orderSyncTime}=this.props;
+        
         return (
             <div className="content-wrapper topPadding" id="content">
                 {loading ? <Loader /> :null}
@@ -100,7 +101,8 @@ import './style.css';
                                             <Switch>
                                                 
                                                 <Route path="/accounts/my-orders/:id" component={Order} />
-                                                <Route path="/accounts/my-orders" component={Orders} />
+                                                {/* <Route path="/accounts/my-orders" component={Orders} /> */}
+                                                <Route path="/accounts/my-orders" render={props => <Orders key={orderSyncTime} {...props} />} />
                                                 <Route path="/accounts/address-book" component={Address} />
                                                 <Route path="/accounts/account-details" component={AccountDetail} />
                                                 <Route path="/wishlist" component={Dashboard} />
@@ -125,7 +127,8 @@ import './style.css';
 const mapStateToProps = (state) => ({
     authenticated: state.accounts.authenticated,
     user: state.accounts.user,
-    loading:state.accounts.authloading
+    loading:state.accounts.authloading,
+    orderSyncTime:state.accounts.orderSyncTime,
 });
 const mapDispatchToProps = dispatch => ({
     getUser: () => dispatch(getUser()),

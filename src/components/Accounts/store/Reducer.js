@@ -22,6 +22,7 @@ export default (state = initialState, { type, payload }) => {
 
         case ActionTypes.LOGOUT_SUCCESS:
             localStorage.clear();
+            console.log('->>>>>>>>>',(new Date()).getTime());
             return {
                 ...state,
                 authloading: false,
@@ -34,6 +35,7 @@ export default (state = initialState, { type, payload }) => {
                 orderSyncTime: (new Date()).getTime(),
             }
         case ActionTypes.GET_USER_SUCCESS:
+            console.log('->>>>>>>>>',(new Date()).getTime());
             return {
                 ...state,
                 authloading: false,
@@ -45,6 +47,7 @@ export default (state = initialState, { type, payload }) => {
             }
 
         case ActionTypes.GET_ACCOUNTS_ORDERS_SUCCESS:
+            console.log('->>>>>>>>>',(new Date()).getTime());
             return {
                 ...state,
                 orders: payload,
@@ -74,11 +77,13 @@ export default (state = initialState, { type, payload }) => {
             }
 
         case ActionTypes.GET_ACCOUNTS_ORDERS_CANCEL_SUCCESS:
+            console.log('->>>>>>>>>',(new Date()).getTime());
             return {
                 ...state,
                 order: payload,
                 error: undefined,
                 loading: false,
+                orderSyncTime: (new Date()).getTime(),
             }
         case ActionTypes.GET_ACCOUNTS_ORDERS_STATUS_SUCCESS:
             return {
