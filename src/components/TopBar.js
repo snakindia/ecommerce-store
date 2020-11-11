@@ -156,18 +156,19 @@ class TopBar extends Component {
                     EN<i className="caret border-0"></i></a>
                 </li>*/}
 
-                  <span>&nbsp;</span>
-                  <li>
+                  {/* <span>&nbsp;</span> */}
+                  {/* <li> */}
                     {/*<a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>*/}
-                    <a color="primary" ><img src={Globe} alt="" width="20" />EN</a> </li>
-                  <span className="mobHide">&nbsp;</span>
-                  <li className="mobHide">
+                    {/* <a color="primary" ><img src={Globe} alt="" width="20" />EN</a>  */}
+                    {/* </li> */}
+                  {/* <span className="mobHide">&nbsp;</span> */}
+                  {/* <li className="mobHide"> */}
                     {/*<a onClick={this.toggle(6)}>*/}
-                    <a>
+                    {/* <a>
                       <i className="fa fa-search mr-2" /> Search
                       <i className="caret border-0" />
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

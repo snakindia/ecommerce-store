@@ -77,11 +77,11 @@ import './style.css';
                                                         My Address Book
                                                 </Link>
                                                 </Menu.Item>
-                                                <Menu.Item key="wishlist" >
+                                                {/* <Menu.Item key="wishlist" >
                                                     <Link to="/accounts/wishlist">
                                                         My Wishlist
                                                 </Link>
-                                                </Menu.Item>
+                                                </Menu.Item> */}
                                                 <Menu.Item key="detail" >
                                                     <Link to="/accounts/account-details">
                                                         Account Details

@@ -61,7 +61,7 @@ class Detail extends Component {
                                             {product ? <QuickView item={product} single={true} /> : null}
                                         </div>
                                         <div className="col-sm-3 col-md-3">
-                                        <RelatedProduct items={related} />
+                                        {/* <RelatedProduct items={related} /> */}
                                         </div>
                                     </div>
                                     <div className="row">
@@ -73,13 +73,13 @@ class Detail extends Component {
                                                         </div>
 
                                                     </TabPane>
-                                                    <TabPane tab="Product Reviews" key="2"
+                                                    {/* <TabPane tab="Product Reviews" key="2"
                                                         className="resp-tab-item">
                                                         <div className="resp-tabs-container">
                                                             No Product Reviews
                                                         </div>
 
-                                                    </TabPane>
+                                                    </TabPane> */}
 
                                                 </Tabs>
 
@@ -88,7 +88,7 @@ class Detail extends Component {
                                     </div>
                                 </div>
                             </section>
-                            <section className="bg-opeque box-shadow footerItems">
+                            {/* <section className="bg-opeque box-shadow footerItems">
                                 <div className="container-fluid">
                                     <h2 className="bha_heading_2 z-index text-blue mb-4">Similar Category Products</h2>
                                 </div>
@@ -103,7 +103,7 @@ class Detail extends Component {
                             </section>
                             <section className="pro-equipment-section box-shadow">
                                 <div className="container-fluid pl-0 pr-0 product-xs-item"></div>
-                            </section>
+                            </section> */}
                         </div>
                     </div>
                     : null

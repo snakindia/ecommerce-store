@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 const Ratings = (props) => {
+    return null;
     return (
         
                 <ul className="list-inline">
