@@ -9,7 +9,6 @@ const initialState = {
     statuses: undefined,
     authenticated: undefined,
     user: undefined,
-    orderSyncTime: (new Date()).getTime()
 
 }
 
@@ -31,16 +30,13 @@ export default (state = initialState, { type, payload }) => {
                 orderId: undefined,
                 authenticated: undefined,
                 user: undefined,
-                orderSyncTime: (new Date()).getTime(),
             }
         case ActionTypes.GET_USER_SUCCESS:
             return {
                 ...state,
                 authloading: false,
-                orders:  undefined ,
                 error: undefined,
                 authenticated: true,
-                orderSyncTime: (new Date()).getTime(),
                 user: payload && payload.customer_settings ? payload.customer_settings: undefined,
             }
 
@@ -79,7 +75,6 @@ export default (state = initialState, { type, payload }) => {
                 order: payload,
                 error: undefined,
                 loading: false,
-                orderSyncTime: (new Date()).getTime(),
             }
         case ActionTypes.GET_ACCOUNTS_ORDERS_STATUS_SUCCESS:
             return {
@@ -95,7 +90,6 @@ export default (state = initialState, { type, payload }) => {
                 loading: false,
                 orders: undefined,
                 error: undefined,
-                orderSyncTime: (new Date()).getTime(),
             }
 
 

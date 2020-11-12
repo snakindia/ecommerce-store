@@ -37,7 +37,7 @@ export const getOrders = () => {
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data && res.data.data && res.data.data.order_statuses) {
-                   
+                   console.log(res.data.data.order_statuses);
                    dispatch(getOrdersSuccess(res.data.data.order_statuses ));
                 } else {
                     //dispatch(getOrdersError());
@@ -222,7 +222,7 @@ export const getUser = () => {
     return dispatch => {
        
         const token=localStorage.getItem('bhaAuth');
-        console.log({token});
+       
         if(token){
             dispatch(setLoadingAuth(true));
             Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/customer-account`,{token}
