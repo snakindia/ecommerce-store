@@ -922,6 +922,7 @@ body {
   .tab-menu{float: left; margin-bottom:102px !important}
   .wsshoptabing{width:100%; left:0 !important}
   .topbar {padding:0 0 0.6rem}
+  
 }
 
 @media(max-width:921px){
@@ -933,6 +934,11 @@ body {
 
 @media(max-width:800px){
 .call-us{font-weight: 400 !important}
+.downArrowHide {display: block !important;}
+.wsmenu > .wsmenu-list > li > a { display: inline-flex; width: 100%; white-space: nowrap;
+background:none !important}
+.bha-btn-primary{margin:0 1rem; width:90%}
+/* .wsactive .wsmenu > .wsmenu-list>li>a{padding:1rem} */
 }
 
 .bha-left { background: #ddd; width: 100%; position: relative; overflow: visible; padding-bottom: 0;
