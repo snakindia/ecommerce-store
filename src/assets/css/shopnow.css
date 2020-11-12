@@ -1386,7 +1386,7 @@ a.bha-btn-secondry:hover {
 .single-product-detail .media-body h4{font-size: 1rem;}
 
 /*==============New css for shopnow UI fixing=====================================*/
-.call-us{white-space: nowrap}
+/* .call-us{white-space: nowrap} */
 .hot-deals-item-wrapper .card a{padding-right:0.5rem;}
 .cart-footer .button{margin-right:0.8rem; width:auto}
 .cart-footer .button:last-child{margin-right:0 !important}

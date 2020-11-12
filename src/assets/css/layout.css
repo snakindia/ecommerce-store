@@ -132,7 +132,7 @@ a.forgotpwd:hover{text-decoration: none;color:#888; transition: 0.3s}
 /*========Start CSS for carosuel (24-03-2020)==========*/
 .banner-section { float: left; width: 100%; margin-top: 0 !important;}
 .container-fluid{width: 100%;}
-.caption{position: absolute; top:40%; left: 1%; z-index: 1;padding:3rem 2.5rem;
+.caption{position: absolute; top:40%; left: 2.5%; z-index: 1;padding:3rem 2.5rem;
  width: 70%}
 
 .caption h1{ font-size:2.6rem ; color:#fff;font-family: 'Oswald', sans-serif !important;font-weight: 600;}
@@ -403,7 +403,7 @@ border-bottom-left-radius: 15px;}
              width:100% !important; border:1px solid #8a91bd !important;
              height: 40px !important; line-height: 30px;color: #a3a3a3;font-size:1.2rem}
 
-.footer-bottom{padding:1rem 0; background: #23536b;}
+.footer-bottom{padding:1rem 0 0.8rem; background: #23536b;}
 .call-us{font-size: 2rem; font-weight: 700;padding-left: 8rem;}
 .socialLink{text-transform: uppercase; font-size: 1.3rem; font-weight: 500;padding:0.4rem 0 0 0}
 .socialLink a{padding:0; background:#000;width: 40px; height: 40px; text-align: center; 
