@@ -914,7 +914,7 @@ body {
   .socialLink { width: 100%; margin-top: 1.2rem !important;}
 }
 
-@media(max-width:812px){
+@media(max-width:921px){
   /* .call-us {font-size: 1.2rem !important; white-space: nowrap;} */
   .wsmobileheader > .smllogo { width: 20%; margin: 10px auto 0px auto; }
   /* .rightLink{display:flex; justify-content: center !important;} */
@@ -924,7 +924,7 @@ body {
   .topbar {padding:0 0 0.6rem}
 }
 
-@media(max-width:812px){
+@media(max-width:921px){
   .col-100{max-width: 100% !important; display:table}
   .nav-pills .nav-item .nav-link{white-space: nowrap !important;}
 
