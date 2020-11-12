@@ -432,7 +432,7 @@ class Footer extends Component {
                         md="3"
                         sm="3"
                         xs="12"
-                        className="text-right pr-0"
+                        className="text-sm-right pr-0"
                       >
                         <img className="img-fluid" src={Footerlogo} alt="" />
                       </MDBCol>
