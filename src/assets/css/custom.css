@@ -448,7 +448,7 @@ color:#000 !important; font-weight: 500 !important; }
 .card-slider__container__list__card{width: 100% !important; padding:0 2px; overflow: hidden;}
 .banner-slider-container{padding:0 !important;}
 /*.banner-container-xxs{overflow: visible !important;}*/
-.banner-container-xxs{overflow: visible !important;}
+/* .banner-container-xxs{overflow: visible !important;} */
 /*html,body{
   height:100vh;
   width:100vw;
@@ -708,10 +708,19 @@ text-align: center;width: 94% !important;}
 @media(min-width: 375px){
   .logIn{background: #fff !important; border:none;}
   .banner-about{margin-top: 0 !important; height: 340px !important;}
+  .carousel-control, .carousel-control-prev, .carousel-control-next {
+    height: 50vh !important; }
 }
 @media(min-width: 736px){
 .banner-about{margin-top: 0 !important; height: 430px !important;}
+/* .col-sm-9 {flex: 0 0 100%; max-width: 100%;} */
 }
+
+@media(min-width: 667px){
+  /* .banner-about{margin-top: 0 !important; height: 430px !important;} */
+  /* .col-sm-9 {flex: 0 0 100%; max-width: 100%;} */
+  }
+
 @media(max-width: 768px){
   .topbar {background: #000; width: 100% !important; padding-left: 5% !important; height: 40px !important}
   .top{margin-left:0 !important; margin-right: 8% !important; margin-top: 0 !important; 
@@ -849,7 +858,8 @@ body {
   .bottom-navigation{bottom:0 !important;}
   /* .placement-client .slick-slide{width:156px; margin:17px;} */
   .banner-about{margin-top: 0 !important; height: 410px !important;}
-.bha-tab{bottom: -21px;}
+  .bha-tab{bottom: -21px;}
+  .tab-menu{top:-2rem}
 }
 
 @media(max-width: 1200px){
@@ -912,6 +922,8 @@ body {
     float: left; text-align: left; width: 100%; max-height: 100px; padding-top: 0;
     line-height: 2.5rem;}
   .socialLink { width: 100%; margin-top: 1.2rem !important;}
+  .wsmenu > .wsmenu-list > li > .navtext{padding-left:15px !important}
+
 }
 
 @media(max-width:921px){
@@ -935,10 +947,12 @@ body {
 @media(max-width:800px){
 .call-us{font-weight: 400 !important}
 .downArrowHide {display: block !important;}
-.wsmenu > .wsmenu-list > li > a { display: inline-flex; width: 100%; white-space: nowrap;
-background:none !important}
-.bha-btn-primary{margin:0 1rem; width:90%}
+.wsmenu > .wsmenu-list > li > a { display: inline-flex; width: 100%; white-space: nowrap;}
+/* .bha-btn-primary{margin:0 1rem; width:90%} */
 /* .wsactive .wsmenu > .wsmenu-list>li>a{padding:1rem} */
+.wsmenu > .wsmenu-list > li > .navtext{padding-left:15px !important}
+.wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{display: block !important;}
+.wsmenu > .wsmenu-list > li > .bha-btn-secondry, .bha-btn-primary{width:90% !important}
 }
 
 .bha-left { background: #ddd; width: 100%; position: relative; overflow: visible; padding-bottom: 0;
@@ -970,21 +984,27 @@ background:none !important}
    margin: 0 !important; font-weight: 500;}
 
 /*=======New css for fixing UI issues 12-Nov-2020=================*/
-.avtar {
-  position: absolute;
-  top: -27px;
-  left: 9px;
+.avtar { position: absolute; top: -27px; left: 9px;}
+.call-us { font-size: 2rem; font-weight: 700; padding-left: 7rem !important;}
+.socialLink { text-transform: uppercase; font-size: 1.2rem; font-weight: 500; padding: 0;
+  text-align: right; margin-top: 0.4rem;}
+
+@media(max-width:640px){
+  .call-us { font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    padding-left: 7rem !important;
+    margin-top:0;}
+    .avtar { position: absolute; top: -20px !important; left: 9px;}
+    .socialLink {margin-top: 0.3rem !important;}
 }
-.call-us {
-  font-size: 2rem;
-  font-weight: 700;
-  padding-left: 7rem !important;
+
+@media (min-width: 576px){
+  .col-sm-6 {flex: 0 0 100%; }
+  
 }
-.socialLink {
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  font-weight: 500;
-  padding: 0;
-  text-align: right;
-  margin-top: 0.4rem;
+
+.carousel-control, .carousel-control-prev, .carousel-control-next {
+  width: 50px;
+  cursor: pointer;
+  height: 70vh;
 }
