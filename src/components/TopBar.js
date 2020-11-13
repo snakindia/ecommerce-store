@@ -75,7 +75,9 @@ class TopBar extends Component {
   }
 
   onSignOut = () => {
-    this.props.logout();
+    localStorage.clear();
+    window.location.reload();
+    //this.props.logout();
   };
 
   render() {

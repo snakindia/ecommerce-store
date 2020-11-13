@@ -28,6 +28,7 @@ class Checkout extends Component {
             visible: true,
             email: '',
             step: 1,
+            same:false,
             shippingAddress: undefined,
             billingAddress: undefined,
             authenticated: undefined
@@ -109,17 +110,36 @@ class Checkout extends Component {
     next = (step) => {
         this.setState({ step })
     }
+    setAll = (obj, val) => {
+        let toReturn ={};
+        Object.keys(obj).forEach(k => {
+            toReturn[k]=val;
+        });
+        return toReturn;
+    }
 
+  
     shippingSave = (data, type) => {
-        console.log({ data, type });
         if (type == 'shipping') {
             if (data.same == 1) {
                 this.setState({
                     shippingAddress: data,
                     billingAddress: data,
+                    same:1,
                     step: 4
                 },()=>this.doAddressUpdate(type))
-            } else {
+            } else if (data.same != 1 && this.state.same ==1) {
+                    
+                   
+                this.setState({
+                    shippingAddress: data,
+                    billingAddress: this.setAll(data, ''),
+                    step: 4
+                }
+               ,()=>this.doAddressUpdate(type)
+                )
+            }
+             else {
                 this.setState({
                     shippingAddress: data,
                     step: 3
@@ -145,7 +165,7 @@ class Checkout extends Component {
             ...cart,
             email,
 
-            billing_address: billingAddress,
+            billing_address:  billingAddress ? billingAddress: undefined,
             shipping_address: shippingAddress ? shippingAddress: undefined,
             full_name: billingAddress ? `${billingAddress.first_name} ${shippingAddress.last_name}`:'',
             first_name: shippingAddress.first_name,
@@ -232,6 +252,10 @@ class Checkout extends Component {
 
         this.props.updateAddress({ shipping_method_id: id });
     }
+    logout=()=>{
+        localStorage.clear();
+        window.location.reload()
+    }
 
 
     render() {
@@ -240,10 +264,10 @@ class Checkout extends Component {
         const headerOne = <div className="headerone"><h5 className="hh1">1. Customer</h5>
             {authenticated && user && user.email ? <div className="info">
                 <span>{user.email}</span>
-                <button className="SignOut">Sign Out</button>
+                <button className="SignOut" onClick={this.logout} >Sign Out</button>
             </div> : <> {email ? <div className="info">
                 <span>{email ? email : null}</span>
-                <button className="SignOut">Edit</button>
+                <button className="SignOut" >Edit</button>
             </div> : null} </>
             }
         </div>
