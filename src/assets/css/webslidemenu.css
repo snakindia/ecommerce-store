@@ -151,9 +151,10 @@ video {
 
 .wsmenu > .wsmenu-list > li > .navtext {
   line-height: 16px;
-  text-align: right;
-  padding: 25px 5px;
-  margin: 0 2px;
+  /* text-align: right; */
+  text-align: left;
+  padding: 25px 10px;
+  margin: 0 5px;
 }
 
 .wsmenu > .wsmenu-list > li > a {
@@ -1249,7 +1250,7 @@ video {
     font-size: 14px;
     text-align: left;
     border-right: solid 0px;
-    background-color: transparent;
+    /* background-color: transparent; */
     color: #666666;
     line-height: 25px;
     border-bottom: 1px solid;
@@ -1522,7 +1523,7 @@ video {
   .wsmenu > .wsmenu-list > li > .wsshoptabing {
     background-color: #ffffff;
     color: #666666;
-    display: none;
+    display: block;
     position: relative;
     top: 0px;
     padding: 0px;
@@ -1818,6 +1819,7 @@ video {
     visibility: visible;
     z-index: 1000;
     top: 0;
+    height: 100%;
   }
 
   .wsactive .wsmenu > .wsmenu-list {

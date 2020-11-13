@@ -192,7 +192,7 @@ h6 {
   }
   .footer-bottom,
   .copyright {
-    padding: 1rem !important;
+    padding: 1rem 0.5rem !important;
   }
   .bottom-navigation {
     position: static !important;
@@ -685,6 +685,7 @@ text-align: center;width: 94% !important;}
 .wsshoptabing{width: 100% !important;}
 .wsmobileheader .wssearch i{display: none !important}
 
+
 }
 
 @media(min-width: 360px){
@@ -733,7 +734,7 @@ text-align: center;width: 94% !important;}
   .headtoppart{margin-top: 61px !important;}
 
   .banner-container{margin-top: 142px !important;}
-  .banner-container .caption{top:10% !important;}
+  .banner-container .caption{top:0 !important;}
   .caption-inner{height: auto !important;}
   #representus-contact{margin-top: 30px !important}
   .contTactForm{top: 92% !important; position: absolute; z-index: 0 !important;}
@@ -763,6 +764,7 @@ text-align: center;width: 94% !important;}
   .banner-slider-container{margin-top: 103px !important;}
   .padding-left0{padding-left:1rem !important}
   .placement-client .slick-slide { padding: 0;}
+ 
   
 }
 
@@ -789,7 +791,7 @@ text-align: center;width: 94% !important;}
 .caption .btn{margin-top: 30px !important}
 /* .placement-client .slick-slide{width:160px;margin:8px !important;} */
 /* .placement-client .slick-slide{width:170px !important;margin:0 10px 0 10px !important;} */
-.placement-client .slick-slide{padding:5px 17px}
+.placement-client .slick-slide{padding:5px 10px}
 
 /*.topbar{display: none}*/
 .news-inner{background: #fff !important; border:1px solid #d7d7d7 !important;}
@@ -858,7 +860,7 @@ body {
   /* .placement-client .slick-slide{width:140px ; margin:10px;} */
   /* .rightLink{display:flex; justify-content: center !important;} */
   .tab-menu{float: left; margin-bottom:0 !important}
-  .call-us{white-space: nowrap !important;}
+  /* .call-us{white-space: nowrap !important;} */
   .wsmenu > .wsmenu-list > li > .navtext{padding:25px 3px !important; margin: 0 1px !important;}
   .bha-left img{height:370px}
   .anchor-logo img{width:120px !important; margin-top: 0.2rem;}
@@ -900,27 +902,43 @@ body {
   .signInBox{width:100% !important}
   .banner-container-xxs{margin-top:40px !important}
   /* .callerLady{top:0} */
-  .call-us{float:none !important; margin-left:5rem;}
-  .socialLink { width: 100%;  margin-top:0 !important; margin-left:3.5rem; padding:0 !important}
+  /* .call-us{float:none !important; margin-left:5rem;} */
+  /* .socialLink { width: 100%;  margin-top:0 !important; margin-left:3.5rem; padding:0 !important} */
   /* .socialLink span{font-size: 1.3rem; margin-left:1.5rem} */
   .iMg_pos{height:auto !important; width:100% !important}
   .breadcrumb-container{margin-top:22px }
+  .avtar { position: absolute; top: 0px !important;  left: 1rem; width: 80px;}
+  .call-us { font-size: 2rem !important; font-weight: 700; padding-left: 7rem !important;
+    float: left; text-align: left; width: 100%; max-height: 100px; padding-top: 0;
+    line-height: 2.5rem;}
+  .socialLink { width: 100%; margin-top: 1.2rem !important;}
 }
 
-@media(max-width:812px){
-  .call-us {font-size: 1.2rem !important; white-space: nowrap;}
+@media(max-width:921px){
+  /* .call-us {font-size: 1.2rem !important; white-space: nowrap;} */
   .wsmobileheader > .smllogo { width: 20%; margin: 10px auto 0px auto; }
   /* .rightLink{display:flex; justify-content: center !important;} */
   .rightLink{margin-left: auto; margin-right: auto; width:100%; justify-content: center; display:flex;}
   .tab-menu{float: left; margin-bottom:102px !important}
   .wsshoptabing{width:100%; left:0 !important}
+  .topbar {padding:0 0 0.6rem}
+  
 }
 
-@media(max-width:812px){
+@media(max-width:921px){
   .col-100{max-width: 100% !important; display:table}
   .nav-pills .nav-item .nav-link{white-space: nowrap !important;}
 
   
+}
+
+@media(max-width:800px){
+.call-us{font-weight: 400 !important}
+.downArrowHide {display: block !important;}
+.wsmenu > .wsmenu-list > li > a { display: inline-flex; width: 100%; white-space: nowrap;
+background:none !important}
+.bha-btn-primary{margin:0 1rem; width:90%}
+/* .wsactive .wsmenu > .wsmenu-list>li>a{padding:1rem} */
 }
 
 .bha-left { background: #ddd; width: 100%; position: relative; overflow: visible; padding-bottom: 0;
@@ -950,3 +968,23 @@ body {
 .ant-popover-inner-content .login-heading{border-bottom: 0; padding:1rem 0 !important}
 .pwdlink { color: #000 !important; text-transform: none !important; padding: 0 !important;
    margin: 0 !important; font-weight: 500;}
+
+/*=======New css for fixing UI issues 12-Nov-2020=================*/
+.avtar {
+  position: absolute;
+  top: -27px;
+  left: 9px;
+}
+.call-us {
+  font-size: 2rem;
+  font-weight: 700;
+  padding-left: 7rem !important;
+}
+.socialLink {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0;
+  text-align: right;
+  margin-top: 0.4rem;
+}
