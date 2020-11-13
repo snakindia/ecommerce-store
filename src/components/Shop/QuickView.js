@@ -14,7 +14,7 @@ export default class QuickView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            counts: 0,
+            counts: 1,
             imageUrl: API_IMAGE_PATH + 'default/default.jpg'
         };
     }
@@ -142,8 +142,8 @@ export default class QuickView extends Component {
                                         </div>
                                     </form> : null}
                                 <div className="float-left mt-4">
-                                    {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase"  item={item} qty ={this.state.counts}/> : <ContactForSale />}
-                                    {(regular_price || sale_price) && single ? <BuyNow /> : null}
+                                    {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase"  item={item} qty ={this.state.counts} add={true}/> : <ContactForSale />}
+                                    {/* {(regular_price || sale_price) && single ? <BuyNow /> : null} */}
 
                                 </div>
                                 <div className="social_Share">

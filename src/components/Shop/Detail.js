@@ -39,7 +39,9 @@ class Detail extends Component {
                         <div className="bgWhite padding-bottom">
                             <div className="container-fluid" >
                                 {product ? <Breadcrumb className="breadcrumb breadcrumb-bar pb-1 pt-2 small">
-                                    <Breadcrumb.Item className="breadcrumb-item">Home</Breadcrumb.Item>
+                                    <Breadcrumb.Item className="breadcrumb-item">
+                                    <Link to="/shop">Shop</Link>
+                                    </Breadcrumb.Item>
                                     <Breadcrumb.Item className="breadcrumb-item">
                                         <Link to="/shop">Products /Service</Link>
                                     </Breadcrumb.Item>
@@ -57,12 +59,12 @@ class Detail extends Component {
                             <section >
                                 <div className="container-fluid">
                                     <div className="row">
-                                        <div className="col-lg-9 col-sm-12">
+                                        <div className="col-lg-12 col-sm-12">
                                             {product ? <QuickView item={product} single={true} /> : null}
                                         </div>
-                                        <div className="col-sm-3 col-md-3">
-                                        {/* <RelatedProduct items={related} /> */}
-                                        </div>
+                                        {/* <div className="col-sm-3 col-md-3">
+                                        <RelatedProduct items={related} />
+                                        </div> */}
                                     </div>
                                     <div className="row">
                                         <div className="col-lg-12">

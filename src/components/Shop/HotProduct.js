@@ -22,7 +22,7 @@ const HotProduct = (props) => {
     const hasPrice = item && (item.regular_price || item.sale_price) ? true : false;
     return (
         <div className="hot-deals-item-wrapper deals-border-right">
-            <div className="portfolio-hover">
+            {/* <div className="portfolio-hover">
                 <div className="portfolio-hover-content">
                     <div className="callToAction-xxs">
                         <p>
@@ -31,7 +31,7 @@ const HotProduct = (props) => {
                         </p>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="card d-block">
                 {/* <Favourite className="like-button hover-hotdeal" /> */}
 
@@ -55,8 +55,12 @@ const HotProduct = (props) => {
                     <img src={imageUrl} alt="" className="img-fluid" />
                 </div>
                 <div className="d-block float-left w-100 pl-3">
-                    {hasPrice ? <AddToCart item={item} qty="add"/> : <ContactForSale />}
-                    <Link type="button" className="svg-icon bottom_menu compare-link" to="/">
+                    {/* {hasPrice ? <AddToCart item={item} qty="add"/> : <ContactForSale />} */}
+                    <Link to={`/shop/${item.id}`}  className="svg-icon bottom_menu compare-link">
+                        <i className="fa fa-random mr-2 ml-2" area-hidden="true"></i>
+                        View Details
+                    </Link>
+                     <Link type="button" className="svg-icon bottom_menu compare-link" to="/">
                         <i className="fa fa-random mr-2 ml-2" area-hidden="true"></i>
                         Compare
                     </Link>
