@@ -38,7 +38,7 @@ export default class PremiumBrands extends Component {
                 </div>
             </section>
             <section className="pro-equipment-section mt-0">
-                <div className="container padding-0">
+                <div className="container-fluid padding-0">
                   <div className="row">
                     {Object.keys(brands).length &&
                       brands.map((item, idx) => {

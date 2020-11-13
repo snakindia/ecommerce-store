@@ -523,7 +523,7 @@ class ContentSection extends Component {
                     </div>
                   </div>
 
-                  <div className="col-sm-3 col-md-3 pl-0 pr-0 userContactForm">
+                  <div className="col-sm-12 col-md-3 col-lg-3 pl-0 pr-0 userContactForm">
                     <Formik
                       initialValues={{
                         name: '',
