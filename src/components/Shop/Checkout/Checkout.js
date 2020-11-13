@@ -4,6 +4,7 @@ import { Breadcrumb } from 'antd';
 import Loader from '../../Loader/Loader'
 import QuickView from '../QuickView'
 import { addOrder, updateAddress, getPaymentMethod, getShippingMethod, getPaymentSettingsMethod } from '../store/Actions';
+import { getOrders} from '../../Accounts/store/Actions';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'antd';
 import { Card } from 'antd';
@@ -35,6 +36,7 @@ class Checkout extends Component {
     componentDidMount() {
         this.props.getPaymentMethod();
         this.props.getShippingMethod();
+        this.props.getOrders();
         this.checkForUser();
         
 
@@ -398,6 +400,7 @@ const mapStateToProps = (state) => ({
     authenticated: state.accounts.authenticated,
     user: state.accounts.user,
     order_statuses: state.accounts.orders,
+    order_statuses1: state.accounts,
     statuses: state.accounts.statuses,
 });
 const mapDispatchToProps = dispatch => ({
@@ -405,6 +408,7 @@ const mapDispatchToProps = dispatch => ({
     getPaymentSettingsMethod: () => dispatch(getPaymentSettingsMethod()),
     getShippingMethod: () => dispatch(getShippingMethod()),
     addOrder: (payload) => dispatch(addOrder(payload)),
+    getOrders: () => dispatch(getOrders()),
     updateAddress: (payload, type) => dispatch(updateAddress(payload, type)),
 });
 export default connect(
