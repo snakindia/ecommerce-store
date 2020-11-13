@@ -25,6 +25,7 @@ class TopBar extends Component {
       modal5: false,
       fields: {},
       errors: {},
+      visibleMiniCart:false,
       loginError: null,
     };
     this.ref = React.createRef(null);
@@ -68,6 +69,10 @@ class TopBar extends Component {
     this.props.doLogin(values);
    
   };
+  showCart =(e, visibleMiniCart)=>{
+    if(e){e.preventDefault();}
+    this.setState({visibleMiniCart})
+  }
 
   onSignOut = () => {
     this.props.logout();
@@ -75,6 +80,7 @@ class TopBar extends Component {
 
   render() {
     const { authenticated, userDetails, cart } = this.props;
+    const {visibleMiniCart} = this.state;
     let productsInCart = 0;
     if(cart && cart.items && cart.items.length > 0){
       for (const item of cart.items) {
@@ -104,11 +110,13 @@ class TopBar extends Component {
                 <ul className="toplink">
                   <li>
                     {productsInCart > 0 ?
-                      <Popover placement="bottom" title='' content={<MiniCart />} trigger="click"
+                      <Popover placement="bottom" title='' content={<MiniCart showCart={this.showCart} />} trigger="click"
                         overlayStyle={{ zIndex: 10001,position:'fixed' }}
                         overlayClassName="mini-cart-popup"
+                        visible={visibleMiniCart}
+                        destroyTooltipOnHide={true}
                       >
-                        <Link to="" onClick={e => e.preventDefault()}>
+                        <Link to="" onClick={e =>this.showCart(e,true)}>
                           <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20" style={{ marginRight: '2px' }}></embed>
                           <div style={{
                             width: '20px', height: '20px', borderRadius: '100px', textAlign: 'center', margin: '0 5px 0 2px',
@@ -118,7 +126,7 @@ class TopBar extends Component {
                     </Link>
                       </Popover>
                       :
-                      <Link to="" onClick={e => e.preventDefault()}>
+                      <Link to="" onClick={e =>this.showCart(e,true)}>
                         <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20"></embed>
                    Cart
                  </Link>

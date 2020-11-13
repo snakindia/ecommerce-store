@@ -16,6 +16,7 @@ import ShippingMethod from './ShippingMethod';
 import PaypalExpress from './PaypalExpress';
 import Thankyou from './Thankyou';
 import {getAddress} from '../../../utils/helper';
+import scrollToEl from '../../../utils/scrollToEl'
 const { Panel } = Collapse;
 
 class Checkout extends Component {
@@ -40,6 +41,13 @@ class Checkout extends Component {
         this.checkForUser();
         
 
+    }
+    scrollToEle(id) {
+        setTimeout(()=>{
+            console.log('scrolling', id);
+            scrollToEl('#' + id, -140, 500)
+        },500)
+       
     }
 
     checkForUser =()=>{
@@ -77,6 +85,7 @@ class Checkout extends Component {
                 shippingAddress: shipping_address && shipping_address.address1 ? shipping_address : undefined,
                 step
             })
+            this.scrollToEle(`stepp${step}`)
             if (step == 6) {
                 this.props.getPaymentSettingsMethod();
             }
@@ -313,7 +322,7 @@ class Checkout extends Component {
                                                                         activeKey={step.toString()}
                                                                         onChange={this.openPanel}
                                                                     >
-                                                                        <Panel header={headerOne} key="1">
+                                                                        <Panel header={headerOne} key="1" id="stepp1">
                                                                             {authenticated ? <div className="noheight"></div> : <Login
                                                                                 user={user}
                                                                                 authenticated={authenticated}
@@ -323,20 +332,20 @@ class Checkout extends Component {
                                                                             />
                                                                             }
                                                                         </Panel>
-                                                                        <Panel header="2. Shipping Address" key="2" >
+                                                                        <Panel header="2. Shipping Address" key="2" id="stepp2">
                                                                             <Address authenticated ={authenticated} oldAddress={address && address.shipping ? address.shipping: null} type="shipping" submit={this.shippingSave} data={shippingAddress} />
                                                                         </Panel>
-                                                                        <Panel header="3. Billing Address" key="3" >
+                                                                        <Panel header="3. Billing Address" key="3" id="stepp3">
                                                                             <Address authenticated={authenticated} oldAddress={address && address.billing ? address.billing: null} type="billing" submit={this.shippingSave} data={billingAddress} />
                                                                         </Panel>
-                                                                        <Panel header="4. Shipping Method" key="4" >
+                                                                        <Panel header="4. Shipping Method" key="4" id="stepp4">
                                                                             <ShippingMethod
                                                                                 shipping_method_id={cart && cart.shipping_method_id ? cart.shipping_method_id : ''}
                                                                                 shippingMethods={shippingMethods}
                                                                                 shippingMethodHandler={this.shippingMethodHandler}
                                                                             />
                                                                         </Panel>
-                                                                        <Panel header="5. Payment Method" key="5" >
+                                                                        <Panel header="5. Payment Method" key="5" id="stepp5">
 
                                                                             <Payment
                                                                                 data={paymentMethods}
@@ -349,7 +358,7 @@ class Checkout extends Component {
 
                                                                         </Panel>
                                                                         {cart.payment_method_id && cart.payment_method_gateway == 'paypal-checkout' ?
-                                                                            <Panel header="6. Payment " key="6" >
+                                                                            <Panel header="6. Payment " key="6" id="stepp6">
                                                                                 <PaypalExpress />
                                                                             </Panel>
                                                                             : null

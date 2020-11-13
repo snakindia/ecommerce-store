@@ -202,7 +202,8 @@ export const doLogin = (payload) => {
             .then(res => {
                 dispatch(setLoadingAuth(false));
                 if (res.data && res.data.status && res.data.token) {
-                    localStorage.setItem('bhaAuth',res.data.token)
+                    localStorage.setItem('bhaAuth',res.data.token);
+                    window.location.reload();
                     dispatch(getUser());
                 } else {
                     notification('error', 'Credentials Invalid')

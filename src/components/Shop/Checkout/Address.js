@@ -43,7 +43,7 @@ function Address(props) {
     if (authenticated && !data && oldAddress && oldAddress.length > 0) {
         initialFormValue = Object.assign(initialFormValue, oldAddress[0]);
     }
-    const [addNew ,showAddNew] =useState(oldAddress && oldAddress.length > 0 ? false: true)
+    const [addNew ,showAddNew] =useState(false)
     if(addNew){
          initialFormValue = {
             first_name: '',
@@ -103,7 +103,7 @@ function Address(props) {
                 </div>
                 </div>
             </> : null}
-            {addNew ? 
+            {(addNew || !authenticated) ? 
             <Formik
                 enableReinitialize
                 initialValues={initialFormValue}
