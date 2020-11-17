@@ -25,7 +25,7 @@ class TopBar extends Component {
       modal5: false,
       fields: {},
       errors: {},
-      visibleMiniCart:false,
+      visibleMiniCart: false,
       loginError: null,
     };
     this.ref = React.createRef(null);
@@ -67,11 +67,11 @@ class TopBar extends Component {
 
   onFormSubmit = (values, { setSubmitting }) => {
     this.props.doLogin(values);
-   
+
   };
-  showCart =(e, visibleMiniCart)=>{
-    if(e){e.preventDefault();}
-    this.setState({visibleMiniCart})
+  showCart = (e, visibleMiniCart) => {
+    if (e) { e.preventDefault(); }
+    this.setState({ visibleMiniCart })
   }
 
   onSignOut = () => {
@@ -82,13 +82,13 @@ class TopBar extends Component {
 
   render() {
     const { authenticated, userDetails, cart } = this.props;
-    const {visibleMiniCart} = this.state;
+    const { visibleMiniCart } = this.state;
     let productsInCart = 0;
-    if(cart && cart.items && cart.items.length > 0){
+    if (cart && cart.items && cart.items.length > 0) {
       for (const item of cart.items) {
-       
-          productsInCart = productsInCart + item.quantity;
-      
+
+        productsInCart = productsInCart + item.quantity;
+
       }
     }
     const { showLanguage } = this.state;
@@ -113,12 +113,12 @@ class TopBar extends Component {
                   <li>
                     {productsInCart > 0 ?
                       <Popover placement="bottom" title='' content={<MiniCart showCart={this.showCart} />} trigger="click"
-                        overlayStyle={{ zIndex: 10001,position:'fixed' }}
+                        overlayStyle={{ zIndex: 10001, position: 'fixed' }}
                         overlayClassName="mini-cart-popup"
                         visible={visibleMiniCart}
                         destroyTooltipOnHide={true}
                       >
-                        <Link to="" onClick={e =>this.showCart(e,true)}>
+                        <Link to="" onClick={e => this.showCart(e, true)}>
                           <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20" style={{ marginRight: '2px' }}></embed>
                           <div style={{
                             width: '20px', height: '20px', borderRadius: '100px', textAlign: 'center', margin: '0 5px 0 2px',
@@ -128,7 +128,7 @@ class TopBar extends Component {
                     </Link>
                       </Popover>
                       :
-                      <Link to="" onClick={e =>this.showCart(e,true)}>
+                      <Link to="" onClick={e => this.showCart(e, true)}>
                         <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20"></embed>
                    Cart
                  </Link>
@@ -137,25 +137,30 @@ class TopBar extends Component {
                   <span>&nbsp;</span>
                   {authenticated && userDetails && userDetails.first_name ? (
                     <li>
+                      <embed src={Profile} alt="" width="20" height="20"></embed>
                       {userDetails.first_name}
-                      <button onClick={this.onSignOut}>SignOut</button>
+                      <ul>
+                        <li onClick={this.onSignOut}>SignOut</li>
+                        <li ><Link to="/accounts" >My Accounts</Link></li>
+                      </ul>
+
                     </li>
                   ) : (
                       <li >
                         <Popover placement="bottom" title='' content={
-                        <Login  
-                        loginError={this.state.loginError}
-                        displaySignupContent={this.displaySignupContent}
-                        onFormSubmit={this.onFormSubmit}/>
-                      } trigger="click"
-                        overlayStyle={{ zIndex: 10001,position:'fixed' }}
-                        overlayClassName="mini-cart-popup signInBox"
-                      >
-                        <Link to="" onClick={e => e.preventDefault()} id="loginpopover">
-                          <embed src={Profile} alt="" width="20" height="20"></embed>
+                          <Login
+                            loginError={this.state.loginError}
+                            displaySignupContent={this.displaySignupContent}
+                            onFormSubmit={this.onFormSubmit} />
+                        } trigger="click"
+                          overlayStyle={{ zIndex: 10001, position: 'fixed' }}
+                          overlayClassName="mini-cart-popup signInBox"
+                        >
+                          <Link to="" onClick={e => e.preventDefault()} id="loginpopover">
+                            <embed src={Profile} alt="" width="20" height="20"></embed>
                         login/signup
                       </Link>
-                      </Popover>
+                        </Popover>
                       </li>
                     )}
 
@@ -168,13 +173,13 @@ class TopBar extends Component {
 
                   {/* <span>&nbsp;</span> */}
                   {/* <li> */}
-                    {/*<a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>*/}
-                    {/* <a color="primary" ><img src={Globe} alt="" width="20" />EN</a>  */}
-                    {/* </li> */}
+                  {/*<a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>*/}
+                  {/* <a color="primary" ><img src={Globe} alt="" width="20" />EN</a>  */}
+                  {/* </li> */}
                   {/* <span className="mobHide">&nbsp;</span> */}
                   {/* <li className="mobHide"> */}
-                    {/*<a onClick={this.toggle(6)}>*/}
-                    {/* <a>
+                  {/*<a onClick={this.toggle(6)}>*/}
+                  {/* <a>
                       <i className="fa fa-search mr-2" /> Search
                       <i className="caret border-0" />
                     </a>
@@ -191,7 +196,7 @@ class TopBar extends Component {
           toggle={this.toggle(5)}
         >
           <div>
-            
+
           </div>
         </MDBModal>
 
@@ -238,7 +243,7 @@ class TopBar extends Component {
   }
 }
 
-const mapStateToProps = ({ asyncReducer, auth, shop,accounts }) => {
+const mapStateToProps = ({ asyncReducer, auth, shop, accounts }) => {
   return {
     page_details: asyncReducer.page_meta_details,
     authenticated: accounts.authenticated,
@@ -247,4 +252,4 @@ const mapStateToProps = ({ asyncReducer, auth, shop,accounts }) => {
   };
 };
 
-export default connect(mapStateToProps, {doLogin, logout })(TopBar);
+export default connect(mapStateToProps, { doLogin, logout })(TopBar);

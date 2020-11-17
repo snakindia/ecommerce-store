@@ -66,7 +66,7 @@ function Payment(props) {
                     </div>
                 </div>
                 
-                    <div className="form-group mt-3">
+                    {/* <div className="form-group mt-3">
                         {!props.hide ? 
                         <button 
                         type="submit"
@@ -74,7 +74,7 @@ function Payment(props) {
                             :
                             null
                         }
-                         </div>
+                         </div> */}
                
 
             </Form>

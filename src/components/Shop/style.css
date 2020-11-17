@@ -1301,3 +1301,11 @@ body {
   .quick_sidebar_open .quick-sidebar {
     width: 100%;
     padding: 20px; } }
+
+
+    /* .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+      background: transparent !important;
+  }
+  .ant-collapse-content {
+    background: transparent !important;
+} */
