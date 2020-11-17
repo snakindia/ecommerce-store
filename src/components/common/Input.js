@@ -43,6 +43,7 @@ const Input = (props) => {
             component={type=='textarea'? 'textarea':'input'}
             value={formik.values[name]}
             onChange={onchangeHandler}
+            autoComplete="off"
         />
     );
 };
