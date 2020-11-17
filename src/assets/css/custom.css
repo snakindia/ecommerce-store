@@ -708,8 +708,8 @@ text-align: center;width: 94% !important;}
 @media(min-width: 375px){
   .logIn{background: #fff !important; border:none;}
   .banner-about{margin-top: 0 !important; height: 340px !important;}
-  .carousel-control, .carousel-control-prev, .carousel-control-next {
-    height: 50vh !important; }
+  /* .carousel-control, .carousel-control-prev, .carousel-control-next {
+    height: 50vh !important; } */
 }
 @media(min-width: 736px){
 .banner-about{margin-top: 0 !important; height: 430px !important;}
@@ -1003,8 +1003,8 @@ body {
   
 }
 
-.carousel-control, .carousel-control-prev, .carousel-control-next {
+/* .carousel-control, .carousel-control-prev, .carousel-control-next {
   width: 50px;
   cursor: pointer;
   height: 70vh;
-}
+} */
