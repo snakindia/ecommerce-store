@@ -1010,9 +1010,24 @@ body {
 } */
 
 .user-setting{background:rgb(255, 255, 255); margin:0;padding:0;
-   position:absolute; top:2.5rem; right:0; box-shadow: 0 0 10px #ddd;}
+   position:absolute; top:3.2rem; right:0; box-shadow: 0 0 10px #ddd;}
 .user-setting li{color:rgb(105, 105, 105);font-weight: 500; font-size: 0.8rem; text-transform: uppercase;
 border-bottom:1px solid #f2f2f2; width: 100%;
 margin: 0;padding:0.650rem 1rem;cursor: pointer; transition: 0.3s;}
-.user-setting li:hover{background-color: #f3f3f3;}
+.user-setting li:hover{background-color: #f8f8f8;}
 .user-setting li a{color:rgb(105, 105, 105) !important; font-weight: 500 !important;}
+
+.user-setting:before, .user-setting:after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  right: 19px;
+  border: 11px solid transparent;
+  border-bottom-color: #dddddd;
+}
+
+.user-setting:after {
+  right: 20px;
+  border: 10px solid transparent;
+  border-bottom-color: #ffffff;
+}
