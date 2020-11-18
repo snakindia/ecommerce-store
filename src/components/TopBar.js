@@ -137,11 +137,13 @@ class TopBar extends Component {
                   <span>&nbsp;</span>
                   {authenticated && userDetails && userDetails.first_name ? (
                     <li>
-                      <embed src={Profile} alt="" width="20" height="20"></embed>
+                      <a href=""><embed src={Profile} alt="" width="20" height="20"></embed>
                       {userDetails.first_name}
-                      <ul>
+                      <i className="fa fa-angle-down mt-1 ml-2"></i></a>
+                      <ul className="user-setting">
+                        <li><Link to="/accounts" >My Accounts</Link></li>
+                        <li><Link to="/accounts" >Settings</Link></li>
                         <li onClick={this.onSignOut}>SignOut</li>
-                        <li ><Link to="/accounts" >My Accounts</Link></li>
                       </ul>
 
                     </li>
