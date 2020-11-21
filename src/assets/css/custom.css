@@ -1030,6 +1030,7 @@ margin: 0;padding:0.650rem 1rem;cursor: pointer; transition: 0.3s;}
   right: 20px;
   border: 10px solid transparent;
   border-bottom-color: #ffffff;
+}
 .wsmenu > .wsmenu-list > li > .navtext {
     line-height: 16px;
     text-align: right;
