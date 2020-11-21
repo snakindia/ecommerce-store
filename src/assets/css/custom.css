@@ -769,7 +769,7 @@ text-align: center;width: 94% !important;}
   .banner-slider-container .bha_heading_2{margin-top: 20px !important;}
   .padding_news{margin-top: 400px !important}
   .banner-container-xxs .carousel-indicators{display: none;}
-  .content-wrapper .texture-bg{margin-top: 60px !important}
+  .content-wrapper .texture-bg{margin-top: 380px !important}
   .banner-slider-container{margin-top: 103px !important;}
   .padding-left0{padding-left:1rem !important}
   .placement-client .slick-slide { padding: 0;}
@@ -1030,4 +1030,9 @@ margin: 0;padding:0.650rem 1rem;cursor: pointer; transition: 0.3s;}
   right: 20px;
   border: 10px solid transparent;
   border-bottom-color: #ffffff;
+.wsmenu > .wsmenu-list > li > .navtext {
+    line-height: 16px;
+    text-align: right;
+    padding: 25px 10px;
+    margin: 0 2px;
 }

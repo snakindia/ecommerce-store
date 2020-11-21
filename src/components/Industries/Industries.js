@@ -126,12 +126,12 @@ class Industries extends Component {
                 }
 
                 <IndustriesSlider />
-                <div className="content-wrapper pb-0 pt-0">
-                    <div className="pagewrap">
-                        <div className="bgWhite pb-4">
-                            <CheckOutNews />
+                <div class="content-wrapper pb-0 pt-0">
+                    <div class="pagewrap">
+                        <div class="bgWhite pb-4">
+                            {/* <CheckOutNews /> */}
                             <PremiumBrands />
-                            <CheckOutEvents />
+                            {/* <CheckOutEvents /> */}
                             <Clients />
                         </div>
                     </div>

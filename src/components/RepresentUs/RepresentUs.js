@@ -40,7 +40,7 @@ class RepresentUs extends Component {
                             <GoogleMap />
                         </div>
                         <Clients />
-                        <Faq data={data}/>
+                        {/* <Faq data={data}/> */}
                     </div>
                 </div>
             </div>
