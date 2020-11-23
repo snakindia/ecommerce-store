@@ -9,7 +9,7 @@ const Product = (props) => {
     const item = props.data;
     const remove = (e) => {
         e.preventDefault();
-        props.remove(item.product_id);
+        props.remove(item.id);
     }
     
     // let price = item.sale_price ? item.sale_price: item.regular_price;

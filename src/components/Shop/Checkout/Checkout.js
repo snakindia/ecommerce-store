@@ -32,7 +32,8 @@ class Checkout extends Component {
             same: false,
             shippingAddress: undefined,
             billingAddress: undefined,
-            authenticated: undefined
+            authenticated: undefined,
+            stepCompleted:0
         }
     }
 
@@ -250,8 +251,8 @@ class Checkout extends Component {
     }
 
     isFilled = (from) => {
-        const { step } = this.state;
-        return step > from ? <CheckCircleOutlined /> : null
+        const { stepCompleted } = this.state;
+        return stepCompleted > from ? <CheckCircleOutlined /> : null
     }
 
     headers = (from) => {
