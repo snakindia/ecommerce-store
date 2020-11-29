@@ -15,10 +15,10 @@ import Footerlogo from '../assets/images/footer-logo.png';
 import FooterCaller from '../assets/images/call-xs.png';
 import Chat from '../assets/icon/chat.svg';
 import { fetch_dynamic_menus } from '../actions/fetchActions';
-import { save_brochures_details } from '../actions/freeBrochuresActions';
+import { save_brochures_details,flushData } from '../actions/freeBrochuresActions';
 import { showToast } from './Notification/notification.actions';
 import { TOAST_TYPE } from './Notification/action.constants';
-
+import Loader from './Loader/Loader'
 
 class Footer extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class Footer extends Component {
 
   saveHandler(data) {
     data.type = 'Representative';
-    this.props.saveBrochuresDetails();
+    this.props.saveBrochuresDetails(data);
   }
 
   componentDidMount() {
@@ -40,7 +40,7 @@ class Footer extends Component {
 
   render() {
     this.state.brochureData = this.props.freeBrochuresUserDetail;
-    const { navMenuData, brochureData } = this.props;
+    const { navMenuData, brochureData ,contactFormType} = this.props;
     const { menuData } = navMenuData;
     const {
         footer_menu_1_title,
@@ -55,9 +55,16 @@ class Footer extends Component {
         footer_menu_5_items,
         footer_social
     } = menuData;
-    
+    if(contactFormType == 'footer' && brochureData===true){
+      this.props.showToast(messages.footer, TOAST_TYPE.SUCCESS);
+      this.props.flushData()
+    } else if (contactFormType == 'footer' && brochureData ===false) {
+      this.props.showToast(messages.footerError, TOAST_TYPE.ERROR);
+      this.props.flushData()
+    }
     return (
       <div>
+        {this.props.loading  ? <Loader />:null}
         <div class="chat-button">
           <a href="/">
             <img src={Chat} class="mr-2" alt="" width="30" />
@@ -195,11 +202,17 @@ class Footer extends Component {
                           }}
                           onSubmit={(values, { setSubmitting, resetForm }) => {
                             setSubmitting(true);
-                            console.log({values})
-                            this.saveHandler(values);
-                            //this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
-                            this.props.showToast(messages.footer, TOAST_TYPE.SUCCESS);
+                            
+                            this.saveHandler({...values,contactFormType:'footer'} );
                             resetForm()
+                            //this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
+                            //this.props.showToast(messages.footer, TOAST_TYPE.SUCCESS);
+                           
+                           
+                            // if(this.props.brochureData && this.props.brochureData.status==true){
+                            //   resetForm()
+                            // }
+                           
                           }}
                         >
                           {(formik) => (
@@ -316,7 +329,7 @@ class Footer extends Component {
                                     Apply
                                 </button>
                                 </div>
-                                {this.props.brochureData &&
+                                {/* {this.props.brochureData &&
                                   Object.keys(this.props.brochureData).length >
                                   0 &&
                                   this.props.brochureData.status == true && (
@@ -328,7 +341,7 @@ class Footer extends Component {
                                     >
                                       Data saved successfully
                                     </div>
-                                  )}
+                                  )} */}
                               </form>
                             )}
                         </Formik>
@@ -452,14 +465,18 @@ class Footer extends Component {
 const mapStateToProps = ({ asyncReducer }) => {
   return {
     navMenuData: asyncReducer,
-    brochureData: asyncReducer.freeBrochuresUserDetail
+    contactFormType: asyncReducer.contactFormType,
+    brochureData: asyncReducer.freeBrochuresUserDetail,
+    loading: asyncReducer.freeBrochuresUserDetailLoading
   };
 };
 
 const mapDispatchToProps = {
   saveBrochuresDetails: data => save_brochures_details(data),
+  showToast: data => showToast(data),
+  flushData:()=> flushData(),
   fetch_dynamic_menus: fetch_dynamic_menus,
-  showToast,
+  
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);
