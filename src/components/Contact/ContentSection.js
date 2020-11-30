@@ -18,9 +18,13 @@ import Brazil from '../../assets/images/Brazil.png';
 import Israel from '../../assets/images/Israel.jpg';
 import SouthAfrica from '../../assets/images/South Africa.jpg';
 import item2 from '../../assets/images/thumbnail-img/item2.png';
-import { save_brochures_details } from '../../actions/freeBrochuresActions';
+import { save_brochures_details,flushData } from '../../actions/freeBrochuresActions';
+import { TOAST_TYPE } from '../Notification/action.constants';
+import { showToast } from './../Notification/notification.actions';
 import Input from '../common/Input';
 import Error from '../common/Error';
+import messages from '../../utils/messages';
+import Loader from '../Loader/Loader'
 class ContentSection extends Component {
   constructor(props) {
     super(props);
@@ -50,8 +54,18 @@ class ContentSection extends Component {
   // }
 
   render() {
+    const {contactFormType, saveRecordStatus}=this.props;
+    
+    if(contactFormType == 'ContactUs' && saveRecordStatus === false){
+      this.props.dispatch(showToast(messages.footerError, TOAST_TYPE.ERROR));
+      this.props.dispatch(flushData());
+    } else if (contactFormType == 'ContactUs' && this.props.saveRecordStatus === true) {
+      this.props.dispatch(showToast(messages.footer, TOAST_TYPE.SUCCESS));
+      this.props.dispatch(flushData());
+    }
     return (
       <div>
+        {this.props.loading  ? <Loader />:null}
         <section class="content-wrapper pb-0">
           <div class="pagewrap">
             <div class="bgWhite">
@@ -219,7 +233,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="purchasing@baghouseamerica.com">
+                                    <a href="mailto:purchasing@baghouseamerica.com">
                                       Purchasing@baghouseamerica.com
                                     </a>
                                   </span>
@@ -229,7 +243,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="hr@baghouseamerica.com">
+                                    <a href="mailto:hr@baghouseamerica.com">
                                       Hr@baghouseamerica.com
                                     </a>
                                   </span>
@@ -239,7 +253,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="finance@baghouseamerica.com">
+                                    <a href="mailto:finance@baghouseamerica.com">
                                       Finance@baghouseamerica.com
                                     </a>
                                   </span>
@@ -309,7 +323,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="purchasing@baghouseamerica.com">
+                                    <a href="mailto:purchasing@baghouseamerica.com">
                                       Purchasing@baghouseamerica.com
                                     </a>
                                   </span>
@@ -319,7 +333,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="hr@baghouseamerica.com">
+                                    <a href="mailto:hr@baghouseamerica.com">
                                       Hr@baghouseamerica.com
                                     </a>
                                   </span>
@@ -329,7 +343,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="finance@baghouseamerica.com">
+                                    <a href="mailto:finance@baghouseamerica.com">
                                       Finance@baghouseamerica.com
                                     </a>
                                   </span>
@@ -401,7 +415,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="purchasing@baghouseamerica.com">
+                                    <a href="mailto:purchasing@baghouseamerica.com">
                                       Purchasing@baghouseamerica.com
                                     </a>
                                   </span>
@@ -411,7 +425,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="hr@baghouseamerica.com">
+                                    <a href="mailto:hr@baghouseamerica.com">
                                       Hr@baghouseamerica.com
                                     </a>
                                   </span>
@@ -421,7 +435,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="finance@baghouseamerica.com">
+                                    <a href="mailto:finance@baghouseamerica.com">
                                       Finance@baghouseamerica.com
                                     </a>
                                   </span>
@@ -490,7 +504,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="purchasing@baghouseamerica.com">
+                                    <a href="mailto:purchasing@baghouseamerica.com">
                                       Purchasing@baghouseamerica.com
                                     </a>
                                   </span>
@@ -500,7 +514,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="hr@baghouseamerica.com">
+                                    <a href="mailto:hr@baghouseamerica.com">
                                       Hr@baghouseamerica.com
                                     </a>
                                   </span>
@@ -510,7 +524,7 @@ class ContentSection extends Component {
                                 <div class="mt-4 float-left">
                                   <i class="fa fa-envelope bha-icon mr-3"></i>
                                   <span class="font-weight-normal email-font-size">
-                                    <a href="finance@baghouseamerica.com">
+                                    <a href="mailto:finance@baghouseamerica.com">
                                       Finance@baghouseamerica.com
                                     </a>
                                   </span>
@@ -576,10 +590,13 @@ class ContentSection extends Component {
                         return errors;
                       }}
                       onSubmit={(values, { setSubmitting, resetForm }) => {
-                        Object.assign(values, { type: 'Contact' });
-                        console.log(values);
+                        Object.assign(values, { type: 'Contact',contactFormType:'ContactUs' });
+                        //console.log(values);
                         this.props.dispatch(save_brochures_details(values));
-                        resetForm()
+                       
+                          resetForm()
+                       
+                       
                       }}
                     >
                       {(formik) => (
@@ -644,7 +661,7 @@ class ContentSection extends Component {
                                 </span> */}
                               </div>
                               <div class="form-group">
-                                <label class="text-small">Message</label>
+                                <label class="text-small">Message *</label>
                                 <Input
                                   type="textarea"
                                   class="form-control input-control"
@@ -666,7 +683,7 @@ class ContentSection extends Component {
                                   el={['name','email','phone','message' ]}
                                    />
                               </div>     
-                              {this.props.saveRecordStatus == true && (
+                              {/* {this.props.saveRecordStatus == true && (
                                 <div
                                   style={{
                                     color: 'green',
@@ -687,7 +704,8 @@ class ContentSection extends Component {
                                   Error while saving data. Please try again
                                   later
                                 </div>
-                              )}
+                              )} */}
+                              
                               <div class="form-group mt-3">
                                 <button
                                   type="button"
@@ -719,6 +737,8 @@ class ContentSection extends Component {
 const mapStateToProps = ({ asyncReducer }) => {
   return {
     saveRecordStatus: asyncReducer.freeBrochuresUserDetail,
+    contactFormType: asyncReducer.contactFormType,
+    loading: asyncReducer.freeBrochuresUserDetailLoading
   };
 };
 export default connect(mapStateToProps)(ContentSection);

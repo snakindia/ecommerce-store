@@ -7,6 +7,8 @@ const initialState = {
   freeBrochuresUserDetail: {},
   page_meta_details: {},
   loading:false,
+  contactFormType:undefined,
+  freeBrochuresUserDetailLoading:undefined
 };
 
 const asyncReducer = (state = initialState, action) => {
@@ -56,7 +58,16 @@ const asyncReducer = (state = initialState, action) => {
 
     case 'SAVE_FREE_BROCHURES_USER':
       return Object.assign({}, state, {
-        freeBrochuresUserDetail: action.data,
+        freeBrochuresUserDetail: action.data,contactFormType:action.contactFormType
+      });
+
+    case 'FLUSH_BROCHURES_DATA':
+    return Object.assign({}, state, {
+      freeBrochuresUserDetail: undefined,contactFormType:undefined
+    });
+    case 'SET_BROCHURES_LOADING':
+      return Object.assign({}, state, {
+        freeBrochuresUserDetailLoading: action.payload,
       });
 
     case 'RECEIVED_PAGE_META_DETAILS':

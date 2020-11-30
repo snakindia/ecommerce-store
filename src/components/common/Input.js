@@ -11,20 +11,20 @@ const Input = (props) => {
         } 
         else if (allow && allow =='text'){
             const isValid= (/^[a-zA-Z0-9 ]*$/i.test(val))
-            console.log({isValid})
+            //console.log({isValid})
             return isValid && val.length <=length;
         } else if (allow && allow =='special'){
             const isValid= (/^[a-zA-Z0-9~!@#$%^&*-_'" ]*$/i.test(val))
-            console.log({isValid})
+            //console.log({isValid})
             return isValid && val.length <=length;
         }
          else if (allow && allow =='numeric'){
             const isValid= (/^[0-9]/i.test(val))
-            console.log({isValid})
+            //console.log({isValid})
             return isValid && val.length <=length;
         }  else if (allow && allow =='email'){
             const isValid= (/^[a-zA-Z0-9@-_.]*$/i.test(val))
-            console.log({isValid})
+            //console.log({isValid})
             return isValid && val.length <=length;
         }
     }

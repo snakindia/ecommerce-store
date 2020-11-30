@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, Formik } from 'formik';
 import { connect } from 'react-redux';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
-import { save_brochures_details } from '../../actions/freeBrochuresActions';
+import { save_brochures_details,flushData } from '../../actions/freeBrochuresActions';
 import { TOAST_TYPE } from '../Notification/action.constants';
 import { showToast } from './../Notification/notification.actions';
 import messages from '../../utils/messages';
@@ -18,6 +18,7 @@ class ContactForm extends Component {
 
     saveHandler(data) {
         data.type = 'Representative';
+        data.contactFormType = 'Representative';
         this.props.saveBrochuresDetails(data);
     }
 
@@ -30,7 +31,14 @@ class ContactForm extends Component {
             country: this.props.countryName ? this.props.countryName : '',
             description: '',
         }
-
+        
+        const { brochureData ,contactFormType} = this.props;
+        if(contactFormType == 'Representative' && brochureData===true){
+            this.props.showToast(messages.footer, TOAST_TYPE.SUCCESS);
+          } else if (contactFormType == 'Representative' && brochureData ===false) {
+            this.props.showToast(messages.footerError, TOAST_TYPE.ERROR);
+          
+          }
         return (
 
             <div id="representus-contact" className="broucher-bg pattern pattern1">
@@ -88,7 +96,7 @@ class ContactForm extends Component {
                                 onSubmit={(values, { setSubmitting, resetForm }) => {
                                     this.saveHandler(values);
                                     //this.props.showToast("Thanks you for filling out your information! We are thrilling to hear from you. Our inbox can't wait to get your messages, so talk to us any time you like. Cheers!", TOAST_TYPE.SUCCESS);
-                                    this.props.showToast(messages.footer, TOAST_TYPE.SUCCESS);
+                                   // this.props.showToast(messages.footer, TOAST_TYPE.SUCCESS);
                                     resetForm()
                                 }}
                             >
@@ -227,15 +235,19 @@ class ContactForm extends Component {
 
     }
 }
-const mSTP = ({ news }) => {
+const mSTP = ({ news,asyncReducer }) => {
     return {
-        brochureData: news.freeBrochuresUserDetail,
+        brochureData: asyncReducer.freeBrochuresUserDetail,
+        // brochureData: news.freeBrochuresUserDetail,
+        contactFormType: asyncReducer.contactFormType,
+    loading: asyncReducer.freeBrochuresUserDetailLoading
     }
 };
 
 const mapDispatchToProps = {
     saveBrochuresDetails: data => save_brochures_details(data),
-    showToast,
+    showToast: data => showToast(data),
+    flushData:()=> flushData(),
 };
 
 export default connect(mSTP, mapDispatchToProps)(ContactForm);
