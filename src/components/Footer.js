@@ -340,18 +340,19 @@ class Footer extends Component {
             </div>
             <div className="footer-bottom">
               <div class="pagewrap">
+              <div className="container-fluid pl-0 pr-0">
                 <MDBRow>
-                  <MDBCol lg="8" style={{ position: 'relative' }}>
+                  <MDBCol sm="7" md="7" className="pl-0 pr-0" style={{ position: 'relative' }}>
                     <img
-                      class="img-fluid callerLady"
+                      class="img-fluid avtar"
                       src={FooterCaller}
                       alt=""
                     />
                     <span className="call-us">CALL US: (888) 286-8708</span>
                   </MDBCol>
-                  <MDBCol md="4" sm="4" xs="12" className="text-right">
+                  <MDBCol md="5" sm="5" xs="12">
                     <div className="socialLink">
-                    <span className="float-left">Follow us:</span>
+                    <span>Follow us:</span>
                     {
                         footer_social && Object.keys(footer_social).length > 0 &&
                         footer_social.map((item, idx) => { 
@@ -388,6 +389,7 @@ class Footer extends Component {
                     </div>
                   </MDBCol>
                 </MDBRow>
+                </div>
               </div>
             </div>
 
