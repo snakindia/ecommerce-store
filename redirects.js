@@ -10,10 +10,13 @@ const getRedirect = (req) => {
   const url = `${process.env.REACT_APP_API_URL}/redirects`;
   //const url = `http://localhost:3001/api/v1/redirects`;
   //console.log({ url });
+  console.log(absoluteUrl,relativeUrl,relativePath);
   return axios.get(url).then((res) => {
+    
     //console.log(res.data);
     const items = res.data;
     if (items && items.length > 0) {
+
       /*
       1. check absolute url
       2. check relative url
@@ -31,6 +34,7 @@ const getRedirect = (req) => {
     return null
   })
 }
+
 
 const redirectUrlIsValid = (url) =>
   url &&

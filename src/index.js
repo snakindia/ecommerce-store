@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
@@ -29,7 +30,7 @@ import store from './store';
 import { Provider } from 'react-redux';
 
 //import App from "./App";
-
+import ReactRedirect from './ReactRedirect'
 import Routes from './routes';
 
 import registerServiceWorker from './registerServiceWorker';
@@ -38,7 +39,11 @@ window.onbeforeunload = function () {
 };
 ReactDOM.render(
   <Provider store={store}>
-    <Routes />
+     <BrowserRouter>
+    <Switch>
+    <Route  path="/" component={ReactRedirect} />
+    </Switch>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );
