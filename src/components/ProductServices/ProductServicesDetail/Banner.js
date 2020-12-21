@@ -1,7 +1,7 @@
 import React from 'react';
 import ProducstServiceContactForm from './ProducstServiceContactForm';
 
-const Banner = ({ content }) => {
+const Banner = ({ content,cat_id, cat_name }) => {
     let pdf_url = '';
     return (
         <section class="hero-header" style={{"background": "none"}}>
@@ -23,7 +23,14 @@ const Banner = ({ content }) => {
                         })}
                         
                         {
-                            pdf_url != '' ? <ProducstServiceContactForm pdf_url={pdf_url} /> : <ProducstServiceContactForm />
+                            pdf_url != '' ? 
+                            <ProducstServiceContactForm 
+                            cat_id={cat_id} cat_name={cat_name}
+                             /> : 
+                             <ProducstServiceContactForm 
+                             
+                              cat_id={cat_id} cat_name={cat_name}
+                               />
                         }
                             
                         
