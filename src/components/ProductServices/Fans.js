@@ -53,7 +53,7 @@ class Fans extends Component {
                             <div className="parallax-header" style={{ backgroundImage: `url(${data.banner_image})` }}>
                                 <div className="container">
                                     <div className="row">
-                                        <div className="col-sm-8 col-md-8 col-lg-8">
+                                        <div className="col-sm-9 col-md-9 col-lg-9">
                                             <div className="row text-sm-right">
                                                 <div className="offer">
                                                     {data.banner_title}
@@ -108,7 +108,7 @@ class Fans extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center" style={{marginTop:'-130px'}}>
+                                        <div className="col-sm-3 col-md-3 col-lg-3 d-flex justify-content-center" style={{marginTop:'-130px'}}>
                                            
                                                 <ProducstServiceContactForm />
                                           
@@ -129,8 +129,8 @@ class Fans extends Component {
                                             <img src="images/ac4a649d-badges4_104t04u000000000000028.png" />
                                             <img src="images/ac4a649d-badges4_104t04u000000000000028.png" />
                                         </div>
-                                        <div className="col-lg-12 d-flex justify-content-center pt-10">
-                                            <div className="compaire-container fans_comp_bg">
+                                        <div className="col-lg-12 d-flex justify-content-center ">
+                                            <div className="compaire-container1 fans_comp_bg">
                                                 <div className="text-center">
                                                     <div className="container content-padding">
                                                         <div className="row align-items-center card-gutter">
