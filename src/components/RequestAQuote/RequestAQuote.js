@@ -223,8 +223,9 @@ class RequestAQuote extends Component {
                     {isFreeBrochure != true ?
                       <div className="col-lg-12">
                         <div className="form-group mb-1">
-                          <label htmlFor="company">Message *</label>
+                          <label htmlFor="company" style={{width:'100%'}} >Message *</label>
                           <Field
+                          style={{width:'100%'}} 
                             maxLength="100"
                             component="textarea"
                             rows="2"
