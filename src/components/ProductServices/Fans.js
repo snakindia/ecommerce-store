@@ -96,13 +96,13 @@ class Fans extends Component {
                             <div className="parallax-header" style={{ backgroundImage: `url(${data.banner_image})` }}>
                                 <div className="container">
                                     <div className="row">
-                                        <div className="col-sm-9 col-md-9 col-lg-9">
+                                        <div className="col-sm-8 col-md-6 col-lg-8">
                                             <div className="row text-sm-right">
                                                 <div className="offer">
                                                     {data.banner_title}
                                                 </div>
                                             </div>
-                                            <div className="row text-center">
+                                            <div className="row text-center textLeft">
                                                 <div className="col-lg-12">
                                                     <div className="p-pom-box">
                                                         <div className="lp-pom-image">
@@ -151,11 +151,12 @@ class Fans extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-sm-3 col-md-3 col-lg-3 d-flex justify-content-center" style={{ marginTop: '-130px' }}>
+                                        <div className="col-sm-4 col-md-6 col-lg-4 d-flex justify-content-center headerForm">
 
                                             <ProducstServiceContactForm
                                                 cat_id={cat_id}
                                                 cat_name={cat_name}
+                                                hideclassName={true}
                                             />
 
                                         </div>
@@ -170,19 +171,29 @@ class Fans extends Component {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12 d-flex justify-content-center">
-                                            <img src="images/c2e53f0e-badges1_105b05b000000000000028.png" />
-                                            <img src="images/d409b07d-badges2_106h05a000000000000028.png" />
-                                            <img src="images/ac4a649d-badges4_104t04u000000000000028.png" />
-                                            <img src="images/ac4a649d-badges4_104t04u000000000000028.png" />
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-6 col-lg-3 text-center">
+                                                    <img class="img-fluid" src="images/c2e53f0e-badges1_105b05b000000000000028.png" />
+                                                </div>
+                                                <div class="col-sm-3 col-md-6 col-lg-3 text-center">
+                                                    <img class="img-fluid" src="images/d409b07d-badges2_106h05a000000000000028.png" />
+                                                </div>
+                                                <div class="col-sm-3 col-md-6 col-lg-3 text-center">
+                                                    <img class="img-fluid" src="images/ac4a649d-badges4_104t04u000000000000028.png" />
+                                                </div>
+                                                <div class="col-sm-3 col-md-6 col-lg-3 text-center">
+                                                    <img class="img-fluid" src="images/ac4a649d-badges4_104t04u000000000000028.png" />
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="col-lg-12 d-flex justify-content-center " >
-                                            <div className="compaire-container1 fans_comp_bg">
+                                        <div className="col-lg-12 d-flex justify-content-center pt-10" >
+                                            <div className="compaire-container fans_comp_bg">
                                                 <div className="text-center">
                                                     <div className="container content-padding">
                                                         <div className="row align-items-center card-gutter">
-                                                            <div className="col-lg-4">
+                                                            <div className="col-sm-6 col-md-6 col-lg-4">
                                                                 <div className="card-1 mx-auto border-blue color--border mt-8">
-                                                                    <div className="card-body p-0 pt-3 pb-0" >
+                                                                    <div className="card-body p-0 pt-0 pb-2" >
                                                                         <div className="vh-50"></div>
                                                                         <h3 className="card-name text-gracy">Industrial Fans</h3>
                                                                         <h2 className="text-uppercase font-weight-bold mb-4">Others</h2>
@@ -213,10 +224,10 @@ class Fans extends Component {
                                                                 </div>
                                                             </div>
 
-                                                            <div className="col-lg-4">
-                                                                <div className="card-2 w-370 mx-auto border-dark-blue" >
+                                                            <div className="col-sm-6 col-md-6 col-lg-4">
+                                                                <div className="card-2 mx-auto border-dark-blue" >
                                                                     <img className="sticker" src="images/f1c611cf-best-choice_1000000000000000000028.png" />
-                                                                    <div className="card-body p-0 pb-0 pt-2">
+                                                                    <div className="card-body p-0 pb-2 pt-2">
                                                                         <img className="img-fluid" src="images/ytvcad-logo-1469632076-13035_106501d000000000000028.png" className="card-img-fit" alt="..." />
                                                                         <h3 className="card-name text-gracy">Industrial Fans</h3>
                                                                         <h2 className="text-uppercase font-weight-bold mb-4">Baghouse America</h2>
@@ -261,8 +272,8 @@ class Fans extends Component {
                                                                 </div>
                                                             </div>
 
-                                                            <div className="col-lg-4">
-                                                                <div className="card-3 mx-auto border-blue color--border mt-80">
+                                                            <div className="col-sm-6 col-md-6 col-lg-4">
+                                                                <div className="card-3 mx-auto border-blue color--border mt-70">
                                                                     <div className="card-body p-0 pt-3 pb-0">
                                                                         <img className="img-fluid" src="images/aa63d403-tcf-logos-tcf-logos-174-1-240x240_104r01n000000000000028.png" className="card-img-fit" alt="..." />
                                                                         <h3 className="card-name text-gracy">Industrial Fans</h3>
@@ -405,7 +416,7 @@ class Fans extends Component {
                                         <div className="col-lg-12 d-flex justify-content-center" dangerouslySetInnerHTML={{ __html: c[5].description }} />
                                         <div className="col-lg-12 d-flex justify-content-center">
                                             <div className="row column-gutter">
-                                                <div className="col-lg-3">
+                                                <div className="col-sm-6 col-md-4 col-lg-3">
                                                     <ul className="industry-list">
                                                         <li>Automotive</li>
                                                         <li>Textile</li>
@@ -416,7 +427,7 @@ class Fans extends Component {
                                                         <li>Petrochemical and Oil</li>
                                                     </ul>
                                                 </div>
-                                                <div className="col-lg-3">
+                                                <div className="col-sm-6 col-md-4 col-lg-3">
                                                     <ul className="industry-list">
                                                         <li>Agriculture </li>
                                                         <li>Material Handling </li>
@@ -427,7 +438,7 @@ class Fans extends Component {
                                                         <li>Glass</li>
                                                     </ul>
                                                 </div>
-                                                <div className="col-lg-3">
+                                                <div className="col-sm-6 col-md-4 col-lg-3">
                                                     <ul className="industry-list">
                                                         <li>Waste Management </li>
                                                         <li>Material Handling</li>
@@ -438,7 +449,7 @@ class Fans extends Component {
                                                         <li>Cement and Lime</li>
                                                     </ul>
                                                 </div>
-                                                <div className="col-lg-3">
+                                                <div className="col-sm-6 col-md-4 col-lg-3">
                                                     <ul className="industry-list">
                                                         <li>Transportation</li>
                                                         <li>Ethanol</li>
@@ -509,7 +520,7 @@ class Fans extends Component {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12"><h2 className="h2">Radial Tip & Heigh Efficiency fans</h2></div>
-                                        <div className="col-lg-3">
+                                        <div className="col-lg-3 text-center">
                                             <img className="img-fluid pt-4" src="images/82ef88ff-money_1064054000000000000028.png" />
                                         </div>
                                         <div className="col-lg-9">
@@ -534,7 +545,7 @@ class Fans extends Component {
                                             <div className="customer-card-outer d-flex justify-content-center">
                                                 <div className="customer-card-body">
                                                     <div className="text-left pt-4 pl-2"><img src="images/eed84b33-quotes2_1000000000000000000028.png" height="36" /></div>
-                                                    <div className="card-description">
+                                                    <div className="cust-card-description">
                                                         They perform and look the same as the originals.
 			  					</div>
                                                     <div className="text-right pr-3 pb-2"><img src="images/d44271e1-quotes_1000000000000000000028.png" height="36" /></div>
@@ -550,7 +561,7 @@ class Fans extends Component {
                                             <div className="customer-card-outer d-flex justify-content-center">
                                                 <div className="customer-card-body">
                                                     <div className="text-left pt-4 pl-2"><img src="images/eed84b33-quotes2_1000000000000000000028.png" height="36" /></div>
-                                                    <div className="card-description">
+                                                    <div className="cust-card-description">
                                                         Very happy with the delivery time
 			  					</div>
                                                     <div className="text-right pr-3 pb-2"><img src="images/d44271e1-quotes_1000000000000000000028.png" height="36" /></div>
@@ -566,7 +577,7 @@ class Fans extends Component {
                                             <div className="customer-card-outer d-flex justify-content-center">
                                                 <div className="customer-card-body">
                                                     <div className="text-left pt-4 pl-2"><img src="images/d44271e1-quotes_1000000000000000000028.png" height="36" /></div>
-                                                    <div className="card-description">
+                                                    <div className="cust-card-description">
                                                         The product was constructed very well.
 			  					</div>
                                                     <div className="text-right pr-3 pb-2"><img src="images/d44271e1-quotes_1000000000000000000028.png" height="36" /></div>
@@ -574,7 +585,7 @@ class Fans extends Component {
                                             </div>
                                             <div className="card--pic--avt">
                                                 <img src="images/39340522-jaosn-kennedy_103g03g03g03f000000028.png" />
-                                                <div className="caption-name">JJasen Kennedy</div>
+                                                <div className="caption-name">Jasen Kennedy</div>
                                                 <p>Plant Engineer ,  ABENGOA</p>
                                             </div>
                                         </div>

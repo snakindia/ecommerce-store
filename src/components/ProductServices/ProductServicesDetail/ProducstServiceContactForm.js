@@ -33,7 +33,7 @@ class ProducstServiceContactForm extends Component {
 
         return (
 
-            <div class="col-sm-5 col-md-4 pr-0">
+            <div class={this.props.hideclassName ? '' :"col-sm-5 col-md-4 pr-0"}>
                 <div class="freequote-container">
                     <div class="free-quote">
                         <div class="inner-link">

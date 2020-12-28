@@ -275,7 +275,7 @@ border: none; font-size: 0.8rem; color: #fff; font-weight: bold}
 .card-1, .card-2, .card-3 {
     /*box-shadow: 7px 18px 30px #555;*/
     max-width: 400px;
-    max-height: 800px;
+    /* max-height: 800px; */
     border:none;
 }
 
@@ -425,10 +425,10 @@ text-transform: uppercase; text-align: center;font-weight: 500;}
 .border-blue{border-color:#2e3192 !important }
 .color--border{border-color: #3285a6 !important;}
 
-.card-1{ max-height: 800px; margin-top: 0rem !important;}
-.card-3{ margin:0 0.5rem;}
+/* .card-1{ max-height: 800px; margin-top: 0rem !important;}
+.card-3{ margin:0 0.5rem;} */
 .card-2{box-shadow: none}
-.card-1 h2, .card-2 h2, .card-3 h2{font-size: 1.2rem}
+.card-1 h2, .card-2 h2, .card-3 h2{font-size: 1rem}
 
 
 .call-section{width: 100%; margin:0; height: 105px; position: relative;}
@@ -464,10 +464,10 @@ position: relative;}
 
 .bag_jai_head_xs{font-size: 1.5rem}
 
-.compaire-container{width: 100%; float:left; background:url(../images/table-bg.jpg) top left no-repeat;
+/* .compaire-container{width: 100%; float:left; background:url(../images/table-bg.jpg) top left no-repeat;
 background-size: cover; background-position: top center; position: relative; padding-top:3rem; padding-bottom:1.5rem;}
 .compaire-container:before{content: ''; position: absolute; top:0; left: 0; bottom: 0;
-right:0; /*background:rgba(255,255,255,0.9);*/}
+right:0;} */
 
 /*.inner-wrap:after{content: '';
 display: inline-block;

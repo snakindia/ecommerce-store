@@ -47,11 +47,11 @@ border: none; font-size: 0.8rem; color: #fff; font-weight: bold}
 
 .card-1, .card-2, .card-3 {
     max-width: 400px;
-    max-height: 750px;
+    max-height: 750px !important;
     border:none;
 }
 .w-370{width: 370px;margin-left: -15px !important;}
-.call-section .callBtn{background: #255a74; padding:0.4rem 1rem; text-transform: uppercase; 
+.call-section .callBtn{background: #255a74; padding:0.4rem 0.650rem; text-transform: uppercase; 
 	display: block; margin:0 20px 1px 20px; border-radius: 0.6rem; color:#fff; text-align: center;
 	font-weight: 600; text-decoration: none; font-size: 1.5rem; width:86% }
 .call-section .callBtn:hover{background: #0f364d}
@@ -61,14 +61,16 @@ border: none; font-size: 0.8rem; color: #fff; font-weight: bold}
 .mt-10{margin-top:10rem;}
 .mt-8{margin-top:6rem;}
 .mt-80{margin-top: 80px !important}
+.mt-70{margin-top: 64px !important}
 .mt-100{margin-top: 100px !important}
-.card-1 h2, .card-2 h2, .card-3 h2{font-size: 1.8rem !important; color:#006885}
+.mt-120{margin-top: 120px !important}
+.card-1 h2, .card-2 h2, .card-3 h2{font-size: 1.675rem !important; color:#006885}
 .vh-50{height: 50px}
 .border-blue{border:1px solid #6CAABA;}
 .border-dark-blue{border:4px solid #6CAABA;}
 .border-red{border:4px solid #f25d50;}
 .card-list-item .star-rating i{color:#0f364d; font-size: 2rem}
-.sticker{position: absolute;top: -74px;right: -68px;z-index: 1;width: 135px;}
+.sticker{position: absolute;top: -90px;right: -47px;z-index: 1;width: 135px;}
 
 .h2{color:#fff; text-align: center; font-weight: 400; font-size: 35px;
 display: block; width: 100%; text-transform: uppercase;}
@@ -127,7 +129,7 @@ float:left;
 height: 198px;
 }
 
-.card-description{ text-align: center; color:#fff; padding:1rem 3rem;}
+.cust-card-description{ text-align: center; color:#fff; padding:1rem 3rem;}
 .card--pic--avt{background: transparent;
 text-align: center; margin-top: -100px}
 .caption-name{color:#fff; font-weight: 500; font-size: 1.5rem; margin-top: 1rem}
@@ -141,8 +143,25 @@ background: #fff; width: 100%; text-align: center;}
 .parallax-fifteen .request-a-quote-btn:hover{background: #0f364d}
 .parallax-fifteen .callBtn:hover{background: #0f364d}
 
+.parallax-header .freequote-container{right: 0 !important;}
+.parallax-header .freequote-container .free-quote{background-color: rgba(15,54,77,1); 
+  padding-bottom:1rem !important}
+.headerForm{margin-top: -130px}
+.list-inline-item:not(:last-child){margin-left: 0.5rem !important;}
+
+@media(min-width: 720px){.p-pom-box{width: auto !important;}}
 @media(max-width: 768px){
-  .card-1, .card-2, .card-3{margin-bottom: 3rem !important}
+  #parallax-world-of-ugg .parallax-header { padding-top: 130px !important; padding-bottom: 0 !important;}
+  .headerForm{margin-top: 0;}
+  #parallax-world-of-ugg h2{font-size: 28px !important;}
+  .p-pom-box{width: 100%;}
+  .w-370{margin-left: 0 !important;}
+  .call-section .callBtn{width: 100%;}
+  .parallax-thirteen{padding:2rem}
+  .textLeft{text-align: left !important;}
+
+
+  .card-1, .card-2, .card-3{margin-bottom: 3rem !important; min-height: 830px;}
   .sticker{position: absolute;top: -38px !important;right: -6px !important;
     width: 86px;}
   .cart-box{top:40px !important;right:5% !important;}
