@@ -1,0 +1,83 @@
+/*=====Pro-equipment-section======*/
+.head-display{background: transparent !important;text-align: center; float:left; 
+  padding: 2rem 0 0 0; width: 100%;z-index: 1; position: relative; }
+.head-display h2{ color:#7ab033;font-family: 'Oswald', sans-serif; text-transform: uppercase;
+font-weight: 700; font-size: 1.5rem}
+.content-body{background: #fff; float:left; width: 100%; box-shadow: 0 0 10px #ddd; padding-bottom:2rem;
+z-index: 15; position: relative;}
+.content-body.negaTive_Mrg{margin-top: -5rem}
+.card-section{background:transparent; margin:0; padding:0;}
+.content-section{width: 100%; float:left; margin:0; padding:0;}
+
+.product-item-wrapper{background:transparent; position: relative; }
+.content-section .slick-slide{margin:0 !important; }
+.product-item-wrapper .card{margin:6px 10px; border:0;}
+
+.product-item-wrapper .card img{object-fit: cover; height: 210px !important; width: 100%}
+.card-title{background:#fff; color:#032a40; font-size: 0.935rem; text-align: left; padding:1.5rem 3rem; margin:0;
+ }
+.content-section .slick-dotted.slick-slider{margin-bottom: 0}
+
+.product-card-wrapper{background:transparent;}
+.product-card-wrapper a{text-decoration: none;}
+.product-card-wrapper a:hover{text-decoration: none;}
+.product-card{background: #fff; padding:0.8rem; border-radius: 0.3rem;border:1px solid #f1f1f1;
+margin:0.68rem 0.6rem;}
+.product-card-inner{background: transparent; border:1px solid #a6dae8; padding:0.6rem; height: 400px;position: relative; }
+.product-description{padding:1rem 0 0.8rem 0.3rem; text-align: center;color:#000; font-weight: 500; font-size: 0.875rem}
+.product-tag{color:#888; text-transform: uppercase; text-align: center;}
+
+.prod-details-link{margin-top: 1.5rem;  position: fixed; bottom:25px; width: 82%}
+.prod-details-link a{border-radius: 0.1rem !important;}
+.z-index{position: relative; z-index: 100}
+.view-all{width:20%; border-radius: 0.1rem !important; margin-top: 1rem}
+.link{background:#fff; padding:0.2rem 2rem; margin-bottom: 10px; border:none; border-radius: 2px}
+.link:hover{background:#fff; text-decoration: none; cursor: pointer;}
+
+.tab-outer-container{background: #23536b}
+.tab-container{width:100%;background:#23536b; float:left; width: 100%;}
+
+.item-wraper{padding:2rem 0;}
+.tab-inner{display: block; margin:0; padding:0; list-style-type: none; position: relative;}
+.tab-inner .tablink{float:left; display: inline-block; /*margin: 0 2rem 0 1rem; */color:#fff;  transition:0.5s;
+  text-transform: uppercase;text-decoration: none; font-size: 0.875rem; padding:0.875rem 2.480rem; width: auto; text-align: center; }
+.tab-inner .tablink:hover{background:#356b86; display: block; transition:0.5s }
+.left-control{font-size: 0.875rem; padding:0.875rem 0; text-align: center; background: #000; color:#fff; 
+  float:left; width: 38px}
+.right-control{font-size: 0.875rem; padding:0.875rem 0; text-align: center; background: #000; color:#fff; 
+  float:left; width: 41px}
+.left-control i, .right-control i{color:#fff;}
+.tab-inner .tablink.current{background:#356b86;}
+.brands-head{float:right; color:#fff; font-size: 1.5rem; text-transform: uppercase; width: 11%; text-align:center; font-family: 
+'Oswald', sans-serif;  padding:0.4rem 1.2rem;background:#000; font-weight: 700; }
+figcaption{padding:5rem 3.2rem !important}
+figcaption h4{text-transform: uppercase; font-size: 1.125rem; font-weight: 600}
+
+.loginInner{padding:2rem; background:transparent; box-shadow: 1px 1px 2rem 0.1rem #5c5c5c;}
+.loginInner .form-control{padding:0.7rem 0.5rem; background: transparent;}
+.loginInner .form-control:focus{background:#fcfcfc; outline: none; box-shadow: none;}
+::-webkit-input-placeholder { /* Edge */
+  color: #afafaf !important; font-size: 0.9rem}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #afafaf !important;font-size: 0.9rem}
+::placeholder {color: #afafaf !important;font-size: 0.9rem;}
+.loginInner .btn-blue{padding:0.5rem 3rem;}
+.loginInner .btn-blue:focus{box-shadow: none; outline: 0; transition: 0.5s}
+.loginInner h2 {font-family: 'Oswald',sans-serif; text-transform: uppercase; font-size: 1.5rem}
+.login-heading{text-transform: uppercase; font-size: 1.5rem; padding-bottom:1rem;}
+.modal{z-index: 10005 !important}
+.modal-dialog {max-width: 400px; margin: 4rem auto;}
+body.modal{padding-right: 0 !important}
+
+
+/*.caption-proj1{opacity: 0}
+.caption-proj1 .animate__animated{opacity: 1}*/
+
+.propostal-btn{position: absolute;right: -5px;top: 22px;background: #8bc53f;
+width: 307px; text-align: center; padding:1rem;border-radius: 0.5rem;text-transform: uppercase; 
+border:2px solid #a7dd61;}
+.propostal-btn:hover{background: #80d511; cursor: pointer;}
+.propostal-btn a{text-decoration: none;font-weight: 600; font-size: 1rem; color:#fff;}
+#lp-pom-box-30{border-radius: 0.5rem; background:#375d82;}
+.lp-form-heading{padding:1.5rem 2.2rem; color:#fff; font-weight: 700; text-transform: uppercase;
+font-size: 1.5rem; font-family: "Oswald"}

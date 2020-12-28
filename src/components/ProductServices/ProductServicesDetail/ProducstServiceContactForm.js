@@ -9,99 +9,109 @@ class ProducstServiceContactForm extends Component {
     constructor(props) {
         super(props);
     }
-    
+
     saveHandler(data) {
-        data.type = 'Download Brochure';
+        data.type = 'Request a Quote';
         return this.props.saveBrochuresDetails(data);
     }
     render() {
+        const { subMenuData, slug ,cat_id, cat_name} = this.props;
+       
+      
         const initialValues = {
             name: '',
             company: '',
             email: '',
             phone: '',
+            message: '',
             country: this.props.countryName ? this.props.countryName : '',
             description: '',
+            category_id: cat_id,
+            category_name: cat_name,
+
         }
 
         return (
-                
+
             <div class="col-sm-5 col-md-4 pr-0">
                 <div class="freequote-container">
                     <div class="free-quote">
                         <div class="inner-link">
-                            <h2 class="pb-2 quote-heading_1">Download Brochure</h2>
-                            <h3 class="pb-2 quote-heading_2">Submit Your Info Below</h3>
+                            <h2 class="pb-2 quote-heading_1">Request for Quote</h2>
+                            {/* <h3 class="pb-2 quote-heading_2">Submit Your Info Below</h3> */}
                             <div>
                                 <Formik
-                                enableReinitialize
-                                initialValues={initialValues}
-                                validate={values => {
-                                    const errors = {};
-                                    if (!values.name) {
-                                        errors.name = 'Name is required';
-                                    } else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
-                                        errors.name =
-                                            'Please enter alphabet characters only';
-                                    }
-
-                                    if (!values.phone) {
-                                        errors.phone = 'Phone number is required';
-                                    } else if (
-                                        !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(
-                                            values.phone
-                                        )
-                                    ) {
-                                        errors.phone = 'Please enter valid phone number';
-                                    }
-
-                                    if (!values.company) {
-                                        errors.company = 'Company name is required';
-                                    } else if (!/^[a-zA-Z ]*$/i.test(values.company)) {
-                                        errors.company =
-                                            'Please enter alphabet characters only';
-                                    }
-                                    
-
-                                    if (!values.email) {
-                                        errors.email = 'Email address is required';
-                                    } else if (
-                                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-                                            values.email
-                                        )
-                                    ) {
-                                        errors.email = 'Invalid email address';
-                                    }
-
-                                    return errors;
-                                }}
-                                onSubmit={(values, { setSubmitting, resetForm }) => {
-                                    let result = this.saveHandler(values)
-                                    .then(data => {
-                                        if (data.status == true) {
-                                            this.props.showToast("Thank you for sharing this information", TOAST_TYPE.SUCCESS);
-                                            resetForm();
-                                            if (typeof this.props.pdf_url != 'undefined' && this.props.pdf_url != '') {
-                                                window.open(this.props.pdf_url, '_blank');
-                                            }
-                                        } else {
-                                            this.props.showToast("Error while downloading brochure. Please try again later.", TOAST_TYPE.ERROR);
+                                    enableReinitialize
+                                    initialValues={initialValues}
+                                    validate={values => {
+                                        const errors = {};
+                                        if (!values.name) {
+                                            errors.name = 'Name is required';
+                                        } else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
+                                            errors.name =
+                                                'Please enter alphabet characters only';
                                         }
-                                    })
-                                    
-                                    
-                                }}
-                            >
-                                {({
-                                    values,
-                                    errors,
-                                    touched,
-                                    handleChange,
-                                    handleBlur,
-                                    handleSubmit,
-                                    isSubmitting,
-                                    /* and other goodies */
-                                }) => (
+
+                                        if (!values.phone) {
+                                            errors.phone = 'Phone number is required';
+                                        } else if (
+                                            !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/i.test(
+                                                values.phone
+                                            )
+                                        ) {
+                                            errors.phone = 'Please enter valid phone number';
+                                        }
+
+                                        if (!values.company) {
+                                            errors.company = 'Company name is required';
+                                        } else if (!/^[a-zA-Z ]*$/i.test(values.company)) {
+                                            errors.company =
+                                                'Please enter alphabet characters only';
+                                        }
+
+
+                                        if (!values.email) {
+                                            errors.email = 'Email address is required';
+                                        } else if (
+                                            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+                                                values.email
+                                            )
+                                        ) {
+                                            errors.email = 'Invalid email address';
+                                        }
+                                        if (!values.message) {
+                                            errors.message = 'Message is required';
+                                        }
+
+                                        return errors;
+                                    }}
+                                    onSubmit={(values, { setSubmitting, resetForm }) => {
+                                        let result = this.saveHandler(values)
+                                            .then(data => {
+                                                if (data.status == true) {
+                                                    this.props.showToast("Thank you for sharing this information", TOAST_TYPE.SUCCESS);
+                                                    resetForm();
+                                                    if (typeof this.props.pdf_url != 'undefined' && this.props.pdf_url != '') {
+                                                        // window.open(this.props.pdf_url, '_blank');
+                                                    }
+                                                } else {
+                                                    this.props.showToast("Error while downloading brochure. Please try again later.", TOAST_TYPE.ERROR);
+                                                }
+                                            })
+
+
+                                    }}
+                                >
+                                    {({
+                                        values,
+                                        errors,
+                                        touched,
+                                        handleChange,
+                                        handleBlur,
+                                        handleSubmit,
+                                        isSubmitting,
+                                        /* and other goodies */
+                                    }) => (
                                         <form onSubmit={handleSubmit}>
                                             <MDBRow>
                                                 <MDBCol lg="12">
@@ -194,15 +204,38 @@ class ProducstServiceContactForm extends Component {
                                                     </div>
                                                 </MDBCol>
                                             </MDBRow>
-                                            
-
+                                            <MDBRow>
+                                                <MDBCol lg="12">
+                                                    <div class="form-group">
+                                                        <label htmlFor="company" style={{ width: '100%' }}>Message *</label>
+                                                        <Field
+                                                            style={{ width: '100%' }}
+                                                            maxLength="100"
+                                                            component="textarea"
+                                                            rows="2"
+                                                            className="form-control-textarea"
+                                                            id="message"
+                                                            placeholder="Type Message"
+                                                            value={values.message}
+                                                            onChange={handleChange}
+                                                            onBlur={handleBlur}
+                                                        />
+                                                         <span className="errorMsg">
+                                                            {errors.message &&
+                                                                touched.message &&
+                                                                errors.message}
+                                                        </span>
+                                                    </div>
+                                                </MDBCol>
+                                            </MDBRow>
+                                                                
                                             <div class="mt-2">
                                                 <button
                                                     type="button"
                                                     onClick={handleSubmit}
                                                     class="btn quote-btn w-100"
                                                 >
-                                                    Download
+                                                    Subscribe
                                                 </button>
                                             </div>
                                             {this.props.brochureData &&
@@ -229,9 +262,10 @@ class ProducstServiceContactForm extends Component {
         )
     }
 }
-const mSTP = ({ news }) => {
+const mSTP = (state) => {
     return {
-        brochureData: news.freeBrochuresUserDetail,
+        brochureData: state.news.freeBrochuresUserDetail,
+        subMenuData: state.asyncReducer.subMenuData,
     }
 };
 

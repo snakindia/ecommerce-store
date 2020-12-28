@@ -1,0 +1,49 @@
+/*=========About us section css====================*/
+.carousel-h-75{
+  height:68vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position:top;
+}
+
+.carousel-h-75:after{content: ''; background: rgba(0,0,0,0.1) !important;
+position: absolute; top:0; left: 0; right:0; bottom:0; z-index: 1}
+/*.carousel-h-75:after{content: ''; 
+background: url("../images/gridtile.png") top left repeat;
+position: absolute; top:0; left: 0; right:0; bottom:0; z-index: 1}*/
+.heading-h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    color: #000;
+}
+.display-green{color: #7ab033;}
+.p-10{padding:0 4rem;z-index:10; position: relative;}
+.texture-bg{background: url(../images/texture-img.jpg) top left repeat; 
+ position: relative;}
+.texture-bg:before{content: ''; position: absolute; top:0; left: 0;
+ right:0; bottom:0; background:rgba(255,255,255,0.9);};
+
+ .placement-client .item-container img {width:100%; max-width: auto;
+    /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+      filter: gray; /* IE5+ */
+      -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+      -webkit-transition: all .3s ease-in-out; opacity: 0.4; 
+    }
+.placement-client .item-container .filterNone {width: 100%;max-width: auto;
+  filter: none; opacity: 1; -webkit-transition: all .3s ease-in-out;}
+  
+.placement-client .item-container img:hover {
+    filter: none; opacity: 1;
+      -webkit-filter: grayscale(0);
+      -webkit-transform: scale(1.1);
+    }
+ .thumbnail{display: block; width: 100%; border:1px solid #ddd;}
+.bhaClient .slick-slide { margin:5px 12px !important}
+.bhaClient .slick-prev, .bhaClient .slick-next{display: none !important}
+\

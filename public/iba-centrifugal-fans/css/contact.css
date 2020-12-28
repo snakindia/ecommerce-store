@@ -1,0 +1,49 @@
+/*======Contact us page==================*/
+.iba_heading_1 {color: #7ab033;font-family: 'Oswald', sans-serif;text-transform: uppercase;
+font-weight: 700;font-size: 1.5rem; }
+.iba_heading_4 {font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: normal;
+    padding: 1.5rem 0;  padding-bottom: 1.5rem;width: 100%;}
+.iba_heading_4.text-green{color: #7ab033;}
+.banner-container.gloBalTopMrgn{margin-top: 135px}
+.text-small{font-size: 0.875rem}
+textarea{box-shadow: none;}
+textarea:focus{box-shadow: none !important;}
+.bha-icon{ color: #a70e15; border: 1.5px solid #a70e15;  border-radius: 100px;  width: 24px; height: 24px; 
+  padding:7px 6px; vertical-align: top; font-size: 0.6rem; font-weight: bold;}
+.location{float:left; width: 100%;}
+.location a{color:#000; text-decoration: none;}
+
+.bha-flag{float:left;width:80px !important; height: 80px !important; object-fit: cover; margin-right: 1rem;}
+
+.bha_h_50{height:40vh; width: 100%; object-fit:cover;}
+.image-holder {display: block; width: 350px; transition: opacity .5s linear; 
+  overflow: hidden;}
+.image-holder img{object-fit: cover; object-position: center; height: 300px; width: 273px}
+
+.chat-button.free-signup{position: fixed; top:40%; right:0; background: #a70e15;
+font-size: 1rem !important; color:#fff !important; cursor: pointer; font-weight: bold}
+.signup-fixed{top:-58px; z-index: 100 !important; position: fixed !important;}
+.action-btn{ position: absolute; bottom: -3%; left:50%; width:10%;/*box-shadow: 0 0 1px #999;*/ 
+transform: translate(-50%,-70%); color:#fff;text-align: center; width:80px; background: rgba(255,255,255,0.8);
+padding:0.5rem 0; border:2px solid #f3f3f3; cursor: pointer; border-radius: 50px; transition: all 0.5s}
+.action-btn a{text-decoration: none; outline: 0;}
+.action-btn i{font-size: 30px; color:#000; display: block;}
+.action-btn i:hover{color:#000;}
+
+.nav-pills{border-radius: 0 !important; background:#fff !important; height:auto; border:1px solid #d6e4f0;
+border-right:none;}
+.nav-pills .nav-item .nav-link{background: #fff !important; color:#000 !important; /*border:1px solid #f1f1f1;*/
+border-radius: 0 !important; margin:0 !important; padding:0.8rem !important; border-right: none !important}
+.nav-pills .nav-item:hover{background: #347799 !important; color:#fff !important; transition: 0.3s}
+.nav-pills .nav-link:hover{background: #347799 !important; color:#fff !important; transition: 0.3s}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{border-radius: 0 !important; 
+  background:#23536b !important; color:#fff !important; border:none; }
+.tab-content{border:1px solid #d6e4f0; padding:1rem 0.6rem 1rem 1.5rem; height:auto; background: #fff}
+.location_head{color:#0e415a; font-size: 0.975rem; font-weight: 700;max-height: 257px}
+.bha-left{background: #ddd; width: 100%; position: relative;  overflow: hidden; padding-bottom:0rem;
+max-height: 257px}
+.bha-left:before{ content: ""; position: absolute; top:0; left: 0; bottom: 0; right:0; background: rgba(17,63,89,0.9) }
+.bha-left-head{position: absolute; top:22%; right: 1%; z-index: 1; padding:1rem; text-align:center;color:#fff;
+font-family: 'Oswald', sans-serif; font-size: 1.5rem}
+.tab-pane a{color:#000; font-size: 0.875rem}
+/*hr{background: #f0eeee; height: 2px}*/

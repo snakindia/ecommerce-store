@@ -1,0 +1,72 @@
+
+@media(max-width: 768px)
+{
+  .top-header{z-index: 1000 !important}
+  .wsmobileheader > .smllogo { width: 180px !important;}
+  /*.carousel-item{max-height: 55vh !important}*/
+  .footer-main{padding:1rem !important;}
+  .footer-bottom, .copyright{padding:1rem !important;}
+  .bottom-navigation{position: static !important; overflow: visible !important; margin-bottom: 0 !important}
+  .shopNow,.request-Quote{ border-bottom: 1px solid #ddd; float:left; display: block; max-height: 100px}
+  .request-Quote a{padding:1.3rem 0 !important;color:#000 !important; padding-left: 4rem !important;
+  font-size: 0.8rem}
+  .shopNow a{ color:#000 !important;padding:1.3rem 0 !important; margin-left: 4rem !important; 
+    font-size: 0.8rem}
+  .thumnal-icon{float:left; margin: 0.6rem 0 1rem 0 !important }
+  /*.pl-0{padding-left: 1rem !important}*/
+
+  /*===Navigation css=================================================*/
+  .wsmenu>.wsmenu-list>li>.navtext { text-align: left !important;}
+  .wsmenu > .wsmenu-list > li > .mbilewsstabing{left:0 !important; width:100% !important;}
+  .image-holder{width: auto !important;}
+  /*===footer css=================================================*/
+  .socialLink{ width: 100%; margin-top: 1.2rem !important;}
+  .socialLink span{padding-right:10px;}
+  .call-us { font-size: 2rem !important; font-weight: 700; padding-left: 7rem !important;
+    float: left;
+    text-align: left;
+    width: 100%;
+    max-height: 100px;
+    padding-top:0;line-height: 2.5rem;}
+
+  .top-bar-section{margin-top:60px;}
+  /*.carousel-item { margin-top: 146px;}*/
+  .headerfull, .wsmain{padding:0 !important;}
+  .d-none{display: block !important;}
+  .avtar{position: absolute; top:0px; left:1rem;width: 80px;}
+
+}
+
+.row:before{display: block;}
+.row:after{display: block;}
+
+/*@media all and (transform-3d), (-webkit-transform-3d) {
+.carousel-inner > .item {
+transition: transform 0.6s ease-in-out;
+backface-visibility: hidden;
+perspective: 1000;
+}
+.carousel-inner > .item.next,
+.carousel-inner > .item.active.right {
+transform: translate3d(100%, 0, 0);
+left: 0;
+}
+.carousel-inner > .item.prev,
+.carousel-inner > .item.active.left {
+transform: translate3d(-100%, 0, 0);
+left: 0;
+}
+.carousel-inner > .item.next.left,
+.carousel-inner > .item.prev.right,
+.carousel-inner > .item.active {
+transform: translate3d(0, 0, 0);
+left: 0;
+}
+}*/
+.carousel-inner>.carousel-item{
+   /*disables white flash*/
+   -webkit-transition: -webkit-transform .5s ease-in-out;
+   -o-transition: -o-transform .5s ease-in-out;
+   transition: transform .5s ease-in-out;
+}
+
