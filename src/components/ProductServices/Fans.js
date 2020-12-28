@@ -313,7 +313,8 @@ class Fans extends Component {
                                             {c[0].title}
                                         </h2></div>
                                         <div className="col-lg-12 d-flex justify-content-center">
-                                            <img className="img-fluid pt-4" src="images/17378ce8-quick-ref-01_10sl0cq000000000000028.png" />
+                                            {c[0].url ? <img className="img-fluid pt-4" src={c[0].url} /> : null}
+                                            
                                         </div>
                                         <div className="col-lg-12 d-flex justify-content-center"
                                             dangerouslySetInnerHTML={{ __html: c[0].description }} />
@@ -334,7 +335,7 @@ class Fans extends Component {
                                     <div className="row">
                                         <div className="col-lg-12"><h2 className="h2"> {c[1].title}</h2></div>
                                         <div className="col-lg-12 d-flex justify-content-center">
-                                            <img className="img-fluid pt-4" src="images/d4c3198b-quick-ref-02_10ve078000000000000028.png" />
+                                        {c[1].url ? <img className="img-fluid pt-4" src={c[1].url} /> : null}
                                         </div>
                                         <div className="col-lg-12 d-flex justify-content-center" dangerouslySetInnerHTML={{ __html: c[1].description }} />
                                         <div className="col-lg-12 d-flex justify-content-center">
@@ -351,7 +352,7 @@ class Fans extends Component {
                                     <div className="row">
                                         <div className="col-lg-12"><h2 className="h2">Radial Tip & Heigh Efficiency fans</h2></div>
                                         <div className="col-lg-12 d-flex justify-content-center">
-                                            <img className="img-fluid pt-4" src="images/2def11dc-quick-ref-03_10v40770v4076000000028.png" />
+                                        {c[2].url ? <img className="img-fluid pt-4" src={c[2].url} /> : null}
                                         </div>
                                         <div className="col-lg-12 d-flex justify-content-center" dangerouslySetInnerHTML={{ __html: c[2].description }} />
                                         <div className="col-lg-12 d-flex justify-content-center">
@@ -368,7 +369,7 @@ class Fans extends Component {
                                     <div className="row">
                                         <div className="col-lg-12"><h2 className="h2">PRESSURE BLOWERS</h2></div>
                                         <div className="col-lg-12 d-flex justify-content-center">
-                                            <img className="img-fluid pt-4" src="images/3d154adf-quick-ref-04_10vh0790vg079000000028.png" />
+                                        {c[3].url ? <img className="img-fluid pt-4" src={c[3].url} /> : null}
                                         </div>
                                         <div className="col-lg-12 d-flex justify-content-center" dangerouslySetInnerHTML={{ __html: c[3].description }} />
                                         <div className="col-lg-12 d-flex justify-content-center">
@@ -385,7 +386,7 @@ class Fans extends Component {
                                     <div className="row">
                                         <div className="col-lg-12"><h2 className="h2">UTILITY FANS</h2></div>
                                         <div className="col-lg-12 d-flex justify-content-center">
-                                            <img className="img-fluid pt-4" src="images/5b001b01-quick-ref-05_10w80ec000000000000028.png" />
+                                        {c[4].url ? <img className="img-fluid pt-4" src={c[4].url} /> : null}
                                         </div>
                                         <div className="col-lg-12 d-flex justify-content-center" dangerouslySetInnerHTML={{ __html: c[4].description }} />
                                         <div className="col-lg-12 d-flex justify-content-center">
@@ -468,7 +469,7 @@ class Fans extends Component {
 
                                         <div className="col-lg-6 d-flex justify-content-center" dangerouslySetInnerHTML={{ __html: c[6].description }} />
                                         <div className="col-lg-6">
-                                            <img className="img-fluid pt-5" src="images/507d0e12-jail-free-card_10f109i0f108v00000b028.png" />
+                                        {c[6].url ? <img className="img-fluid pt-4" src={c[6].url} /> : null}
                                         </div>
                                     </div>
                                 </div>
