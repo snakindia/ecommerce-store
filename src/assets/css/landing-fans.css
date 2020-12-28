@@ -151,6 +151,7 @@ background: #fff; width: 100%; text-align: center;}
 
 @media(min-width: 720px){.p-pom-box{width: auto !important;}}
 @media(max-width: 768px){
+  .p-pom-box .lp-pom-image{text-align: center;}
   #parallax-world-of-ugg .parallax-header { padding-top: 130px !important; padding-bottom: 0 !important;}
   .headerForm{margin-top: 0;}
   #parallax-world-of-ugg h2{font-size: 28px !important;}
