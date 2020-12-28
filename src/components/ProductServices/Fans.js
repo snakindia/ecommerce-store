@@ -7,7 +7,10 @@ import './../../assets/css/parallax.css';
 import { fetchProdcutServiceDetail } from './productservice.actions';
 import ReactHtmlParser from 'react-html-parser';
 import Client from '../Clients/Clients';
+import RequestAQuote from '../RequestAQuote/RequestAQuote'
 import ProducstServiceContactForm from './ProductServicesDetail/ProducstServiceContactForm'
+import { save_brochures_details } from '../../actions/freeBrochuresActions';
+import { showToast } from '../Notification/notification.actions';
 class Fans extends Component {
     constructor(props) {
         super(props);
@@ -16,22 +19,38 @@ class Fans extends Component {
             pageType: 'News',
             size: 4,
             filterBy: 'Default',
+            url: undefined,
+            isOpen:false
         };
     }
 
     componentDidMount() {
         let url = this.props.location.pathname;
-        const { actions } = this.props;
         if (url != '') {
             const slug = url.replace(/\\|\//g, '');
-            actions.fetchProdcutServiceDetail(slug);
+            this.props.fetchProdcutServiceDetail(slug);
         }
     }
 
     requestAQoute = (e) => {
         e.preventDefault();
-        document.getElementById('requestAQuote').click()
+        this.setState({url:undefined})
+        // document.getElementById('requestAQuote').click()
+        this.toggleModal()
 
+    }
+
+    toggleModal =()=>{
+        const {isOpen}=this.state;
+        this.setState({isOpen:!isOpen})
+    }
+
+    dl=(e,url)=>{
+        e.preventDefault();
+        this.setState({
+            url,
+        })
+        this.toggleModal()
     }
 
     render() {
@@ -47,6 +66,14 @@ class Fans extends Component {
         }
         return (
             <div>
+                <RequestAQuote
+                 isOpen={this.state.isOpen}
+                  toggleModal={this.toggleModal}
+                   url={this.state.url}
+                   onSubmit={this.props.saveBrochuresDetails}
+            showToast={this.props.showToast}
+
+                    />
                 {data ?
                     <div id="parallax-world-of-ugg">
                         <section>
@@ -129,14 +156,14 @@ class Fans extends Component {
                                             <img src="images/ac4a649d-badges4_104t04u000000000000028.png" />
                                             <img src="images/ac4a649d-badges4_104t04u000000000000028.png" />
                                         </div>
-                                        <div className="col-lg-12 d-flex justify-content-center ">
+                                        <div className="col-lg-12 d-flex justify-content-center " >
                                             <div className="compaire-container1 fans_comp_bg">
                                                 <div className="text-center">
                                                     <div className="container content-padding">
                                                         <div className="row align-items-center card-gutter">
                                                             <div className="col-lg-4">
                                                                 <div className="card-1 mx-auto border-blue color--border mt-8">
-                                                                    <div className="card-body p-0 pt-3 pb-0">
+                                                                    <div className="card-body p-0 pt-3 pb-0" >
                                                                         <div className="vh-50"></div>
                                                                         <h3 className="card-name text-gracy">Industrial Fans</h3>
                                                                         <h2 className="text-uppercase font-weight-bold mb-4">Others</h2>
@@ -406,7 +433,7 @@ class Fans extends Component {
                                             </div>
                                         </div>
                                         <div className="col-lg-12 pt-3 d-flex justify-content-center">
-                                            <a href="" onClick={this.requestAQoute} className="request-a-quote-btn">Request a Call</a>
+                                            <a href="tel:18007852944"  className="request-a-quote-btn">Request a Call</a>
                                         </div>
 
                                     </div>
@@ -435,8 +462,8 @@ class Fans extends Component {
                                     <div className="row">
                                         <div className="col-lg-12"><h2 className="h2">UNMATCHED PRODUCT OFFERINGS</h2></div>
                                         <div className="col-lg-12 d-flex justify-content-center" dangerouslySetInnerHTML={{ __html: c[0].description }} />
-                                        <div className="col-lg-12 d-flex justify-content-center">
-                                            <a href="" onClick={this.requestAQoute} className="request-a-quote-btn">Visite Oure Website</a>
+                                        <div className="col-lg-12 d-flex justify-content-center ">
+                                            <a href="/"  className="request-a-quote-btn">Visit Our Website</a>
                                         </div>
                                     </div>
                                 </div>
@@ -546,8 +573,9 @@ class Fans extends Component {
                                         {resources.map(item => <div className="col-lg-4"><div className="customer-card-outer d-flex justify-content-center">
                                             <div className="resources-card">
                                                 <h3>{item.title}</h3>
-                                                <a target="_blank"
-                                                    href={item.url}
+                                                <a 
+                                                    href='#'
+                                                    onClick={e=>this.dl(e,item.url)}
                                                     className="request-a-quote-btn"
                                                 >Download</a>
                                             </div>
@@ -576,12 +604,9 @@ const mapStateToProps = ({ productService }) => ({
     data: productService[0]
 });
 
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(
-        {
-            fetchProdcutServiceDetail
-        },
-        dispatch
-    ),
-});
+const mapDispatchToProps =  {
+    saveBrochuresDetails: save_brochures_details,
+    showToast,
+    fetchProdcutServiceDetail,
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Fans);

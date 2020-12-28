@@ -38,7 +38,7 @@ class RequestAQuote extends Component {
       }
     }
 
-    const { toggleModal, onSubmit, showToast } = this.props;
+    const { toggleModal, onSubmit, showToast, url } = this.props;
     setSubmitting(true);
     try {
 
@@ -50,6 +50,9 @@ class RequestAQuote extends Component {
                 if (this.props.isFreeBrochure) {
                     window.open(res.url, '_blank');
                 }
+            }
+            if (url) {
+                    window.open(url, '_blank');
             }
         } else if (res && res.status.error) {
             showToast(res.status.error || 'We were unable to process your request at this moment. Please try after some time or call us at (888) 286-8708', TOAST_TYPE.ERROR);
@@ -70,7 +73,7 @@ class RequestAQuote extends Component {
     return Object.keys(e) ? e : null;
   };
   render() {
-    const { isOpen, toggleModal, subMenuData, isFreeBrochure } = this.props;
+    const { isOpen, toggleModal, subMenuData, isFreeBrochure, url } = this.props;
     let categories = [];
     if (subMenuData && Object.keys(subMenuData).length > 0) {
       for (const key of Object.keys(subMenuData)) {
