@@ -20,7 +20,7 @@ class Fans extends Component {
             size: 4,
             filterBy: 'Default',
             url: undefined,
-            isOpen:false
+            isOpen: false
         };
     }
 
@@ -34,18 +34,18 @@ class Fans extends Component {
 
     requestAQoute = (e) => {
         e.preventDefault();
-        this.setState({url:undefined})
+        this.setState({ url: undefined })
         // document.getElementById('requestAQuote').click()
         this.toggleModal()
 
     }
 
-    toggleModal =()=>{
-        const {isOpen}=this.state;
-        this.setState({isOpen:!isOpen})
+    toggleModal = () => {
+        const { isOpen } = this.state;
+        this.setState({ isOpen: !isOpen })
     }
 
-    dl=(e,url)=>{
+    dl = (e, url) => {
         e.preventDefault();
         this.setState({
             url,
@@ -56,6 +56,8 @@ class Fans extends Component {
     render() {
 
         const data = this.props.data;
+        let cat_name = 'Fans';
+        let cat_id = '';
         let c = undefined;
         let resources = [];
         if (data && data.contents) {
@@ -64,16 +66,30 @@ class Fans extends Component {
         if (data && data.resources && data.resources.length > 0) {
             resources = data.resources;
         }
+        const { subMenuData } = this.props;
+
+        if (subMenuData && Object.keys(subMenuData).length > 0) {
+            for (const key of Object.keys(subMenuData)) {
+                if (subMenuData[key] && subMenuData[key][0] && subMenuData[key][0].items && subMenuData[key][0].items.length > 0) {
+                    subMenuData[key][0].items.map(item => {
+
+                        if (item.page_url == '/fans') {
+                            cat_id = item._id;
+                        }
+                    })
+                }
+            }
+        }
         return (
             <div>
                 <RequestAQuote
-                 isOpen={this.state.isOpen}
-                  toggleModal={this.toggleModal}
-                   url={this.state.url}
-                   onSubmit={this.props.saveBrochuresDetails}
-            showToast={this.props.showToast}
+                    isOpen={this.state.isOpen}
+                    toggleModal={this.toggleModal}
+                    url={this.state.url}
+                    onSubmit={this.props.saveBrochuresDetails}
+                    showToast={this.props.showToast}
 
-                    />
+                />
                 {data ?
                     <div id="parallax-world-of-ugg">
                         <section>
@@ -135,10 +151,13 @@ class Fans extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-sm-3 col-md-3 col-lg-3 d-flex justify-content-center" style={{marginTop:'-130px'}}>
-                                           
-                                                <ProducstServiceContactForm />
-                                          
+                                        <div className="col-sm-3 col-md-3 col-lg-3 d-flex justify-content-center" style={{ marginTop: '-130px' }}>
+
+                                            <ProducstServiceContactForm
+                                                cat_id={cat_id}
+                                                cat_name={cat_name}
+                                            />
+
                                         </div>
                                     </div>
                                 </div>
@@ -433,7 +452,7 @@ class Fans extends Component {
                                             </div>
                                         </div>
                                         <div className="col-lg-12 pt-3 d-flex justify-content-center">
-                                            <a href="tel:18007852944"  className="request-a-quote-btn">Request a Call</a>
+                                            <a href="tel:18007852944" className="request-a-quote-btn">Request a Call</a>
                                         </div>
 
                                     </div>
@@ -463,14 +482,14 @@ class Fans extends Component {
                                         <div className="col-lg-12"><h2 className="h2">UNMATCHED PRODUCT OFFERINGS</h2></div>
                                         <div className="col-lg-12 d-flex justify-content-center" dangerouslySetInnerHTML={{ __html: c[0].description }} />
                                         <div className="col-lg-12 d-flex justify-content-center ">
-                                            <a href="/"  className="request-a-quote-btn">Visit Our Website</a>
+                                            <a href="/" className="request-a-quote-btn">Visit Our Website</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
-                        <Client />   
-                        
+                        <Client />
+
 
                         <section>
                             <div className="parallax-eleven">
@@ -573,9 +592,9 @@ class Fans extends Component {
                                         {resources.map(item => <div className="col-lg-4"><div className="customer-card-outer d-flex justify-content-center">
                                             <div className="resources-card">
                                                 <h3>{item.title}</h3>
-                                                <a 
+                                                <a
                                                     href='#'
-                                                    onClick={e=>this.dl(e,item.url)}
+                                                    onClick={e => this.dl(e, item.url)}
                                                     className="request-a-quote-btn"
                                                 >Download</a>
                                             </div>
@@ -600,11 +619,13 @@ class Fans extends Component {
     }
 }
 
-const mapStateToProps = ({ productService }) => ({
-    data: productService[0]
+const mapStateToProps = ({ productService, asyncReducer }) => ({
+    data: productService[0],
+
+    subMenuData: asyncReducer.subMenuData,
 });
 
-const mapDispatchToProps =  {
+const mapDispatchToProps = {
     saveBrochuresDetails: save_brochures_details,
     showToast,
     fetchProdcutServiceDetail,
