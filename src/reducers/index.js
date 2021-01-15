@@ -1,5 +1,6 @@
 const initialState = {
   menuData: {},
+  footer:true,
   isFetching: false,
   isError: false,
   subMenuData: {},
