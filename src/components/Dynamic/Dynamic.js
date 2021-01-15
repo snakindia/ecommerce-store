@@ -4,6 +4,7 @@ import { Route, NavLink, Switch, Link } from 'react-router-dom';
 import { GET } from '../../services/httpService';
 import ProductServicesDetail from './../ProductServices/ProductServicesDetail';
 import PageTemplateDetail from './../ProductServices/PageTemplateDetail';
+import Fans from './../ProductServices/Fans';
 import ProjectsTemplate from './../Projects';
 import About from './../About/About';
 import PrivacyPolicy from './../PrivacyPolicy';
@@ -16,6 +17,7 @@ class Dynamic extends Component {
             'ProductServicesDetail' : ProductServicesDetail,
             'PageTemplateDetail' : PageTemplateDetail,
             'ProjectsTemplate' : ProjectsTemplate,
+            'Fans' : Fans,
             'About' : About,
             'PrivacyPolicy' : PrivacyPolicy
         }

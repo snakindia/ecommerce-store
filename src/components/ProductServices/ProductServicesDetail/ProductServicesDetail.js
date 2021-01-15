@@ -15,7 +15,9 @@ import Best from '../../../assets/images/832c6ba1-best-icon.png';
 import './../../../assets/css/bha-landing.css';
 import { fetchProdcutServiceDetail } from './../productservice.actions';
 import ReactHtmlParser from 'react-html-parser';
-
+import { save_brochures_details } from '../../../actions/freeBrochuresActions';
+import { showToast } from '../../Notification/notification.actions';
+import RequestAQuote from './Quote';
 class ProductServicesDetail extends Component {
     constructor(props) {
         super(props);
@@ -24,6 +26,7 @@ class ProductServicesDetail extends Component {
             pageType: 'News',
             size: 4,
             filterBy: 'Default',
+            brochureVisible:false,
         };
   }
     
@@ -35,13 +38,40 @@ class ProductServicesDetail extends Component {
             if (url[0] == '/') {
                 url = url.slice(1, url.length)
             }
-            actions.fetchProdcutServiceDetail(url);
+            this.props.fetchProdcutServiceDetail(url);
         }
     }
   
+    showBrochure=(e)=>{
+        e.preventDefault()
+        this.setState({brochureVisible:true})
+    }
+
+    toggleQuoteModal = () => {
+        const { brochureVisible } = this.state;
+        this.setState({ brochureVisible: !brochureVisible });
+    };
     render() {
         
     const details = this.props.data;
+    const { subMenuData} = this.props;
+    let cat_id ='';
+    let cat_name = '';
+    let slug = this.props.data ? this.props.data.slug :'';
+    if (subMenuData && Object.keys(subMenuData).length > 0) {
+      for (const key of Object.keys(subMenuData)) {
+        if (subMenuData[key] && subMenuData[key][0] && subMenuData[key][0].items && subMenuData[key][0].items.length > 0) {
+          subMenuData[key][0].items.map(item => {
+
+            if (item.page_url == slug) {
+              cat_id = item._id;
+              cat_name = item.name;
+              
+            }
+          })
+        }
+      }
+    }
     return (
         <div>
         {
@@ -59,7 +89,7 @@ class ProductServicesDetail extends Component {
                         </div>
                     </div>
                 </section>
-                <Banner content={details} />
+                <Banner content={details} cat_id={cat_id} cat_name={cat_name}/>
                  {
                 details.contents && Object.keys(details.contents).length > 0 ?  
                 <Certificates data={details} /> : ''
@@ -83,9 +113,9 @@ class ProductServicesDetail extends Component {
                                 </div>
                                 <div className="col-sm-6 col-md-6 animatedParent contentDescript">
                                 {ReactHtmlParser(details.contents[0].description)}
-                                  <div className="mt-4 mb-5">
-                                    <div className="actionButton w-50">
-                                      <a href="tel:+1-888-286-8708">Call for a free quote</a>
+                                  <div class="mt-4 mb-5">
+                                    <div class="actionButton w-50">
+                                      <a style={{color:'#fff'}} onClick={this.showBrochure}>Download Brochure</a>
 
                                     </div>
                                   </div>
@@ -122,7 +152,13 @@ class ProductServicesDetail extends Component {
 
                 <Clients />
                 <PremiumBrands />
-  
+                <RequestAQuote
+            toggleModal={this.toggleQuoteModal}
+            isOpen={this.state.brochureVisible}
+            cat_id={cat_id} cat_name={cat_name}
+            onSubmit={this.props.save_brochures_details}
+            showToast={this.props.showToast}
+          />
             </div>
          )}
         </div>
@@ -130,16 +166,14 @@ class ProductServicesDetail extends Component {
   }
 }
 
-const mapStateToProps = ({ productService }) => ({
-    data: productService[0]
+const mapStateToProps = ({ productService,asyncReducer }) => ({
+    data: productService[0],
+    subMenuData: asyncReducer.subMenuData,
 });
 
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(
-    {
-       fetchProdcutServiceDetail
-    },
-    dispatch
-    ),
-});
+const mapDispatchToProps = {
+    save_brochures_details,
+    showToast,
+    fetchProdcutServiceDetail
+}
 export default connect(mapStateToProps, mapDispatchToProps)(ProductServicesDetail);

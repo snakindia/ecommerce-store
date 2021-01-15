@@ -28,7 +28,7 @@ import { showToast } from './Notification/notification.actions';
 import SubMenu from './Submnues/SubMenu';
 import ReactDOM from 'react-dom';
 import scrollToEl from '../utils/scrollToEl'
-
+import  _ from 'lodash'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -47,12 +47,28 @@ class NavBar extends React.Component {
     window.addEventListener('load', this.handleLoad);
     this.props.fetch_dynamic_menus();
     this.props.fetch_submenu_items();
+    this.writeTitle()
     
+  }
+  writeTitle =()=>{
+    let {location:{pathname}}=this.props;
+    let p =pathname;
+    // console.log('->>>>>>>>>>>>>>>>>>>>>..',p);
+    if(p && p.split('/') && p.split('/')[1] ){
+      p =p.split('/')[1];
+      p= p.replace('-',' ');
+      p =_.startCase(p); 
+      
+    } else {
+      p ='Baghouse America'
+    }
+    document.title =p ? p : 'Baghouse America'
   }
 
   componentDidUpdate(preveProps) {
     if (preveProps.location.pathname != this.props.location.pathname) {
       scrollToEl('#root', 0)
+      this.writeTitle()
     }
   }
 

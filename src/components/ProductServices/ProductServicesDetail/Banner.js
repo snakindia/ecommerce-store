@@ -1,7 +1,7 @@
 import React from 'react';
 import ProducstServiceContactForm from './ProducstServiceContactForm';
 
-const Banner = ({ content }) => {
+const Banner = ({ content,cat_id, cat_name }) => {
     let pdf_url = '';
     return (
         <section className="hero-header" style={{"background": "none"}}>
@@ -15,7 +15,7 @@ const Banner = ({ content }) => {
                             </div>
                         </div>
                         {
-                            content.resources && Object.keys(content.resources).length > 0 && content.resources[0].title == '||DB||'  &&
+                            content.resources && Object.keys(content.resources).length > 0 &&
                             content.resources.map((item, idx) => {
                             if (item.title == '||DB||') {
                                 pdf_url = item.url;
@@ -23,7 +23,14 @@ const Banner = ({ content }) => {
                         })}
                         
                         {
-                            pdf_url != '' ? <ProducstServiceContactForm pdf_url={content.resources[0].url} /> : <ProducstServiceContactForm />
+                            pdf_url != '' ? 
+                            <ProducstServiceContactForm 
+                            cat_id={cat_id} cat_name={cat_name}
+                             /> : 
+                             <ProducstServiceContactForm 
+                             
+                              cat_id={cat_id} cat_name={cat_name}
+                               />
                         }
                             
                         

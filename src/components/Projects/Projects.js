@@ -48,11 +48,11 @@ class Projects extends Component {
             </div>
         {
         details && (
-        <div className="content-wrapper pb-0">
-            <div className="pagewrap">
-                <div className="bgWhite pb-4">
-                    <section className="pro-equipment-section pagewrap-inner" style={{"overflow-x": "hidden","margin-top":"160px"}} >
-                        <h1 className="bha_heading_2 text-blue text-center pb-5">{details.banner_title}</h1>
+        <div class="content-wrapper pb-0">
+            <div class="pagewrap">
+                <div class="bgWhite pb-4">
+                    <section class="project-section pagewrap-inner" style={{"overflow-x": "hidden","margin-top":"160px"}} >
+                        <h1 class="bha_heading_2 text-blue text-center pb-5">{details.banner_title}</h1>
                         {details.contents && details.contents.length > 0 &&
                             <div className="container-fluid pl-1 pr-1 mb-5" id={details.contents[0].title}>
                                 <div className="row no-gutters flex-column-reverse flex-md-row">

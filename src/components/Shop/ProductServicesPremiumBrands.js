@@ -30,10 +30,10 @@ export default class ProductServicesPremiumBrands extends Component {
     };
 
     return (
-        <section className="shopping-product mt-0 pb-2">
-            <div className="bg-opeque">
-                <div className="container-fluid">
-                    <h2 className="bha_heading_2 z-index text-blue">Our premium brands</h2>
+        <section class="shopping-product pt-450 mt-0 pb-2" style={{"paddingTop":"0"}}>
+            <div class="bg-opeque">
+                <div class="container-fluid">
+                    <h2 class="bha_heading_2 z-index text-blue">Our premium brands</h2>
                 </div>
             </div>
             <div className="pagewrap">

@@ -98,7 +98,7 @@ const Routes = (props) => {
             <Suspense fallback={<div>Loading...</div>}>
               {/* {auth_loading === false ? */}
                 <Switch>
-                  <Route exact path="/" component={App} />} />
+                  {/* <Route exact path="/" component={App} />} /> */}
                             {/* <Route path="/:param1/:param2" component={ProductService} /> */}
                   {/* <Route path="/productserive/:param1/:param2/:param3" component={ProductServiceMenu} /> */}
                   <Route exact path="/home" component={App} />

@@ -215,14 +215,14 @@ padding:0;overflow: hidden;}
 .promo-caption{display: flex;align-items: center;justify-content: center;
 padding:4rem;}
 .promo-caption:after{content: '';display: inline-block;position: absolute;
-top: 40%;right:-15px !important; width: 0;height: 0;
+top: 40%;right:-12px; width: 0;height: 0;
 border-top: 30px solid transparent;border-left: 20px solid #fff;
 border-bottom: 30px solid transparent; z-index: 1}
 
 .promo-caption-left{display: flex;align-items: center;justify-content: center;
 padding:4rem;}
 .promo-caption-left:before{content: '';display: inline-block;position: absolute;
-top: 40%;left:-18px !important; width: 0;height: 0;
+top: 40%;left:-20px; width: 0;height: 0;
 border-top: 23px solid transparent;border-right: 18px solid #fff;
 border-bottom: 23px solid transparent; z-index: 1}
 
