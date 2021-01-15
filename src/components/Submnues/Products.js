@@ -144,7 +144,7 @@ class Products extends React.Component {
                                                                                 className="scale-down"
                                                                                 src={
                                                                                     itemTwo.image != ''
-                                                                                        ? API_IMAGE_PATH + 'categories/' + itemTwo.id + '/' + `${itemTwo.image}`
+                                                                                        ? API_IMAGE_PATH + 'categories/' + itemTwo._id + '/' + `${itemTwo.image}`
                                                                                         : DEFAULT_IMG_URL
                                                                                 }
                                                                                 alt="bha"
