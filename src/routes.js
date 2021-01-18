@@ -94,7 +94,7 @@ const Routes = (props) => {
               <MobileMenu t={t} />
               <TopBar />
               <NavBar setT={setT} myRef={myRef} />
-              <ProgressBar />
+              {/* <ProgressBar /> */}
             </div>
             
             <Suspense fallback={<div>Loading...</div>}>
