@@ -17,6 +17,7 @@ import GoogleTranslator from './common/GoogleTranslator';
 import { Popover } from 'antd';
 import MiniCart from './Shop/MinCart';
 import Login from './Login'
+import { stat } from 'fs';
 class TopBar extends Component {
   constructor(props) {
     super(props);
@@ -27,6 +28,7 @@ class TopBar extends Component {
       errors: {},
       visibleMiniCart: false,
       loginError: null,
+      showuserDetail:false
     };
     this.ref = React.createRef(null);
   }
@@ -72,6 +74,10 @@ class TopBar extends Component {
   showCart = (e, visibleMiniCart) => {
     if (e) { e.preventDefault(); }
     this.setState({ visibleMiniCart })
+  }
+  showuserDetailHandler=(e)=>{
+    e.preventDefault()
+    this.setState((prevState) => ({...prevState,showuserDetail: !prevState.showuserDetail}))
   }
 
   onSignOut = () => {
@@ -139,10 +145,11 @@ class TopBar extends Component {
                     <li>
                       <a href=""><embed src={Profile} alt="" width="20" height="20"></embed>
                       {userDetails.first_name}
-                      <i className="fa fa-angle-down mt-1 ml-2"></i></a>
-                      <ul className="user-setting">
-                        <li><Link to="/accounts" >My Accounts</Link></li>
-                        <li><Link to="/accounts" >Settings</Link></li>
+                      <i className="fa fa-angle-down mt-1 ml-2" 
+                      onClick={this.showuserDetailHandler} ></i></a>
+                      <ul className="user-setting" style={{display:this.state.showuserDetail? 'block':'none'}}>
+                        <li onClick={e=>this.setState({showuserDetail:false})}><Link to="/accounts" >My Accounts</Link></li>
+                        <li onClick={e=>this.setState({showuserDetail:false})}><Link to="/accounts" >Settings</Link></li>
                         <li onClick={this.onSignOut}>SignOut</li>
                       </ul>
 
