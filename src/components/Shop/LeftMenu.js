@@ -5,7 +5,7 @@ import axios from 'axios';
 import { API_URL, API_IMAGE_PATH } from './../../constants/appConstant';
 import { getMenu } from './store/Actions'
 import { setFooter } from '../../actions/pageActions'
-import { Menu } from 'antd';
+import { Menu,Spin } from 'antd';
 import './css/antd.less'
 import { AppstoreOutlined, MailOutlined, SettingOutlined, FolderFilled } from '@ant-design/icons';
 
@@ -37,7 +37,7 @@ class LeftMenu extends Component {
   }
   render() {
     const { active, openKeys } = this.state;
-    const { visible, menu } = this.props;
+    const { visible, menu, loading } = this.props;
     return (
       <>
         <div >
@@ -45,6 +45,7 @@ class LeftMenu extends Component {
             <div className="logo-header">
               <a type="button" className="logo category_head">
                 Shop By Category
+               
               </a>
               <button className="navbar-toggler sidenav-toggler ml-auto" >
                 <span className="navbar-toggler-icon" >
@@ -67,10 +68,12 @@ class LeftMenu extends Component {
             </div>
 
           </div>
+         
 
           <div className="sidebar">
             <div className="sidebar-wrapper scrollbar-inner">
               <div className="sidebar-content">
+              {loading ? <Spin style={{marginTop:'20px', marginLeft:'30px'}} /> : null}
                 <Menu
                   style={{
                     backgroundColor: '#1f465c',
@@ -144,7 +147,7 @@ class LeftMenu extends Component {
   }
 }
 const mapStateToProps = (state) => ({
-  loading: state.shop.loading,
+  loading: state.shop.menuLoading,
   menu: state.shop.menu,
   error: state.shop.error
 });

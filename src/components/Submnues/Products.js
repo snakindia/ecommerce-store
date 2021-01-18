@@ -63,10 +63,10 @@ class Products extends React.Component {
     showMenu = (itemOneObj, index, e) => {
         const isMobile = document.body.className == 'wsactive';
         const { activeLink } = this.state;
-        const { name, image, items, slug, id } = itemOneObj;
+        const { name, image, items, slug, _id } = itemOneObj;
         let imageSrc = '';
         if (image != '') {
-            imageSrc = `${categoryImageUrl}/${id}/${image}`;
+            imageSrc = `${categoryImageUrl}/${_id}/${image}`;
         } else {
             imageSrc = DEFAULT_IMG_URL;
         }

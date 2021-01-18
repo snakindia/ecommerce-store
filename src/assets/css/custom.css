@@ -762,10 +762,11 @@ text-align: center;width: 94% !important;}
 .chat-button{display: none}
 .caption .btn{margin-top: 30px !important}
 .placement-client .slick-slide{padding:12px !important; margin:0 !important}
-.topbar{display: none}
+/* .topbar{display: none} */
 .news-inner{background: #fff !important; border:1px solid #d7d7d7 !important;}
 .call-us-mob{background: #000 !important; padding:0.2rem 0; text-align: center; font-weight: 600; font-size: 1.4rem; 
-  display:none;}
+  /* display:none; */
+}
 .gapTop{overflow-x: hidden; margin-top:101px}
 .footer-middle-list{display: none}
 .copyright p{padding-top:1rem !important;}
@@ -1086,4 +1087,30 @@ text-align:right;margin-top: 0.4rem;}
   .card-slide_container{top:0 !important;}
   /* #represent-us-map-div {height:100% !important; background: #f00 !important;} */
   
+}
+.morebtnR button {
+  background: #235168;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+  padding: .5rem 2rem;
+  border-radius: .2rem;
+}
+.morebtnL button {
+  background: #235168;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+  padding: .5rem 2rem;
+  border-radius: .2rem;
+}
+.morebtnL {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+}
+.morebtnR {
+  position: absolute;
+  bottom: 25px;
+  left: 65px;
 }

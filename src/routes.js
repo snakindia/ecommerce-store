@@ -78,7 +78,7 @@ const Routes = (props) => {
   const { loading, auth_loading } = props
   return (
     <BrowserRouter>
-      <ProgressBar />
+      
       <div ref={myRef}>
 
         {(loading || auth_loading) && <Loader />}
@@ -94,7 +94,9 @@ const Routes = (props) => {
               <MobileMenu t={t} />
               <TopBar />
               <NavBar setT={setT} myRef={myRef} />
+              <ProgressBar />
             </div>
+            
             <Suspense fallback={<div>Loading...</div>}>
               {/* {auth_loading === false ? */}
                 <Switch>

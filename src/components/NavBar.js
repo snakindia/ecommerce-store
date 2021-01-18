@@ -198,14 +198,14 @@ class NavBar extends React.Component {
                 </a>
                 </li>
                 <li>
-                  <Link
+                  <a
                     //onClick={this.linkClicked}
-                    to="/shop"
+                    href="/shop"
                     //target="_blank"
                     className="bha-btn-primary bha-btn-menu hotLink pl-2 pr-2"
                   >
                     shop now
-                </Link>
+                </a>
                 </li>
               </ul>
             </nav>

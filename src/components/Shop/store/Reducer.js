@@ -16,12 +16,15 @@ const initialState = {
     paymentSettings: undefined,
     orderId: undefined,
     checkoutSuccess: undefined,
+    menuLoading:undefined
 }
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
         case ActionTypes.SHOP_LOADING:
             return { ...state, loading: payload }
+        case ActionTypes.SHOP_LOADING_MENU:
+            return { ...state, menuLoading: payload }
         case ActionTypes.SHOP_PRODUCT_LOADING:
             return { ...state, loadingProduct: payload }
         case ActionTypes.SHOP_CART_LOADING:

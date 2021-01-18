@@ -6,6 +6,10 @@ export const setLoading = (payload) => ({
     type: ActionTypes.SHOP_LOADING,
     payload
 })
+export const setLoadingMenu = (payload) => ({
+    type: ActionTypes.SHOP_LOADING_MENU,
+    payload
+})
 
 export const SaveSuccess = (payload) => ({
     type: ActionTypes.SAVE_DATA_SUCCESS,
@@ -110,13 +114,13 @@ export const getProduct = (id) => {
 
 export const getMenu = () => {
     return dispatch => {
-        dispatch(setLoading(true));
+        dispatch(setLoadingMenu(true));
         let url = 'get_shop_cat_sub_cat_list';
 
         Axios.post(`${process.env.REACT_APP_API_URL}/${url}`,
         )
             .then(res => {
-                dispatch(setLoading(false));
+                dispatch(setLoadingMenu(false));
                 if (res.data) {
                     dispatch(getMenuSuccess(res.data));
                 } else {
