@@ -14,6 +14,7 @@ import Summary from './Summary';
 import Payment from './Payment';
 import ShippingMethod from './ShippingMethod';
 import PaypalExpress from './PaypalExpress';
+import Nmi from './Nmi';
 import Thankyou from './Thankyou';
 import { getAddress } from '../../../utils/helper';
 import scrollToEl from '../../../utils/scrollToEl'
@@ -38,10 +39,12 @@ class Checkout extends Component {
     }
 
     componentDidMount() {
-        this.props.getPaymentMethod();
-        this.props.getShippingMethod();
+        
         this.props.getOrders();
         this.checkForUser();
+        this.props.getPaymentMethod();
+        this.props.getShippingMethod();
+        this.props.getPaymentSettingsMethod();
 
 
     }
@@ -273,7 +276,7 @@ class Checkout extends Component {
     }
 
     render() {
-        const { authenticated, user, cart, paymentMethods, shippingMethods, checkoutSuccess, order, order_statuses } = this.props;
+        const { authenticated, user, cart, paymentMethods, shippingMethods, checkoutSuccess, order, order_statuses,paymentSettings } = this.props;
         const { step, email, shippingAddress, billingAddress, same } = this.state;
         const headerOne = <div className="headerone"><h5 className="hh1">{this.isFilled(1)} Customer</h5>
             {authenticated && user && user.email ? <div className="info">
@@ -334,6 +337,7 @@ class Checkout extends Component {
             address = getAddress(order_statuses);
 
         }
+       
 
         return (
 
@@ -408,7 +412,10 @@ class Checkout extends Component {
                                                         <div className="right-content aside margin-top30">
                                                             <Summary dataSource={dataSource} />
                                                             {cart.payment_method_id && <div className="form-group mt-3">
-                                                                {cart.payment_method_gateway == 'paypal-checkout' ? <PaypalExpress /> : <button type="submit" onClick={this.submit} className="btn bha-btn-primary float-right" name="buttonsubmit"> Place Order</button>}
+                                                                {
+                                                                cart.payment_method_gateway == 'paypal-checkout' ? <PaypalExpress /> :
+                                                                cart.payment_method_gateway == 'nmi' ? paymentSettings && paymentSettings.TokenKey ? <Nmi />:'Loading..' :
+                                                                 <button type="submit" onClick={this.submit} className="btn bha-btn-primary float-right" name="buttonsubmit"> Place Order</button>}
                                                             </div>}
                                                         </div>
                                                     </div>
@@ -449,6 +456,7 @@ const mapStateToProps = (state) => ({
     order_statuses: state.accounts.orders,
     order_statuses1: state.accounts,
     statuses: state.accounts.statuses,
+    paymentSettings: state.shop.paymentSettings,
 });
 const mapDispatchToProps = dispatch => ({
     getPaymentMethod: () => dispatch(getPaymentMethod()),

@@ -414,3 +414,40 @@ export const addOrder = (payload) => {
             });
     }
 }
+
+
+export const setpaymentCompletedSuccess = (payload) => ({
+    type: ActionTypes.SET_PAYMENT_COMPLETE_SUCCESS,
+    payload,
+});
+export const setpaymentCompletedError = (payload) => ({
+    type: ActionTypes.SET_PAYMENT_COMPLETE_ERROR,
+    payload
+});
+export const paymentCompleted = (payload) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
+        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/payment_form_settings`,payload,
+            {
+                withCredentials: true,
+                crossDomain: true,
+            },
+            
+        )
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data) {
+                    dispatch(setpaymentCompletedSuccess(res.data));
+                } else {
+                     //dispatch(getPaymentMethodSettingsError(undefined));
+                     notification('error', 'Oops!! something went wrong')
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                //dispatch(getPaymentMethodSettingsError(e));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}

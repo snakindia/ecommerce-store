@@ -16,7 +16,8 @@ const initialState = {
     paymentSettings: undefined,
     orderId: undefined,
     checkoutSuccess: undefined,
-    menuLoading:undefined
+    menuLoading:undefined,
+    paymentDone:undefined
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -25,6 +26,8 @@ export default (state = initialState, { type, payload }) => {
             return { ...state, loading: payload }
         case ActionTypes.SHOP_LOADING_MENU:
             return { ...state, menuLoading: payload }
+        case ActionTypes.SET_PAYMENT_COMPLETE_SUCCESS:
+            return { ...state, paymentDone: payload }
         case ActionTypes.SHOP_PRODUCT_LOADING:
             return { ...state, loadingProduct: payload }
         case ActionTypes.SHOP_CART_LOADING:

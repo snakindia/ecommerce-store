@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <script src="https://secure.networkmerchants.com/token/Collect.js" data-tokenization-key="28w2vu-SqpDUr-97r886-YzAUE6"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                CollectJS.configure({
+                    'paymentSelector' : '#customPayButton',
+                    'theme': 'bootstrap',
+                    'primaryColor': '#ff288d',
+                    'secondaryColor': '#ffe200',
+                    'buttonText': 'SUBMIT ME!',
+                    'instructionText': 'Enter Card Info Below',
+                    'paymentType': 'cc',
+                    
+                    'price': '1.00',
+                    'currency':'USD',
+                    'country': 'US',
+                    'callback' : function(response) {
+                        alert(response.token);
+                        var input = document.createElement("input");
+                        input.type = "hidden";
+                        input.name = "payment_token";
+                        input.value = response.token;
+                        var form = document.getElementsByTagName("form")[0];
+                        form.appendChild(input);
+                        form.submit();
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>CollectJS Payment Form</h1>
+        <form action="/your-page.php" method="post">
+            <table>
+                <tr>
+                    <td>First Name</td>
+                    <td><input size="30" type="text" name="fname" value="Test" /></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input size="30" type="text" name="lname" value="User" /></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input size="30" type="text" name="address" value="123 Main Street"></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td><input size="30" type="text" name="city" value="Beverley Hills"></td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                    <td><input size="30" type="text" name="state" value="CA"></td>
+                </tr>
+                <tr>
+                    <td>Zip</td>
+                    <td><input size="30" type="text" name="zip" value="90210"></td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td><input size="30" type="text" name="country" value="US"></td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td><input size="30" type="text" name="phone" value="5555555555"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="googlePayButton">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <button id="customPayButton" type="button">Submit Payment</button>
+        </form>
+    </body>
+</html>
