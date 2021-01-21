@@ -398,6 +398,8 @@ class Checkout extends Component {
                                                                                 submit={this.submit}
                                                                                 hide={cart.payment_method_id && cart.payment_method_gateway == 'paypal-checkout'}
                                                                                 paymentMethodHandler={this.paymentMethodHandler}
+                                                                                cart={cart} paymentSettings={paymentSettings} 
+                                                                                //placeOrder ={}
                                                                             />
 
                                                                         </Panel>
@@ -411,12 +413,12 @@ class Checkout extends Component {
 
                                                         <div className="right-content aside margin-top30">
                                                             <Summary dataSource={dataSource} />
-                                                            {cart.payment_method_id && <div className="form-group mt-3">
+                                                            {/* {cart.payment_method_id && <div className="form-group mt-3">
                                                                 {
                                                                 cart.payment_method_gateway == 'paypal-checkout' ? <PaypalExpress /> :
                                                                 cart.payment_method_gateway == 'nmi' ? paymentSettings && paymentSettings.TokenKey ? <Nmi />:'Loading..' :
                                                                  <button type="submit" onClick={this.submit} className="btn bha-btn-primary float-right" name="buttonsubmit"> Place Order</button>}
-                                                            </div>}
+                                                            </div>} */}
                                                         </div>
                                                     </div>
                                                 </div>

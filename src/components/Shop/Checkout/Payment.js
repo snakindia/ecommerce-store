@@ -2,9 +2,10 @@
 import { Field, Form, Formik } from 'formik';
 import React, { useRef, useState, useEffect } from 'react';
 import Error from '../../common/Error'
+import Nmi from './Nmi';
 function Payment(props) {
 
-    const { data, type, total, shippingMethods } = props;
+    const { data, type, total } = props;
     let methods = [];
     if (data && data.length > 0) {
         methods = data.filter(i => i.enabled)
@@ -14,7 +15,7 @@ function Payment(props) {
 
     }
 
-
+    const {  cart, paymentSettings,placeOrder } = props;
     return (
         <Formik
             enableReinitialize
@@ -65,6 +66,11 @@ function Payment(props) {
                         </div>
                     </div>
                 </div>
+                {cart.payment_method_id && cart.payment_method_gateway == 'nmi' && paymentSettings && paymentSettings.TokenKey && <Nmi />}
+                     
+                    {/* <button type="submit" onClick={placeOrder} className="btn bha-btn-primary float-right" name="buttonsubmit"> Place Order</button>}
+                                                            </div> */}
+                   
                 
                     {/* <div className="form-group mt-3">
                         {!props.hide ? 
