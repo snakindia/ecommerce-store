@@ -43,28 +43,34 @@ class Nmi extends React.Component {
         
         window.CollectJS.configure({
             variant: 'inline',
-                    "styleSniffer" : true,
-                    // "googleFont": "Montserrat:400",
-                    // "customCss" : {
-                    //     "color": "#0000ff",
-                    //     "background-color": "#d0d0ff"
-                    // },
-                    // "invalidCss": {
-                    //     "color": "white",
-                    //     "background-color": "red"
-                    // },
-                    // "validCss": {
-                    //     "color": "black",
-                    //     "background-color": "#d0ffd0"
-                    // },
-                    // "placeholderCss": {
-                    //     "color": "green",
-                    //     "background-color": "#808080"
-                    // },
-                    // "focusCss": {
-                    //     "color": "yellow",
-                    //     "background-color": "#202020"
-                    // },
+                    "styleSniffer" : false,
+                    "googleFont": "Montserrat:400",
+                    "customCss" : {
+                        "color": "#000",
+                        "background-color": "#fff",
+                        "border":"1px"
+                    },
+                    "invalidCss": {
+                        "color": "#000",
+                        "background-color": "fff"
+                    },
+                    "validCss": {
+                        "color": "#000",
+                        "background-color": "#fff"
+                    },
+                    "placeholderCss": {
+                        "color": "#888",
+                        "background-color": "#fff"
+                    },
+                    "focusCss": {
+                        "color": "#000",
+                        "background-color": "#fff",
+                        "border":"none",
+                        "outline":"0",
+                        "box-shadow":"none"
+
+                    },
+
                     "fields": {
                         "ccnumber": {
                             "selector": "#ccnumber",
@@ -153,11 +159,9 @@ class Nmi extends React.Component {
                     />
                 </div>
             </CollectJSSection>
-            <div className="col-lg-12" >
-               
-            </div>
-            <div className="col-lg-12" >
-                <button
+            
+            <div className="col-lg-12 pl-0 pt-2 pb-3" >
+                <button className="btn bha-btn-primary"
                     onClick={this.onClick}
                     type="submit"
                     //disabled={this.state.isSubmitting}
