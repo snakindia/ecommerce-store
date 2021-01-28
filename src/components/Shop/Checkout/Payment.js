@@ -39,23 +39,34 @@ function Payment(props) {
                             <div className="row">
                                 <div className="col-sm-12 col-md-12">
                                     {methods && methods.length > 0 && methods.map(method =>
-                                        <div className="form-group">
-                                            <div>
-                                                <Field
-                                                    type="radio"
-                                                    className="mr-2 mt-3"
-                                                    name="payment_method"
-                                                    value={method.id}
-                                                    id={method.id}
-                                                    onClick={e => props.paymentMethodHandler(method.id)}
-                                                />
-                                                {method.name}
+                                        <div className="row">
+                                            <div className="col-sm-3 col-md-3">
+                                                <div className="form-group">
+                                                    <Field
+                                                        type="radio"
+                                                        className="mr-2 mt-3"
+                                                        name="payment_method"
+                                                        value={method.id}
+                                                        id={method.id}
+                                                        onClick={e => props.paymentMethodHandler(method.id)}
+                                                    />
+                                                    {method.name}
+                                                </div>
                                             </div>
-
+                                            <div className="col-sm-9 col-md-9 text-sm-right">
+                                                <div class="paymentCard">
+                                                    <i className="fa fa-cc-visa visa" aria-hidden="true"></i>
+                                                    <i class="fa fa-cc-mastercard mastercard" aria-hidden="true"></i>
+                                                    <i class="fa fa-cc-amex amex" aria-hidden="true"></i>
+                                                    <i class="fa fa-cc-discover discover" aria-hidden="true"></i>
+                                                    <i class="fa fa-cc-diners-club dinerClub" aria-hidden="true"></i>
+                                                    <i class="fa fa-cc-jcb JcbCard" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
                                         </div>
                                     )}
-
-
+                                </div>
+                                <div className="col-sm-12 col-md-12">
                                     <p className="mt-3">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="#">privacy policy.</a></p>
                                 </div>
                                 <Error formik={formikProps} name="method" el={['method']} />
