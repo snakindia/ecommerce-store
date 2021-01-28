@@ -37,8 +37,11 @@ import './style.css';
     }
     
     render() {
-        const {authenticated, user,loading, orderSyncTime}=this.props;
-        
+        const {authenticated, user,loading, orderSyncTime,orders}=this.props;
+        if(loading === false && authenticated === false){
+            this.props.history.push('/')
+        }
+        console.log('loadingloading',loading,authenticated);
         return (
             <div className="content-wrapper topPadding" id="content">
                 {loading ? <Loader /> :null}
@@ -127,6 +130,7 @@ import './style.css';
 const mapStateToProps = (state) => ({
     authenticated: state.accounts.authenticated,
     user: state.accounts.user,
+    orders: state.accounts.orders,
     loading:state.accounts.authloading,
 });
 const mapDispatchToProps = dispatch => ({

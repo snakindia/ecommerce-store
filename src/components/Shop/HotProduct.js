@@ -22,7 +22,7 @@ const HotProduct = (props) => {
     const hasPrice = item && (item.regular_price || item.sale_price) ? true : false;
     return (
         <div className="hot-deals-item-wrapper deals-border-right">
-            {/* <div className="portfolio-hover">
+            <div className="portfolio-hover">
                 <div className="portfolio-hover-content">
                     <div className="callToAction-xxs">
                         <p>
@@ -31,7 +31,7 @@ const HotProduct = (props) => {
                         </p>
                     </div>
                 </div>
-            </div> */}
+            </div>
             <div className="card d-block">
                 {/* <Favourite className="like-button hover-hotdeal" /> */}
 

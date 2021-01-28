@@ -187,7 +187,7 @@ const mapStateToProps = (state) => ({
     loading: state.accounts.loading,
     error: state.accounts.error,
     authenticated: state.auth.authenticated,
-    user: state.auth.customer_settings,
+    user:state.accounts.user,
 });
 const mapDispatchToProps = dispatch => ({
     updateDetail: (payload) => dispatch(updateDetail(payload)),

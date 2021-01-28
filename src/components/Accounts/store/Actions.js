@@ -91,6 +91,10 @@ export const getOrderStatusSuccess = (payload) => ({
     type: ActionTypes.GET_ACCOUNTS_ORDERS_STATUS_SUCCESS,
     payload
 })
+// export const updateUserName = (payload) => ({
+//     type: ActionTypes.updateUserName,
+//     payload
+// })
 
 export const cancelOrder = (payload) => {
 
@@ -121,18 +125,19 @@ export const cancelOrder = (payload) => {
 
 export const updateDetail = (payload) => {
     return dispatch => {
-        const token =localStorage.getItem('authToken');
-        const headers= { Authorization: `Bearer ${token}`, withCredentials: true } ;
+        const token =localStorage.getItem('bhaAuth');
+        const headers= { authorization: `Bearer Token ${token}` } ;
         dispatch(setLoading(true));
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/customer-account`,
-        {...payload,token},
-        headers
-        )
-            .then(res => {
+        const data ={...payload,token};
+        const instance = Axios.create({
+            baseURL: `${process.env.REACT_APP_API_AJAX_URL}`
+          });
+          instance.defaults.headers.common['authorization'] = `Bearer ${token}`;
+          instance.put('/update-personal-detail', data).then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
                     notification('success', 'Info updated')
-                    //dispatch(cancelOrdersSuccess(res.data));
+                    //dispatch(updateUserName(data));
                 } else {
                     notification('error', 'Oops!! something went wrong')
                 }
@@ -144,23 +149,32 @@ export const updateDetail = (payload) => {
     }
 }
 export const changePassword = (payload) => {
-
     return dispatch => {
-        
+        const token =localStorage.getItem('bhaAuth');
+        const headers= { authorization: `Bearer Token ${token}` } ;
         dispatch(setLoading(true));
-        
-        let url = `orders/${payload.id}`;
-
-        Axios.put(`${process.env.REACT_APP_API_URL}/${url}`,payload
-        )
-            .then(res => {
+        const data ={...payload,token};
+        const instance = Axios.create({
+            baseURL: `${process.env.REACT_APP_API_AJAX_URL}`
+          });
+          instance.defaults.headers.common['authorization'] = `Bearer ${token}`;
+          
+          instance.put('/update-password', data).then(res => {
+             
                 dispatch(setLoading(false));
-                if (res.data) {
-                    notification('success', 'Order canceled')
-                    dispatch(cancelOrdersSuccess(res.data));
+                if(res.status ==200){
+                if(res.data && res.data.status){
+                    notification('success', 'Info updated')
+                }
+                else if(!res.data.status && res.data.data){
+                    notification('error',  res.data.data)
                 } else {
                     notification('error', 'Oops!! something went wrong')
                 }
+            }else {
+                notification('error', 'Oops!! something went wrong')
+            }
+               
             })
             .catch(e => {
                 dispatch(setLoading(false));
@@ -168,6 +182,7 @@ export const changePassword = (payload) => {
             });
     }
 }
+
 export const getOrderStatus = () => {
 
     return dispatch => {
@@ -196,9 +211,20 @@ export const loginSuccess = (payload) => ({
 })
 export const doLogin = (payload) => {
     return dispatch => {
+
         dispatch(setLoadingAuth(true));
-        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/login`,payload
-        )
+        //const token =localStorage.getItem('bhaAuth');
+        
+        dispatch(setLoading(true));
+        const instance = Axios.create({
+            baseURL: `${process.env.REACT_APP_API_AJAX_URL}`
+          });
+          //instance.defaults.headers.common['Access-Control-Request-Headers'] = `content-type`;
+          instance.defaults.headers.common['Access-Control-Allow-Headers'] = `*`;
+          instance.defaults.withCredentials = false;
+          console.log(instance,payload);
+          instance.post('/login', payload)
+        // Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/login`,payload)
             .then(res => {
                 dispatch(setLoadingAuth(false));
                 if (res.data && res.data.status && res.data.token) {

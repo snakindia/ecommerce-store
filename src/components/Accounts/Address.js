@@ -125,7 +125,7 @@ function Address({orders}) {
 const mapStateToProps = (state) => ({
     loadingCart: state.accounts.loadingCart,
     loading: state.accounts.loading,
-    orders: state.auth.order_statuses,
+    orders: state.accounts.orders,
     error: state.accounts.error,
     authenticated: state.auth.authenticated,
     user: state.auth.customer_settings,
