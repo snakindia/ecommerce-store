@@ -17,11 +17,11 @@ export const validators = {
   password: [
     isRequired('Password is required'),
     minLength(8, 'Password must be 8 characters long'),
-    strongPassWord(
-      'PASSWORD SHOULD BE A MINIMUM OF 8 CHARACTERS WITH AT LEAST ONE ' +
-        'CAPITAL LETTER, ONE LOWER CASE LETTER AND ONE NUMBER. PASSWORD ' +
-        'CANNOT START WITH A NUMBER OR BE THE SAME AS YOUR EMAIL.'
-    ),
+    // strongPassWord(
+    //   'PASSWORD SHOULD BE A MINIMUM OF 8 CHARACTERS WITH AT LEAST ONE ' +
+    //     'CAPITAL LETTER, ONE LOWER CASE LETTER AND ONE NUMBER. PASSWORD ' +
+    //     'CANNOT START WITH A NUMBER OR BE THE SAME AS YOUR EMAIL.'
+    // ),
   ],
   confirmpassword: [
     (value, formValues) => {

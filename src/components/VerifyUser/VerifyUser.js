@@ -22,6 +22,7 @@ class VerifyUser extends Component {
         payload: { token: token },
       });
       if (res && res.data && res.data.status) {
+        
         this.setState({
           status: true,
         });
@@ -31,8 +32,8 @@ class VerifyUser extends Component {
 
   render() {
     return (
-      <div>
-        <section className="banner-container" style={{ position: 'relative' }}>
+      <div style={{marginTop:'100px',padding:'50px'}}>
+        <section className="banner-container-verify" style={{ position: 'relative' }}>
           {this.state.status
             ? 'Your account has been verified successfully.'
             : 'Sorry, We are unable to find the details to verify the account.'}
