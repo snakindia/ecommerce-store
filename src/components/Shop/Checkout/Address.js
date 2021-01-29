@@ -243,16 +243,8 @@ function Address(props) {
                                     placeholder="Phone Number"
                                 />
                             </div>
-
-
-                            <div className="form-group mt-36">
-                                <button type="submit" className="btn bha-btn-primary float-right45" name="buttonsubmit">Submit</button>
-                            </div>
-                        </div>
-                    </Form>
-                    }
-                </Formik > : null}
-            {type == 'shipping' ? <div className="col-lg-12" >
+                            
+                            {type == 'shipping' ? <div className="col-lg-12 p-0" >
                 <div className="form-group">
                     <p>
                         <small>
@@ -270,6 +262,15 @@ function Address(props) {
                 </div>
             </div>
                 : null}
+
+                            <div className="form-group mt-36">
+                                <button type="submit" className="btn bha-btn-primary float-right45" name="buttonsubmit">Submit</button>
+                            </div>
+                        </div>
+                    </Form>
+                    }
+                </Formik > : null}
+           
         </>
     )
 }

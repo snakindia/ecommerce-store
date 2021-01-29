@@ -66,9 +66,9 @@ function Payment(props) {
                                         </div>
                                     )}
                                 </div>
-                                <div className="col-sm-12 col-md-12">
+                               {/*   <div className="col-sm-12 col-md-12">
                                     <p className="mt-3">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="#">privacy policy.</a></p>
-                                </div>
+                                    </div>   */}
                                 <Error formik={formikProps} name="method" el={['method']} />
                                 <div className="col-sm-12 col-md-12 mt-3">
                                     <h5>${total}</h5>

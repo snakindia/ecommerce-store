@@ -278,7 +278,7 @@ class Checkout extends Component {
     render() {
         const { authenticated, user, cart, paymentMethods, shippingMethods, checkoutSuccess, order, order_statuses,paymentSettings } = this.props;
         const { step, email, shippingAddress, billingAddress, same } = this.state;
-        const headerOne = <div className="headerone"><h5 className="hh1">{this.isFilled(1)} Customer</h5>
+        const headerOne = <div className="main-header-one"><h5 className="hh1">{this.isFilled(1)} Customer</h5><div className="headerone pl-0 pr-0"><div className="headerone-inner-box">
             {authenticated && user && user.email ? <div className="info">
                 <span>{user.email}</span>
                 <button className="SignOut" onClick={this.logout} >Sign Out</button>
@@ -287,6 +287,8 @@ class Checkout extends Component {
                 <button className="SignOut" >Edit</button>
             </div> : null} </>
             }
+        </div>
+        </div>
         </div>
         let subtotal = cart ? cart.subtotal : 0;
         let tax = cart ? cart.tax_total : 0;
@@ -375,8 +377,8 @@ class Checkout extends Component {
                                                                                 next={this.next}
                                                                             />
                                                                             }
-                                                                        </Panel>
-                                                                        <Panel header={this.headers(2)} key="2" id="stepp2" style={{ backgroundColor: 'transparent' }} >
+                                                                        </Panel>   
+                                                                        <Panel header={this.headers(2)} key="2" id="stepp2" style={{ backgroundColor: 'transparent'}} >
                                                                             <Address authenticated={authenticated} oldAddress={address && address.shipping ? address.shipping : null} type="shipping" submit={this.shippingSave} data={shippingAddress} same={same} setSame={this.setSame} />
                                                                         </Panel>
                                                                         <Panel header={this.headers(3)} key="3" id="stepp3">
