@@ -218,10 +218,12 @@ class Checkout extends Component {
     }
 
     submit = (data) => {
+       
         const { statuses, paymentMethods } = this.props;
         const method = paymentMethods.filter(item => item.id == data.payment_method);
         let status_id = statuses ? statuses.filter(st => st.name == 'Order Received') : undefined;
         status_id = status_id && status_id[0] ? status_id[0].id : '';
+        console.log('data',data)
         if (method && method[0]) {
             const data = {
                 payment_method: method[0].name,
@@ -295,6 +297,9 @@ class Checkout extends Component {
         let shipping = cart ? cart.shipping_total : 0;
         let total = cart ? cart.grand_total : 0;
         let items = cart ? cart.items : [];
+        if(items && items.length ==0 && cart && cart.id){
+            this.props.history.push('/shop')
+        }
         let productsInCart = 0;
         if (cart && cart.items && cart.items.length > 0) {
             for (const item of cart.items) {
@@ -415,12 +420,12 @@ class Checkout extends Component {
 
                                                         <div className="right-content aside margin-top30">
                                                             <Summary dataSource={dataSource} />
-                                                            {/* {cart.payment_method_id && <div className="form-group mt-3">
+                                                            {cart.payment_method_id && <div className="form-group mt-3">
                                                                 {
                                                                 cart.payment_method_gateway == 'paypal-checkout' ? <PaypalExpress /> :
                                                                 cart.payment_method_gateway == 'nmi' ? paymentSettings && paymentSettings.TokenKey ? <Nmi />:'Loading..' :
-                                                                 <button type="submit" onClick={this.submit} className="btn bha-btn-primary float-right" name="buttonsubmit"> Place Order</button>}
-                                                            </div>} */}
+                                                                 <button type="submit" onClick={e=>this.submit({payment_method:cart.payment_method_id})} className="btn bha-btn-primary float-right" name="buttonsubmit"> Place Order</button>}
+                                                            </div>}
                                                         </div>
                                                     </div>
                                                 </div>

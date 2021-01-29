@@ -38,6 +38,7 @@ export default (state = initialState, { type, payload }) => {
                 error: undefined,
                 authenticated: true,
                 user: payload && payload.customer_settings ? payload.customer_settings: undefined,
+                orders: payload && payload.order_statuses ? payload.order_statuses: undefined,
             }
 
         case ActionTypes.GET_ACCOUNTS_ORDERS_SUCCESS:
