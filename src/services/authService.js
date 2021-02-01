@@ -1,17 +1,17 @@
 const isLoggedIn = () => {
-  return Boolean(localStorage.authToken);
+  return Boolean(localStorage.bhaAuth);
 };
 
 const setAuthDetails = token => {
-  localStorage.authToken = token;
+  localStorage.bhaAuth = token;
 };
 
 const removeAuthDetails = () => {
-  localStorage.authToken = null;
+  localStorage.bhaAuth = null;
 };
 
 const getAuthToken = () => {
-  return localStorage.authToken;
+  return localStorage.bhaAuth;
 };
 
 export { isLoggedIn, setAuthDetails, removeAuthDetails, getAuthToken };

@@ -38,7 +38,7 @@ const Product = (props) => {
     )
 }
 const Cart = (props) => {
-    const { item, className, cart } = props;
+    const { item, className, cart ,loading} = props;
 
     const onClick = (e) => {
         e.preventDefault();
@@ -55,6 +55,10 @@ const Cart = (props) => {
             productsInCart = productsInCart + item.quantity;
         }
     }
+    
+        if(items && items.length ==0 && cart && cart.id){
+            props.history.push('/shop')
+        }
     return (
         <div className="content-wrapper topPadding" id="content">
             <div className="pagewrap">
@@ -128,9 +132,17 @@ const Cart = (props) => {
                                     </div>
                                 </div>
                                 :
+                                <>
+                                {
+                                    loading? <div className="row">
+                                    <div className="col-sm-12 col-md-8 left-content">loading...</div>
+                                </div>:
                                 <div className="row">
-                                    <div className="col-sm-12 col-md-8 left-content">Your Cart Empty</div>
-                                </div>
+                                <div className="col-sm-12 col-md-8 left-content">Your Cart Empty</div>
+                            </div>
+                                }
+                                </>
+                                
                             }
                         </div>
                     </section>

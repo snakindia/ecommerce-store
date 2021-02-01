@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { signUp } from './signUp.actions';
+import { signUp, getCountries } from './signUp.actions';
 import execValidation from '../../services/validatorService';
 import { validators } from './validators';
 import { showToast } from '../Notification/notification.actions';
@@ -26,19 +26,35 @@ class SignUpForm extends PureComponent {
   state = {
     showPassword: false,
   };
+  async componentDidMount(){
+    const { actions } = this.props;
+    const res = await actions.getCountries();
+    if(res && res.length > 0){
+      this.setState({countries:res})
+    }
+  }
   handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const { actions } = this.props;
     setSubmitting(true);
     try {
       const res = await actions.signUp(values);
-      const { isRightToken, status } = res;
+      const { isRightToken, status,isCustomerExists } = res;
+      console.log({res});
       if (isRightToken && status) {
-        resetForm();
+        //resetForm();
         actions.showToast(
           'Please click on link sent in your mailbox for verification',
           TOAST_TYPE.SUCCESS
         );
-      } else {
+      } else if (isRightToken && !status && isCustomerExists) {
+        //resetForm();
+        actions.showToast(
+          'User already registred',
+          TOAST_TYPE.ERROR
+        );
+      } 
+      
+      else {
         actions.showToast(
           'We are unable to process the request. Please try again later',
           TOAST_TYPE.ERROR
@@ -62,7 +78,7 @@ class SignUpForm extends PureComponent {
   };
 
   render() {
-    const { showPassword } = this.state;
+    const { showPassword,countries } = this.state;
     return (
       <Formik
         initialValues={initialValues}
@@ -112,22 +128,7 @@ class SignUpForm extends PureComponent {
                     {errors.last_name && touched.last_name && errors.last_name}
                   </span>
                 </div>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className="form-control input-control"
-                    name="companyname"
-                    value={values.companyname}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder="Company Name"
-                  />
-                  <span className="errorMsg">
-                    {errors.companyname &&
-                      touched.companyname &&
-                      errors.companyname}
-                  </span>
-                </div>
+               
                 <div className="form-group">
                   <input
                     type="text"
@@ -156,8 +157,40 @@ class SignUpForm extends PureComponent {
                     {errors.password && touched.password && errors.password}
                   </span>
                 </div>
+                <div className="form-group">
+                <input
+                    type={showPassword ? 'text' : 'password'}
+                    className="form-control input-control"
+                    value={values.confirmpassword}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="confirmpassword"
+                    placeholder="Confirm Password"
+                  />
+                  <span className="errorMsg">
+                    {errors.confirmpassword &&
+                      touched.confirmpassword &&
+                      errors.confirmpassword}
+                  </span>
+                  </div>
               </div>
               <div className="col-sm-6 col-md-6 pr-0 pl-0">
+              <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control input-control"
+                    name="companyname"
+                    value={values.companyname}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="Company Name"
+                  />
+                  <span className="errorMsg">
+                    {errors.companyname &&
+                      touched.companyname &&
+                      errors.companyname}
+                  </span>
+                </div>
                 <div className="form-group">
                   <select
                     className="form-control input-control form-select text-muted"
@@ -166,11 +199,10 @@ class SignUpForm extends PureComponent {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     style={{ fontSize: '0.875rem' }}
-                  >
-                    <option value="United State">United State</option>
-                    <option value="India">India</option>
-                    <option value="China">China</option>
-                    <option value="Afganistan">Afganistan</option>
+                  >{
+                    countries ? countries.map(c=><option key={c.code} value={c.name}>{c.name}</option>):null
+                  }
+                 
                   </select>
                 </div>
                 <div className="form-group">
@@ -202,20 +234,7 @@ class SignUpForm extends PureComponent {
                   </span>
                 </div>
                 <div className="form-group">
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    className="form-control input-control"
-                    value={values.confirmpassword}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    name="confirmpassword"
-                    placeholder="Confirm Password"
-                  />
-                  <span className="errorMsg">
-                    {errors.confirmpassword &&
-                      touched.confirmpassword &&
-                      errors.confirmpassword}
-                  </span>
+                  
 
                   <div className="mt-2 text-muted">
                     <input
@@ -323,6 +342,7 @@ const mapDispatchToProps = dispatch => ({
     {
       signUp,
       showToast,
+      getCountries
     },
     dispatch
   ),

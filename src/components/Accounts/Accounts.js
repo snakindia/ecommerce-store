@@ -41,7 +41,10 @@ import './style.css';
         if(loading === false && authenticated === false){
             this.props.history.push('/')
         }
-        console.log('loadingloading',loading,authenticated);
+        if(!localStorage.bhaAuth){
+            window.location= process.env.REACT_APP_CLIENT_URL;
+        }
+       
         return (
             <div className="content-wrapper topPadding" id="content">
                 {loading ? <Loader /> :null}

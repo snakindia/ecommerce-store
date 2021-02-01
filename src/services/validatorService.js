@@ -29,7 +29,7 @@ const email = msg => value => {
 };
 
 const minLength = (length, msg) => value => {
-  return value.length > length
+  return value.length >= length
     ? null
     : msg || `Min ${length} characters required`;
 };

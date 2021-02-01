@@ -91,10 +91,10 @@ export const getOrderStatusSuccess = (payload) => ({
     type: ActionTypes.GET_ACCOUNTS_ORDERS_STATUS_SUCCESS,
     payload
 })
-// export const updateUserName = (payload) => ({
-//     type: ActionTypes.updateUserName,
-//     payload
-// })
+export const updateUserName = (payload) => ({
+    type: ActionTypes.UPDATE_USER_DETAIL,
+    payload
+})
 
 export const cancelOrder = (payload) => {
 
@@ -137,7 +137,7 @@ export const updateDetail = (payload) => {
                 dispatch(setLoading(false));
                 if (res.data) {
                     notification('success', 'Info updated')
-                    //dispatch(updateUserName(data));
+                    dispatch(updateUserName(data));
                 } else {
                     notification('error', 'Oops!! something went wrong')
                 }

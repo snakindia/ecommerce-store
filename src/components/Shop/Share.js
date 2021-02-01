@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 const Share = ({item}) => {
-    const href = `${process.env.REACT_APP_CLIENT_URL}/shop/${item.id}`;
+    const href = `${process.env.REACT_APP_CLIENT_URL}shop/${item.id}`;
     return (
         <>
             <span className="mr-2 text-uppercase">Share</span>

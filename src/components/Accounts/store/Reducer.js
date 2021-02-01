@@ -18,6 +18,15 @@ export default (state = initialState, { type, payload }) => {
             return { ...state, loading: payload }
         case ActionTypes.SET_AUTH_LOADING:
             return { ...state, authloading: payload }
+        case ActionTypes.UPDATE_USER_DETAIL:
+            return {
+                ...state, user: {
+                    ...state.user,
+                    first_name: payload.first_name,
+                    full_name: payload.full_name,
+                    last_name: payload.last_name,
+                }
+            }
 
         case ActionTypes.LOGOUT_SUCCESS:
             localStorage.clear();
@@ -37,8 +46,8 @@ export default (state = initialState, { type, payload }) => {
                 authloading: false,
                 error: undefined,
                 authenticated: true,
-                user: payload && payload.customer_settings ? payload.customer_settings: undefined,
-                orders: payload && payload.order_statuses ? payload.order_statuses: undefined,
+                user: payload && payload.customer_settings ? payload.customer_settings : undefined,
+                orders: payload && payload.order_statuses ? payload.order_statuses : undefined,
             }
 
         case ActionTypes.GET_ACCOUNTS_ORDERS_SUCCESS:
