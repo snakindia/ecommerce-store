@@ -12,9 +12,12 @@ import Login from './Login'
 import Address from './Address'
 import Summary from './Summary';
 import Payment from './Payment';
+import PannelHeader from './PannelHeader';
+
 import ShippingMethod from './ShippingMethod';
 import PaypalExpress from './PaypalExpress';
 import Nmi from './Nmi';
+import Pannels from './Pannels';
 import Thankyou from './Thankyou';
 import { getAddress } from '../../../utils/helper';
 import scrollToEl from '../../../utils/scrollToEl'
@@ -34,7 +37,8 @@ class Checkout extends Component {
             shippingAddress: undefined,
             billingAddress: undefined,
             authenticated: undefined,
-            stepCompleted:0
+            stepCompleted:0,
+            demand:null
         }
     }
 
@@ -62,7 +66,8 @@ class Checkout extends Component {
             const payload = {
                 ...cart, email: user.email
             }
-            this.props.updateAddress(payload, null);
+            const pannelstep =2;
+            this.props.updateAddress(payload, null, pannelstep);
         }
     }
 
@@ -76,9 +81,9 @@ class Checkout extends Component {
                 step = 6;
             } else if (shipping_method_id) {
                 step = 5;
-            } else if (shipping_address && shipping_address.address1 && billing_address && billing_address.address1) {
+            } else if (billing_address && billing_address.address1 && shipping_address && shipping_address.address1) {
                 step = 4;
-            } else if (shipping_address && shipping_address.address1) {
+            } else if (billing_address && billing_address.address1) {
                 step = 3;
             } else if (email) {
                 step = 2;
@@ -89,9 +94,9 @@ class Checkout extends Component {
                 email: email ? email : '',
                 billingAddress: billing_address && billing_address.address1 ? billing_address : undefined,
                 shippingAddress: shipping_address && shipping_address.address1 ? shipping_address : undefined,
-                step
+                step, demand:null
             })
-            this.scrollToEle(`stepp${step}`)
+            //this.scrollToEle(`stepp${step}`)
             if (step == 6) {
                 this.props.getPaymentSettingsMethod();
             }
@@ -108,7 +113,8 @@ class Checkout extends Component {
         const payload = {
             ...cart, email
         }
-        this.props.updateAddress(payload, null);
+        const pannelstep =2
+        this.props.updateAddress(payload, null, pannelstep);
 
     }
 
@@ -126,7 +132,7 @@ class Checkout extends Component {
 
     shippingSave = (data, type) => {
         const { same } = this.state;
-        if (type == 'shipping') {
+        if (type == 'billing') {
             if (same) {
                 this.setState({
                     shippingAddress: data,
@@ -135,17 +141,17 @@ class Checkout extends Component {
                 }, () => this.doAddressUpdate(type))
             } else {
                 this.setState({
-                    shippingAddress: data,
-                    billingAddress: this.setAll(data, ''),
+                    //shippingAddress: this.setAll(data, ''),
+                    billingAddress: data,
                     step: 3
                 }, () => this.doAddressUpdate(type)
                 )
             }
 
         }
-        else if (type == 'billing') {
+        else if (type == 'shipping') {
             this.setState({
-                billingAddress: data,
+                shippingAddress: data,
                 step: 4
             }, () => this.doAddressUpdate(type))
         }
@@ -163,36 +169,21 @@ class Checkout extends Component {
 
             billing_address: billingAddress ? billingAddress : undefined,
             shipping_address: shippingAddress ? shippingAddress : undefined,
-            full_name: billingAddress ? `${billingAddress.first_name} ${shippingAddress.last_name}` : '',
-            first_name: shippingAddress.first_name,
-            last_name: shippingAddress.last_name,
-            mobile: shippingAddress.phone,
+            full_name: billingAddress ? `${billingAddress.first_name} ${billingAddress.last_name}` : '',
+            first_name: billingAddress.first_name,
+            last_name: billingAddress.last_name,
+            mobile: billingAddress.phone,
         }
-
-        this.props.updateAddress(payload, type);
+        const pannelstep =type =='billing' ? 3 :type=='shipping'? 4 :3;
+        this.props.updateAddress(payload, type, pannelstep);
     }
 
-    openPanel = (e) => {
-        const { email, billingAddress, shippingAddress, } = this.state;
-        const { payment_method_id, shipping_method_id, payment_method_gateway } = this.props.cart;
-        if (e && e.length > 1 && e[1]) {
-            const step = e[1];
-            if (step == 1) {
-                this.setState({ step })
-            }
-            else if (step == 2 && email) {
-                this.setState({ step })
-            } else if (step == 3 && shippingAddress) {
-                this.setState({ step })
-            } else if (step == 4 && billingAddress) {
-                this.setState({ step })
-            } else if (step == 5 && shipping_method_id) {
-                this.setState({ step })
-            } else if (step == 6 && payment_method_id && payment_method_gateway == 'paypal-checkout') {
-                this.setState({ step })
-            }
+    openPanel = (demand) => {
+        const {pannelstep}=this.props;
+        if(parseInt(demand) <= parseInt(pannelstep)){
+            this.setState({demand})
         }
-        console.log({ e });
+       
     }
 
     placeOrder = (payment_method) => {
@@ -239,7 +230,8 @@ class Checkout extends Component {
     }
 
     paymentMethodHandler = (id) => {
-        this.props.updateAddress({ payment_method_id: id });
+        const pannelstep =5;
+        this.props.updateAddress({ payment_method_id: id },null, pannelstep);
         setTimeout(() => {
             this.props.getPaymentSettingsMethod();
         }, 500)
@@ -247,8 +239,8 @@ class Checkout extends Component {
     }
 
     shippingMethodHandler = (id) => {
-
-        this.props.updateAddress({ shipping_method_id: id });
+        const pannelstep =5;
+        this.props.updateAddress({ shipping_method_id: id }, null, pannelstep);
     }
     logout = () => {
         localStorage.clear();
@@ -260,18 +252,7 @@ class Checkout extends Component {
         return stepCompleted > from ? <CheckCircleOutlined /> : null
     }
 
-    headers = (from) => {
-        const { step } = this.state;
-        let text = '';
-        if (from == 1) text = 'Customer';
-        if (from == 2) text = 'Shipping Address';
-        if (from == 3) text = 'Billing Address';
-        if (from == 4) text = 'Shipping Method';
-        if (from == 5) text = 'Payment Method';
-        return <>
-            {step > from ? <CheckCircleOutlined /> : null} {text}
-        </>
-    }
+    
 
     setSame = (same) => {
         this.setState({ same })
@@ -279,19 +260,8 @@ class Checkout extends Component {
 
     render() {
         const { authenticated, user, cart, paymentMethods, shippingMethods, checkoutSuccess, order, order_statuses,paymentSettings } = this.props;
-        const { step, email, shippingAddress, billingAddress, same } = this.state;
-        const headerOne = <div className="main-header-one"><h5 className="hh1">{this.isFilled(1)} Customer</h5><div className="headerone pl-0 pr-0"><div className="headerone-inner-box">
-            {authenticated && user && user.email ? <div className="info">
-                <span>{user.email}</span>
-                <button className="SignOut" onClick={this.logout} >Sign Out</button>
-            </div> : <> {email ? <div className="info">
-                <span>{email ? email : null}</span>
-                <button className="SignOut" >Edit</button>
-            </div> : null} </>
-            }
-        </div>
-        </div>
-        </div>
+        const { step, email, shippingAddress, billingAddress, same ,demand} = this.state;
+        
         let subtotal = cart ? cart.subtotal : 0;
         let tax = cart ? cart.tax_total : 0;
         let shipping = cart ? cart.shipping_total : 0;
@@ -345,7 +315,8 @@ class Checkout extends Component {
 
         }
        
-
+        let {pannelstep} =this.props;
+        const activeKey=demand ? demand:pannelstep;
         return (
 
             <>
@@ -368,13 +339,18 @@ class Checkout extends Component {
                                                                 <h1 className="bha_heading_2 text-blue padding-top30 padding-btm30">Check Out</h1>
                                                                 <div id="accordion">
                                                                     <Collapse
-                                                                        activeKey={step.toString()}
-                                                                        onChange={this.openPanel}
+                                                                        activeKey={activeKey.toString()}
+                                                                        onChange={()=>{}}
                                                                         expandIcon={false}
                                                                         ghost={true}
                                                                     >
-                                                                        <Panel header={headerOne} key="1" id="stepp1" showArrow={false}>
-                                                                            {authenticated ? <div className="noheight"></div> : <Login
+                                                                        <Panel  header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="1" cart={cart}/>} key="1" id="stepp1" showArrow={false} pannelstep={pannelstep}>
+                                                                            {authenticated ? <div className="noheight">
+                                                                                <div >Logged in as {user.email}</div>
+                                                                                <div>not you ? <button onClick={this.logout} className="btn bha-btn-primary btn-danger">Sign Out</button></div>
+                                                                                <div><button onClick={this.checkForUser} type="submit" className="btn bha-btn-primary float-right45" name="buttonsubmit">Continue</button></div>
+                                                                               
+                                                                            </div> : <Login
                                                                                 user={user}
                                                                                 authenticated={authenticated}
                                                                                 setEmail={this.setEmail}
@@ -383,20 +359,23 @@ class Checkout extends Component {
                                                                             />
                                                                             }
                                                                         </Panel>   
-                                                                        <Panel header={this.headers(2)} key="2" id="stepp2" style={{ backgroundColor: 'transparent'}} >
-                                                                            <Address authenticated={authenticated} oldAddress={address && address.shipping ? address.shipping : null} type="shipping" submit={this.shippingSave} data={shippingAddress} same={same} setSame={this.setSame} />
+                                                                        <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="2" cart={cart}/>} key="2" id="stepp2" style={{ backgroundColor: 'transparent'}} showArrow={false} pannelstep={pannelstep}>
+                                                                            <Address authenticated={authenticated} oldAddress={address && address.billing ? address.billing : null} type="billing" submit={this.shippingSave} data={billingAddress} same={same} setSame={this.setSame}/>
+                                                                       
                                                                         </Panel>
-                                                                        <Panel header={this.headers(3)} key="3" id="stepp3">
-                                                                            <Address authenticated={authenticated} oldAddress={address && address.billing ? address.billing : null} type="billing" submit={this.shippingSave} data={billingAddress} />
-                                                                        </Panel>
-                                                                        <Panel header={this.headers(4)} key="4" id="stepp4">
+                                                                        <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="3" cart={cart}/>} key="3" id="stepp3" showArrow={false} pannelstep={pannelstep}>
+                                                                        <Address authenticated={authenticated} oldAddress={address && address.shipping ? address.shipping : null} type="shipping" submit={this.shippingSave} data={shippingAddress}  />
+                                                                            
+                                                                            </Panel>
+                                                                        <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="4" cart={cart}/>} key="4" id="stepp4" showArrow={false}>
                                                                             <ShippingMethod
+                                                                                pannelstep={pannelstep}
                                                                                 shipping_method_id={cart && cart.shipping_method_id ? cart.shipping_method_id : ''}
                                                                                 shippingMethods={shippingMethods}
                                                                                 shippingMethodHandler={this.shippingMethodHandler}
                                                                             />
                                                                         </Panel>
-                                                                        <Panel header={this.headers(5)} key="5" id="stepp5">
+                                                                        <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="5" cart={cart}/>} key="5" id="stepp5" showArrow={false}>
 
                                                                             <Payment
                                                                                 data={paymentMethods}
@@ -413,6 +392,7 @@ class Checkout extends Component {
 
                                                                     </Collapse>
                                                                 </div>
+                                                            
                                                             </div>
                                                         </div>
                                                     </div>
@@ -466,6 +446,7 @@ const mapStateToProps = (state) => ({
     order_statuses1: state.accounts,
     statuses: state.accounts.statuses,
     paymentSettings: state.shop.paymentSettings,
+    pannelstep: state.shop.pannelstep,
 });
 const mapDispatchToProps = dispatch => ({
     getPaymentMethod: () => dispatch(getPaymentMethod()),
@@ -473,7 +454,7 @@ const mapDispatchToProps = dispatch => ({
     getShippingMethod: () => dispatch(getShippingMethod()),
     addOrder: (payload) => dispatch(addOrder(payload)),
     getOrders: () => dispatch(getOrders()),
-    updateAddress: (payload, type) => dispatch(updateAddress(payload, type)),
+    updateAddress: (payload, type,pannelstep) => dispatch(updateAddress(payload, type,pannelstep)),
 });
 export default connect(
     mapStateToProps,

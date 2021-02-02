@@ -60,8 +60,12 @@ function Address(props) {
     }
 
 
-    const onSelect = (cc) => {
-
+    const next = (c) => {
+        const d = oldAddress[defaultAddressIndex];
+        console.log({ d });
+        if (d) {
+            props.submit(d, type)
+        }
     }
     const onSelectOldAddress = (a) => {
         const d = oldAddress[a];
@@ -96,10 +100,12 @@ function Address(props) {
                             </Select>
                         </div>
                     </div>
-
-                    <div className="col-md-3 col-lg-3" >
-                        <button className="btn btn-primary" onClick={e => showAddNew(true)} >Add New</button>
-                    </div>
+                    {addNew ? '' :
+                        <div className="col-md-3 col-lg-3" >
+                            <button className="bha-btn-primary" onClick={next}>Continue</button>
+                            <button className="bha-btn-primary" onClick={e => showAddNew(true)} >Add New</button>
+                        </div>
+                    }
                 </div>
             </> : null}
             {(addNew || !authenticated) ?
@@ -124,7 +130,7 @@ function Address(props) {
                         if (!values.state) errors.state = 'State/Province is Required';
                         if (!values.postal_code) errors.postal_code = 'Postal Code is Required';
                         // if (!values.country) errors.country = 'Country is Required';
-
+                        console.log(errors);
                         return errors;
                     }}
                 >
@@ -243,34 +249,34 @@ function Address(props) {
                                     placeholder="Phone Number"
                                 />
                             </div>
-                            
-                            {type == 'shipping' ? <div className="col-lg-12 p-0" >
-                <div className="form-group">
-                    <p>
-                        <small>
-                            <input
 
-                                name="same"
-                                className="mr-2"
-                                type="checkbox"
-                                checked={same}
-                                onChange={e => setSame(!same)}
-                            />
-                             My billing address is the same as my shipping address.
+                            {type == 'billing' ? <div className="col-lg-12 p-0" >
+                                <div className="form-group">
+                                    <p>
+                                        <small>
+                                            <input
+
+                                                name="same"
+                                                className="mr-2"
+                                                type="checkbox"
+                                                checked={same}
+                                                onChange={e => setSame(!same)}
+                                            />
+                             My shipping address is the same as my billing address.
                             </small>
-                    </p>
-                </div>
-            </div>
-                : null}
-
+                                    </p>
+                                </div>
+                            </div>
+                                : null}
+                            <Error formik={formikProps} el={['first_name','last_name','address1','city','state','phone','country','postal_code']} />    
                             <div className="form-group mt-36">
-                                <button type="submit" className="btn bha-btn-primary float-right45" name="buttonsubmit">Submit</button>
+                                <button type="submit" className="btn bha-btn-primary float-right45" name="buttonsubmit">Continue</button>
                             </div>
                         </div>
                     </Form>
                     }
                 </Formik > : null}
-           
+
         </>
     )
 }

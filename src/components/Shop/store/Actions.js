@@ -136,9 +136,10 @@ export const getMenu = () => {
             });
     }
 }
-export const addProductAction = (payload) => ({
+export const addProductAction = (payload, pannelstep) => ({
     type: ActionTypes.ADD_TO_CART,
     payload,
+    pannelstep
 });
 export const removeProductAction = (payload) => ({
     type: ActionTypes.REMOVE_FROM_CART,
@@ -347,8 +348,7 @@ export const getShippingMethod = () => {
     }
 }
 
-
-export const updateAddress = (payload, type) => {
+export const updateAddress = (payload, type,pannelstep ) => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
@@ -362,7 +362,7 @@ export const updateAddress = (payload, type) => {
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
-                    dispatch(addProductAction(res.data));
+                    dispatch(addProductAction(res.data, pannelstep));
                 } else {
                     // dispatch(getProductError(undefined));
                 }
