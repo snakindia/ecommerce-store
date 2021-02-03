@@ -70,7 +70,7 @@ class Checkout extends Component {
         }
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState) {
         const { cart } = this.props;
 
         if (cart && cart !== prevProps.cart) {
@@ -109,9 +109,15 @@ class Checkout extends Component {
                 const id  = methods[0].id;
                 this.shippingMethodHandler(id)
             }
-            if(this.props.pannelstep && (this.props.pannelstep ===3 || this.props.pannelstep==4)){
-                this.scrollToEle(`stepp${this.props.pannelstep}`)
-            }
+            
+        }
+        if(this.props.pannelstep !=prevProps.pannelstep &&  (this.props.pannelstep==4 || this.props.pannelstep ==3)){
+            
+            this.scrollToEle(`stepp${this.props.pannelstep}`)
+        }
+        if(this.props.pannelstep ==prevProps.pannelstep && this.props.pannelstep ==3 && this.state.demand ==2 && this.state.demand!=prevState.demand){
+            
+            this.scrollToEle(`stepp${this.props.pannelstep}`)
         }
         
 
@@ -371,11 +377,11 @@ class Checkout extends Component {
                                                                             }
                                                                         </Panel>   
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="2" cart={cart}/>} key="2" id="stepp2" style={{ backgroundColor: 'transparent'}} showArrow={false} pannelstep={pannelstep}>
-                                                                            <Address  scrollToEle={this.scrollToEle} authenticated={authenticated} oldAddress={address && address.billing ? address.billing : null} type="billing" submit={this.shippingSave} data={billingAddress} same={same} setSame={this.setSame}/>
+                                                                            <Address  authenticated={authenticated} oldAddress={address && address.billing ? address.billing : null} type="billing" submit={this.shippingSave} data={billingAddress} same={same} setSame={this.setSame}/>
                                                                        
                                                                         </Panel>
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="3" cart={cart}/>} key="3" id="stepp3" showArrow={false} pannelstep={pannelstep}>
-                                                                        <Address scrollToEle={this.scrollToEle} authenticated={authenticated} oldAddress={address && address.shipping ? address.shipping : null} type="shipping" submit={this.shippingSave} data={shippingAddress}  />
+                                                                        <Address activeKey={activeKey} authenticated={authenticated} oldAddress={address && address.shipping ? address.shipping : null} type="shipping" submit={this.shippingSave} data={shippingAddress}  />
                                                                             
                                                                             </Panel>
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="4" cart={cart}/>} key="4" id="stepp4" showArrow={false}>

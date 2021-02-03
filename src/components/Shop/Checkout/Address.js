@@ -5,6 +5,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Input from '../../common/Input'
 import Error from '../../common/Error'
 import { Select } from 'antd';
+import scrollToEl from '../../../utils/scrollToEl'
 import countries from './countries';
 import { getData as formatAddress } from '../../../utils/helper';
 const { Option } = Select;
@@ -12,7 +13,20 @@ const { Option } = Select;
 //     address.billing= {...cart.billing_address}
 // }
 // formatAddress
+const scrollToEle=(id, ) =>{
+        setTimeout(()=>{
+            scrollToEl('#' + id, -300, 1000)
+        },500)
+       
+}
 function Address(props) {
+    // useEffect(()=>{
+    //     if(type=='shipping' && props.activeKey ==3){
+    //         console.log('m chla');
+    //         scrollToEle(`stepp3`);
+    //     }
+       
+    // })
     let defaultAddressIndex = undefined;
     const { data, type, authenticated, same, setSame } = props;
     let { oldAddress } = props;
@@ -274,7 +288,7 @@ function Address(props) {
                                 {addNew ? <button className="bha-btn-primary btn-danger"
                                     onClick={e => {
 
-                                        props.scrollToEle(`stepp${type == 'billing' ? 2 : 3}`, 50);
+                                        scrollToEle(`stepp${type == 'billing' ? 2 : 3}`, 50);
                                         showAddNew(false);
                                     }
                                     }

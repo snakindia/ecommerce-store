@@ -25,7 +25,7 @@ const PannelHeader = ({ step, cart, pannelstep, activeKey,edit }) => {
                 <div className="col-md-8">
                     <div className="float-left">{cart && cart.email ? cart.email : ''}</div>
                     <div className="float-right">
-                        {activeKey != 1 ?
+                        {pannelstep >1 && activeKey != 1 ?
                             <button className="bha-btn-primary" onClick={e => edit(1)}>Edit</button> : null}
                     </div>
                 </div>
