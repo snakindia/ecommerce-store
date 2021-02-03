@@ -69,7 +69,7 @@ function Address(props) {
     }
     const onSelectOldAddress = (a) => {
         const d = oldAddress[a];
-        console.log({ d });
+        showAddNew(false);
         if (d) {
             props.submit(d, type)
         }
@@ -268,9 +268,17 @@ function Address(props) {
                                 </div>
                             </div>
                                 : null}
-                            <Error formik={formikProps} el={['first_name','last_name','address1','city','state','phone','country','postal_code']} />    
+                            <Error formik={formikProps} el={['first_name', 'last_name', 'address1', 'city', 'state', 'phone', 'country', 'postal_code']} />
                             <div className="form-group mt-36">
                                 <button type="submit" className="btn bha-btn-primary float-right45" name="buttonsubmit">Continue</button>
+                                {addNew ? <button className="bha-btn-primary btn-danger"
+                                    onClick={e => {
+
+                                        props.scrollToEle(`stepp${type == 'billing' ? 2 : 3}`, 50);
+                                        showAddNew(false);
+                                    }
+                                    }
+                                >Cancel</button> : null}
                             </div>
                         </div>
                     </Form>

@@ -17,7 +17,6 @@ import PannelHeader from './PannelHeader';
 import ShippingMethod from './ShippingMethod';
 import PaypalExpress from './PaypalExpress';
 import Nmi from './Nmi';
-import Pannels from './Pannels';
 import Thankyou from './Thankyou';
 import { getAddress } from '../../../utils/helper';
 import scrollToEl from '../../../utils/scrollToEl'
@@ -52,11 +51,11 @@ class Checkout extends Component {
 
 
     }
-    scrollToEle(id) {
+    scrollToEle(id, time=500) {
         setTimeout(() => {
             console.log('scrolling', id);
             scrollToEl('#' + id, -140, 500)
-        }, 500)
+        }, time)
 
     }
 
@@ -104,6 +103,17 @@ class Checkout extends Component {
 
 
         }
+        if(this.props.pannelstep ===4 && this.props.pannelstep != prevProps.pannelstep ){
+            let methods =this.props.shippingMethods;
+            if(methods && methods.length ==1){
+                const id  = methods[0].id;
+                this.shippingMethodHandler(id)
+            }
+            if(this.props.pannelstep && (this.props.pannelstep ===3 || this.props.pannelstep==4)){
+                this.scrollToEle(`stepp${this.props.pannelstep}`)
+            }
+        }
+        
 
     }
 
@@ -317,6 +327,7 @@ class Checkout extends Component {
        
         let {pannelstep} =this.props;
         const activeKey=demand ? demand:pannelstep;
+        
         return (
 
             <>
@@ -344,7 +355,7 @@ class Checkout extends Component {
                                                                         expandIcon={false}
                                                                         ghost={true}
                                                                     >
-                                                                        <Panel  header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="1" cart={cart}/>} key="1" id="stepp1" showArrow={false} pannelstep={pannelstep}>
+                                                                        <Panel  header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="1" cart={cart}/>} key="1" id="stepp1" showArrow={false} pannelstep={pannelstep} style={{marginBottom:0}}>
                                                                             {authenticated ? <div className="noheight">
                                                                                 <div >Logged in as {user.email}</div>
                                                                                 <div>not you ? <button onClick={this.logout} className="btn bha-btn-primary btn-danger">Sign Out</button></div>
@@ -360,20 +371,20 @@ class Checkout extends Component {
                                                                             }
                                                                         </Panel>   
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="2" cart={cart}/>} key="2" id="stepp2" style={{ backgroundColor: 'transparent'}} showArrow={false} pannelstep={pannelstep}>
-                                                                            <Address authenticated={authenticated} oldAddress={address && address.billing ? address.billing : null} type="billing" submit={this.shippingSave} data={billingAddress} same={same} setSame={this.setSame}/>
+                                                                            <Address  scrollToEle={this.scrollToEle} authenticated={authenticated} oldAddress={address && address.billing ? address.billing : null} type="billing" submit={this.shippingSave} data={billingAddress} same={same} setSame={this.setSame}/>
                                                                        
                                                                         </Panel>
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="3" cart={cart}/>} key="3" id="stepp3" showArrow={false} pannelstep={pannelstep}>
-                                                                        <Address authenticated={authenticated} oldAddress={address && address.shipping ? address.shipping : null} type="shipping" submit={this.shippingSave} data={shippingAddress}  />
+                                                                        <Address scrollToEle={this.scrollToEle} authenticated={authenticated} oldAddress={address && address.shipping ? address.shipping : null} type="shipping" submit={this.shippingSave} data={shippingAddress}  />
                                                                             
                                                                             </Panel>
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="4" cart={cart}/>} key="4" id="stepp4" showArrow={false}>
-                                                                            <ShippingMethod
+                                                                            {/* <ShippingMethod
                                                                                 pannelstep={pannelstep}
                                                                                 shipping_method_id={cart && cart.shipping_method_id ? cart.shipping_method_id : ''}
                                                                                 shippingMethods={shippingMethods}
                                                                                 shippingMethodHandler={this.shippingMethodHandler}
-                                                                            />
+                                                                            /> */}
                                                                         </Panel>
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="5" cart={cart}/>} key="5" id="stepp5" showArrow={false}>
 
