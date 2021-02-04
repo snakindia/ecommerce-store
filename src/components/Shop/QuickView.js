@@ -83,19 +83,20 @@ export default class QuickView extends Component {
                                                 <div style={{ width: '96%' }} className="zoomer">
                                                     <Zoomer
                                                         image={imageUrl}
-                                                        largeImage={imageUrl}
+                                                        largeImage={imageUrl} 
+                                                        // image='https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg'
+                                                        // largeImage='https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg'
                                                     />
                                                 </div>
                                             </div>
                                             <div className="thumbnails product-slider-div" style={{ width: '300px' }}>
                                                 <Slider {...settings}>
-                                                    {sliderImages.map((sl, i) =>
-                                                        <div className="product-slider" style={{ width: '80px' }}>
+                                                    {sliderImages.map((sl, i) =><div className="product-slider" style={{ width: '80px' }}>
                                                             <img
                                                                 key={`${i}hotp`}
-                                                                src={sl}
+                                                                src={sl.url}
                                                                 width="780"
-                                                                onClick={e => this.changeImage(sl)}
+                                                                onClick={e => this.changeImage(sl.url)}
                                                                 className="xzoom-gallery5"
                                                                 alt=''
                                                             />

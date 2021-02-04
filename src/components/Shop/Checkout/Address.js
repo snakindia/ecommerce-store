@@ -122,7 +122,7 @@ function Address(props) {
                     }
                 </div>
             </> : null}
-            {(addNew || !authenticated) ?
+            {(addNew || !authenticated || !oldAddress || oldAddress && oldAddress.length ==0) ?
                 <Formik
                     enableReinitialize
                     initialValues={initialFormValue}

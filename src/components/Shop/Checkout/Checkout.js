@@ -344,7 +344,7 @@ class Checkout extends Component {
                             <section >
                                 <div className="container-fluid">
                                     {
-                                        checkoutSuccess ? <Thankyou order={order} /> : <>
+                                        checkoutSuccess ? <Thankyou order={order} user={this.props.user}/> : <>
 
                                             {cart ?
 
@@ -417,12 +417,12 @@ class Checkout extends Component {
 
                                                         <div className="right-content aside margin-top30">
                                                             <Summary dataSource={dataSource} />
-                                                            {cart.payment_method_id && <div className="form-group mt-3">
+                                                            {/* {cart.payment_method_id && <div className="form-group mt-3">
                                                                 {
                                                                 cart.payment_method_gateway == 'paypal-checkout' ? <PaypalExpress /> :
                                                                 cart.payment_method_gateway == 'nmi' ? paymentSettings && paymentSettings.TokenKey ? <Nmi />:'Loading..' :
                                                                  <button type="submit" onClick={e=>this.submit({payment_method:cart.payment_method_id})} className="btn bha-btn-primary float-right" name="buttonsubmit"> Place Order</button>}
-                                                            </div>}
+                                                            </div>} */}
                                                         </div>
                                                     </div>
                                                 </div>
