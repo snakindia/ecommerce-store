@@ -14,6 +14,19 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
+        case ActionTypes.FLUSH_ON_LOGOUT:
+            return { ...state, 
+                loading: false,
+                authloading: undefined,
+                orders: undefined,
+                order: undefined,
+                error: undefined,
+                orderId: undefined,
+                statuses: undefined,
+                authenticated: undefined,
+                user: undefined,
+            
+             }
         case ActionTypes.ACCOUNTS_LOADING:
             return { ...state, loading: payload }
         case ActionTypes.SET_AUTH_LOADING:
@@ -28,18 +41,7 @@ export default (state = initialState, { type, payload }) => {
                 }
             }
 
-        case ActionTypes.LOGOUT_SUCCESS:
-            localStorage.clear();
-            return {
-                ...state,
-                authloading: false,
-                orders: undefined,
-                order: undefined,
-                error: undefined,
-                orderId: undefined,
-                authenticated: undefined,
-                user: undefined,
-            }
+        
         case ActionTypes.GET_USER_SUCCESS:
             return {
                 ...state,

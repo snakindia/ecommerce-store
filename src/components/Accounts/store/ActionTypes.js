@@ -1,4 +1,5 @@
 export const AUTH_LOADING = 'AUTH_LOADING';
+export const FLUSH_ON_LOGOUT = 'FLUSH_ON_LOGOUT';
 export const SET_AUTH_LOADING = 'SET_AUTH_LOADING';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';

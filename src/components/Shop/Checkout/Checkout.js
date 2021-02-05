@@ -4,7 +4,7 @@ import { Breadcrumb } from 'antd';
 import Loader from '../../Loader/Loader'
 import QuickView from '../QuickView'
 import { addOrder, updateAddress, getPaymentMethod, getShippingMethod, getPaymentSettingsMethod } from '../store/Actions';
-import { getOrders } from '../../Accounts/store/Actions';
+import { getOrders,logout } from '../../Accounts/store/Actions';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'antd';
 import { Card } from 'antd';
@@ -259,8 +259,8 @@ class Checkout extends Component {
         this.props.updateAddress({ shipping_method_id: id }, null, pannelstep);
     }
     logout = () => {
-        localStorage.clear();
-        window.location.reload()
+        const {pathname}=this.props.location;
+        this.props.logout(this.props.history,pathname)
     }
 
     isFilled = (from) => {
@@ -297,33 +297,34 @@ class Checkout extends Component {
             for (const item of items) {
                 const datum = {
                     name: item.name,
+                    image_url: item.image_url,
                     qty: item.quantity,
                     price: `$${item.price ? item.price : 0}`
                 };
                 dataSource.push(datum);
             }
         }
-        dataSource.push({
-            name: '',
-            qty: 'Subtotal',
-            price: `$${subtotal}`
-        });
-        dataSource.push({
-            name: '',
-            qty: 'Shipping',
-            price: shipping ? `$${shipping}` : '---'
-        });
-        dataSource.push({
-            name: '',
-            qty: 'Tax',
-            price: tax ? `$${tax}` : '$0.00'
-        });
+        // dataSource.push({
+        //     name: '',
+        //     qty: 'Subtotal',
+        //     price: `$${subtotal}`
+        // });
+        // dataSource.push({
+        //     name: '',
+        //     qty: 'Shipping',
+        //     price: shipping ? `$${shipping}` : '---'
+        // });
+        // dataSource.push({
+        //     name: '',
+        //     qty: 'Tax',
+        //     price: tax ? `$${tax}` : '$0.00'
+        // });
 
-        dataSource.push({
-            name: 'Total',
-            qty: '',
-            price: total ? `$${total}` : '$0.00'
-        });
+        // dataSource.push({
+        //     name: 'Total',
+        //     qty: '',
+        //     price: total ? `$${total}` : '$0.00'
+        // });
 
         let address;
         if (authenticated && user) {
@@ -416,7 +417,13 @@ class Checkout extends Component {
                                                     <div className="col-sm-12 col-md-4">
 
                                                         <div className="right-content aside margin-top30">
-                                                            <Summary dataSource={dataSource} />
+                                                            <Summary 
+                                                            dataSource={dataSource} 
+                                                            total={total}
+                                                            shipping={shipping}
+                                                            tax={tax}
+                                                            subtotal={subtotal}
+                                                            />
                                                             {/* {cart.payment_method_id && <div className="form-group mt-3">
                                                                 {
                                                                 cart.payment_method_gateway == 'paypal-checkout' ? <PaypalExpress /> :
@@ -471,6 +478,7 @@ const mapDispatchToProps = dispatch => ({
     getShippingMethod: () => dispatch(getShippingMethod()),
     addOrder: (payload) => dispatch(addOrder(payload)),
     getOrders: () => dispatch(getOrders()),
+    logout: (history, location) => dispatch(logout(history, location)),
     updateAddress: (payload, type,pannelstep) => dispatch(updateAddress(payload, type,pannelstep)),
 });
 export default connect(

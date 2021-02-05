@@ -55,15 +55,15 @@ const HotProduct = (props) => {
                     <img src={imageUrl} alt="" className="img-fluid" />
                 </div>
                 <div className="d-block float-left w-100 pl-3">
-                    {/* {hasPrice ? <AddToCart item={item} qty="add"/> : <ContactForSale />} */}
-                    <Link to={`/shop/${item.id}`}  className="svg-icon bottom_menu compare-link">
+                    {hasPrice ? <AddToCart item={item} /> : <ContactForSale />}
+                    {/* <Link to={`/shop/${item.id}`}  className="svg-icon bottom_menu compare-link">
                         <i className="fa fa-random mr-2 ml-2" area-hidden="true"></i>
                         View Details
-                    </Link>
-                     <Link type="button" className="svg-icon bottom_menu compare-link" to="/">
+                    </Link> */}
+                     {/* <Link type="button" className="svg-icon bottom_menu compare-link" to="/">
                         <i className="fa fa-random mr-2 ml-2" area-hidden="true"></i>
                         Compare
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
         </div>

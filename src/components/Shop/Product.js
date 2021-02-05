@@ -43,9 +43,13 @@ export default class Product extends Component {
                         </div>
                         {hasPrice &&
                             <div className="pro_Price text-center">
-
-                                <div className=" currecny"><span className="strike">${item.regular_price}</span>
-                                    <span className="sp-price">${item.sale_price}</span></div>
+                                {item.sale_price ?
+                                    <div className=" currecny"><span className="strike">${item.regular_price}</span>
+                                        <span className="sp-price">${item.sale_price}</span>
+                                    </div> :
+                                    <div className=" currecny"> <span className="sp-price">${item.regular_price}</span>
+                                    </div>
+                                }
                             </div>
                         }
                         <div className="text-center">
@@ -56,8 +60,8 @@ export default class Product extends Component {
 
                         <div className="d-block float-left w-100 text-center">
 
-                            {hasPrice ? <AddToCart  item={item}/> : <ContactForSale />}
-                            <Compare />
+                            {hasPrice ? <AddToCart item={item} /> : <ContactForSale />}
+                            {/* <Compare /> */}
                         </div>
 
                     </a>

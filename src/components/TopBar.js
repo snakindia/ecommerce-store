@@ -74,15 +74,16 @@ class TopBar extends Component {
   }
 
   onSignOut = () => {
+
     const {pathname}=this.props.location;
-    localStorage.clear();
-    if(pathname && pathname.split('/').includes('accounts')){
-      window.location= process.env.REACT_APP_CLIENT_URL;
-    }else {
-      window.location.reload();
-    }
+    // localStorage.clear();
+    // if(pathname && pathname.split('/').includes('accounts')){
+    //   window.location= process.env.REACT_APP_CLIENT_URL;
+    // }else {
+    //   window.location.reload();
+    // }
    
-    //this.props.logout();
+    this.props.logout(this.props.history,pathname);
   };
 
   render() {

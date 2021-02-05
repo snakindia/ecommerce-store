@@ -20,20 +20,20 @@ export default class QuickView extends Component {
     }
     componentDidMount() {
         const { item } = this.props;
-        const imageUrl = item &&  item.images && item.images.length > 0 ? item.images[0].url : null;
+        const imageUrl = item && item.images && item.images.length > 0 ? item.images[0].url : null;
         if (imageUrl) {
             this.setState({ imageUrl })
         }
 
     }
-    
 
-    
+
+
     changeImage = (imageUrl) => {
         this.setState({ imageUrl })
     }
-    callback =(counts)=>{
-       this.setState({counts})
+    callback = (counts) => {
+        this.setState({ counts })
     }
 
     render() {
@@ -83,24 +83,24 @@ export default class QuickView extends Component {
                                                 <div style={{ width: '96%' }} className="zoomer">
                                                     <Zoomer
                                                         image={imageUrl}
-                                                        largeImage={imageUrl} 
-                                                        // image='https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg'
-                                                        // largeImage='https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg'
+                                                        largeImage={imageUrl}
+                                                    // image='https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg'
+                                                    // largeImage='https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg'
                                                     />
                                                 </div>
                                             </div>
                                             <div className="thumbnails product-slider-div" style={{ width: '300px' }}>
                                                 <Slider {...settings}>
-                                                    {sliderImages.map((sl, i) =><div className="product-slider" style={{ width: '80px' }}>
-                                                            <img
-                                                                key={`${i}hotp`}
-                                                                src={sl.url}
-                                                                width="780"
-                                                                onClick={e => this.changeImage(sl.url)}
-                                                                className="xzoom-gallery5"
-                                                                alt=''
-                                                            />
-                                                        </div>
+                                                    {sliderImages.map((sl, i) => <div className="product-slider" style={{ width: '80px' }}>
+                                                        <img
+                                                            key={`${i}hotp`}
+                                                            src={sl.url}
+                                                            width="780"
+                                                            onClick={e => this.changeImage(sl.url)}
+                                                            className="xzoom-gallery5"
+                                                            alt=''
+                                                        />
+                                                    </div>
 
                                                     )}
                                                 </Slider>
@@ -116,7 +116,7 @@ export default class QuickView extends Component {
                         <div className="col-sm-6 col-md-6 pl-3">
                             <div className="media-body pt-3 pr-0">
                                 <div className="pro_Info">
-                                <h1 className="mt-0 mb-2">{item.name}</h1>
+                                    <h1 className="mt-0 mb-2">{item.name}</h1>
                                 </div>
                                 <div className="brand_name"><span className="txtLabel">Brand:</span><span>{brand}</span></div>
                                 <div className="pro_Id"><span className="txtLabel">SKU:</span>
@@ -138,12 +138,12 @@ export default class QuickView extends Component {
                                             <div className="col-sm-2 mt-1 mr-3">Quantity</div>
                                             <div className="col-sm-8">
 
-                                              <Quantity  callback={this.callback} id={item.id || item.id}/>
+                                                <Quantity callback={this.callback} id={item.id || item.id} />
                                             </div>
                                         </div>
                                     </form> : null}
                                 <div className="float-left mt-4">
-                                    {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase"  item={item} qty ={this.state.counts} add={true}/> : <ContactForSale />}
+                                    {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase" item={item} qty={this.state.counts} add={true} /> : <ContactForSale />}
                                     {/* {(regular_price || sale_price) && single ? <BuyNow /> : null} */}
 
                                 </div>
@@ -151,6 +151,22 @@ export default class QuickView extends Component {
                                     <p>
                                         <Share item={item} />
                                     </p>
+                                </div>
+                                <div class="productbadges top30">
+                                    <ul class="new" style={{display:'inline-flex', listStyle:'none',padding:0}}>
+                                        <li>
+                                            <p><img src="https://cdn3.bigcommerce.com/s-eheiwirl8z/product_images/uploaded_images/free-shipping2.png" alt="" /></p>
+                                        </li>
+                                        <li>
+                                            <p><img src="https://cdn10.bigcommerce.com/s-eheiwirl8z/templates/__custom/img/badge-2.png?t=1588692031" alt="" /></p>
+                                        </li>
+                                        <li>
+                                            <p><img src="https://cdn10.bigcommerce.com/s-eheiwirl8z/templates/__custom/img/badge-3.png?t=1588692031" alt="" /></p>
+                                        </li>
+                                        <li>
+                                            <p><img src="https://cdn10.bigcommerce.com/s-eheiwirl8z/templates/__custom/img/badge-4.png?t=1588692031" alt="" /></p>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

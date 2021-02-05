@@ -8,7 +8,7 @@ import Order from './Order';
 import Address from './Address';
 import AccountDetail from './AccountDetail';
 import Loader from '../Loader/Loader';
-import { getUser } from './store/Actions';
+import { getUser,logout } from './store/Actions';
 import './style.css';
  class Accounts extends React.Component {
     constructor(props) {
@@ -31,8 +31,8 @@ import './style.css';
 
     logout =(e)=>{
         e.preventDefault();
-        localStorage.clear();
-        window.location.reload();
+        const {pathname}=this.props.location;
+        this.props.logout(this.props.history,pathname)
 
     }
     
@@ -138,6 +138,7 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = dispatch => ({
     getUser: () => dispatch(getUser()),
+    logout: (history,location) => dispatch(logout(history,location)),
 });
 export default connect(
     mapStateToProps,

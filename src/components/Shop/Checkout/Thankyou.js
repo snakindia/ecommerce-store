@@ -1,9 +1,13 @@
 
 import {Table} from 'antd'
 import { Link } from 'react-router-dom'
-import React , {useState} from 'react';
+import React , {useEffect, useState} from 'react';
+import scrollToEl from '../../../utils/scrollToEl'
 import imgSrc from '../../../assets/images/success.png';
 function Thankyou({order,user}) {
+  useEffect(()=>{
+    scrollToEl('#thankyou', -140, 500);
+  },[order])
    const onClick=(e)=>{
     if(!user){
       e.preventDefault()
@@ -12,7 +16,7 @@ function Thankyou({order,user}) {
    }
     
     return (
-        <div className="row">
+        <div className="row" id="thankyou">
             <div className="col-sm-12 col-md-12 left-content">
               <div className="row">
                 <div className="col-sm-12 col-md-12">
