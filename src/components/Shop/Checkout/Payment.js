@@ -21,7 +21,6 @@ const PannelContent =({paymentSettings, cart, gateway, id, active,submit})=>{
                 Place Order</button>
                 </div>
                  :null}
-           
         </>)
 }
 function Payment(props) {

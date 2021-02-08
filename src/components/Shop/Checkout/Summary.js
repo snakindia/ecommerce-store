@@ -49,16 +49,17 @@ function Summary(props) {
 
 
                   <div class="product-all-detail">
+
                     <div class="product-detail-quantity">
                       <div class="row">
-                        <div class="col-md-6 col-sm-6 col-lg-6">
-                          <p>Product Name</p>
+                        <div class="col-md-6 col-sm-4 col-lg-6 col">
+                          Product Name
                         </div>
-                        <div class="col-md-3 col-sm-3 col-lg-3">
-                          <p>Quantity</p>
+                        <div class="col-md-3 col-sm-4 col-lg-3 col text-center">
+                          Quantity
                         </div>
-                        <div class="col-md-3 col-sm-3 col-lg-3 ">
-                          <p>Price</p>
+                        <div class="col-md-3 col-sm-4  col-lg-3 col text-center">
+                          Price
                         </div>
                       </div>
                     </div>
@@ -69,17 +70,17 @@ function Summary(props) {
                         {
                           dataSource && dataSource.length > 0 ? dataSource.map(item => <div key={item.name} class="product-specification">
                             <div class="row">
-                              <div class="col-sm-2 col-md-2 col-lg-2 ">
+                              <div class="col-sm-4 col-md-6 col-lg-6 col">
+                                <div class="media p-0">
                                 <img src={item.image_url} class="card-thumbnail" alt="" />
+                                <div class="media-body">{item.name}</div>
+                                </div>
                               </div>
-                              <div class="col-sm-5 col-md-5 col-lg-5">
-                                <p>{item.name}</p>
+                              <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
+                                {item.qty}
                               </div>
-                              <div class="col-sm-2 col-md-2 col-lg-2 text-center">
-                                <p>{item.qty}</p>
-                              </div>
-                              <div class="col-sm-3 col-md-3 col-lg-3  ">
-                                <p>$ {item.price}</p>
+                              <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
+                                $ {item.price}
                               </div>
                             </div>
                           </div>) : null
@@ -96,38 +97,43 @@ function Summary(props) {
                     <div class="product-subtotal">
                       <div class="row">
 
-                        <div class="col-md-8 col-sm-8 col-lg-8">
-                          <p><b>Subtotal</b></p>
+                      <div class="col-sm-4 col-md-6 col-lg-6 col">
+                          <b>Subtotal</b>
                         </div>
-                        <div class="col-md-4 col-sm-4 col-lg-4 ">
-                          <p><b>$ {props.subtotal}</b></p>
+                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
+                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
+                          <b>$ {props.subtotal}</b>
                         </div>
+                      </div>
 
+                      <div class="row">
+                      <div class="col-sm-4 col-md-6 col-lg-6 col">
+                          Shipping
+                        </div>
+                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
+                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
+                          ${props.shipping}
+                        </div>
+                      </div>
 
-                        <div class="col-md-8 col-sm-8 col-lg-8">
-                          <p>Shipping</p>
+                      <div class="row">
+                      <div class="col-sm-4 col-md-6 col-lg-6 col">
+                          Tax
                         </div>
-                        <div class="col-md-4 col-sm-4 col-lg-4 ">
-                          <p>${props.shipping}</p>
-                        </div>
-
-                        <div class="col-md-8 col-sm-8 col-lg-8">
-                          <p>Tax</p>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-lg-4 ">
-                          <p>${props.tax}</p>
+                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
+                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
+                          ${props.tax}
                         </div>
                       </div>
                     </div>
                     <div class="apply-coupon">
-                      <a href="#demo" data-toggle="collapse"><p class="coupon-code mb-1">Coupon/Gift Certificate</p></a>
+                      <a href="#demo" data-toggle="collapse">Coupon/Gift Certificate</a>
                       <form id="demo" class="collapse">
                         <div class="col-lg-12">
                           <div class="row">
                             <div class="col-sm-9 col-md-9 col-xs-12">
                               <div class="form-group mt-2">
                                 <input type="text" class="form-control input-control" name="email" placeholder="Coupon/Gift Certificate code" />
-
                               </div>
                             </div>
                             <div class="col-sm-3 col-md-3 col-xs-12 p-0">
@@ -142,11 +148,11 @@ function Summary(props) {
 
                     <div class="total-product-price">
                       <div class="row">
-                        <div class="col-md-7 col-sm-7 col-lg-7">
-                          <p>Total (USD)</p>
+                        <div class="col-md-7 col-sm-7 col-lg-8 col d-flex align-items-center">
+                          Total (USD)
                         </div>
-                        <div class="col-md-5 col-sm-5 col-lg-5">
-                          <p class="payable-amount">$ {props.total}</p>
+                        <div class="col-md-5 col-sm-5 col-lg-4 col text-right">
+                          <span class="pr-3">$ {props.total}</span>
                         </div>
                       </div>
                     </div>

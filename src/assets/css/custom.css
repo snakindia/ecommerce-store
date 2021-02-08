@@ -1046,11 +1046,13 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
+  /*
   border: 1px solid green !important;
   -webkit-text-fill-color: green !important;
-  -webkit-box-shadow: 0 0 0px 1000px #000 inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset !important; */
   transition: background-color 5000s ease-in-out 0s !important;
 }
+
 
 /* input:valid {
  border: 1px solid green !important;
@@ -1089,14 +1091,11 @@ form .form-group .font-icon-info{color:#888}
 /* css by mohit verma */
 
 .ac-container {
-  max-width: 100%;border: 1px solid #ccc;border-top: none;
-}
+  max-width: 100%;border: 1px solid #ccc;border-top: none;}
 .ac-container label {
-  height:52px;line-height: 1.8;font-size: 20px; padding: 8px 20px 8px 45px; display: block; cursor: pointer; color: #666; background: #f8f8f8; border-top: 1px solid #ccc;margin-bottom:0;position:relative;
-}
+  height:52px;line-height: 1.8;font-size: 20px; padding: 8px 20px 8px 45px; display: block; cursor: pointer; color: #666; background: #f8f8f8; border-top: 1px solid #ccc;margin-bottom:0;position:relative;}
 .ac-container {
-  width: 100%;margin: 0px auto 10px;
-}
+  width: 100%;margin: 0px auto 10px;}
 .ac-container .main-div-ac{position: relative;
 }
 .ac-container label:hover { background: rgb(236, 236, 236);
@@ -1136,44 +1135,28 @@ input[type=number] {-moz-appearance:textfield;
 }
 .creditCardTypes-list {list-style: none;margin-left: 0;
 }
-.float-right{float:right;
+.float-right{float:right;}
+.float-right img{margin:0.1875rem;}
+.paymentProviderHeader-img {height: 1.92308rem;}
+.cart-total-items{font-size: 0.8475rem;color:#666666;margin-bottom: 5px;margin-left: 0.9375rem;}
+
+.product-detail-quantity{border-bottom: 1px dashed #555;border-top: 1px dashed #555;
+  padding:.75rem .9375rem;font-size: .85rem;color: #555;font-weight: 600;}
+.product-cart-detail .about-product{padding:1.6875rem 0.9375rem 0.625rem 0.9375rem;}
+.product-cart-detail .about-product .product-specification{padding:0 0 1.25rem 0;font-size: .75rem;}
+.card-thumbnail {float: left;margin: 2px 8px 0 0;border: 1px solid #eaeaea;object-fit: cover;object-position: center;width: 55px;height: 55px;
 }
-.float-right img{margin:0.1875rem;
+.product-subtotal{border-bottom: 1px dashed #555 ;border-top: 1px dashed #555;padding: 0.75rem 0.9375rem ;}
+.product-subtotal .row > div{font-size: .85rem;color: #666;margin-bottom: 10px;}
+.apply-coupon{padding:.75rem 0.9375rem;}
+.apply-coupon a{font-size:.85rem;color: #4496f6;}
+
+.total-product-price{background-color:#f1f1f1;border-bottom: 1px dashed #555 ;border-top: 1px dashed #555;padding: .75rem .9375rem;
+  font-size: 1rem;color: #666;
 }
-.paymentProviderHeader-img {height: 1.92308rem;
-}
-.cart-total-items{
-  font-size: 0.8475rem;color:#666666;margin-bottom: 5px;margin-left: 1rem;
-}
-.product-detail-quantity{
-  border-bottom: 1px dashed #555;border-top: 1px dashed #555;
-}
-.product-detail-quantity div p{
-  padding:.75rem;font-size: .85rem;color: #555;font-weight: 600;margin-bottom: 0;
-}
-.product-subtotal{border-bottom: 1px dashed #555 ;border-top: 1px dashed #555;padding: 0.75rem 0 ;
-}
-.product-subtotal div p{padding:.375rem .75rem;font-size: .85rem;color: #666;margin-bottom: 0;
-}
-.apply-coupon{padding:.75rem;
-}
-.apply-coupon .coupon-code{font-size:.85rem;color: #4496f6;
+.total-product-price div span{font-size: 1.8534rem;font-weight: 700;color:#333;
 }
 
-.product-cart-detail .about-product .product-specification{padding:.43rem;
-}
-.product-cart-detail .about-product p{padding:.75rem;font-size: .75rem;vertical-align: middle;margin-bottom: 0;
-}
-.total-product-price{background-color:#f1f1f1;border-bottom: 1px dashed #555 ;border-top: 1px dashed #555;
-}
-.total-product-price div {display: flex;align-items: center;
-}
-.total-product-price div p{padding:.75rem;font-size: 1;color: #666;margin-bottom: 0;
-}
-.total-product-price div p.payable-amount{font-size: 1.8534rem;font-weight: 700;color:#333;
-}
-.card-thumbnail {float: left;margin: 15px 2px 0 0;border: 1px solid #eaeaea;object-fit: cover;object-position: center;width: 58px;height: 58px;
-}
 .cart-actions{
 margin: 0.75rem auto;text-align: center;
 }
@@ -1190,4 +1173,10 @@ margin: 0.75rem auto;text-align: center;
   outline: none!important;
   
 }
+
+/* mohit 8-feb checkout css*/
+.ant-collapse > .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-header > .pannel-header > .col-md-8 .float-left{color:#666;font-weight: 400;}
+.ant-collapse-ghost > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box .form-group .form-control {border:1px solid #ddd;color:#222; background-color: #fff!important;}
+.ant-collapse-ghost > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box .form-group .form-control:focus {color:555;background-color: #fff!important;}
+.ant-collapse-ghost > #stepp5 > .ant-collapse-content > .ant-collapse-content-box{padding: 0;margin:0 0!important;}
 
