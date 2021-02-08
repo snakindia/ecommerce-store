@@ -127,7 +127,13 @@ class Nmi extends React.Component {
         console.log(response);
         this.setState({ isSubmitting: false });
         if (response && response.token) {
-            this.props.paymentCompleted({ response })
+            const { paymentSettings, cart } = this.props;
+        let currency = paymentSettings && paymentSettings.currency ? paymentSettings.currency : 'USD'; // or you can set this value from your props or state
+        let total = paymentSettings && paymentSettings.amount ? paymentSettings.amount : 1;
+        const { statuses } = this.props;
+        let status_id = statuses ? statuses.filter(st => st.name == 'Order Received') : undefined;
+        status_id = status_id && status_id[0] ? status_id[0].id : '';
+            this.props.paymentCompleted({...this.props.cart,status_id,status:'Order Received'},{currency, total, response })
         }
     }
 
@@ -177,13 +183,14 @@ const mapStateToProps = (state) => ({
     loading: state.shop.loading,
     error: state.shop.error,
     cart: state.shop.cart,
+    statuses: state.accounts.statuses,
     paymentDone: state.shop.paymentDone,
     paymentSettings: state.shop.paymentSettings,
 });
 const mapDispatchToProps = dispatch => ({
     getCart: () => dispatch(getCart()),
     //addOrder: (payload) => dispatch(addOrder(null)),
-    paymentCompleted: (payload) => dispatch(paymentCompleted(payload)),
+    paymentCompleted: (payload, payment_data) => dispatch(paymentCompleted(payload,payment_data)),
 });
 export default connect(
     mapStateToProps,

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { MDBModal, } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { doLogin, logout } from '../components/Accounts/store/Actions';
 import Cart from '../assets/icon/cart.svg';
 import Profile from '../assets/icon/profile.svg';
@@ -49,15 +50,7 @@ class TopBar extends Component {
     const pageDetails = this.props.page_details;
     return (
       <div>
-        {pageDetails &&
-          Object.keys(pageDetails).length &&
-          pageDetails.map(item =>
-            item.slug == '/sign-up' ? (
-              <small>{parseHtml(item.content)}</small>
-            ) : (
-                ''
-              )
-          )}
+        <small>Join Baghouseamerica to register your tools and help protect your investment, rate and review products you love, receive special offers and learn about the newest equipments and accessories</small>
       </div>
     );
   }
@@ -81,9 +74,16 @@ class TopBar extends Component {
   }
 
   onSignOut = () => {
-    localStorage.clear();
-    window.location.reload();
-    //this.props.logout();
+
+    const {pathname}=this.props.location;
+    // localStorage.clear();
+    // if(pathname && pathname.split('/').includes('accounts')){
+    //   window.location= process.env.REACT_APP_CLIENT_URL;
+    // }else {
+    //   window.location.reload();
+    // }
+   
+    this.props.logout(this.props.history,pathname);
   };
 
   render() {
@@ -148,8 +148,8 @@ class TopBar extends Component {
                       <i className="fa fa-angle-down mt-1 ml-2" 
                       onClick={this.showuserDetailHandler} ></i></a>
                       <ul className="user-setting" style={{display:this.state.showuserDetail? 'block':'none'}}>
-                        <li onClick={e=>this.setState({showuserDetail:false})}><Link to="/accounts" >My Accounts</Link></li>
-                        <li onClick={e=>this.setState({showuserDetail:false})}><Link to="/accounts" >Settings</Link></li>
+                        <li onClick={e=>this.setState({showuserDetail:false})}><a href="/accounts" >My Accounts</a></li>
+                        {/* <li onClick={e=>this.setState({showuserDetail:false})}><Link to="/accounts" >Settings</Link></li> */}
                         <li onClick={this.onSignOut}>SignOut</li>
                       </ul>
 
@@ -159,7 +159,7 @@ class TopBar extends Component {
                         <Popover placement="bottom" title='' content={
                           <Login
                             loginError={this.state.loginError}
-                            displaySignupContent={this.displaySignupContent}
+                           // displaySignupContent={this.displaySignupContent}
                             onFormSubmit={this.onFormSubmit} />
                         } trigger="click"
                           overlayStyle={{ zIndex: 10001, position: 'fixed' }}
@@ -261,4 +261,4 @@ const mapStateToProps = ({ asyncReducer, auth, shop, accounts }) => {
   };
 };
 
-export default connect(mapStateToProps, { doLogin, logout })(TopBar);
+export default connect(mapStateToProps, { doLogin, logout })(withRouter(TopBar));

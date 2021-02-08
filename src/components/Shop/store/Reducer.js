@@ -17,10 +17,11 @@ const initialState = {
     orderId: undefined,
     checkoutSuccess: undefined,
     menuLoading:undefined,
-    paymentDone:undefined
+    paymentDone:undefined,
+    pannelstep:1
 }
 
-export default (state = initialState, { type, payload }) => {
+export default (state = initialState, { type, payload,pannelstep=null }) => {
     switch (type) {
         case ActionTypes.SHOP_LOADING:
             return { ...state, loading: payload }
@@ -63,7 +64,23 @@ export default (state = initialState, { type, payload }) => {
             return { ...state, loading: false, product: undefined, error: payload }
 
         case ActionTypes.ADD_TO_CART:
-            return { ...state, cart: payload }
+            if(pannelstep == null && payload){
+                pannelstep =1;
+                if(payload.email){
+                    pannelstep =2;
+                    if(payload.billing_address && payload.billing_address.country){
+                        pannelstep =3;
+                        if(payload.shipping_address && payload.shipping_address.country){
+                            pannelstep =4;
+                            if(payload.shipping_method_id && payload.shipping_method_id){
+                                pannelstep =5;
+                            }
+                        }
+                    }
+                }
+               }
+            console.log({pannelstep});
+            return { ...state, cart: payload, pannelstep }
         case ActionTypes.REMOVE_FROM_CART:
             return { ...state, cart: payload }
 

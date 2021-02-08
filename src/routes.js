@@ -33,6 +33,8 @@ const ContactBody = lazy(() => import('./components/Contact/ContactBody'));
 const ProductBody = lazy(() => import('./components/Product/ProductBody'));
 const BrandBody = lazy(() => import('./components/Brand/BrandBody'));
 const SignUpPage = lazy(() => import('./components/Signup/SignUpPage'));
+const ForgotPassword = lazy(() => import('./components/Signup/ForgotPassword'));
+const ResetPassword = lazy(() => import('./components/Signup/ResetPassword'));
 const InnerPage = lazy(() => import('./components/InnerPage'));
 const VerifyUser = lazy(() => import('./components/VerifyUser'));
 const News = lazy(() => import('./components/News'));
@@ -114,6 +116,8 @@ const Routes = (props) => {
 
                   <PrivateRoute path="/verify-user/:token" component={VerifyUser} />
                   <PrivateRoute path="/sign-up" component={SignUpPage} />
+                  <PrivateRoute path="/forgot-password" component={ForgotPassword} />
+                  <PrivateRoute path="/reset-password" component={ResetPassword} />
 
                   <Route path="/shop/cart" component={Cart} />
                   <Route path="/shop/checkout" component={Checkout} />

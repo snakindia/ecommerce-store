@@ -11,6 +11,11 @@ export default class SignupSection extends Component {
     };
   }
 
+  already =(e)=>{
+    e.preventDefault()
+    document.getElementById('loginpopover').click()
+  }
+
   render() {
     return (
       <section className="content-section w-100" style={{ backgroundImage: 'none' }}>
@@ -18,9 +23,9 @@ export default class SignupSection extends Component {
           <div className="container pl-0 pr-0 pt-3">
             <div className="row">
               <div className="col-lg-12 mb-3 pl-0 pr-0">
-                <h2 className="bha_heading_2 text-black font-xx mb-3 text-center">
+                {/* <h2 className="bha_heading_2 text-black font-xx mb-3 text-center">
                   Create Your Account
-                </h2>
+                </h2> */}
                 <h2 className="bha_heading_2 text-black font-xx mb-3 mt-5 text-center">
                   NEW TO BAGHOUSE AMERICA? CREATE AN ACCOUNT BELOW
                 </h2>
@@ -48,7 +53,8 @@ export default class SignupSection extends Component {
                     </div>
                     <div className="col-sm-4 col-md-4 mt-4">
                       <a
-                        href="/"
+                        href="#"
+                        onClick={this.already}
                         data-toggle="modal"
                         className="btn bha-btn-primary"
                         name="buttonsubmit"

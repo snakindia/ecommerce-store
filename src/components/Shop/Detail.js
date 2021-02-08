@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './style.css'
 import './xzoom.css'
-import { Breadcrumb } from 'antd';
 import QuickView from './QuickView'
 import { getProduct } from './store/Actions'
 import { Link } from 'react-router-dom';
 import { Tabs } from 'antd';
 import RelatedProduct from './RelatedProduct';
+import Breadcrum from './Breadcrum';
 const { TabPane } = Tabs;
 
 class Detail extends Component {
@@ -38,22 +38,8 @@ class Detail extends Component {
                     <div className="pagewrap">
                         <div className="bgWhite padding-bottom">
                             <div className="container-fluid" >
-                                {product ? <Breadcrumb className="breadcrumb breadcrumb-bar pb-1 pt-2 small">
-                                    <Breadcrumb.Item className="breadcrumb-item">
-                                    <Link to="/shop">Shop</Link>
-                                    </Breadcrumb.Item>
-                                    <Breadcrumb.Item className="breadcrumb-item">
-                                        <Link to="/shop">Products /Service</Link>
-                                    </Breadcrumb.Item>
-                                    <Breadcrumb.Item className="breadcrumb-item">
-                                        <Link to={`/category/${product.category_id}`}>
-                                            {product && product.category_name ? product.category_name : ''}
-                                        </Link>
-                                    </Breadcrumb.Item>
-                                </Breadcrumb>
-                                    : null
-                                }
-
+                               
+                            <Breadcrum data={product} />
 
                             </div>
                             <section >

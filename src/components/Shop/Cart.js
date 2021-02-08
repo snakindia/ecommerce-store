@@ -38,7 +38,7 @@ const Product = (props) => {
     )
 }
 const Cart = (props) => {
-    const { item, className, cart } = props;
+    const { item, className, cart ,loading} = props;
 
     const onClick = (e) => {
         e.preventDefault();
@@ -55,6 +55,10 @@ const Cart = (props) => {
             productsInCart = productsInCart + item.quantity;
         }
     }
+    
+        if(items && items.length ==0 && cart && cart.id){
+            props.history.push('/shop')
+        }
     return (
         <div className="content-wrapper topPadding" id="content">
             <div className="pagewrap">
@@ -93,14 +97,14 @@ const Cart = (props) => {
                                                             <td colSpan="4" className="no-border" style={{ textAlign: 'right' }}>Subtotal (${productsInCart} items) </td>
                                                             <td colSpan="2" className="no-border">${subtotal}</td>
                                                         </tr>
-                                                        <tr>
+                                                        {/* <tr>
                                                             <td colSpan="4" className="no-border" style={{ textAlign: 'right' }} >Shipping (Flat Rate)</td>
                                                             <td colSpan="2" className="no-border">${shipping}</td>
                                                         </tr>
                                                         <tr style={{ backgroundColor: '#f1f1f1' }}>
                                                             <td colSpan="4" className="no-border" ><h4>Total</h4> </td>
                                                             <td colSpan="2" className="no-border"><h4>${total}</h4></td>
-                                                        </tr>
+                                                        </tr> */}
                                                         <tbody>
                                                         </tbody>
                                                     </table>
@@ -128,9 +132,17 @@ const Cart = (props) => {
                                     </div>
                                 </div>
                                 :
+                                <>
+                                {
+                                    loading? <div className="row">
+                                    <div className="col-sm-12 col-md-8 left-content">loading...</div>
+                                </div>:
                                 <div className="row">
-                                    <div className="col-sm-12 col-md-8 left-content">Your Cart Empty</div>
-                                </div>
+                                <div className="col-sm-12 col-md-8 left-content">Your Cart Empty</div>
+                            </div>
+                                }
+                                </>
+                                
                             }
                         </div>
                     </section>

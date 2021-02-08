@@ -1,13 +1,22 @@
 
 import {Table} from 'antd'
 import { Link } from 'react-router-dom'
-import React , {useState} from 'react';
+import React , {useEffect, useState} from 'react';
+import scrollToEl from '../../../utils/scrollToEl'
 import imgSrc from '../../../assets/images/success.png';
-function Thankyou({order}) {
-   
+function Thankyou({order,user}) {
+  useEffect(()=>{
+    scrollToEl('#thankyou', -140, 500);
+  },[order])
+   const onClick=(e)=>{
+    if(!user){
+      e.preventDefault()
+      document.getElementById('loginpopover').click()
+    }
+   }
     
     return (
-        <div className="row">
+        <div className="row" id="thankyou">
             <div className="col-sm-12 col-md-12 left-content">
               <div className="row">
                 <div className="col-sm-12 col-md-12">
@@ -23,9 +32,9 @@ function Thankyou({order}) {
                             <p className="pt-5" style={{fontWeight: 'bold'}}>What all you can do from here:</p>
                           </div>
                           <ul style={{float: 'left', width: '100%', textAlign: 'center',padding:0}}>
-                            <li style={{listStyle: 'none'}}><Link to="/accounts/my-orders">Check your Recent orders</Link></li>
-                            <li style={{listStyle: 'none'}}><Link to="/accounts/address-book">Shipping and Billing addresses</Link></li>
-                            <li style={{listStyle: 'none'}}><Link to="/accounts/account-details">Edit your password and account details</Link>
+                            <li style={{listStyle: 'none'}}><Link to="/accounts/my-orders" onClick={onClick}>Check your Recent orders</Link></li>
+                            <li style={{listStyle: 'none'}}><Link to="/accounts/address-book" onClick={onClick}>Shipping and Billing addresses</Link></li>
+                            <li style={{listStyle: 'none'}}><Link to="/accounts/account-details" onClick={onClick}>Edit your password and account details</Link>
                             </li>
                           </ul>
                         </div>

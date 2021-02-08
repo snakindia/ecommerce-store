@@ -1,8 +1,11 @@
 import { API_AJAX_URL, API_IMAGE_PATH, API_URL } from './appConstant';
 const DEFAULT_IMG_URL = `${API_IMAGE_PATH}/default/default.jpg`;
 const signUpUrl = `${API_AJAX_URL}/register`;
+const forgotPasswordUrl = `${API_AJAX_URL}/forgot-password`;
+const resetPasswordUrl = `${API_AJAX_URL}/reset-password`;
 const signInUrl = `${API_AJAX_URL}/login`;
 const settingsUrl = `${API_URL}/theme/settings`;
+const countryUrl = `${API_URL}/country-list`;
 const hotDealsUrl = `${API_URL}/getHotProductList?fields=name,regular_price,sale_price,images,sku,description`;
 const userDetailUrl = `${API_AJAX_URL}/customer-account`;
 const menuProductUrl = `${API_URL}/menu_product_categories?fields=name,id,slug,meta_title,banner_image,image`;
@@ -23,7 +26,7 @@ const getNewsDetailURL = `${API_URL}/newsevents/get_news_details?`;
 const getClientListURL = `${API_URL}/companies/get_list`;
 const getNewsListUrl = ({ type, page = 1, size, filterBy }) =>
   `${API_URL}/newsevents/get_list?type=${type}&page=${page}&size=${size}&filterby=${filterBy}`;
-export {   DEFAULT_IMG_URL,   signUpUrl,   signInUrl,   hotDealsUrl,   settingsUrl,   userDetailUrl,   menuProductUrl,   saveBrochureUrl,   getSlugDetailUrl,   getProductListUrl,   getPageMetaDetails,   getNewsDetailURL,   getClientListURL,   getNewsListUrl,
+export {   DEFAULT_IMG_URL, forgotPasswordUrl, countryUrl,resetPasswordUrl, signUpUrl,   signInUrl,   hotDealsUrl,   settingsUrl,   userDetailUrl,   menuProductUrl,   saveBrochureUrl,   getSlugDetailUrl,   getProductListUrl,   getPageMetaDetails,   getNewsDetailURL,   getClientListURL,   getNewsListUrl,
 };
 
 export const getPageDetailsUrl = `${API_URL}/get_slug_details?slug=`;

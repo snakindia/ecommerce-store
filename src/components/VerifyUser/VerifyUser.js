@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { POST } from '../../services/httpService';
 import { API_AJAX_URL } from '../../constants/appConstant';
+import Loader from '../../components/Loader/Loader'
 
 class VerifyUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
       status: false,
+      loading:true
     };
   }
 
@@ -25,13 +27,28 @@ class VerifyUser extends Component {
         
         this.setState({
           status: true,
+          loading:false
+        });
+      } else {
+        this.setState({
+          status: false,
+          loading:false
         });
       }
-    } catch (e) {}
+    } catch (e) {
+      this.setState({
+        status: false,
+        loading:false
+      });
+    }
   };
 
   render() {
     return (
+      <>
+      {
+        this.state.loading ? <Loader />:
+      
       <div style={{marginTop:'100px',padding:'50px'}}>
         <section className="banner-container-verify" style={{ position: 'relative' }}>
           {this.state.status
@@ -39,6 +56,9 @@ class VerifyUser extends Component {
             : 'Sorry, We are unable to find the details to verify the account.'}
         </section>
       </div>
+  }
+  </>
+
     );
   }
 }

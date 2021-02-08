@@ -1,16 +1,26 @@
 
 import { Field, Form, Formik } from 'formik';
-import React from 'react';
+import React, {useEffect} from 'react';
 function ShippingMethod(props) {
 
-    const { data, type, total, shippingMethods } = props;
+    const { data, type, total, shippingMethods,pannelstep } = props;
     let methods = [];
     if (data && data.length > 0) {
         methods = data.filter(i => i.enabled)
     }
+   
+   
     const initialFormValue = {
         shipping_method: props.shipping_method_id,
 
+    }
+    const continueM=()=>{
+        
+        if (shippingMethods && shippingMethods.length ==1) {
+            console.log({shippingMethods});
+            console.log('submitting shipping_method',shippingMethods[0].id)
+            props.shippingMethodHandler({shipping_method:shippingMethods[0].id})
+        }
     }
 
 
@@ -40,6 +50,7 @@ function ShippingMethod(props) {
                                         <div className="form-group">
                                             <div>
                                                 <Field
+                                                    defaultChecked ={shippingMethods.length ==1 ? true: false}
                                                     type="radio"
                                                     className="mr-2 mt-3"
                                                     name="shipping_method"
@@ -52,6 +63,7 @@ function ShippingMethod(props) {
 
                                         </div>
                                     )}
+                                     {/* <button className="bha-btn-primary" onClick={continueM}>Continue</button> */}
                                 </div>
                             </div>
                         </div>

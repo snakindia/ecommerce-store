@@ -14,31 +14,42 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
-        case ActionTypes.ACCOUNTS_LOADING:
-            return { ...state, loading: payload }
-        case ActionTypes.SET_AUTH_LOADING:
-            return { ...state, authloading: payload }
-
-        case ActionTypes.LOGOUT_SUCCESS:
-            localStorage.clear();
-            return {
-                ...state,
-                authloading: false,
+        case ActionTypes.FLUSH_ON_LOGOUT:
+            return { ...state, 
+                loading: false,
+                authloading: undefined,
                 orders: undefined,
                 order: undefined,
                 error: undefined,
                 orderId: undefined,
+                statuses: undefined,
                 authenticated: undefined,
                 user: undefined,
+            
+             }
+        case ActionTypes.ACCOUNTS_LOADING:
+            return { ...state, loading: payload }
+        case ActionTypes.SET_AUTH_LOADING:
+            return { ...state, authloading: payload }
+        case ActionTypes.UPDATE_USER_DETAIL:
+            return {
+                ...state, user: {
+                    ...state.user,
+                    first_name: payload.first_name,
+                    full_name: payload.full_name,
+                    last_name: payload.last_name,
+                }
             }
+
+        
         case ActionTypes.GET_USER_SUCCESS:
             return {
                 ...state,
                 authloading: false,
                 error: undefined,
                 authenticated: true,
-                user: payload && payload.customer_settings ? payload.customer_settings: undefined,
-                orders: payload && payload.order_statuses ? payload.order_statuses: undefined,
+                user: payload && payload.customer_settings ? payload.customer_settings : undefined,
+                orders: payload && payload.order_statuses ? payload.order_statuses : undefined,
             }
 
         case ActionTypes.GET_ACCOUNTS_ORDERS_SUCCESS:

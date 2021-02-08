@@ -75,14 +75,14 @@ class ShopNow extends Component {
                         />
                         <Brands />
                         <Clients />
-                        <PremiumBrands />
+                        {/* <PremiumBrands /> */}
                         <Footer />
                       </div>
                       :
                       <div className="container-fluid pl-0 pr-0">
                         <CategoryProducts  quickView={this.show} match={this.props.match}/>
                         <Clients />
-                        <PremiumBrands />
+                        {/* <PremiumBrands /> */}
                         <Footer />
                       </div>
                     }

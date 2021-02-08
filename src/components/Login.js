@@ -86,7 +86,7 @@ export default class Login extends Component {
                                                 errors.password}
                                         </div>
                                     </div>
-                                    <a href="/" className="pwdlink">
+                                    <a href="/forgot-password" className="pwdlink">
                                         Forgot Password?
                                     </a>
                                     <div className="form-group">
@@ -108,7 +108,7 @@ export default class Login extends Component {
                                 </div>
                                 <div className="col-sm-6 col-md-6">
                                     <h4 className="login-heading font-xx">WHY JOIN?</h4>
-                                    {/* {this.props.displaySignupContent()} */}
+                                    <small>Join Baghouseamerica to register your tools and help protect your investment, rate and review products you love, receive special offers and learn about the newest equipments and accessories</small>
                                     <div className="form-group">
                                         <a
                                             href="/sign-up"

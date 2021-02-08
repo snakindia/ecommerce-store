@@ -136,9 +136,10 @@ export const getMenu = () => {
             });
     }
 }
-export const addProductAction = (payload) => ({
+export const addProductAction = (payload, pannelstep) => ({
     type: ActionTypes.ADD_TO_CART,
     payload,
+    pannelstep
 });
 export const removeProductAction = (payload) => ({
     type: ActionTypes.REMOVE_FROM_CART,
@@ -347,8 +348,7 @@ export const getShippingMethod = () => {
     }
 }
 
-
-export const updateAddress = (payload, type) => {
+export const updateAddress = (payload, type,pannelstep ) => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
@@ -362,7 +362,7 @@ export const updateAddress = (payload, type) => {
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
-                    dispatch(addProductAction(res.data));
+                    dispatch(addProductAction(res.data, pannelstep));
                 } else {
                     // dispatch(getProductError(undefined));
                 }
@@ -398,9 +398,34 @@ export const addOrder = (payload) => {
             }
         )
             .then(res => {
-                dispatch(setLoading(false));
+                //dispatch(setLoading(false));
                 if (res.data && res.data.number) {
-                    dispatch(orderSuccess(res.data));
+                    console.log('dispatching');
+                    dispatch(orderRecieved(res.data.id, payload))
+                    // dispatch(orderSuccess(res.data));
+                    // notification('success', 'Order Placed Succesfully')
+                } else {
+                    dispatch(orderError(undefined));
+                    notification('error', 'Oops!! something went wrong')
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                dispatch(orderError(e));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
+export const orderRecieved = (orderId,payload) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        let url = `orders/${orderId}/recieved`;
+        Axios.post(`${process.env.REACT_APP_API_URL}/${url}`, payload)
+            .then(res => {
+                dispatch(setLoading(false));
+                // console.log(res);
+                if (res.data  && res.data.status && res.data.data.number) {
+                    dispatch(orderSuccess(res.data.data));
                     notification('success', 'Order Placed Succesfully')
                 } else {
                     dispatch(orderError(undefined));
@@ -415,7 +440,6 @@ export const addOrder = (payload) => {
     }
 }
 
-
 export const setpaymentCompletedSuccess = (payload) => ({
     type: ActionTypes.SET_PAYMENT_COMPLETE_SUCCESS,
     payload,
@@ -424,26 +448,41 @@ export const setpaymentCompletedError = (payload) => ({
     type: ActionTypes.SET_PAYMENT_COMPLETE_ERROR,
     payload
 });
-export const paymentCompleted = (payload) => {
+export const paymentCompleted = (payload, payment_data) => {
     return dispatch => {
         dispatch(setLoading(true));
-        //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
-        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/payment_form_settings`,payload,
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/checkout`, payload,
             {
                 withCredentials: true,
                 crossDomain: true,
-            },
-            
-        )
-            .then(res => {
-                dispatch(setLoading(false));
-                if (res.data) {
-                    dispatch(setpaymentCompletedSuccess(res.data));
-                } else {
-                     //dispatch(getPaymentMethodSettingsError(undefined));
-                     notification('error', 'Oops!! something went wrong')
-                }
+            }
+        ).then(res=>{
+            if(res.data && res.data.number){
+                let url = `orders/${res.data.id}/process`;
+                Axios.post(`${process.env.REACT_APP_API_URL}/${url}`, {...payment_data, status:payload.status, status_id:payload.status_id},
+                    {
+                        withCredentials: true,
+                        crossDomain: true,
+                    },
+                    
+                )
+                    .then(res => {
+                        dispatch(setLoading(false));
+                        
+                        if (res.data && res.data.status && res.data.data.number) {
+                            dispatch(orderSuccess(res.data.data));
+                            notification('success', 'Order Placed Succesfully')
+                        } else  if (res.data && !res.data.status && res.data.getewayData) {
+                            
+                            notification('error', res.data.getewayData.responsetext)
+                        }
+                         else {
+                             //dispatch(getPaymentMethodSettingsError(undefined));
+                             notification('error', 'Oops!! something went wrong')
+                        }
             })
+        }
+        })
             .catch(e => {
                 dispatch(setLoading(false));
                 //dispatch(getPaymentMethodSettingsError(e));

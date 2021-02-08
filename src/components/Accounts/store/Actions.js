@@ -52,6 +52,9 @@ export const getOrders = () => {
     }
 }
 
+export const flushOnLogout = () => ({
+    type: ActionTypes.FLUSH_ON_LOGOUT,
+})
 export const getOrdersDetailSuccess = (payload) => ({
     type: ActionTypes.GET_ACCOUNTS_ORDERS_DETAIL_SUCCESS,
     payload
@@ -83,6 +86,34 @@ export const getOrderDetail = (id) => {
             });
     }
 }
+export const logout = (history, location) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/logout`)
+            .then(res => {
+                dispatch(setLoading(false));
+                if (res.data && res.data.status) {
+                    localStorage.clear();
+                    location = location.split('/')  
+                    if(location.includes('accounts') || location.includes('cart') || location.includes('checkout')){
+                        window.location= process.env.REACT_APP_CLIENT_URL;
+                    } else {
+                        window.location.reload();
+                    }
+                   // notification('success', 'Logged out')
+                    //dispatch(flushOnLogout());
+                   
+                   
+                } else {
+                    notification('error', 'Oops!! something went wrong')
+                }
+            })
+            .catch(e => {
+                dispatch(setLoading(false));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
 export const cancelOrdersSuccess = (payload) => ({
     type: ActionTypes.GET_ACCOUNTS_ORDERS_CANCEL_SUCCESS,
     payload
@@ -91,10 +122,10 @@ export const getOrderStatusSuccess = (payload) => ({
     type: ActionTypes.GET_ACCOUNTS_ORDERS_STATUS_SUCCESS,
     payload
 })
-// export const updateUserName = (payload) => ({
-//     type: ActionTypes.updateUserName,
-//     payload
-// })
+export const updateUserName = (payload) => ({
+    type: ActionTypes.UPDATE_USER_DETAIL,
+    payload
+})
 
 export const cancelOrder = (payload) => {
 
@@ -137,7 +168,7 @@ export const updateDetail = (payload) => {
                 dispatch(setLoading(false));
                 if (res.data) {
                     notification('success', 'Info updated')
-                    //dispatch(updateUserName(data));
+                    dispatch(updateUserName(data));
                 } else {
                     notification('error', 'Oops!! something went wrong')
                 }
@@ -271,6 +302,3 @@ export const getUser = () => {
         
     }
 }
-export const logout = () => ({
-    type: ActionTypes.LOGOUT_SUCCESS,
-})

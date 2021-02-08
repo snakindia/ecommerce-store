@@ -40,6 +40,7 @@ class Quantity extends Component {
 
     changeCounter = (payload) => {
         let { counts } = this.state;
+        counts = parseInt(counts) ?parseInt(counts):0;
         if (counts == 1 && payload == -1) {
             return;
         }
@@ -75,7 +76,7 @@ class Quantity extends Component {
                 <div className="value-button inc_value decrease"
                     onClick={e => this.changeCounter(-1)}
                 >-</div>
-                <input type="text" id="number_modal"
+                <input type="text" id="number_modal" 
                     onChange={this.handleInput}
                     className="number" value={counts} />
                 <div className="value-button increase"

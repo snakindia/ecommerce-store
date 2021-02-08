@@ -5,8 +5,8 @@ import Oembg from '../../assets/images/-oem_bg.jpg';
 export default class SignUpPage extends Component {
   render() {
     return (
-      <div>
-        <section className="banner-container">
+      <div style={{paddingTop:'100px'}}>
+        {/* <section className="banner-container">
           <div className="banner-inner">
             <picture>
               <img
@@ -24,7 +24,7 @@ export default class SignUpPage extends Component {
               </h6>
             </div>
           </div>
-        </section>
+        </section> */}
         <div className="content-wrapper pb-0">
           <SignupSection {...this.props} />
         </div>

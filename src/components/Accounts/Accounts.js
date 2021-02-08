@@ -8,7 +8,7 @@ import Order from './Order';
 import Address from './Address';
 import AccountDetail from './AccountDetail';
 import Loader from '../Loader/Loader';
-import { getUser } from './store/Actions';
+import { getUser,logout } from './store/Actions';
 import './style.css';
  class Accounts extends React.Component {
     constructor(props) {
@@ -31,8 +31,8 @@ import './style.css';
 
     logout =(e)=>{
         e.preventDefault();
-        localStorage.clear();
-        window.location.reload();
+        const {pathname}=this.props.location;
+        this.props.logout(this.props.history,pathname)
 
     }
     
@@ -41,7 +41,10 @@ import './style.css';
         if(loading === false && authenticated === false){
             this.props.history.push('/')
         }
-        console.log('loadingloading',loading,authenticated);
+        if(!localStorage.bhaAuth){
+            window.location= process.env.REACT_APP_CLIENT_URL;
+        }
+       
         return (
             <div className="content-wrapper topPadding" id="content">
                 {loading ? <Loader /> :null}
@@ -135,6 +138,7 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = dispatch => ({
     getUser: () => dispatch(getUser()),
+    logout: (history,location) => dispatch(logout(history,location)),
 });
 export default connect(
     mapStateToProps,

@@ -2,7 +2,7 @@ import { Link, Route, Switch, Redirect } from 'react-router-dom';
 import React from 'react';
 import { connect } from 'react-redux'
 import { getOrderDetail, cancelOrder } from './store/Actions';
-import {formatPhone} from '../../utils/helper'
+import { formatPhone } from '../../utils/helper'
 import Loader from '../Loader/Loader';
 import moment from 'moment';
 class Order extends React.Component {
@@ -32,8 +32,10 @@ class Order extends React.Component {
 
         const { item } = this.props;
         let address = {};
+        let billing = {};
         if (item && item.shipping_address) {
             address = item.shipping_address;
+            billing = item.billing_address;
         }
         const statusOption = ['Order Received',
             'Order In Process',
@@ -71,27 +73,17 @@ class Order extends React.Component {
                                     <div className="row">
                                         <div className="container px-1 px-md-4 py-5 mx-auto pa0">
                                             <div className="card">
-                                            <div className="col-md-12">
-                                                <div className="row d-flex justify-content-between col-md-6">
-                                                    
-                                                        {item.paid && <p className="paid">Paid</p>}
-                                                        <p className="mb-0">Order Date <span>{moment(item.date_created).format('MMM D , YYYY,  hh:mm A').toString()}</span></p>
-                                                        {attributes.map(att =>
-                                                            <div className="col-md-12">
-                                                                <div className="col-md-6">{att.label}</div>
-                                                                <div className="col-md-6">{item && item[att.attribute] ? item[att.attribute] : ''}</div>
-                                                            </div>
-                                                        )}
-
+                                                <div class="row d-flex justify-content-between px-3">
+                                                    <div class="d-flex flex-column pa">
+                                                        <p class="mb-0">Order ID <span><b>{item.number}</b></span></p>
+                                                        {/* <p>Payment Status <span class="font-weight-bold">{item.paid && <span className="paid">Paid</span>}</span></p> */}
                                                     </div>
-                                                    <div className="row d-flex justify-content-between col-md-6">
-                                                    <div className="d-flex flex-column pa">
-                                                        <p className="mb-0">Expected Arrival <span>Aug 29, 2020</span></p>
-                                                        <p>USPS <span className="font-weight-bold">{item.tracking_number}</span></p>
+                                                    <div class="d-flex flex-column pa">
+                                                        <p class="mb-0">Order placed on <span>{moment(item.date_created).format('MMM D , YYYY').toString()}</span></p>
+                                                       
                                                     </div>
+                                                </div>
 
-                                                </div>
-                                                </div>
                                                 {statusOption.includes(item.status) ? <>
                                                     <div className="row d-flex justify-content-center padding-lr0">
                                                         <div className="col-12 padding-lr0">
@@ -122,7 +114,46 @@ class Order extends React.Component {
                                 <div className="row">
                                     <div className="col-lg-12 pl-0 pr-0">
                                         <div className="container shorting-box">
+                                        
+
+                                            <h5 className="location_head">Order Detail</h5>
+                                            <div class="row d-flex justify-content-between px-3">
+                                                <div class="d-flex flex-column pa">
+                                                    <p class="mb-0">Order Status: <span>{item.status}</span></p>
+                                                    <p>Payment method: <span >{item.payment_method}</span></p>
+                                                    <p>Payment Status: <span >{item.paid ? 'Paid':'Pending'}</span></p>
+                                                    <p>Comments: <span >{item.comments}</span></p>
+                                                </div>
+                                                <div class="d-flex flex-column pa">
+                                                    <p class="mb-0">Shipping status: <span>{item.shipping_status}</span></p>
+                                                    {/* <p>Shipping method: <span >{item.shipping_method}</span></p> */}
+                                                    <p>Tracking Number <span class="font-weight-bold">{item.tracking_number}</span></p>
+                                                    <p>Note: <span >{item.note}</span></p>
+                                                </div>
+                                            </div>
+                                            <hr />
                                             <div className="row">
+                                                <div className="col-sm-6">
+                                                    <div className="text-left">
+                                                        <div className="float-left">
+                                                            <h5 className="location_head">Billing Address</h5>
+                                                            <p className="padding-top15">
+                                                                <strong>
+                                                                    {`${billing.first_name} ${billing.last_name}`}</strong>
+                                                            </p>
+                                                            <div className="text-small">
+                                                                {`${billing.address1} ${billing.address2} , ${billing.city}`}
+                                                                {`${billing.state} , ${billing.postal_code} ${billing.country} `}
+                                                            </div>
+                                                        </div>
+                                                        <div className="float-left padding-top15">
+                                                            <i className="fa fa-phone bha-icon"></i>
+                                                            <span className="font-weight-bold" style={{ fontSize: '0.9rem' }}>{formatPhone(billing.phone)} </span>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           
                                                 <div className="col-sm-6">
                                                     <div className="text-left">
                                                         <div className="float-left">
@@ -182,11 +213,11 @@ class Order extends React.Component {
                                                                             <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Shipping (Flat Rate)</td>
                                                                             <td colspan="1" className="no-border">${item.shipping_total}</td>
                                                                         </tr>
-                                                                         <tr>
+                                                                        <tr>
                                                                             <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Tax</td>
                                                                             <td colspan="1" className="no-border">${item.tax_total}</td>
                                                                         </tr>
-                                                                         <tr>
+                                                                        <tr>
                                                                             <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Discount</td>
                                                                             <td colspan="1" className="no-border">${item.discount_total}</td>
                                                                         </tr>
@@ -194,10 +225,10 @@ class Order extends React.Component {
                                                                             <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Grand Total</td>
                                                                             <td colspan="1" className="no-border">${item.grand_total}</td>
                                                                         </tr>
-                                                                       
+
                                                                         <tr style={{ backgroundColor: '#f1f1f1' }}>
                                                                             <td colspan="3" className="no-border" style={{ textAlign: 'right' }}><h4>Amount Paid</h4> </td>
-                                                                            <td colspan="1" className="no-border"><h4>${item.paid ? item.grand_total :0}</h4></td>
+                                                                            <td colspan="1" className="no-border"><h4>${item.paid ? item.grand_total : 0}</h4></td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
