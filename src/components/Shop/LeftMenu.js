@@ -1,47 +1,70 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect,useState } from 'react';
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios';
 import { API_URL, API_IMAGE_PATH } from './../../constants/appConstant';
 import { getMenu } from './store/Actions'
 import { setFooter } from '../../actions/pageActions'
-import { Menu,Spin } from 'antd';
+import { Menu, Spin } from 'antd';
 import './css/antd.less'
 import { AppstoreOutlined, MailOutlined, SettingOutlined, FolderFilled } from '@ant-design/icons';
-
+import useWindowDimensions from '../../utils/windowDimensions'
 const { SubMenu } = Menu;
-class LeftMenu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: null,
-      openKeys: [],
-    };
-    this.rootSubmenuKeys = [];
-  }
 
-  componentDidMount() {
-    this.props.getMenu()
-    this.props.setFooter(false)
+const LeftMenu = (props) => {
+  const [active, setActive] = useState(null)
+  const [openKeys, setOpenKeys] = useState([])
+  const [scrolled, setScrolled] = useState(0)
+  const [rootSubmenuKeys, setRootSubmenuKeys] = useState([])
+
+  useEffect(() => {
+    props.getMenu()
+    
+  }, [])
+
+  const onOpenChange = keys => {
+
+    keys = keys.filter(key => !openKeys.includes(key))
+    setOpenKeys(keys);
   }
-  componentWillUnmount() {
-    this.props.setFooter(true)
+  const push = (link) => {
+    props.history.push(link)
   }
-  onOpenChange = keys => {
-   const {openKeys} =this.state;
-   keys =keys.filter(key=>!openKeys.includes(key))
-   this.setState({openKeys :keys});
-  }
-  push=(link)=>{
-    this.props.history.push(link)
-  }
-  render() {
-    const { active, openKeys } = this.state;
-    const { visible, menu, loading } = this.props;
+  useEffect(() => {
+    props.getMenu()
+    window.onscroll = () => {
+      console.log('s',(new Date()).getTime());
+      setScrolled(window.pageYOffset)
+    }
+  }, [])
+   
+    const { visible, menu, loading } = props;
+    const { height } = useWindowDimensions();
+    let footer = 0;
+    const pageHeight = document.documentElement.offsetHeight;
+
+    const leftMneu = document.getElementById('leftmenusidebar');
+    if (document.getElementById('footer')) {
+      // footer = document.getElementById('footer').clientHeight;
+      footer = document.getElementById('footer').offsetTop;
+    }
+
+    const heightTillFooter = height + footer;
+    const footerVisible = heightTillFooter <= (scrolled + pageHeight + height) ? 1 : 0;
+    if (footerVisible && leftMneu) {
+      const top = (scrolled + height) - footer;
+      //console.log({ top });
+      leftMneu.style.top = `-${top}px`;
+    }
+    else if (!footerVisible && leftMneu) {
+      leftMneu.style.top = 0;
+    }
+    //console.log(footerVisible, scrolled, height, footer, pageHeight);
+    //console.log('v',(new Date()).getTime());
     return (
       <>
-        <div >
-          <div className="main-header">
+        <div id="leftmenu">
+          {/* <div className="main-header">
             <div className="logo-header">
               <a type="button" className="logo category_head">
                 Shop By Category
@@ -68,12 +91,12 @@ class LeftMenu extends Component {
             </div>
 
           </div>
-         
+          */}
 
-          <div className="sidebar">
+          <div className="sidebar" id="leftmenusidebar">
             <div className="sidebar-wrapper scrollbar-inner">
               <div className="sidebar-content">
-              {loading ? <Spin style={{marginTop:'20px', marginLeft:'30px'}} /> : null}
+                {loading ? <Spin style={{ marginTop: '20px', marginLeft: '30px' }} /> : null}
                 <Menu
                   style={{
                     backgroundColor: '#1f465c',
@@ -89,7 +112,7 @@ class LeftMenu extends Component {
                   mode="inline"
                   multiple={false}
                   openKeys={openKeys}
-                  onOpenChange={this.onOpenChange}
+                  onOpenChange={onOpenChange}
 
                 //style={{ width: 256 }}
                 >
@@ -111,24 +134,24 @@ class LeftMenu extends Component {
                         title={
                           <span className="sub-item">{item.name}</span>
                         }
-                        
+
                         icon={<FolderFilled />}
                       >{Object.keys(item.sub_cat).length > 0 &&
                         item.sub_cat.map((subCat, idx) =>
-                          <Menu.Item 
-                          key={subCat.id}
-                          onClick={e=>this.push(`/category/${subCat.id ? subCat.id :subCat._id }`)} 
-                          
-                          style={{
-                            backgroundColor: '#1f465c',
-                            alignItems: 'center',
-                            color: '#fff',
-                            fontSize: '14px',
-                            fontWeight: '400',
-                            position: 'relative',
-                            marginBottom: '3px'
-  
-                          }}
+                          <Menu.Item
+                            key={subCat.id}
+                            onClick={e => push(`/category/${subCat.id ? subCat.id : subCat._id}`)}
+
+                            style={{
+                              backgroundColor: '#1f465c',
+                              alignItems: 'center',
+                              color: '#fff',
+                              fontSize: '14px',
+                              fontWeight: '400',
+                              position: 'relative',
+                              marginBottom: '3px'
+
+                            }}
                           >
                             <span className="sub-item">{subCat.name}</span></Menu.Item>
                         )}
@@ -145,7 +168,6 @@ class LeftMenu extends Component {
       </>
     );
   }
-}
 const mapStateToProps = (state) => ({
   loading: state.shop.menuLoading,
   menu: state.shop.menu,

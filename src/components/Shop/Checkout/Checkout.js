@@ -386,12 +386,12 @@ class Checkout extends Component {
                                                                             
                                                                             </Panel>
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="4" cart={cart}/>} key="4" id="stepp4" showArrow={false}>
-                                                                            {/* <ShippingMethod
+                                                                            <ShippingMethod
                                                                                 pannelstep={pannelstep}
                                                                                 shipping_method_id={cart && cart.shipping_method_id ? cart.shipping_method_id : ''}
                                                                                 shippingMethods={shippingMethods}
                                                                                 shippingMethodHandler={this.shippingMethodHandler}
-                                                                            /> */}
+                                                                            />
                                                                         </Panel>
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="5" cart={cart}/>} key="5" id="stepp5" showArrow={false}>
 

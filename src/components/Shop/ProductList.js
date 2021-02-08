@@ -46,12 +46,19 @@ export default class ProductList extends Component {
                         </div>
                         {hasPrice &&
                             <div className="pro_Price p-0">
-                                <p className=" currecny"><span className="strike">${item.regular_price}</span>
-                                    <span className="sp-price">${item.sale_price}</span></p>
+                                {item.sale_price ?
+                                    <p className=" currecny"><span className="strike">${item.regular_price}</span>
+                                        <span className="sp-price">${item.sale_price}</span></p>
+
+                                    :
+                                    <p className=" currecny"><span className="sp-price">${item.regular_price}</span></p>
+
+
+                                }
                             </div>
                         }
                         <div className="d-block float-left w-100 mt-4">
-                            {hasPrice ? <AddToCart item={item}/> : <ContactForSale />}
+                            {hasPrice ? <AddToCart item={item} /> : <ContactForSale />}
                             <Compare />
                         </div>
                     </div>
