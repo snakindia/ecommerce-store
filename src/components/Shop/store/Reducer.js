@@ -79,7 +79,7 @@ export default (state = initialState, { type, payload,pannelstep=null }) => {
                     }
                 }
                }
-            console.log({pannelstep});
+            // console.log({pannelstep});
             return { ...state, cart: payload, pannelstep }
         case ActionTypes.REMOVE_FROM_CART:
             return { ...state, cart: payload }
@@ -99,7 +99,8 @@ export default (state = initialState, { type, payload,pannelstep=null }) => {
         case ActionTypes.GET_SHIPPING_METHOD_ERROR:
             return { ...state, shippingMethods: null, error: payload }
         case ActionTypes.GET_SHIPPING_METHOD_SUCCESS:
-            return { ...state, shippingMethods: payload }
+            //console.log('GET_SHIPPING_METHOD_SUCCESS' ,pannelstep);
+            return { ...state, shippingMethods: payload, pannelstep : pannelstep ? pannelstep :state.pannelstep }
 
 
         case ActionTypes.SHOP_FLUSH_DATA:

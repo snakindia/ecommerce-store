@@ -76,21 +76,33 @@ function Address(props) {
 
     const next = (c) => {
         const d = oldAddress[defaultAddressIndex];
-        console.log({ d });
+        //console.log({ d });
         if (d) {
-            props.submit(d, type)
+            submit(d, type)
         }
     }
     const onSelectOldAddress = (a) => {
         const d = oldAddress[a];
         showAddNew(false);
         if (d) {
-            props.submit(d, type)
+            submit(d, type)
         }
 
     }
+    const submit =(data,type)=>{
+        const code =countries.filter(c=>c.code == data.country);
+        if(code && code [0]){
+            data.country_name =code[0].name
+        } else {
+            data.country_name =''
+        }
+       // console.log({data});
+        props.submit(data,type)
+    }
 
-
+    // let c =countries.map(c=>c.code)
+    // c =[... new Set(c)]
+    // console.log(c.toString());
     return (
         <>
             {oldAddress && oldAddress.length > 0 ? <>
@@ -144,7 +156,7 @@ function Address(props) {
                         if (!values.state) errors.state = 'State/Province is Required';
                         if (!values.postal_code) errors.postal_code = 'Postal Code is Required';
                         // if (!values.country) errors.country = 'Country is Required';
-                        console.log(errors);
+                        //console.log(errors);
                         return errors;
                     }}
                 >
@@ -237,7 +249,7 @@ function Address(props) {
                                     onSelect={country => { formikProps.setFieldTouched('country', true); formikProps.setFieldValue('country', country) }}
                                 >
                                     {countries && countries.length > 0 && countries.map(country =>
-                                        <Option value={country.name} key={country.name}>{country.name}</Option>
+                                        <Option value={country.code} key={country.name}>{country.name}</Option>
                                     )}
                                 </Select>
                             </div>

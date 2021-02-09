@@ -18,7 +18,7 @@ class Nmi extends React.Component {
     }
     validationCallback =(field, status, message)=>{
             let {error,clicked, data} =this.state
-            console.log(field, status, message);
+            //console.log(field, status, message);
             if (status) {
                 if(error[field+'err']){
                     delete error[field+'err']
@@ -32,9 +32,9 @@ class Nmi extends React.Component {
                 this.setState({data:{...data,[field]:false}})
                 
             }
-            //if(clicked){
+            if(clicked){
                 this.setState({error})
-            //}
+            }
           
     }
 
@@ -102,7 +102,7 @@ class Nmi extends React.Component {
                     'currency':currency, // 'USD',
                     'country': 'US',
                     'validationCallback' :this.validationCallback,
-                    "timeoutDuration" : 20000,
+                    // "timeoutDuration" : 1000,
                     "timeoutCallback" : function () {
                         console.log("The tokenization didn't respond in the expected timeframe.  This could be due to an invalid or incomplete field or poor connectivity");
                     },
@@ -147,18 +147,18 @@ class Nmi extends React.Component {
 
     onClick =(e)=>{
         e.preventDefault();
-        console.log('dddddd');
+       // console.log('dddddd');
         this.setState({ isSubmitting: true });
         window.CollectJS.startPaymentRequest();
     }
 
     render() {
         let {data}=this.state;
-        console.log({data});
+        //console.log({data});
         let disabled=true;
         if(data && Object.keys(data).length > 0){
             let filtered = Object.keys(data).filter(f=>!data[f])
-            console.log(filtered);
+           // console.log(filtered);
         }
         return (<form >
 

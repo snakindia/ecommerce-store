@@ -83,13 +83,16 @@ const PannelHeader = ({ step, cart, pannelstep, activeKey,edit }) => {
 
             </div>
         </div>)
-    } else if (step == 5) {
+    } else if (step == 6) {
         return (<div className="row pannel-header">
             <div className="col-md-4">Payment</div>
             <div className="col-md-8">
 
             </div>
         </div>)
+    }
+    else {
+        return null;
     }
 }
 export default PannelHeader;

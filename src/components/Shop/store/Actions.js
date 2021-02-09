@@ -129,7 +129,7 @@ export const getMenu = () => {
                 }
             })
             .catch(e => {
-                console.log({ e })
+               // console.log({ e })
                 dispatch(setLoading(false));
                 dispatch(getMenuError(e));
                 notification('error', 'Oops!! something went wrong')
@@ -312,15 +312,16 @@ export const getPaymentSettingsMethod = () => {
     }
 }
 
-export const getShippingMethodSuccess = (payload) => ({
+export const getShippingMethodSuccess = (payload,pannelstep ) => ({
     type: ActionTypes.GET_SHIPPING_METHOD_SUCCESS,
     payload,
+    pannelstep
 });
 export const getShippingMethodError = (payload) => ({
     type: ActionTypes.GET_SHIPPING_METHOD_ERROR,
     payload
 });
-export const getShippingMethod = () => {
+export const getShippingMethod = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
@@ -334,7 +335,7 @@ export const getShippingMethod = () => {
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
-                    dispatch(getShippingMethodSuccess(res.data));
+                    dispatch(getShippingMethodSuccess(res.data,  payload ? 5 : null));
                 } else {
                      dispatch(getShippingMethodError(undefined));
                      //notification('error', 'Oops!! something went wrong')
@@ -400,7 +401,7 @@ export const addOrder = (payload) => {
             .then(res => {
                 //dispatch(setLoading(false));
                 if (res.data && res.data.number) {
-                    console.log('dispatching');
+                   // console.log('dispatching');
                     dispatch(orderRecieved(res.data.id, payload))
                     // dispatch(orderSuccess(res.data));
                     // notification('success', 'Order Placed Succesfully')

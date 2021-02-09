@@ -17,8 +17,8 @@ function ShippingMethod(props) {
     const continueM=()=>{
         
         if (shippingMethods && shippingMethods.length ==1) {
-            console.log({shippingMethods});
-            console.log('submitting shipping_method',shippingMethods[0].id)
+           // console.log({shippingMethods});
+           // console.log('submitting shipping_method',shippingMethods[0].id)
             props.shippingMethodHandler({shipping_method:shippingMethods[0].id})
         }
     }
