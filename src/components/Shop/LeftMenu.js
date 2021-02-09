@@ -64,7 +64,7 @@ const LeftMenu = (props) => {
     return (
       <>
         <div id="leftmenu">
-          {/* <div className="main-header">
+          <div className="main-header">
             <div className="logo-header">
               <a type="button" className="logo category_head">
                 Shop By Category
@@ -76,7 +76,7 @@ const LeftMenu = (props) => {
                 </span>
               </button>
               <button className="topbar-toggler more"><i className="fa fa-ellipsis-v"></i></button>
-              <div className="navbar-minimize" onClick={this.props.shrink}>
+              <div className="navbar-minimize" onClick={props.shrink}>
                 {!visible ?
                   <button className="btn btn-minimize btn-rounded toggled">
                     <i className="fa fa-ellipsis-v">
@@ -91,7 +91,7 @@ const LeftMenu = (props) => {
             </div>
 
           </div>
-          */}
+         
 
           <div className="sidebar" id="leftmenusidebar">
             <div className="sidebar-wrapper scrollbar-inner">
