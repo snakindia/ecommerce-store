@@ -2,7 +2,7 @@
 import { Table } from 'antd'
 import { Link } from 'react-router-dom'
 import React, { useState } from 'react';
-
+import Image from '../Image'
 function Summary(props) {
   const [coupon, setCoupon] = useState(null);
   const onClickApply = () => {
@@ -70,7 +70,7 @@ function Summary(props) {
                           dataSource && dataSource.length > 0 ? dataSource.map(item => <div key={item.name} class="product-specification">
                             <div class="row">
                               <div class="col-sm-2 col-md-2 col-lg-2 ">
-                                <img src={item.image_url} class="card-thumbnail" alt="" />
+                                <Image src={item.image_url} class="card-thumbnail" alt="" />
                               </div>
                               <div class="col-sm-5 col-md-5 col-lg-5">
                                 <p>{item.name}</p>

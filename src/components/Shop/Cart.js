@@ -5,6 +5,7 @@ import { removeProduct, addProduct } from './store/Actions';
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 import ToolTip from './ToolTip';
 import Quantity from './Quantity';
+import Image from './Image'
 const Product = (props) => {
     const item = props.data;
     const remove = (e) => {
@@ -22,7 +23,7 @@ const Product = (props) => {
     return (
         <tr>
             <th scope="row">
-                <img src={imageUrl} width="72" height="72" />
+                <Image src={imageUrl} width="72px" height="72px" />
             </th>
             <td style={{ verticalAlign: 'middle' }}>
                 <ToolTip text={item.name} length={200} />

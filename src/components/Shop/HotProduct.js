@@ -4,7 +4,7 @@ import AddToCart from './AddToCart'
 import Favourite from './Favourite';
 import ContactForSale from './ContactForSale'
 import ToolTip from './ToolTip'
-
+import Image from './Image'
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 const HotProduct = (props) => {
     const { item } = props;
@@ -52,7 +52,7 @@ const HotProduct = (props) => {
                     }
                 </div>
                 <div className="card-item">
-                    <img src={imageUrl} alt="" className="img-fluid" />
+                    <Image  src={imageUrl} alt="" className="img-fluid" />
                 </div>
                 <div className="d-block float-left w-100 pl-3">
                     {hasPrice ? <AddToCart item={item} /> : <ContactForSale />}
