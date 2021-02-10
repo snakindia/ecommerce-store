@@ -9,25 +9,27 @@ class Nmi extends React.Component {
             isSubmitting: false,
             alertMessage: '',
             error:{},
-            clicked:false
-
+            clicked:false,
+            data:{}
         };
         this.setState = this.setState.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.finishSubmit = this.finishSubmit.bind(this);
     }
     validationCallback =(field, status, message)=>{
-            let {error,clicked} =this.state
-            console.log(field, status, message);
+            let {error,clicked, data} =this.state
+            //console.log(field, status, message);
             if (status) {
                 if(error[field+'err']){
                     delete error[field+'err']
                 }
+                this.setState({data:{...data,[field]:true}})
                
                
             } else {
                 error={...error,[field+'err']:message};
-                
+
+                this.setState({data:{...data,[field]:false}})
                 
             }
             if(clicked){
@@ -100,7 +102,7 @@ class Nmi extends React.Component {
                     'currency':currency, // 'USD',
                     'country': 'US',
                     'validationCallback' :this.validationCallback,
-                    "timeoutDuration" : 2000,
+                    // "timeoutDuration" : 1000,
                     "timeoutCallback" : function () {
                         console.log("The tokenization didn't respond in the expected timeframe.  This could be due to an invalid or incomplete field or poor connectivity");
                     },
@@ -145,13 +147,19 @@ class Nmi extends React.Component {
 
     onClick =(e)=>{
         e.preventDefault();
-        console.log('dddddd');
+       // console.log('dddddd');
         this.setState({ isSubmitting: true });
         window.CollectJS.startPaymentRequest();
     }
 
     render() {
-       
+        let {data}=this.state;
+        //console.log({data});
+        let disabled=true;
+        if(data && Object.keys(data).length > 0){
+            let filtered = Object.keys(data).filter(f=>!data[f])
+           // console.log(filtered);
+        }
         return (<form >
 
             <CollectJSSection error={this.state.error}>

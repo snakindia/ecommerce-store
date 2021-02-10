@@ -9,6 +9,7 @@ import Favourite from './Favourite';
 import Slider from 'react-slick';
 import Zoomer from "./Zoomer";
 import Quantity from "./Quantity";
+import Image from './Image'
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 export default class QuickView extends Component {
     constructor(props) {
@@ -37,7 +38,7 @@ export default class QuickView extends Component {
     }
 
     render() {
-        const { item, single } = this.props;
+        const { item, single, certificate } = this.props;
 
         const { regular_price, sale_price } = item;
         let diff = undefined;
@@ -152,6 +153,7 @@ export default class QuickView extends Component {
                                         <Share item={item} />
                                     </p>
                                 </div>
+                                {certificate && 
                                 <div class="productbadges top30">
                                     <ul class="new" style={{display:'inline-flex', listStyle:'none',padding:0}}>
                                         <li>
@@ -167,7 +169,7 @@ export default class QuickView extends Component {
                                             <p><img src="https://cdn10.bigcommerce.com/s-eheiwirl8z/templates/__custom/img/badge-4.png?t=1588692031" alt="" /></p>
                                         </li>
                                     </ul>
-                                </div>
+                                </div>}
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ import ContactForSale from './ContactForSale'
 import Compare from './Compare';
 import Favourite from './Favourite';
 import ToolTip from './ToolTip'
+import Image from './Image'
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 export default class ProductList extends Component {
     constructor(props) {
@@ -35,7 +36,7 @@ export default class ProductList extends Component {
                             </div>
                         </div>
                     </div>
-                    <img src={imageUrl} alt="Generic placeholder image" className="order-1 order-lg-1 mr-lg-4" width="200" />
+                    <Image src={imageUrl} alt="Generic placeholder image" className="order-1 order-lg-1 mr-lg-4" width="200" />
                     <div className="media-body order-2 order-lg-1">
                         <h6 className="mt-0 mb-2"><ToolTip text={item.name} length={1000} /></h6>
                         {/* <a href="product-details.html" className="text-muted mb-0"><ToolTip text={item.description} /></a> */}
@@ -46,12 +47,19 @@ export default class ProductList extends Component {
                         </div>
                         {hasPrice &&
                             <div className="pro_Price p-0">
-                                <p className=" currecny"><span className="strike">${item.regular_price}</span>
-                                    <span className="sp-price">${item.sale_price}</span></p>
+                                {item.sale_price ?
+                                    <p className=" currecny"><span className="strike">${item.regular_price}</span>
+                                        <span className="sp-price">${item.sale_price}</span></p>
+
+                                    :
+                                    <p className=" currecny"><span className="sp-price">${item.regular_price}</span></p>
+
+
+                                }
                             </div>
                         }
                         <div className="d-block float-left w-100 mt-4">
-                            {hasPrice ? <AddToCart item={item}/> : <ContactForSale />}
+                            {hasPrice ? <AddToCart item={item} /> : <ContactForSale />}
                             <Compare />
                         </div>
                     </div>

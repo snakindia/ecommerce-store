@@ -7,6 +7,7 @@ import Compare from './Compare';
 import Favourite from './Favourite';
 import ToolTip from './ToolTip'
 import { API_IMAGE_PATH } from './../../constants/appConstant';
+import Image from './Image'
 export default class Product extends Component {
     constructor(props) {
         super(props);
@@ -36,7 +37,7 @@ export default class Product extends Component {
                 {/* <Favourite /> */}
                 <div className="item-pro-inner">
                     <a href="#">
-                        <img className="img-fluid"
+                        <Image className="img-fluid"
                             src={imageUrl} alt="" />
                         <div className="product-description">
                             <ToolTip text={item.name} />

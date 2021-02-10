@@ -50,6 +50,7 @@ function Address(props) {
         state: data && data.state ? data.state : '',
         postal_code: data && data.postal_code ? data.postal_code : '',
         country: data && data.country ? data.country : '',
+        countryName: data && data.countryName ? data.countryName : '',
         company: data && data.company ? data.company : '',
         full_name: data && data.first_name && data.last_name ? data.first_name + ' ' + data.last_name : '',
     }
@@ -68,6 +69,7 @@ function Address(props) {
             state: '',
             postal_code: '',
             country: '',
+            countryName: '',
             company: '',
             full_name: '',
         }
@@ -76,21 +78,33 @@ function Address(props) {
 
     const next = (c) => {
         const d = oldAddress[defaultAddressIndex];
-        console.log({ d });
+        //console.log({ d });
         if (d) {
-            props.submit(d, type)
+            submit(d, type)
         }
     }
     const onSelectOldAddress = (a) => {
         const d = oldAddress[a];
         showAddNew(false);
         if (d) {
-            props.submit(d, type)
+            submit(d, type)
         }
 
     }
-
-
+    const submit =(data,type)=>{
+        const code =countries.filter(c=>c.code == data.country);
+        if(code && code [0]){
+            data.country_name =code[0].name
+        } else {
+            data.country_name =''
+        }
+       // console.log({data});
+        props.submit(data,type)
+    }
+    let cc = countries;
+    cc =cc.filter(c=>c.code && c.name)
+    // c =[... new Set(c)]
+    // console.log(c.toString());
     return (
         <>
             {oldAddress && oldAddress.length > 0 ? <>
@@ -147,7 +161,7 @@ function Address(props) {
                         if (!values.state) errors.state = 'State/Province is Required';
                         if (!values.postal_code) errors.postal_code = 'Postal Code is Required';
                         // if (!values.country) errors.country = 'Country is Required';
-                        console.log(errors);
+                        //console.log(errors);
                         return errors;
                     }}
                 >
@@ -234,13 +248,20 @@ function Address(props) {
                             </div>
                             <div className="form-group">
                                 <label className="text-small">Country</label>
-                                <Select
+                                <Select 
                                     style={{ width: '100%' }}
-                                    defaultValue={formikProps.values.country}
-                                    onSelect={country => { formikProps.setFieldTouched('country', true); formikProps.setFieldValue('country', country) }}
+                                    showSearch={true}
+                                    value={formikProps.values.countryName ? formikProps.values.countryName : undefined}
+                                    onSelect={(country, selOp) => { 
+                                        // console.log(country, selOp, selOp.key);
+                                        formikProps.setFieldTouched('countryName', true);
+                                         formikProps.setFieldValue('countryName', country)
+                                         formikProps.setFieldValue('country', selOp.key)
+                                         }
+                                    }
                                 >
-                                    {countries && countries.length > 0 && countries.map(country =>
-                                        <Option value={country.name} key={country.name}>{country.name}</Option>
+                                    {cc && cc.length > 0 && countries.map(country =>
+                                        <Option value={country.name} key={country.code}>{country.name}</Option>
                                     )}
                                 </Select>
                             </div>

@@ -28,7 +28,7 @@ function Thankyou({order,user}) {
                           <div className="col-sm-12 col-md-12 text-center">
                             <img src={imgSrc} width="70px" height="70px"/>
                             <h5 className="pt-4">Your order has placed successfully !</h5>
-                            <p>your order Number is <Link to={`/accounts/my-orders/${order && order.id ?  order.id: '' }`}>#{order && order.number ? order.number:''}</Link>. You can track your order under my profile page</p>
+                            <p>your order Number is <Link onClick={onClick} to={`/accounts/my-orders/${order && order.id ?  order.id: '' }`}>#{order && order.number ? order.number:''}</Link>. You can track your order under my profile page</p>
                             <p className="pt-5" style={{fontWeight: 'bold'}}>What all you can do from here:</p>
                           </div>
                           <ul style={{float: 'left', width: '100%', textAlign: 'center',padding:0}}>

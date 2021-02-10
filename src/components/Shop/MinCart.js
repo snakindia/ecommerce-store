@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { removeProduct, addProduct } from './store/Actions';
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 import ToolTip from './ToolTip';
+import Image from './Image'
 import OutSideClick from '../OutSideClick'
 const Product = (props) => {
     const item = props.data;
@@ -19,12 +20,14 @@ const Product = (props) => {
     return (
         <li className="item clearfix">
             <div className="cart-thumbnail">
-                <div className="corner-close" onClick={e => remove(e)}>
+                <div className="corner-close" onClick={e => remove(e)} style={{zIndex:9999}}>
                     <div className="corner-right">
                         <span><i className="fa fa-times"></i></span>
                     </div>
                 </div>
-                <Link to={`/shop/${item.product_id}`} onClick={props.linkClick}><img src={imageUrl} alt="" /></Link>
+                <Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>
+                    <Image src={imageUrl} alt="" />
+                    </Link>
             </div>
             <div className="details">
                 <div className="item-title"><Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>

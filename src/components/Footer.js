@@ -70,7 +70,7 @@ class Footer extends Component {
             <img src={Chat} className="mr-2" alt="" width="30" />
           </a>
         </div>
-        <MDBFooter className="footer">
+        <MDBFooter className="footer" id="footer">
           <div className="footer-section">
             <div className="pagewrap">
               <div className="footer-main pt-5">

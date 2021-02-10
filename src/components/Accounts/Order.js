@@ -5,6 +5,7 @@ import { getOrderDetail, cancelOrder } from './store/Actions';
 import { formatPhone } from '../../utils/helper'
 import Loader from '../Loader/Loader';
 import moment from 'moment';
+import Image from '../Shop/Image'
 class Order extends React.Component {
     componentDidMount() {
         const { match: { params: { id } } } = this.props;
@@ -195,9 +196,9 @@ class Order extends React.Component {
                                                                     <tbody>
                                                                         {item.items.map(product => <tr key={product.id}>
                                                                             <th scope="row">
-                                                                                <img src={
+                                                                                <Image src={
                                                                                     product.product_image && product.product_image[0] && product.product_image[0].url ? product.product_image[0].url : ''
-                                                                                } width="72" height="72" />
+                                                                                } width="72px" height="72px" />
                                                                             </th>
                                                                             <td style={{ verticalAlign: 'middle' }}>{product.name}</td>
 
