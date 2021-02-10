@@ -250,9 +250,9 @@ class Checkout extends Component {
             last_name: billingAddress.last_name,
             mobile: billingAddress.phone,
             shipping_method_id:'',
-            payment_method:'',
-            payment_method_gateway:'',
-            payment_method_id:'',
+            // payment_method:'',
+            // payment_method_gateway:'',
+            // payment_method_id:'',
             shipping_method_id:''
         }
         const pannelstep = type == 'billing' ? 3 : type == 'shipping' ? 4 : 3;

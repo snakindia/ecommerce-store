@@ -50,6 +50,7 @@ function Address(props) {
         state: data && data.state ? data.state : '',
         postal_code: data && data.postal_code ? data.postal_code : '',
         country: data && data.country ? data.country : '',
+        countryName: data && data.countryName ? data.countryName : '',
         company: data && data.company ? data.company : '',
         full_name: data && data.first_name && data.last_name ? data.first_name + ' ' + data.last_name : '',
     }
@@ -68,6 +69,7 @@ function Address(props) {
             state: '',
             postal_code: '',
             country: '',
+            countryName: '',
             company: '',
             full_name: '',
         }
@@ -246,11 +248,17 @@ function Address(props) {
                                 <Select 
                                     style={{ width: '100%' }}
                                     showSearch={true}
-                                    value={formikProps.values.country ? formikProps.values.country : undefined}
-                                    onSelect={country => { formikProps.setFieldTouched('country', true); formikProps.setFieldValue('country', country) }}
+                                    value={formikProps.values.countryName ? formikProps.values.countryName : undefined}
+                                    onSelect={(country, selOp) => { 
+                                        // console.log(country, selOp, selOp.key);
+                                        formikProps.setFieldTouched('countryName', true);
+                                         formikProps.setFieldValue('countryName', country)
+                                         formikProps.setFieldValue('country', selOp.key)
+                                         }
+                                    }
                                 >
                                     {cc && cc.length > 0 && countries.map(country =>
-                                        <Option value={country.code} key={country.name}>{country.name}</Option>
+                                        <Option value={country.name} key={country.code}>{country.name}</Option>
                                     )}
                                 </Select>
                             </div>
