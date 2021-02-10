@@ -146,6 +146,7 @@ class Checkout extends Component {
     }
 
     sortShippingMethods = () => {
+        console.log('sortShippingMethods->>');
         // return;
         const { shippingMethods, cart } = this.props;
         const {shipping_checked} = this.state;
@@ -454,14 +455,14 @@ class Checkout extends Component {
 
                                                                         </Panel>
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="4" cart={cart} />} key="4" id="stepp4" showArrow={false}>
-                                                                            <ShippingMethod
+                                                                            {/* <ShippingMethod
                                                                                 pannelstep={pannelstep}
                                                                                 subtotal={subtotal}
                                                                                 address={cart && cart.shipping_address ? cart.shipping_address : null}
                                                                                 shipping_method_id={cart && cart.shipping_method_id ? cart.shipping_method_id : ''}
                                                                                 shippingMethods={shippingMethods}
                                                                                 shippingMethodHandler={this.shippingMethodHandler}
-                                                                            />
+                                                                            /> */}
                                                                         </Panel>
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="6" cart={cart} />} key="6" id="stepp6" showArrow={false}>
 

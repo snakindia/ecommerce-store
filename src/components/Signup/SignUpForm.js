@@ -17,7 +17,7 @@ const initialValues = {
   confirmpassword: '',
   phone: '',
   zipcode: '',
-  countrytype: 'India',
+  countrytype: '',
   offerupdate: false,
   productnotification: false,
   sproductresearch: false,
@@ -199,7 +199,9 @@ class SignUpForm extends PureComponent {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     style={{ fontSize: '0.875rem' }}
-                  >{
+                  >
+                    <option value="">Select a country</option>
+                    {
                     countries ? countries.map(c=><option key={c.code} value={c.name}>{c.name}</option>):null
                   }
                  

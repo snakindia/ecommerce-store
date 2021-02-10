@@ -99,8 +99,8 @@ function Address(props) {
        // console.log({data});
         props.submit(data,type)
     }
-
-    // let c =countries.map(c=>c.code)
+    let cc = countries;
+    cc =cc.filter(c=>c.code && c.name)
     // c =[... new Set(c)]
     // console.log(c.toString());
     return (
@@ -243,12 +243,13 @@ function Address(props) {
                             </div>
                             <div className="form-group">
                                 <label className="text-small">Country</label>
-                                <Select
+                                <Select 
                                     style={{ width: '100%' }}
-                                    defaultValue={formikProps.values.country}
+                                    showSearch={true}
+                                    value={formikProps.values.country ? formikProps.values.country : undefined}
                                     onSelect={country => { formikProps.setFieldTouched('country', true); formikProps.setFieldValue('country', country) }}
                                 >
-                                    {countries && countries.length > 0 && countries.map(country =>
+                                    {cc && cc.length > 0 && countries.map(country =>
                                         <Option value={country.code} key={country.name}>{country.name}</Option>
                                     )}
                                 </Select>

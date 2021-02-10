@@ -78,7 +78,7 @@ const PannelHeader = ({ step, cart, pannelstep, activeKey,edit }) => {
             <div className="col-md-4">Shipping Rate</div>
             <div className="col-md-8">
                 <div className="float-left">
-                    {cart.shipping_price && cart.shipping_method_id ? <div>Flat Rate ${cart.shipping_price} </div> : ''}
+                    {cart.shipping_method_id ?  cart.shipping_price ===0 ? <div> Free Shippinng </div>:<div> Flat Rate ${cart.shipping_price} </div> : ''}
                 </div>
 
             </div>

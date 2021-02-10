@@ -20,7 +20,7 @@ const Product = (props) => {
     return (
         <li className="item clearfix">
             <div className="cart-thumbnail">
-                <div className="corner-close" onClick={e => remove(e)}>
+                <div className="corner-close" onClick={e => remove(e)} style={{zIndex:9999}}>
                     <div className="corner-right">
                         <span><i className="fa fa-times"></i></span>
                     </div>

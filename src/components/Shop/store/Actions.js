@@ -146,6 +146,30 @@ export const removeProductAction = (payload) => ({
     payload
 });
 
+export const removeShippingMethods =()=>{
+    return dispatch => {
+    Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`,{shipping_method_id:''}, {
+        withCredentials: true,
+        crossDomain: true,
+    },).then(res => {
+      
+        if (res.data) {
+
+            dispatch(addProductAction(res.data));
+            dispatch(getShippingMethod())
+        } else {
+            // dispatch(getProductError(undefined));
+           // notification('error', 'Oops!! something went wrong')
+        }
+    })
+    .catch(e => {
+        dispatch(setCartLoading(false));
+        dispatch(getProductError(e));
+        notification('error', 'Oops!! something went wrong')
+    });
+   
+}
+}
 export const removeProduct = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
@@ -158,6 +182,7 @@ export const removeProduct = (payload) => {
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
+                    dispatch(removeShippingMethods())
                     dispatch(removeProductAction(res.data));
                 } else {
                     //notification('error', 'Oops!! something went wrong')
@@ -193,6 +218,7 @@ export const addProduct = (payload, qty = 1) => {
                 console.log(res)
                 dispatch(setLoading(false));
                 if (res.data) {
+                    dispatch(removeShippingMethods())
                     dispatch(addProductAction(res.data));
                 } else {
                     dispatch(getProductError(undefined));
