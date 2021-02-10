@@ -148,10 +148,10 @@ function Summary(props) {
 
                     <div class="total-product-price">
                       <div class="row">
-                        <div class="col-md-7 col-sm-7 col-lg-8 col d-flex align-items-center">
+                        <div class="col-md-4 col-sm-4 col-lg-4 col d-flex align-items-center">
                           Total (USD)
                         </div>
-                        <div class="col-md-5 col-sm-5 col-lg-4 col text-right">
+                        <div class="col-md-8 col-sm-8 col-lg-8 col text-right">
                           <span class="pr-3">$ {props.total}</span>
                         </div>
                       </div>

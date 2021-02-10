@@ -1398,7 +1398,7 @@ a.bha-btn-secondry:hover {
 table th{font-size: 1rem; font-weight: 500;}
 .ant-collapse-content > .ant-collapse-content-box{padding:0;}
 .ant-collapse > .ant-collapse-item > .ant-collapse-header{background:#e5e8e9; font-weight: 600; 
-  font-size: 0.950rem;border-bottom:1px solid #ccc !important; padding-left:12px !important}
+  font-size: 0.950rem;border-bottom:1px solid #ccc; padding-left:12px !important}
 .ant-collapse{border:0 !important}
 .ant-collapse-content{background:#eceff1 !important;
   border-bottom:0 !important}

@@ -167,7 +167,7 @@ class Nmi extends React.Component {
             </CollectJSSection>
             
             <div className="col-lg-12 pl-0 pt-2 pb-3" >
-                <button className="btn bha-btn-primary"
+                <button className="bha-btn-new-blue"
                     onClick={this.onClick}
                     type="submit"
                     //disabled={this.state.isSubmitting}
