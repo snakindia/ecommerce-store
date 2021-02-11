@@ -1210,7 +1210,7 @@ margin: 0.75rem auto;text-align: center;
 
 @media (max-width: 576px){
 .bha-btn-new-blue, .bha-btn-new {width: 100% !important;margin-top: 5px;}
-.total-product-price div span {font-size: 1rem;}
+.total-product-price div span {font-size: 1rem;padding-right:5px;}
 }
 @media (max-width: 768px){
   .topPadding{padding-top:8rem !important;}

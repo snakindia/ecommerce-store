@@ -52,10 +52,10 @@ function Summary(props) {
 
                     <div class="product-detail-quantity">
                       <div class="row">
-                        <div class="col-md-5 col-sm-4 col-lg-5 col">
+                        <div class="col-md-5 col-sm-4 col-lg-4 col">
                           Product Name
                         </div>
-                        <div class="col-md-4 col-sm-4 col-lg-4 col text-center">
+                        <div class="col-md-4 col-sm-4 col-lg-5 col text-center">
                           Quantity
                         </div>
                         <div class="col-md-3 col-sm-4  col-lg-3 col text-center">
@@ -70,10 +70,10 @@ function Summary(props) {
                         {
                           dataSource && dataSource.length > 0 ? dataSource.map(item => <div key={item.name} class="product-specification">
                             <div class="row">
-                              <div class="col-sm-4 col-md-5 col-lg-5 col ">
+                              <div class="col-sm-4 col-md-5 col-lg-4 col ">
                                 <Image src={item.image_url} class="card-thumbnail" alt="" />
                               </div>
-                              <div class="col-sm-4 col-md-4 col-lg-4 col text-center">
+                              <div class="col-sm-4 col-md-4 col-lg-5 col text-center">
                                 {item.qty}
                               </div>
                               <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
