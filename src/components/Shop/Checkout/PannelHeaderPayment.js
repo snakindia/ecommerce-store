@@ -8,13 +8,13 @@ import jcb from '../../../assets/icon/jcb-icon.svg';
 const PannelHeaderPayment = ({ id, method, activeKey }) => {
     return (
         <div className="row pannel-header">
-            <div className="col-md-4">
+            <div className="col-md-6">
                 <input id="ac-1" name="accordion-1" class="btn-accordian" type="radio" checked ={activeKey==id ? true: false}/>
                 <label for="ac-1" style={{ marginLeft: '10px' }}><span class="radio-btn-clickable"></span>
                     {method.name}
                 </label>
             </div>
-            <div className="col-md-8">
+            <div className="col-md-6 ">
                 {method.gateway ?
                     <span class="float-right">
 

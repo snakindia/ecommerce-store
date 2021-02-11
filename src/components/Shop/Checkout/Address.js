@@ -109,7 +109,7 @@ function Address(props) {
         <>
             {oldAddress && oldAddress.length > 0 ? <>
                 <div className="col-lg-12" >
-                    <div className="col-md-9 col-lg-9" >
+                    <div className="col-md-12 col-lg-12 p-0" >
                         <div className="form-group">
                             <label className="text-small">Select from Previous Address </label>
                             <Select
@@ -129,11 +129,14 @@ function Address(props) {
                         </div>
                     </div>
                     {addNew ? '' :
-                        <div className="col-md-3 col-lg-3" >
-                            <button className="bha-btn-primary" onClick={next}>Continue</button>
-                            <button className="bha-btn-primary" onClick={e => showAddNew(true)} >Add New</button>
+                        <div className="col-md-12 col-lg-12 p-0 pt-3" >
+                            <button className="bha-btn-new-blue mr-2" onClick={next}>Continue</button>
+                            <button className="bha-btn-new" onClick={e => showAddNew(true)} >Add New</button>
                         </div>
+
+                        
                     }
+                    
                 </div>
             </> : null}
             {(addNew || !authenticated || !oldAddress || oldAddress && oldAddress.length ==0) ?
@@ -304,9 +307,9 @@ function Address(props) {
                             </div>
                                 : null}
                             <Error formik={formikProps} el={['first_name', 'last_name', 'address1', 'city', 'state', 'phone', 'country', 'postal_code']} />
-                            <div className="form-group mt-36">
-                                <button type="submit" className="btn bha-btn-primary float-right45" name="buttonsubmit">Continue</button>
-                                {addNew ? <button className="bha-btn-primary btn-danger"
+                            <div className="form-group mt-4">
+                                <button type="submit" className="bha-btn-new-blue mr-2" name="buttonsubmit">Continue</button>
+                                {addNew ? <button className="bha-btn-new"
                                     onClick={e => {
 
                                         scrollToEle(`stepp${type == 'billing' ? 2 : 3}`, 50);
