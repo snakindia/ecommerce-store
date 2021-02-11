@@ -1,6 +1,6 @@
 import { Image as I } from 'antd';
 import React from 'react'
-import defaultImg from '../../assets/images/product/defaultImg.png'
+import defaultImg from '../../assets/images/product/defaultImg.PNG'
 const Image=(props)=> {
   return (
     <I
