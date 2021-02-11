@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import Product from './Product'
 import HotProduct from './HotProduct'
 import { getProducts } from './store/Actions'
+import { Link } from 'react-router-dom';
 class Products extends Component {
   constructor(props) {
     super(props);
@@ -57,6 +58,15 @@ class Products extends Component {
                   </div>
                 </div>
               </section>
+              <section className="bg-opeque pb-4">
+                <div className="container-fluid">
+                  <p className="view-all-center">
+                    <Link to={`category/${this.props.type}`}>
+                    View All
+                    </Link>
+                    </p>
+                </div>
+              </section>
             </>
             :
             <div>
@@ -80,6 +90,15 @@ class Products extends Component {
                   </div>
                 </div>
               </section>
+              <section className="bg-opeque pb-4">
+                <div className="container-fluid">
+                  <p className="view-all-center">
+                    <Link to={`category/${this.props.type}`}>
+                    View All
+                    </Link>
+                    </p>
+                </div>
+              </section>
             </div>
         }
         </>
@@ -93,8 +112,8 @@ class Products extends Component {
 
 const mapStateToProps = (state) => ({
   loading: state.shop.loading,
-  hotDeals: state.shop.hotDeals,
-  bestSelling: state.shop.bestSelling,
+  featured: state.shop.featured,
+  topselling: state.shop.topselling,
   topRated: state.shop.topRated,
   error: state.shop.error
 });

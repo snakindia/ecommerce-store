@@ -60,13 +60,13 @@ class ShopNow extends Component {
                         <Banner />
                         <Products
                           quickView={this.show}
-                          type='hotDeals'
-                          heading="Our Hot Deals"
+                          type='topselling'
+                          heading="Top Selling Products"
                         />
                         <Products
                           quickView={this.show}
-                          type='bestSelling'
-                          heading="Best Selling Products"
+                          type='featured'
+                          heading="Featured Products"
                         />
                         <Products
                           quickView={this.show}

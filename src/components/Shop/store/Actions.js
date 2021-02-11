@@ -61,12 +61,14 @@ export const setProductLoading = (payload) => ({
 export const getProducts = (payload, id = null) => {
     return dispatch => {
         dispatch(setProductLoading(true));
-
-        let url = 'getTopRatedProducts?fields=name,images,sku,product_id,regular_price,sale_price,description';
-        if (payload && id) url = `products?category_id=${id}`;
-        else if (payload == 'bestSelling') url = 'getBestSellingProducts?fields=name,regular_price,sale_price,images,sku,description';
-        else if (payload == 'topRated') url = 'getTopRatedProducts?fields=name,images,sku,product_id,regular_price,sale_price,description';
-        else if (payload == 'hotDeals') url = 'getHotProductList?fields=name,regular_price,sale_price,images,sku,description';
+       
+        console.log(payload);
+        let url = 'products?fields=name,images,sku,product_id,regular_price,sale_price,description,topSelling,featured';
+        if (payload && id && id !=='featured' && id !='topselling') url = `products?category_id=${id}`;
+        
+        else if (payload == 'featured' || id =='featured') url = 'products?featured=true&fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
+        else if (payload == 'topRated') url = 'getTopRatedProducts?fields=name,topSelling,featured,images,sku,product_id,regular_price,sale_price,description';
+        else if (payload == 'topselling' || id=="topselling") url = 'products?topSelling=true&?fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
 
 
         Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
@@ -74,7 +76,15 @@ export const getProducts = (payload, id = null) => {
             .then(res => {
                 dispatch(setProductLoading(false));
                 if (res.data) {
-                    dispatch(getDataSuccess({ [payload]: res.data }));
+                    if(payload =='featured' || payload =='topselling'){
+                        if( res.data && res.data.data){
+                            dispatch(getDataSuccess({ [payload]: id ? res.data :res.data.data }));
+                        }
+                        
+                    }else {
+                        dispatch(getDataSuccess({ [payload]: res.data }));
+                    }
+                   
                 } else {
                     dispatch(getDataError({ [payload]: [] }));
                     //notification('error', 'Oops!! something went wrong')

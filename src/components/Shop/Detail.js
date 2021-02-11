@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './style.css'
 import './xzoom.css'
+import { MDBModal, MDBContainer } from 'mdbreact';
 import QuickView from './QuickView'
 import { getProduct } from './store/Actions'
 import { Link } from 'react-router-dom';
 import { Tabs } from 'antd';
 import RelatedProduct from './RelatedProduct';
 import Breadcrum from './Breadcrum';
+import Product from './Product';
+import Slider from 'react-slick';
 const { TabPane } = Tabs;
-
 class Detail extends Component {
     constructor(props) {
         super(props);
@@ -18,6 +20,19 @@ class Detail extends Component {
             item: null,
             visible: true,
         }
+    }
+    show = (item) => {
+        this.setState({
+            item,
+            showModal: true
+        })
+    }
+
+    hide = () => {
+        this.setState({
+            item: null,
+            showModal: false
+        })
     }
 
     componentDidMount() {
@@ -28,9 +43,17 @@ class Detail extends Component {
     render() {
 
         const { product } = this.props;
-       
-        let related =product && product.related_products ? product.related_products :[];
-        related =[1,2,3,4,5,6,7,8,9].map(i=>related && related[0] ? related[0]:{});
+        const { item, showModal, visible } = this.state;
+        let related = product && product.related_products ? product.related_products : [];
+        // related =[1,2,3,4,5,6,7,8,9].map(i=>related && related[0] ? related[0]:{});
+        const settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: related ? related.length > 3 ? 4 : related.length : 0,
+            // slidesToShow: 3,
+            slidesToScroll: 1,
+        };
         return (
 
             <div className="content-wrapper topPadding" id="content">
@@ -38,15 +61,15 @@ class Detail extends Component {
                     <div className="pagewrap">
                         <div className="bgWhite padding-bottom">
                             <div className="container-fluid" >
-                               
-                            <Breadcrum data={product} />
+
+                                <Breadcrum data={product} />
 
                             </div>
                             <section >
                                 <div className="container-fluid">
                                     <div className="row">
                                         <div className="col-lg-12 col-sm-12">
-                                            {product ? <QuickView item={product} single={true} certificate={true}/> : null}
+                                            {product ? <QuickView item={product} single={true} certificate={true} /> : null}
                                         </div>
                                         {/* <div className="col-sm-3 col-md-3">
                                         <RelatedProduct items={related} />
@@ -76,26 +99,65 @@ class Detail extends Component {
                                     </div>
                                 </div>
                             </section>
-                            {/* <section className="bg-opeque box-shadow footerItems">
+                            <section className="bg-opeque box-shadow footerItems">
                                 <div className="container-fluid">
-                                    <h2 className="bha_heading_2 z-index text-blue mb-4">Similar Category Products</h2>
+                                    <h2 className="bha_heading_2 z-index text-blue mb-4">Related Products</h2>
                                 </div>
                             </section>
-                            <section className="pro-equipment-section box-shadow">
-                                <div className="container-fluid pl-0 pr-0 product-xs-item"></div>
+                            <section className="pro-equipment-section box-shadow" id="bestSelling">
+                                <div className="container-fluid pl-0 pr-0  product-xs-item">
+                                    <div className="product-items slider">
+                                        <div className="product-card-wrapper outer-wrpper">
+                                            <Slider {...settings}>
+                                                {related.map((item, idx) => <Product
+                                                    item={item}
+                                                    quickView={this.show}
+                                                />)
+                                                }
+                                            </Slider>
+                                        </div>
+                                    </div>
+                                </div>
                             </section>
                             <section className="bg-opeque">
                                 <div className="container-fluid">
                                     <h2 className="bha_heading_2 z-index text-blue mb-4">Customers also viewed</h2>
                                 </div>
                             </section>
-                            <section className="pro-equipment-section box-shadow">
-                                <div className="container-fluid pl-0 pr-0 product-xs-item"></div>
-                            </section> */}
+                            <section className="pro-equipment-section box-shadow" id="bestSelling">
+                                <div className="container-fluid pl-0 pr-0  product-xs-item">
+                                    <div className="product-items slider">
+                                        <div className="product-card-wrapper outer-wrpper">
+                                            <Slider {...settings}>
+                                                {related.map((item, idx) => <Product
+                                                    item={item}
+                                                    quickView={this.show}
+                                                />)
+                                                }
+                                            </Slider>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </div>
                     : null
                 }
+                <MDBContainer>
+                    <MDBModal
+                        isOpen={showModal}
+                        toggle={this.hide}
+                        centered
+                        id="#myModalView"
+                        className="modal-width-lg"
+                    >
+                        {item && <QuickView
+                            item={item}
+                            hide={this.hide}
+                        />
+                        }
+                    </MDBModal>
+                </MDBContainer>
             </div>
 
 

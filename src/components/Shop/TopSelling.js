@@ -26,7 +26,16 @@ class CategoryProducts extends Component {
 
   componentDidMount() {
     const { params: { id } } = this.props.match;
-    this.props.getProducts('products', id);
+    console.log({id});
+    if(id == 'topselling' ){
+      this.props.getProducts('topselling', true);
+    } else if(id == 'featured' ){
+      this.props.getProducts('featured', true);
+    }
+     else {
+      this.props.getProducts('products', id);
+    }
+   
   }
 
   componentDidUpdate(prevProps) {
@@ -147,11 +156,17 @@ class CategoryProducts extends Component {
 
   render() {
     const { currentPage, resultPerPage, products, sorting, view } = this.state;
-    const { data, loading, menu, match: { params: { id } } } = this.props;
+    let { data, loading, menu, match: { params: { id } },topselling,featured } = this.props;
+    if(id=='topselling'){
+      data =topselling;
+    } else if(id =='featured'){
+      data =featured;
+    }
+    console.log({data});
     const total = data && data.data ? data.data.length : 0;
 
     let breadCrumData = undefined;
-    if (menu && menu.length > 0 && id !=='topselling' && id !=='featured') {
+    if (menu && menu.length > 0) {
       menu.map((item) => {
         if (item.id == id) {
           breadCrumData = {
@@ -174,13 +189,6 @@ class CategoryProducts extends Component {
       }
       )
 
-    } else if(id=='topselling' || id =='featured'){
-     
-        breadCrumData = {
-          parent:id=='topselling' ? 'Top Selling':'Featured' ,
-          parent_id: id
-        }
-      
     }
     return (
       <>
@@ -339,6 +347,8 @@ const mapStateToProps = (state) => ({
   error: state.shop.error,
   menuLoading: state.shop.menuLoading,
   menu: state.shop.menu,
+  featured: state.shop.featured,
+  topselling: state.shop.topselling,
 });
 const mapDispatchToProps = dispatch => ({
   getProducts: (payload, id) => dispatch(getProducts(payload, id)),
