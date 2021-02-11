@@ -52,10 +52,10 @@ function Summary(props) {
 
                     <div class="product-detail-quantity">
                       <div class="row">
-                        <div class="col-md-6 col-sm-4 col-lg-6 col">
+                        <div class="col-md-5 col-sm-4 col-lg-5 col">
                           Product Name
                         </div>
-                        <div class="col-md-3 col-sm-4 col-lg-3 col text-center">
+                        <div class="col-md-4 col-sm-4 col-lg-4 col text-center">
                           Quantity
                         </div>
                         <div class="col-md-3 col-sm-4  col-lg-3 col text-center">
@@ -70,10 +70,10 @@ function Summary(props) {
                         {
                           dataSource && dataSource.length > 0 ? dataSource.map(item => <div key={item.name} class="product-specification">
                             <div class="row">
-                              <div class="col-sm-2 col-md-2 col-lg-2 ">
+                              <div class="col-sm-4 col-md-5 col-lg-5 col ">
                                 <Image src={item.image_url} class="card-thumbnail" alt="" />
                               </div>
-                              <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
+                              <div class="col-sm-4 col-md-4 col-lg-4 col text-center">
                                 {item.qty}
                               </div>
                               <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
@@ -145,11 +145,11 @@ function Summary(props) {
 
                     <div class="total-product-price">
                       <div class="row">
-                        <div class="col-md-4 col-sm-4 col-lg-4 col d-flex align-items-center">
+                        <div class="col-md-5 col-sm-4 col-lg-4 col d-flex align-items-center">
                           Total (USD)
                         </div>
-                        <div class="col-md-8 col-sm-8 col-lg-8 col text-right">
-                          <span class="pr-3">$ {props.total}</span>
+                        <div class="col-md-7 col-sm-8 col-lg-8 col text-right">
+                          <span>$ {props.total}</span>
                         </div>
                       </div>
                     </div>

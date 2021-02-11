@@ -433,9 +433,13 @@ class Checkout extends Component {
                                                                     >
                                                                         <Panel header={<PannelHeader edit={this.openPanel} pannelstep={activeKey} step="1" cart={cart} />} key="1" id="stepp1" showArrow={false} pannelstep={pannelstep} style={{ marginBottom: 0 }}>
                                                                             {authenticated ? <div className="noheight">
-                                                                                <div >Logged in as {user.email}</div>
-                                                                                <div>not you ? <button onClick={this.logout} className="btn bha-btn-primary btn-danger">Sign Out</button></div>
-                                                                                <div><button onClick={this.checkForUser} type="submit" className="btn bha-btn-primary float-right45" name="buttonsubmit">Continue</button></div>
+                                                                                <div><b>Logged in as:</b> {user.email}
+                                                                                </div>
+                                                                                <div className="pt-3">
+                                                                                    
+                                                                                    <button onClick={this.checkForUser} type="submit" className="bha-btn-new-blue  mt-1 mr-2" name="buttonsubmit">Continue</button>
+                                                                                    <button onClick={this.logout} className="bha-btn-new">Sign Out</button>
+                                                                                    </div>
 
                                                                             </div> : <Login
                                                                                     user={user}

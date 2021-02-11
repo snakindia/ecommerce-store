@@ -129,9 +129,9 @@ function Address(props) {
                         </div>
                     </div>
                     {addNew ? '' :
-                        <div className="col-md-12 col-lg-12 p-0" >
+                        <div className="col-md-12 col-lg-12 p-0 pt-3" >
                             <button className="bha-btn-new-blue mr-2" onClick={next}>Continue</button>
-                            <button className="bha-btn-new-blue" onClick={e => showAddNew(true)} >Add New</button>
+                            <button className="bha-btn-new" onClick={e => showAddNew(true)} >Add New</button>
                         </div>
 
                         
@@ -307,7 +307,7 @@ function Address(props) {
                             </div>
                                 : null}
                             <Error formik={formikProps} el={['first_name', 'last_name', 'address1', 'city', 'state', 'phone', 'country', 'postal_code']} />
-                            <div className="form-group mt-36">
+                            <div className="form-group mt-4">
                                 <button type="submit" className="bha-btn-new-blue mr-2" name="buttonsubmit">Continue</button>
                                 {addNew ? <button className="bha-btn-new"
                                     onClick={e => {

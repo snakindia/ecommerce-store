@@ -1190,9 +1190,9 @@ margin: 0.75rem auto;text-align: center;
 .ant-collapse-content > .ant-collapse-content-box {margin: 0 0.1rem !important;}
 
 
-.ant-collapse-ghost > #stepp5 > .ant-collapse-content > .ant-collapse-content-box{padding: 0;margin:0!important;}
-.ant-collapse-ghost > #stepp5 > .ant-collapse-content .ant-collapse-item .ant-collapse-header{background:rgb(250, 250, 250)!important;}
-.ant-collapse-ghost > #stepp5 > .ant-collapse-content > .ant-collapse-item .ant-collapse-header > .ant-collapse-content .ant-collapse-content-box{margin:0!important;}
+.ant-collapse-ghost > #stepp6 > .ant-collapse-content > .ant-collapse-content-box{padding: 0;margin:0!important;}
+.ant-collapse-ghost > #stepp6 > .ant-collapse-content .ant-collapse-item .ant-collapse-header{background:rgb(250, 250, 250)!important;}
+.ant-collapse-ghost > #stepp6 > .ant-collapse-content > .ant-collapse-item .ant-collapse-header > .ant-collapse-content .ant-collapse-content-box{margin:0!important;}
 
 
 
@@ -1205,11 +1205,20 @@ margin: 0.75rem auto;text-align: center;
     font-size: 0.875rem;font-weight: 600;text-align: center;box-shadow: none !important;border:0 !important;vertical-align: bottom;}
 .bha-btn-new-blue:hover{background: #5ea7bd !important;transition: 0.3s;color: #fff;}
 
+.order-summary .product-cart-detail .product-specification .ant-image{width:90%;}
 
 @media (max-width: 576px){
-.bha-btn-new-blue, .bha-btn-new {
-    width: 100% !important;
-    margin-top: 5px;
-}
+.bha-btn-new-blue, .bha-btn-new {width: 100% !important;margin-top: 5px;}
 .total-product-price div span {font-size: 1rem;}
+}
+@media (max-width: 768px){
+  .topPadding{padding-top:8rem !important;}
+  .call-us-mob {padding: 1rem 0 0 0 !important;}
+  .total-product-price div span {font-size: 1.285rem;}
+  .order-summary .product-cart-detail .product-specification .ant-image{width:100%;}
+}
+@media (max-width: 921px){
+.rightLink {margin-left: auto;margin-right: auto;width: 100%;justify-content: center;display: flex !important;}
+.total-product-price div span {font-size: 1rem;}
+
 }
