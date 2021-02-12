@@ -1402,7 +1402,7 @@ table th{font-size: 1rem; font-weight: 500;}
 .ant-collapse{border:0 !important}
 .ant-collapse-content{background:#eceff1 !important;
   border-bottom:0 !important}
-.ant-collapse-content > .ant-collapse-content-box{background:#fff !important;margin: 1rem 0.3rem;}
+
 .ant-collapse .ant-collapse-item .ant-collapse-header .ant-collapse-arrow{ right:16px !important;
 position: absolute; left:initial !important}
 .ant-collapse-content-box .card-body{padding:0}
