@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 import Axios from 'axios';
-import {notification } from '../../../utils/helper';
+import { notification } from '../../../utils/helper';
 //import { getUserDetail, signOutUser } from '../../../actions/authActions';
 Axios.defaults.withCredentials = true;
 export const setLoading = (payload) => ({
@@ -26,28 +26,28 @@ export const flushData = () => ({
 
 export const getOrders = () => {
     return dispatch => {
-       
-        const token=localStorage.getItem('bhaAuth');
-        
-        if(token){
+
+        const token = localStorage.getItem('bhaAuth');
+
+        if (token) {
             //dispatch(flushData());
             dispatch(setLoading(true));
-            Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/customer-account`,{token}
-        )
-            .then(res => {
-                dispatch(setLoading(false));
-                if (res.data && res.data.data && res.data.data.order_statuses) {
-                   console.log(res.data.data.order_statuses);
-                   dispatch(getOrdersSuccess(res.data.data.order_statuses ));
-                } else {
-                    //dispatch(getOrdersError());
-                }
-            })
-            .catch(e => {
-                notification('error', 'Oops!! something went wrong')
-                dispatch(setLoading(false));
-                //dispatch(getOrdersError(e));
-            });
+            Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/customer-account`, { token }
+            )
+                .then(res => {
+                    dispatch(setLoading(false));
+                    if (res.data && res.data.data && res.data.data.order_statuses) {
+                        console.log(res.data.data.order_statuses);
+                        dispatch(getOrdersSuccess(res.data.data.order_statuses));
+                    } else {
+                        //dispatch(getOrdersError());
+                    }
+                })
+                .catch(e => {
+                    notification('error', 'Oops!! something went wrong')
+                    dispatch(setLoading(false));
+                    //dispatch(getOrdersError(e));
+                });
         }
     }
 }
@@ -94,16 +94,16 @@ export const logout = (history, location) => {
                 dispatch(setLoading(false));
                 if (res.data && res.data.status) {
                     localStorage.clear();
-                    location = location.split('/')  
-                    if(location.includes('accounts') || location.includes('cart') || location.includes('checkout')){
-                        window.location= process.env.REACT_APP_CLIENT_URL;
+                    location = location.split('/')
+                    if (location.includes('accounts') || location.includes('cart') || location.includes('checkout')) {
+                        window.location = process.env.REACT_APP_CLIENT_URL;
                     } else {
                         window.location.reload();
                     }
-                   // notification('success', 'Logged out')
+                    // notification('success', 'Logged out')
                     //dispatch(flushOnLogout());
-                   
-                   
+
+
                 } else {
                     notification('error', 'Oops!! something went wrong')
                 }
@@ -130,12 +130,12 @@ export const updateUserName = (payload) => ({
 export const cancelOrder = (payload) => {
 
     return dispatch => {
-        
+
         dispatch(setLoading(true));
-        
+
         let url = `orders/${payload.id}`;
 
-        Axios.put(`${process.env.REACT_APP_API_URL}/${url}`,payload
+        Axios.put(`${process.env.REACT_APP_API_URL}/${url}`, payload
         )
             .then(res => {
                 dispatch(setLoading(false));
@@ -156,23 +156,23 @@ export const cancelOrder = (payload) => {
 
 export const updateDetail = (payload) => {
     return dispatch => {
-        const token =localStorage.getItem('bhaAuth');
-        const headers= { authorization: `Bearer Token ${token}` } ;
+        const token = localStorage.getItem('bhaAuth');
+        const headers = { authorization: `Bearer Token ${token}` };
         dispatch(setLoading(true));
-        const data ={...payload,token};
+        const data = { ...payload, token };
         const instance = Axios.create({
             baseURL: `${process.env.REACT_APP_API_AJAX_URL}`
-          });
-          instance.defaults.headers.common['authorization'] = `Bearer ${token}`;
-          instance.put('/update-personal-detail', data).then(res => {
-                dispatch(setLoading(false));
-                if (res.data) {
-                    notification('success', 'Info updated')
-                    dispatch(updateUserName(data));
-                } else {
-                    notification('error', 'Oops!! something went wrong')
-                }
-            })
+        });
+        instance.defaults.headers.common['authorization'] = `Bearer ${token}`;
+        instance.put('/update-personal-detail', data).then(res => {
+            dispatch(setLoading(false));
+            if (res.data) {
+                notification('success', 'Info updated')
+                dispatch(updateUserName(data));
+            } else {
+                notification('error', 'Oops!! something went wrong')
+            }
+        })
             .catch(e => {
                 dispatch(setLoading(false));
                 notification('error', 'Oops!! something went wrong')
@@ -181,32 +181,32 @@ export const updateDetail = (payload) => {
 }
 export const changePassword = (payload) => {
     return dispatch => {
-        const token =localStorage.getItem('bhaAuth');
-        const headers= { authorization: `Bearer Token ${token}` } ;
+        const token = localStorage.getItem('bhaAuth');
+        const headers = { authorization: `Bearer Token ${token}` };
         dispatch(setLoading(true));
-        const data ={...payload,token};
+        const data = { ...payload, token };
         const instance = Axios.create({
             baseURL: `${process.env.REACT_APP_API_AJAX_URL}`
-          });
-          instance.defaults.headers.common['authorization'] = `Bearer ${token}`;
-          
-          instance.put('/update-password', data).then(res => {
-             
-                dispatch(setLoading(false));
-                if(res.status ==200){
-                if(res.data && res.data.status){
+        });
+        instance.defaults.headers.common['authorization'] = `Bearer ${token}`;
+
+        instance.put('/update-password', data).then(res => {
+
+            dispatch(setLoading(false));
+            if (res.status == 200) {
+                if (res.data && res.data.status) {
                     notification('success', 'Info updated')
                 }
-                else if(!res.data.status && res.data.data){
-                    notification('error',  res.data.data)
+                else if (!res.data.status && res.data.data) {
+                    notification('error', res.data.data)
                 } else {
                     notification('error', 'Oops!! something went wrong')
                 }
-            }else {
+            } else {
                 notification('error', 'Oops!! something went wrong')
             }
-               
-            })
+
+        })
             .catch(e => {
                 dispatch(setLoading(false));
                 notification('error', 'Oops!! something went wrong')
@@ -223,7 +223,7 @@ export const getOrderStatus = () => {
             .then(res => {
                 if (res.data) {
                     dispatch(getOrderStatusSuccess(res.data));
-                } 
+                }
             })
             .catch(e => {
             });
@@ -245,21 +245,20 @@ export const doLogin = (payload) => {
 
         dispatch(setLoadingAuth(true));
         //const token =localStorage.getItem('bhaAuth');
-        
+
         dispatch(setLoading(true));
         const instance = Axios.create({
             baseURL: `${process.env.REACT_APP_API_AJAX_URL}`
-          });
-          //instance.defaults.headers.common['Access-Control-Request-Headers'] = `content-type`;
-          instance.defaults.headers.common['Access-Control-Allow-Headers'] = `*`;
-          instance.defaults.withCredentials = false;
-          console.log(instance,payload);
-          instance.post('/login', payload)
-        // Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/login`,payload)
+        });
+        //instance.defaults.headers.common['Access-Control-Request-Headers'] = `content-type`;
+        instance.defaults.headers.common['Access-Control-Allow-Headers'] = `*`;
+        instance.defaults.withCredentials = false;
+        instance.post('/login', payload)
+            // Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/login`,payload)
             .then(res => {
                 dispatch(setLoadingAuth(false));
                 if (res.data && res.data.status && res.data.token) {
-                    localStorage.setItem('bhaAuth',res.data.token);
+                    localStorage.setItem('bhaAuth', res.data.token);
                     window.location.reload();
                     dispatch(getUser());
                 } else {
@@ -269,37 +268,42 @@ export const doLogin = (payload) => {
             .catch(e => {
                 notification('error', 'Oops!! something went wrong')
                 dispatch(setLoadingAuth(false));
-               
+
             });
     }
 }
 export const getUserDetailSuccess = (payload) => ({
-    type: ActionTypes.GET_USER_SUCCESS,payload
+    type: ActionTypes.GET_USER_SUCCESS, payload
 })
 export const getUser = () => {
     return dispatch => {
-       
-        const token=localStorage.getItem('bhaAuth');
-       
-        if(token){
+
+        const token = localStorage.getItem('bhaAuth');
+
+        if (token) {
             dispatch(setLoadingAuth(true));
-            Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/customer-account`,{token}
-        )
-            .then(res => {
-                dispatch(setLoadingAuth(false));
-                if (res.data && res.data && res.data.data) {
-                    dispatch(getUserDetailSuccess(res.data.data ));
-                } else {
+            Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/customer-account`, { token }
+            )
+                .then(res => {
+                    dispatch(setLoadingAuth(false));
+                    if (res.data && res.data && res.data.data) {
+                        dispatch(getUserDetailSuccess(res.data.data));
+                        console.log(res.data.data.customer_settings);
+                        if(res.data.data && res.data.data.customer_settings && res.data.data.customer_settings.id){
+                            dispatch(getWishlist(res.data.data.customer_settings.id));
+                        }
+                       
+                    } else {
+                        notification('error', 'Oops!! something went wrong')
+                    }
+                })
+                .catch(e => {
                     notification('error', 'Oops!! something went wrong')
-                }
-            })
-            .catch(e => {
-                notification('error', 'Oops!! something went wrong')
-                dispatch(setLoadingAuth(false));
-               
-            });
+                    dispatch(setLoadingAuth(false));
+
+                });
         }
-        
+
     }
 }
 
@@ -308,45 +312,58 @@ export const toggleWishlistSuccess = (payload) => ({
     type: ActionTypes.SET_WISHLIST_TOGGLE_SUCCESS,
     payload,
 });
-export const toggleWishlist = (payload, payment_data) => {
+export const getWishlistSuccess = (payload) => ({
+    type: ActionTypes.GET_WISHLIST_SUCCESS,
+    payload,
+});
+export const toggleWishlist = (payload) => {
+   
     return dispatch => {
         dispatch(setLoading(true));
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/checkout`, payload,
+        let AInstace ;
+        if(payload.type=='remove'){
+            AInstace =Axios.delete(`${process.env.REACT_APP_API_URL}/wishlist/${payload.customer_id}/product/${payload.product_id}`,
             {
                 withCredentials: true,
                 crossDomain: true,
             }
-        ).then(res=>{
-            if(res.data && res.data.number){
-                let url = `orders/${res.data.id}/process`;
-                Axios.post(`${process.env.REACT_APP_API_URL}/${url}`, {...payment_data, status:payload.status, status_id:payload.status_id},
-                    {
-                        withCredentials: true,
-                        crossDomain: true,
-                    },
-                    
-                )
-                    .then(res => {
-                        dispatch(setLoading(false));
-                        
-                        if (res.data && res.data.status && res.data.data.number) {
-                            dispatch(toggleWishlistSuccess(res.data.data));
-                            notification('success', 'Order Placed Succesfully')
-                        } else  if (res.data && !res.data.status && res.data.getewayData) {
-                            
-                            notification('error', res.data.getewayData.responsetext)
-                        }
-                         else {
-                             //dispatch(getPaymentMethodSettingsError(undefined));
-                             notification('error', 'Oops!! something went wrong')
-                        }
-            })
+        ) 
+        } else {
+            AInstace= Axios.post(`${process.env.REACT_APP_API_URL}/wishlist`, payload,
+            {
+                withCredentials: true,
+                crossDomain: true,
+            }
+        )
         }
+        AInstace.then(res => {
+            if (res.data && res.data.status) {
+                dispatch(toggleWishlistSuccess({type:payload.type,id:payload.product_id}));
+            }
+            else {
+                notification('error', 'Oops!! something went wrong')
+            }
+
         })
             .catch(e => {
-                dispatch(setLoading(false));
-                //dispatch(getPaymentMethodSettingsError(e));
                 notification('error', 'Oops!! something went wrong')
             });
+    }
+}
+export const getWishlist = (customer_id) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        Axios.get(`${process.env.REACT_APP_API_URL}/wishlist?customer_id=${customer_id}`,
+            {
+                withCredentials: true,
+                crossDomain: true,
+            }
+        ).then(res => {
+            if (res.data && res.data.data) {
+                dispatch(getWishlistSuccess(res.data));
+            }
+        }).catch(e => {
+            dispatch(setLoading(false));
+        });
     }
 }

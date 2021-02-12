@@ -1,24 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { MDBModal, } from 'mdbreact';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { doLogin, logout } from '../components/Accounts/store/Actions';
 import Cart from '../assets/icon/cart.svg';
 import Profile from '../assets/icon/profile.svg';
-import Globe from '../assets/icon/globe.svg';
 import { Link } from 'react-router-dom'
-import { Formik } from 'formik';
-import base64 from 'buffer';
-import { setUserSession } from '../utils/Common';
-import { API_AJAX_URL, API_URL } from '../constants/appConstant';
-import parseHtml from 'react-html-parser';
-import { POST } from '../services/httpService';
 import GoogleTranslator from './common/GoogleTranslator';
 import { Popover } from 'antd';
 import MiniCart from './Shop/MinCart';
-import Login from './Login'
-import { stat } from 'fs';
+import LoginPopUp from './LoginPopUp';
 class TopBar extends Component {
   constructor(props) {
     super(props);
@@ -142,11 +133,11 @@ class TopBar extends Component {
                   </li>
                   <span>&nbsp;</span>
                   {authenticated && userDetails && userDetails.first_name ? (
-                    <li>
-                      <a href=""><embed src={Profile} alt="" width="20" height="20"></embed>
+                    <li onClick={this.showuserDetailHandler}>
+                      <a href=""><embed onClick={this.showuserDetailHandler} src={Profile} alt="" width="20" height="20"></embed>
                       {userDetails.first_name}
                       <i className="fa fa-angle-down mt-1 ml-2" 
-                      onClick={this.showuserDetailHandler} ></i></a>
+                       ></i></a>
                       <ul className="user-setting" style={{display:this.state.showuserDetail? 'block':'none'}}>
                         <li onClick={e=>this.setState({showuserDetail:false})}><a href="/accounts" >My Accounts</a></li>
                         {/* <li onClick={e=>this.setState({showuserDetail:false})}><Link to="/accounts" >Settings</Link></li> */}
@@ -154,24 +145,8 @@ class TopBar extends Component {
                       </ul>
 
                     </li>
-                  ) : (
-                      <li >
-                        <Popover placement="bottom" title='' content={
-                          <Login
-                            loginError={this.state.loginError}
-                           // displaySignupContent={this.displaySignupContent}
-                            onFormSubmit={this.onFormSubmit} />
-                        } trigger="click"
-                          overlayStyle={{ zIndex: 10001, position: 'fixed' }}
-                          overlayClassName="mini-cart-popup signInBox"
-                        >
-                          <Link to="" onClick={e => e.preventDefault()} id="loginpopover">
-                            <embed src={Profile} alt="" width="20" height="20"></embed>
-                        login/signup
-                      </Link>
-                        </Popover>
-                      </li>
-                    )}
+                  ) : <LoginPopUp doLogin={this.props.doLogin}/>
+  }
 
                   {/* <span className="mobPipe">&nbsp;</span>
                 <li id="CountryOpen"  onClick={this.showLanguage}>

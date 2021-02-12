@@ -112,7 +112,7 @@ class CategoryProducts extends Component {
       products
     }, () => {
       if (scroll) {
-        scrollToEl('#categorycontent', -140, 500)
+        scrollToEl('#categorycontent', -240, 500)
       }
 
     })
@@ -151,7 +151,7 @@ class CategoryProducts extends Component {
     const total = data && data.data ? data.data.length : 0;
 
     let breadCrumData = undefined;
-    if (menu && menu.length > 0 && id !=='topselling' && id !=='featured') {
+    if (menu && menu.length > 0 && id !=='bestselling' && id !=='featured' && id !='viewed') {
       menu.map((item) => {
         if (item.id == id) {
           breadCrumData = {
@@ -174,18 +174,25 @@ class CategoryProducts extends Component {
       }
       )
 
-    } else if(id=='topselling' || id =='featured'){
+    } else if(id=='bestselling' || id =='featured' || id =='viewed'){
      
         breadCrumData = {
-          parent:id=='topselling' ? 'Top Selling':'Featured' ,
+          parent:id=='bestselling' ? 'Best Selling': id=='viewed' ? 'Customer Viewed' :'Featured' ,
           parent_id: id
         }
       
     }
+    let heading =breadCrumData && breadCrumData.name ? breadCrumData.name : breadCrumData && breadCrumData.parent ? breadCrumData.parent :null;
+   
     return (
       <>
+      <section className="bg-opeque box-shadow footerItems">
+                                <div className="container-fluid">
+                                    <h2 className="bha_heading_2 z-index text-blue mb-4">{heading}</h2>
+                                </div>
+                            </section>
         { loading ? <Loader /> :
-
+        
           <section className="pro-equipment-section">
             <Breadcrumb>
               <Breadcrumb.Item> <Link to="/shop">Shop</Link></Breadcrumb.Item>
@@ -208,7 +215,7 @@ class CategoryProducts extends Component {
                 : null
               }
             </Breadcrumb>
-
+              
 
             {
               total && total > 0 ? <>

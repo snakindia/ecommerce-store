@@ -1,0 +1,96 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+import { message, Button, Space } from 'antd';
+import { connect } from 'react-redux';
+import { MDBModal, MDBContainer } from 'mdbreact';
+import loginpopupleft from '../assets/images/loginpopupleft.jpg'
+import logo from '../assets/images/menu-logo.jpg'
+import closeImg from '../assets/images/popup-close.png'
+import Login from './Login'
+// import { toggleWishlist } from '../Accounts/store/Actions'
+class LoginPopUp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showModal: false,
+            item: null,
+            visible: true,
+        }
+    }
+
+
+    show = (e) => {
+        e.preventDefault()
+        this.setState({ showModal: true })
+    }
+
+    hide = () => {
+        this.setState({ showModal: false })
+    }
+
+    render() {
+        const { type, heading } = this.props;
+        const { item, showModal, visible } = this.state;
+        return (
+            <>
+                <li><a id="loginpopover" href="/" class="ant-popover-open" onClick={this.show}>
+                    <embed src="/static/media/profile.035915d4.svg" alt="" width="20" height="20" />
+                        login/signup
+                </a>
+                </li>
+                <MDBContainer>
+                    <MDBModal
+                        isOpen={showModal}
+                        toggle={this.hide}
+                        centered
+                        id="#myModalView"
+                        className="modal-width-lg"
+                    >
+
+
+                        <a href="#" id="btnClose" title="Click here to close this deal box." onClick={this.hide}>
+                            <img src={closeImg} alt="Close" /></a>
+                        <div class="container pl-0 pr-0">
+                            <div class="row no-gutters">
+                                <div class="col-sm-6 col-md-6"><img class="img-fluid img-cover" src={loginpopupleft} alt="" /></div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="popup-brand">
+                                        <img src={logo} alt="Baghouseamerica" class="img-fluid" width="320" />
+                                    </div>
+                                  
+                                    <div class="popup-decscription">
+                                    <Login  onFormSubmit={this.props.doLogin}/>
+                                       
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </MDBModal>
+                </MDBContainer>
+            </>
+        )
+    }
+}
+const mapStateToProps = (state) => ({
+    loading: state.accounts.loading,
+    fav: state.accounts.fav,
+    authenticated: state.accounts.authenticated,
+    error: state.accounts.error
+});
+const mapDispatchToProps = dispatch => ({
+    // toggleWishlist: (payload) => dispatch(toggleWishlist(payload)),
+});
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(LoginPopUp);
+
+
+
+
+
+
+
+
+

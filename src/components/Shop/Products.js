@@ -111,16 +111,16 @@ hide = () => {
                   </div>
                 </div>
               </section>
-              {this.props.type !='viewed' ? 
+              
               <section className="bg-opeque pb-4">
                 <div className="container-fluid">
                   <p className="view-all-center">
-                    <Link to={`category/${this.props.type}`}>
+                    <Link to={`/category/${this.props.type}`}>
                     View All
                     </Link>
                     </p>
                 </div>
-              </section> : null }
+              </section> 
             </div>
         }
         </>
@@ -150,7 +150,7 @@ hide = () => {
 const mapStateToProps = (state) => ({
   loading: state.shop.loading,
   featured: state.shop.featured,
-  topselling: state.shop.topselling,
+  bestselling: state.shop.bestselling,
   viewed: state.shop.viewed,
   topRated: state.shop.topRated,
   error: state.shop.error

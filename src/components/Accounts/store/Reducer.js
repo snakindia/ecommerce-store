@@ -9,13 +9,15 @@ const initialState = {
     statuses: undefined,
     authenticated: undefined,
     user: undefined,
+    fav: []
 
 }
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
         case ActionTypes.FLUSH_ON_LOGOUT:
-            return { ...state, 
+            return {
+                ...state,
                 loading: false,
                 authloading: undefined,
                 orders: undefined,
@@ -25,10 +27,26 @@ export default (state = initialState, { type, payload }) => {
                 statuses: undefined,
                 authenticated: undefined,
                 user: undefined,
-            
-             }
+                fav:[],
+                favIds:[]
+
+
+            }
         case ActionTypes.ACCOUNTS_LOADING:
             return { ...state, loading: payload }
+        case ActionTypes.SET_WISHLIST_TOGGLE_SUCCESS:
+            let favIds = state.favIds;
+            if (payload.type == 'add') {
+                favIds.push(payload.id);
+
+            } else if (payload.type == 'remove') {
+                favIds = favIds.filter(f => f != payload.id)
+            }
+            favIds = [...new Set(favIds)]
+            return { ...state, favIds }
+        case ActionTypes.GET_WISHLIST_SUCCESS:
+            let favIdss =payload && payload.data ? payload.data.map(f=>f.id):[];
+            return { ...state, fav: payload, favIds:favIdss }
         case ActionTypes.SET_AUTH_LOADING:
             return { ...state, authloading: payload }
         case ActionTypes.UPDATE_USER_DETAIL:
@@ -41,7 +59,7 @@ export default (state = initialState, { type, payload }) => {
                 }
             }
 
-        
+
         case ActionTypes.GET_USER_SUCCESS:
             return {
                 ...state,
