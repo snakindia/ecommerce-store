@@ -68,6 +68,7 @@ export const getProducts = (payload, id = null) => {
         
         else if (payload == 'featured' || id =='featured') url = 'products?featured=true&fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
         else if (payload == 'topRated') url = 'getTopRatedProducts?fields=name,topSelling,featured,images,sku,product_id,regular_price,sale_price,description';
+        else if (payload == 'viewed') url = 'products?viewCount=true&fields=id,viewCount,name,id,regular_price,sale_price,description,images&limit=8';
         else if (payload == 'topselling' || id=="topselling") url = 'products?topSelling=true&?fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
 
 
@@ -76,7 +77,7 @@ export const getProducts = (payload, id = null) => {
             .then(res => {
                 dispatch(setProductLoading(false));
                 if (res.data) {
-                    if(payload =='featured' || payload =='topselling'){
+                    if(payload =='featured' || payload =='topselling' || payload=='viewed'){
                         if( res.data && res.data.data){
                             dispatch(getDataSuccess({ [payload]: id ? res.data :res.data.data }));
                         }
@@ -527,3 +528,5 @@ export const paymentCompleted = (payload, payment_data) => {
             });
     }
 }
+
+

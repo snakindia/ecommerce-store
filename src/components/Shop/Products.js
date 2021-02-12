@@ -5,17 +5,38 @@ import Product from './Product'
 import HotProduct from './HotProduct'
 import { getProducts } from './store/Actions'
 import { Link } from 'react-router-dom';
+import { MDBModal, MDBContainer } from 'mdbreact';
+import QuickView from './QuickView'
 class Products extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showModal: false,
+      item: null,
+      visible: true,
+  }
   }
 
   componentDidMount() {
     this.props.getProducts(this.props.type)
   }
+  show = (item) => {
+    this.setState({
+        item,
+        showModal: true
+    })
+}
+
+hide = () => {
+    this.setState({
+        item: null,
+        showModal: false
+    })
+}
 
   render() {
     const { type, heading } = this.props;
+    const { item, showModal, visible } = this.state;
     const data = this.props[type]
     const settings = {
       dots: true,
@@ -51,7 +72,7 @@ class Products extends Component {
                       {data.map((item, idx) => <HotProduct
                         key={`HotProduct${idx}`}
                         item={item}
-                        quickView={this.props.quickView}
+                        quickView={this.show}
                       />)
                       }
                     </Slider>
@@ -82,7 +103,7 @@ class Products extends Component {
                       <Slider {...settings}>
                         {data.map((item, idx) => <Product
                           item={item}
-                          quickView={this.props.quickView}
+                          quickView={this.show}
                         />)
                         }
                       </Slider>
@@ -90,6 +111,7 @@ class Products extends Component {
                   </div>
                 </div>
               </section>
+              {this.props.type !='viewed' ? 
               <section className="bg-opeque pb-4">
                 <div className="container-fluid">
                   <p className="view-all-center">
@@ -98,13 +120,28 @@ class Products extends Component {
                     </Link>
                     </p>
                 </div>
-              </section>
+              </section> : null }
             </div>
         }
         </>
 
         : null
       }
+       <MDBContainer>
+                    <MDBModal
+                        isOpen={showModal}
+                        toggle={this.hide}
+                        centered
+                        id="#myModalView"
+                        className="modal-width-lg"
+                    >
+                        {item && <QuickView
+                            item={item}
+                            hide={this.hide}
+                        />
+                        }
+                    </MDBModal>
+                </MDBContainer>
       </>
     );
   }
@@ -114,6 +151,7 @@ const mapStateToProps = (state) => ({
   loading: state.shop.loading,
   featured: state.shop.featured,
   topselling: state.shop.topselling,
+  viewed: state.shop.viewed,
   topRated: state.shop.topRated,
   error: state.shop.error
 });

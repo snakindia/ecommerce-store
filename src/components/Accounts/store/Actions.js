@@ -302,3 +302,51 @@ export const getUser = () => {
         
     }
 }
+
+//wishlist
+export const toggleWishlistSuccess = (payload) => ({
+    type: ActionTypes.SET_WISHLIST_TOGGLE_SUCCESS,
+    payload,
+});
+export const toggleWishlist = (payload, payment_data) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/checkout`, payload,
+            {
+                withCredentials: true,
+                crossDomain: true,
+            }
+        ).then(res=>{
+            if(res.data && res.data.number){
+                let url = `orders/${res.data.id}/process`;
+                Axios.post(`${process.env.REACT_APP_API_URL}/${url}`, {...payment_data, status:payload.status, status_id:payload.status_id},
+                    {
+                        withCredentials: true,
+                        crossDomain: true,
+                    },
+                    
+                )
+                    .then(res => {
+                        dispatch(setLoading(false));
+                        
+                        if (res.data && res.data.status && res.data.data.number) {
+                            dispatch(toggleWishlistSuccess(res.data.data));
+                            notification('success', 'Order Placed Succesfully')
+                        } else  if (res.data && !res.data.status && res.data.getewayData) {
+                            
+                            notification('error', res.data.getewayData.responsetext)
+                        }
+                         else {
+                             //dispatch(getPaymentMethodSettingsError(undefined));
+                             notification('error', 'Oops!! something went wrong')
+                        }
+            })
+        }
+        })
+            .catch(e => {
+                dispatch(setLoading(false));
+                //dispatch(getPaymentMethodSettingsError(e));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}

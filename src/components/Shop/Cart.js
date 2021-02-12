@@ -5,6 +5,7 @@ import { removeProduct, addProduct } from './store/Actions';
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 import ToolTip from './ToolTip';
 import Quantity from './Quantity';
+import Products from './Products';
 import Image from './Image'
 const Product = (props) => {
     const item = props.data;
@@ -169,7 +170,10 @@ const Cart = (props) => {
 
                         </div>
                     </section> */}
-
+                <Products
+                                type='viewed'
+                                heading="Customers also viewed"
+                            />
                 </div>
             </div>
         </div>

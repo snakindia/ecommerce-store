@@ -10,6 +10,7 @@ import { Tabs } from 'antd';
 import RelatedProduct from './RelatedProduct';
 import Breadcrum from './Breadcrum';
 import Product from './Product';
+import Products from './Products';
 import Slider from 'react-slick';
 const { TabPane } = Tabs;
 class Detail extends Component {
@@ -119,26 +120,12 @@ class Detail extends Component {
                                     </div>
                                 </div>
                             </section>
-                            <section className="bg-opeque">
-                                <div className="container-fluid">
-                                    <h2 className="bha_heading_2 z-index text-blue mb-4">Customers also viewed</h2>
-                                </div>
-                            </section>
-                            <section className="pro-equipment-section box-shadow" id="bestSelling">
-                                <div className="container-fluid pl-0 pr-0  product-xs-item">
-                                    <div className="product-items slider">
-                                        <div className="product-card-wrapper outer-wrpper">
-                                            <Slider {...settings}>
-                                                {related.map((item, idx) => <Product
-                                                    item={item}
-                                                    quickView={this.show}
-                                                />)
-                                                }
-                                            </Slider>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                            <Products
+                                type='viewed'
+                                heading="Customers also viewed"
+                            />
+
+
                         </div>
                     </div>
                     : null
