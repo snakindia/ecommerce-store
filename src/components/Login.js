@@ -53,9 +53,9 @@ export default class Login extends Component {
                     /* and other goodies */
                 }) => (
                         <form onKeyPress={this.onKeyPress} id="loginformpopup">
-                            <div className="row">
+                            <div className="d-block">
                                
-                                    <h4 className="login-heading font-xx">Account Sign In</h4>
+                                    {/* <h4 className="login-heading font-xx">Account Sign In</h4> */}
                                     <div className="form-group">
                                         {/* <!-- <label>Mobile / Email Address</label> --> */}
                                         <input
@@ -70,9 +70,9 @@ export default class Login extends Component {
                                             value={values.email}
                                             placeholder="Email Address"
                                         />
-                                        <span className="errorMsg">
+                                        <div className="errorMsg">
                                             {errors.email && touched.email && errors.email}
-                                        </span>
+                                        </div>
                                     </div>
                                     <div className="form-group pb-0 mb-3">
                                         {/* <!-- <label>Password</label> --> */}
@@ -93,16 +93,22 @@ export default class Login extends Component {
                                                 touched.password &&
                                                 errors.password}
                                         </div>
+                                        <Link to="/forgot-password" className="forgotPwd pwdlink">
+                                        Forgot?
+                                        </Link>
+                                    </div>
+                                    {/* <div className="form-group">
+                                        <Link to="/forgot-password" className="pwdlink">
+                                            Forgot?
+                                        </Link>
+                                    </div> */}
+                                    <div className="Privacy">
+                                    By continuing, you agree to Baghouese America's Terms of Use and Privacy Policy.
                                     </div>
                                     <div className="form-group">
-                                    <Link to="/forgot-password" className="pwdlink">
-                                        Forgot Password?
-                                    </Link>
-                                    </div>
-                                    <div className="form-group">
-                                        <span className="errorMsg">
+                                        <div className="errorMsg">
                                             {this.state.loginError || this.props.loginError}
-                                        </span>
+                                        </div>
                                         <button
                                             type="button"
                                             id="loginsubmitbtn"
@@ -110,16 +116,16 @@ export default class Login extends Component {
                                                 e.preventDefault()
                                                 handleSubmit();
                                             }}
-                                            className="btn bha-btn-primary w-100 mt-3"
+                                            className="btn bha-btn-primary w-100"
                                         >
-                                            Sign in
+                                            Login
                                         </button>
                                         </div>
                                 </div>
-                                <div className="row">
-                                    <div className="form-group">
-                                        <Link to="/sign-up" className="btn bha-btn-primary w-100 mt-3" >    Sign up</Link>
-                                    </div>
+                                <div className="loginFooter">
+                                        <Link to="/sign-up" className="w-100">
+                                            New to Baghouse America? <span>Sign up</span>
+                                        </Link>
                                 </div>
                         </form>
                     )}

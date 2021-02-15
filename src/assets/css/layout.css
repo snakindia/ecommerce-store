@@ -62,7 +62,7 @@ padding-top: 1.2rem}
     transform: translate(0,-50%);
     top: 50% !important;
     margin: 0 auto;}
-.modal-content{border-radius: 10px !important; font-family: 'Roboto', sans-serif !important;}
+.modal-content{border-radius: 10px; font-family: 'Roboto', sans-serif !important;}
 .modal-dialog {
     max-width: 400px;
     margin: 1.75rem auto;

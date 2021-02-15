@@ -4,7 +4,7 @@ import { message, Button, Space } from 'antd';
 import { connect } from 'react-redux';
 import { MDBModal, MDBContainer } from 'mdbreact';
 import loginpopupleft from '../assets/images/loginpopupleft.jpg'
-import logo from '../assets/images/menu-logo.jpg'
+import logo from '../assets/images/footer-logo.png'
 import closeImg from '../assets/images/popup-close.png'
 import Login from './Login'
 // import { toggleWishlist } from '../Accounts/store/Actions'
@@ -52,17 +52,25 @@ class LoginPopUp extends Component {
                             <img src={closeImg} alt="Close" /></a>
                         <div class="container pl-0 pr-0">
                             <div class="row no-gutters">
-                                <div class="col-sm-6 col-md-6"><img class="img-fluid img-cover" src={loginpopupleft} alt="" /></div>
                                 <div class="col-sm-6 col-md-6">
-                                    <div class="popup-brand">
+                                    <div className="leftWrap">
+                                        <div className="LoginLeft">
+                                            <img src={logo} alt="Baghouseamerica" class="img-fluid" width="250" />
+                                            <h4 className="login-heading font-xx text-white">Account Login</h4>
+                                            <p>Get access to your Orders, Wishlist and Recommendations</p>
+                                        </div>
+                                        <img class="Img-object-fit" src={loginpopupleft} alt="" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {/* <div class="popup-brand">
                                         <img src={logo} alt="Baghouseamerica" class="img-fluid" width="320" />
-                                    </div>
-                                  
+                                    </div> */}
+                                  <div className="LoginReft">
                                     <div class="popup-decscription">
-                                    <Login  onFormSubmit={this.props.doLogin}/>
-                                       
+                                        <Login  onFormSubmit={this.props.doLogin}/>
+                                     </div>  
                                     </div>
-
                                 </div>
                             </div>
                         </div>
