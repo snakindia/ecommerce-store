@@ -213,8 +213,8 @@ input::-moz-focus-outer {
 }
 .btn-blue{padding:0.5rem 3rem !important;background: #008c99; color:#fff; border:1px solid #008c99; font-size: 1rem !important;
 font-weight: 600}
-.login-heading{font-weight: 700; font-size: 1.2rem; padding:1rem 1.5rem; border-bottom: 1px solid #ddd}
-.modal-content{border-radius: 10px !important;font-family: 'Roboto', sans-serif;}
+/* .login-heading{font-weight: 700; font-size: 1.2rem; padding:1rem 1.5rem; border-bottom: 1px solid #ddd} */
+.modal-content{border-radius: 10px;font-family: 'Roboto', sans-serif;}
 .loginInner{padding:1rem; }
 .modal-content label{font-size: 0.9rem !important}
 .form-control{border-color:#ddd !important;}
