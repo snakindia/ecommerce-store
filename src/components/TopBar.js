@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import GoogleTranslator from './common/GoogleTranslator';
 import { Popover } from 'antd';
 import MiniCart from './Shop/MinCart';
+import SearchProduct from './Shop/SearchProduct';
 import LoginPopUp from './LoginPopUp';
 class TopBar extends Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class TopBar extends Component {
       errors: {},
       visibleMiniCart: false,
       loginError: null,
-      showuserDetail:false
+      showuserDetail: false,
+      searchVisible:false
     };
     this.ref = React.createRef(null);
   }
@@ -37,14 +39,7 @@ class TopBar extends Component {
     });
   };
 
-  displaySignupContent() {
-    const pageDetails = this.props.page_details;
-    return (
-      <div>
-        <small>Join Baghouseamerica to register your tools and help protect your investment, rate and review products you love, receive special offers and learn about the newest equipments and accessories</small>
-      </div>
-    );
-  }
+ 
 
   showLanguage = () => {
     const { showLanguage } = this.state;
@@ -59,27 +54,31 @@ class TopBar extends Component {
     if (e) { e.preventDefault(); }
     this.setState({ visibleMiniCart })
   }
-  showuserDetailHandler=(e)=>{
+  showuserDetailHandler = (e) => {
     e.preventDefault()
-    this.setState((prevState) => ({...prevState,showuserDetail: !prevState.showuserDetail}))
+    this.setState((prevState) => ({ ...prevState, showuserDetail: !prevState.showuserDetail }))
+  }
+
+  accountsClick = (e) => {
+    window.location.href = '/accounts'
   }
 
   onSignOut = () => {
 
-    const {pathname}=this.props.location;
+    const { pathname } = this.props.location;
     // localStorage.clear();
     // if(pathname && pathname.split('/').includes('accounts')){
     //   window.location= process.env.REACT_APP_CLIENT_URL;
     // }else {
     //   window.location.reload();
     // }
-   
-    this.props.logout(this.props.history,pathname);
+
+    this.props.logout(this.props.history, pathname);
   };
 
   render() {
     const { authenticated, userDetails, cart } = this.props;
-    const { visibleMiniCart } = this.state;
+    const { visibleMiniCart, searchVisible } = this.state;
     let productsInCart = 0;
     if (cart && cart.items && cart.items.length > 0) {
       for (const item of cart.items) {
@@ -96,7 +95,7 @@ class TopBar extends Component {
         </div>
 
         <div className="headtoppart">
-          <div className="call-us-mob" style={{"display":"none"}}>CALL US: (888) 286-8708</div>
+          <div className="call-us-mob" style={{ "display": "none" }}>CALL US: (888) 286-8708</div>
           <div className="topbar">
             <div className="headerwp">
               <div
@@ -133,95 +132,44 @@ class TopBar extends Component {
                   </li>
                   <span>&nbsp;</span>
                   {authenticated && userDetails && userDetails.first_name ? (
-                    <li onClick={this.showuserDetailHandler}>
-                      <a href=""><embed onClick={this.showuserDetailHandler} src={Profile} alt="" width="20" height="20"></embed>
-                      {userDetails.first_name}
-                      <i className="fa fa-angle-down mt-1 ml-2" 
-                       ></i></a>
-                      <ul className="user-setting" style={{display:this.state.showuserDetail? 'block':'none'}}>
-                        <li onClick={e=>this.setState({showuserDetail:false})}><a href="/accounts" >My Accounts</a></li>
-                        {/* <li onClick={e=>this.setState({showuserDetail:false})}><Link to="/accounts" >Settings</Link></li> */}
+                    <Popover placement="bottom" title='' content={
+                      <ul className="user-setting-menu">
+                        <li onClick={this.accountsClick}><a href="/accounts" >My Accounts</a></li>
                         <li onClick={this.onSignOut}>SignOut</li>
                       </ul>
-
+                    } trigger="click"
+                    overlayStyle={{ zIndex: 10001, position: 'fixed' }}
+                    overlayClassName="mini-cart-popup"
+                    
+                  >
+                    <li >
+                     
+                        {userDetails.first_name}
+                        <i className="fa fa-angle-down mt-1 ml-2"
+                        ></i>
                     </li>
-                  ) : <LoginPopUp doLogin={this.props.doLogin}/>
-  }
-
-                  {/* <span className="mobPipe">&nbsp;</span>
-                <li id="CountryOpen"  onClick={this.showLanguage}>
-                    {/*<a href="#"><embed src={Globe}  alt="" width="20" height="20"></embed>
-                    <a>
-                    EN<i className="caret border-0"></i></a>
-                </li>*/}
-
-                  {/* <span>&nbsp;</span> */}
-                  {/* <li> */}
-                  {/*<a color="primary" onClick={this.toggle(4)}><img src={Globe} alt="" width="20" />EN</a>*/}
-                  {/* <a color="primary" ><img src={Globe} alt="" width="20" />EN</a>  */}
-                  {/* </li> */}
-                  {/* <span className="mobHide">&nbsp;</span> */}
-                  {/* <li className="mobHide"> */}
-                  {/*<a onClick={this.toggle(6)}>*/}
-                  {/* <a>
+                    </Popover>
+                  ) : <LoginPopUp doLogin={this.props.doLogin} />
+                  }
+                  <Popover placement="bottom" title='' content={<SearchProduct linkClick={e => this.setState({searchVisible:false})} />} trigger="click"
+                    overlayStyle={{ zIndex: 10001, position: 'fixed', width:'300px', maxHeight:'350px' }}
+                    overlayClassName="search-bar-popup"
+                    visible={searchVisible}
+                  >
+                    <li className="mobHide" onClick={e => this.setState({searchVisible:true})}>
+                      
                       <i className="fa fa-search mr-2" /> Search
                       <i className="caret border-0" />
-                    </a>
-                  </li> */}
+                  </li>
+                  </Popover>
+                  
+                  
                 </ul>
               </div>
             </div>
           </div>
         </div>
-
-        <MDBModal
-          className="logIn"
-          isOpen={this.state.modal5}
-          toggle={this.toggle(5)}
-        >
-          <div>
-
-          </div>
-        </MDBModal>
-
-        <MDBModal
-          className="searchbox"
-          isOpen={this.state.modal6}
-          toggle={this.toggle(6)}
-        >
-          <form className="topmenusearch">
-            <div className="input-group">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="What are you looking for..."
-              />
-              <div className="input-group-append">
-                <button className="btn btn-bha-primary" type="button">
-                  <i className="fa fa-search pl-0 pr-2" />
-                </button>
-              </div>
-            </div>
-          </form>
-        </MDBModal>
-
-        {/* <div className="headtoppart">
-  <div className="topbar">
-      <div className="headerwp">
-          <div className="mobile pt-2 font-weight-bold pl-0" style={{"float":"left"}}>
-            CALL US: (888) 286-8708
-          </div>
-          <div className="float-right">
-            <a href=""><img src={Cart} alt="" width="20" />Cart</a>
-            <span>&nbsp;</span>
-            <a href="/" data-toggle="modal"><img src={Profile} alt="" width="20" />login/signup</a>
-            <span>&nbsp;</span>
-              <a href="/" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src={Globe} alt="" width="20" />EN</a>
-            
-          </div>
-      </div>
-    </div> 
-</div> */}
+       
       </div>
     );
   }

@@ -4,6 +4,7 @@ import React from 'react';
 import { Menu } from 'antd';
 import Dashboard from './Dashboard';
 import Orders from './Orders';
+import Wishlists from './Wishlists';
 import Order from './Order';
 import Address from './Address';
 import AccountDetail from './AccountDetail';
@@ -83,11 +84,11 @@ import './style.css';
                                                         My Address Book
                                                 </Link>
                                                 </Menu.Item>
-                                                {/* <Menu.Item key="wishlist" >
+                                                <Menu.Item key="wishlist" >
                                                     <Link to="/accounts/wishlist">
                                                         My Wishlist
                                                 </Link>
-                                                </Menu.Item> */}
+                                                </Menu.Item>
                                                 <Menu.Item key="detail" >
                                                     <Link to="/accounts/account-details">
                                                         Account Details
@@ -111,7 +112,8 @@ import './style.css';
                                                 {/* <Route path="/accounts/my-orders" render={props => <Orders key={orderSyncTime} {...props} />} /> */}
                                                 <Route path="/accounts/address-book" component={Address} />
                                                 <Route path="/accounts/account-details" component={AccountDetail} />
-                                                <Route path="/wishlist" component={Dashboard} />
+                                                <Route path="/accounts/wishlist" component={Wishlists} />
+                                                
                                                 <Route  path="/" component={Dashboard} />
                                             </Switch>
                                         </div>

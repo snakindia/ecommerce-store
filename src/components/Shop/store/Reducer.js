@@ -18,7 +18,8 @@ const initialState = {
     checkoutSuccess: undefined,
     menuLoading:undefined,
     paymentDone:undefined,
-    pannelstep:1
+    pannelstep:1,
+    searchResult:undefined
 }
 
 export default (state = initialState, { type, payload,pannelstep=null }) => {
@@ -33,6 +34,8 @@ export default (state = initialState, { type, payload,pannelstep=null }) => {
             return { ...state, loadingProduct: payload }
         case ActionTypes.SHOP_CART_LOADING:
             return { ...state, loadingCart: payload }
+        case ActionTypes.SEARCH_PRODUCT:
+                    return { ...state, searchResult: payload }
 
         case ActionTypes.GET_DATA_SUCCESS:
             return { ...state, loading: false, ...payload }

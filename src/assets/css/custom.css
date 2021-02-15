@@ -1234,3 +1234,14 @@ margin: 0.75rem auto;text-align: center;
   color: red;
   font-size: 28px;
 }
+.seachbox-top-bar {
+  padding: 10px;
+}
+.results {
+  max-height: 300px;
+  overflow-y: scroll;
+  
+}
+.ant-rate-star.ant-rate-star-full {
+  color: gold;
+}

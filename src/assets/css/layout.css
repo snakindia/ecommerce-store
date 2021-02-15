@@ -665,8 +665,8 @@ border-bottom: 2px solid #24546c !important;}
 */
 /*.search input:focus + .results { display: block }*/
 .results{
-    display: none;
-    position: absolute;
+    /* display: none;
+    position: absolute; */
     top: 40px;
     left: 0;
     right: 0;

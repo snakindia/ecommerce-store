@@ -27,26 +27,28 @@ export default (state = initialState, { type, payload }) => {
                 statuses: undefined,
                 authenticated: undefined,
                 user: undefined,
-                fav:[],
-                favIds:[]
+                fav: [],
+                favIds: []
 
 
             }
         case ActionTypes.ACCOUNTS_LOADING:
             return { ...state, loading: payload }
         case ActionTypes.SET_WISHLIST_TOGGLE_SUCCESS:
-            let favIds = state.favIds;
+            let favData = state.fav;
             if (payload.type == 'add') {
-                favIds.push(payload.id);
+                favData.push(payload.item);
 
             } else if (payload.type == 'remove') {
-                favIds = favIds.filter(f => f != payload.id)
+                favData = favData.filter(f => f.id != payload.item.id)
             }
-            favIds = [...new Set(favIds)]
-            return { ...state, favIds }
+            favData = [...new Set(favData)]
+            const favIds = favData.map(item => item.id)
+            return { ...state, favIds: [...favIds], fav: [...favData] }
         case ActionTypes.GET_WISHLIST_SUCCESS:
-            let favIdss =payload && payload.data ? payload.data.map(f=>f.id):[];
-            return { ...state, fav: payload, favIds:favIdss }
+            let fav = payload && payload.data && payload.data.length > 0 ? payload.data : [];
+            let favIdss = fav && fav.length > 0 ? fav.map(f => f.id) : [];
+            return { ...state, fav: [...fav], favIds: [...favIdss] }
         case ActionTypes.SET_AUTH_LOADING:
             return { ...state, authloading: payload }
         case ActionTypes.UPDATE_USER_DETAIL:

@@ -322,14 +322,17 @@ export const toggleWishlist = (payload) => {
         dispatch(setLoading(true));
         let AInstace ;
         if(payload.type=='remove'){
-            AInstace =Axios.delete(`${process.env.REACT_APP_API_URL}/wishlist/${payload.customer_id}/product/${payload.product_id}`,
+            AInstace =Axios.delete(`${process.env.REACT_APP_API_URL}/wishlist/${payload.customer_id}/product/${payload.item.id}`,
             {
                 withCredentials: true,
                 crossDomain: true,
             }
         ) 
         } else {
-            AInstace= Axios.post(`${process.env.REACT_APP_API_URL}/wishlist`, payload,
+            AInstace= Axios.post(`${process.env.REACT_APP_API_URL}/wishlist`, {
+                customer_id:payload.customer_id,
+                product_id:payload.item.id
+            },
             {
                 withCredentials: true,
                 crossDomain: true,
@@ -338,7 +341,8 @@ export const toggleWishlist = (payload) => {
         }
         AInstace.then(res => {
             if (res.data && res.data.status) {
-                dispatch(toggleWishlistSuccess({type:payload.type,id:payload.product_id}));
+                dispatch(toggleWishlistSuccess({type:payload.type,item:payload.item}));
+                notification('success',payload.type=='add'? 'Product added into wishlist':'Product removed from wishlist')
             }
             else {
                 notification('error', 'Oops!! something went wrong')

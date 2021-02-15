@@ -78,7 +78,7 @@ export default class QuickView extends Component {
                             <section id="magnific">
                                 <div className="row">
                                     <div className="large-5 column">
-                                        {/* {single ? <Favourite />: null } */}
+                                        {single ? <Favourite item={item} />: null }
                                         <div className="xzoom-container mt-3">
                                             <div className="prod_gallery-sm">
                                                 <div style={{ width: '96%' }} className="zoomer">

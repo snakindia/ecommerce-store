@@ -10,22 +10,22 @@ message.config({
   maxCount: 1,
 });
 const Favourite = (props) => {
-  let { fav, id } = props;
+  let { fav, item } = props;
   
   const [liked, setLike] = useState(null);
   useEffect(()=>{
     fav =fav && fav.length > 0 ? fav :[];
-    if(fav.includes(id)){
+    if(fav.includes(item.id)){
       setLike(true)
     }
-  },[fav,id])
+  },[fav,item])
   
 
   const onClick = (e) => {
-    const { authenticated, fav ,id,user} = props;
+    const { authenticated,user, item} = props;
     if (authenticated && user && user.id) {
-      console.log(user);
-      props.toggleWishlist({product_id:id,customer_id: user.id, type:!liked ? 'add':'remove'})
+     
+      props.toggleWishlist({item,customer_id: user.id, type:!liked ? 'add':'remove'})
       
       setLike(!liked)
 

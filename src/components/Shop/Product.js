@@ -34,7 +34,7 @@ export default class Product extends Component {
                         </div>
                     </div>
                 </div>
-                <Favourite  id={item.id}/>
+                <Favourite  item={item}/>
                 <div className="item-pro-inner">
                     <a href="#">
                         <Image className="img-fluid"

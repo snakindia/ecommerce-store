@@ -25,7 +25,7 @@ export default class ProductList extends Component {
         return (
             <li className="list-group-item">
                 <div className="media flex-column flex-lg-row p-3">
-                    {/* <Favourite /> */}
+                    <Favourite  item={item}/>
                     <div className="portfolio-hover">
                         <div className="portfolio-hover-content">
                             <div className="callToAction-list">
