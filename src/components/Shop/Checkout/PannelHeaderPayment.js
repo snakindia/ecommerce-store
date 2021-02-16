@@ -9,14 +9,14 @@ const PannelHeaderPayment = ({ id, method, activeKey }) => {
     return (
         <div className="row pannel-header">
             <div className="col-md-6">
-                <input id="ac-1" name="accordion-1" class="btn-accordian" type="radio" checked ={activeKey==id ? true: false}/>
-                <label for="ac-1" style={{ marginLeft: '10px' }}><span class="radio-btn-clickable"></span>
+                <input id="ac-1" name="accordion-1" className="btn-accordian" type="radio" checked ={activeKey==id ? true: false}/>
+                <label for="ac-1" style={{ marginLeft: '10px' }}><span className="radio-btn-clickable"></span>
                     {method.name}
                 </label>
             </div>
             <div className="col-md-6 ">
                 {method.gateway ?
-                    <span class="float-right">
+                    <span className="float-right">
 
                         <img src={visa} width="32px" height="32px" />
                         <img src={mastercard} width="32px" height="32px" />

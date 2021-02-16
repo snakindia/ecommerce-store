@@ -66,13 +66,13 @@ class ContentSection extends Component {
     return (
       <div>
         {this.props.loading  ? <Loader />:null}
-        <section class="content-wrapper pb-0">
-          <div class="pagewrap">
-            <div class="bgWhite">
-              <div class="container pt-5">
-                <div class="row">
-                  <div class="col-sm-9 col-md-9 mb-5 pr-4">
-                    <h2 class="bha_heading_2 text-black font-xx mb-3">
+        <section className="content-wrapper pb-0">
+          <div className="pagewrap">
+            <div className="bgWhite">
+              <div className="container pt-5">
+                <div className="row">
+                  <div className="col-sm-9 col-md-9 mb-5 pr-4">
+                    <h2 className="bha_heading_2 text-black font-xx mb-3">
                       BAGHOUSE AMERICA
                     </h2>
                     <div className="row no-gutters">
@@ -229,30 +229,30 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:purchasing@baghouseamerica.com">
                                       Purchasing@baghouseamerica.com
                                     </a>
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:hr@baghouseamerica.com">
                                       Hr@baghouseamerica.com
                                     </a>
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:finance@baghouseamerica.com">
                                       Finance@baghouseamerica.com
                                     </a>
@@ -319,30 +319,30 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:purchasing@baghouseamerica.com">
                                       Purchasing@baghouseamerica.com
                                     </a>
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:hr@baghouseamerica.com">
                                       Hr@baghouseamerica.com
                                     </a>
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:finance@baghouseamerica.com">
                                       Finance@baghouseamerica.com
                                     </a>
@@ -411,30 +411,30 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:purchasing@baghouseamerica.com">
                                       Purchasing@baghouseamerica.com
                                     </a>
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:hr@baghouseamerica.com">
                                       Hr@baghouseamerica.com
                                     </a>
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:finance@baghouseamerica.com">
                                       Finance@baghouseamerica.com
                                     </a>
@@ -500,30 +500,30 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:purchasing@baghouseamerica.com">
                                       Purchasing@baghouseamerica.com
                                     </a>
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:hr@baghouseamerica.com">
                                       Hr@baghouseamerica.com
                                     </a>
                                   </span>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="mt-4 float-left">
-                                  <i class="fa fa-envelope bha-icon mr-3"></i>
-                                  <span class="font-weight-normal email-font-size">
+                              <div className="col-md-6">
+                                <div className="mt-4 float-left">
+                                  <i className="fa fa-envelope bha-icon mr-3"></i>
+                                  <span className="font-weight-normal email-font-size">
                                     <a href="mailto:finance@baghouseamerica.com">
                                       Finance@baghouseamerica.com
                                     </a>
@@ -660,8 +660,8 @@ class ContentSection extends Component {
                                     errors.phone}
                                 </span> */}
                               </div>
-                              <div class="form-group">
-                                <label class="text-small">Message *</label>
+                              <div className="form-group">
+                                <label className="text-small">Message *</label>
                                 <Input
                                   type="textarea"
                                   className="form-control input-control"
@@ -706,7 +706,7 @@ class ContentSection extends Component {
                                 </div>
                               )} */}
                               
-                              <div class="form-group mt-3">
+                              <div className="form-group mt-3">
                                 <button
                                   type="button"
                                   onClick={() => {

@@ -171,18 +171,18 @@ class Fans extends Component {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12 d-flex justify-content-center">
-                                            <div class="row">
-                                                <div class="col-sm-3 col-md-6 col-lg-3 text-center">
-                                                    <img class="img-fluid" src="images/c2e53f0e-badges1_105b05b000000000000028.png" />
+                                            <div className="row">
+                                                <div className="col-sm-3 col-md-6 col-lg-3 text-center">
+                                                    <img className="img-fluid" src="images/c2e53f0e-badges1_105b05b000000000000028.png" />
                                                 </div>
-                                                <div class="col-sm-3 col-md-6 col-lg-3 text-center">
-                                                    <img class="img-fluid" src="images/d409b07d-badges2_106h05a000000000000028.png" />
+                                                <div className="col-sm-3 col-md-6 col-lg-3 text-center">
+                                                    <img className="img-fluid" src="images/d409b07d-badges2_106h05a000000000000028.png" />
                                                 </div>
-                                                <div class="col-sm-3 col-md-6 col-lg-3 text-center">
-                                                    <img class="img-fluid" src="images/ac4a649d-badges4_104t04u000000000000028.png" />
+                                                <div className="col-sm-3 col-md-6 col-lg-3 text-center">
+                                                    <img className="img-fluid" src="images/ac4a649d-badges4_104t04u000000000000028.png" />
                                                 </div>
-                                                <div class="col-sm-3 col-md-6 col-lg-3 text-center">
-                                                    <img class="img-fluid" src="images/ac4a649d-badges4_104t04u000000000000028.png" />
+                                                <div className="col-sm-3 col-md-6 col-lg-3 text-center">
+                                                    <img className="img-fluid" src="images/ac4a649d-badges4_104t04u000000000000028.png" />
                                                 </div>
                                             </div>
                                         </div>

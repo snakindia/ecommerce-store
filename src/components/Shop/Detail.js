@@ -96,7 +96,7 @@ class Detail extends Component {
                                                     <TabPane tab="Product Reviews" key="2"
                                                         className="resp-tab-item">
                                                         <div className="resp-tabs-container">
-                                                            <Comments id={id} />
+                                                            <Comments id={id} name={product.name} />
                                                         </div>
 
                                                     </TabPane>
