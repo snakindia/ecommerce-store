@@ -20,6 +20,7 @@ const initialState = {
     paymentDone: undefined,
     pannelstep: 1,
     searchResult: undefined,
+    compare:[],
     comments: {
         id: undefined,
         data: []
@@ -33,6 +34,10 @@ export default (state = initialState, { type, payload, pannelstep = null }) => {
     switch (type) {
         case ActionTypes.GET_COMMENTS_SUCCESS:
             return { ...state, comments: payload }
+        case ActionTypes.SET_COMPARE_PRODUCTS:
+            let compare=state.compare;
+            compare = payload.type=='remove' ? compare.filter(c=>c.id !=payload.item.id) :[...compare, payload.item]
+            return { ...state, compare }
          case ActionTypes.SET_COMMENTS_SUCCESS:
              let comments =state.comments;
              if(comments.id == payload.productId){

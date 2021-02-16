@@ -562,6 +562,10 @@ export const setCommentsSuccess = (payload) => ({
     type: ActionTypes.SET_COMMENTS_SUCCESS,
     payload
 });
+export const compareWith = (payload) => ({
+    type: ActionTypes.SET_COMPARE_PRODUCTS,
+    payload
+});
 export const getComments = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
