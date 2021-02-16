@@ -135,7 +135,7 @@ class TopBar extends Component {
                     <Popover placement="bottom" title='' content={
                       <ul className="user-setting-menu">
                         <li onClick={this.accountsClick}><a href="/accounts" >My Accounts</a></li>
-                        <li onClick={this.onSignOut}>SignOut</li>
+                        <li onClick={this.onSignOut}><a href="#">Sign out</a></li>
                       </ul>
                     } trigger="click"
                     overlayStyle={{ zIndex: 10001, position: 'fixed' }}
@@ -151,6 +151,7 @@ class TopBar extends Component {
                     </Popover>
                   ) : <LoginPopUp doLogin={this.props.doLogin} />
                   }
+                  <span>&nbsp;</span>
                   <Popover placement="bottom" title='' content={<SearchProduct linkClick={e => this.setState({searchVisible:false})} />} trigger="click"
                     overlayStyle={{ zIndex: 10001, position: 'fixed', width:'300px', maxHeight:'350px' }}
                     overlayClassName="search-bar-popup"

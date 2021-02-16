@@ -35,14 +35,16 @@ const SearchProduct = (props) => {
                         {items && items.length >0 ? items.map(datum=>
                             <li>
                                 <Link to={`/shop/${datum.id}`} onClick={linkClick}>
-                                    <Image 
-                                     preview={false}
-                                    height="30px"
-                                    width="30px"
-                                    src={datum.images && datum.images[0] && datum.images[0].url ? datum.images[0].url:''}
+                                    <div className="media">
+                                        <Image 
+                                        preview={false}
+                                        
+                                        src={datum.images && datum.images[0] && datum.images[0].url ? datum.images[0].url:''}
                                      alt="" class="compare-widget__image" />
-                                    <h3 class="compare-widget__title">{datum.name}</h3>
-
+                                        <div className="media-body">
+                                            <h3 class="compare-widget__title">{datum.name}</h3>
+                                        </div>
+                                    </div>
                                 </Link>
                             </li>
                             ): null}
