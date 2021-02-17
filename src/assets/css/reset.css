@@ -405,6 +405,8 @@ font-family: 'Oswald', sans-serif !important; font-size: 1.5rem}
 .toplink span{ border-right:1px solid #fff;  height: 12px; margin-top: 16px; float:left}
 .toplink li i.top-caret{margin-top:0.2rem} */
 
+/* comment by mohit 17th feb 
+
 .top-nav-link{width:100%; margin:0; padding:0; list-style-type: none;}
 .top-nav-link li{display: inline-block; margin:0 1rem;cursor: pointer;font-weight: 700; font-size: 0.8rem; 
   text-transform: uppercase;}
@@ -413,7 +415,7 @@ font-family: 'Oswald', sans-serif !important; font-size: 1.5rem}
 .mobHide a{margin-top:0 !important}
 .top-nav-link li:last-child{margin-right:0; margin-top: 11px !important; float: right;}
 
-
+*/
 
 #theBox_2{
 display: none;
