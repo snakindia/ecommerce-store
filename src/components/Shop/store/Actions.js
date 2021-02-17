@@ -562,13 +562,18 @@ export const setCommentsSuccess = (payload) => ({
     type: ActionTypes.SET_COMMENTS_SUCCESS,
     payload
 });
+export const compareWith = (payload) => ({
+    type: ActionTypes.SET_COMPARE_PRODUCTS,
+    payload
+});
 export const getComments = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/checkout`).then(res => {
-            if (res.data) {
+        Axios.get(`${process.env.REACT_APP_API_URL}/comments/${payload}`).then(res => {
+            if (res.data && res.data.status) {
                 dispatch(setLoading(false));
-                dispatch(getCommentsSuccess(res.data));
+                dispatch(getCommentsSuccess({id:payload,data:res.data.data}));
+                
             }
             else {
                 notification('error', 'Oops!! something went wrong')
@@ -581,10 +586,30 @@ export const getComments = (payload) => {
             });
     }
 }
-export const alterComment = (payload) => {
+export const addComments = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/checkout`).then(res => {
+        Axios.post(`${process.env.REACT_APP_API_URL}/comments`,payload).then(res => {
+            if (res && res.data && res.data.status ) {
+                dispatch(setLoading(false));
+                dispatch(setCommentsSuccess(res.data.data));
+                notification('success', 'Review added')
+            }
+            else {
+                notification('error', 'Oops!! something went wrong')
+            }
+
+        })
+            .catch(e => {
+                dispatch(setLoading(false));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
+export const updateComments = (id,payload) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        Axios.put(`${process.env.REACT_APP_API_URL}/comments/${id}`,payload).then(res => {
             if (res.data) {
                 dispatch(setLoading(false));
                 dispatch(getCommentsSuccess(res.data));
@@ -600,5 +625,23 @@ export const alterComment = (payload) => {
             });
     }
 }
+export const deleteComments = (payload) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        Axios.delete(`${process.env.REACT_APP_API_URL}/comments/${payload}`).then(res => {
+            if (res.data) {
+                dispatch(setLoading(false));
+                dispatch(getCommentsSuccess(res.data));
+            }
+            else {
+                notification('error', 'Oops!! something went wrong')
+            }
 
+        })
+            .catch(e => {
+                dispatch(setLoading(false));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
 

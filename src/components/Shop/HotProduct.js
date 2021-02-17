@@ -5,6 +5,7 @@ import Favourite from './Favourite';
 import ContactForSale from './ContactForSale'
 import ToolTip from './ToolTip'
 import Image from './Image'
+import Compare from './Compare';
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 const HotProduct = (props) => {
     const { item } = props;
@@ -56,14 +57,7 @@ const HotProduct = (props) => {
                 </div>
                 <div className="d-block float-left w-100 pl-3">
                     {hasPrice ? <AddToCart item={item} /> : <ContactForSale />}
-                    {/* <Link to={`/shop/${item.id}`}  className="svg-icon bottom_menu compare-link">
-                        <i className="fa fa-random mr-2 ml-2" area-hidden="true"></i>
-                        View Details
-                    </Link> */}
-                     {/* <Link type="button" className="svg-icon bottom_menu compare-link" to="/">
-                        <i className="fa fa-random mr-2 ml-2" area-hidden="true"></i>
-                        Compare
-                    </Link> */}
+                    <Compare item={item} />
                 </div>
             </div>
         </div>

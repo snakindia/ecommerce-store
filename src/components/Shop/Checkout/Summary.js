@@ -34,49 +34,49 @@ function Summary(props) {
 
   return (
     <div id="accordion" className="myaccordion">
-      <div class="border-0">
-        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-          <div class="card-body card-body margin-top p-0">
-            <div class="col-sm-12 col-md-12">
-              <div class="row">
-                <div class="order-summary">
-                  <div class="Heading">
+      <div className="border-0">
+        <div id="collapseTwo" className="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div className="card-body card-body margin-top p-0">
+            <div className="col-sm-12 col-md-12">
+              <div className="row">
+                <div className="order-summary">
+                  <div className="Heading">
                     Order Summary
              				       <span><Link to="/shop/cart">Edit Cart</Link></span>
                   </div>
-                  <p class="cart-total-items">{dataSource.length} Items</p>
+                  <p className="cart-total-items">{dataSource.length} Items</p>
 
 
 
-                  <div class="product-all-detail">
+                  <div className="product-all-detail">
 
-                    <div class="product-detail-quantity">
-                      <div class="row">
-                        <div class="col-md-5 col-sm-4 col-lg-4 col">
+                    <div className="product-detail-quantity">
+                      <div className="row">
+                        <div className="col-md-5 col-sm-4 col-lg-4 col">
                           Product Name
                         </div>
-                        <div class="col-md-4 col-sm-4 col-lg-5 col text-center">
+                        <div className="col-md-4 col-sm-4 col-lg-5 col text-center">
                           Quantity
                         </div>
-                        <div class="col-md-3 col-sm-4  col-lg-3 col text-center">
+                        <div className="col-md-3 col-sm-4  col-lg-3 col text-center">
                           Price
                         </div>
                       </div>
                     </div>
 
-                    <div class="product-cart-detail">
+                    <div className="product-cart-detail">
 
-                      <div class="about-product">
+                      <div className="about-product">
                         {
-                          dataSource && dataSource.length > 0 ? dataSource.map(item => <div key={item.name} class="product-specification">
-                            <div class="row">
-                              <div class="col-sm-4 col-md-5 col-lg-4 col ">
-                                <Image src={item.image_url} class="card-thumbnail" alt="" />
+                          dataSource && dataSource.length > 0 ? dataSource.map(item => <div key={item.name} className="product-specification">
+                            <div className="row">
+                              <div className="col-sm-4 col-md-5 col-lg-4 col ">
+                                <Image src={item.image_url} className="card-thumbnail" alt="" />
                               </div>
-                              <div class="col-sm-4 col-md-4 col-lg-5 col text-center">
+                              <div className="col-sm-4 col-md-4 col-lg-5 col text-center">
                                 {item.qty}
                               </div>
-                              <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
+                              <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
                                 $ {item.price}
                               </div>
                             </div>
@@ -86,56 +86,56 @@ function Summary(props) {
 
 
 
-                        {/* <div class="cart-actions">
-                          <button class="btn-see-all" type="button" value="see all">See All <i class="fa fa-angle-down down-arrow-icon"></i></button>
+                        {/* <div className="cart-actions">
+                          <button className="btn-see-all" type="button" value="see all">See All <i className="fa fa-angle-down down-arrow-icon"></i></button>
                         </div> */}
                       </div>
                     </div>
-                    <div class="product-subtotal">
-                      <div class="row">
+                    <div className="product-subtotal">
+                      <div className="row">
 
-                      <div class="col-sm-4 col-md-6 col-lg-6 col">
+                      <div className="col-sm-4 col-md-6 col-lg-6 col">
                           <b>Subtotal</b>
                         </div>
-                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
-                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
                           <b>$ {props.subtotal}</b>
                         </div>
                       </div>
 
-                      <div class="row">
-                      <div class="col-sm-4 col-md-6 col-lg-6 col">
+                      <div className="row">
+                      <div className="col-sm-4 col-md-6 col-lg-6 col">
                           Shipping
                         </div>
-                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
-                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
                           ${props.shipping}
                         </div>
                       </div>
 
-                      <div class="row">
-                      <div class="col-sm-4 col-md-6 col-lg-6 col">
+                      <div className="row">
+                      <div className="col-sm-4 col-md-6 col-lg-6 col">
                           Tax
                         </div>
-                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
-                        <div class="col-sm-4 col-md-3 col-lg-3 col text-center">
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
                           ${props.tax}
                         </div>
                       </div>
                     </div>
-                    <div class="apply-coupon">
+                    <div className="apply-coupon">
                       <a href="#demo" data-toggle="collapse">Coupon/Gift Certificate</a>
-                      <form id="demo" class="collapse">
-                        <div class="col-lg-12">
-                          <div class="row">
-                            <div class="col-sm-9 col-md-9 col-xs-12">
-                              <div class="form-group mt-2">
-                                <input type="text" class="form-control input-control" name="email" placeholder="Coupon/Gift Certificate code" />
+                      <form id="demo" className="collapse">
+                        <div className="col-lg-12">
+                          <div className="row">
+                            <div className="col-sm-9 col-md-9 col-xs-12">
+                              <div className="form-group mt-2">
+                                <input type="text" className="form-control input-control" name="email" placeholder="Coupon/Gift Certificate code" />
                               </div>
                             </div>
-                            <div class="col-sm-3 col-md-3 col-xs-12 p-0">
-                              <div class="form-group mt-2">
-                                <button type="button" class="btn bha-btn-apply">Apply</button>
+                            <div className="col-sm-3 col-md-3 col-xs-12 p-0">
+                              <div className="form-group mt-2">
+                                <button type="button" className="btn bha-btn-apply">Apply</button>
                               </div>
                             </div>
                           </div>
@@ -143,12 +143,12 @@ function Summary(props) {
                       </form>
                     </div>
 
-                    <div class="total-product-price">
-                      <div class="row">
-                        <div class="col-md-5 col-sm-4 col-lg-4 col d-flex align-items-center">
+                    <div className="total-product-price">
+                      <div className="row">
+                        <div className="col-md-5 col-sm-4 col-lg-4 col d-flex align-items-center">
                           Total (USD)
                         </div>
-                        <div class="col-md-7 col-sm-8 col-lg-8 col text-right">
+                        <div className="col-md-7 col-sm-8 col-lg-8 col text-right">
                           <span>$ {props.total}</span>
                         </div>
                       </div>

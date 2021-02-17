@@ -65,7 +65,7 @@ class Footer extends Component {
     return (
       <div>
         {this.props.loading  ? <Loader />:null}
-        <div class="chat-button">
+        <div className="chat-button">
           <a href="/">
             <img src={Chat} className="mr-2" alt="" width="30" />
           </a>
@@ -352,12 +352,12 @@ class Footer extends Component {
               </div>
             </div>
             <div className="footer-bottom">
-              <div class="pagewrap">
+              <div className="pagewrap">
               <div className="container-fluid pl-0 pr-0">
                 <MDBRow>
                   <MDBCol sm="7" md="7" className="pl-0 pr-0" style={{ position: 'relative' }}>
                     <img
-                      class="img-fluid avtar"
+                      className="img-fluid avtar"
                       src={FooterCaller}
                       alt=""
                     />

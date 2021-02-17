@@ -25,13 +25,13 @@ const SearchProduct = (props) => {
     }
     return (
         <OutSideClick callback={linkClick}>
-            <div class="seachbox-top-bar" id="searh_Box" style={{display:'block'}}>
+            <div className="seachbox-top-bar" id="searh_Box" style={{display:'block'}}>
             <Search 
             onChange={doSearch}
             onPressEnter={doSearch}
             placeholder="Search Products by Name"
             className="seachbox-top-bar-inpiut" loading={props.loading} enterButton />
-                    <ul class="results" style={{display:'block'}} >
+                    <ul className="results" style={{display:'block'}} >
                         {items && items.length >0 ? items.map(datum=>
                             <li>
                                 <Link to={`/shop/${datum.id}`} onClick={linkClick}>
@@ -40,7 +40,7 @@ const SearchProduct = (props) => {
                                         preview={false}
                                         
                                         src={datum.images && datum.images[0] && datum.images[0].url ? datum.images[0].url:''}
-                                     alt="" class="compare-widget__image" />
+                                     alt="" className="compare-widget__image" />
                                         <div className="media-body">
                                             <div class="compare-widget__title">{datum.name}</div>
                                         </div>

@@ -33,12 +33,12 @@ class ProducstServiceContactForm extends Component {
 
         return (
 
-            <div class={this.props.hideclassName ? '' :"col-sm-5 col-md-4 pr-0"}>
-                <div class="freequote-container">
-                    <div class="free-quote">
-                        <div class="inner-link">
-                            <h2 class="pb-2 quote-heading_1">Request for Quote</h2>
-                            {/* <h3 class="pb-2 quote-heading_2">Submit Your Info Below</h3> */}
+            <div className={this.props.hideclassName ? '' :"col-sm-5 col-md-4 pr-0"}>
+                <div className="freequote-container">
+                    <div className="free-quote">
+                        <div className="inner-link">
+                            <h2 className="pb-2 quote-heading_1">Request for Quote</h2>
+                            {/* <h3 className="pb-2 quote-heading_2">Submit Your Info Below</h3> */}
                             <div>
                                 <Formik
                                     enableReinitialize
@@ -206,7 +206,7 @@ class ProducstServiceContactForm extends Component {
                                             </MDBRow>
                                             <MDBRow>
                                                 <MDBCol lg="12">
-                                                    <div class="form-group">
+                                                    <div className="form-group">
                                                         <label htmlFor="company" style={{ width: '100%' }}>Message *</label>
                                                         <Field
                                                             style={{ width: '100%' }}
@@ -229,7 +229,7 @@ class ProducstServiceContactForm extends Component {
                                                 </MDBCol>
                                             </MDBRow>
                                                                 
-                                            <div class="mt-2">
+                                            <div className="mt-2">
                                                 <button
                                                     type="button"
                                                     onClick={handleSubmit}
