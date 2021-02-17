@@ -36,11 +36,11 @@ const Favourite = (props) => {
         content: 'Please login for wishlist a product',
         className: 'login-warning-div',
         style: {
-          bottom: '20px',
+          bottom: '16px',
           position: 'fixed',
           left: 'calc(50% - 160px)',
           textAlign: 'center',
-          transitionDuration: '20s'
+          transitionDuration: '30s',
          
         },
       });

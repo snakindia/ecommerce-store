@@ -69,9 +69,9 @@ class Detail extends Component {
                 {product ?
                     <div className="pagewrap">
                         <div className="bgWhite padding-bottom">
-                            <div className="container-fluid" >
+                            <div className="container-fluid detail-breadcrumb" >
 
-                                <Breadcrum data={product} />
+                                <Breadcrum data={product}/>
 
                             </div>
                             <section >
