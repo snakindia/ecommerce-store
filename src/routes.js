@@ -27,6 +27,8 @@ import { getCart } from './components/Shop/store/Actions';
 import { getOrderStatus, getUser } from './components/Accounts/store/Actions';
 import axios from 'axios';
 import scrollToEl from './utils/scrollToEl';
+import CompareProducts from './components/Shop/CompareProducts';
+import CompareHoc from './components/Shop/CompareHoc';
 const App = lazy(() => import('./App'));
 const About = lazy(() => import('./components/About/About'));
 const ContactBody = lazy(() => import('./components/Contact/ContactBody'));
@@ -121,10 +123,12 @@ const Routes = (props) => {
 
                   <Route path="/shop/cart" component={Cart} />
                   <Route path="/shop/checkout" component={Checkout} />
-                  <Route path="/shop/:id" component={Detail} />
-                  <Route path="/shop" component={Shop} />
+                  <Route path="/shop/:id" component={CompareHoc} />
+                  <Route path="/shop" component={CompareHoc} />
+                  <Route path="/category/:id" component={CompareHoc} />
+                  <Route path="/compare" component={CompareProducts} />
 
-                  <Route path="/category/:id" component={Shop} />
+                  
                   <Route path="/category" component={Category} />
                   <Route path="/newsdetail/:slug" component={NewsDetail} />
                   <Route path="/eventdetail/:slug" component={EventDetail} />

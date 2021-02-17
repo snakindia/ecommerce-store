@@ -2,9 +2,14 @@ import { Image as I } from 'antd';
 import React from 'react'
 import defaultImg from '../../assets/images/product/dummyproduct.PNG'
 const Image=(props)=> {
+  let src =props.src;
+  if(props.item && !src && props.item.images && props.item.images[0] && props.item.images[0].url){
+    src =props.item.images[0].url;
+  }
   return (
     <I
         {...props}
+        src={src}
       // width={200}
       // height={200}
       // src="error"

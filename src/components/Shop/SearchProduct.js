@@ -10,6 +10,7 @@ const { Search } = Input;
 const SearchProduct = (props) => {
     
     const [items, setItems]=useState([])
+    const [str, setStr]=useState('')
     useEffect(()=>{
         let {data} =props;
         data = data && data.data && data.data.length >0 ? data.data :[]
@@ -17,7 +18,8 @@ const SearchProduct = (props) => {
     },[props.data])
     const doSearch = (e) => {
         const {value}=e.target;
-        props.search(value)
+        setStr(value)
+        props.search(value, true)
     }
     const linkClick = () => {
         props.linkClick()
@@ -50,7 +52,7 @@ const SearchProduct = (props) => {
                             ): null}
 
                         </ul>
-                      
+                        {items && items.length >0 && <Link onClick={linkClick} to={`/shop/search?search=${str}`}>View All</Link>}
                
             </div>
             </OutSideClick>
@@ -61,7 +63,7 @@ const mapStateToProps = (state) => ({
     loading: state.shop.loading,
 });
 const mapDispatchToProps = dispatch => ({
-    search: (payload) => dispatch(search(payload)),
+    search: (payload,limit) => dispatch(search(payload,limit)),
 });
 
 export default connect(

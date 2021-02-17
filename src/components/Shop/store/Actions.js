@@ -62,15 +62,27 @@ export const searchProductSuccess = (payload) => ({
     payload
 
 })
+export const searchAllProductSuccess = (payload) => ({
+    type: ActionTypes.SEARCH_PRODUCT_ALL,
+    payload
 
-export const search = (payload) => {
+})
+
+export const search = (payload, limit) => {
     return dispatch => {
         let url = `products?search=${payload}&fields=name,images,sku,product_id,regular_price,sale_price,description,topSelling,featured`;
-
+        if(limit){
+            url =url+'&limit=5'
+        }
         Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,)
             .then(res => {
-                if (res.data && res.data.data) {
-                    dispatch(searchProductSuccess(res.data));
+                if (res.data && res.data) {
+                    if(limit){
+                        dispatch(searchProductSuccess(res.data));
+                    } else {
+                        dispatch(searchAllProductSuccess(res.data));
+                    }
+                   
                 } else {
                     // dispatch(getDataError({ [payload]: [] }));
                 }
@@ -118,6 +130,28 @@ export const getProducts = (payload, id = null) => {
             .catch(e => {
                 dispatch(setProductLoading(false));
                 dispatch(getDataError({ [payload]: undefined, error: e }));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
+export const getCompareProducts = (payload) => {
+    return dispatch => {
+        dispatch(setProductLoading(true));
+        let url = `products?ids=${payload}&fields=name,images,sku,product_id,regular_price,sale_price,description,topSelling,featured`;
+        
+        Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
+        )
+            .then(res => {
+                dispatch(setProductLoading(false));
+                if (res.data && res.data.data) {
+                        dispatch(getDataSuccess({ ['compare']: res.data.data }));
+                } else {
+                   
+                    notification('error', 'Oops!! something went wrong')
+                }
+            })
+            .catch(e => {
+                dispatch(setProductLoading(false));
                 notification('error', 'Oops!! something went wrong')
             });
     }

@@ -20,6 +20,7 @@ const initialState = {
     paymentDone: undefined,
     pannelstep: 1,
     searchResult: undefined,
+    searchAllResult: undefined,
     compare:[],
     comments: {
         id: undefined,
@@ -58,6 +59,8 @@ export default (state = initialState, { type, payload, pannelstep = null }) => {
             return { ...state, loadingCart: payload }
         case ActionTypes.SEARCH_PRODUCT:
             return { ...state, searchResult: payload }
+        case ActionTypes.SEARCH_PRODUCT_ALL:
+                    return { ...state, searchAllResult: payload }
 
         case ActionTypes.GET_DATA_SUCCESS:
             return { ...state, loading: false, ...payload }

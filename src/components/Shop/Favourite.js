@@ -22,6 +22,7 @@ const Favourite = (props) => {
   
 
   const onClick = (e) => {
+    e.preventDefault()
     const { authenticated,user, item} = props;
     if (authenticated && user && user.id) {
      
