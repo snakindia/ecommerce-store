@@ -1225,6 +1225,7 @@ margin: 0.75rem auto;text-align: center;
 
 
 /*===== added Login setting css on 15/02/21===================*/
+
 #myModalView .modal-dialog .modal-content{border-radius: 0 !important;}
 .leftWrap{width: 100%; height: 100%; position: relative;}
 .leftWrap::before{content:''; position: absolute; top:0; left:0; right:0; bottom:0; background:rgba(4,10,87,0.75);}
@@ -1236,19 +1237,22 @@ margin: 0.75rem auto;text-align: center;
 .LoginReft{ padding:3rem 2rem; background-color: #fff; height: 100%;}
 .LoginReft .popup-decscription .form-group .form-control{width: 100%;}
 .LoginReft .popup-decscription{padding:0}
-.LoginReft .popup-decscription .form-group .errorMsg{margin:0.75rem 0; font-weight: 400;}
+.LoginReft .popup-decscription .form-group .errorMsg{margin:0.75rem 0; font-weight: 400;
+text-align: left; text-transform: none;}
 .LoginReft .popup-decscription .form-group .pwdlink{color:#000 !important;display: block;text-align: right;}
 .LoginReft .loginFooter{background:transparent; width:100%; padding:1rem; text-align: center;}
-.LoginReft .loginFooter a{color:#444 !important; text-transform: none;font-weight: 400; font-size: 0.875rem; display: block;}
-.LoginReft .loginFooter a span{color:#153e52;margin-top: 0 !important; padding:0 0.5rem;font-weight: 600;
-float:none !important}
+.LoginReft .loginFooter a{color:#444 !important; text-transform: none;font-weight: 400; font-size: 0.875rem; 
+  display: block;}
+.top-nav-link .LoginReft .loginFooter a span{color:#153e52;margin-top: 0 !important; padding:0 0.5rem;font-weight: 600;
+float:none !important;font-size: 0.875rem !important; }
+
 .LoginReft .loginFooter a span:hover{ text-decoration: underline;}
 .LoginReft .loginFooter a:hover{text-decoration: none;}
 .popup-decscription #loginformpopup .form-group{padding:1rem 0 0 !important}
 .forgotPwd{position: absolute; right: 12px; top: 24px; }
 .popup-decscription #loginformpopup .form-group .pwdlink{color:#153e52 !important}
 .LoginReft .popup-decscription .form-group .btn{padding:0.750rem}
-.Privacy{padding:1rem 0 0; font-size:0.750rem;color:#666; font-size: 200;}
+.Privacy{padding:1rem 0 0; font-size:0.750rem;color:#666; text-align: left;text-transform: none;}
 .LoginReft .popup-decscription .form-group .form-control:focus{border:1px solid #2a8cbe !important}
 .login-warning-div .ant-message-notice-content {
   display: inline-block; padding: 18px 30px !important; background: #000; border-radius: 4px;
@@ -1317,5 +1321,7 @@ border-radius: 0.2rem; font-size: 2rem; width: 100%;}
 .seeAlllink{float: right; font-size: 0.875rem; text-transform: none; font-family: 'Roboto'; color: #0b3146;
   padding: 0.5rem 0 0; font-weight: 600;}
 .seeAlllink:hover{color:#044c72}
+
+
 
 
