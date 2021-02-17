@@ -152,7 +152,7 @@ class TopBar extends Component {
                   ) : <LoginPopUp doLogin={this.props.doLogin} />
                   }
                   <span>&nbsp;</span>
-                  <Popover placement="bottom" title='' content={<SearchProduct linkClick={e => this.setState({searchVisible:false})} />} trigger="click"
+                  <Popover placement="bottom" title='' content={<SearchProduct mini={true} linkClick={e => this.setState({searchVisible:false})} />} trigger="click"
                     overlayStyle={{ zIndex: 10001, position: 'fixed', width:'300px', maxHeight:'350px' }}
                     overlayClassName="search-bar-popup"
                     visible={searchVisible}

@@ -7,7 +7,8 @@ import { notification } from '../../utils/helper';
 const Compare = ({item,data,compareWith}) => {
     let ids = data && data.length >0 ? data.map(d=>d.id):[]
     const added = ids.includes(item.id);
-    const onClick =()=>{
+    const onClick =(e)=>{
+        e.preventDefault()
         if(ids.length <4){
             compareWith({type:added ? 'remove':'add',item})
         } else {

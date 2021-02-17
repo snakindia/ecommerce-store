@@ -1281,3 +1281,12 @@ object-position: center}
 .login-warning-div .ant-message-notice-content i{margin-top: 3rem !important;}
 
 .ant-input-group-addon .ant-btn-primary{background: #23536b; border-color:#23536b}
+
+
+
+.compare-collaspe-div {
+  width: 400px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
