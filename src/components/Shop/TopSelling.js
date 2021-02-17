@@ -27,8 +27,8 @@ class CategoryProducts extends Component {
   componentDidMount() {
     const { params: { id } } = this.props.match;
     console.log({id});
-    if(id == 'topselling' ){
-      this.props.getProducts('topselling', true);
+    if(id == 'bestselling' ){
+      this.props.getProducts('bestselling', true);
     } else if(id == 'featured' ){
       this.props.getProducts('featured', true);
     }
@@ -156,9 +156,9 @@ class CategoryProducts extends Component {
 
   render() {
     const { currentPage, resultPerPage, products, sorting, view } = this.state;
-    let { data, loading, menu, match: { params: { id } },topselling,featured } = this.props;
-    if(id=='topselling'){
-      data =topselling;
+    let { data, loading, menu, match: { params: { id } },bestselling,featured } = this.props;
+    if(id=='bestselling'){
+      data =bestselling;
     } else if(id =='featured'){
       data =featured;
     }
@@ -348,7 +348,7 @@ const mapStateToProps = (state) => ({
   menuLoading: state.shop.menuLoading,
   menu: state.shop.menu,
   featured: state.shop.featured,
-  topselling: state.shop.topselling,
+  bestselling: state.shop.bestselling,
 });
 const mapDispatchToProps = dispatch => ({
   getProducts: (payload, id) => dispatch(getProducts(payload, id)),

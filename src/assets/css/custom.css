@@ -1222,3 +1222,15 @@ margin: 0.75rem auto;text-align: center;
 .rightLink {margin-left: auto;margin-right: auto;width: 100%;justify-content: center;display: flex !important;}
 .total-product-price div span {font-size: 1rem;}
 }
+
+.login-warning-div .ant-message-notice-content {
+  display: inline-block;
+  padding: 25px 16px;
+  background: #000;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  pointer-events: all;
+  color: red;
+  font-size: 28px;
+}

@@ -11,8 +11,16 @@ export default class Login extends Component {
             errors: {},
             loginError: null,
         };
-        this.ref = React.createRef(null);
+       
     }
+
+    onKeyPress =(e)=>{
+        
+            if(e.which=='13'){
+                document.getElementById('loginsubmitbtn').click();
+            }
+    }
+
     render() {
         return (
             <Formik
@@ -44,9 +52,9 @@ export default class Login extends Component {
                     isSubmitting,
                     /* and other goodies */
                 }) => (
-                        <form>
+                        <form onKeyPress={this.onKeyPress} id="loginformpopup">
                             <div className="row">
-                                <div className="col-sm-6 col-md-6 border-right border-secondary">
+                               
                                     <h4 className="login-heading font-xx">Account Sign In</h4>
                                     <div className="form-group">
                                         {/* <!-- <label>Mobile / Email Address</label> --> */}
@@ -86,15 +94,18 @@ export default class Login extends Component {
                                                 errors.password}
                                         </div>
                                     </div>
-                                    <a href="/forgot-password" className="pwdlink">
+                                    <div className="form-group">
+                                    <Link to="/forgot-password" className="pwdlink">
                                         Forgot Password?
-                                    </a>
+                                    </Link>
+                                    </div>
                                     <div className="form-group">
                                         <span className="errorMsg">
                                             {this.state.loginError || this.props.loginError}
                                         </span>
                                         <button
                                             type="button"
+                                            id="loginsubmitbtn"
                                             onClick={(e) => {
                                                 e.preventDefault()
                                                 handleSubmit();
@@ -103,23 +114,13 @@ export default class Login extends Component {
                                         >
                                             Sign in
                                         </button>
-                                        {/* <!-- <span className="float-right mt-4 text-muted"><a className="forgotpwd" href="forgot-pwd.html">Forgot Password?</a></span> --> */}
-                                    </div>
+                                        </div>
                                 </div>
-                                <div className="col-sm-6 col-md-6">
-                                    <h4 className="login-heading font-xx">WHY JOIN?</h4>
-                                    <small>Join Baghouseamerica to register your tools and help protect your investment, rate and review products you love, receive special offers and learn about the newest equipments and accessories</small>
+                                <div className="row">
                                     <div className="form-group">
-                                        <a
-                                            href="/sign-up"
-                                            className="btn bha-btn-primary w-100 mt-3"
-                                        >
-                                            Sign up
-                                        </a>
-                                        {/* <!-- <span className="float-right mt-4 text-muted"><a className="forgotpwd" href="forgot-pwd.html">Forgot Password?</a></span> --> */}
+                                        <Link to="/sign-up" className="btn bha-btn-primary w-100 mt-3" >    Sign up</Link>
                                     </div>
                                 </div>
-                            </div>
                         </form>
                     )}
             </Formik>
