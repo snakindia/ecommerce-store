@@ -1234,3 +1234,16 @@ margin: 0.75rem auto;text-align: center;
   color: red;
   font-size: 28px;
 }
+
+/* 12 feb category/featured (image list view) */
+
+.list-image-cls{
+  position: relative;
+  width: 20%;
+}
+
+.list-image-cls .portfolio-hover{
+  width:100%!important;
+  height: 90% !important;
+}
+
