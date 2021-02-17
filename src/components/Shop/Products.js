@@ -82,7 +82,7 @@ hide = () => {
               {/* <section className="bg-opeque pb-4">
                 <div className="container-fluid">
                   <p className="view-all-center">
-                    <Link to={`category/${this.props.type}`}>
+                    <Link to={`category/${this.props.type}`} className="btn bha-btn-primary">
                     View All
                     </Link>
                     </p>
@@ -121,7 +121,7 @@ hide = () => {
               {/* <section className="bg-opeque pb-4">
                 <div className="container-fluid">
                   <p className="view-all-center">
-                    <Link to={`/category/${this.props.type}`}>
+                    <Link to={`/category/${this.props.type}`} className="btn bha-btn-primary">
                     View All
                     </Link>
                     </p>

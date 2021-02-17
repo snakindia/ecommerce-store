@@ -54,8 +54,8 @@ class AccountDetail extends React.Component {
                                         }}
                                     >
                                         {formikProps => <Form >
-                                            <div className="form-row pt-3">
-                                                <div className="form-group col-md-6">
+                                            <div className="form-row m-0 pt-3">
+                                                <div className="form-group-new col-md-6">
                                                     <div className="form-group">
                                                         <Input
                                                             allow="text"
@@ -103,7 +103,7 @@ class AccountDetail extends React.Component {
                                             </div>
                                             <Error el={['first_name','last_name','full_name']} formik={formikProps} />
                                             <div className="col-lg-12 pr-0 pl-0 text-sm-right">
-                                                <button type="submit" className="btn btn-bha-primary font-weight-bold" >Update</button>
+                                                <button type="submit" className="btn bha-btn-primary m-0 mt-2 font-weight-bold" >Update</button>
                                             </div>
                                         </Form>
                                         }
@@ -165,7 +165,7 @@ class AccountDetail extends React.Component {
                                             </div>
                                             <Error el={['current_password','password','password_confirm','same']} formik={formikProps} />
                                             <div className="col-lg-12 pr-0 pl-0 text-sm-right">
-                                                <button type="submit" className="btn btn-bha-primary font-weight-bold" >Change Password</button>
+                                                <button type="submit" className="btn bha-btn-primary  m-0 mt-2 font-weight-bold" >Change Password</button>
                                             </div>
                                         </Form>
                                         }
