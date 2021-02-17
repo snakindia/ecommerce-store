@@ -37,7 +37,8 @@ export default class ProductList extends Component {
                         </div>
                     </div>
                     <Image src={imageUrl} alt="Generic placeholder image" className="order-1 order-lg-1 mr-lg-4" width="200" />
-                    <div className="media-body order-2 order-lg-1">
+                    </div>
+                    <div className="media-body order-2 order-lg-1 pl-3">
                         <h6 className="mt-0 mb-2"><ToolTip text={item.name} length={1000} /></h6>
                         {/* <a href="product-details.html" className="text-muted mb-0"><ToolTip text={item.description} /></a> */}
                         <div className="d-flex align-items-center justify-content-left mt-1">
@@ -63,7 +64,7 @@ export default class ProductList extends Component {
                             <Compare item={item} />
                         </div>
                     </div>
-                </div>
+                
             </li>
         );
     }
