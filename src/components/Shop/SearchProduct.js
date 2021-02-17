@@ -52,7 +52,7 @@ const SearchProduct = (props) => {
                             ): null}
 
                         </ul>
-                        {items && items.length >0 && <Link onClick={linkClick} to={`/shop/search?search=${str}`}>View All</Link>}
+                        {props.data && props.data.total_count >5 && <Link onClick={linkClick} to={`/shop/search?search=${str}`}>View All {props.data.total_count} products</Link>}
                
             </div>
             </OutSideClick>
