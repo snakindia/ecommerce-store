@@ -42,7 +42,7 @@ const SearchProduct = (props) => {
                                         src={datum.images && datum.images[0] && datum.images[0].url ? datum.images[0].url:''}
                                      alt="" class="compare-widget__image" />
                                         <div className="media-body">
-                                            <h3 class="compare-widget__title">{datum.name}</h3>
+                                            <div class="compare-widget__title">{datum.name}</div>
                                         </div>
                                     </div>
                                 </Link>

@@ -3,8 +3,8 @@ body{background: #fff; font-family: 'Roboto', sans-serif !important; font-size: 
 overflow-x: hidden; padding-right: 0 !important;}
 /*======================================*/
 .headtoppart {background: #000 !important;color: #fff;}
-.toplink span {border-right: 1px solid #fff;float: left;height: 12px;
-    margin-top: 15px;}
+/* .toplink span {border-right: 1px solid #fff;float: left;height: 12px;
+    margin-top: 7px;} */
 .topbar{background: #000; width: 100%}
 .headerwp > * { z-index: 100;position: relative;}
 .headtoppart a{color:#fff !important; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;}
