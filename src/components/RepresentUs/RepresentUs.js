@@ -30,14 +30,14 @@ class RepresentUs extends Component {
         return (
             <div>
                 <Banner />
-                <div class="content-wrapper pb-0 pt-0" style={{ "margin-top": this.state.displayView}} >
-                    <div class="page wrap">
-                        <div class="pb-2 texture-bg mt-570">
-                            <h2 class="bha_heading_2 text-black text-center font-weight-bold pt-4 mb-4" style={{ "z-index": "10", "position": "relative" }} >Our Dust Extraction Systems Locations</h2>
-                            <p class="text-center pb-3 p-10">Baghouse America, Inc. is pushing to enter all foreign emerging and existing markets throughout the globe. Are you a professional looking for a Boiler, Baghouse, Turbine, Dryer, or Industrial Fan Manufacturer? Do you install, contract, or supply turnkey industrial projects for power plants or process plants who generate their own power? Or are you just looking for some components for your current projects? We are the answer.</p>
+                <div className="content-wrapper pb-0 pt-0" style={{ "margin-top": this.state.displayView}} >
+                    <div className="page wrap">
+                        <div className="pb-2 texture-bg mt-570">
+                            <h2 className="bha_heading_2 text-black text-center font-weight-bold pt-4 mb-4" style={{ "z-index": "10", "position": "relative" }} >Our Dust Extraction Systems Locations</h2>
+                            <p className="text-center pb-3 p-10">Baghouse America, Inc. is pushing to enter all foreign emerging and existing markets throughout the globe. Are you a professional looking for a Boiler, Baghouse, Turbine, Dryer, or Industrial Fan Manufacturer? Do you install, contract, or supply turnkey industrial projects for power plants or process plants who generate their own power? Or are you just looking for some components for your current projects? We are the answer.</p>
                             
                         </div>
-                        <div id="represent-us-map-div" class="map-responsive">
+                        <div id="represent-us-map-div" className="map-responsive">
                             <GoogleMap />
                         </div>
                         {/* <div id="represent-us-map-div" style={{"height":"65vh"}}>

@@ -3,13 +3,13 @@
 @media screen and (max-width: 1920px) {
 /* .wsshoptabing { left: -352px !important; width: 136% !important;} */
 .container{max-width: 1280px;}
-.rightLink{float:right}
+/* .rightLink{float:right} */
 }
 
 @media screen and (max-width: 1366px) {
 /* .wsshoptabing { left: -207px !important; width: 121% !important;} */
 .container{max-width: 1140px;}
-.rightLink{float:right; display: block;}
+/* .rightLink{float:right; display: block;} */
 }
 
 /*.slick-slide{margin:15px !important;}*/
@@ -22,7 +22,7 @@
 
 .toolTipContainer span .tooltip-hover-text{color:#fff !important;}
 .pro_Price .currecny span.strike{color:#afafaf !important}
-.pro_Price .currecny span.sp-price{ color: #0b5076 !important;}
+.pro_Price .currecny span.sp-price{ color: #30373b !important;}
 .bg-opeque { padding: 2rem 0 2rem 0 !important; float: left !important;}
 /* .placement-client .bhaClient {margin-bottom: 0;} */
 .slick-track{margin-left: 0 !important;}
@@ -508,7 +508,7 @@ i.wishList-hover {
 .hot-deals-item-wrapper .item-pro-inner .svg-icon img {
   width: 20px !important;
   height: 20px !important;
-  margin-left:1rem !important;
+  margin-left:0 !important;
 }
 .hot-deals-item-wrapper .item-pro-inner a {
   color: #4e4c4c;

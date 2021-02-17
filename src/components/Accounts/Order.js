@@ -74,13 +74,13 @@ class Order extends React.Component {
                                     <div className="row">
                                         <div className="container px-1 px-md-4 py-5 mx-auto pa0">
                                             <div className="card">
-                                                <div class="row d-flex justify-content-between px-3">
-                                                    <div class="d-flex flex-column pa">
-                                                        <p class="mb-0">Order ID <span><b>{item.number}</b></span></p>
-                                                        {/* <p>Payment Status <span class="font-weight-bold">{item.paid && <span className="paid">Paid</span>}</span></p> */}
+                                                <div className="row d-flex justify-content-between px-3">
+                                                    <div className="d-flex flex-column pa">
+                                                        <p className="mb-0">Order ID <span><b>{item.number}</b></span></p>
+                                                        {/* <p>Payment Status <span className="font-weight-bold">{item.paid && <span className="paid">Paid</span>}</span></p> */}
                                                     </div>
-                                                    <div class="d-flex flex-column pa">
-                                                        <p class="mb-0">Order placed on <span>{moment(item.date_created).format('MMM D , YYYY').toString()}</span></p>
+                                                    <div className="d-flex flex-column pa">
+                                                        <p className="mb-0">Order placed on <span>{moment(item.date_created).format('MMM D , YYYY').toString()}</span></p>
                                                        
                                                     </div>
                                                 </div>
@@ -118,17 +118,17 @@ class Order extends React.Component {
                                         
 
                                             <h5 className="location_head">Order Detail</h5>
-                                            <div class="row d-flex justify-content-between px-3">
-                                                <div class="d-flex flex-column pa">
-                                                    <p class="mb-0">Order Status: <span>{item.status}</span></p>
+                                            <div className="row d-flex justify-content-between px-3">
+                                                <div className="d-flex flex-column pa">
+                                                    <p className="mb-0">Order Status: <span>{item.status}</span></p>
                                                     <p>Payment method: <span >{item.payment_method}</span></p>
                                                     <p>Payment Status: <span >{item.paid ? 'Paid':'Pending'}</span></p>
                                                     <p>Comments: <span >{item.comments}</span></p>
                                                 </div>
-                                                <div class="d-flex flex-column pa">
-                                                    <p class="mb-0">Shipping status: <span>{item.shipping_status}</span></p>
+                                                <div className="d-flex flex-column pa">
+                                                    <p className="mb-0">Shipping status: <span>{item.shipping_status}</span></p>
                                                     {/* <p>Shipping method: <span >{item.shipping_method}</span></p> */}
-                                                    <p>Tracking Number <span class="font-weight-bold">{item.tracking_number}</span></p>
+                                                    <p>Tracking Number <span className="font-weight-bold">{item.tracking_number}</span></p>
                                                     <p>Note: <span >{item.note}</span></p>
                                                 </div>
                                             </div>

@@ -34,7 +34,7 @@ export default class Product extends Component {
                         </div>
                     </div>
                 </div>
-                <Favourite  id={item.id}/>
+                <Favourite  item={item}/>
                 <div className="item-pro-inner">
                     <a href="#">
                         <Image className="img-fluid"
@@ -62,7 +62,7 @@ export default class Product extends Component {
                         <div className="d-block float-left w-100 text-center">
 
                             {hasPrice ? <AddToCart item={item} /> : <ContactForSale />}
-                            {/* <Compare /> */}
+                            <Compare item={item}/>
                         </div>
 
                     </a>

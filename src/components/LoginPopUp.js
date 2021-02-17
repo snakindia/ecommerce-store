@@ -4,7 +4,7 @@ import { message, Button, Space } from 'antd';
 import { connect } from 'react-redux';
 import { MDBModal, MDBContainer } from 'mdbreact';
 import loginpopupleft from '../assets/images/loginpopupleft.jpg'
-import logo from '../assets/images/menu-logo.jpg'
+import logo from '../assets/images/footer-logo.png'
 import closeImg from '../assets/images/popup-close.png'
 import Login from './Login'
 // import { toggleWishlist } from '../Accounts/store/Actions'
@@ -33,7 +33,7 @@ class LoginPopUp extends Component {
         const { item, showModal, visible } = this.state;
         return (
             <>
-                <li><a id="loginpopover" href="/" class="ant-popover-open" onClick={this.show}>
+                <li><a id="loginpopover" href="/" className="ant-popover-open" onClick={this.show}>
                     <embed src="/static/media/profile.035915d4.svg" alt="" width="20" height="20" />
                         login/signup
                 </a>
@@ -50,19 +50,27 @@ class LoginPopUp extends Component {
 
                         <a href="#" id="btnClose" title="Click here to close this deal box." onClick={this.hide}>
                             <img src={closeImg} alt="Close" /></a>
-                        <div class="container pl-0 pr-0">
-                            <div class="row no-gutters">
-                                <div class="col-sm-6 col-md-6"><img class="img-fluid img-cover" src={loginpopupleft} alt="" /></div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="popup-brand">
-                                        <img src={logo} alt="Baghouseamerica" class="img-fluid" width="320" />
+                        <div className="container pl-0 pr-0">
+                            <div className="row no-gutters">
+                                <div className="col-sm-6 col-md-6">
+                                    <div className="leftWrap">
+                                        <div className="LoginLeft">
+                                            <img src={logo} alt="Baghouseamerica" className="img-fluid" width="250" />
+                                            <h4 className="login-heading font-xx text-white">Account Login</h4>
+                                            <p>Get access to your Orders, Wishlist and Recommendations</p>
+                                        </div>
+                                        <img className="Img-object-fit" src={loginpopupleft} alt="" />
                                     </div>
-                                  
-                                    <div class="popup-decscription">
-                                    <Login  onFormSubmit={this.props.doLogin}/>
-                                       
+                                </div>
+                                <div className="col-sm-6 col-md-6">
+                                    {/* <div className="popup-brand">
+                                        <img src={logo} alt="Baghouseamerica" className="img-fluid" width="320" />
+                                    </div> */}
+                                  <div className="LoginReft">
+                                    <div className="popup-decscription">
+                                        <Login  onFormSubmit={this.props.doLogin}/>
+                                     </div>  
                                     </div>
-
                                 </div>
                             </div>
                         </div>

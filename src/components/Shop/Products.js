@@ -79,7 +79,7 @@ hide = () => {
                   </div>
                 </div>
               </section>
-              <section className="bg-opeque pb-4">
+              {/* <section className="bg-opeque pb-4">
                 <div className="container-fluid">
                   <p className="view-all-center">
                     <Link to={`category/${this.props.type}`} className="btn bha-btn-primary">
@@ -87,13 +87,19 @@ hide = () => {
                     </Link>
                     </p>
                 </div>
-              </section>
+              </section> */}
             </>
             :
             <div>
               <section className="bg-opeque pb-4">
                 <div className="container-fluid">
-                  <h2 className="bha_heading_2 z-index text-blue">{heading}</h2>
+                  <h2 className="bha_heading_2 z-index text-blue">{heading}
+                  
+                  <Link to={`category/${this.props.type}`} className="seeAlllink">
+                    See All
+                    </Link>
+                  </h2>
+                  
                 </div>
               </section>
               <section className="pro-equipment-section box-shadow" id="bestSelling">
@@ -112,7 +118,7 @@ hide = () => {
                 </div>
               </section>
               
-              <section className="bg-opeque pb-4">
+              {/* <section className="bg-opeque pb-4">
                 <div className="container-fluid">
                   <p className="view-all-center">
                     <Link to={`/category/${this.props.type}`} className="btn bha-btn-primary">
@@ -120,7 +126,7 @@ hide = () => {
                     </Link>
                     </p>
                 </div>
-              </section> 
+              </section>  */}
             </div>
         }
         </>

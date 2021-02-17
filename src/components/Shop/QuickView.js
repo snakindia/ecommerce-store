@@ -78,7 +78,7 @@ export default class QuickView extends Component {
                             <section id="magnific">
                                 <div className="row">
                                     <div className="large-5 column">
-                                        {/* {single ? <Favourite />: null } */}
+                                        {single ? <Favourite item={item} />: null }
                                         <div className="xzoom-container mt-3">
                                             <div className="prod_gallery-sm">
                                                 <div style={{ width: '96%' }} className="zoomer">
@@ -154,8 +154,8 @@ export default class QuickView extends Component {
                                     </p>
                                 </div>
                                 {certificate && 
-                                <div class="productbadges top30">
-                                    <ul class="new" style={{display:'inline-flex', listStyle:'none',padding:0}}>
+                                <div className="productbadges top30">
+                                    <ul className="new" style={{display:'inline-flex', listStyle:'none',padding:0}}>
                                         <li>
                                             <p><img src="https://cdn3.bigcommerce.com/s-eheiwirl8z/product_images/uploaded_images/free-shipping2.png" alt="" /></p>
                                         </li>

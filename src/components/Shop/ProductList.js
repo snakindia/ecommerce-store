@@ -25,8 +25,7 @@ export default class ProductList extends Component {
         return (
             <li className="list-group-item">
                 <div className="media flex-column flex-lg-row p-3">
-                    {/* <Favourite /> */}
-                    <div className="list-image-cls">
+                    <Favourite  item={item}/>
                     <div className="portfolio-hover">
                         <div className="portfolio-hover-content">
                             <div className="callToAction-list">
@@ -62,10 +61,10 @@ export default class ProductList extends Component {
                         }
                         <div className="d-block float-left w-100 mt-4">
                             {hasPrice ? <AddToCart item={item} /> : <ContactForSale />}
-                            <Compare />
+                            <Compare item={item} />
                         </div>
                     </div>
-                </div>
+                
             </li>
         );
     }

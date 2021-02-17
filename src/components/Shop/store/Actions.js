@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 import Axios from 'axios';
-import {notification } from '../../../utils/helper';
+import { notification } from '../../../utils/helper';
 Axios.defaults.withCredentials = true;
 export const setLoading = (payload) => ({
     type: ActionTypes.SHOP_LOADING,
@@ -57,20 +57,43 @@ export const setProductLoading = (payload) => ({
     payload
 
 })
+export const searchProductSuccess = (payload) => ({
+    type: ActionTypes.SEARCH_PRODUCT,
+    payload
+
+})
+
+export const search = (payload) => {
+    return dispatch => {
+        let url = `products?search=${payload}&fields=name,images,sku,product_id,regular_price,sale_price,description,topSelling,featured`;
+
+        Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,)
+            .then(res => {
+                if (res.data && res.data.data) {
+                    dispatch(searchProductSuccess(res.data));
+                } else {
+                    // dispatch(getDataError({ [payload]: [] }));
+                }
+            })
+            .catch(e => {
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
 
 export const getProducts = (payload, id = null) => {
     return dispatch => {
         dispatch(setProductLoading(true));
-       
+
         console.log(payload);
         let url = 'products?fields=name,images,sku,product_id,regular_price,sale_price,description,topSelling,featured';
-        if (payload && id && id !=='featured' && id !='bestselling' && id!="viewed") url = `products?category_id=${id}`;
-        
-        else if (payload == 'featured' || id =='featured') url = 'products?featured=true&fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
+        if (payload && id && id !== 'featured' && id != 'bestselling' && id != "viewed") url = `products?category_id=${id}`;
+
+        else if (payload == 'featured' || id == 'featured') url = 'products?featured=true&fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
         else if (payload == 'topRated') url = 'getTopRatedProducts?fields=name,topSelling,featured,images,sku,product_id,regular_price,sale_price,description';
         else if (payload == 'viewed') url = 'products?viewCount=true&fields=id,viewCount,name,id,regular_price,sale_price,description,images&limit=8';
-        else if (payload == 'products' && id =='viewed') url = 'products?viewCount=true&fields=id,viewCount,name,id,regular_price,sale_price,description,images&limit=8';
-        else if (payload == 'bestselling' || id=="bestselling") url = 'products?topSelling=true&?fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
+        else if (payload == 'products' && id == 'viewed') url = 'products?viewCount=true&fields=id,viewCount,name,id,regular_price,sale_price,description,images&limit=8';
+        else if (payload == 'bestselling' || id == "bestselling") url = 'products?topSelling=true&?fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
 
 
         Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
@@ -78,15 +101,15 @@ export const getProducts = (payload, id = null) => {
             .then(res => {
                 dispatch(setProductLoading(false));
                 if (res.data) {
-                    if(payload =='featured' || payload =='bestselling' || payload=='viewed'){
-                        if( res.data && res.data.data){
-                            dispatch(getDataSuccess({ [payload]: id ? res.data :res.data.data }));
+                    if (payload == 'featured' || payload == 'bestselling' || payload == 'viewed') {
+                        if (res.data && res.data.data) {
+                            dispatch(getDataSuccess({ [payload]: id ? res.data : res.data.data }));
                         }
-                        
-                    }else {
+
+                    } else {
                         dispatch(getDataSuccess({ [payload]: res.data }));
                     }
-                   
+
                 } else {
                     dispatch(getDataError({ [payload]: [] }));
                     //notification('error', 'Oops!! something went wrong')
@@ -141,7 +164,7 @@ export const getMenu = () => {
                 }
             })
             .catch(e => {
-               // console.log({ e })
+                // console.log({ e })
                 dispatch(setLoading(false));
                 dispatch(getMenuError(e));
                 notification('error', 'Oops!! something went wrong')
@@ -158,29 +181,29 @@ export const removeProductAction = (payload) => ({
     payload
 });
 
-export const removeShippingMethods =()=>{
+export const removeShippingMethods = () => {
     return dispatch => {
-    Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`,{shipping_method_id:''}, {
-        withCredentials: true,
-        crossDomain: true,
-    },).then(res => {
-      
-        if (res.data) {
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`, { shipping_method_id: '' }, {
+            withCredentials: true,
+            crossDomain: true,
+        }).then(res => {
 
-            dispatch(addProductAction(res.data));
-            dispatch(getShippingMethod())
-        } else {
-            // dispatch(getProductError(undefined));
-           // notification('error', 'Oops!! something went wrong')
-        }
-    })
-    .catch(e => {
-        dispatch(setCartLoading(false));
-        dispatch(getProductError(e));
-        notification('error', 'Oops!! something went wrong')
-    });
-   
-}
+            if (res.data) {
+
+                dispatch(addProductAction(res.data));
+                dispatch(getShippingMethod())
+            } else {
+                // dispatch(getProductError(undefined));
+                // notification('error', 'Oops!! something went wrong')
+            }
+        })
+            .catch(e => {
+                dispatch(setCartLoading(false));
+                dispatch(getProductError(e));
+                notification('error', 'Oops!! something went wrong')
+            });
+
+    }
 }
 export const removeProduct = (payload) => {
     return dispatch => {
@@ -218,7 +241,7 @@ export const addProduct = (payload, qty = 1) => {
             quantity: qty,
             variant_id: null,
             quantity_update: true,
-            quantity_type : true,
+            quantity_type: true,
         };
         Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/${url}`, data,
             {
@@ -234,7 +257,7 @@ export const addProduct = (payload, qty = 1) => {
                     dispatch(addProductAction(res.data));
                 } else {
                     dispatch(getProductError(undefined));
-                   // notification('error', 'Oops!! something went wrong')
+                    // notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
@@ -254,7 +277,7 @@ export const setCartLoading = (payload) => ({
 export const getCart = () => {
     return dispatch => {
         dispatch(setCartLoading(true));
-        
+
         Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`,
             {
                 withCredentials: true,
@@ -268,7 +291,7 @@ export const getCart = () => {
                     dispatch(addProductAction(res.data));
                 } else {
                     // dispatch(getProductError(undefined));
-                   // notification('error', 'Oops!! something went wrong')
+                    // notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
@@ -296,20 +319,20 @@ export const getPaymentMethod = () => {
                 withCredentials: true,
                 crossDomain: true,
             },
-            
+
         )
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
                     dispatch(getPaymentMethodSuccess(res.data));
                 } else {
-                     dispatch(getPaymentMethodError(undefined));
+                    dispatch(getPaymentMethodError(undefined));
                 }
             })
             .catch(e => {
                 dispatch(setLoading(false));
                 dispatch(getPaymentMethodError(e));
-                
+
             });
     }
 }
@@ -331,15 +354,15 @@ export const getPaymentSettingsMethod = () => {
                 withCredentials: true,
                 crossDomain: true,
             },
-            
+
         )
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
                     dispatch(getPaymentMethodSettingsSuccess(res.data));
                 } else {
-                     //dispatch(getPaymentMethodSettingsError(undefined));
-                     //notification('error', 'Oops!! something went wrong')
+                    //dispatch(getPaymentMethodSettingsError(undefined));
+                    //notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
@@ -350,7 +373,7 @@ export const getPaymentSettingsMethod = () => {
     }
 }
 
-export const getShippingMethodSuccess = (payload,pannelstep ) => ({
+export const getShippingMethodSuccess = (payload, pannelstep) => ({
     type: ActionTypes.GET_SHIPPING_METHOD_SUCCESS,
     payload,
     pannelstep
@@ -368,15 +391,15 @@ export const getShippingMethod = (payload) => {
                 withCredentials: true,
                 crossDomain: true,
             },
-            
+
         )
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
-                    dispatch(getShippingMethodSuccess(res.data,  payload ? 5 : null));
+                    dispatch(getShippingMethodSuccess(res.data, payload ? 5 : null));
                 } else {
-                     dispatch(getShippingMethodError(undefined));
-                     //notification('error', 'Oops!! something went wrong')
+                    dispatch(getShippingMethodError(undefined));
+                    //notification('error', 'Oops!! something went wrong')
                 }
             })
             .catch(e => {
@@ -387,16 +410,16 @@ export const getShippingMethod = (payload) => {
     }
 }
 
-export const updateAddress = (payload, type,pannelstep ) => {
+export const updateAddress = (payload, type, pannelstep) => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`,payload,
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`, payload,
             {
                 withCredentials: true,
                 crossDomain: true,
             },
-            
+
         )
             .then(res => {
                 dispatch(setLoading(false));
@@ -439,7 +462,7 @@ export const addOrder = (payload) => {
             .then(res => {
                 //dispatch(setLoading(false));
                 if (res.data && res.data.number) {
-                   // console.log('dispatching');
+                    // console.log('dispatching');
                     dispatch(orderRecieved(res.data.id, payload))
                     // dispatch(orderSuccess(res.data));
                     // notification('success', 'Order Placed Succesfully')
@@ -455,7 +478,7 @@ export const addOrder = (payload) => {
             });
     }
 }
-export const orderRecieved = (orderId,payload) => {
+export const orderRecieved = (orderId, payload) => {
     return dispatch => {
         dispatch(setLoading(true));
         let url = `orders/${orderId}/recieved`;
@@ -463,7 +486,7 @@ export const orderRecieved = (orderId,payload) => {
             .then(res => {
                 dispatch(setLoading(false));
                 // console.log(res);
-                if (res.data  && res.data.status && res.data.data.number) {
+                if (res.data && res.data.status && res.data.data.number) {
                     dispatch(orderSuccess(res.data.data));
                     notification('success', 'Order Placed Succesfully')
                 } else {
@@ -495,32 +518,32 @@ export const paymentCompleted = (payload, payment_data) => {
                 withCredentials: true,
                 crossDomain: true,
             }
-        ).then(res=>{
-            if(res.data && res.data.number){
+        ).then(res => {
+            if (res.data && res.data.number) {
                 let url = `orders/${res.data.id}/process`;
-                Axios.post(`${process.env.REACT_APP_API_URL}/${url}`, {...payment_data, status:payload.status, status_id:payload.status_id},
+                Axios.post(`${process.env.REACT_APP_API_URL}/${url}`, { ...payment_data, status: payload.status, status_id: payload.status_id },
                     {
                         withCredentials: true,
                         crossDomain: true,
                     },
-                    
+
                 )
                     .then(res => {
                         dispatch(setLoading(false));
-                        
+
                         if (res.data && res.data.status && res.data.data.number) {
                             dispatch(orderSuccess(res.data.data));
                             notification('success', 'Order Placed Succesfully')
-                        } else  if (res.data && !res.data.status && res.data.getewayData) {
-                            
+                        } else if (res.data && !res.data.status && res.data.getewayData) {
+
                             notification('error', res.data.getewayData.responsetext)
                         }
-                         else {
-                             //dispatch(getPaymentMethodSettingsError(undefined));
-                             notification('error', 'Oops!! something went wrong')
+                        else {
+                            //dispatch(getPaymentMethodSettingsError(undefined));
+                            notification('error', 'Oops!! something went wrong')
                         }
-            })
-        }
+                    })
+            }
         })
             .catch(e => {
                 dispatch(setLoading(false));
@@ -530,4 +553,95 @@ export const paymentCompleted = (payload, payment_data) => {
     }
 }
 
+//commetns
+export const getCommentsSuccess = (payload) => ({
+    type: ActionTypes.GET_COMMENTS_SUCCESS,
+    payload,
+});
+export const setCommentsSuccess = (payload) => ({
+    type: ActionTypes.SET_COMMENTS_SUCCESS,
+    payload
+});
+export const compareWith = (payload) => ({
+    type: ActionTypes.SET_COMPARE_PRODUCTS,
+    payload
+});
+export const getComments = (payload) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        Axios.get(`${process.env.REACT_APP_API_URL}/comments/${payload}`).then(res => {
+            if (res.data && res.data.status) {
+                dispatch(setLoading(false));
+                dispatch(getCommentsSuccess({id:payload,data:res.data.data}));
+                
+            }
+            else {
+                notification('error', 'Oops!! something went wrong')
+            }
+
+        })
+            .catch(e => {
+                dispatch(setLoading(false));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
+export const addComments = (payload) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        Axios.post(`${process.env.REACT_APP_API_URL}/comments`,payload).then(res => {
+            if (res && res.data && res.data.status ) {
+                dispatch(setLoading(false));
+                dispatch(setCommentsSuccess(res.data.data));
+                notification('success', 'Review added')
+            }
+            else {
+                notification('error', 'Oops!! something went wrong')
+            }
+
+        })
+            .catch(e => {
+                dispatch(setLoading(false));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
+export const updateComments = (id,payload) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        Axios.put(`${process.env.REACT_APP_API_URL}/comments/${id}`,payload).then(res => {
+            if (res.data) {
+                dispatch(setLoading(false));
+                dispatch(getCommentsSuccess(res.data));
+            }
+            else {
+                notification('error', 'Oops!! something went wrong')
+            }
+
+        })
+            .catch(e => {
+                dispatch(setLoading(false));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
+export const deleteComments = (payload) => {
+    return dispatch => {
+        dispatch(setLoading(true));
+        Axios.delete(`${process.env.REACT_APP_API_URL}/comments/${payload}`).then(res => {
+            if (res.data) {
+                dispatch(setLoading(false));
+                dispatch(getCommentsSuccess(res.data));
+            }
+            else {
+                notification('error', 'Oops!! something went wrong')
+            }
+
+        })
+            .catch(e => {
+                dispatch(setLoading(false));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
 

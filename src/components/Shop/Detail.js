@@ -7,7 +7,7 @@ import QuickView from './QuickView'
 import { getProduct } from './store/Actions'
 import { Link } from 'react-router-dom';
 import { Tabs } from 'antd';
-import RelatedProduct from './RelatedProduct';
+import Comments from './Comments';
 import Breadcrum from './Breadcrum';
 import Product from './Product';
 import Products from './Products';
@@ -40,11 +40,19 @@ class Detail extends Component {
         const { params: { id } } = this.props.match;
         this.props.getProduct(id);
     }
+    componentDidUpdate(prevProps){
+        const { params: { id } } = this.props.match;
+        if(prevProps && prevProps.match && prevProps.match.params && prevProps.match.params.id != id){
+            this.props.getProduct(id);
+        }
+         
+    }
 
     render() {
 
         const { product } = this.props;
         const { item, showModal, visible } = this.state;
+        const { params: { id } } = this.props.match;
         let related = product && product.related_products ? product.related_products : [];
         // related =[1,2,3,4,5,6,7,8,9].map(i=>related && related[0] ? related[0]:{});
         const settings = {
@@ -61,9 +69,9 @@ class Detail extends Component {
                 {product ?
                     <div className="pagewrap">
                         <div className="bgWhite padding-bottom">
-                            <div className="container-fluid" >
+                            <div className="container-fluid detail-breadcrumb" >
 
-                                <Breadcrum data={product} />
+                                <Breadcrum data={product}/>
 
                             </div>
                             <section >
@@ -85,13 +93,28 @@ class Detail extends Component {
                                                         </div>
 
                                                     </TabPane>
-                                                    {/* <TabPane tab="Product Reviews" key="2"
+                                                    <TabPane tab="Product Reviews" key="2"
                                                         className="resp-tab-item">
                                                         <div className="resp-tabs-container">
-                                                            No Product Reviews
+                                                            <Comments id={id} name={product.name} />
                                                         </div>
 
-                                                    </TabPane> */}
+                                                    </TabPane>
+                                                    <TabPane tab="Related Category Products" key="3"
+                                                        className="resp-tab-item">
+                                                        <div className="resp-tabs-container">
+                                                         {product && product.category_detail && product.category_detail._id ? 
+                                                         <Link to={`/category/${product.category_detail._id}`} >
+                                                             {product.category_detail.name}
+                                                         </Link>
+                                                         :  product.parent_category_detail &&  product.parent_category_detail._id ? 
+                                                         <Link to={`/category/${product.parent_category_detail._id}`} >
+                                                             {product.parent_category_detail.name}
+                                                         </Link>: null}
+     
+                                                        </div>
+
+                                                    </TabPane>
 
                                                 </Tabs>
 
@@ -100,6 +123,8 @@ class Detail extends Component {
                                     </div>
                                 </div>
                             </section>
+                            {related && related.length > 0  ? 
+                            <>
                             <section className="bg-opeque box-shadow footerItems">
                                 <div className="container-fluid">
                                     <h2 className="bha_heading_2 z-index text-blue mb-4">Related Products</h2>
@@ -120,6 +145,8 @@ class Detail extends Component {
                                     </div>
                                 </div>
                             </section>
+                            </>
+                            : null }
                             <Products
                                 type='viewed'
                                 heading="Customers also viewed"

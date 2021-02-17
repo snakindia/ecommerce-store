@@ -10,22 +10,22 @@ message.config({
   maxCount: 1,
 });
 const Favourite = (props) => {
-  let { fav, id } = props;
+  let { fav, item } = props;
   
   const [liked, setLike] = useState(null);
   useEffect(()=>{
     fav =fav && fav.length > 0 ? fav :[];
-    if(fav.includes(id)){
+    if(fav.includes(item.id)){
       setLike(true)
     }
-  },[fav,id])
+  },[fav,item])
   
 
   const onClick = (e) => {
-    const { authenticated, fav ,id,user} = props;
+    const { authenticated,user, item} = props;
     if (authenticated && user && user.id) {
-      console.log(user);
-      props.toggleWishlist({product_id:id,customer_id: user.id, type:!liked ? 'add':'remove'})
+     
+      props.toggleWishlist({item,customer_id: user.id, type:!liked ? 'add':'remove'})
       
       setLike(!liked)
 
@@ -35,10 +35,12 @@ const Favourite = (props) => {
         content: 'Please login for wishlist a product',
         className: 'login-warning-div',
         style: {
-          bottom: '0',
+          bottom: '16px',
           position: 'fixed',
-          left: 'calc(50% - 200px)',
-          textAlign: 'center'
+          left: 'calc(50% - 160px)',
+          textAlign: 'center',
+          transitionDuration: '30s',
+         
         },
       });
     }

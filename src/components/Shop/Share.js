@@ -11,7 +11,7 @@ const Share = ({item}) => {
             <a href={`mailto:?body=Check out this Product ${href}&subject=Bag House America`} target="_blank">
                 <i className="fa fa-envelope-o"></i></a>
                  <a  onClick={print}>
-                 <i class="fa fa-print" aria-hidden="true"></i></a>
+                 <i className="fa fa-print" aria-hidden="true"></i></a>
             <a href={`https://www.facebook.com/sharer/sharer.php?u=${href}`} target="_blank"><i className="fa fa-facebook"></i></a>
             <a href={`https://twitter.com/share?url=${href}`} target="_blank"><i className="fa fa-twitter"></i></a>
             <a href={`http://pinterest.com/pin/create/button/?url=${href}`} target="_blank"><i className="fa fa-pinterest"></i></a>

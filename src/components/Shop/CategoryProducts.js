@@ -186,15 +186,12 @@ class CategoryProducts extends Component {
    
     return (
       <>
-      <section className="bg-opeque box-shadow footerItems">
-                                <div className="container-fluid">
-                                    <h2 className="bha_heading_2 z-index text-blue mb-4">{heading}</h2>
-                                </div>
-                            </section>
+      
+    
         { loading ? <Loader /> :
         
           <section className="pro-equipment-section">
-            <Breadcrumb>
+            <Breadcrumb className="breadcrumbTop">
               <Breadcrumb.Item> <Link to="/shop">Shop</Link></Breadcrumb.Item>
               {breadCrumData ? <>
                 {breadCrumData.name ?
@@ -215,8 +212,11 @@ class CategoryProducts extends Component {
                 : null
               }
             </Breadcrumb>
-              
-
+            <section className="bg-opeque product--heading">
+              <div className="container-fluid">
+                  <h2 className="bha_heading_2 z-index text-blue mb-5">{heading}</h2>
+              </div>
+            </section>
             {
               total && total > 0 ? <>
 
