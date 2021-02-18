@@ -1357,6 +1357,7 @@ border-radius: 0.2rem; font-size: 2rem; width: 100%;}
 }
 @media(max-width: 768px){
   .top-nav-link{text-align: center;}
+  .ant-popover.mini-cart-popup{width: 55% !important;}
 }
 @media screen and (max-width: 992px){
 .icon-content {width: 25%;font-size: 0.8756rem;}
@@ -1392,10 +1393,12 @@ border-radius: 0.2rem; font-size: 2rem; width: 100%;}
   }
 
   @media(max-width: 768px){
-    .search-bar-popup{left: 15%!important;top: 22% !important;}
+    .search-bar-popup{left: 26%!important;top: 22% !important;}
   }
   @media(max-width: 576px){
-    .search-bar-popup{left: 22%!important;top: 18.7% !important;}
+    .search-bar-popup{left: 0%!important;top: 21% !important;width: 100% !important;}
+    .search-bar-popup .ant-popover-arrow {
+      left: 72% !important;}
   }
   @media(min-width: 768px){
     .search-bar-popup{left: 61% !important;top: 14% !important;}
