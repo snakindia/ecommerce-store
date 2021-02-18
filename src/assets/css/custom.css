@@ -1385,6 +1385,10 @@ border-radius: 0.2rem; font-size: 2rem; width: 100%;}
   @media (max-width: 45em) {
     .add-address{position: static; margin:0.5rem 0 !important;}
   }
-        
-.tab .card{box-shadow: none;}
+
   
+/*-----Added Naveen---*/
+.tab .card{box-shadow: none;}
+.text-danger{font-size: 1rem; font-weight: 600;}
+.location_head a{color:#0e415a; font-size: 0.950rem; font-weight: 600;}
+.location_head a:hover{color:#0e415a;}

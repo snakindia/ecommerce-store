@@ -124,7 +124,7 @@ class Wishlists extends React.Component {
                             </div>
                             <div className="container-fluid pl-0 pr-0 product-xs-list">
                                 <div className="row">
-                                    <div className="col-lg-12">
+                                    <div className="col-lg-12 pl-0 pr-0">
                                         <ul className="list-group">
                                             {data && data.length > 0 ? <> {data.map(item =>
 

@@ -1098,8 +1098,8 @@ a.bha-btn-secondry:hover {
 
 .product-xs-list .portfolio-hover {
   position: absolute;
-  width: 40%;
-  height: 60%;
+  width: 25%;
+  height: 80%;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -1129,7 +1129,7 @@ a.bha-btn-secondry:hover {
   height: 100px;
   width: auto;
   display: block;
-  padding: 0 2rem;
+  padding:0.750rem 1rem 2rem;
   text-align: center;
 }
 .product-xs-list .like-button{margin-top:5rem}
@@ -1438,3 +1438,41 @@ border-radius:0.2rem; border:none; font-size: 0.850rem;font-weight: normal;}
 .sm-pad-all{margin-top: 1rem !important; display: inline-block;}
 .emptyCart{padding: 3rem 0 1rem; font-size: 1rem;  font-weight: 500; text-align: center; color:#ccc;
 text-transform: uppercase;}
+
+/*------Order status responsive setting-------------*/
+.my-order-border a i{color:#234c63}
+.table td, .table th{padding:0.75rem 0 !important}
+.orderStatus{position:absolute; top:67%; display:flex; width:100%; left:57%; transform: translate(-50%, -50%);}
+.order-steps{width:25%;}
+
+@media(max-width:639.9px){
+.orderStatus .w-100{width:auto;}
+.pa{padding:15px 0}
+.orderStatus{ transform: translate(-46%, -10%) !important; margin:0 0.2rem}
+  }
+@media(min-width:640px){
+  .orderStatus{left:20px}
+  .order-steps{width:85px !important;}
+  .orderStatus{position: absolute; top: 60%; display: flex;
+    width: 100%; left: 50%; transform: translate(-42%, -10%);}
+  .orderStatus .w-100{width: 100% !important;}
+  }
+
+@media(max-width:768px){
+  .orderStatus{left:20px}
+  .order-steps{width:80px !important; overflow-wrap: break-word !important; font-size: 100%;}
+  .orderStatus{position: absolute; top: 50%; display: flex;
+    width: 100%; left: 50%; transform: translate(-42%, -10%);}
+    
+  }
+
+@media(min-width:812px){
+  .orderStatus{left:20px}
+  .order-steps{width:85px !important;}
+  .orderStatus{position: absolute; top: 60%; display: flex;
+    width: 100%; left: 50%; transform: translate(-42%, -10%);}
+  }
+
+@media(min-width:1200px){
+  .order-steps{width:25% !important; white-space: nowrap;}
+}

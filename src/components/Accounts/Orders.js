@@ -179,7 +179,7 @@ class Orders extends React.Component {
                 <div className="row">
                   <div className="col-md-12 padding-lr0 padding-top10">
                     <div className="my-order-border" id="myTabContent">
-                      <div className="col-md-12 pa  border-bottom" style={{ backgroundColor: '#f1f1f1' }}>
+                      <div className="col-md-12 pa" style={{ backgroundColor: 'rgb(251 251 251)' }}>
                         <div className="row padding-lr0">
 
                           <div className="col-sm-6 mb-6">
@@ -202,7 +202,7 @@ class Orders extends React.Component {
                           </div>
                           <div className="col-sm-6 mb-6">
                             <div className="text-right">
-                              <div className="float-right padding-top15">
+                              <div className="float-right">
                                 <Link to={`/accounts/my-orders/${item.id}`}><i className="fas fa-angle-right"></i></Link>
                               </div>
                             </div>
