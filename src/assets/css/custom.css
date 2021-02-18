@@ -1367,7 +1367,10 @@ border-radius: 0.2rem; font-size: 2rem; width: 100%;}
   }
 
 
-
+/*----Added last child------------------*/
+.top-nav-link li:last-child{margin-right:0; cursor: pointer;}
+.top-nav-link li span{margin:0; cursor: pointer;}
+.top-nav-link span{margin:0 1rem}
 
 
   
