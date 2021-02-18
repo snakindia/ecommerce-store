@@ -1372,20 +1372,16 @@ border-radius: 0.2rem; font-size: 2rem; width: 100%;}
 .top-nav-link li span{margin:0; cursor: pointer;}
 .top-nav-link span{margin:0 1rem}
 
-<<<<<<< HEAD
 
   
 
-=======
 .add-address{position: absolute;right: 3.8%;top: 0.8%;}
 .tabs span.add-address:hover {color: #fff !important;}
->>>>>>> e0583113bcb90dd38c65a55b79a6fb91d7a01191
 
 
   @media (max-width: 45em) {
     .add-address{position: static; margin:0.5rem 0 !important;}
   }
-<<<<<<< HEAD
   .add-address{position: absolute;right: 3.8%;top: 0.8%;}
   .tabs span.add-address:hover { color: #fff !important;}
   .input-control.new-input-txt {font-size: 16px;}
@@ -1411,7 +1407,6 @@ border-radius: 0.2rem; font-size: 2rem; width: 100%;}
     .search-bar-popup{left: 74%!important;top: 4.5% !important;}
   }
   
-=======
 
   
 /*-----Added Naveen---*/
@@ -1419,4 +1414,3 @@ border-radius: 0.2rem; font-size: 2rem; width: 100%;}
 .text-danger{font-size: 1rem; font-weight: 600;}
 .location_head a{color:#0e415a; font-size: 0.950rem; font-weight: 600;}
 .location_head a:hover{color:#0e415a;}
->>>>>>> e0583113bcb90dd38c65a55b79a6fb91d7a01191
