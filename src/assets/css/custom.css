@@ -1227,30 +1227,35 @@ margin: 0.75rem auto;text-align: center;
 
 
 /*===== added Login setting css on 15/02/21===================*/
+
 #myModalView .modal-dialog .modal-content{border-radius: 0 !important;}
 .leftWrap{width: 100%; height: 100%; position: relative;}
 .leftWrap::before{content:''; position: absolute; top:0; left:0; right:0; bottom:0; background:rgba(4,10,87,0.75);}
 .LoginLeft{position: absolute; top:15%; left:0; text-align: center;}
 .login-heading{ padding:2rem 0 1rem; font-weight: 600; font-size: 1.2rem; text-align: center;}
-.LoginLeft p{font-size: 1rem; width: 100%; line-height: 25px; padding:0  2rem 1rem; text-align: center;}
+.LoginLeft p{font-size: 1rem; width: 100%; line-height: 25px; padding:0  2rem 1rem; text-align: center;
+text-transform: none; font-weight: 400;}
 .Img-object-fit{width:100%; height:100%; object-fit: cover; object-position: center;}
 
 .LoginReft{ padding:3rem 2rem; background-color: #fff; height: 100%;}
 .LoginReft .popup-decscription .form-group .form-control{width: 100%;}
 .LoginReft .popup-decscription{padding:0}
-.LoginReft .popup-decscription .form-group .errorMsg{margin:0.75rem 0; font-weight: 400;}
+.LoginReft .popup-decscription .form-group .errorMsg{margin:0.75rem 0; font-weight: 400;
+text-align: left; text-transform: none;}
 .LoginReft .popup-decscription .form-group .pwdlink{color:#000 !important;display: block;text-align: right;}
 .LoginReft .loginFooter{background:transparent; width:100%; padding:1rem; text-align: center;}
-.LoginReft .loginFooter a{color:#444 !important; text-transform: none;font-weight: 400; font-size: 0.875rem; display: block;}
-.LoginReft .loginFooter a span{color:#153e52;margin-top: 0 !important; padding:0 0.5rem;font-weight: 600;
-float:none !important}
+.LoginReft .loginFooter a{color:#444 !important; text-transform: none;font-weight: 400; font-size: 0.875rem; 
+  display: block;}
+.top-nav-link .LoginReft .loginFooter a span{color:#153e52;margin-top: 0 !important; padding:0 0.5rem;font-weight: 600;
+float:none !important;font-size: 0.875rem !important; }
+
 .LoginReft .loginFooter a span:hover{ text-decoration: underline;}
 .LoginReft .loginFooter a:hover{text-decoration: none;}
 .popup-decscription #loginformpopup .form-group{padding:1rem 0 0 !important}
 .forgotPwd{position: absolute; right: 12px; top: 24px; }
 .popup-decscription #loginformpopup .form-group .pwdlink{color:#153e52 !important}
 .LoginReft .popup-decscription .form-group .btn{padding:0.750rem}
-.Privacy{padding:1rem 0 0; font-size:0.750rem;color:#666; font-size: 200;}
+.Privacy{padding:1rem 0 0; font-size:0.750rem;color:#666; text-align: left;text-transform: none;}
 .LoginReft .popup-decscription .form-group .form-control:focus{border:1px solid #2a8cbe !important}
 .login-warning-div .ant-message-notice-content {
   display: inline-block; padding: 18px 30px !important; background: #000; border-radius: 4px;
@@ -1266,7 +1271,6 @@ float:none !important}
   margin: 0;padding:0.650rem 3rem;cursor: pointer; transition: 0.3s;}
 .user-setting-menu li a{color:rgb(105, 105, 105);}
 .user-setting-menu li:hover{background:#e6f7ff}
-/* .toplink li{cursor: pointer;font-weight: 700; font-size: 0.8rem; text-transform: uppercase;} */
 
 
 .seachbox-top-bar {padding: 10px;}
@@ -1279,9 +1283,7 @@ float:none !important}
 .results li .media .ant-image{margin:0 0 1rem !important; width: 60px; object-fit: cover;
 object-position: center}
 .results li .media .media-body{margin-left:0.750rem;}
-/* 
-.results li .compare-widget__title{margin-top:5px !important} 
-*/
+
 .ant-rate-star.ant-rate-star-full {color: gold;}
 .login-warning-div .ant-message-notice-content i{margin-top: 3rem !important;}
 .ant-input-group-addon .ant-btn-primary{background: #23536b; border-color:#23536b}
@@ -1326,9 +1328,8 @@ border-radius: 0.2rem; font-size: 2rem; width: 100%;}
 /* mohit 17 feb */
 
 .top-nav-link{width:100%; margin:0; padding:0; list-style-type: none;margin-top: 0.5rem;}
-.top-nav-link li{display: inline-block; margin:0 1rem;cursor: pointer;font-weight: 700; font-size: 0.8rem; text-transform: uppercase;vertical-align: middle;}
+.top-nav-link li{display: inline-block; margin:0;font-weight: 700; font-size: 0.8rem; text-transform: uppercase;vertical-align: middle;}
 .top-nav-link li a{margin-top:0 !important}
-
 
 /*
 .top-nav-link li li a{margin-top:0.650rem !important}
@@ -1361,7 +1362,14 @@ border-radius: 0.2rem; font-size: 2rem; width: 100%;}
 .icon-content {width: 25%;font-size: 0.8756rem;}
 .top{margin-left:0 !important; margin-right: 0% !important; margin-top: 0 !important; 
   padding-left:8% !important; padding-right:8% !important;}
+
+  
   }
+
+
+
+
+
   
 
 

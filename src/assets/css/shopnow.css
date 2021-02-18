@@ -1098,8 +1098,8 @@ a.bha-btn-secondry:hover {
 
 .product-xs-list .portfolio-hover {
   position: absolute;
-  width: 20%;
-  height: 80%;
+  width: 40%;
+  height: 60%;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
