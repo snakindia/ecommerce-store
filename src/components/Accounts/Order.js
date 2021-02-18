@@ -86,7 +86,8 @@ class Order extends React.Component {
                                                 </div>
 
                                                 {statusOption.includes(item.status) ? <>
-                                                    <div className="row d-flex justify-content-center padding-lr0">
+                                                    <div className="row d-flex justify-content-center padding-lr0 statusBar" 
+                                                    style={{position:"relative", padding:"2rem 0 5rem"}}>
                                                         <div className="col-12 padding-lr0">
                                                             <ul id="progressbar" className="text-center">
                                                                 {statusOption.map(op => <li
@@ -95,16 +96,22 @@ class Order extends React.Component {
                                                                 )}
                                                             </ul>
                                                         </div>
+                                                        <div className="orderStatus">
+                                                            {statusOption.map(op => <div key={op} className="w-100">
+                                                                <div className="order-steps">
+                                                                    <p className="font-weight-bold small text-left">{op}</p>
+                                                                </div>
+                                                            </div>)}  
+
+                                                        </div>
                                                     </div>
-                                                    <div className="row justify-content-between top">
+                                                    {/* <div className="row justify-content-between top">
                                                         {statusOption.map(op => <div key={op} className="row d-flex icon-content">
-                                                            <div className="d-flex flex-column">
+                                                            <div className="d-flex flex-column order-status">
                                                                 <p className="font-weight-bold small text-left">{op}</p>
                                                             </div>
                                                         </div>)}
-
-
-                                                    </div>
+                                                    </div> */}
                                                 </>
                                                     : <h5 className="redwarn text-danger pl-3">{item.status}</h5>
                                                 }
@@ -139,7 +146,7 @@ class Order extends React.Component {
                                                         <div className="float-left">
                                                             <h5 className="location_head">Billing Address</h5>
                                                             <div className=" padding-top15">
-                                                            <i className="fa fa-phone bha-icon"></i>
+                                                            <i className="fa fa-phone bha-icon mr-2"></i>
                                                             <span className="font-weight-bold" style={{ fontSize: '0.9rem' }}>{formatPhone(billing.phone)} </span>
 
                                                         </div>
@@ -162,7 +169,7 @@ class Order extends React.Component {
                                                         <div className="float-left">
                                                             <h5 className="location_head ">Shipping Address</h5>
                                                             <div className=" padding-top15">
-                                                            <i className="fa fa-phone bha-icon"></i>
+                                                            <i className="fa fa-phone bha-icon mr-2"></i>
                                                             <span className="font-weight-bold" style={{ fontSize: '0.9rem' }}>{formatPhone(address.phone)} </span>
 
                                                         </div>
@@ -192,8 +199,8 @@ class Order extends React.Component {
                                                                         <tr>
                                                                             <th scope="col">Product</th>
                                                                             <th scope="col"></th>
-                                                                            <th scope="col">Item Price</th>
-                                                                            <th scope="col">Item Unit</th>
+                                                                            <th scope="col" style={{ textAlign: 'right' }}>Item Price</th>
+                                                                            <th scope="col" style={{ textAlign: 'right' }}>Item Unit</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -203,42 +210,42 @@ class Order extends React.Component {
                                                                                     product.product_image && product.product_image[0] && product.product_image[0].url ? product.product_image[0].url : ''
                                                                                 } width="72px" height="72px" />
                                                                             </th>
-                                                                            <td style={{ verticalAlign: 'middle' }}>{product.name}</td>
+                                                                            <td style={{ verticalAlign: 'middle'  }}>{product.name}</td>
 
-                                                                            <td style={{ verticalAlign: 'middle' }}>{product.quantity}</td>
-                                                                            <td style={{ verticalAlign: 'middle' }}>${product.price}</td>
+                                                                            <td style={{ verticalAlign: 'middle',textAlign: 'right' }}>{product.quantity}</td>
+                                                                            <td style={{ verticalAlign: 'middle',textAlign: 'right' }}>${product.price}</td>
                                                                         </tr>)}
 
                                                                         <tr>
-                                                                        <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td>
-                                                                            <td colspan="1" className="no-border" style={{ textAlign: 'left' }}>Subtotal</td>
-                                                                            <td colspan="1" className="no-border">${item.subtotal}</td>
+                                                                        {/* <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td> */}
+                                                                            <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Subtotal</td>
+                                                                            <td className="no-border" style={{ textAlign: 'right' }}>${item.subtotal}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                        <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td>
-                                                                            <td colspan="1" className="no-border" style={{ textAlign: 'left' }}>Shipping (Flat Rate)</td>
-                                                                            <td colspan="1" className="no-border">${item.shipping_total}</td>
+                                                                        {/* <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td> */}
+                                                                            <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Shipping (Flat Rate)</td>
+                                                                            <td className="no-border" style={{ textAlign: 'right' }}>${item.shipping_total}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                        <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td>
-                                                                            <td colspan="1" className="no-border" style={{ textAlign: 'left' }}>Tax</td>
-                                                                            <td colspan="1" className="no-border">${item.tax_total}</td>
+                                                                        {/* <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td> */}
+                                                                            <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Tax</td>
+                                                                            <td className="no-border" style={{ textAlign: 'right' }}>${item.tax_total}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                        <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td>
-                                                                            <td colspan="1" className="no-border" style={{ textAlign: 'left' }}>Discount</td>
-                                                                            <td colspan="1" className="no-border">${item.discount_total}</td>
+                                                                        {/* <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td> */}
+                                                                            <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Discount</td>
+                                                                            <td className="no-border" style={{ textAlign: 'right' }}>${item.discount_total}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                        <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td>
-                                                                            <td colspan="1" className="no-border" style={{ textAlign: 'left' }}>Grand Total</td>
-                                                                            <td colspan="1" className="no-border">${item.grand_total}</td>
+                                                                        {/* <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td> */}
+                                                                            <td colspan="3" className="no-border" style={{ textAlign: 'right' }}>Grand Total</td>
+                                                                            <td className="no-border" style={{ textAlign: 'right' }}>${item.grand_total}</td>
                                                                         </tr>
 
-                                                                        <tr style={{ backgroundColor: '#f1f1f1' }}>
-                                                                        <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td>
-                                                                            <td colspan="1" className="no-border" style={{ textAlign: 'left' }}><h4>Amount Paid</h4> </td>
-                                                                            <td colspan="1" className="no-border"><h4>${item.paid ? item.grand_total : 0}</h4></td>
+                                                                        <tr style={{ backgroundColor: '#fff', borderTop:"1px dashed #666" }}>
+                                                                        {/* <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td> */}
+                                                                            <td colspan="3" className="no-border" style={{ textAlign: 'right' }}><h5>Amount Paid</h5> </td>
+                                                                            <td className="no-border" style={{ textAlign: 'right' }}><h5>${item.paid ? item.grand_total : 0}</h5></td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>

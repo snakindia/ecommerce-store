@@ -500,7 +500,7 @@ border-bottom-left-radius: 15px;}
 table.table tr td.no-border { border-bottom: 0 !important;}
 table.table tr td.total-bg {background-color: #f1f1f1; font-size: 1.25rem;color: #333;}
 .my-order-border{border: 1px solid #e0e0e0; overflow: hidden;}
-.my-order-status{ color:#a70e15 !important; font-style: italic; font-size: 1rem }
+.my-order-status{ color:#db0d17 !important; font-style: normal; font-size: 1rem; font-weight: 500;}
 #horizontalTab span.cancel-order a{ width: 120px; text-align: center; display: inline-block; float: right; font-size: 1rem; padding: 5px 10px; border-radius: 0.3rem; background: #23536b; color: #ffffff; }
 .location_head span.edit-address a{ width: 80px; float: right; font-size: 1rem; padding:0px; color: #a70e15; text-decoration: underline; font-size: .75rem; font-weight: normal;}
 #accordion .card .card-header a.btn-link{font-weight: bold; color: #333; text-decoration: none; padding-left:none !important; font-size: 0.950rem}
@@ -520,7 +520,7 @@ border-bottom:2px solid #ccc !important;}
     position: relative; font-weight: 400}
 #progressbar .step0:before { font-family: FontAwesome; content: "\f10c";
     color: #fff}
-#progressbar li:before { width: 40px; height: 40px; line-height: 45px; display: block;
+#progressbar li:before { width: 40px; height: 40px; line-height: 40px; display: block;
     font-size: 20px; background: #C5CAE9; border-radius: 50%; margin: auto;
     padding: 0px; position: relative; z-index: 1}
 #progressbar li:after { content: ''; width: 100%;height: 12px; background: #C5CAE9;
