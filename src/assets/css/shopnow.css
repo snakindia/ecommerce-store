@@ -54,7 +54,7 @@ a.lp-pom-button {
 .product-card-wrapper .slick-slide{width: 100% !important; }
 .shorting-box{margin-top: 1.5rem;}
 .short-items, #shortOption{width: 100% !important;}
-.ant-pagination { float: left !important; margin: 0.2rem 0 !important; border-radius: 0; padding: 0 !important;}
+.ant-pagination { float: left !important; border-radius: 0; padding: 0 !important;}
 .shorting-box{padding-bottom: 1rem !important;}
 .w-100{text-align: left;}
 a.lp-pom-button{width:65%; margin-left: 0 !important;}
@@ -1008,13 +1008,13 @@ a.bha-btn-secondry:hover {
 .grid-switcher {
   float: right;
   margin-left: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 5px;
 }
 .grid-switcher i {
   color: #000;
   font-size: 1rem;
   border: 1px solid #ddd;
-  padding: 0.34rem;
+  padding: 0.4rem;
 }
 #shortOption {
   width: 180px !important;
@@ -1480,11 +1480,16 @@ text-transform: uppercase;}
 border-top:1px solid #f3f3f3;color:#23536b; font-weight: 600;}
 .seatchPanelFooter:hover{color:#23536b}
 
-/* .ant-pagination-simple .ant-pagination-prev, .ant-pagination-simple .ant-pagination-next{
+.ant-pagination-simple .ant-pagination-prev, .ant-pagination-simple .ant-pagination-next{
   border-radius: 0 !important; height: auto !important;padding: 0.098rem 0 !important;
-}
+  margin-top: -2px;}
 .ant-pagination-simple .ant-pagination-simple-pager input{border-radius: 0 !important;margin-top: 0.15rem;
-width: 32px !important;}
+width: 36px !important;}
 .ant-pagination-prev, .ant-pagination-next, .ant-pagination-jump-prev, .ant-pagination-jump-next{
   width:auto !important;
-} */
+}
+
+.ant-pagination-simple .ant-pagination-prev .ant-pagination-item-link, 
+.ant-pagination-simple .ant-pagination-next .ant-pagination-item-link{height: auto !important;}
+
+.bha-review div{overflow-wrap: anywhere !important;word-break: break-word !important;}

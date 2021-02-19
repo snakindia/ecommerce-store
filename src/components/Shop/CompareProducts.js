@@ -31,7 +31,7 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
                         </Breadcrumb>
 
 
-                        <section className="bg-opeque box-shadow footerItems">
+                        <section className="bg-opeque product--heading">
                             <div className="container-fluid">
                                 <h2 className="bha_heading_2 z-index text-blue mb-4">Product Compare</h2>
                             </div>

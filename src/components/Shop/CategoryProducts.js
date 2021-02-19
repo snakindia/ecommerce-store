@@ -10,6 +10,7 @@ import { Select } from 'antd';
 import Loader from '../Loader/Loader'
 import scrollToEl from '../../utils/scrollToEl';
 import { Breadcrumb } from 'antd';
+import noproductImg from "../../assets/images/no-product.png"
 const { Option } = Select;
 class CategoryProducts extends Component {
   constructor(props) {
@@ -220,7 +221,7 @@ class CategoryProducts extends Component {
             {
               total && total > 0 ? <>
 
-                <div className="container shorting-box border-bottom" id="categorycontent">
+                <div className="container-fluid shorting-box border-bottom" id="categorycontent">
                   <div className="row">
                     <div className="col-sm-5 col-md-5 pl-0 pr-0">
                       <div className="short-items">
@@ -292,7 +293,7 @@ class CategoryProducts extends Component {
                 }
 
 
-                <div className="container box-shadow shorting-box">
+                <div className="container-fluid box-shadow shorting-box">
                   <div className="row">
                     <div className="col-sm-4 col-md-4">
                       <div className="short-items">
@@ -328,7 +329,11 @@ class CategoryProducts extends Component {
                 </div>
               </> : <>
                   {
-                    this.props.error ? 'Opps something went wrong...' : <h1 className="noprodct">No Product Found</h1>
+                    this.props.error ? 'Opps something went wrong...' : 
+                    <div style={{width:"100%", textAlign:"center"}}>
+                      <img src={noproductImg}/>
+                    <h1 className="noprodct"><small><span className="noProdictText">No Product</span> found</small></h1>
+                    </div>
                   }
                 </>
 

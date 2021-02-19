@@ -1301,7 +1301,7 @@ object-position: center}
 /*=======View Details added======================*/
 .productbadges ul{padding:0; width:100%;margin-left: -15px;}
 .productbadges ul li{margin:1rem 1rem 1rem 0; display: inline-block;}
-.productbadges ul li img{width:110px; height:80px; object-fit: contain; object-position:top center;}
+.productbadges ul li img{width:90%; height:80px; object-fit: contain; object-position:top center;}
 .detail-breadcrumb{padding:1rem  !important; display: block; width: 100%;}
 
 .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{background:#2d698b !important;}
@@ -1317,10 +1317,12 @@ border-bottom:1px solid rgba(0, 0, 0, 0.05)}
 font-size: 0.850rem;}
 .ant-breadcrumb .ant-breadcrumb-link{color:#000; font-weight: 700;}
 .ant-breadcrumb .ant-breadcrumb-link a:hover{color:#044c72}
-/* .pro-equipment-section span a{font-weight: 700;} */
 .product--heading{margin-bottom: 1.4rem; box-shadow: 0 0 10px #f9f9f9;}
-.noprodct{float:left; padding:1.5rem; text-align: center; box-shadow: 0 0 10px #f9f9f9;
-border-radius: 0.2rem; font-size: 2rem; width: 100%;}
+.noprodct{float:left; padding:0.8rem 1.5rem; text-align: center; /*box-shadow: 0 0 10px #f9f9f9;*/
+border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
+}
+.noprodct small{font-weight: 700 !important;}
+.noprodct small .noProdictText{color:#266e97 !important}
 
 .seeAlllink{float: right; font-size: 0.875rem; text-transform: none; font-family: 'Roboto'; color: #0b3146;
   padding: 0.5rem 0 0; font-weight: 600;}

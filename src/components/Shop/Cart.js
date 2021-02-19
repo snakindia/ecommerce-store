@@ -122,7 +122,7 @@ const Cart = (props) => {
                                                     <div className="col-lg-3 col-sm-6 col-md-6 offset-md-6 float-right">
                                                         <div className="text-right">
                                                             <Link to="/shop/checkout" className="btn-bha-lg darkRed" >
-                                                                Procced to Checkout
+                                                                Proceed to Checkout
                                                             <i className="fas fa-angle-right ml-2"></i>
                                                             </Link>
                                                         </div>
