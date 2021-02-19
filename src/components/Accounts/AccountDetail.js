@@ -62,7 +62,7 @@ class AccountDetail extends React.Component {
                                                             length={50}
                                                             name="first_name"
                                                             formik={formikProps}
-                                                            className="form-control input-control"
+                                                            className="form-control input-control new-input-txt"
                                                             placeholder="First Name" autoComplete="off"
                                                         />
                                                     </div>
@@ -74,7 +74,7 @@ class AccountDetail extends React.Component {
                                                             length={50}
                                                             name="last_name"
                                                             formik={formikProps}
-                                                            className="form-control input-control"
+                                                            className="form-control input-control new-input-txt"
                                                             placeholder="Last Name" autoComplete="off"
                                                         />
                                                     </div>
@@ -86,7 +86,7 @@ class AccountDetail extends React.Component {
                                                     length={50}
                                                     name="full_name"
                                                     formik={formikProps}
-                                                    className="form-control input-control"
+                                                    className="form-control input-control new-input-txt"
                                                     placeholder="Display Name" autoComplete="off"
                                                 />
 
@@ -103,7 +103,7 @@ class AccountDetail extends React.Component {
                                             </div>
                                             <Error el={['first_name','last_name','full_name']} formik={formikProps} />
                                             <div className="col-lg-12 pr-0 pl-0 text-sm-right">
-                                                <button type="submit" className="btn bha-btn-primary m-0 mt-2 font-weight-bold" >Update</button>
+                                                <button type="submit" className="btn bha-btn-new-blue m-0 mt-2 font-weight-bold" >Update</button>
                                             </div>
                                         </Form>
                                         }
@@ -165,7 +165,7 @@ class AccountDetail extends React.Component {
                                             </div>
                                             <Error el={['current_password','password','password_confirm','same']} formik={formikProps} />
                                             <div className="col-lg-12 pr-0 pl-0 text-sm-right">
-                                                <button type="submit" className="btn bha-btn-primary  m-0 mt-2 font-weight-bold" >Change Password</button>
+                                                <button type="submit" className="btn bha-btn-new-blue  m-0 mt-2 font-weight-bold" >Change Password</button>
                                             </div>
                                         </Form>
                                         }

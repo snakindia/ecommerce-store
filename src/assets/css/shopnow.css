@@ -1429,7 +1429,6 @@ position: absolute; left:initial !important}
 
 @media(max-width:768px){
 .btn-bha-lg{display: block; width:100%; margin: 1rem 0 0.3rem;}
-.ant-popover{width: 55% !important;}
 }
 
 .info{padding:0.5rem; background:#fff; margin: 0;}
