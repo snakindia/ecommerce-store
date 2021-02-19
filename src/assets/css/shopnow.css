@@ -1008,7 +1008,7 @@ a.bha-btn-secondry:hover {
 .grid-switcher {
   float: right;
   margin-left: 1rem;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 }
 .grid-switcher i {
   color: #000;
@@ -1316,7 +1316,7 @@ a.bha-btn-secondry:hover {
   height: auto;
   max-height: none;
   margin-right: 17px;
-  border: 1px solid #888;
+  border: 1px solid rgb(214, 214, 214);
 }
 .compare-widget__title {
   font-size: 12px;
@@ -1476,3 +1476,16 @@ text-transform: uppercase;}
 @media(min-width:1200px){
   .order-steps{width:25% !important; white-space: nowrap;}
 }
+
+.seatchPanelFooter{background: #fff; padding: 0.8rem 0 0; width: 100%; display: block; text-align: center;
+border-top:1px solid #f3f3f3;color:#23536b; font-weight: 600;}
+.seatchPanelFooter:hover{color:#23536b}
+
+/* .ant-pagination-simple .ant-pagination-prev, .ant-pagination-simple .ant-pagination-next{
+  border-radius: 0 !important; height: auto !important;padding: 0.098rem 0 !important;
+}
+.ant-pagination-simple .ant-pagination-simple-pager input{border-radius: 0 !important;margin-top: 0.15rem;
+width: 32px !important;}
+.ant-pagination-prev, .ant-pagination-next, .ant-pagination-jump-prev, .ant-pagination-jump-next{
+  width:auto !important;
+} */

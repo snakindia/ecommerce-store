@@ -181,11 +181,11 @@ class SearchAll extends Component {
                     <div className="bgWhite padding-bottom">
                         <div className="container-fluid">
 
-                                    <Breadcrumb>
-                                        <Breadcrumb.Item> <Link to="/shop">Shop</Link></Breadcrumb.Item>
-                                        <Breadcrumb.Item> Search</Breadcrumb.Item>
-                                    </Breadcrumb>
-                            <section className="bg-opeque box-shadow footerItems">
+                            <Breadcrumb>
+                                <Breadcrumb.Item> <Link to="/shop">Shop</Link></Breadcrumb.Item>
+                                <Breadcrumb.Item> Search</Breadcrumb.Item>
+                            </Breadcrumb>
+                            <section className="bg-opeque box-shadow">
                                 <div className="container-fluid">
                                     <h2 className="bha_heading_2 z-index text-blue mb-4">
                                         Search result for {str}

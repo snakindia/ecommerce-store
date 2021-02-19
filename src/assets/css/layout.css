@@ -694,12 +694,10 @@ border-bottom: 2px solid #24546c !important;}
     display: block;
     position: relative;
     margin: 0;
-    padding:0.8rem 2rem 0.3rem 0.8rem !important;
+    padding:0.8rem 0.8rem 0.8rem 0.6rem !important;
     color: #555;
     font-weight: 500;
-    /*text-shadow: 0 1px #fff;*/
     border-bottom: 1px solid #f2f2f2 !important; transition: 0.1s;
-    /*border-radius: 3px;*/
 }
 .results a img{width: 50px; border-color:#ddd;}
 .results a h3{margin-top:-2px;}

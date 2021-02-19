@@ -1276,13 +1276,15 @@ float:none !important;font-size: 0.875rem !important; }
 .seachbox-top-bar {padding: 10px;}
 .seachbox-top-bar span .ant-input{border:1px solid rgb(209, 209, 209); box-shadow: none;}
 
-.results { max-height: 300px; overflow-y: scroll; border:none !important; box-shadow: none !important;}
+.results { max-height: 300px; overflow-y: scroll; border:none !important; box-shadow: none !important;
+  margin:0.4rem 0 }
 .results li{margin-right: 8px;}
 .results li a:hover{background:#e6f7ff !important; color:#000}
 .results li .media{padding:0 !important}
-.results li .media .ant-image{margin:0 0 1rem !important; width: 60px; object-fit: cover;
+.results li .media .ant-image{margin:0 !important; width: 60px; object-fit: cover;
 object-position: center}
 .results li .media .media-body{margin-left:0.750rem;}
+.results a img{width: 100%; padding:0.3rem}
 
 .ant-rate-star.ant-rate-star-full {color: gold;}
 .login-warning-div .ant-message-notice-content i{margin-top: 3rem !important;}
