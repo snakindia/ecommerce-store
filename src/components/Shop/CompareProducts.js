@@ -39,7 +39,7 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
                         <section >
                             <div className="container-fluid pb-5 mb-2 pt-4">
                                 <div className="comparison-table">
-                                    <table className="table TFtableCol">
+                                    <table className="table table-bordered TFtableCol">
                                         <thead className="bg-secondary">
                                             <tr>
                                                 <td className="align-middle">

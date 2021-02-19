@@ -69,13 +69,15 @@ class CompareHoc extends Component {
                             <Panel header={<>Compare<span> ({data.length})</span></>} key="1" >
                                 <div id="faq1" className="collapse show" >
                                     <div className="card-body" id="myDiv">
-                                        <ul className="compare-widget__products">
+                                        <ul className="compare-widget__products pl-0">
                                             {data.map(datum =>
-                                                <li className="compare-widget__product">
+                                                <li className=" media compare-widget__product">
                                                     <Image height="40px" width="40px" src="images/product/img1.jpg" preview={false} alt="" className="compare-widget__image" />
+                                                   <div className="media-body">
                                                     <h3 className="compare-widget__title">
                                                         {datum.name}
                                                     </h3>
+                                                    </div>
                                                     <button className="compare-widget__product-remove-trigger" title="Remove" onClick={e => this.removeCompare(datum)}>
                                                         Remove Product
                                                          </button>

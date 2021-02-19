@@ -1405,13 +1405,13 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
       left: 72% !important;}
   }
   @media(min-width: 768px){
-    .search-bar-popup{left: 61% !important;top: 14% !important;}
+    .search-bar-popup{left: 65.5% !important;top: 14% !important;}
   }
   @media(min-width: 992px){
-    .search-bar-popup{left: 67%!important;top: 4.5% !important;}
+    .search-bar-popup{left: 70.6%!important;top: 4.5% !important;}
   }
   @media(min-width: 1200px){
-    .search-bar-popup{left: 74%!important;top: 4.5% !important;}
+    .search-bar-popup{left: 78.3%!important;top: 4.5% !important;}
   }
   
 
