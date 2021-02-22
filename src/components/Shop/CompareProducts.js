@@ -24,7 +24,7 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
             <div className="pagewrap">
                 <div className="bgWhite padding-bottom">
                     <div className="container-fluid">
-                        <Breadcrumb>
+                        <Breadcrumb style={{padding:"1rem 0"}}>
                             <Breadcrumb.Item> <Link to="/">Home</Link></Breadcrumb.Item>
                             <Breadcrumb.Item> <Link to="/shop">Shop</Link></Breadcrumb.Item>
                             <Breadcrumb.Item>Compare </Breadcrumb.Item>

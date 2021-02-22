@@ -51,7 +51,7 @@ a.lp-pom-button {
 .shop-now-page-inner{padding:0 !important;}
 .shop-now-page-inner .pro-equipment-section{padding:1rem}
 .pro-equipment-section .productitem-auto .slick-slide{width: 100% !important; }
-.product-card-wrapper .slick-slide{width: 100% !important; }
+/* .product-card-wrapper .slick-slide{width: 100% !important; } */
 .shorting-box{margin-top: 1.5rem;}
 .short-items, #shortOption{width: 100% !important;}
 .ant-pagination { float: left !important; border-radius: 0; padding: 0 !important;}
@@ -1098,7 +1098,7 @@ a.bha-btn-secondry:hover {
 
 .product-xs-list .portfolio-hover {
   position: absolute;
-  width: 25%;
+  width: 20%;
   height: 80%;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;

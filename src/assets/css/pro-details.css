@@ -409,11 +409,11 @@ background-position: center center;background-size:contain; padding: 0;}*/
 .ant-rate-star.ant-rate-star-full{color:#ff9c00 !important}
 .ant-form-item-explain-error{padding:0.5rem 0 !important; color:#f00 !important; font-weight: 500;}
 
-.ant-btn.ant-btn-primary{background: #23536b !important;
+.ant-form-item-control-input-content .ant-btn.ant-btn-primary{background: #23536b !important;
     color: #fff !important;
     font-weight: 500;
     padding: 0.650rem 1.5rem 0.4rem !important;
     border-radius: 0.3rem;
     text-transform: uppercase; height: auto !important; border:none !important}
-.ant-btn.ant-btn-primary:hover{ background: #5ea7bd !important;}
-.ant-btn.ant-btn-primary:focus{outline: none !important; box-shadow: none !important;}
+.ant-form-item-control-input-content .ant-btn.ant-btn-primary:hover{ background: #5ea7bd !important;}
+.ant-form-item-control-input-content .ant-btn.ant-btn-primary:focus{outline: none !important; box-shadow: none !important;}

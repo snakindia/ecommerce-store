@@ -37,14 +37,14 @@ table .bg-primary {
 
 /* 19 feb by mohit */
 
-.ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow {top:7px !important;}
+/* .ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow {top:15px !important;} */
 .comparison-table .comparison-item .remove-item {top: .6547rem;right: .6547rem;}
 .TFtableCol thead tr td{padding:0 !important;}
 .TFtableCol tbody tr th, .TFtableCol tbody tr td{padding:0.75rem 0.6547rem !important;}
 .TFtableCol tr td:nth-child(even) {background: #fff !important;}
 
-.compare-collaspe-div {width: 400px;position: fixed;bottom: 0;right: 0.8674rem;box-shadow:rgb(0 0 0 / 50%) 0px 0px 10px;
-  z-index: 2;
+.compare-collaspe-div {width: 350px;position: fixed;bottom: 0;right: 0.8674rem;box-shadow:rgb(0 0 0 / 50%) 0px 0px 10px;
+  z-index: 10;
 }
 .compare-widget__product {position: relative;padding:0.8674rem 2rem 0.8674rem 0 !important;
   text-align: left;border-bottom: 1px solid #f4f4f4;width: 100% !important;
@@ -58,7 +58,7 @@ table .bg-primary {
 }
 
 .compare-collaspe-div > .ant-collapse > .ant-collapse-item > .ant-collapse-header {
-  background: #23536b !important;color: #fff;border-bottom: 0px solid #eee!important;
+  background: #0b4867 !important;color: #fff;border-bottom: 0px solid #eee!important;
   border-right: 0px solid #b3b3b3!important;border-left: 0px solid #b3b3b3!important;
 }
 .compare-collaspe-div > .ant-collapse > .ant-collapse-item > .ant-collapse-header span svg{ transform: rotate(-90deg);}
