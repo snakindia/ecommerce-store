@@ -1274,7 +1274,7 @@ float:none !important;font-size: 0.875rem !important; }
 .user-setting-menu li:hover{background:#e6f7ff}
 
 
-.seachbox-top-bar {padding:13px 10px 1px 10px;}
+.seachbox-top-bar {padding:13px 10px 13px 10px;}
 .seachbox-top-bar span .ant-input{border:1px solid rgb(209, 209, 209); box-shadow: none;}
 
 .results { max-height: 300px; overflow-y: scroll; border:none !important; box-shadow: none !important;
