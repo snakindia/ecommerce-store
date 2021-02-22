@@ -192,7 +192,7 @@ class Order extends React.Component {
                                                     <div className="row">
                                                         <div className="col-sm-12 col-md-12">
 
-                                                            <div className="table-responsive">
+                                                            <div className="table-responsive order-summary-table">
                                                                 <h5 className="location_head">Order Summary</h5><table className="table">
 
                                                                     <thead>
@@ -245,7 +245,7 @@ class Order extends React.Component {
                                                                         <tr style={{ backgroundColor: '#fff', borderTop:"1px dashed #666" }}>
                                                                         {/* <td colspan="2" className="no-border" style={{ textAlign: 'right' }}></td> */}
                                                                             <td colspan="3" className="no-border" style={{ textAlign: 'right' }}><h5>Amount Paid</h5> </td>
-                                                                            <td className="no-border" style={{ textAlign: 'right' }}><h5>${item.paid ? item.grand_total : 0}</h5></td>
+                                                                            <td className="no-border" style={{ textAlign: 'right' }}><h5 className="ml-4">${item.paid ? item.grand_total : 0}</h5></td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>

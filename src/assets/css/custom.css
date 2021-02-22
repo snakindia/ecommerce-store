@@ -887,7 +887,7 @@ body {
   text-align: right; margin-top: 0.4rem;}
 
 @media(max-width:640px){
-  .call-us { font-size: 1.5rem !important;
+  .call-us { font-size: 1.2rem !important;
     font-weight: 700 !important;
     padding-left: 7rem !important;
     margin-top:0;}
@@ -1385,11 +1385,11 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
 
 
   @media (max-width: 45em) {
-    .add-address{position: static; margin:0.5rem 0 !important;}
+    .add-address{position: static !important; margin:0.5rem 0 !important;}
   }
   .add-address{position: absolute;right: 3.8%;top: 0.8%;}
   .tabs span.add-address:hover { color: #fff !important;}
-  .input-control.new-input-txt {font-size: 16px;}
+  .input-control.new-input-txt {font-size: 14px;}
 
  
   .search-bar-popup .ant-popover-arrow {
@@ -1422,3 +1422,29 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
 .location_head a{color:#0e415a; font-size: 0.950rem; font-weight: 600;}
 .location_head a:hover{color:#0e415a;}
 
+/* 22 feb by mohit */
+
+@media (max-width: 800px){
+.footer-main .broucher-inner .btn.bha-btn-primary{width: 100% !important;text-align: center;}
+.order-summary-table table tbody tr th .ant-image{padding-right: 7px;}
+
+}
+
+@media(max-width: 640px){
+  .footer-bottom .pagewrap .socialLink{
+    margin-top: .8574rem !important;}
+  }
+
+
+.seachbox-top-bar .results{margin:0}
+.shorting-box .media a.like-button {
+  margin-top: 1.8674rem !important;
+}
+
+@media(max-width: 480px){
+  .order-summary-table table tbody tr td{font-size: .7564rem !important;}
+  .shorting-box .media a.like-button{margin-top: 1rem !important;}
+  }
+  .comparison-table table {
+  table-layout: auto !important; 
+  }
