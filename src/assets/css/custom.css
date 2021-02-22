@@ -161,7 +161,7 @@ h6 {
     background: transparent !important;
   }
   .top-header {
-    z-index: 1000 !important;
+    z-index: 10001 !important;
   }
   .wsmobileheader > .smllogo {
     width: 180px !important;
@@ -777,6 +777,7 @@ body {
   .caption{top:10% !important;}
   .bottom-navigation{bottom:0 !important;}
   .placement-client .slick-slide{ margin:17px;}
+  
 
 }
 
