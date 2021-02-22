@@ -38,7 +38,7 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
                         </section>
                         <section >
                             <div className="container-fluid pb-5 mb-2 pt-4">
-                                <div className="comparison-table">
+                                <div className="comparison-table table-responsive">
                                     <table className="table table-bordered TFtableCol">
                                         <thead className="bg-secondary">
                                             <tr>
@@ -47,7 +47,7 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
                                                 </td>
                                                 {data.map(d=>
                                                 <td className="p-0" key={d.id}>
-                                                    <div className="comparison-item border"><span className="remove-item" onClick={e=>onClick(d)}><i className="fa fa-close"></i></span>
+                                                    <div className="comparison-item"><span className="remove-item" onClick={e=>onClick(d)}><i className="fa fa-close"></i></span>
                                                         <Link className="comparison-item-thumb" to={`/shop/${d.id}`}>
                                                             <Image preview={false} item={d} alt="" height="200px"  width="200px"/>
                                                             </Link>
