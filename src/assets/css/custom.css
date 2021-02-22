@@ -114,7 +114,7 @@
   color: #000;
 }
 .logIn .modal-content {
-  border-radius: 0 !important;
+  /* border-radius: 0 !important; */
   box-shadow: none !important;
   background: transparent !important;
   max-width: 600px !important;
@@ -820,8 +820,8 @@ body {
   .iMg_pos{height:auto !important; width:100% !important}
   .breadcrumb-container{margin-top:22px }
   .avtar { position: absolute; top: 0px !important;  left: 1rem; width: 80px;}
-  .call-us { font-size: 2rem !important; font-weight: 700; padding-left: 7rem !important;
-    float: left; text-align: left; width: 100%; max-height: 100px; padding-top: 0;
+  .call-us { font-size: 1.5rem !important; font-weight: 700; padding-left: 7rem !important;
+    float: left; text-align: left; width: 100%; max-height: 100px; padding-top: 15px;
     line-height: 2.5rem;}
   .socialLink { width: 100%; margin-top: 1.2rem !important;}
   .wsmenu > .wsmenu-list > li > .navtext{padding-left:15px !important}
@@ -887,7 +887,7 @@ body {
   text-align: right; margin-top: 0.4rem;}
 
 @media(max-width:640px){
-  .call-us { font-size: 1.5rem !important;
+  .call-us { font-size: 1.3rem !important;
     font-weight: 700 !important;
     padding-left: 7rem !important;
     margin-top:0;}
@@ -1228,7 +1228,7 @@ margin: 0.75rem auto;text-align: center;
 
 /*===== added Login setting css on 15/02/21===================*/
 
-#myModalView .modal-dialog .modal-content{border-radius: 0 !important;}
+/* #myModalView .modal-dialog .modal-content{border-radius: 0 !important;} */
 .leftWrap{width: 100%; height: 100%; position: relative;}
 .leftWrap::before{content:''; position: absolute; top:0; left:0; right:0; bottom:0; background:rgba(4,10,87,0.75);}
 .LoginLeft{position: absolute; top:15%; left:0; text-align: center;}
@@ -1273,7 +1273,7 @@ float:none !important;font-size: 0.875rem !important; }
 .user-setting-menu li:hover{background:#e6f7ff}
 
 
-.seachbox-top-bar {padding: 10px;}
+.seachbox-top-bar {padding:13px 10px 1px 10px;}
 .seachbox-top-bar span .ant-input{border:1px solid rgb(209, 209, 209); box-shadow: none;}
 
 .results { max-height: 300px; overflow-y: scroll; border:none !important; box-shadow: none !important;
@@ -1411,7 +1411,7 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
     .search-bar-popup{left: 70.6%!important;top: 4.5% !important;}
   }
   @media(min-width: 1200px){
-    .search-bar-popup{left: 76.3%!important;top: 4.5% !important;}
+    .search-bar-popup{left: 76.3%!important;top: 5.5% !important;}
   }
   
 

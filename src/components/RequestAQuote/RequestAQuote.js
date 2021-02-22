@@ -227,8 +227,7 @@ class RequestAQuote extends Component {
                       <div className="col-lg-12">
                         <div className="form-group mb-1">
                           <label htmlFor="company" style={{width:'100%'}} >Message *</label>
-                          <Field
-                          style={{width:'100%'}} 
+                          <Field 
                             maxLength="100"
                             component="textarea"
                             rows="2"

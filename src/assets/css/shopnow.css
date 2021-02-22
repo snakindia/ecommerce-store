@@ -57,7 +57,7 @@ a.lp-pom-button {
 .ant-pagination { float: left !important; border-radius: 0; padding: 0 !important;}
 .shorting-box{padding-bottom: 1rem !important;}
 .w-100{text-align: left;}
-a.lp-pom-button{width:65%; margin-left: 0 !important;}
+a.lp-pom-button{width:auto; margin-left: 0 !important;}
 .ant-select{width: 100% !important;}
 .main-header .logo-header{width: 75px !important;}
 }
@@ -1448,13 +1448,14 @@ text-transform: uppercase;}
 .orderStatus .w-100{width:auto;}
 .pa{padding:15px 0}
 .orderStatus{ transform: translate(-46%, -10%) !important; margin:0 0.2rem}
-  }
+}
 @media(min-width:640px){
   .orderStatus{left:20px}
   .order-steps{width:85px !important;}
   .orderStatus{position: absolute; top: 60%; display: flex;
     width: 100%; left: 50%; transform: translate(-42%, -10%);}
   .orderStatus .w-100{width: 100% !important;}
+ 
   }
 
 @media(max-width:768px){
@@ -1462,6 +1463,8 @@ text-transform: uppercase;}
   .order-steps{width:80px !important; overflow-wrap: break-word !important; font-size: 100%;}
   .orderStatus{position: absolute; top: 50%; display: flex;
     width: 100%; left: 50%; transform: translate(-42%, -10%);}
+  .bg-opeque{text-align: left;}
+  .sidebar{display: none !important;}
     
   }
 
@@ -1493,3 +1496,11 @@ width: 36px !important;}
 .ant-pagination-simple .ant-pagination-next .ant-pagination-item-link{height: auto !important;}
 
 .bha-review div{overflow-wrap: anywhere !important;word-break: break-word !important;}
+
+/*======Added css on 22 Feb, 2021=============================================*/
+.form-control-textarea{display: block; width: 100%;padding: .375rem .75rem;
+  background-color: transparent !important;  border: 1px solid #ced4da;
+  border-radius: .25rem !important;transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;}
+
+.form-control-textarea:focus{ background-color: #fff !important;border: 1px solid #ced4da;}
+
