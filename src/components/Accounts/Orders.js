@@ -131,7 +131,7 @@ class Orders extends React.Component {
                         <span className="font-weight-bold">{found} Orders in</span>
                       </div>
                     </div>
-                    <div className="col-xs-12 col-sm-4 col-md-4 ">
+                    <div className="col-xs-12 col-sm-4 col-md-4 pr-0">
                       <div className="short-items">
                         <Select
                           showSearch={false}
@@ -147,7 +147,7 @@ class Orders extends React.Component {
 
                       </div>
                     </div>
-                    <div className="col-xs-12 col-sm-4 col-md-4">
+                    <div className="col-xs-12 col-sm-4 col-md-4 pr-0">
                       <div className="short-items">
                         {tab == '1' && <Select
                           showSearch={false}
