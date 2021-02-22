@@ -92,7 +92,7 @@ class Wishlists extends React.Component {
                                                 <span className="font-weight-bold">{found} Products in</span>
                                             </div>
                                         </div>
-                                        <div className="col-xs-12 col-sm-4 col-md-4 pl-0">
+                                        <div className="col-xs-12 col-sm-4 col-md-4 pr-0">
                                             <div className="short-items">
                                                 <Select
                                                     showSearch={false}

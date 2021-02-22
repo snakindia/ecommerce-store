@@ -1445,7 +1445,20 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
 @media(max-width: 480px){
   .order-summary-table table tbody tr td{font-size: .7564rem !important;}
   .shorting-box .media a.like-button{margin-top: 1rem !important;}
+
+  .product-xs-list .portfolio-hover{width:100% !important;}
+  .ant-image {margin:0 auto;}
+  
+
+  
+.media-body.order-2.order-lg-1{padding-left: 0px !important; margin:5px auto 0 !important;width: 100%;text-align: center;}
+.media-body.order-2.order-lg-1 .d-block.float-left.w-100{text-align: center;margin-top: 10px !important;}
   }
+
+
+
+
+
   .comparison-table table {
   table-layout: auto !important; 
   }
