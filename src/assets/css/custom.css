@@ -718,7 +718,7 @@ text-align: center;width: 94% !important;}
 .iMg_pos{height: 850px !important; width: 90% !important; padding:1rem 0 !important}
 .contentDescript{margin-top: 6.2rem !important;}
 .item-pro-inner{float:left !important; width: 100% !important}
-.bg-opeque{float:left !important; width: 100%; padding: 2rem 0 !important;}
+.bg-opeque{float:none !important; width: 100%; padding: 2rem 0 !important; display: flex;}
 .bg-opeque h2{margin: 0 !important}
 .banner-container-xxs .carousel-indicators{bottom:110px !important}
 .chat-button{display: none}
@@ -1216,7 +1216,7 @@ margin: 0.75rem auto;text-align: center;
 .total-product-price div span {font-size: 1rem;padding-right:5px;}
 }
 @media (max-width: 768px){
-  .topPadding{padding-top:8rem !important;}
+  .topPadding{padding-top:9rem !important;}
   .call-us-mob {padding: 1rem 0 0 0 !important;}
   .total-product-price div span {font-size: 1.285rem;}
   .order-summary .product-cart-detail .product-specification .ant-image{width:100%;}

@@ -23,7 +23,7 @@
 .toolTipContainer span .tooltip-hover-text{color:#fff !important;}
 .pro_Price .currecny span.strike{color:#afafaf !important}
 .pro_Price .currecny span.sp-price{ color: #30373b !important;}
-.bg-opeque { padding: 2rem 0 2rem 0 !important; float: left !important;}
+.bg-opeque { padding: 2rem 0 2rem 0 !important; float: none !important; display:flex}
 /* .placement-client .bhaClient {margin-bottom: 0;} */
 .slick-track{margin-left: 0 !important;}
 /* .pro-equipment-section .productitem-auto .slick-slide{width: 25% !important; } */
@@ -51,7 +51,7 @@ a.lp-pom-button {
 .shop-now-page-inner{padding:0 !important;}
 .shop-now-page-inner .pro-equipment-section{padding:1rem}
 .pro-equipment-section .productitem-auto .slick-slide{width: 100% !important; }
-/* .product-card-wrapper .slick-slide{width: 100% !important; } */
+.product-card-wrapper .slick-slide{width: 100% !important; }
 .shorting-box{margin-top: 1.5rem;}
 .short-items, #shortOption{width: 100% !important;}
 .ant-pagination { float: left !important; border-radius: 0; padding: 0 !important;}
@@ -1484,8 +1484,8 @@ border-top:1px solid #f3f3f3;color:#23536b; font-weight: 600;}
 .seatchPanelFooter:hover{color:#23536b}
 
 .ant-pagination-simple .ant-pagination-prev, .ant-pagination-simple .ant-pagination-next{
-  border-radius: 0 !important; height: auto !important;padding: 0.098rem 0 !important;
-  margin-top: -2px;}
+  border-radius: 0 !important; height: 30px !important;padding: 0.098rem 0 !important;
+  margin-top: 0;}
 .ant-pagination-simple .ant-pagination-simple-pager input{border-radius: 0 !important;margin-top: 0.15rem;
 width: 36px !important;}
 .ant-pagination-prev, .ant-pagination-next, .ant-pagination-jump-prev, .ant-pagination-jump-next{
