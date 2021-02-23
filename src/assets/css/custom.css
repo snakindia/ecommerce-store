@@ -1364,14 +1364,14 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
   .top-nav-link{text-align: center;}
   .ant-popover.mini-cart-popup{width: 55% !important;}
 }
-@media screen and (max-width: 992px){
+@media(max-width: 992px){
 .icon-content {width: 25%;font-size: 0.8756rem;}
 .top{margin-left:0 !important; margin-right: 0% !important; margin-top: 0 !important; 
   padding-left:8% !important; padding-right:8% !important;}
-
-  
+.media-body.order-2.order-lg-1 {
+    padding-left: 0px !important;
   }
-
+}
 
 /*----Added last child------------------*/
 .top-nav-link li:last-child{margin-right:0; cursor: pointer;}
@@ -1396,7 +1396,20 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
   .search-bar-popup .ant-popover-arrow {
     left: 90% !important;
   }
+  .search-bar-popup{
+    /*
+    left: 1190px !important;
+    
+    z-index: 10001;
+    position: fixed;
+    width: 300px;
+    transform-origin: 50% -4px;
+    
+    top: 33px !important;
+    */
+  }
 
+  /*
   @media(max-width: 768px){
     .search-bar-popup{left: 26%!important;top: 22% !important;}
   }
@@ -1412,9 +1425,9 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
     .search-bar-popup{left: 70.6%!important;top: 4.5% !important;}
   }
   @media(min-width: 1200px){
-    .search-bar-popup{left: 76.3%!important;top: 4.5% !important;}
+    .search-bar-popup{left: 78.3%!important;top: 4.5% !important;}
   }
-  
+  */
 
   
 /*-----Added Naveen---*/
@@ -1448,17 +1461,21 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
 
   .product-xs-list .portfolio-hover{width:100% !important;}
   .ant-image {margin:0 auto;}
-  
-
-  
-.media-body.order-2.order-lg-1{padding-left: 0px !important; margin:5px auto 0 !important;width: 100%;text-align: center;}
-.media-body.order-2.order-lg-1 .d-block.float-left.w-100{text-align: center;margin-top: 10px !important;}
+  .media-body.order-2.order-lg-1{padding-left: 0px !important; margin:5px auto 0 !important;width: 100%;text-align: center;}
+  .media-body.order-2.order-lg-1 .d-block.float-left.w-100{text-align: center;margin-top: 10px !important;}
+  .tabs span.add-address{width:100%;}
+  .tabs span.add-address a{width:100%;}
   }
 
 
+  .comparison-table table {table-layout: auto !important;}
+
+/*
+  .tabs span.add-address a{
+    background: #23536b;color: #fff !important;padding: 0.5rem 1.5rem;border-radius: 0.3rem;text-transform: uppercase;
+      font-size: 0.875rem;font-weight: 600;text-align: center;box-shadow: none !important;border:0 !important;vertical-align: bottom;} */
+      .tabs span.add-address a:hover{background: #5ea7bd !important;transition: 0.3s;color: #fff;}
 
 
 
-  .comparison-table table {
-  table-layout: auto !important; 
-  }
+      
