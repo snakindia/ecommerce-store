@@ -114,7 +114,7 @@
   color: #000;
 }
 .logIn .modal-content {
-  border-radius: 0 !important;
+  /* border-radius: 0 !important; */
   box-shadow: none !important;
   background: transparent !important;
   max-width: 600px !important;
@@ -718,7 +718,7 @@ text-align: center;width: 94% !important;}
 .iMg_pos{height: 850px !important; width: 90% !important; padding:1rem 0 !important}
 .contentDescript{margin-top: 6.2rem !important;}
 .item-pro-inner{float:left !important; width: 100% !important}
-.bg-opeque{float:left !important; width: 100%; padding: 2rem 0 !important;}
+.bg-opeque{float:none !important; width: 100%; padding: 2rem 0 !important; display: flex;}
 .bg-opeque h2{margin: 0 !important}
 .banner-container-xxs .carousel-indicators{bottom:110px !important}
 .chat-button{display: none}
@@ -821,8 +821,8 @@ body {
   .iMg_pos{height:auto !important; width:100% !important}
   .breadcrumb-container{margin-top:22px }
   .avtar { position: absolute; top: 0px !important;  left: 1rem; width: 80px;}
-  .call-us { font-size: 2rem !important; font-weight: 700; padding-left: 7rem !important;
-    float: left; text-align: left; width: 100%; max-height: 100px; padding-top: 0;
+  .call-us { font-size: 1.5rem !important; font-weight: 700; padding-left: 7rem !important;
+    float: left; text-align: left; width: 100%; max-height: 100px; padding-top: 15px;
     line-height: 2.5rem;}
   .socialLink { width: 100%; margin-top: 1.2rem !important;}
   .wsmenu > .wsmenu-list > li > .navtext{padding-left:15px !important}
@@ -1216,7 +1216,7 @@ margin: 0.75rem auto;text-align: center;
 .total-product-price div span {font-size: 1rem;padding-right:5px;}
 }
 @media (max-width: 768px){
-  .topPadding{padding-top:8rem !important;}
+  .topPadding{padding-top:9rem !important;}
   .call-us-mob {padding: 1rem 0 0 0 !important;}
   .total-product-price div span {font-size: 1.285rem;}
   .order-summary .product-cart-detail .product-specification .ant-image{width:100%;}
@@ -1229,7 +1229,7 @@ margin: 0.75rem auto;text-align: center;
 
 /*===== added Login setting css on 15/02/21===================*/
 
-#myModalView .modal-dialog .modal-content{border-radius: 0 !important;}
+/* #myModalView .modal-dialog .modal-content{border-radius: 0 !important;} */
 .leftWrap{width: 100%; height: 100%; position: relative;}
 .leftWrap::before{content:''; position: absolute; top:0; left:0; right:0; bottom:0; background:rgba(4,10,87,0.75);}
 .LoginLeft{position: absolute; top:15%; left:0; text-align: center;}
@@ -1274,7 +1274,7 @@ float:none !important;font-size: 0.875rem !important; }
 .user-setting-menu li:hover{background:#e6f7ff}
 
 
-.seachbox-top-bar {padding: 10px;}
+.seachbox-top-bar {padding:13px 10px 13px 10px;}
 .seachbox-top-bar span .ant-input{border:1px solid rgb(209, 209, 209); box-shadow: none;}
 
 .results { max-height: 300px; overflow-y: scroll; border:none !important; box-shadow: none !important;
@@ -1426,6 +1426,7 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
   }
   @media(min-width: 1200px){
     .search-bar-popup{left: 78.3%!important;top: 4.5% !important;}
+    .search-bar-popup{left: 76.3%!important;top: 5.5% !important;}
   }
   */
 

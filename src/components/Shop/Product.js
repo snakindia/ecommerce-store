@@ -16,8 +16,7 @@ export default class Product extends Component {
         };
     }
 
-
-
+    
     render() {
         const { item } = this.props;
         const hasPrice = item && (item.regular_price || item.sale_price) ? true : false;

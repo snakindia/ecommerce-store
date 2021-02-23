@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Breadcrumb } from 'antd';
 import Loader from '../../Loader/Loader'
 import QuickView from '../QuickView'
-import { addOrder, updateAddress, getPaymentMethod, getShippingMethod, getPaymentSettingsMethod } from '../store/Actions';
+import { addOrder, updateAddress, getPaymentMethod, getShippingMethod, getPaymentSettingsMethod,applycoupon } from '../store/Actions';
 import { getOrders, logout } from '../../Accounts/store/Actions';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'antd';
@@ -253,7 +253,7 @@ class Checkout extends Component {
             // payment_method:'',
             // payment_method_gateway:'',
             // payment_method_id:'',
-            shipping_method_id:''
+            shipping_method_id:'',
         }
         const pannelstep = type == 'billing' ? 3 : type == 'shipping' ? 4 : 3;
         if(type=='shipping'){
@@ -498,6 +498,9 @@ class Checkout extends Component {
                                                                 shipping={shipping}
                                                                 tax={tax}
                                                                 subtotal={subtotal}
+                                                                coupon={cart.coupon}
+                                                                couponDiscount={cart.couponDiscount}
+                                                                applycoupon={this.props.applycoupon}
                                                             />
                                                             {/* {cart.payment_method_id && <div className="form-group mt-3">
                                                                 {
@@ -552,6 +555,7 @@ const mapDispatchToProps = dispatch => ({
     getPaymentSettingsMethod: () => dispatch(getPaymentSettingsMethod()),
     getShippingMethod: (payload) => dispatch(getShippingMethod(payload)),
     addOrder: (payload) => dispatch(addOrder(payload)),
+    applycoupon: (payload) => dispatch(applycoupon(payload)),
     getOrders: () => dispatch(getOrders()),
     logout: (history, location) => dispatch(logout(history, location)),
     updateAddress: (payload, type, pannelstep) => dispatch(updateAddress(payload, type, pannelstep)),
