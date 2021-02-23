@@ -1516,4 +1516,5 @@ width: 36px !important;}
   .thumbnails .slick-next{right:-25px !important;}
   .thumbnails .slick-prev{left:-25px !important;}
   .sr-mobile-only{display:none;}
+  .banner-item-xs-caption{width: 100%;}
 }
