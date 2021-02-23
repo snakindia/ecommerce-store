@@ -6,6 +6,7 @@ import Image from './Image';
 import { Input,Form ,Button} from 'antd';
 import { Rate } from 'antd';
 import moment from 'moment'
+import avtarImg from '../../assets/images/img_avatar3.png';
 const { Search, TextArea } = Input;
 const Comments = (props) => {
   const onFinish = (values) => {
@@ -68,7 +69,7 @@ const Comments = (props) => {
                         {items && items.length > 0 ? <>
                           {items.map(item=>
                           <div className="media pl-0 pb-1 pr-0">
-                            <img className="align-self-start mr-3" src="images/img_avatar3.png" alt="" width="70"/>
+                            <img className="align-self-start mr-3" src={avtarImg} alt="" width="70"/>
                             <div className="media-body bha-review">
                               <h6 className="mt-0"><span>{item.user && item.user[0] && item.user[0].full_name ? item.user[0].full_name:'' } </span>
                                
@@ -91,7 +92,7 @@ const Comments = (props) => {
                           </div>
                           
                           <div className="collapse show" id="collapseExample">
-                            <div className="card card-body bha-review-inner">
+                            <div className="bha-review-inner">
                             <Form
                               name="basic"
                               initialValues={{ review: '', rating:undefined }}
@@ -103,17 +104,17 @@ const Comments = (props) => {
                                   label="Your rating"
                                   name="rating"
                                   rules={[{ required: true, message: 'Please give rating' }]}
-                                  hasFeedback
+                                  // hasFeedback
                                 >
-                                  <Rate />
+                                  <Rate style={{color:"#f00"}} />
                                 </Form.Item>
                                 <Form.Item
                                   label="Your Review"
                                   name="review"
                                   rules={[{ required: true, message: 'Please input your review!' }]}
-                                  hasFeedback
+                                  // hasFeedback
                                 >
-                                  <TextArea />
+                                  <TextArea className="form-control textarea border border-light"/>
                                 </Form.Item>
 
                                 <Form.Item >

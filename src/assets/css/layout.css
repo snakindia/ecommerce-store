@@ -431,7 +431,8 @@ border-bottom-left-radius: 15px;}
   .right-container {text-align: center; margin-left:14px;}
   .foote-link{margin-bottom: 2rem; float:left;}
   .socialLink{text-align: left !important; padding-left:0; margin-top: 1rem ;}
-  .fa-facebook, .fa-linkedin, .fa-twitter, .fa-youtube-play{border:1px solid #fff; padding:0.6rem 1rem; margin:1rem 0.2rem 0 1rem;}
+  .fa-facebook, .fa-linkedin, .fa-twitter, .fa-youtube-play
+  {border:1px solid #fff; padding:0; margin:1rem 0.2rem 0 1rem;}
 }
 
 /* Added By Abhijeet on 5 August */ 
@@ -694,12 +695,10 @@ border-bottom: 2px solid #24546c !important;}
     display: block;
     position: relative;
     margin: 0;
-    padding:0.8rem 2rem 0.3rem 0.8rem !important;
+    padding:0.8rem 0.8rem 0.8rem 0.6rem !important;
     color: #555;
     font-weight: 500;
-    /*text-shadow: 0 1px #fff;*/
     border-bottom: 1px solid #f2f2f2 !important; transition: 0.1s;
-    /*border-radius: 3px;*/
 }
 .results a img{width: 50px; border-color:#ddd;}
 .results a h3{margin-top:-2px;}

@@ -24,22 +24,22 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
             <div className="pagewrap">
                 <div className="bgWhite padding-bottom">
                     <div className="container-fluid">
-                        <Breadcrumb>
+                        <Breadcrumb style={{padding:"1rem 0"}}>
                             <Breadcrumb.Item> <Link to="/">Home</Link></Breadcrumb.Item>
                             <Breadcrumb.Item> <Link to="/shop">Shop</Link></Breadcrumb.Item>
                             <Breadcrumb.Item>Compare </Breadcrumb.Item>
                         </Breadcrumb>
 
 
-                        <section className="bg-opeque box-shadow footerItems">
+                        <section className="bg-opeque product--heading">
                             <div className="container-fluid">
                                 <h2 className="bha_heading_2 z-index text-blue mb-4">Product Compare</h2>
                             </div>
                         </section>
                         <section >
                             <div className="container-fluid pb-5 mb-2 pt-4">
-                                <div className="comparison-table">
-                                    <table className="table TFtableCol">
+                                <div className="comparison-table table-responsive">
+                                    <table className="table table-bordered TFtableCol">
                                         <thead className="bg-secondary">
                                             <tr>
                                                 <td className="align-middle">
@@ -47,7 +47,7 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
                                                 </td>
                                                 {data.map(d=>
                                                 <td className="p-0" key={d.id}>
-                                                    <div className="comparison-item border"><span className="remove-item" onClick={e=>onClick(d)}><i className="fa fa-close"></i></span>
+                                                    <div className="comparison-item"><span className="remove-item" onClick={e=>onClick(d)}><i className="fa fa-close"></i></span>
                                                         <Link className="comparison-item-thumb" to={`/shop/${d.id}`}>
                                                             <Image preview={false} item={d} alt="" height="200px"  width="200px"/>
                                                             </Link>
