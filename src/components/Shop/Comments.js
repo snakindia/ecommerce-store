@@ -9,7 +9,7 @@ import moment from 'moment'
 const { Search, TextArea } = Input;
 const Comments = (props) => {
   const onFinish = (values) => {
-    const userId =props.user && props.user.id ? props.user.full_name:null;
+    const userId =props.user && props.user.id ? props.user.id:null;
     let data ={
       ...values,
       userId:userId,
@@ -70,7 +70,7 @@ const Comments = (props) => {
                           <div className="media pl-0 pb-1 pr-0">
                             <img className="align-self-start mr-3" src="images/img_avatar3.png" alt="" width="70"/>
                             <div className="media-body bha-review">
-                              <h6 className="mt-0"><span>{item.userId} </span>
+                              <h6 className="mt-0"><span>{item.user && item.user[0] && item.user[0].full_name ? item.user[0].full_name:'' } </span>
                                
                                <span>{moment(item.updatedAt).format('MMMM DD, YYYY')}</span>
                                </h6>

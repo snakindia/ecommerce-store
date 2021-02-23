@@ -4,10 +4,22 @@ import { Link } from 'react-router-dom'
 import React, { useState } from 'react';
 import Image from '../Image'
 function Summary(props) {
-  const [coupon, setCoupon] = useState(null);
-  const onClickApply = () => {
-    //props.applyCoupon(coupon);
+  const [coupon, setCoupon] = useState(props.coupon);
+  const [isVisible, setVisible] = useState(null);
+  const onClickApply = (e) => {
+    e.preventDefault();
+    props.applycoupon({code:coupon});
   }
+
+  const toggleCouponForm =(e)=>{
+    e.preventDefault();
+    setVisible(!isVisible)
+  }
+
+  const onChange =(e)=>{
+    setCoupon(e.target.value)
+  }
+
   const { dataSource } = props;
 
   const columns = [
@@ -112,6 +124,25 @@ function Summary(props) {
                           ${props.shipping}
                         </div>
                       </div>
+                      {props.coupon &&<div className="row">
+                      <div className="col-sm-4 col-md-6 col-lg-6 col">
+                          Coupon Applied
+                        </div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
+                          {props.coupon}
+                        </div>
+                      </div>}
+                      {props.couponDiscount &&<div className="row">
+                      <div className="col-sm-4 col-md-6 col-lg-6 col">
+                          Discount
+                        </div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
+                          ${props.couponDiscount}
+                        </div>
+                      </div>}
+                      
 
                       <div className="row">
                       <div className="col-sm-4 col-md-6 col-lg-6 col">
@@ -124,23 +155,23 @@ function Summary(props) {
                       </div>
                     </div>
                     <div className="apply-coupon">
-                      <a href="#demo" data-toggle="collapse">Coupon/Gift Certificate</a>
-                      <form id="demo" className="collapse">
+                      <a href="#" onClick={toggleCouponForm} data-toggle="collapse">Coupon/Gift Certificate</a>
+                      {isVisible && <form id="demo" className="collapse" style={{display:'block'}}>
                         <div className="col-lg-12">
                           <div className="row">
                             <div className="col-sm-9 col-md-9 col-xs-12">
                               <div className="form-group mt-2">
-                                <input type="text" className="form-control input-control" name="email" placeholder="Coupon/Gift Certificate code" />
+                                <input onChange={onChange} value={coupon} type="text" className="form-control input-control" placeholder="Coupon/Gift Certificate code" />
                               </div>
                             </div>
                             <div className="col-sm-3 col-md-3 col-xs-12 p-0">
                               <div className="form-group mt-2">
-                                <button type="button" className="btn bha-btn-apply">Apply</button>
+                                <button type="button" className="btn bha-btn-apply" onClick={onClickApply}>Apply</button>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </form>
+                      </form>}
                     </div>
 
                     <div className="total-product-price">
