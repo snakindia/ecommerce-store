@@ -87,7 +87,7 @@ class Wishlists extends React.Component {
                             <div className="row">
                                 <div className="col-sm-6 col-md-6 pl-0">
                                     <div className="row">
-                                        <div className="col-xs-12 col-sm-4 col-md-4">
+                                        <div className="col-xs-12 col-sm-4 col-md-5 pr-0">
                                             <div className="short-items">
                                                 <span className="font-weight-bold">{found} Products in</span>
                                             </div>
@@ -96,7 +96,7 @@ class Wishlists extends React.Component {
                                             <div className="short-items">
                                                 <Select
                                                     showSearch={false}
-                                                    style={{ width: 120 }}
+                                                    style={{ width: 130 }}
                                                     onChange={this.setDuration}
                                                     defaultValue={duration}
                                                 >

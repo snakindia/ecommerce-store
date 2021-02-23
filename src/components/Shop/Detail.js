@@ -62,6 +62,32 @@ class Detail extends Component {
             slidesToShow: related ? related.length > 3 ? 4 : related.length : 0,
             // slidesToShow: 3,
             slidesToScroll: 1,
+            responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                  }
+                },
+                {
+                  breakpoint: 600,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+              ]
         };
         return (
 
@@ -131,7 +157,7 @@ class Detail extends Component {
                                 </div>
                             </section>
                             <section className="pro-equipment-section box-shadow" id="bestSelling">
-                                <div className="container-fluid pl-0 pr-0  product-xs-item">
+                                <div className="container-fluid pl-0 pr-0  product-xs-item optional-hover">
                                     <div className="product-items slider">
                                         <div className="product-card-wrapper outer-wrpper">
                                             <Slider {...settings}>
@@ -151,8 +177,6 @@ class Detail extends Component {
                                 type='viewed'
                                 heading="Customers also viewed"
                             />
-
-
                         </div>
                     </div>
                     : null

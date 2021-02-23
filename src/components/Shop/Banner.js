@@ -12,7 +12,7 @@ class Banner extends Component {
               <RBCarousel
                 autoplay={true}
                 pauseOnVisibility={true}
-                slideshowSpeed={2000}
+                slideshowSpeed={6000}
                 version={4}
                 className="item-xs"
               >
@@ -22,7 +22,7 @@ class Banner extends Component {
                     <h1 className="item_heading">Square Chuck Air Filter Cartridge</h1>
                     <p className="item-description-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                                     sed do eiusmod didunt ut labore et dolore magna aliqua.</p>
-                    <p className="item-price pt-3">from<span className="priceTag">$399</span></p>
+                    <p className="item-price pt-3 mb-2">from<span className="priceTag">$399</span></p>
                     <a href="#" data-toggle="modal" className="btn bha-btn-primary mt-2">Shop Now</a>
                   </div>
                 </div>
@@ -33,7 +33,7 @@ class Banner extends Component {
                     <h1 className="item_heading">Bin Vent Dust Collector</h1>
                     <p className="item-description-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                                     sed do eiusmod didunt ut labore et dolore magna aliqua.</p>
-                    <p className="item-price pt-3">from<span className="priceTag">$399</span></p>
+                    <p className="item-price pt-3 mb-2">from<span className="priceTag">$399</span></p>
                     <a href="#myModal" data-toggle="modal" className="btn bha-btn-primary mt-2">Shop Now</a>
                   </div>
                 </div>
@@ -44,7 +44,7 @@ class Banner extends Component {
                     <h1 className="item_heading">Square Chuck Air Filter Cartridge</h1>
                     <p className="item-description-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                                     sed do eiusmod didunt ut labore et dolore magna aliqua.</p>
-                    <p className="item-price pt-3">from<span className="priceTag">$399</span></p>
+                    <p className="item-price pt-3 mb-2">from<span className="priceTag">$399</span></p>
                     <a href="#myModal" data-toggle="modal" className="btn bha-btn-primary mt-2">Shop Now</a>
                   </div>
                 </div>

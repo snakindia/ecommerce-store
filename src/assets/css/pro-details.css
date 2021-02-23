@@ -358,7 +358,8 @@ h2.resp-accordion:first-child { border-top: 1px solid #c1c1c1 !important; }
     background-color: #23536b;
     color: #fff;
     text-align: center;
-    cursor: pointer
+    cursor: pointer;
+    z-index:10;
 }
 
 .comparison-table .comparison-item .remove-item .feather {
