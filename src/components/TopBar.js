@@ -130,7 +130,7 @@ class TopBar extends Component {
                           :
                           <Link to="" onClick={e => this.showCart(e, true)}>
                               <embed src={Cart} type='image/svg+xml' alt="" width="20" height="20"></embed>
-                          Cart
+                              <span className="sr-mobile-only">Cart</span>
                           </Link>
                           }
                         </li>
@@ -159,13 +159,13 @@ class TopBar extends Component {
                         </li>
                        <span>|</span>
                         <Popover placement="bottom" title='' content={<SearchProduct linkClick={e => this.setState({searchVisible:false})} />} trigger="click"
-                          overlayStyle={{ zIndex: 10001, position: 'fixed', width:'300px', maxHeight:'350px' }}
+                          overlayStyle={{ zIndex: 10001, position: 'fixed', width:'300px', maxHeight:'350px', left:"968px !important" }}
                           overlayClassName="search-bar-popup"
                           visible={searchVisible}
                         >
                           <li className="mobHide" onClick={e => this.setState({searchVisible:true})}>
                             
-                              <i className="fa fa-search mr-2" />Search
+                              <i className="fa fa-search mr-2" /><span className="sr-mobile-only">Search</span>
                               {/* <i className="caret border-0" /> */}
                             
                         </li>

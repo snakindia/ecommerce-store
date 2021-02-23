@@ -12,6 +12,7 @@ import { Breadcrumb } from 'antd';
 import { search } from './store/Actions';
 import QuickView from './QuickView'
 import { MDBModal, MDBContainer } from 'mdbreact';
+import noproductImg from "../../assets/images/no-product.png"
 const { Option } = Select;
 class SearchAll extends Component {
     constructor(props) {
@@ -181,11 +182,11 @@ class SearchAll extends Component {
                     <div className="bgWhite padding-bottom">
                         <div className="container-fluid">
 
-                            <Breadcrumb>
+                            <Breadcrumb style={{padding:"1rem 0"}}>
                                 <Breadcrumb.Item> <Link to="/shop">Shop</Link></Breadcrumb.Item>
                                 <Breadcrumb.Item> Search</Breadcrumb.Item>
                             </Breadcrumb>
-                            <section className="bg-opeque box-shadow">
+                            <section className="bg-opeque product--heading">
                                 <div className="container-fluid">
                                     <h2 className="bha_heading_2 z-index text-blue mb-4">
                                         Search result for {str}
@@ -273,7 +274,7 @@ class SearchAll extends Component {
                                             }
 
 
-                                            <div className="container box-shadow shorting-box">
+                                            <div className="container-fluid box-shadow shorting-box">
                                                 <div className="row">
                                                     <div className="col-sm-4 col-md-4">
                                                         <div className="short-items">
@@ -309,7 +310,11 @@ class SearchAll extends Component {
                                             </div>
                                         </> : <>
                                                 {
-                                                    this.props.error ? 'Opps something went wrong...' : <h1 className="noprodct">No Product Found</h1>
+                                                this.props.error ? 'Opps something went wrong...' :
+                                                <div style={{width:"100%", textAlign:"center"}}>
+                                                    <img src={noproductImg}/>
+                                                    <h1 className="noprodct"><small><span className="noProdictText">No Product</span> found</small></h1>
+                                                </div>
                                                 }
                                             </>
 

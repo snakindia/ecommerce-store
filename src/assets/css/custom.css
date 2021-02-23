@@ -1362,7 +1362,7 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
 }
 @media(max-width: 768px){
   .top-nav-link{text-align: center;}
-  .ant-popover.mini-cart-popup{width: 55% !important;}
+  .ant-popover.mini-cart-popup{width: 100% !important;}
 }
 @media screen and (max-width: 992px){
 .icon-content {width: 25%;font-size: 0.8756rem;}

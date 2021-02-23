@@ -530,7 +530,7 @@ i.wishList-hover {
 .product-xs-item .portfolio-hover {
   position: absolute;
   width: 100%;
-  height: 56%;
+  height: 62%;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -560,7 +560,7 @@ i.wishList-hover {
   height: 100px;
   width: auto;
   display: block;
-  padding: 3rem 2rem;
+  padding: 2.5rem 2rem;
   text-align: center;
 }
 .quick-view {
@@ -1503,4 +1503,17 @@ width: 36px !important;}
   border-radius: .25rem !important;transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;}
 
 .form-control-textarea:focus{ background-color: #fff !important;border: 1px solid #ced4da;}
+.ant-image{display:flex !important;}
+.optional-hover{background: transparent;}
+.optional-hover .hot-deals-item-wrapper .portfolio-hover .portfolio-hover-content .callToAction-xxs{
+  padding:4rem 10rem;
+}
 
+@media(max-width:768px){
+  .optional-hover .hot-deals-item-wrapper .portfolio-hover .portfolio-hover-content .callToAction-xxs{
+    padding:4rem 2.6rem;}
+  .xzoom-container .thumbnails{margin: 1rem 0 0 0 !important;}
+  .thumbnails .slick-next{right:-25px !important;}
+  .thumbnails .slick-prev{left:-25px !important;}
+  .sr-mobile-only{display:none;}
+}
