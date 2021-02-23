@@ -1014,6 +1014,7 @@ text-align:right;margin-top: 0.4rem;}
   .hero-img { width: 100%; object-fit: cover; height: 320px !important;}
   .card-slide_container{top:0 !important;}
   /* #represent-us-map-div {height:100% !important; background: #f00 !important;} */
+  .banner-item-xs-caption{width: 60% !important;}
   
 }
 .morebtnR button {background: #235168; color: #fff; border: none; box-shadow: none;
