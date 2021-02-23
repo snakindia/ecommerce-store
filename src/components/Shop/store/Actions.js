@@ -335,7 +335,30 @@ export const getCart = () => {
             });
     }
 }
-
+export const applycoupon = (payload) => {
+    return dispatch => {
+        dispatch(setCartLoading(true));
+        Axios.post(`${process.env.REACT_APP_API_URL}/applycoupon`,payload,
+            {
+                withCredentials: true,
+                crossDomain: true,
+            }
+        )
+            .then(res => {
+                dispatch(setCartLoading(false));
+                if (res.data && res.data.status) {
+                    notification('success', 'Coupon applied successfully')
+                    dispatch(addProductAction(res.data.data));
+                } else {
+                     notification('error',res.data.data ? res.data.data : 'Oops!! something went wrong')
+                }
+            })
+            .catch(e => {
+                dispatch(setCartLoading(false));
+                notification('error', 'Oops!! something went wrong')
+            });
+    }
+}
 export const getPaymentMethodSuccess = (payload) => ({
     type: ActionTypes.GET_PAYMENT_METHOD_SUCCESS,
     payload,
@@ -606,7 +629,7 @@ export const getComments = (payload) => {
         Axios.get(`${process.env.REACT_APP_API_URL}/comments/${payload}`).then(res => {
             if (res.data && res.data.status) {
                 dispatch(setLoading(false));
-                dispatch(getCommentsSuccess({id:payload,data:res.data.data}));
+                dispatch(getCommentsSuccess({id:payload,data:res.data.data.data}));
                 
             }
             else {
@@ -623,11 +646,15 @@ export const getComments = (payload) => {
 export const addComments = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
-        Axios.post(`${process.env.REACT_APP_API_URL}/comments`,payload).then(res => {
+        Axios.post(`${process.env.REACT_APP_API_URL}/reviews`,payload).then(res => {
             if (res && res.data && res.data.status ) {
                 dispatch(setLoading(false));
                 dispatch(setCommentsSuccess(res.data.data));
                 notification('success', 'Review added')
+            } 
+            if (res && res.data && !res.data.status && res.data.already) {
+                dispatch(setLoading(false));
+                notification('warning', res.data.data)
             }
             else {
                 notification('error', 'Oops!! something went wrong')
