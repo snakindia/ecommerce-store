@@ -1422,10 +1422,7 @@ position: absolute; left:initial !important}
 .btn-bha-lg.darkRed:hover{background:#8f070e;}
 .btn-bha-lg:hover{color:#fff}
 
-.cart-footer .button {
-  margin-right: 0.5rem;
-  width: 48.5%;
-}
+.cart-footer .button { margin-right: 0.5rem; width: 48.5% !important;}
 
 @media(max-width:768px){
 .btn-bha-lg{display: block; width:100%; margin: 1rem 0 0.3rem;}
@@ -1517,4 +1514,5 @@ width: 36px !important;}
   .thumbnails .slick-prev{left:-25px !important;}
   .sr-mobile-only{display:none;}
   .banner-item-xs-caption{width: 100%;}
+  .product-xs-list .portfolio-hover{width:40%; height: 50%; left:0}
 }
