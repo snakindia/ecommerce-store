@@ -1395,10 +1395,12 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
 
  
   .search-bar-popup .ant-popover-arrow {
-    left: 90% !important;
+    left: 75% !important;
   }
+
+  /*
   .search-bar-popup{
-    /*
+    
     left: 1190px !important;
     
     z-index: 10001;
@@ -1407,10 +1409,10 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
     transform-origin: 50% -4px;
     
     top: 33px !important;
-    */
+  
   }
 
-  /*
+
   @media(max-width: 768px){
     .search-bar-popup{left: 26%!important;top: 22% !important;}
   }
