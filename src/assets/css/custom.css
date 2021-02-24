@@ -851,7 +851,7 @@ body {
 .wsmenu > .wsmenu-list > li > a { display: inline-flex; width: 100%; white-space: nowrap;}
 .wsmenu > .wsmenu-list > li > .navtext{padding-left:15px !important}
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{display: block !important;}
-.wsmenu > .wsmenu-list > li > .bha-btn-secondry, .bha-btn-primary{width:90% !important}
+.wsmenu > .wsmenu-list > li > .bha-btn-secondry, .bha-btn-primary{width:auto !important}
 }
 
 .bha-left { background: #ddd; width: 100%; position: relative; overflow: visible; padding-bottom: 0;
@@ -981,8 +981,8 @@ text-align:right;margin-top: 0.4rem;}
     overflow:visible;
     padding-bottom:16.25%;
     position:relative;
-    height:40vh;
-  }
+    height:40vh;}
+  
 }
 
 @media (min-width: 812px) {
