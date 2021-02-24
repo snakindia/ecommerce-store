@@ -650,9 +650,9 @@ export const addComments = (payload) => {
             if (res && res.data && res.data.status ) {
                 dispatch(setLoading(false));
                 dispatch(setCommentsSuccess(res.data.data));
-                notification('success', 'Review added')
+                notification('success', res.data.data)
             } 
-            if (res && res.data && !res.data.status && res.data.already) {
+            else if (res && res.data && !res.data.status && res.data.already) {
                 dispatch(setLoading(false));
                 notification('warning', res.data.data)
             }

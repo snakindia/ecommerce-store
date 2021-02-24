@@ -51,7 +51,7 @@ const Comments = (props) => {
         const Comment = ordersId.includes(props.id) ? true:false;
         setCanComment(Comment)
        setKey(new Date())
-    },[props.data, props.orders])
+    },[props.data, props.orders, props.reviewKey])
     
     
     
@@ -136,6 +136,7 @@ const Comments = (props) => {
 }
 const mapStateToProps = (state) => ({
     data: state.shop.comments,
+    reviewKey: state.shop.reviewKey,
     loading: state.shop.loading,
     orders: state.accounts.orders,
     user:state.accounts.user
