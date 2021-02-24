@@ -96,8 +96,8 @@ const Cart = (props) => {
                                                             />
                                                         ) : null}
                                                         <tr>
-                                                            <td colSpan="4" className="no-border" style={{ textAlign: 'right' }}>Subtotal (${productsInCart} items) </td>
-                                                            <td colSpan="2" className="no-border">${subtotal}</td>
+                                                            <td colSpan="4" className="no-border" style={{ textAlign: 'right' }}><strong className="price-font">Subtotal (${productsInCart} items) &nbsp; </strong></td>
+                                                            <td colSpan="2" className="no-border"><strong className="price-font"> ${subtotal} </strong></td>
                                                         </tr>
                                                         {/* <tr>
                                                             <td colSpan="4" className="no-border" style={{ textAlign: 'right' }} >Shipping (Flat Rate)</td>

@@ -1398,6 +1398,14 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
     left: 75% !important;
   }
 
+  @media (max-width: 480px) {
+    .search-bar-popup{
+    
+      width: 100% !important;
+    }
+  }
+
+
   /*
   .search-bar-popup{
     
@@ -1490,3 +1498,6 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
       
 
 
+strong.price-font{
+  font-size: 1.2674rem;
+}

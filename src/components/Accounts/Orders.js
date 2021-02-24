@@ -187,11 +187,14 @@ class Orders extends React.Component {
                       <div className="col-md-12 pa" style={{ backgroundColor: 'rgb(251 251 251)' }}>
                         <div className="row padding-lr0">
 
-                          <div className="col-sm-6 mb-6">
+                          <div className="col-sm-12 mb-6">
                             <div className="text-left">
                               <div className="lfloat-left">
-                                <h5 className="location_head">
+                                <h5 className="location_head d-inline">
                                   <Link to={`/accounts/my-orders/${item.id}`}>ORDER # -  {item.number}</Link></h5>
+                                  <div className="float-right">
+                                <Link to={`/accounts/my-orders/${item.id}`}><i className="fas fa-angle-right"></i></Link>
+                              </div>
                                 <div className="pro_Price p-0">
                                   <p className=" currecny">
                                     <span className="sp-price">${item.grand_total}</span></p>
@@ -205,13 +208,11 @@ class Orders extends React.Component {
 
                             </div>
                           </div>
-                          <div className="col-sm-6 mb-6">
-                            <div className="text-right">
-                              <div className="float-right">
-                                <Link to={`/accounts/my-orders/${item.id}`}><i className="fas fa-angle-right"></i></Link>
-                              </div>
-                            </div>
-                          </div>
+
+                          
+                       
+
+                          
                         </div>
                       </div>
 
