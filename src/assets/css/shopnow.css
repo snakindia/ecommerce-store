@@ -1462,6 +1462,7 @@ text-transform: uppercase;}
     width: 100%; left: 50%; transform: translate(-42%, -10%);}
   .bg-opeque{text-align: left;}
   .sidebar{display: none !important;}
+  .main-header{display: none !important;}
     
   }
 
