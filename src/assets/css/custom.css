@@ -1468,7 +1468,8 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
   .tabs span.add-address{width:100%;}
   .tabs span.add-address a{width:100%;}
 
-  .ant-popover.mini-cart-popup{width: 60% !important;text-align: center;}
+  .ant-popover.mini-cart-popup{width: 100% !important;}
+  .ant-popover.mini-cart-popup ul.user-setting-menu{text-align: center;}
   }
 
 
