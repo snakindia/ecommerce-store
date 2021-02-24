@@ -108,7 +108,7 @@ class TopBar extends Component {
                     CALL US: (888) 286-8708
                   </div>
                   </div>
-                  <div className="col-sm-6 col-md-6 col-lg-7">
+                  <div className="col-sm-6 col-md-12 col-lg-7">
                     <div className="text-sm-right">
                       <ul className="top-nav-link">
                         <li>
