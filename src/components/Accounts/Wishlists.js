@@ -85,7 +85,7 @@ class Wishlists extends React.Component {
 
                         <div className="container shorting-box">
                             <div className="row">
-                                <div className="col-sm-6 col-md-6 pl-0">
+                                <div className="col-sm-6 col-md-12 col-lg-6 pl-0">
                                     <div className="row">
                                         <div className="col-xs-12 col-sm-4 col-md-5 pr-0">
                                             <div className="short-items">
@@ -111,7 +111,7 @@ class Wishlists extends React.Component {
 
                                     </div>
                                 </div>
-                                <div className="col-sm-6 col-md-6">
+                                <div className="col-sm-6 col-md-12 col-lg-6">
                                     <div className="w-100">
                                         <Pagination
                                             current={currentPage}

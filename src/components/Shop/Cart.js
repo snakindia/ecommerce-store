@@ -75,7 +75,7 @@ const Cart = (props) => {
                                         <div className="row">
                                             <div className="col-sm-12 col-md-12">
                                                 <h1 className="bha_heading_2 text-blue padding-top30">Cart</h1>
-                                                <div className="table-responsive">
+                                                <div className="table-responsive comparison-table">
                                                     <table className="table">
                                                         <thead>
                                                             <tr>
@@ -114,12 +114,12 @@ const Cart = (props) => {
                                             </div>
                                             <div className="col-sm-12 col-md-12 margin-btm30">
                                                 <div className="row">
-                                                    <div className="col-lg-3 col-sm-6 col-md-6">
+                                                    <div className="col-lg-6 col-sm-6 col-md-6">
                                                         <Link to="/shop" className="btn-bha-lg darkBlue" >
                                                             <i className="fas fa-angle-left mr-2"></i>Continue Shopping
                                                 </Link>
                                                     </div>
-                                                    <div className="col-lg-3 col-sm-6 col-md-6 offset-md-6 float-right">
+                                                    <div className="col-lg-6 col-sm-6 col-md-6 float-right">
                                                         <div className="text-right">
                                                             <Link to="/shop/checkout" className="btn-bha-lg darkRed" >
                                                                 Proceed to Checkout

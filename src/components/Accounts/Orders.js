@@ -124,7 +124,7 @@ class Orders extends React.Component {
 
             <div className="container shorting-box">
               <div className="row">
-                <div className="col-sm-6 col-md-7 pl-0">
+                <div className="col-sm-6 col-md-12 col-lg-7 pl-0">
                   <div className="row">
                     <div className="col-xs-12 col-sm-4 col-md-4">
                       <div className="short-items">
@@ -161,12 +161,15 @@ class Orders extends React.Component {
                         }
 
                       </div>
+
+
                     </div>
+
                   </div>
                 </div>
 
                 
-                <div className="col-sm-6 col-md-5">
+                <div className="col-sm-6 col-md-12 col-lg-5 pl-0">
                   <div className="w-100">
                     <Pagination
                       current={currentPage}
