@@ -1481,5 +1481,9 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
       .tabs span.add-address a:hover{background: #5ea7bd !important;transition: 0.3s;color: #fff;}
 
 
-
+.shorting-box .w-100 .ant-pagination{margin-top: 0px !important;}
+.shorting-box .w-100 .ant-pagination .ant-pagination-prev button, .shorting-box .w-100 .ant-pagination .ant-pagination-next button{height: 30px !important;}
+.shorting-box .w-100 .ant-pagination .ant-pagination-simple-pager input{margin-top: 0;}
       
+
+

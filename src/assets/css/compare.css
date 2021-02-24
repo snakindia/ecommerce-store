@@ -74,4 +74,6 @@ table .bg-primary {
 
 @media (max-width: 768px) {
 .compare-collaspe-div {right: 1rem;}
+.bha-btn-primary.w-100{ 
+  width: 100% !important;text-align: center !important;}
 }
