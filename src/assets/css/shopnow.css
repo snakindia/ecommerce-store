@@ -1459,18 +1459,18 @@ text-transform: uppercase;}
   .orderStatus{left:20px}
   .order-steps{width:80px !important; overflow-wrap: break-word !important; font-size: 100%;}
   .orderStatus{position: absolute; top: 50%; display: flex;
-    width: 100%; left: 50%; transform: translate(-42%, -10%);}
+    width: 100%; left:45%; transform: translate(-42%, -10%);}
   .bg-opeque{text-align: left;}
   .sidebar{display: none !important;}
   .main-header{display: none !important;}
-    
+  .tab .container .card{background:none; border:none !important}  
   }
 
 @media(min-width:812px){
   .orderStatus{left:20px}
   .order-steps{width:85px !important;}
   .orderStatus{position: absolute; top: 60%; display: flex;
-    width: 100%; left: 50%; transform: translate(-42%, -10%);}
+    width: 100%; left:47%; transform: translate(-42%, -10%);}
   }
 
 @media(min-width:1200px){
@@ -1536,3 +1536,7 @@ background:rgba(0, 0, 0, 0.12)} */
   .mobileHide{display:none !important}
 }
 
+.toolTipContainer {padding:1rem 0.5rem; height: 50px; width: 80%;}
+/* .table td i{color:#a70e15 !important; cursor:pointer !important;} */
+.deleteItem{cursor: pointer !important; color:#888 !important}
+.deleteItem:hover{color:rgb(187, 9, 9) !important}

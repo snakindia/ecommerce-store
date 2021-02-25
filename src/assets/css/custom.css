@@ -559,7 +559,7 @@ z-index: 1000000 !important;  padding: 2rem 1.5rem 1rem !important; color: #000;
 .column_4 img { width: 330px !important;}
 .bag_jai_head.font-xl{font-size: 1.875rem !important}
 .jail_Content_Descrpt{text-align: left; padding:1rem !important;}
-.footer-main { padding: 0 0 0 1rem !important;}
+.footer-main { padding: 0 0 0 0 !important;}
 .caption{width:100%; top:0; text-align: center;}
 .caption .bha_heading_1{height: auto !important; background: none; text-align: center;
 padding-left:0 !important;}
@@ -851,7 +851,7 @@ body {
 .wsmenu > .wsmenu-list > li > a { display: inline-flex; width: 100%; white-space: nowrap;}
 .wsmenu > .wsmenu-list > li > .navtext{padding-left:15px !important}
 .wsmenu > .wsmenu-list > li > .wsshoptabing > .wsshopwp > .wstabitem > li > .wstitemright{display: block !important;}
-.wsmenu > .wsmenu-list > li > .bha-btn-secondry, .bha-btn-primary{width:auto !important}
+.wsmenu > .wsmenu-list > li > .bha-btn-secondry, .bha-btn-primary{width:90% !important}
 }
 
 .bha-left { background: #ddd; width: 100%; position: relative; overflow: visible; padding-bottom: 0;
@@ -1209,18 +1209,18 @@ margin: 0.75rem auto;text-align: center;
     font-size: 0.875rem;font-weight: 600;text-align: center;box-shadow: none !important;border:0 !important;vertical-align: bottom;}
 .bha-btn-new-blue:hover{background: #5ea7bd !important;transition: 0.3s;color: #fff;}
 
-.order-summary .product-cart-detail .product-specification .ant-image{width:90%;}
+.order-summary .product-cart-detail .product-specification .ant-image{width:60px;}
 
 
 @media (max-width: 576px){
-.bha-btn-new-blue, .bha-btn-new {width: 100% !important;margin-top: 5px;}
+.bha-btn-new-blue, .bha-btn-new {width: auto !important;margin-top: 5px;}
 .total-product-price div span {font-size: 1rem;padding-right:5px;}
 }
 @media (max-width: 768px){
   .topPadding{padding-top:9rem !important;}
   .call-us-mob {padding: 1rem 0 0 0 !important;}
   .total-product-price div span {font-size: 1.285rem;}
-  .order-summary .product-cart-detail .product-specification .ant-image{width:100%;}
+  .order-summary .product-cart-detail .product-specification .ant-image{width:60px;}
 }
 @media (max-width: 921px){
 /* .rightLink {margin-left: auto;margin-right: auto;width: 100%;justify-content: center;display: flex !important;} */
@@ -1491,13 +1491,11 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
       font-size: 0.875rem;font-weight: 600;text-align: center;box-shadow: none !important;border:0 !important;vertical-align: bottom;} */
       .tabs span.add-address a:hover{background: #5ea7bd !important;transition: 0.3s;color: #fff;}
 
-
 .shorting-box .w-100 .ant-pagination{margin-top: 0px !important;}
 .shorting-box .w-100 .ant-pagination .ant-pagination-prev button, .shorting-box .w-100 .ant-pagination .ant-pagination-next button{height: 30px !important;}
 .shorting-box .w-100 .ant-pagination .ant-pagination-simple-pager input{margin-top: 0;}
       
+strong.price-font{font-size: 1rem; font-weight: 600;}
 
-
-strong.price-font{
-  font-size: 1.2674rem;
-}
+/*======added new css for fixing layout===================================*/
+.ant-collapse-ghost > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box{padding-bottom:24px !important}

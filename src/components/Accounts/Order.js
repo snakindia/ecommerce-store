@@ -70,7 +70,7 @@ class Order extends React.Component {
                         <label for="tabone">Order Details</label>
                         <div className="tab">
                             <div className="container-fluid pa0">
-                                <div className="col-md-12 pa  border-bottom">
+                                <div className="col-md-12 pa border-bottom">
                                     <div className="row">
                                         <div className="container px-1 px-md-4 py-5 mx-auto pa0">
                                             <div className="card">
@@ -99,7 +99,7 @@ class Order extends React.Component {
                                                         <div className="orderStatus">
                                                             {statusOption.map(op => <div key={op} className="w-100">
                                                                 <div className="order-steps">
-                                                                    <p className="font-weight-bold small text-left">{op}</p>
+                                                                    <p className="font-weight-bold small text-center">{op}</p>
                                                                 </div>
                                                             </div>)}  
 

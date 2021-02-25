@@ -159,12 +159,12 @@ function Summary(props) {
                       {isVisible && <form id="demo" className="collapse" style={{display:'block'}}>
                         <div className="col-lg-12">
                           <div className="row">
-                            <div className="col-sm-9 col-md-9 col-xs-12">
+                            <div className="col-xs-12 col-sm-12 col-md-8 col-lg-9 pl-0">
                               <div className="form-group mt-2">
                                 <input onChange={onChange} value={coupon} type="text" className="form-control input-control" placeholder="Coupon/Gift Certificate code" />
                               </div>
                             </div>
-                            <div className="col-sm-3 col-md-3 col-xs-12 p-0">
+                            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3 p-0">
                               <div className="form-group mt-2">
                                 <button type="button" className="btn bha-btn-apply" onClick={onClickApply}>Apply</button>
                               </div>

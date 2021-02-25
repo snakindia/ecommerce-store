@@ -108,7 +108,7 @@ function Address(props) {
     return (
         <>
             {oldAddress && oldAddress.length > 0 ? <>
-                <div className="col-lg-12" >
+                <div className="col-lg-12 pl-0 pr-0" >
                     <div className="col-md-12 col-lg-12 p-0" >
                         <div className="form-group">
                             <label className="text-small">Select from Previous Address </label>

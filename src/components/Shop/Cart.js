@@ -34,7 +34,7 @@ const Product = (props) => {
             </td>
             <td style={{ verticalAlign: 'middle' }}>$ {item.price}</td>
             <td style={{ verticalAlign: 'middle' }}>$ {item.price_total}</td>
-            <td style={{ verticalAlign: 'middle' }} align="right" onClick={e => remove(e)}><i className="fa fa-close not-liked bouncy"></i></td>
+            <td style={{ verticalAlign: 'middle' }} align="right" onClick={e => remove(e)}><span className="deleteItem"><i className="fa fa-close"></i></span></td>
         </tr>
 
     )

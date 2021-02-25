@@ -34,7 +34,7 @@ class AccountDetail extends React.Component {
                 <div className="tabs">
                     <input type="radio" name="tabs" id="tabone" checked="checked" />
                     <label for="tabone">Account Details</label>
-                    <div className="tab">
+                    <div className="tab" style={{ display: 'block' }}>
                         <div className="container-fluid">
                             <div className="row">
                                 <div className="col-lg-12 p-0">

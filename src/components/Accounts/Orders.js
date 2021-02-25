@@ -151,7 +151,7 @@ class Orders extends React.Component {
                       <div className="short-items">
                         {tab == '1' && <Select
                           showSearch={false}
-                          style={{ width: 150 }}
+                          style={{ width: 170 }}
                           onChange={this.setStatus}
                           defaultValue={status}
                         >
@@ -169,7 +169,7 @@ class Orders extends React.Component {
                 </div>
 
                 
-                <div className="col-sm-6 col-md-12 col-lg-5 pl-0">
+                <div className="col-sm-6 col-md-12 col-lg-5 pl-0 pr-0">
                   <div className="w-100">
                     <Pagination
                       current={currentPage}
