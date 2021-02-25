@@ -1417,7 +1417,7 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
     .ant-popover-placement-bottom.search-bar-popup{left: 33.6% !important;}
   }    
   @media(max-width: 769px){
-    .ant-popover-placement-bottom.search-bar-popup{left: 32.5%!important;}
+    .ant-popover-placement-bottom.search-bar-popup{left: 29.5%!important;}
   }
   @media (max-width: 737px) {
     .ant-popover-placement-bottom.search-bar-popup .ant-popover-arrow {left: 85% !important;}
@@ -1426,19 +1426,19 @@ border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
     .ant-popover-placement-bottom.search-bar-popup .ant-popover-arrow {left: 81% !important;}
   }
   @media (max-width: 641px) {
-    .ant-popover-placement-bottom.search-bar-popup {left: 31.4% !important;}
+    .ant-popover-placement-bottom.search-bar-popup {left: 28% !important;}
   }
   @media (max-width: 601px) {
-    .ant-popover-placement-bottom.search-bar-popup {left: 30% !important;}
+    .ant-popover-placement-bottom.search-bar-popup {left: 26% !important;}
   }
   @media (max-width: 480px) {
     .ant-popover-placement-bottom.search-bar-popup{width: 100% !important;left: 0 !important;}
   }    
   @media (max-width: 416px) {
-    .ant-popover-placement-bottom.search-bar-popup .ant-popover-arrow {left: 80.5% !important;}
+    .ant-popover-placement-bottom.search-bar-popup .ant-popover-arrow {left: 74% !important;}
   }
   @media (max-width: 376px) {
-    .ant-popover-placement-bottom.search-bar-popup .ant-popover-arrow {left: 83% !important;}
+    .ant-popover-placement-bottom.search-bar-popup .ant-popover-arrow {left: 77% !important;}
   }
   
   
