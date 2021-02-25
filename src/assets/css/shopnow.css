@@ -1517,6 +1517,7 @@ width: 36px !important;}
   .banner-item-xs-caption{width: 100%;}
   .product-xs-list .portfolio-hover{width:40%; height: 50%; left:0}
   .banner-container-small .banner-item-xs-caption{width:90% !important; top:10%}
+  .btnLight{width: auto !important;}
 }
 
 /*=============banner setting==============================================*/
