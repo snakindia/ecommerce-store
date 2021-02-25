@@ -1,4 +1,4 @@
-.contentWrapper{max-width: 100%;margin: 0 auto;padding: 0 15px 15px 8px; background: #fcfcfc; float:left}
+.contentWrapper{max-width: 100%;margin: 0 auto;padding: 0 15px 0 8px; background: #fcfcfc; float:left}
 .sideBarMenu{width: 20%; float:left;margin-top: 5px;}
 .sideBarMenu .sidebar .nav{margin-top: 0;padding:0 0.5rem;}
 .mainContentPanel{width: 80%;float:right;}
@@ -15,6 +15,14 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 #myDiv{position: absolute; left:270px !important; z-index: 10000 !important}
 
 .shop-now-page-inner{padding:0; margin-top: 0.3rem;}
+
+.ant-menu-vertical .ant-menu-item, .ant-menu-vertical-left .ant-menu-item, 
+.ant-menu-vertical-right .ant-menu-item, .ant-menu-inline .ant-menu-item, 
+.ant-menu-vertical .ant-menu-submenu-title, .ant-menu-vertical-left .ant-menu-submenu-title, 
+.ant-menu-vertical-right .ant-menu-submenu-title, 
+.ant-menu-inline .ant-menu-submenu-title{padding: 0 0 0 10px !important;}
+
+.sidebar .sidebar-wrapper{padding-bottom:1rem !important;}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -44,6 +52,6 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 .sideBarMenu{position: static;}
-.mainContentPanel{width: 100%;}
+.mainContentPanel{width: 100%;padding-bottom: 2rem;}
 .mainContentPanel .main-panel{width: 80%;}
 }
