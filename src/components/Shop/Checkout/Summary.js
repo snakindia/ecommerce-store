@@ -85,10 +85,10 @@ function Summary(props) {
                               <div className="col-sm-4 col-md-5 col-lg-4 col ">
                                 <Image src={item.image_url} className="card-thumbnail" alt="" />
                               </div>
-                              <div className="col-sm-4 col-md-4 col-lg-5 col text-center">
+                              <div className="col-sm-4 col-md-4 col-lg-5 col text-center pt-4">
                                 {item.qty}
                               </div>
-                              <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
+                              <div className="col-sm-4 col-md-3 col-lg-3 col text-center pt-4">
                                 $ {item.price}
                               </div>
                             </div>
