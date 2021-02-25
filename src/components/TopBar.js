@@ -159,8 +159,9 @@ class TopBar extends Component {
                         </li>
                        <span>|</span>
                         <Popover placement="bottom" title='' content={<SearchProduct linkClick={e => this.setState({searchVisible:false})} />} trigger="click"
-                          overlayStyle={{ zIndex: 10001, position: 'fixed', width:'300px', maxHeight:'350px', left:"968px !important" }}
+                       //   overlayStyle={{ zIndex: 10001, position: 'fixed', width:'300px', maxHeight:'350px', left:"968px !important" }}
                           overlayClassName="search-bar-popup"
+                          ClassName="top-search-newone"
                           visible={searchVisible}
                         >
                           <li className="mobHide" onClick={e => this.setState({searchVisible:true})}>

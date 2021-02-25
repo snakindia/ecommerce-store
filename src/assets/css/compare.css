@@ -45,7 +45,7 @@ table .bg-primary {
 .TFtableCol tr td:nth-child(even) {background: #fff !important;}
 
 .compare-collaspe-div {width: 350px;position: fixed;bottom: 0;right: 0.8674rem;box-shadow:rgb(0 0 0 / 50%) 0px 0px 10px;
-  z-index: 200 !important;
+  z-index: 99999 !important;
 }
 .compare-widget__product {position: relative;padding:0.8674rem 2rem 0.8674rem 0 !important;
   text-align: left;border-bottom: 1px solid #f4f4f4;width: 100% !important;
@@ -76,3 +76,10 @@ table .bg-primary {
 }
 
 section .comparison-table{overflow-x: auto;}
+
+
+@media (max-width: 480px) {
+.compare-collaspe-div {
+    right: 0.8674rem;
+}
+}
