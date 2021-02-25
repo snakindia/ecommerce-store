@@ -43,10 +43,10 @@ class ShopNow extends Component {
     const { pathname } = this.props.location;
     return (
 
-      <div className={visible ? 'wrapper' : 'sidebar_minimize wrapper'}>
+      <div className={visible ? 'contentWrapper' : 'sidebar_minimize wrapper'}>
         <div className="topPadding">
           <div className="shopnow-pagewrap">
-            <div className="bgWhite">
+            <div className="mainContentPanel bgWhite">
               <LeftMenu visible={visible} shrink={this.shrink} />
               <div className="main-panel">
                 <div className="content">

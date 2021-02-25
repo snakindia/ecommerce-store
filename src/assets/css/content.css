@@ -1,4 +1,4 @@
-.contentWrapper{max-width: 100%;margin: 0 auto;padding: 0 15px 15px 8px; background: #fcfcfc}
+.contentWrapper{max-width: 100%;margin: 0 auto;padding: 0 15px 15px 8px; background: #fcfcfc; float:left}
 .sideBarMenu{width: 20%; float:left;margin-top: 5px;}
 .sideBarMenu .sidebar .nav{margin-top: 0;padding:0 0.5rem;}
 .mainContentPanel{width: 80%;float:right;}
@@ -6,12 +6,15 @@
 .sidebar{position: static !important; padding:0 !important;}
 .sidebar .sidebar-wrapper .sidebar-content{padding-top:0 !important;}
 .sidebar .sidebar-wrapper{max-height: 100% !important; min-height: 100% !important}
-.mainContentPanel .main-panel {position: relative; width: 100%;height: 100%;transition: all .3s;}
+.mainContentPanel .main-panel {position: relative; width: 80%;height: 100%;transition: all .3s; float:right;
+}
 .mainContentPanel .main-panel .page-inner{padding-right:0 !important; padding-left:0 !important;}
 
 .sidebarHeader{width: 100%; background:#234c63; padding:1rem; color:#fff;
 text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 #myDiv{position: absolute; left:270px !important; z-index: 10000 !important}
+
+.shop-now-page-inner{padding:0; margin-top: 0.3rem;}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -29,16 +32,18 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 @media only screen and (min-width: 768px) {
 .sideBarMenu{left:-270px;position: absolute;z-index: 10000 !important}
 .mainContentPanel{width: 100%;}
+.mainContentPanel .main-panel{width: 100%;}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-.sideBarMenu{left:-270px;position: absolute;}
-.mainContentPanel{width: 100%;}
+.sideBarMenu{left:0;position: absolute;}
+.mainContentPanel .main-panel{width: 75%;}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 .sideBarMenu{position: static;}
-.mainContentPanel{width: 80%;}
+.mainContentPanel{width: 100%;}
+.mainContentPanel .main-panel{width: 80%;}
 }

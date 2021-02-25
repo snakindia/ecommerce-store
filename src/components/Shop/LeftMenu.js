@@ -69,7 +69,7 @@ const LeftMenu = (props) => {
           <div className="sidebarHeader">
             Shop By Category
           </div>
-          <div className="sidebar-wrapper">
+          <div className="sidebar-wr apper">
           <div className="sidebar-content">
                 {loading ? <Spin style={{ marginTop: '20px', marginLeft: '30px' }} /> : null}
                 <Menu
