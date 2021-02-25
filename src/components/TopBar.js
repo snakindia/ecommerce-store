@@ -103,12 +103,12 @@ class TopBar extends Component {
               </div> */}
               <div className="container-fluid">
                 <div className="row">
-                  <div className="col-sm-6 col-md-6 col-lg-5">
-                  <div className="mobile pt-2 font-weight-bold pl-0 callUs_lx">
+                  <div className="col-sm-12 col-md-6 col-lg-5">
+                  <div className="mobile-d-none pt-2 font-weight-bold pl-0 callUs_lx">
                     CALL US: (888) 286-8708
                   </div>
                   </div>
-                  <div className="col-sm-6 col-md-12 col-lg-7">
+                  <div className="col-sm-12 col-md-6 col-lg-7">
                     <div className="text-sm-right">
                       <ul className="top-nav-link">
                         <li>
