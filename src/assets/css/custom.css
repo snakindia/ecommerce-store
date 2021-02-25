@@ -1535,3 +1535,8 @@ strong.price-font{font-size: 1rem; font-weight: 600;}
   .headerwp .text-sm-right, .headerwp .text-sm-right .top-nav-link{text-align: center !important;}
   
  }
+
+ 
+ .mini-cart-popup .ant-popover-content .ant-popover-inner .cart-box-changed-to-min-cart .item-list li .details .item-title .toolTipContainer{
+   padding-top: 7px !important;
+ }
