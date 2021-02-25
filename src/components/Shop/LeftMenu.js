@@ -7,6 +7,7 @@ import { getMenu } from './store/Actions'
 import { setFooter } from '../../actions/pageActions'
 import { Menu, Spin } from 'antd';
 import './css/antd.less'
+import '../../assets/css/content.css'
 import { AppstoreOutlined, MailOutlined, SettingOutlined, FolderFilled } from '@ant-design/icons';
 import useWindowDimensions from '../../utils/windowDimensions'
 const { SubMenu } = Menu;
@@ -63,7 +64,84 @@ const LeftMenu = (props) => {
     //console.log('v',(new Date()).getTime());
     return (
       <>
-        <div id="leftmenu">
+      <div className="sideBarMenu">
+        <div className="sidebar">
+          <div className="sidebarHeader">
+            Shop By Category
+          </div>
+          <div className="sidebar-wrapper">
+          <div className="sidebar-content">
+                {loading ? <Spin style={{ marginTop: '20px', marginLeft: '30px' }} /> : null}
+                <Menu
+                  style={{
+                    backgroundColor: '#1f465c',
+                    color: 'white',
+                    fontSize: '13px',
+                    marginBottom: '0px',
+                    marginRight: '5px',
+                    whiteSpace: 'nowrap',
+                    fontWeight: 600,
+
+                  }}
+                  className="nav"
+                  mode="inline"
+                  multiple={false}
+                  openKeys={openKeys}
+                  onOpenChange={onOpenChange}
+
+                //style={{ width: 256 }}
+                >
+                  {
+                    Object.keys(menu).length > 0 ? menu.map((item, idx) =>
+                      <SubMenu
+                        style={{
+                          backgroundColor: '#1f465c',
+                          alignItems: 'center',
+                          color: '#fff',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          position: 'relative',
+                          marginBottom: '3px'
+
+                        }}
+                        className="nav-item submenu"
+                        key={`${idx}sm`}
+                        title={
+                          <span className="sub-item">{item.name}</span>
+                        }
+
+                        icon={<FolderFilled />}
+                      >{Object.keys(item.sub_cat).length > 0 &&
+                        item.sub_cat.map((subCat, idx) =>
+                          <Menu.Item
+                            key={subCat.id}
+                            onClick={e => push(`/category/${subCat.id ? subCat.id : subCat._id}`)}
+
+                            style={{
+                              backgroundColor: '#1f465c',
+                              alignItems: 'center',
+                              color: '#fff',
+                              fontSize: '14px',
+                              fontWeight: '400',
+                              position: 'relative',
+                              marginBottom: '3px'
+
+                            }}
+                          >
+                            <span className="sub-item">{subCat.name}</span></Menu.Item>
+                        )}
+                      </SubMenu>)
+
+                      : null
+                  }
+
+                </Menu>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+        {/* <div id="leftmenu">
           <div className="main-header">
             <div className="logo-header">
               <a type="button" className="logo category_head">
@@ -165,6 +243,7 @@ const LeftMenu = (props) => {
             </div>
           </div>
         </div>
+       */}
       </>
     );
   }
