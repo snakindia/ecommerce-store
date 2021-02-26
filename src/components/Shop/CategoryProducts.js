@@ -178,7 +178,7 @@ class CategoryProducts extends Component {
     } else if(id=='bestselling' || id =='featured' || id =='viewed'){
      
         breadCrumData = {
-          parent:id=='bestselling' ? 'Best Selling': id=='viewed' ? 'Customer Viewed' :'Featured' ,
+          parent:id=='bestselling' ? 'Best Selling Products': id=='viewed' ? 'Customer Viewed Products' :'Featured Products' ,
           parent_id: id
         }
       

@@ -33,33 +33,33 @@ const LeftMenu = (props) => {
   }
   useEffect(() => {
     props.getMenu()
-    window.onscroll = () => {
-      console.log('s',(new Date()).getTime());
-      setScrolled(window.pageYOffset)
-    }
+    // window.onscroll = () => {
+    //   console.log('s',(new Date()).getTime());
+    //   setScrolled(window.pageYOffset)
+    // }
   }, [])
    
     const { visible, menu, loading } = props;
-    const { height } = useWindowDimensions();
-    let footer = 0;
-    const pageHeight = document.documentElement.offsetHeight;
+    // const { height } = useWindowDimensions();
+    // let footer = 0;
+    // const pageHeight = document.documentElement.offsetHeight;
 
-    const leftMneu = document.getElementById('leftmenusidebar');
-    if (document.getElementById('footer')) {
-      // footer = document.getElementById('footer').clientHeight;
-      footer = document.getElementById('footer').offsetTop;
-    }
+    // const leftMneu = document.getElementById('leftmenusidebar');
+    // if (document.getElementById('footer')) {
+    //   // footer = document.getElementById('footer').clientHeight;
+    //   footer = document.getElementById('footer').offsetTop;
+    // }
 
-    const heightTillFooter = height + footer;
-    const footerVisible = heightTillFooter <= (scrolled + pageHeight + height) ? 1 : 0;
-    if (footerVisible && leftMneu) {
-      const top = (scrolled + height) - footer;
-      //console.log({ top });
-      leftMneu.style.top = `-${top}px`;
-    }
-    else if (!footerVisible && leftMneu) {
-      leftMneu.style.top = 0;
-    }
+    // const heightTillFooter = height + footer;
+    // const footerVisible = heightTillFooter <= (scrolled + pageHeight + height) ? 1 : 0;
+    // if (footerVisible && leftMneu) {
+    //   const top = (scrolled + height) - footer;
+    //   //console.log({ top });
+    //   leftMneu.style.top = `-${top}px`;
+    // }
+    // else if (!footerVisible && leftMneu) {
+    //   leftMneu.style.top = 0;
+    // }
     //console.log(footerVisible, scrolled, height, footer, pageHeight);
     //console.log('v',(new Date()).getTime());
     return (

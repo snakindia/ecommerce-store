@@ -2,21 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Breadcrumb } from 'antd';
 import Loader from '../../Loader/Loader'
-import QuickView from '../QuickView'
-import { addOrder, updateAddress, getPaymentMethod, getShippingMethod, getPaymentSettingsMethod,applycoupon } from '../store/Actions';
+import { updateCart,addOrder, updateAddress, getPaymentMethod, getShippingMethod, getPaymentSettingsMethod,applycoupon } from '../store/Actions';
 import { getOrders, logout } from '../../Accounts/store/Actions';
-import { Link } from 'react-router-dom';
 import { Collapse } from 'antd';
-import { Card } from 'antd';
 import Login from './Login'
 import Address from './Address'
 import Summary from './Summary';
 import Payment from './Payment';
 import PannelHeader from './PannelHeader';
-
-import ShippingMethod from './ShippingMethod';
-import PaypalExpress from './PaypalExpress';
-import Nmi from './Nmi';
 import Thankyou from './Thankyou';
 import { getAddress } from '../../../utils/helper';
 import scrollToEl from '../../../utils/scrollToEl'
@@ -71,7 +64,10 @@ class Checkout extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const { cart } = this.props;
+        const { cart,user } = this.props;
+        if(cart && cart.email && user && user.email && cart.email != user.email ){
+            this.updateCart({...this.props.cart, email: user.email})
+        }
 
         if (cart && cart !== prevProps.cart) {
             const { email, billing_address, shipping_address, payment_method_id, shipping_method_id, payment_method_gateway } = cart;
@@ -174,13 +170,16 @@ class Checkout extends Component {
             }
             if (methods && methods.length == 1 ) {
                 const id = methods[0].id;
-                console.log(shipping_method_id,id);
                 this.shippingMethodHandler(id)
                 //this.setState({shipping_checked:true})
             }
             
         }
     }
+    }
+
+    updateCart =(payload)=>{
+        this.props.updateCart(payload)
     }
 
     setEmail = (email) => {
@@ -551,6 +550,7 @@ const mapStateToProps = (state) => ({
     pannelstep: state.shop.pannelstep,
 });
 const mapDispatchToProps = dispatch => ({
+    updateCart: (p) => dispatch(updateCart(p)),
     getPaymentMethod: () => dispatch(getPaymentMethod()),
     getPaymentSettingsMethod: () => dispatch(getPaymentSettingsMethod()),
     getShippingMethod: (payload) => dispatch(getShippingMethod(payload)),

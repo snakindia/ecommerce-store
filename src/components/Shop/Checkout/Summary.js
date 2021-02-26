@@ -2,21 +2,22 @@
 import { Table } from 'antd'
 import { Link } from 'react-router-dom'
 import React, { useState } from 'react';
-import Image from '../Image'
+import Image from '../Image';
+import ToolTip from '../ToolTip';
 function Summary(props) {
   const [coupon, setCoupon] = useState(props.coupon);
   const [isVisible, setVisible] = useState(null);
   const onClickApply = (e) => {
     e.preventDefault();
-    props.applycoupon({code:coupon});
+    props.applycoupon({ code: coupon });
   }
 
-  const toggleCouponForm =(e)=>{
+  const toggleCouponForm = (e) => {
     e.preventDefault();
     setVisible(!isVisible)
   }
 
-  const onChange =(e)=>{
+  const onChange = (e) => {
     setCoupon(e.target.value)
   }
 
@@ -84,7 +85,11 @@ function Summary(props) {
                             <div className="row">
                               <div className="col-sm-4 col-md-5 col-lg-4 col ">
                                 <Image src={item.image_url} className="card-thumbnail" alt="" />
+                                <div className="item-title"><Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>
+                                <ToolTip text={item.name} />
+                              </Link></div>
                               </div>
+                             
                               <div className="col-sm-4 col-md-4 col-lg-5 col text-center pt-4">
                                 {item.qty}
                               </div>
@@ -106,7 +111,7 @@ function Summary(props) {
                     <div className="product-subtotal">
                       <div className="row">
 
-                      <div className="col-sm-4 col-md-6 col-lg-6 col">
+                        <div className="col-sm-4 col-md-6 col-lg-6 col">
                           <b>Subtotal</b>
                         </div>
                         <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
@@ -116,7 +121,7 @@ function Summary(props) {
                       </div>
 
                       <div className="row">
-                      <div className="col-sm-4 col-md-6 col-lg-6 col">
+                        <div className="col-sm-4 col-md-6 col-lg-6 col">
                           Shipping
                         </div>
                         <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
@@ -124,8 +129,8 @@ function Summary(props) {
                           ${props.shipping}
                         </div>
                       </div>
-                      {props.coupon &&<div className="row">
-                      <div className="col-sm-4 col-md-6 col-lg-6 col">
+                      {props.coupon && <div className="row">
+                        <div className="col-sm-4 col-md-6 col-lg-6 col">
                           Coupon Applied
                         </div>
                         <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
@@ -133,8 +138,8 @@ function Summary(props) {
                           {props.coupon}
                         </div>
                       </div>}
-                      {props.couponDiscount &&<div className="row">
-                      <div className="col-sm-4 col-md-6 col-lg-6 col">
+                      {props.couponDiscount && <div className="row">
+                        <div className="col-sm-4 col-md-6 col-lg-6 col">
                           Discount
                         </div>
                         <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
@@ -142,10 +147,10 @@ function Summary(props) {
                           ${props.couponDiscount}
                         </div>
                       </div>}
-                      
+
 
                       <div className="row">
-                      <div className="col-sm-4 col-md-6 col-lg-6 col">
+                        <div className="col-sm-4 col-md-6 col-lg-6 col">
                           Tax
                         </div>
                         <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
@@ -156,7 +161,7 @@ function Summary(props) {
                     </div>
                     <div className="apply-coupon">
                       <a href="#" onClick={toggleCouponForm} data-toggle="collapse">Coupon/Gift Certificate</a>
-                      {isVisible && <form id="demo" className="collapse" style={{display:'block'}}>
+                      {isVisible && <form id="demo" className="collapse" style={{ display: 'block' }}>
                         <div className="col-lg-12">
                           <div className="row">
                             <div className="col-xs-12 col-sm-12 col-md-8 col-lg-9 pl-0">
