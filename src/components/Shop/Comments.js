@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { getComments, addComments } from './store/Actions';
 import Image from './Image';
-import { Input,Form ,Button} from 'antd';
+import { Input,Form ,Button, Table} from 'antd';
 import { Rate } from 'antd';
 import moment from 'moment'
+import Reviews from './Reviews'
 import avtarImg from '../../assets/images/img_avatar3.png';
 const { Search, TextArea } = Input;
 const Comments = (props) => {
@@ -65,22 +66,8 @@ const Comments = (props) => {
                         </div>
                           
                           
-                          
-                        {items && items.length > 0 ? <>
-                          {items.map(item=>
-                          <div className="media pl-0 pb-1 pr-0">
-                            <img className="align-self-start mr-3" src={avtarImg} alt="" width="70"/>
-                            <div className="media-body bha-review">
-                              <h6 className="mt-0"><span>{item.user && item.user[0] && item.user[0].full_name ? item.user[0].full_name:'' } </span>
-                               
-                               <span>{moment(item.updatedAt).format('MMMM DD, YYYY')}</span>
-                               </h6>
-                              <div>{item.review}</div>
-                              <Rate  disabled defaultValue={item.rating} />
-                            </div>
-                          </div>
-                          )}
-                          </>: null }
+                       
+                        <Reviews data={items}  />
 
                         </div>
                         { !canComment   ? 

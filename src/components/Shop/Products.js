@@ -121,7 +121,7 @@ hide = () => {
                 <div className="container-fluid">
                   <h2 className="bha_heading_2 z-index text-blue">{heading}
                   
-                  <Link to={`category/${this.props.type}`} className="seeAlllink">
+                  <Link to={`/category/${this.props.type}`} className="seeAlllink">
                     See All
                     </Link>
                   </h2>

@@ -9,7 +9,7 @@ const Compare = ({item,data,compareWith}) => {
     const added = ids.includes(item.id);
     const onClick =(e)=>{
         e.preventDefault()
-        if(ids.length <4){
+        if(ids.length <4 || ids.includes(item.id)){
             compareWith({type:added ? 'remove':'add',item})
         } else {
             notification('error', 'You can compare only four products at time')

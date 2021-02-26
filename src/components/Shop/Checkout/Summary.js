@@ -83,10 +83,11 @@ function Summary(props) {
                         {
                           dataSource && dataSource.length > 0 ? dataSource.map(item => <div key={item.name} className="product-specification">
                             <div className="row">
+                              {console.log(item)}
                               <div className="col-sm-4 col-md-5 col-lg-4 col ">
                                 <Image src={item.image_url} className="card-thumbnail" alt="" />
                                 <div className="item-title"><Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>
-                                <ToolTip text={item.name} />
+                                {/* <ToolTip text={item.name} /> */} {item.name}
                               </Link></div>
                               </div>
                              
