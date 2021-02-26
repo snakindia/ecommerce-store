@@ -138,7 +138,7 @@ const Routes = (props) => {
                   <Route path="/compare" component={Compare} />
                   <Route path="/represent-us" component={RepresentUs} />
                   <Route path="/industries" component={Industries} />
-                 <Route path="/accounts" component={Accounts} />
+                 <Route path="/accounts" component={CompareHoc} />
                   
                   <Dynamic />
 
