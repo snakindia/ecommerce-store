@@ -1008,7 +1008,7 @@ a.bha-btn-secondry:hover {
 .grid-switcher {
   float: right;
   margin-left: 1rem;
-  margin-top: 5px;
+  margin-top: 0;
 }
 .grid-switcher i {
   color: #000;

@@ -42,8 +42,8 @@ class ShopNow extends Component {
     const { item, showModal, visible } = this.state;
     const { pathname } = this.props.location;
     return (
-
-      <div className={visible ? 'contentWrapper' : 'sidebar_minimize wrapper'}>
+      <div className="contentWrapper">
+      <div className={visible ? 'wrapper' : 'sidebar_minimize wrapper'}>
         <div className="topPadding">
           <div className="shopnow-pagewrap">
             <div className="mainContentPanel bgWhite">
@@ -108,7 +108,7 @@ class ShopNow extends Component {
         </MDBContainer>
         
       </div>
-
+    </div>
     );
   }
 }
