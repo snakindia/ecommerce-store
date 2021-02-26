@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Pro01 from '../../assets/images/promo-banner/item5.jpg';
+import Pro01 from '../../assets/images/promo-banner/banner-small01.jpg';
 import ProSecond from '../../assets/images/promo-banner/banner-small02.jpg';
 import ProThird from '../../assets/images/promo-banner/banner-small03.jpg';
 import imgSmallOne from '../../assets/images/promo-banner/600X5001.jpg';
