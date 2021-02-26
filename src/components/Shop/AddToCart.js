@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { notification } from '../../utils/helper';
 import { connect } from 'react-redux'
 import CartBlack from '../../assets/icon/cart_black.svg'
 import CartWhite from '../../assets/icon/cart.svg';
@@ -14,7 +15,13 @@ const AddToCart = (props) => {
       props.addProduct(item, newQty)
 
     } else {
-      props.addProduct(item, qty)
+      const oldQty = getProductQtyFromCart();
+      if(oldQty){
+        notification('warning', 'Product already added with one quantity , to increase quantity visit cart page')
+      } else {
+        props.addProduct(item, qty)
+      }
+      
     }
 
   }
@@ -23,6 +30,7 @@ const AddToCart = (props) => {
     let qtyy = 0;
     if (cart && cart.items && cart.items.length > 0) {
       const Olditem = cart.items.filter(i => i.product_id === id);
+      
       if (Olditem && Olditem[0]) {
         qtyy = Olditem[0].quantity;
       }

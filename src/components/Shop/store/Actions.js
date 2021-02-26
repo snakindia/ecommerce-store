@@ -492,7 +492,10 @@ export const updateAddress = (payload, type, pannelstep) => {
             });
     }
 }
-
+export const updateCart =(payload)=>({
+    type: ActionTypes.CART_UPDATE,
+    payload
+})
 export const orderSuccess = (payload) => ({
     type: ActionTypes.ORDER_SUCCESS,
     payload
