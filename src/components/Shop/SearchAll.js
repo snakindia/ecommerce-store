@@ -188,7 +188,7 @@ class SearchAll extends Component {
                             </Breadcrumb>
                             <section className="bg-opeque product--heading">
                                 <div className="container-fluid">
-                                    <h2 className="bha_heading_2 z-index text-blue mb-4">
+                                    <h2 className="bha_heading_2 z-index text-white mb-4">
                                         Search result for {str}
                                     </h2>
                                 </div>

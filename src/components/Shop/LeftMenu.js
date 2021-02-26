@@ -125,7 +125,7 @@ const LeftMenu = (props) => {
           <div className="sidebar">
             <div className="sidebarHeader">
               Shop By Category
-          </div>
+            </div>
             <div className="sidebar-wrapper">
               <MenuComponent
                 loading={loading}

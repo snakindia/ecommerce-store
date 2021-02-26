@@ -1558,3 +1558,4 @@ color:#666; font-family: 'Roboto', sans-serif;}
 .deleteItem{cursor: pointer !important; color:rgb(172, 170, 170) !important}
 .deleteItem:hover{color:rgb(187, 9, 9) !important}
 .categoryIcon{ position: absolute; top:15px; right:15px;}
+.ant-menu-submenu-title:hover{color:#fff !important}

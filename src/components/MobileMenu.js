@@ -59,7 +59,7 @@ class MobileMenu extends React.Component {
           </div>
         </div> */}
         <Drawer
-        title=""
+        title="Shop By Category"
         placement="right"
         // closable={false}
         onClose={e=>this.setState({visible:false})}

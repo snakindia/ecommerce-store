@@ -3,17 +3,15 @@ display: block; float:left}
 .sideBarMenu{width: 20%; float:left;margin-top: 5px;}
 .sideBarMenu .sidebar .nav{margin-top: 0;padding:0 0.5rem;}
 .mainContentPanel{width: 80%;float:right;}
-
-.sidebar .sidebar-wrapper .sidebar-content{padding-top:0 !important; padding-bottom:680px !important}
+.sidebar .sidebar-wrapper .sidebar-content{padding-top:0 !important; height: calc(100vh + 680px);}
 .sidebar{position: static !important; padding:0 !important;}
 .sidebar .sidebar-wrapper{max-height: 100% !important; min-height: 100% !important}
-.mainContentPanel .main-panel {position: relative; width: 80%;height: 100%;transition: all .3s; float:right;
-}
+.mainContentPanel .main-panel {position: relative; width: 80%;height: 100%;transition: all .3s; float:right;}
+
 .mainContentPanel .main-panel .page-inner{padding-right:0 !important; padding-left:0 !important;}
 
 .sidebarHeader{width: 100%; background:#234c63; padding:1rem; color:#fff;
 text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
-/* #myDiv{position: absolute; left:270px !important; z-index: 10000 !important} */
 
 .shop-now-page-inner{padding:0; margin-top: 0.3rem;}
 
@@ -27,14 +25,23 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-.sideBarMenu{left:-270px; top:0;position: absolute; z-index: 100000 !important}
+.sideBarMenu{left:0; top:0;position: absolute; z-index: 100000 !important}
+.sidebar .sidebar-wrapper .sidebar-content{padding-bottom:0 !important}
 .mainContentPanel{width: 100%;}
+.ant-menu-inline{display: block !important;}
+.ant-menu-vertical .ant-menu-submenu, .ant-menu-vertical-left .ant-menu-submenu, 
+.ant-menu-vertical-right .ant-menu-submenu, .ant-menu-inline .ant-menu-submenu{width: 100% !important;}
+.ant-drawer-body{padding:0 15px !important; background:rgb(31, 70, 92) !important}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 .sideBarMenu{left:-270px;position: absolute;z-index: 10000 !important}
 .mainContentPanel{width: 100%;}
+.ant-menu-inline{display: block !important;}
+.ant-menu-vertical .ant-menu-submenu, .ant-menu-vertical-left .ant-menu-submenu, 
+.ant-menu-vertical-right .ant-menu-submenu, .ant-menu-inline .ant-menu-submenu{width: 100% !important;}
+.ant-drawer-body{padding:0 15px !important; background:rgb(31, 70, 92) !important}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -42,12 +49,25 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .sideBarMenu{left:-270px;position: absolute;z-index: 10000 !important}
 .mainContentPanel{width: 100%;}
 .mainContentPanel .main-panel{width: 100%;}
+.ant-menu-inline{display: block !important;}
+.ant-menu-vertical .ant-menu-submenu, .ant-menu-vertical-left .ant-menu-submenu, 
+.ant-menu-vertical-right .ant-menu-submenu, .ant-menu-inline .ant-menu-submenu{width: 100% !important;}
+.ant-drawer-body{padding:0 15px !important; background:rgb(31, 70, 92) !important}
+.ant-drawer-title { margin: 0; font-weight: 500; font-size: 18px;line-height: 22px;
+    font-weight: 700; text-transform: uppercase; padding: 0.4rem 0 0;}
+.anticon svg {margin-top: -7px !important;}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 .sideBarMenu{left:0;position: absolute;}
 .mainContentPanel .main-panel{width: 75%;}
+.ant-menu-inline{display: block !important;}
+.ant-menu-vertical .ant-menu-submenu, .ant-menu-vertical-left .ant-menu-submenu, 
+.ant-menu-vertical-right .ant-menu-submenu, .ant-menu-inline .ant-menu-submenu{width: 100% !important;}
+.ant-drawer-body{padding:0 15px !important; background:rgb(31, 70, 92) !important}
+.ant-drawer-title { margin: 0; font-weight: 500; font-size: 18px;line-height: 22px;
+    font-weight: 700; text-transform: uppercase; padding: 0.4rem 0 0;}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -55,4 +75,5 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .sideBarMenu{position: static;}
 .mainContentPanel{width: 100%;padding-bottom: 0.3rem;}
 .mainContentPanel .main-panel{width: 80%;}
+
 }

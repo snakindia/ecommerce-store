@@ -48,7 +48,7 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
 
                         <section className="bg-opeque product--heading">
                             <div className="container-fluid">
-                                <h2 className="bha_heading_2 z-index text-blue mb-4">Product Compare</h2>
+                                <h2 className="bha_heading_2 z-index text-white mb-4">Product Compare</h2>
                             </div>
                         </section>
                         <section >
