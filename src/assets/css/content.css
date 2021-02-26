@@ -1,5 +1,5 @@
-.contentWrapper{max-width: 100%;margin: 0 auto;padding: 0 15px 0 8px; background: #fcfcfc;
-display: block; float:none}
+.contentWrapper{max-width: 100%;margin: 0 auto;padding: 0 15px 0 8px; background: #fff;
+display: block; float:left}
 .sideBarMenu{width: 20%; float:left;margin-top: 5px;}
 .sideBarMenu .sidebar .nav{margin-top: 0;padding:0 0.5rem;}
 .mainContentPanel{width: 80%;float:right;}

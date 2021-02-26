@@ -88,9 +88,13 @@ function Summary(props) {
                               {console.log(item)}
                               <div className="col-sm-8 col-md-9 col-lg-9 col media pr-0">
                                 <Image src={item.image_url} className="card-thumbnail" alt="" />
+<<<<<<< HEAD
                                 <div className="item-title media-body pl-2 item-title-new-link"><Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>
                                 {/* <ToolTip text={item.name} /> */} {item.name}
                               </Link></div>
+=======
+                                <div className="item-title"> {item.name}</div>
+>>>>>>> 535a24cb32879ff998401bc75da2f5967c2ae6fa
                               </div>
                              {/*
                               <div className="col-sm-4 col-md-4 col-lg-5 col text-center pt-4">

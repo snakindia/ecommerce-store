@@ -161,7 +161,7 @@ h6 {
     background: transparent !important;
   }
   .top-header {
-    z-index: 10001 !important;
+    z-index: 100001 !important;
   }
   .wsmobileheader > .smllogo {
     width: 180px !important;
@@ -1319,10 +1319,14 @@ border-bottom:1px solid rgba(0, 0, 0, 0.05)}
 font-size: 0.850rem;}
 .ant-breadcrumb .ant-breadcrumb-link{color:#000; font-weight: 700;}
 .ant-breadcrumb .ant-breadcrumb-link a:hover{color:#044c72}
-.product--heading{margin-bottom: 1.4rem; box-shadow: 0 0 10px #f9f9f9;}
+/* .product--heading{margin-bottom: 1.4rem; box-shadow: 0 0 10px #f9f9f9;} */
+.product--heading{margin-bottom: 1.4rem; box-shadow: 0 0 10px #f9f9f9; position: relative;
+background:url("../images/heading-bg.jpg") !important; border-radius: 0.2rem;margin-bottom: 0.5rem !important;
+overflow: hidden;}
+.product--heading:before{content:''; position:absolute; top:0; left:0; bottom:0; right:0;
+background: rgba(31,70,92,0.5);}
 .noprodct{float:left; padding:0.8rem 1.5rem; text-align: center; /*box-shadow: 0 0 10px #f9f9f9;*/
-border-radius: 0.2rem; font-size: 1.8rem; width: 100%;
-}
+border-radius: 0.2rem; font-size: 1.8rem; width: 100%;}
 .noprodct small{font-weight: 700 !important;}
 .noprodct small .noProdictText{color:#266e97 !important}
 
