@@ -1518,7 +1518,7 @@ width: 36px !important;}
   .product-xs-list .portfolio-hover{width:40%; height: 50%; left:0}
   .banner-container-small .banner-item-xs-caption{width:80% !important; top:10%}
   .btnLight{width: auto !important;}
-  .banner-container-small { margin-top: 5px !important;}
+  .banner-container-small { margin-top: 0 !important;}
   .contentWrapper{padding:0 !important}
   .product--heading{text-align: center;}
 }

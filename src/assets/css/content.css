@@ -4,8 +4,8 @@ display: block; float:left}
 .sideBarMenu .sidebar .nav{margin-top: 0;padding:0 0.5rem;}
 .mainContentPanel{width: 80%;float:right;}
 
+.sidebar .sidebar-wrapper .sidebar-content{padding-top:0 !important; padding-bottom:680px !important}
 .sidebar{position: static !important; padding:0 !important;}
-.sidebar .sidebar-wrapper .sidebar-content{padding-top:0 !important;}
 .sidebar .sidebar-wrapper{max-height: 100% !important; min-height: 100% !important}
 .mainContentPanel .main-panel {position: relative; width: 80%;height: 100%;transition: all .3s; float:right;
 }
@@ -53,6 +53,6 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 .sideBarMenu{position: static;}
-.mainContentPanel{width: 100%;padding-bottom: 2rem;}
+.mainContentPanel{width: 100%;padding-bottom: 0.3rem;}
 .mainContentPanel .main-panel{width: 80%;}
 }
