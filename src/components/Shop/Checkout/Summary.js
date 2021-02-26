@@ -86,9 +86,7 @@ function Summary(props) {
                               {console.log(item)}
                               <div className="col-sm-4 col-md-5 col-lg-4 col ">
                                 <Image src={item.image_url} className="card-thumbnail" alt="" />
-                                <div className="item-title"><Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>
-                                {/* <ToolTip text={item.name} /> */} {item.name}
-                              </Link></div>
+                                <div className="item-title"> {item.name}</div>
                               </div>
                              
                               <div className="col-sm-4 col-md-4 col-lg-5 col text-center pt-4">
