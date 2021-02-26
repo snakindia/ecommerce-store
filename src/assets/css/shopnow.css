@@ -1557,3 +1557,4 @@ color:#666; font-family: 'Roboto', sans-serif;}
 /* .table td i{color:#a70e15 !important; cursor:pointer !important;} */
 .deleteItem{cursor: pointer !important; color:rgb(172, 170, 170) !important}
 .deleteItem:hover{color:rgb(187, 9, 9) !important}
+.categoryIcon{ position: absolute; top:15px; right:15px;}

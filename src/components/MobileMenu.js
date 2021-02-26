@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MenuLogo from '../assets/images/menu-logo.jpg';
+import categoryIcon from '../assets/icon/category-icon.svg';
 import { Link, withRouter } from 'react-router-dom';
 class MobileMenu extends React.Component {
   constructor(props) {
@@ -38,7 +39,8 @@ class MobileMenu extends React.Component {
         <a id="wsnavtoggle" className="wsanimated-arrow" onClick={this.clickHandler}><span></span></a>
         <span className="smllogo"><img className="w-100" src={MenuLogo} width="80" alt="" /></span>
         <a href="#myModal" data-toggle="modal" className="loginBtn sr-only">Log in</a>
-        <div className={search ? 'wssearch clearfix wsopensearch' : 'wssearch clearfix'}>
+        <a href="#" className="categoryIcon"><img src={categoryIcon} alt="" width="30"/></a>
+        {/* <div className={search ? 'wssearch clearfix wsopensearch' : 'wssearch clearfix'}>
           <i className="wsopensearch fas fa-search" onClick={e => this.setSearch(true)}></i>
           <i className="wsclosesearch fas fa-times" onClick={e => this.setSearch(false)}></i>
           <div className="wssearchform clearfix">
@@ -48,7 +50,7 @@ class MobileMenu extends React.Component {
               </div>
             </form>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }
