@@ -1,10 +1,11 @@
-import React, { Component , useEffect} from 'react';
+import React, { Component , useEffect, useState} from 'react';
 import { Link } from 'react-router-dom'
 import Image from './Image'
 import { connect } from 'react-redux';
 import { compareWith,getCompareProducts } from './store/Actions'
 import { Breadcrumb,Rate } from 'antd';
-const CompareProducts = ({ item, data, compareWith, location,getCompareProducts }) => {
+import { propTypes } from 'react-bootstrap/esm/Image';
+const CompareProducts = ({ item, data, compareWith, location,getCompareProducts , history}) => {
     const query = new URLSearchParams(location.search);
     const urlIds = query.get('ids')
     let ids = data && data.length > 0 ? data.map(d => d.id) : []
@@ -15,9 +16,23 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
             getCompareProducts(urlIds)
         }
     },[])
+    const [items,setItems] =useState([])
+    useEffect(()=>{
+        let ids = data && data.length > 0 ? data.map(d => d.id) : []
+        if(ids.length < 2){
+            history.push('/shop')
+        } else {
+            setItems(data)
+        }
+    },[data])
    
     const onClick = (item) => {
+        let ids = data && data.length > 0 ? data.map(d => d.id) : []
         compareWith({ type: 'remove', item })
+        if(ids.length ==2){
+            history.push('/shop')
+        }
+        
     }
     return (
         <div class="content-wrapper topPadding" id="content">
@@ -45,7 +60,7 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
                                                 <td className="align-middle">
                                                 <label>Product Image</label>
                                                 </td>
-                                                {data.map(d=>
+                                                {items.map(d=>
                                                 <td className="p-0" key={d.id}>
                                                     <div className="comparison-item"><span className="remove-item" onClick={e=>onClick(d)}><i className="fa fa-close"></i></span>
                                                         <Link className="comparison-item-thumb" to={`/shop/${d.id}`}>
@@ -60,44 +75,44 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
                                         <tbody id="summary" data-filter="target">
                                             <tr className="bg-primary">
                                                 <th className="text-uppercase">Product Name</th>
-                                                {data.map(d=><td key={d.name}><span className="font-weight-bold">{d.name}</span></td>)}
+                                                {items.map(d=><td key={d.name}><span className="font-weight-bold">{d.name}</span></td>)}
                                                 
 
                                             </tr>
                                             <tr>
                                                 <th>Price</th>
-                                                {data.map(d=><td key={`${d.name}price`}>{d.sale_price ? d.sale_price :d.regular_price}</td>)}
+                                                {items.map(d=><td key={`${d.name}price`}>{d.sale_price ? d.sale_price :d.regular_price}</td>)}
 
                                             </tr>
                                             <tr>
                                                 <th>Featured</th>
-                                                 {data.map(d=><td key={`${d.name}featured`}>{d.featured ? 'Yes':'No'}</td>)}
+                                                 {items.map(d=><td key={`${d.name}featured`}>{d.featured ? 'Yes':'No'}</td>)}
 
                                             </tr> 
                                             <tr>
                                                 <th>Best Selling</th>
-                                                 {data.map(d=><td key={`${d.name}topselling`}>{d.topSelling ? 'Yes':'No'}</td>)}
+                                                 {items.map(d=><td key={`${d.name}topselling`}>{d.topSelling ? 'Yes':'No'}</td>)}
 
                                             </tr>
                                            
                                             <tr>
                                                 <th>Rating</th>
-                                                {data.map(d=><td key={`${d.name}rating`}><Rate readOnly /></td>)}
+                                                {items.map(d=><td key={`${d.name}rating`}><Rate readOnly /></td>)}
 
                                             </tr>
                                             <tr>
                                                 <th>Contact</th>
-                                                {data.map(d=><td key={`${d.name}contact`}>Not Available</td>)}
+                                                {items.map(d=><td key={`${d.name}contact`}>Not Available</td>)}
 
                                             </tr>
                                             <tr>
                                                 <th>Satisfaction Guarantee</th>
-                                                {data.map(d=><td key={`${d.name}contact`}>No return</td>)}
+                                                {items.map(d=><td key={`${d.name}contact`}>No return</td>)}
 
                                             </tr>
                                             <tr>
                                                 <th>Lead Time</th>
-                                                {data.map(d=><td key={`${d.name}contact`}>17 days</td>)}
+                                                {items.map(d=><td key={`${d.name}contact`}>17 days</td>)}
 
                                             </tr>
                                         </tbody>

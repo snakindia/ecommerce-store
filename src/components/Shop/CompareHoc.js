@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import Shop from './index';
 import Detail from './Detail';
+import Accounts from '../Accounts/Accounts'
 import { compareWith } from './store/Actions'
 import { connect } from 'react-redux';
 import { Collapse, Select } from 'antd';
@@ -56,6 +57,7 @@ class CompareHoc extends Component {
                     <Route path="/shop/:id" component={Detail} />
                     <Route path="/shop" component={Shop} />
                     <Route path="/category/:id" component={Shop} />
+                    <Route path="/accounts" component={Accounts} />
                 </Switch>
                 <div className="compare-collaspe-div">
                     {data && data.length > 0 ?

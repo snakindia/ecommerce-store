@@ -6,6 +6,8 @@ import { Select } from 'antd';
 import ProductList from '../Shop/ProductList';
 import moment from 'moment';
 import { getWishlist } from './store/Actions';
+import { MDBModal, MDBContainer } from 'mdbreact';
+import QuickView from '../Shop/QuickView'
 const { Option } = Select;
 const { TabPane } = Tabs;
 class Wishlists extends React.Component {
@@ -20,7 +22,23 @@ class Wishlists extends React.Component {
             status: '',
             tab: '1',
             found: 0,
+            showModal: false,
+            item: null,
+            visible: true,
         }
+    }
+    show = (item) => {
+        this.setState({
+            item,
+            showModal: true
+        })
+    }
+
+    hide = () => {
+        this.setState({
+            item: null,
+            showModal: false
+        })
     }
     sortData = (data) => {
         const { duration } = this.state;
@@ -68,8 +86,9 @@ class Wishlists extends React.Component {
     }
     render() {
         const { currentPage, resultPerPage, duration } = this.state;
-        let { loading,data } = this.props;
-        
+        const { item, showModal, visible } = this.state;
+        let { loading, data } = this.props;
+
         data = this.sortData(data);
         const found = data ? data.length : 0;
         data = data.slice((currentPage - 1) * resultPerPage, currentPage * resultPerPage);
@@ -130,7 +149,7 @@ class Wishlists extends React.Component {
 
                                                 <ProductList
                                                     item={item}
-                                                    quickView={this.props.quickView}
+                                                    quickView={this.show}
                                                     wishlistRemove={this.wishlistRemove}
                                                 />)}
                                             </>
@@ -151,6 +170,21 @@ class Wishlists extends React.Component {
                         </div>
                     </div>
                 </div>
+                <MDBContainer>
+                    <MDBModal
+                        isOpen={showModal}
+                        toggle={this.hide}
+                        centered
+                        id="#myModalView"
+                        className="modal-width-lg"
+                    >
+                        {item && <QuickView
+                            item={item}
+                            hide={this.hide}
+                        />
+                        }
+                    </MDBModal>
+                </MDBContainer>
             </div>
         )
     }
