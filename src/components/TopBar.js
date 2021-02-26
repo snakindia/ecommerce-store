@@ -115,7 +115,7 @@ class TopBar extends Component {
                         {productsInCart > 0 ?
                           <Popover placement="bottom" title='' content={<MiniCart showCart={this.showCart} />} trigger="click"
                             overlayStyle={{ zIndex: 10001, position: 'fixed' }}
-                            overlayClassName="mini-cart-popup"
+                            overlayClassName="mini-cart-popup mini-cart-new-arrow"
                             visible={visibleMiniCart}
                             destroyTooltipOnHide={true}>
                             <Link to="" onClick={e => this.showCart(e, true)}>

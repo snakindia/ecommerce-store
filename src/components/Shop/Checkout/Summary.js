@@ -65,12 +65,14 @@ function Summary(props) {
 
                     <div className="product-detail-quantity">
                       <div className="row">
-                        <div className="col-md-5 col-sm-4 col-lg-4 col">
+                        <div className="col-md-9 col-sm-8 col-lg-9 col">
                           Product Name
                         </div>
+                        {/*
                         <div className="col-md-4 col-sm-4 col-lg-5 col text-center">
                           Quantity
                         </div>
+                        */}
                         <div className="col-md-3 col-sm-4  col-lg-3 col text-center">
                           Price
                         </div>
@@ -84,17 +86,18 @@ function Summary(props) {
                           dataSource && dataSource.length > 0 ? dataSource.map(item => <div key={item.name} className="product-specification">
                             <div className="row">
                               {console.log(item)}
-                              <div className="col-sm-4 col-md-5 col-lg-4 col ">
+                              <div className="col-sm-8 col-md-9 col-lg-9 col media pr-0">
                                 <Image src={item.image_url} className="card-thumbnail" alt="" />
-                                <div className="item-title"><Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>
+                                <div className="item-title media-body pl-2 item-title-new-link"><Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>
                                 {/* <ToolTip text={item.name} /> */} {item.name}
                               </Link></div>
                               </div>
-                             
+                             {/*
                               <div className="col-sm-4 col-md-4 col-lg-5 col text-center pt-4">
                                 {item.qty}
                               </div>
-                              <div className="col-sm-4 col-md-3 col-lg-3 col text-center pt-4">
+                             */}
+                              <div className="col-sm-4 col-md-3 col-lg-3 col text-center pt-3">
                                 $ {item.price}
                               </div>
                             </div>
