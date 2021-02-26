@@ -5,9 +5,11 @@ import Cartimg from '../../assets/icon/cart.svg'
 const ContactForSale = (props) => {
     const imgSrc = props.hotDeals ? CartBlack : Cartimg;
     return (
+        <div className="prod-comp-top d-inline-block">
         <a className="lp-element lp-pom-button" href="tel:1-888-405-1143" target="_top">
             <div>Contact for Sale:</div><div>1-888-405-1143</div> 
         </a>
+        </div>
     );
 }
 export default ContactForSale;
