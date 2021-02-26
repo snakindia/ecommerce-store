@@ -72,7 +72,7 @@ class CompareHoc extends Component {
                                         <ul className="compare-widget__products pl-0">
                                             {data.map(datum =>
                                                 <li className=" media compare-widget__product">
-                                                    <Image height="40px" width="40px" src="images/product/img1.jpg" preview={false} alt="" className="compare-widget__image" />
+                                                    <Image height="40px" width="40px" item={datum} preview={false} alt="" className="compare-widget__image" />
                                                    <div className="media-body">
                                                     <h3 className="compare-widget__title">
                                                         {datum.name}

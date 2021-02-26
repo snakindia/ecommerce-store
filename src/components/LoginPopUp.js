@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import { message, Button, Space } from 'antd';
 import { connect } from 'react-redux';
 import { MDBModal, MDBContainer } from 'mdbreact';
@@ -18,6 +18,12 @@ class LoginPopUp extends Component {
         }
     }
 
+    componentDidUpdate(prevProps,prevState ){
+        const {location:{pathname}}=this.props;
+        if(pathname != prevProps.location.pathname && this.state.showModal){
+            this.setState({showModal:false})
+        }
+    }
 
     show = (e) => {
         e.preventDefault()
@@ -92,7 +98,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(LoginPopUp);
+)(withRouter(LoginPopUp));
 
 
 

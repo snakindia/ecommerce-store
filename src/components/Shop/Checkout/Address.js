@@ -160,7 +160,7 @@ function Address(props) {
                         if (!values.city) errors.city = 'City is Required';
                         if (!values.state) errors.state = 'State/Province is Required';
                         if (!values.postal_code) errors.postal_code = 'Postal Code is Required';
-                        // if (!values.country) errors.country = 'Country is Required';
+                        if (!values.country) errors.country = 'Country is Required';
                         //console.log(errors);
                         return errors;
                     }}
@@ -225,7 +225,7 @@ function Address(props) {
                                 />
                             </div>
                             <div className="form-group">
-                                <label className="text-small">City</label>
+                                <label className="text-small">City *</label>
                                 <Input
                                     allow="text"
                                     length={100}
@@ -236,7 +236,7 @@ function Address(props) {
                                 />
                             </div>
                             <div className="form-group">
-                                <label className="text-small">State/Province(Optional)</label>
+                                <label className="text-small">State/Province *</label>
                                 <Input
                                     allow="text"
                                     length={100}
@@ -247,7 +247,7 @@ function Address(props) {
                                 />
                             </div>
                             <div className="form-group">
-                                <label className="text-small">Country</label>
+                                <label className="text-small">Country *</label>
                                 <Select 
                                     style={{ width: '100%' }}
                                     showSearch={true}
@@ -266,7 +266,7 @@ function Address(props) {
                                 </Select>
                             </div>
                             <div className="form-group">
-                                <label className="text-small">Postal Code</label>
+                                <label className="text-small">Postal Code *</label>
                                 <Input
                                     allow="numeric"
                                     length={6}
@@ -277,7 +277,7 @@ function Address(props) {
                                 />
                             </div>
                             <div className="form-group">
-                                <label className="text-small">Phone Number</label>
+                                <label className="text-small">Phone Number *</label>
                                 <Input
                                     length={10}
                                     allow="numeric"

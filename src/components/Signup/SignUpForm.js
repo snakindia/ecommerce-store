@@ -249,7 +249,7 @@ class SignUpForm extends PureComponent {
                     />
                     <small>Show Password</small>
                   </div>
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <div>
                       <input
                         type="checkbox"
@@ -261,62 +261,15 @@ class SignUpForm extends PureComponent {
                       />
                       I would like to receive updates and offers
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
             <hr />
             <div className="container-fluid">
               <div className="row">
-                <div className="col-sm-6 col-md-6 pl-0">
-                  <p>
-                    <small>
-                      <input
-                        type="checkbox"
-                        name="productnotification"
-                        value={values.productnotification}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className="mr-3"
-                      />
-                      I WOULD LIKE TO RECEIVE INFORMATION ABOUT BAGHOUSE
-                      PRODUCTS AND PROMOTIONS BY EMAIL
-                    </small>
-                  </p>
-                  <p className="text-muted">
-                    <small>
-                      By signing up you agree to receive emails from BAGHOUSE
-                      AMERICA with news, special offers, promotions and other
-                      information. You can unsubscribe at any time. See Updated{' '}
-                      <a href="/" className="font-weight-bold text">
-                        Privacy Policy
-                      </a>{' '}
-                      or Contact Us at{' '}
-                      <a
-                        href="mailto:support.baghouseamrica@gmail.com"
-                        className="font-weight-bold"
-                      >
-                        support.baghouseamrica@gmail.com
-                      </a>{' '}
-                      or 2415 East Camelback Road, Ste. 700, Phoenix, Arizona
-                      85016, for more information.
-                    </small>
-                  </p>
-                </div>
-                <div className="col-sm-6 col-md-6">
-                  <p>
-                    <small>
-                      <input
-                        type="checkbox"
-                        name="sproductresearch"
-                        value={values.sproductresearch}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className="mr-3"
-                      />
-                      SIGN UP TO PARTICIPATE IN BAGHOUSE PRODUCT RESEARCH
-                    </small>
-                  </p>
+               <div className="col-sm-6 col-md-6">
+                 
                   <div className="form-group">
                     <button
                       type="button"
