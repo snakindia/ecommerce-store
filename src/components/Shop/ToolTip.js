@@ -6,7 +6,7 @@ const ToolTip = ({ text, length = 35 }) => {
     show = text && length && text.length > length ? true:false;
 
     return (
-        <div className="toolTipContainer">
+        <div className="toolTipContainer z-index">
             {
                 show ?
                     <MDBTooltip
