@@ -1516,21 +1516,33 @@ width: 36px !important;}
   .sr-mobile-only{display:none;}
   .banner-item-xs-caption{width: 100%;}
   .product-xs-list .portfolio-hover{width:40%; height: 50%; left:0}
-  .banner-container-small .banner-item-xs-caption{width:90% !important; top:10%}
+  .banner-container-small .banner-item-xs-caption{width:80% !important; top:10%}
   .btnLight{width: auto !important;}
+  .banner-container-small { margin-top: 5px !important;}
+  .contentWrapper{padding:0 !important}
+  .product--heading{text-align: center;}
 }
 
 /*=============banner setting==============================================*/
 .banner-container-small{height:250px;}
-.banner-container-small .banner-item-xs-caption{width: 50%;}
+.banner-container-small .banner-item-xs-caption{width: 50%; top:6%}
 /* .banner-container-small .item-xs:after{content:''; position: absolute; top:0; left:0; right:0; bottom:0;
 background:rgba(0, 0, 0, 0.12)} */
+.banner-container-small .banner-item-xs-caption .item-description-xs{line-height: 28px; font-size: 1.150rem;
+color:#666; font-family: 'Roboto', sans-serif;}
 .banner-container-small .item-xs{height: 250px !important;}
 .banner-container-small .item-xs .carousel-inner .carousel-item .item-xs img{min-height:250px !important; 
   height: auto !important;}
-.btnLight{background: #0361b4; box-shadow: 0 0 2px 0 rgb(0, 0, 0) !important}
-.banner-item-xs-caption .item_heading {text-shadow:0 0 3px #000}
+/* .btnLight{background: #0361b4; box-shadow: 0 0 2px 0 rgb(0, 0, 0) !important} */
+.banner-item-xs-caption .item_heading {/*text-shadow:0 0 3px #000;*/ font-size: 1.8rem;; font-weight: 700;}
 .mobileImg{display: none;}
+
+
+.banner-container-small .carousel-indicators {z-index: 10000 !important; bottom: 15px}
+.banner-container-small .carousel-indicators li { width: 20px !important;
+  border-radius: 0 !important; background: #b9b9b9 !important; height: 6px;}
+.banner-container-small .carousel-indicators li.active {background: #6e7173 !important;}
+
 
 @media(max-width:576.99px){
   .mobileImg{display: block !important;}

@@ -46,7 +46,7 @@ class ShopNow extends Component {
       <div className={visible ? 'wrapper' : 'sidebar_minimize wrapper'}>
         <div className="topPadding">
           <div className="shopnow-pagewrap">
-            <div className="mainContentPanel bgWhite">
+            <div className="mainContentPanel">
               <LeftMenu visible={visible} shrink={this.shrink} />
               <div className="main-panel">
                 <div className="content">

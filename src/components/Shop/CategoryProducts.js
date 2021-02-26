@@ -215,7 +215,7 @@ class CategoryProducts extends Component {
             </Breadcrumb>
             <section className="bg-opeque product--heading">
               <div className="container-fluid">
-                  <h2 className="bha_heading_2 z-index text-blue mb-5">{heading}</h2>
+                  <h2 className="bha_heading_2 z-index text-white mb-5">{heading}</h2>
               </div>
             </section>
             {
@@ -330,7 +330,7 @@ class CategoryProducts extends Component {
               </> : <>
                   {
                     this.props.error ? 'Opps something went wrong...' : 
-                    <div style={{width:"100%", textAlign:"center"}}>
+                    <div className="pt-5" style={{width:"100%", textAlign:"center"}}>
                       <img src={noproductImg}/>
                     <h1 className="noprodct"><small><span className="noProdictText">No Product</span> found</small></h1>
                     </div>

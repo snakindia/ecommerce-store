@@ -24,8 +24,12 @@ class Banner extends Component {
                   <img src={Pro01} alt="" className="img-fluid mobileHide" />
                   <img src={imgSmallOne} alt="" className="img-fluid mobileImg" />
                   <div className="banner-item-xs-caption z-index">
-                    <h1 className="item_heading text-white">Dust Collection Equipment</h1>
-                    <a href="#" data-toggle="modal" className="btn bha-btn-primary btnLight mt-2">Read More</a>
+                    {/* <h1 className="item_heading text-white">Dust Collection Equipment</h1> */}
+                    <h1 className="item_heading small">Square Chuck Air Filter Cartridge</h1>
+                    <p className="item-description-xs">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod didunt ut labore et dolore magna aliqua.
+                    </p>
+                    <a href="#" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</a>
                   </div>
                 </div>
   
@@ -33,8 +37,11 @@ class Banner extends Component {
                   <img src={ProSecond} alt="" className="img-fluid mobileHide" />
                   <img src={imgSmallTwo} alt="" className="img-fluid mobileImg" />
                   <div className="banner-item-xs-caption z-index">
-                    <h1 className="item_heading text-white">Dust Collector Auxiliaries & Parts</h1>
-                    <a href="#myModal" data-toggle="modal" className="btn bha-btn-primary btnLight mt-2">Read More</a>
+                    <h1 className="item_heading">Dust Collector Auxiliaries & Parts</h1>
+                    <p className="item-description-xs">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod didunt ut labore et dolore magna aliqua.
+                    </p>
+                    <a href="#myModal" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</a>
                   </div>
                 </div>
   
@@ -42,8 +49,11 @@ class Banner extends Component {
                   <img src={ProThird} alt="" className="img-fluid mobileHide" />
                   <img src={imgSmallThree} alt="" className="img-fluid mobileImg" />
                   <div className="banner-item-xs-caption z-index">
-                    <h1 className="item_heading text-white">Brands & Replacements</h1>
-                    <a href="#myModal" data-toggle="modal" className="btn bha-btn-primary btnLight mt-2">Read More</a>
+                    <h1 className="item_heading">Brands & Replacements</h1>
+                    <p className="item-description-xs">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod didunt ut labore et dolore magna aliqua.
+                    </p>
+                    <a href="#myModal" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</a>
                   </div>
                 </div>
   
