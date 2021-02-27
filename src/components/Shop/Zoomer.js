@@ -31,7 +31,7 @@ class Zoomer extends Component {
       <React.Fragment>
             <SideBySideMagnifier
               className="input-position"
-              style={{ order: switchSides ? "1" : "0" }}
+              style={{ order: switchSides ? "1" : "0" , height:'350px'}}
               imageSrc={image}
               largeImageSrc={largeImage}
               alwaysInPlace={alwaysInPlace}
