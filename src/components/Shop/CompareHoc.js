@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Shop from './index';
 import Detail from './Detail';
 import Accounts from '../Accounts/Accounts'
-import { compareWith } from './store/Actions'
+import { compareWith, removeAllCompare } from './store/Actions'
 import { connect } from 'react-redux';
 import { Collapse, Select } from 'antd';
 import { notification } from '../../utils/helper';
@@ -20,6 +20,10 @@ class CompareHoc extends Component {
         }
     }
 
+    clearAll =(e)=>{
+        e.preventDefault();
+        this.props.removeAllCompare()
+    }
 
     componentDidUpdate(prevProps) {
         const { data } = this.props;
@@ -91,6 +95,7 @@ class CompareHoc extends Component {
                                             <Link to={`/compare?ids=${data.map(d => d.id).toString()}`} className="btn bha-btn-primary w-100">COMPARE SELECTED</Link>
                                             : <Link onClick={this.onClick } className="btn bha-btn-primary w-100">COMPARE SELECTED</Link>
                                         }
+                                        <button onClick={this.clearAll} className="bha-btn-secondry hotLink mr-2 ml-2">Remove All</button>
                                     </div>
                                 </div>
 
@@ -111,6 +116,7 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = dispatch => ({
     compareWith: (payload) => dispatch(compareWith(payload)),
+    removeAllCompare: () => dispatch(removeAllCompare()),
 });
 export default connect(
     mapStateToProps,

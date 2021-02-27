@@ -4,12 +4,18 @@ import { Link } from 'react-router-dom'
 import React, { useState } from 'react';
 import Image from '../Image';
 import ToolTip from '../ToolTip';
+import { notification } from '../../../utils/helper';
 function Summary(props) {
   const [coupon, setCoupon] = useState(props.coupon);
   const [isVisible, setVisible] = useState(null);
   const onClickApply = (e) => {
     e.preventDefault();
-    props.applycoupon({ code: coupon });
+    if(coupon){
+      props.applycoupon({ code: coupon });
+    } else {
+      notification('error','Please enter a valid Coupon Code')
+    }
+   
   }
 
   const toggleCouponForm = (e) => {

@@ -98,6 +98,7 @@ export default class QuickView extends Component {
                                                             src={sl.url}
                                                             width="780"
                                                             onClick={e => this.changeImage(sl.url)}
+                                                            onMouseEnter={e => this.changeImage(sl.url)}
                                                             className="xzoom-gallery5"
                                                             alt=''
                                                         />

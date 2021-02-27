@@ -40,7 +40,7 @@ const Comments = (props) => {
             orders.data.map(d=>{
             if(d && d.items && d.items.length > 0){
                 d.items.map(dd=>{
-                    ordersId.push(dd.id)
+                    ordersId.push(dd.product_id)
                 })
               
             }
