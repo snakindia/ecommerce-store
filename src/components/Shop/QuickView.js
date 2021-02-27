@@ -81,7 +81,7 @@ export default class QuickView extends Component {
                                         {single ? <Favourite item={item} />: null }
                                         <div className="xzoom-container mt-3">
                                             <div className="prod_gallery-sm">
-                                                <div style={{ width: '96%' }} className="zoomer">
+                                                <div style={{ width: '96%', height:'350px' }} className="zoomer">
                                                     <Zoomer
                                                         image={imageUrl}
                                                         largeImage={imageUrl}
