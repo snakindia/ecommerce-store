@@ -7,6 +7,7 @@ import { Rate } from 'antd';
 import Reviews from './Reviews'
 const { Search, TextArea } = Input;
 const Comments = (props) => {
+  const {user} =props;
   const onFinish = (values) => {
     const userId =props.user && props.user.id ? props.user.id:null;
     let data ={
