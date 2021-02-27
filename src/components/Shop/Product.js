@@ -39,7 +39,7 @@ export default class Product extends Component {
                         <Image className="img-fluid"
                             src={imageUrl} alt="" />
                         <div className="product-description">
-                            <ToolTip text={item.name} />
+                        <Link to={`/shop/${item.id}`}><ToolTip text={item.name} /></Link>
                         </div>
                         {hasPrice &&
                             <div className="pro_Price text-center">

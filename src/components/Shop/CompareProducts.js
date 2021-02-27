@@ -58,7 +58,7 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
                                         <thead className="bg-secondary">
                                             <tr>
                                                 <td className="align-middle">
-                                                <label>Product Image</label>
+                                                <label style={{fontWeight:'bold'}}>Product Image</label>
                                                 </td>
                                                 {items.map(d=>
                                                 <td className="p-0" key={d.id}>

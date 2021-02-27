@@ -497,6 +497,7 @@ class Checkout extends Component {
                                                                 shipping={shipping}
                                                                 tax={tax}
                                                                 subtotal={subtotal}
+                                                                productsInCart={productsInCart}
                                                                 coupon={cart.coupon}
                                                                 couponDiscount={cart.couponDiscount}
                                                                 applycoupon={this.props.applycoupon}

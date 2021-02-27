@@ -57,7 +57,7 @@ function Summary(props) {
                     Order Summary
              				       <span><Link to="/shop/cart">Edit Cart</Link></span>
                   </div>
-                  <p className="cart-total-items">{dataSource.length} Items</p>
+                  <p className="cart-total-items">{props.productsInCart} Items</p>
 
 
 
@@ -85,7 +85,7 @@ function Summary(props) {
                         {
                           dataSource && dataSource.length > 0 ? dataSource.map(item => <div key={item.name} className="product-specification">
                             <div className="row">
-                              {console.log(item)}
+                             
                               <div className="col-sm-8 col-md-9 col-lg-9 col media pr-0">
                                 <Image src={item.image_url} className="card-thumbnail" alt="" />
                                 <div className="item-title media-body pl-2 item-title-new-link"><Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>
@@ -99,7 +99,7 @@ function Summary(props) {
                               </div>
                              */}
                               <div className="col-sm-4 col-md-3 col-lg-3 col text-center pt-3">
-                                $ {item.price}
+                                {item.price}
                               </div>
                             </div>
                           </div>) : null

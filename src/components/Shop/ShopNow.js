@@ -72,7 +72,7 @@ class ShopNow extends Component {
                             heading="Top Rated Products"
                           />
                           <Brands />
-                          <Clients />
+                          {/* <Clients /> */}
                           {/* <PremiumBrands /> */}
                           {/* <Footer /> */}
                         </div>

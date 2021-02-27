@@ -2,12 +2,9 @@ import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { getComments, addComments } from './store/Actions';
-import Image from './Image';
 import { Input,Form ,Button, Table} from 'antd';
 import { Rate } from 'antd';
-import moment from 'moment'
 import Reviews from './Reviews'
-import avtarImg from '../../assets/images/img_avatar3.png';
 const { Search, TextArea } = Input;
 const Comments = (props) => {
   const onFinish = (values) => {
@@ -49,10 +46,10 @@ const Comments = (props) => {
         })
         }
         ordersId =[...new Set(ordersId)];
-        const Comment = ordersId.includes(props.id) ? true:false;
+        const Comment = ordersId.includes(props.id) && user && user.id ? true:false;
         setCanComment(Comment)
        setKey(new Date())
-    },[props.data, props.orders, props.reviewKey])
+    },[props.data, props.orders])
     
     
     
@@ -64,13 +61,9 @@ const Comments = (props) => {
                           <div className="pro-rating">
                           {items && items.length > 0 ? items.length :''} comments for {props.name}
                         </div>
-                          
-                          
-                       
-                        <Reviews data={items}  />
-
+                        {items && items.length > 0 && <Reviews data={items}  />}
                         </div>
-                        { !canComment   ? 
+                        { canComment   ? 
                         <div className="col-sm-4 col-md-4">
                       
                           <div className="add-new-link pt-1">
