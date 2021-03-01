@@ -45,6 +45,7 @@ class Zoomer extends Component {
               fillGapRight={fillGapRight}
               fillGapBottom={fillGapBottom}
               fillGapLeft={fillGapLeft}
+              className="zoomer-img"
               zoomContainerBorder="1px solid #ccc"
               zoomContainerBoxShadow="0 4px 8px rgba(0,0,0,.5)"
             />
