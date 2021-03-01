@@ -1,5 +1,4 @@
 import React, { Component, useEffect, useState } from 'react';
-import { Input, Form, Button, Table } from 'antd';
 import { Rate, Pagination } from 'antd';
 import moment from 'moment'
 import avtarImg from '../../assets/images/img_avatar3.png';
@@ -25,7 +24,7 @@ const Reviews = ({data}) => {
             {data && data.length > 0 ? <>
                 {/* <Pagination  simple  total={data.length} pageSize={pageSize} onChange={onChange} /> */}
                 {items.map(item =>
-                    <div className="media pl-0 pb-1 pr-0">
+                    <div className="media pl-0 pb-1 pr-0" key={item._id}>
                         <img className="align-self-start mr-3" src={avtarImg} alt="" width="70" />
                         <div className="media-body bha-review">
                             <h6 className="mt-0"><span>{item.user && item.user[0] && item.user[0].full_name ? item.user[0].full_name : ''} </span>

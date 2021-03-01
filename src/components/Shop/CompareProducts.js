@@ -1,45 +1,46 @@
-import React, { Component , useEffect, useState} from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import Image from './Image'
 import { connect } from 'react-redux';
-import { compareWith,getCompareProducts } from './store/Actions'
-import { Breadcrumb,Rate } from 'antd';
+import { compareWith, getCompareProducts } from './store/Actions'
+import { Breadcrumb, Rate } from 'antd';
+import ContactForSale from './ContactForSale'
 import { propTypes } from 'react-bootstrap/esm/Image';
-const CompareProducts = ({ item, data, compareWith, location,getCompareProducts , history}) => {
+const CompareProducts = ({ item, data, compareWith, location, getCompareProducts, history }) => {
     const query = new URLSearchParams(location.search);
     const urlIds = query.get('ids')
     let ids = data && data.length > 0 ? data.map(d => d.id) : []
-    useEffect(()=>{
-        if(ids && ids.length > 0){
+    useEffect(() => {
+        if (ids && ids.length > 0) {
 
         } else {
             getCompareProducts(urlIds)
         }
-    },[])
-    const [items,setItems] =useState([])
-    useEffect(()=>{
+    }, [])
+    const [items, setItems] = useState([])
+    useEffect(() => {
         let ids = data && data.length > 0 ? data.map(d => d.id) : []
-        if(ids.length < 2){
+        if (ids.length < 2) {
             history.push('/shop')
         } else {
             setItems(data)
         }
-    },[data])
-   
+    }, [data])
+
     const onClick = (item) => {
         let ids = data && data.length > 0 ? data.map(d => d.id) : []
         compareWith({ type: 'remove', item })
-        if(ids.length ==2){
+        if (ids.length == 2) {
             history.push('/shop')
         }
-        
+
     }
     return (
         <div class="content-wrapper topPadding" id="content">
             <div className="pagewrap">
                 <div className="bgWhite padding-bottom">
                     <div className="container-fluid">
-                        <Breadcrumb style={{padding:"1rem 0"}}>
+                        <Breadcrumb style={{ padding: "1rem 0" }}>
                             <Breadcrumb.Item> <Link to="/">Home</Link></Breadcrumb.Item>
                             <Breadcrumb.Item> <Link to="/shop">Shop</Link></Breadcrumb.Item>
                             <Breadcrumb.Item>Compare </Breadcrumb.Item>
@@ -58,16 +59,16 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
                                         <thead className="bg-secondary">
                                             <tr>
                                                 <td className="align-middle">
-                                                <label>Product Image</label>
+                                                    <label style={{ fontWeight: 'bold' }}>Product Image</label>
                                                 </td>
-                                                {items.map(d=>
-                                                <td className="p-0" key={d.id}>
-                                                    <div className="comparison-item"><span className="remove-item" onClick={e=>onClick(d)}><i className="fa fa-close"></i></span>
-                                                        <Link className="comparison-item-thumb" to={`/shop/${d.id}`}>
-                                                            <Image preview={false} item={d} alt="" height="200px"  width="200px"/>
+                                                {items.map(d =>
+                                                    <td className="p-0" key={d.id}>
+                                                        <div className="comparison-item"><span className="remove-item" onClick={e => onClick(d)}><i className="fa fa-close"></i></span>
+                                                            <Link className="comparison-item-thumb" to={`/shop/${d.id}`}>
+                                                                <Image preview={false} item={d} alt="" height="200px" width="200px" />
                                                             </Link>
-                                                    </div>
-                                                </td>
+                                                        </div>
+                                                    </td>
                                                 )}
 
                                             </tr>
@@ -75,46 +76,51 @@ const CompareProducts = ({ item, data, compareWith, location,getCompareProducts 
                                         <tbody id="summary" data-filter="target">
                                             <tr className="bg-primary">
                                                 <th className="text-uppercase">Product Name</th>
-                                                {items.map(d=><td key={d.name}><span className="font-weight-bold">{d.name}</span></td>)}
-                                                
+                                                {items.map(d => <td key={d.name}><span className="font-weight-bold">
+                                                    <Link className="comparison-item-thumb" to={`/shop/${d.id}`}>
+                                                        {d.name}
+                                                    </Link>
+                                                </span></td>)}
+
 
                                             </tr>
                                             <tr>
                                                 <th>Price</th>
-                                                {items.map(d=><td key={`${d.name}price`}>{d.sale_price ? d.sale_price :d.regular_price}</td>)}
+                                                {items.map(d => <td key={`${d.name}price`}>${d.sale_price ? d.sale_price : d.regular_price}</td>)}
 
                                             </tr>
                                             <tr>
                                                 <th>Featured</th>
-                                                 {items.map(d=><td key={`${d.name}featured`}>{d.featured ? 'Yes':'No'}</td>)}
-
-                                            </tr> 
-                                            <tr>
-                                                <th>Best Selling</th>
-                                                 {items.map(d=><td key={`${d.name}topselling`}>{d.topSelling ? 'Yes':'No'}</td>)}
+                                                {items.map(d => <td key={`${d.name}featured`}>{d.featured ? 'Yes' : 'No'}</td>)}
 
                                             </tr>
-                                           
+                                            <tr>
+                                                <th>Best Selling</th>
+                                                {items.map(d => <td key={`${d.name}topselling`}>{d.topSelling ? 'Yes' : 'No'}</td>)}
+
+                                            </tr>
+                                            {/* <tr>
+                                                <th>Brand</th>
+                                                {items.map(d => <td key={`${d.name}brand`}>{d.topSelling ? 'Yes' : 'No'}</td>)}
+
+                                            </tr> */}
+
                                             <tr>
                                                 <th>Rating</th>
-                                                {items.map(d=><td key={`${d.name}rating`}><Rate readOnly /></td>)}
+                                                {items.map(d => <td key={`${d.name}rating`}><Rate disabled defaultValue={2} /></td>)}
 
                                             </tr>
                                             <tr>
                                                 <th>Contact</th>
-                                                {items.map(d=><td key={`${d.name}contact`}>Not Available</td>)}
+                                                {items.map(d => <td key={`${d.name}contact`}><ContactForSale /></td>)}
 
                                             </tr>
                                             <tr>
-                                                <th>Satisfaction Guarantee</th>
-                                                {items.map(d=><td key={`${d.name}contact`}>No return</td>)}
+                                                <th>Others</th>
+                                                {items.map(d => <td key={`${d.name}contact`}>NA</td>)}
 
                                             </tr>
-                                            <tr>
-                                                <th>Lead Time</th>
-                                                {items.map(d=><td key={`${d.name}contact`}>17 days</td>)}
-
-                                            </tr>
+                                           
                                         </tbody>
                                     </table>
                                 </div>

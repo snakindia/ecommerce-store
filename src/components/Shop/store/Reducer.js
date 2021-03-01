@@ -38,6 +38,8 @@ export default (state = initialState, { type, payload, pannelstep = null }) => {
             return { ...state, comments: payload }
         case ActionTypes.CART_UPDATE:
             return { ...state, cart: payload }
+        case ActionTypes.CLEAR_COMPARE_PRODUCTS:
+            return { ...state, compare: [] }
         case ActionTypes.SET_COMPARE_PRODUCTS:
             let compare=state.compare;
             compare = payload.type=='remove' ? compare.filter(c=>c.id !=payload.item.id) :[...compare, payload.item]

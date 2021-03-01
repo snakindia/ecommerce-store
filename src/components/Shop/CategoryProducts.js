@@ -57,14 +57,14 @@ class CategoryProducts extends Component {
         return 0;
       })
     }
-    else if (data && data.length > 0 && order == 'AZ') {
+    else if (data && data.length > 0 && order == 'ZA') {
       data = data.sort((a, b) => {
         if (a.name > b.name) return -1;
         if (a.name < b.name) return 1;
         return 0;
       })
     }
-    else if (data && data.length > 0 && order == 'ZA') {
+    else if (data && data.length > 0 && order == 'AZ') {
       data = data.sort((a, b) => {
         if (a.name < b.name) return -1;
         if (a.name > b.name) return 1;

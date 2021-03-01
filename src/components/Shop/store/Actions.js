@@ -626,6 +626,9 @@ export const compareWith = (payload) => ({
     type: ActionTypes.SET_COMPARE_PRODUCTS,
     payload
 });
+export const removeAllCompare = () => ({
+    type: ActionTypes.CLEAR_COMPARE_PRODUCTS
+});
 export const getComments = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));

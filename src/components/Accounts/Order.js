@@ -210,7 +210,11 @@ class Order extends React.Component {
                                                                                     product.product_image && product.product_image[0] && product.product_image[0].url ? product.product_image[0].url : ''
                                                                                 } width="72px" height="72px" />
                                                                             </th>
-                                                                            <td style={{ verticalAlign: 'middle'  }}>{product.name}</td>
+                                                                            <td style={{ verticalAlign: 'middle'  }}>
+                                                                            <Link to={`/shop/${product.product_id}`} className="">
+                                                                                {product.name}
+                                                                            </Link>
+                                                                                </td>
 
                                                                             <td style={{ verticalAlign: 'middle',textAlign: 'right' }}>{product.quantity}</td>
                                                                             <td style={{ verticalAlign: 'middle',textAlign: 'right' }}>${product.price}</td>

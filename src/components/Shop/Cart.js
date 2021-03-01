@@ -27,7 +27,9 @@ const Product = (props) => {
                 <Image src={imageUrl} width="72px" height="72px" />
             </th>
             <td style={{ verticalAlign: 'middle' }}>
-                <ToolTip text={item.name} length={200} />
+                <Link to={`/shop/${item.id}`} className="">
+                    <ToolTip text={item.name} length={200} />
+                </Link>
             </td>
             <td style={{ verticalAlign: 'middle' }}>
                 <Quantity qty={item.quantity} id={item.product_id} dependent={true} callback={callback} />
@@ -40,7 +42,7 @@ const Product = (props) => {
     )
 }
 const Cart = (props) => {
-    const { item, className, cart ,loading} = props;
+    const { item, className, cart, loading } = props;
 
     const onClick = (e) => {
         e.preventDefault();
@@ -57,10 +59,10 @@ const Cart = (props) => {
             productsInCart = productsInCart + item.quantity;
         }
     }
-    
-        if(items && items.length ==0 && cart && cart.id){
-            props.history.push('/shop')
-        }
+
+    if (items && items.length == 0 && cart && cart.id) {
+        props.history.push('/shop')
+    }
     return (
         <div className="content-wrapper topPadding" id="content">
             <div className="pagewrap">
@@ -135,16 +137,16 @@ const Cart = (props) => {
                                 </div>
                                 :
                                 <>
-                                {
-                                    loading? <div className="row">
-                                    <div className="col-sm-12 col-md-8 left-content">loading...</div>
-                                </div>:
-                                <div className="row">
-                                <div className="col-sm-12 col-md-8 left-content">Your Cart Empty</div>
-                            </div>
-                                }
+                                    {
+                                        loading ? <div className="row">
+                                            <div className="col-sm-12 col-md-8 left-content">loading...</div>
+                                        </div> :
+                                            <div className="row">
+                                                <div className="col-sm-12 col-md-8 left-content">Your Cart Empty</div>
+                                            </div>
+                                    }
                                 </>
-                                
+
                             }
                         </div>
                     </section>
@@ -170,10 +172,10 @@ const Cart = (props) => {
 
                         </div>
                     </section> */}
-                <Products
-                                type='viewed'
-                                heading="Customers also viewed"
-                            />
+                    <Products
+                        type='viewed'
+                        heading="Customers also viewed"
+                    />
                 </div>
             </div>
         </div>
