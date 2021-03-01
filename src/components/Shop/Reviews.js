@@ -18,8 +18,12 @@ const Reviews = ({data}) => {
    
     return (
         <>
+        <div className="reviewPagination">
+            <Pagination  simple  total={data.length} pageSize={pageSize} onChange={onChange} />
+        </div>
+        <div style={{float:"left", width:"100%"}}>
             {data && data.length > 0 ? <>
-                <Pagination   simple  total={data.length} pageSize={pageSize} onChange={onChange} />
+                {/* <Pagination  simple  total={data.length} pageSize={pageSize} onChange={onChange} /> */}
                 {items.map(item =>
                     <div className="media pl-0 pb-1 pr-0">
                         <img className="align-self-start mr-3" src={avtarImg} alt="" width="70" />
@@ -34,6 +38,7 @@ const Reviews = ({data}) => {
                     </div>
                 )}
             </> : null}
+            </div>
 
         </>
     );

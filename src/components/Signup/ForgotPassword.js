@@ -56,14 +56,12 @@ class ForgotPassword extends PureComponent {
     render() {
         
         return (
-            <div style={{ paddingTop: '100px' }}>
-                <div className="content-wrapper pb-0">
+            <div style={{ padding: '100px 0' }}>
+                <div className="content-wrapper pb-0"  style={{ backgroundImage: 'none' }}>
                     <section className="content-section w-100" style={{ backgroundImage: 'none' }}>
-
-                        <div className="container pl-0 pr-0 pt-3">
+                        <div className="container pl-0 pr-0 pt-5 pb-5">
                             <div className="row">
                                 <div className="col-lg-12 mb-3 pl-0 pr-0">
-
                                     <h2 className="bha_heading_2 text-black font-xx mb-3 mt-5 text-center">Forget Password ? </h2>
                                 </div>
                             </div>
@@ -83,11 +81,8 @@ class ForgotPassword extends PureComponent {
                                 }) => (
                                     <Form className="formPadding">
                                         {isSubmitting ? <div>Loading...</div> : null}
-                                        <div className="row">
-                                            <div className="offset-4 col-sm-4 col-md-4   pl-0">
-
-
-
+                                        <div className="row justify-content-center align-items-center h-100">
+                                            <div className="col-sm-6 col-md-6 col-lg-4 pl-0">
                                                 <div className="form-group">
                                                     <input
                                                         type="text"
@@ -102,19 +97,17 @@ class ForgotPassword extends PureComponent {
                                                         {errors.email && touched.email && errors.email}
                                                     </span>
                                                 </div>
-                                                <div className="form-group" >
+                                                <div className="form-group text-center" >
                                                     <button
                                                         type="button"
-                                                        className="btn bha-btn-primary float-left"
+                                                        className="btn bha-btn-primary pwd-btn"
                                                         onClick={handleSubmit}
                                                         name="buttonsubmit"
                                                     >Submit</button>
                                                 </div>
-
-
                                             </div>
                                         </div>
-                                        <hr />
+                                        {/* <hr /> */}
                                     </Form>
                                 )}
                             </Formik>

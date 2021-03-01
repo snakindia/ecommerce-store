@@ -665,7 +665,7 @@ text-align: center;width: 94% !important;}
   .viewAll{display: none !important}
   .gapTop{overflow-x: hidden; margin-top:110px !important}
   .carousel .carousel-inner .item, .carousel .carousel-inner .carousel-item{overflow: hidden !important;}
-  .call-us-mob{display: block !important;}
+  .call-us-mob{display: none !important;}
   .headtoppart{margin-top: 61px !important;}
 
   .banner-container{margin-top: 142px !important;}
@@ -703,6 +703,7 @@ text-align: center;width: 94% !important;}
   .pt-450{padding-top:450px !important}
   .mt-570{margin-top: 510px !important;}
   .contTactForm{width: 88%;}
+  
 }
 
 
@@ -894,11 +895,14 @@ body {
     margin-top:0;}
     .avtar { position: absolute; top: -20px !important; left: 9px;}
     .socialLink {margin-top: 0.3rem !important;}
+    
 }
 
-@media (min-width: 576px){
+
+
+@media (max-width: 576px){
   .col-sm-6 {flex: 0 0 100%; }
-  
+  .call-us-mob{display: block !important;}
 }
 
 
@@ -968,7 +972,7 @@ text-align:right;margin-top: 0.4rem;}
 @media (max-width: 767.98px) 
 {
   .hero-img { width: 100%; object-fit: cover; height: 320px;}
-  .col-sm-6 {flex: 100% !important; max-width: 100% !important; }
+  /* .col-sm-6 {flex: 100% !important; max-width: 100% !important; } */
   .contTactForm{width:87%}
   .broucher-wrapper{width:100% !important}
   .tab-menu{top: 0;}
@@ -1209,7 +1213,7 @@ margin: 0.75rem auto;text-align: center;
     font-size: 0.875rem;font-weight: 600;text-align: center;box-shadow: none !important;border:0 !important;vertical-align: bottom;}
 .bha-btn-new-blue:hover{background: #5ea7bd !important;transition: 0.3s;color: #fff;}
 
-.order-summary .product-cart-detail .product-specification .ant-image{width:60px;}
+.order-summary .product-cart-detail .product-specification .ant-image{width:80px;}
 
 
 @media (max-width: 576px){
@@ -1217,7 +1221,7 @@ margin: 0.75rem auto;text-align: center;
 .total-product-price div span {font-size: 1rem;padding-right:5px;}
 }
 @media (max-width: 768px){
-  .topPadding{padding-top:9rem !important;}
+  .topPadding{padding-top:7.5rem !important; margin-top:30px !important}
   .call-us-mob {padding: 1rem 0 0 0 !important;}
   .total-product-price div span {font-size: 1.285rem;}
   .order-summary .product-cart-detail .product-specification .ant-image{width:60px;}

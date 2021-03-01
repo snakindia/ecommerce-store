@@ -60,7 +60,15 @@ a.lp-pom-button {
 a.lp-pom-button{width:auto; margin-left: 0 !important;}
 .ant-select{width: 100% !important;}
 .main-header .logo-header{width: 75px !important;}
+.login-heading{padding-top:1rem !important}
+.LoginReft{padding:1rem;overflow-y: scroll !important; height: 300px;}
+/* .LoginLeft img{display: none;} */
+.LoginReft .loginFooter{padding:0}
+
+
+
 }
+
 /*=============================================================*/
 
 /*==============New css for shop now innerpage========================*/
@@ -94,7 +102,7 @@ height: 30px !important;}
 .anticon svg {margin-top: -2px !important;}
 
 /*==============New css for shop now innerpage end here========================*/
-.topPadding { padding-top: 7.5rem;}
+.topPadding { padding-top: 7.5rem; margin-top: 48px;}
 .banner-container-xs {
   height: 400px;
 }
@@ -1521,6 +1529,32 @@ width: 36px !important;}
   .banner-container-small { margin-top: 0 !important;}
   .contentWrapper{padding:0 !important}
   .product--heading{text-align: center;}
+  .reviewPagination{display:flex !important; justify-content: center;}
+  .ant-popover, .compare-collaspe-div{z-index: 1000000 !important;}
+  
+}
+
+/* @media(max-width:736px){
+  .modal-content .container .col-sm-6 {display:block !important; width:50% !important}
+} */
+@media(max-width: 767.98px){
+  .wsmobileheader{z-index: 100 !important;}
+  .modal-content .container .col-sm-6 {display:block !important; width:50% !important}
+  .top-nav-link .LoginReft .loginFooter a span{padding:0}
+  .pwd-btn{width:50% !important}
+  .ant-notification{top:150px !important; left:0 !important;}
+}
+
+@media(max-width:812px){
+.wsmobileheader{z-index: 100 !important;}
+.modal{top: -20px !important; z-index: 1000 !important;}
+.LoginReft{padding:1rem}
+.popup-decscription #loginformpopup .form-group, .Privacy{padding:0}
+.ant-popover, .compare-collaspe-div{z-index: 1000000 !important;}
+.seatchPanelFooter{position: absolute; bottom: -10px; left: 0;}
+.LoginReft{padding:1rem;overflow-y: scroll !important; height: 300px;}
+.topPadding {margin-top:24px !important;}
+
 }
 
 /*=============banner setting==============================================*/
@@ -1559,3 +1593,39 @@ color:#666; font-family: 'Roboto', sans-serif;}
 .deleteItem:hover{color:rgb(187, 9, 9) !important}
 .categoryIcon{ position: absolute; top:15px; right:15px;}
 .ant-menu-submenu-title:hover{color:#fff !important}
+
+/*============Review page fixes========================*/
+.reviewPagination {background:#fbfbfb; width:100%; float:left; display:block; padding:0.3rem 0.5rem 0.5rem;
+  border-bottom:1px solid transparent; margin-top: 8px;}
+.reviewPagination ul li{display: inline-flex; line-height: 1rem;}
+.reviewPagination .anticon svg{ margin-top: -2px !important;}
+.reviewPagination .ant-pagination-simple .ant-pagination-simple-pager input{margin-top: 0px;}
+.reviewPagination .ant-pagination-simple .ant-pagination-prev, 
+.ant-pagination-simple .ant-pagination-next{margin-top:-3px !important; float:none;}
+/* .reviewPagination .resp-tab-content li{line-height: 2rem;} */
+
+.optional-hover .hot-deals-item-wrapper .portfolio-hover .portfolio-hover-content .callToAction-xxs{
+  padding:4rem !important}
+.product-specification .item-title{padding-right:0; font-size: 0.875rem;}
+
+.zoid-outlet > iframe{border:none !important; box-shadow: none !important;}
+#ccnumber iframe, #nameonCard iframe, #ccexp iframe, #cvv iframe{box-shadow: none !important; 
+  border:1px solid #fff !important;}
+#ccnumber iframe:focus, #nameonCard iframe:focus, #ccexp iframe:focus, #cvv iframe:focus{
+  border:none !important; box-shadow: none !important;}
+#ccnumber:focus{border:none !important; box-shadow: none !important;}
+iframe input{border:none !important; box-shadow: none;}
+iframe input:focus{border:none !important; box-shadow: none !important;}
+
+
+@media (min-width: 640px){
+  .topPadding {padding-top:4.5rem !important;}
+  }
+
+@media (min-width: 667px){
+  .topPadding {padding-top:4.5rem !important;}
+  }
+
+@media (min-width: 736px){
+.topPadding {padding-top:4.5rem !important;}
+}

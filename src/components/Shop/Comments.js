@@ -65,8 +65,7 @@ const Comments = (props) => {
                           {items && items.length > 0 ? items.length :''} comments for {props.name}
                         </div>
                           
-                          
-                       
+                               
                         <Reviews data={items}  />
 
                         </div>

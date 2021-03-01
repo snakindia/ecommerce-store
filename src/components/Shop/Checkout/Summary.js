@@ -73,7 +73,7 @@ function Summary(props) {
                           Quantity
                         </div>
                         */}
-                        <div className="col-md-3 col-sm-4  col-lg-3 col text-center">
+                        <div className="col-md-3 col-sm-4  col-lg-3 col text-right">
                           Price
                         </div>
                       </div>
@@ -98,7 +98,7 @@ function Summary(props) {
                                 {item.qty}
                               </div>
                              */}
-                              <div className="col-sm-4 col-md-3 col-lg-3 col text-center pt-3">
+                              <div className="col-sm-4 col-md-3 col-lg-3 col text-right pt-3">
                                 $ {item.price}
                               </div>
                             </div>
@@ -119,8 +119,8 @@ function Summary(props) {
                         <div className="col-sm-4 col-md-6 col-lg-6 col">
                           <b>Subtotal</b>
                         </div>
-                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
-                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-right"></div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-right">
                           <b>$ {props.subtotal}</b>
                         </div>
                       </div>
@@ -129,8 +129,8 @@ function Summary(props) {
                         <div className="col-sm-4 col-md-6 col-lg-6 col">
                           Shipping
                         </div>
-                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
-                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-right"></div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-right">
                           ${props.shipping}
                         </div>
                       </div>
@@ -158,8 +158,8 @@ function Summary(props) {
                         <div className="col-sm-4 col-md-6 col-lg-6 col">
                           Tax
                         </div>
-                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
-                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-right"></div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-right">
                           ${props.tax}
                         </div>
                       </div>
