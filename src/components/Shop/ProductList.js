@@ -7,6 +7,7 @@ import Compare from './Compare';
 import Favourite from './Favourite';
 import ToolTip from './ToolTip'
 import Image from './Image'
+import {Rate} from 'antd'
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 export default class ProductList extends Component {
     constructor(props) {
@@ -46,7 +47,7 @@ export default class ProductList extends Component {
                         {/* <a href="product-details.html" className="text-muted mb-0"><ToolTip text={item.description} /></a> */}
                         <div className="d-flex align-items-center justify-content-left mt-1">
                             <div className="star-rating">
-                                <Ratings />
+                                <Rate disabled defaultValue ={item.reviews}/>
                             </div>
                         </div>
                         {hasPrice &&

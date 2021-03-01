@@ -32,9 +32,9 @@ class Nmi extends React.Component {
                 this.setState({data:{...data,[field]:false}})
                 
             }
-            if(clicked){
+            // if(clicked){
                 this.setState({error})
-            }
+            // }
           
     }
 

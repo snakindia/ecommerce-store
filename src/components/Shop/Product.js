@@ -6,6 +6,7 @@ import ContactForSale from './ContactForSale'
 import Compare from './Compare';
 import Favourite from './Favourite';
 import ToolTip from './ToolTip'
+import {Rate} from 'antd'
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 import Image from './Image'
 export default class Product extends Component {
@@ -54,7 +55,7 @@ export default class Product extends Component {
                         }
                         <div className="text-center">
                             <div className="star-rating">
-                                <Ratings />
+                            <Rate disabled  defaultValue ={item.reviews} style={{color:'#ff9c00'}}/>
                             </div>
                         </div>
 

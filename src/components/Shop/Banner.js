@@ -6,12 +6,16 @@ import imgSmallOne from '../../assets/images/promo-banner/600X5001.jpg';
 import imgSmallTwo from '../../assets/images/promo-banner/600X5002.jpg';
 import imgSmallThree from '../../assets/images/promo-banner/600X5003.jpg';
 import RBCarousel from 'react-bootstrap-carousel';
-
+import {Link} from 'react-router-dom'
 class Banner extends Component {
   render() {
       return (
-        <div className="row">
-          <div className="col-lg-12">
+        <div className="row" 
+        className="banner-div"
+        style={{minWidth:'1200px'}}
+        // style={{width:'100%'}}
+        >
+          <div className="col-md-12 col-lg-12">
             <div className="banner-container-small mt-0">
               <RBCarousel
                 autoplay={true}
@@ -25,11 +29,11 @@ class Banner extends Component {
                   <img src={imgSmallOne} alt="" className="img-fluid mobileImg" />
                   <div className="banner-item-xs-caption z-index">
                     {/* <h1 className="item_heading text-white">Dust Collection Equipment</h1> */}
-                    <h1 className="item_heading small">Square Chuck Air Filter Cartridge</h1>
+                    <h1 className="item_heading small">DUST COLLECTION EQUIPMENT</h1>
                     <p className="item-description-xs">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod didunt ut labore et dolore magna aliqua.
+                     Development, licensing and deployment of Baghouse Products to meet quality standards, emission’s requirements, and improve overall operation and capital costs associated with a plant.
                     </p>
-                    <a href="#" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</a>
+                    <Link to="/dust-collector/portable" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</Link>
                   </div>
                 </div>
   
@@ -39,9 +43,9 @@ class Banner extends Component {
                   <div className="banner-item-xs-caption z-index">
                     <h1 className="item_heading">Dust Collector Auxiliaries & Parts</h1>
                     <p className="item-description-xs">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod didunt ut labore et dolore magna aliqua.
+                     Development, licensing and deployment of Baghouse Products to meet quality standards, emission’s requirements, and improve overall operation and capital costs associated with a plant.
                     </p>
-                    <a href="#myModal" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</a>
+                    <Link to="/pulsevalve" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</Link>
                   </div>
                 </div>
   
@@ -51,9 +55,9 @@ class Banner extends Component {
                   <div className="banner-item-xs-caption z-index">
                     <h1 className="item_heading">Brands & Replacements</h1>
                     <p className="item-description-xs">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod didunt ut labore et dolore magna aliqua.
+                     Development, licensing and deployment of Baghouse Products to meet quality standards, emission’s requirements, and improve overall operation and capital costs associated with a plant.
                     </p>
-                    <a href="#myModal" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</a>
+                    <Link to="/mecair" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</Link>
                   </div>
                 </div>
   

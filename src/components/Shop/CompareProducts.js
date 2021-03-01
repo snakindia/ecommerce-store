@@ -107,7 +107,7 @@ const CompareProducts = ({ item, data, compareWith, location, getCompareProducts
 
                                             <tr>
                                                 <th>Rating</th>
-                                                {items.map(d => <td key={`${d.name}rating`}><Rate disabled defaultValue={2} /></td>)}
+                                                {items.map(d => <td key={`${d.name}rating`}><Rate disabled defaultValue={d.reviews} /></td>)}
 
                                             </tr>
                                             <tr>
