@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Pro01 from '../../assets/images/promo-banner/banner-small01.jpg';
 import ProSecond from '../../assets/images/promo-banner/banner-small02.jpg';
 import ProThird from '../../assets/images/promo-banner/banner-small03.jpg';
+import ProFourth from '../../assets/images/promo-banner/banner-small04.jpg';
 import imgSmallOne from '../../assets/images/promo-banner/600X5001.jpg';
 import imgSmallTwo from '../../assets/images/promo-banner/600X5002.jpg';
 import imgSmallThree from '../../assets/images/promo-banner/600X5003.jpg';
@@ -54,6 +55,18 @@ class Banner extends Component {
                   <img src={imgSmallThree} alt="" className="img-fluid mobileImg" />
                   <div className="banner-item-xs-caption z-index">
                     <h1 className="item_heading">Brands & Replacements</h1>
+                    <p className="item-description-xs">
+                     Development, licensing and deployment of Baghouse Products to meet quality standards, emission’s requirements, and improve overall operation and capital costs associated with a plant.
+                    </p>
+                    <Link to="/mecair" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</Link>
+                  </div>
+                </div>
+
+                <div className="item-xs">
+                  <img src={ProFourth} alt="" className="img-fluid mobileHide" />
+                  <img src={imgSmallThree} alt="" className="img-fluid mobileImg" />
+                  <div className="banner-item-xs-caption z-index">
+                    <h1 className="item_heading">Companies using our products</h1>
                     <p className="item-description-xs">
                      Development, licensing and deployment of Baghouse Products to meet quality standards, emission’s requirements, and improve overall operation and capital costs associated with a plant.
                     </p>
