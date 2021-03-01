@@ -12,10 +12,10 @@ class Banner extends Component {
       return (
         <div className="row" 
         className="banner-div"
-        style={{minWidth:'1200px'}}
+        style={{minWidth:'100%'}}
         // style={{width:'100%'}}
         >
-          <div className="col-md-12 col-lg-12">
+          <div className="col-md-12 col-lg-12 pl-0 pr-0"> 
             <div className="banner-container-small mt-0">
               <RBCarousel
                 autoplay={true}

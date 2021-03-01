@@ -1563,7 +1563,7 @@ width: 36px !important;}
 .banner-container-small .banner-item-xs-caption{width: 50%; top:6%}
 /* .banner-container-small .item-xs:after{content:''; position: absolute; top:0; left:0; right:0; bottom:0;
 background:rgba(0, 0, 0, 0.12)} */
-.banner-container-small .banner-item-xs-caption .item-description-xs{line-height: 28px; font-size: 1.150rem;
+.banner-container-small .banner-item-xs-caption .item-description-xs{line-height: 28px; font-size: 1rem;
 color:#666; font-family: 'Roboto', sans-serif;}
 .banner-container-small .item-xs{height: 250px !important;}
 .banner-container-small .item-xs .carousel-inner .carousel-item .item-xs img{min-height:250px !important; 
@@ -1582,6 +1582,7 @@ color:#666; font-family: 'Roboto', sans-serif;}
 @media(max-width:576.99px){
   .mobileImg{display: block !important;}
   .mobileHide{display:none !important}
+  .banner-container-small .banner-item-xs-caption .item-description-xs{overflow:hidden !important;}
 }
 /*
 .toolTipContainer {padding:1rem 0.5rem; height: 50px; width: 80%;}
