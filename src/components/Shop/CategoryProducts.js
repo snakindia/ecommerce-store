@@ -56,6 +56,20 @@ class CategoryProducts extends Component {
         if (a.date_updated < b.date_updated) return 1;
         return 0;
       })
+    } 
+     if (data && data.length > 0 && order == 'reviewASC') {
+      data = data.sort((a, b) => {
+        if (a.reviews < b.reviews) return -1;
+        if (a.reviews > b.reviews) return 1;
+        return 0;
+      })
+    }
+    else if (data && data.length > 0 && order == 'reviewDESC') {
+      data = data.sort((a, b) => {
+        if (a.reviews > b.reviews) return -1;
+        if (a.reviews < b.reviews) return 1;
+        return 0;
+      })
     }
     else if (data && data.length > 0 && order == 'ZA') {
       data = data.sort((a, b) => {
@@ -236,7 +250,8 @@ class CategoryProducts extends Component {
                           <Option selected="bestselling" value="bestselling">Bestselling</Option>
                           <Option value="AZ">Alphabetical: A to Z</Option>
                           <Option value="ZA">Alphabetical: Z to A</Option>
-                          <Option value="avgcustomerreview">Avg. Customer Review</Option>
+                          <Option value="reviewDESC">Avg. Customer Review (High to Low)</Option>
+                          <Option value="reviewASC">Avg. Customer Review (Low to High)</Option>
                           <Option value="priceasc">Price: Low to High</Option>
                           <Option value="pricedesc">Price: High to Low</Option>
 
