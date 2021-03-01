@@ -1543,6 +1543,7 @@ width: 36px !important;}
   .top-nav-link .LoginReft .loginFooter a span{padding:0}
   .pwd-btn{width:50% !important}
   .ant-notification{top:150px !important; left:0 !important;}
+  .forgot-PwdText-message{padding:0 1rem !important}
 }
 
 @media(max-width:812px){
@@ -1629,3 +1630,6 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 @media (min-width: 736px){
 .topPadding {padding-top:4.5rem !important;}
 }
+
+.forgot-PwdText-message{padding:1rem 18rem}
+.toolTipContainer{position: static;}

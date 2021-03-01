@@ -63,9 +63,10 @@ class ForgotPassword extends PureComponent {
                             <div className="row">
                                 <div className="col-lg-12 mb-3 pl-0 pr-0">
                                     <h2 className="bha_heading_2 text-black font-xx mb-3 mt-5 text-center">Forget Password ? </h2>
-                               <p>
-                               Fill in your email below to request a new password. An email will be sent to the address below containing a link to verify your email address. 
-                               </p>
+                                <div className="text-center forgot-PwdText-message font-weight-bold text-blue">
+                                Fill in your email below to request a new password. An email will be sent to the address below 
+                                containing a link to verify your email address. 
+                                </div>
                                 </div>
                             </div>
                             <Formik

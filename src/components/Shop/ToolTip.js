@@ -6,13 +6,15 @@ const ToolTip = ({ text, length = 35 }) => {
     show = text && length && text.length > length ? true:false;
 
     return (
-        <div className="toolTipContainer z-index">
+        <div className="toolTipContainer">
             {
                 show ?
                     <MDBTooltip
                         domElement
                         tag="span"
                         placement="top"
+                        // containerPadding={20}
+                        style={{ width: "100%", wordBreak: "break-all" }}
                     >
                         <span className="tool-tip-text">
                             {show ? `${text.substr(0, length)} ...` : text}

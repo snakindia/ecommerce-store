@@ -14,6 +14,7 @@ import Thankyou from './Thankyou';
 import { getAddress } from '../../../utils/helper';
 import scrollToEl from '../../../utils/scrollToEl'
 import { CheckCircleOutlined } from '@ant-design/icons';
+// import emptyBag from '../../assets/images/no-product-img.png';
 const { Panel } = Collapse;
 
 class Checkout extends Component {
@@ -513,7 +514,14 @@ class Checkout extends Component {
                                                 </div>
                                                 :
                                                 <div className="row">
-                                                    <div className="col-sm-12 col-md-8 left-content">{this.props.error && this.props.loadingCart ? 'Opps something went wrong...' : this.props.loadingCart ? '' : 'Your Cart Empty'}</div>
+                                                    <div className="col-sm-12 col-lg-12 p-5 text-center">
+                                                        {/* <img src={emptyBag} alt="" className="img-fluid mobileHide" /> */}
+                                                        <h1 className="noprodct">
+                                                            <small>
+                                                            {this.props.error && this.props.loadingCart ? 'Opps something went wrong...' : this.props.loadingCart ? '' :<span className="noProdictText">Your cart is empty</span>}
+                                                            </small>
+                                                        </h1>
+                                                    </div>
                                                 </div>
                                             }
                                         </>

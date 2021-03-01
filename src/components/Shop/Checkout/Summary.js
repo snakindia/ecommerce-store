@@ -104,15 +104,12 @@ function Summary(props) {
                                 {item.qty}
                               </div>
                              */}
-                              <div className="col-sm-4 col-md-3 col-lg-3 col text-center pt-3">
+                              <div className="col-sm-4 col-md-3 col-lg-3 col text-right pt-3">
                                 {item.price}
                               </div>
                             </div>
                           </div>) : null
                         }
-
-
-
 
                         {/* <div className="cart-actions">
                           <button className="btn-see-all" type="button" value="see all">See All <i className="fa fa-angle-down down-arrow-icon"></i></button>
