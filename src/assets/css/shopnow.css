@@ -499,6 +499,7 @@ i.wishList-hover {
 .hot-deals-item-wrapper .item-pro-inner {
   border: 0;
   border-right: 1px solid #f2f2f2 !important;
+  text-align: center !important;
 }
 .hot-deals-item-wrapper i.wishList {
   position: absolute;
@@ -538,7 +539,7 @@ i.wishList-hover {
 .product-xs-item .portfolio-hover {
   position: absolute;
   width: 100%;
-  height: 62%;
+  height: 60%;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -1512,7 +1513,7 @@ width: 36px !important;}
 .ant-image{display:flex !important;}
 .optional-hover{background: transparent;}
 .optional-hover .hot-deals-item-wrapper .portfolio-hover .portfolio-hover-content .callToAction-xxs{
-  padding:4rem 10rem;
+  padding:4rem 10rem !important;
 }
 
 @media(max-width:768px){
@@ -1542,8 +1543,10 @@ width: 36px !important;}
   .modal-content .container .col-sm-6 {display:block !important; width:50% !important}
   .top-nav-link .LoginReft .loginFooter a span{padding:0}
   .pwd-btn{width:50% !important}
-  .ant-notification{top:150px !important; left:0 !important;}
+  .ant-notification{top:150px !important; left:1rem !important;}
   .forgot-PwdText-message{padding:0 1rem !important}
+  .sideBarMenu{width:0 !important}
+  #myDiv .bha-btn-primary{width:auto !important; margin-right: 1rem !important;}
 }
 
 @media(max-width:812px){
@@ -1607,7 +1610,7 @@ color:#666; font-family: 'Roboto', sans-serif;}
 /* .reviewPagination .resp-tab-content li{line-height: 2rem;} */
 
 .optional-hover .hot-deals-item-wrapper .portfolio-hover .portfolio-hover-content .callToAction-xxs{
-  padding:4rem !important}
+  padding:4rem}
 .product-specification .item-title{padding-right:0; font-size: 0.875rem;}
 
 .zoid-outlet > iframe{border:none !important; box-shadow: none !important;}
@@ -1621,16 +1624,36 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 
 
 @media (min-width: 640px){
-  .topPadding {padding-top:4.5rem !important;}
+.topPadding {padding-top:4.5rem !important;}
+#myDiv .bha-btn-primary{width:auto !important; margin-right: 1rem !important;}
+.bha-btn-new{padding: 0.50rem 0.975rem !important;}
+.ant-collapse-content > .ant-collapse-content-box {padding: 0 16px 8px 16px !important}
+.compare-widget__product{padding:0.5rem 2rem 0.5rem 0 !important}
   }
 
 @media (min-width: 667px){
-  .topPadding {padding-top:4.5rem !important;}
+.topPadding {padding-top:4.5rem !important;}
+#myDiv .bha-btn-primary{width:auto !important; margin-right: 1rem !important;}
+.bha-btn-new{padding: 0.50rem 0.975rem !important;}
+.ant-collapse-content > .ant-collapse-content-box {padding: 0 16px 16px 16px;}
   }
 
 @media (min-width: 736px){
 .topPadding {padding-top:4.5rem !important;}
+#myDiv .bha-btn-primary{width:auto !important; margin-right: 1rem !important;}
+.bha-btn-new{padding: 0.50rem 0.975rem !important;}
+.ant-collapse-content > .ant-collapse-content-box {padding: 0 16px 16px 16px;}
 }
 
 .forgot-PwdText-message{padding:1rem 18rem}
 .toolTipContainer{position: static;}
+
+/*------star setting on shopnow page--------------------------*/
+.ant-rate-star .anticon-star svg{width: 0.875em !important; margin-right: 0.3rem;}
+
+.sidebarBox {vertical-align: top;background:rgb(31, 70, 92);margin-bottom: -9999px;
+  padding-bottom: 9999px;}
+
+.overflow {overflow: hidden;}
+.footer.page-footer{margin-top:6px;}
+

@@ -42,6 +42,7 @@ class ShopNow extends Component {
     const { item, showModal, visible } = this.state;
     const { pathname } = this.props.location;
     return (
+      <div className="overflow">
       <div className="contentWrapper">
       <div className={visible ? 'wrapper' : 'sidebar_minimize wrapper'}>
         <div className="topPadding">
@@ -108,6 +109,7 @@ class ShopNow extends Component {
         </MDBContainer>
         
       </div>
+    </div>
     </div>
     );
   }

@@ -92,10 +92,10 @@ class CompareHoc extends Component {
 
                                         </ul>
                                         {data.length > 1 ?
-                                            <Link to={`/compare?ids=${data.map(d => d.id).toString()}`} className="btn bha-btn-primary w-100">COMPARE SELECTED</Link>
-                                            : <Link onClick={this.onClick } className="btn bha-btn-primary w-100">COMPARE SELECTED</Link>
+                                            <Link to={`/compare?ids=${data.map(d => d.id).toString()}`} className="btn bha-btn-primary mr-3">COMPARE SELECTED</Link>
+                                            : <Link onClick={this.onClick } className="btn bha-btn-primary mr-3">COMPARE SELECTED</Link>
                                         }
-                                        <button onClick={this.clearAll} className="bha-btn-secondry hotLink mr-2 ml-2">Remove All</button>
+                                        <button onClick={this.clearAll} className="bha-btn-new">Remove All</button>
                                     </div>
                                 </div>
 

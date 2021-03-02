@@ -121,7 +121,7 @@ const LeftMenu = (props) => {
             push={push}
           />
         </div> :
-        <div className="sideBarMenu">
+        <div className="sideBarMenu sidebarBox">
           <div className="sidebar">
             <div className="sidebarHeader">
               Shop By Category

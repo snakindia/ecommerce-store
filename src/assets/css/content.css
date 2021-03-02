@@ -1,10 +1,12 @@
 body{ background: #fff !important;}
 .contentWrapper{max-width: 100%;margin: 0 auto;padding: 0 15px 0 8px; background: #fff;
 display: block;}
-.sideBarMenu{width: 20%; float:left;margin-top: 5px;}
+.sideBarMenu{width: 18.850%; float:left;margin-top: 5px;}
 .sideBarMenu .sidebar .nav{margin-top: 0;padding:0 0.5rem;}
-.mainContentPanel{width: 80%;float:right;}
-.sidebar .sidebar-wrapper .sidebar-content{padding-top:0 !important; height: calc(100vh + 680px);}
+.mainContentPanel{width: 81.150%;float:right;}
+/* .sidebar .sidebar-wrapper .sidebar-content{padding-top:0 !important; height: calc(100vh + 680px);} */
+.sidebar{width:auto !important}
+.sidebar .sidebar-wrapper .sidebar-content{padding-top:0 !important; padding-bottom:0 !important}
 .sidebar{position: static !important; padding:0 !important;}
 .sidebar .sidebar-wrapper{max-height: 100% !important; min-height: 100% !important}
 .mainContentPanel .main-panel {position: relative; width: 80%;height: 100%;transition: all .3s; float:right;}
@@ -22,7 +24,7 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .ant-menu-vertical-right .ant-menu-submenu-title, 
 .ant-menu-inline .ant-menu-submenu-title{padding: 0 0 0 10px !important;}
 
-.sidebar .sidebar-wrapper{padding-bottom:1rem !important;}
+.sidebar .sidebar-wrapper{padding-bottom:0 !important;}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -33,6 +35,9 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .ant-menu-vertical .ant-menu-submenu, .ant-menu-vertical-left .ant-menu-submenu, 
 .ant-menu-vertical-right .ant-menu-submenu, .ant-menu-inline .ant-menu-submenu{width: 100% !important;}
 .ant-drawer-body{padding:0 15px !important; background:rgb(31, 70, 92) !important}
+.ant-menu-hidden {display: none !important;}
+.ant-drawer-header .ant-drawer-title { margin: 0; font-weight: 500; font-size: 20px !important;line-height: 22px;
+    font-weight: 700; text-transform: uppercase; padding: 0.4rem 0 0;}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -43,6 +48,9 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .ant-menu-vertical .ant-menu-submenu, .ant-menu-vertical-left .ant-menu-submenu, 
 .ant-menu-vertical-right .ant-menu-submenu, .ant-menu-inline .ant-menu-submenu{width: 100% !important;}
 .ant-drawer-body{padding:0 15px !important; background:rgb(31, 70, 92) !important}
+.ant-menu-hidden {display: none !important;}
+.ant-drawer-header .ant-drawer-title { margin: 0; font-weight: 500; font-size: 20px !important;line-height: 22px;
+    font-weight: 700; text-transform: uppercase; padding: 0.4rem 0 0;}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -54,27 +62,35 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .ant-menu-vertical .ant-menu-submenu, .ant-menu-vertical-left .ant-menu-submenu, 
 .ant-menu-vertical-right .ant-menu-submenu, .ant-menu-inline .ant-menu-submenu{width: 100% !important;}
 .ant-drawer-body{padding:0 15px !important; background:rgb(31, 70, 92) !important}
-.ant-drawer-title { margin: 0; font-weight: 500; font-size: 18px;line-height: 22px;
+.ant-drawer-header .ant-drawer-title { margin: 0; font-weight: 500; font-size: 20px !important;line-height: 22px;
     font-weight: 700; text-transform: uppercase; padding: 0.4rem 0 0;}
 .anticon svg {margin-top: -7px !important;}
+.ant-menu-hidden {display: none !important;}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-.sideBarMenu{left:0;position: absolute;}
-.mainContentPanel .main-panel{width: 75%;}
+/* .sideBarMenu{left:0;position: absolute;} */
+.sideBarMenu{width: 25% !important;left:0;position: absolute;}
+.mainContentPanel .main-panel{width: 73.5%;}
 .ant-menu-inline{display: block !important;}
 .ant-menu-vertical .ant-menu-submenu, .ant-menu-vertical-left .ant-menu-submenu, 
 .ant-menu-vertical-right .ant-menu-submenu, .ant-menu-inline .ant-menu-submenu{width: 100% !important;}
 .ant-drawer-body{padding:0 15px !important; background:rgb(31, 70, 92) !important}
-.ant-drawer-title { margin: 0; font-weight: 500; font-size: 18px;line-height: 22px;
+.ant-drawer-header .ant-drawer-title { margin: 0; font-weight: 500; font-size: 20px !important;line-height: 22px;
     font-weight: 700; text-transform: uppercase; padding: 0.4rem 0 0;}
+.ant-menu-hidden {display: none !important;}   
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-.sideBarMenu{position: static;}
 .mainContentPanel{width: 100%;padding-bottom: 0.3rem;}
+.sideBarMenu{width: 18.85% !important;left:0;position: static;}
 .mainContentPanel .main-panel{width: 80%;}
+.ant-menu-hidden {display: none !important;}
+}
 
+@media(min-width:1280px){
+    .sideBarMenu{width: 18.850%; float:left;margin-top: 5px;} 
+    .ant-menu-hidden {display: none !important;}
 }
