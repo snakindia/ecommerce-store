@@ -43,7 +43,9 @@ export default (state = initialState, { type, payload }) => {
                 favData = favData.filter(f => f.id != payload.item.id)
             }
             favData = [...new Set(favData)]
+           
             const favIds = favData.map(item => item.id)
+            console.log({favIds});
             return { ...state, favIds: [...favIds], fav: [...favData] }
         case ActionTypes.GET_WISHLIST_SUCCESS:
             let fav = payload && payload.data && payload.data.length > 0 ? payload.data : [];

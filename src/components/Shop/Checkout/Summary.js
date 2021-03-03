@@ -105,7 +105,7 @@ function Summary(props) {
                               </div>
                              */}
                               <div className="col-sm-4 col-md-3 col-lg-3 col text-right pt-3">
-                                {item.price}
+                                {item.total}
                               </div>
                             </div>
                           </div>) : null

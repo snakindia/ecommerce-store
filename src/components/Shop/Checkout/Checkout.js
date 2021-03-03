@@ -367,6 +367,7 @@ class Checkout extends Component {
                     name: item.name,
                     image_url: item.image_url,
                     qty: item.quantity,
+                    total: `$`+(item.quantity * (item.price ? item.price :0)).toFixed(2),
                     price: `$${item.price ? item.price : 0}`
                 };
                 dataSource.push(datum);

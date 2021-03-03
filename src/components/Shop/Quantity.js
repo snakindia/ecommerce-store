@@ -55,7 +55,7 @@ class Quantity extends Component {
         const { value } = e.target;
         if (!isNaN(value)) {
             if (value == 0 || value > 0) {
-                this.setState({ counts: value }, () => this.callback())
+                this.setState({ counts: parseInt(value)  }, () => this.callback())
             }
         }
     }
