@@ -5,17 +5,29 @@ import { getComments, addComments } from './store/Actions';
 import { Input,Form ,Button, Table} from 'antd';
 import { Rate } from 'antd';
 import Reviews from './Reviews'
+import { notification } from '../../utils/helper';
 const { Search, TextArea } = Input;
 const Comments = (props) => {
+  const [canComment, setCanComment]=useState('')
   const {user} =props;
   const onFinish = (values) => {
     const userId =props.user && props.user.id ? props.user.id:null;
-    let data ={
-      ...values,
-      userId:userId,
-      productId:props.id
+    if(canComment){
+      let data ={
+        ...values,
+        userId:userId,
+        productId:props.id
+      }
+      props.addComments(data)
+    } else {
+      if(!userId){
+        notification('warning','Please login to give review on this product')
+      } else {
+        notification('warning','You are not authorize to give review on this product')
+      }
+     
     }
-    props.addComments(data)
+    
   };
 
   useEffect(()=>{
@@ -24,7 +36,7 @@ const Comments = (props) => {
 
 
     const [items, setItems]=useState([])
-    const [canComment, setCanComment]=useState('')
+    
     const [key, setKey]=useState(new Date())
     useEffect(()=>{
         let {data, id} =props;
@@ -64,7 +76,7 @@ const Comments = (props) => {
                         </div>
                         {items && items.length > 0 && <Reviews data={items}  />}
                         </div>
-                        { canComment   ? 
+                         
                         <div className="col-sm-4 col-md-4">
                       
                           <div className="add-new-link pt-1">
@@ -110,7 +122,7 @@ const Comments = (props) => {
                             </div>
                           </div>
                         </div>
-                        : null }
+                        
                      </div>
                     </div>
     );
