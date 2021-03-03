@@ -94,7 +94,7 @@ function Summary(props) {
                              
                               <div className="col-sm-8 col-md-9 col-lg-9 col media pr-0">
                                 <Image src={item.image_url} className="card-thumbnail" alt="" />
-                                <div className="item-title media-body pl-2 item-title-new-link"><Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>
+                                <div className="item-title media-body pl-2 item-title-new-link"><Link to={`/shop/${item.id}`} onClick={props.linkClick}>
                                 {/* <ToolTip text={item.name} /> */} {item.name}
                               </Link></div>
                                 <div className="item-title"> {item.name}</div>
@@ -105,7 +105,7 @@ function Summary(props) {
                               </div>
                              */}
                               <div className="col-sm-4 col-md-3 col-lg-3 col text-right pt-3">
-                                {item.price}
+                                {item.total}
                               </div>
                             </div>
                           </div>) : null

@@ -11,13 +11,17 @@ message.config({
 });
 const Favourite = (props) => {
   let { fav, item } = props;
-  
-  const [liked, setLike] = useState(null);
+  let items =fav && fav.length > 0 ? fav :[];
+  const [liked, setLike] = useState(items.includes(item.id));
   useEffect(()=>{
     fav =fav && fav.length > 0 ? fav :[];
     if(fav.includes(item.id)){
       setLike(true)
+    } else {
+      setLike(false)
     }
+    
+     //console.log(fav.includes(item.id),fav, item.id);
   },[fav,item])
   
 

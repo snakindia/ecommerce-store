@@ -155,7 +155,7 @@ function Address(props) {
                         if (!values.last_name) errors.last_name = 'Last Name is Required';
                         if (!values.phone) errors.phone = 'Phone  is Required';
 
-                        if (!values.address1) errors.address1 = 'Address is Required';
+                        if (!values.address1) errors.address1 = 'Address line 1 is Required';
                         // if (!values.address2) errors.address ='First Name is Required';
                         if (!values.city) errors.city = 'City is Required';
                         if (!values.state) errors.state = 'State/Province is Required';
@@ -192,25 +192,25 @@ function Address(props) {
                                 />
                             </div>
                             <div className="form-group">
-                                <label className="text-small">Address *</label>
+                                <label className="text-small">Address line 1 *</label>
                                 <Input
                                     allow="special"
                                     length={200}
                                     name="address1"
                                     formik={formikProps}
                                     className="form-control input-control"
-                                    placeholder="Address"
+                                    placeholder="Address line 1"
                                 />
                             </div>
                             <div className="form-group">
-                                <label className="text-small">Apartment/Suite/Building(Optional)</label>
+                                <label className="text-small">Address line 2(Optional)</label>
                                 <Input
                                     allow="special"
                                     length={100}
                                     name="address2"
                                     formik={formikProps}
                                     className="form-control input-control"
-                                    placeholder="Apartment/Suite/Building"
+                                    placeholder="Address line 2(Optional)"
                                 />
                             </div>
                             <div className="form-group">
@@ -243,7 +243,7 @@ function Address(props) {
                                     name="state"
                                     formik={formikProps}
                                     className="form-control input-control"
-                                    placeholder="State/Province(Optional)"
+                                    placeholder="State/Province"
                                 />
                             </div>
                             <div className="form-group">
@@ -306,7 +306,7 @@ function Address(props) {
                                 </div>
                             </div>
                                 : null}
-                            <Error formik={formikProps} el={['first_name', 'last_name', 'address1', 'city', 'state', 'phone', 'country', 'postal_code']} />
+                            <Error formik={formikProps} el={['first_name', 'last_name', 'address1', 'city', 'state','country', 'postal_code', 'phone']} />
                             <div className="form-group mt-4">
                                 <button type="submit" className="bha-btn-new-blue mr-2" name="buttonsubmit">Continue</button>
                                 {addNew ? <button className="bha-btn-new"

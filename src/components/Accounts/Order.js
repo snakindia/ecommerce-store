@@ -133,7 +133,7 @@ class Order extends React.Component {
                                                     <p>Comments: <span >{item.comments}</span></p>
                                                 </div>
                                                 <div className="d-flex flex-column pt-3">
-                                                    <p className="mb-0">Shipping status: <span>{item.shipping_status}</span></p>
+                                                    {/* <p className="mb-0">Shipping status: <span>{item.shipping_status}</span></p> */}
                                                     {/* <p>Shipping method: <span >{item.shipping_method}</span></p> */}
                                                     <p>Tracking Number <span className="font-weight-bold">{item.tracking_number}</span></p>
                                                     <p>Note: <span >{item.note}</span></p>

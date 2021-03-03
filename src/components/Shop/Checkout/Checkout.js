@@ -365,8 +365,10 @@ class Checkout extends Component {
             for (const item of items) {
                 const datum = {
                     name: item.name,
+                    id: item.product_id,
                     image_url: item.image_url,
                     qty: item.quantity,
+                    total: `$`+(item.quantity * (item.price ? item.price :0)).toFixed(2),
                     price: `$${item.price ? item.price : 0}`
                 };
                 dataSource.push(datum);

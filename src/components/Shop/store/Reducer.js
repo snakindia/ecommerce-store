@@ -22,6 +22,7 @@ const initialState = {
     searchResult: undefined,
     searchAllResult: undefined,
     compare:[],
+    compareLoading:undefined,
     reviewKey: new Date(),
     comments: {
         id: undefined,
@@ -40,6 +41,8 @@ export default (state = initialState, { type, payload, pannelstep = null }) => {
             return { ...state, cart: payload }
         case ActionTypes.CLEAR_COMPARE_PRODUCTS:
             return { ...state, compare: [] }
+        case ActionTypes.SHOP_COMPAREPRODUCT_LOADING:
+            return { ...state, compareLoading: payload}
         case ActionTypes.SET_COMPARE_PRODUCTS:
             let compare=state.compare;
             compare = payload.type=='remove' ? compare.filter(c=>c.id !=payload.item.id) :[...compare, payload.item]

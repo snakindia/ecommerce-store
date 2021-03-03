@@ -57,6 +57,11 @@ export const setProductLoading = (payload) => ({
     payload
 
 })
+export const setCompareLoading = (payload) => ({
+    type: ActionTypes.SHOP_COMPAREPRODUCT_LOADING,
+    payload
+
+})
 export const searchProductSuccess = (payload) => ({
     type: ActionTypes.SEARCH_PRODUCT,
     payload
@@ -99,7 +104,7 @@ export const getProducts = (payload, id = null) => {
 
         console.log(payload);
         let url = 'products?fields=name,images,sku,product_id,regular_price,sale_price,description,topSelling,featured';
-        if (payload && id && id !== 'featured' && id != 'bestselling' && id != "viewed") url = `products?category_id=${id}`;
+        if (payload && id && id !== 'featured' && id != 'bestselling' && id != "viewed") url = `products?category_id=${id}&enabled=true`;
 
         else if (payload == 'featured' || id == 'featured') url = 'products?featured=true&fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
         else if (payload == 'topRated') url = 'getTopRatedProducts?fields=name,topSelling,featured,images,sku,product_id,regular_price,sale_price,description';
@@ -136,13 +141,13 @@ export const getProducts = (payload, id = null) => {
 }
 export const getCompareProducts = (payload) => {
     return dispatch => {
-        dispatch(setProductLoading(true));
+        dispatch(setCompareLoading(true));
         let url = `products?ids=${payload}&fields=name,images,sku,product_id,regular_price,sale_price,description,topSelling,featured`;
         
         Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
         )
             .then(res => {
-                dispatch(setProductLoading(false));
+                dispatch(setCompareLoading(false));
                 if (res.data && res.data.data) {
                         dispatch(getDataSuccess({ ['compare']: res.data.data }));
                 } else {
@@ -151,7 +156,7 @@ export const getCompareProducts = (payload) => {
                 }
             })
             .catch(e => {
-                dispatch(setProductLoading(false));
+                dispatch(setCompareLoading(false));
                 notification('error', 'Oops!! something went wrong')
             });
     }
