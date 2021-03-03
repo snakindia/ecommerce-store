@@ -99,7 +99,7 @@ export const getProducts = (payload, id = null) => {
 
         console.log(payload);
         let url = 'products?fields=name,images,sku,product_id,regular_price,sale_price,description,topSelling,featured';
-        if (payload && id && id !== 'featured' && id != 'bestselling' && id != "viewed") url = `products?category_id=${id}`;
+        if (payload && id && id !== 'featured' && id != 'bestselling' && id != "viewed") url = `products?category_id=${id}&enabled=true`;
 
         else if (payload == 'featured' || id == 'featured') url = 'products?featured=true&fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
         else if (payload == 'topRated') url = 'getTopRatedProducts?fields=name,topSelling,featured,images,sku,product_id,regular_price,sale_price,description';
