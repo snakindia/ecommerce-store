@@ -375,8 +375,8 @@ height: 30px !important;}
   margin-right: 0.5rem;
 }
 .pro_Price {
-  margin: 1rem 0;
-  padding: 0rem 0 0;
+  margin:0;
+  padding: 0 0 0;
 }
 .pro_Price .currecny {
   font-size: 1.2em;
@@ -539,7 +539,7 @@ i.wishList-hover {
 .product-xs-item .portfolio-hover {
   position: absolute;
   width: 100%;
-  height: 60%;
+  height: 48.5%;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -1679,7 +1679,6 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 .toolTipContainer span{font-size: inherit !important;}
 .formLpRp{padding:0}
 
-.star-rating {float:left; width:100%; text-align: center; height: 40px;}
 
 /*----------------paypal button setting----------------------------*/
 .paypal-button-label-container:focus{box-shadow: none !important; outline:0 !important}
@@ -1688,3 +1687,10 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 
 .paypal-button-label-container:focus {outline:0 !important;}
 .paypal-button-label-container.card:focus{outline: 0; box-shadow: none!important;}
+/*----------------paypal button setting----------------------------*/
+
+
+.pro_Price {float:left; width:100%; text-align: center; margin:1rem 0}
+.star-rating{float:left; width:100%; text-align: center; margin:0 0 1rem 0; 
+  height:40px}
+.product-description{height:80px;}
