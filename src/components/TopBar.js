@@ -103,15 +103,12 @@ class TopBar extends Component {
               </div> */}
               <div className="container-fluid">
                 <div className="row">
-                  <div className="col-sm-12 col-md-4 col-lg-4">
-                  
+                  <div className="col-sm-12 col-md-6 col-lg-7 text-right">
+                    <div className="mobile-d-none moBileNumber pl-0 callUs_lx w-100">
+                      CALL US: (888) 286-8708
+                    </div>
                   </div>
-                  <div className="col-sm-12 col-md-4 col-lg-4" style={{textAlign:'center'}}>
-                  <div className="mobile-d-none pt-2 font-weight-bold pl-0 " >
-                    CALL US: (888) 286-8708
-                  </div>
-                  </div>
-                  <div className="col-sm-12 col-md-4 col-lg-4">
+                  <div className="col-sm-12 col-md-6 col-lg-5 plpr">
                     <div className="text-sm-right">
                       <ul className="top-nav-link">
                         <li>
@@ -139,6 +136,7 @@ class TopBar extends Component {
                         </li>
                         <span>|</span>
                         <li>
+                        
                         {authenticated && userDetails && userDetails.first_name ? (
                           <Popover placement="bottom" title='' content={
                               <ul className="user-setting-menu">
@@ -150,9 +148,7 @@ class TopBar extends Component {
                               overlayClassName="mini-cart-popup"
                               
                             >
-                              <embed src={Profile} type='image/svg+xml' alt="" width="20" height="20"></embed>
-                        
-                              
+                              <img className="mr-2" src={Profile} type='image/svg+xml' alt="" width="20" height="20"/>
                               {userDetails.first_name}
                               <i className="fa fa-angle-down top-caret ml-2"
                               ></i>

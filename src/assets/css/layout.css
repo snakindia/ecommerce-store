@@ -140,7 +140,7 @@ a.forgotpwd:hover{text-decoration: none;color:#888; transition: 0.3s}
 .caption h2{width: 100%; font-size:1.5rem; color:#fff; font-weight: 300;font-family: 'Oswald', sans-serif !important; padding-top:2rem;}
 
 @media only screen and (max-width: 991px) {
-.caption{width: 70%;right: 10% !important;top: 18%;}
+.caption{width:100%;right: 10% !important;top: 18%;}
 .topmenusearch{display:none}
 .headertopleft{float:left;display: block !important;}
 .address{ display: block;}

@@ -375,7 +375,7 @@ height: 30px !important;}
   margin-right: 0.5rem;
 }
 .pro_Price {
-  margin: 5px 0;
+  margin: 1rem 0;
   padding: 0rem 0 0;
 }
 .pro_Price .currecny {
@@ -1480,6 +1480,8 @@ text-transform: uppercase;}
   .order-steps{width:85px !important;}
   .orderStatus{position: absolute; top: 60%; display: flex;
     width: 100%; left:47%; transform: translate(-42%, -10%);}
+  .formLpRp{padding:0 2rem !important}
+  form .form-select{width: 100% !important;}
   }
 
 @media(min-width:1200px){
@@ -1532,6 +1534,11 @@ width: 36px !important;}
   .product--heading{text-align: center;}
   .reviewPagination{display:flex !important; justify-content: center;}
   .ant-popover, .compare-collaspe-div{z-index: 1000000 !important;}
+  .forgot-PwdText-message{padding:0 4rem !important}
+  .bha_heading_2{padding:2rem}
+  .benefits-of-registering .bha-btn-primary{width: 100% !important; white-space: pre-wrap;}
+  .formLpRp{padding:0 2rem}
+  form .form-select{width: 100% !important;}
   
 }
 
@@ -1547,6 +1554,8 @@ width: 36px !important;}
   .forgot-PwdText-message{padding:0 1rem !important}
   .sideBarMenu{width:0 !important}
   #myDiv .bha-btn-primary{width:auto !important; margin-right: 1rem !important;}
+  .moBileNumber{display: none !important;}
+  .plpr{padding-left:0 !important; padding-right:0 !important; padding-top:0 !important}
 }
 
 @media(max-width:812px){
@@ -1558,6 +1567,8 @@ width: 36px !important;}
 .seatchPanelFooter{position: absolute; bottom: -10px; left: 0;}
 .LoginReft{padding:1rem;overflow-y: scroll !important; height: 300px;}
 .topPadding {margin-top:24px !important;}
+.moBileNumber{text-align: left !important;}
+
 
 }
 
@@ -1624,14 +1635,16 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 
 
 @media (min-width: 640px){
+.banner-container { margin-top: 100px !important;}
 .topPadding {padding-top:4.5rem !important;}
 #myDiv .bha-btn-primary{width:auto !important; margin-right: 1rem !important;}
 .bha-btn-new{padding: 0.50rem 0.975rem !important;}
 .ant-collapse-content > .ant-collapse-content-box {padding: 0 16px 8px 16px !important}
 .compare-widget__product{padding:0.5rem 2rem 0.5rem 0 !important}
 .optional-hover .hot-deals-item-wrapper .portfolio-hover .portfolio-hover-content .callToAction-xxs {
-  padding: 2rem 1.5rem !important;
-}
+  padding: 2rem 1.5rem !important;}
+.moBileNumber{display: block !important; font-weight: 500; padding-top: 0.5rem !important;}
+.caption .bha-btn-primary{width:auto !important}
   }
 
 @media (min-width: 667px){
@@ -1649,7 +1662,7 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 }
 
 .forgot-PwdText-message{padding:1rem 18rem}
-.toolTipContainer{position: static;}
+.toolTipContainer{position: static; padding-left:0 !important}
 
 /*------star setting on shopnow page--------------------------*/
 .ant-rate-star .anticon-star svg{width: 0.875em !important; margin-right: 0.3rem;}
@@ -1660,3 +1673,18 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 .overflow {overflow: hidden;}
 .footer.page-footer{margin-top:6px;}
 
+.moBileNumber{padding:.2rem 0 0 0.5rem !important; font-weight: 600; font-size: 1.4rem; 
+  display: block;}
+
+.toolTipContainer span{font-size: inherit !important;}
+.formLpRp{padding:0}
+
+.star-rating {float:left; width:100%; text-align: center; height: 40px;}
+
+/*----------------paypal button setting----------------------------*/
+.paypal-button-label-container:focus{box-shadow: none !important; outline:0 !important}
+.paypal-button:focus{box-shadow: none !important; outline:0 !important}
+.paypal-button-card:focus{box-shadow: none !important; outline:0 !important}
+
+.paypal-button-label-container:focus {outline:0 !important;}
+.paypal-button-label-container.card:focus{outline: 0; box-shadow: none!important;}

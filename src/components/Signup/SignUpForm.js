@@ -94,10 +94,12 @@ class SignUpForm extends PureComponent {
           handleSubmit,
           isSubmitting,
         }) => (
-          <Form className="formPadding">
+          <div className="row">
+          <Form className="w-100 formLpRp">
             {isSubmitting ? <div>Loading...</div> : null}
-            <div className="row">
-              <div className="col-sm-6 col-md-6 pl-0">
+            <div className="col-lg-12 formPadding">
+              <div className="row">
+              <div className="col-sm-6 col-md-6">
                 <div className="form-group">
                   <input
                     type="text"
@@ -174,7 +176,7 @@ class SignUpForm extends PureComponent {
                   </span>
                   </div>
               </div>
-              <div className="col-sm-6 col-md-6 pr-0 pl-0">
+              <div className="col-sm-6 col-md-6">
               <div className="form-group">
                   <input
                     type="text"
@@ -264,16 +266,27 @@ class SignUpForm extends PureComponent {
                   </div> */}
                 </div>
               </div>
-            </div>
-            <hr />
-            <div className="container-fluid">
-              <div className="row">
-               <div className="col-sm-6 col-md-6">
-                 
+              <div className="col-sm-6 col-md-6">
                   <div className="form-group">
                     <button
                       type="button"
-                      className="btn bha-btn-primary float-left"
+                      className="bha-btn-new-blue float-left mt-2"
+                      onClick={handleSubmit}
+                      name="buttonsubmit"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+            </div>
+            </div>
+            {/* <div className="container-fluid">
+              <div className="row pl-0">
+               <div className="col-sm-6 col-md-6">
+                  <div className="form-group">
+                    <button
+                      type="button"
+                      className="btn bha-btn-primary float-left mt-2"
                       onClick={handleSubmit}
                       name="buttonsubmit"
                     >
@@ -282,8 +295,9 @@ class SignUpForm extends PureComponent {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </Form>
+          </div>
         )}
       </Formik>
     );

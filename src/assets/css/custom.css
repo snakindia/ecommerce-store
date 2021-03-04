@@ -962,6 +962,7 @@ text-align:right;margin-top: 0.4rem;}
     .pt-450{padding-top:450px !important}
     .compare-collaspe-div{width: 93% !important;}
     .bha-btn-new{padding: 0.50rem 2rem !important;}
+    .forgot-PwdText-message{padding:0 10rem !important} 
    
 }
 
@@ -990,6 +991,7 @@ text-align:right;margin-top: 0.4rem;}
     height:40vh;}
 
   .bha-btn-new{padding: 0.50rem 2rem !important;}
+  .forgot-PwdText-message{padding:0 3rem !important} 
   
 }
 

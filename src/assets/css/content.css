@@ -66,6 +66,7 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
     font-weight: 700; text-transform: uppercase; padding: 0.4rem 0 0;}
 .anticon svg {margin-top: -7px !important;}
 .ant-menu-hidden {display: none !important;}
+.forgot-PwdText-message{padding:0 4rem !important} 
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -79,7 +80,9 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .ant-drawer-body{padding:0 15px !important; background:rgb(31, 70, 92) !important}
 .ant-drawer-header .ant-drawer-title { margin: 0; font-weight: 500; font-size: 20px !important;line-height: 22px;
     font-weight: 700; text-transform: uppercase; padding: 0.4rem 0 0;}
-.ant-menu-hidden {display: none !important;}   
+.ant-menu-hidden {display: none !important;}
+.forgot-PwdText-message{padding:0 10rem !important}
+.formLpRp{padding:0 2rem}   
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
