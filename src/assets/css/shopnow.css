@@ -1629,6 +1629,9 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 .bha-btn-new{padding: 0.50rem 0.975rem !important;}
 .ant-collapse-content > .ant-collapse-content-box {padding: 0 16px 8px 16px !important}
 .compare-widget__product{padding:0.5rem 2rem 0.5rem 0 !important}
+.optional-hover .hot-deals-item-wrapper .portfolio-hover .portfolio-hover-content .callToAction-xxs {
+  padding: 2rem 1.5rem !important;
+}
   }
 
 @media (min-width: 667px){

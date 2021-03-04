@@ -141,8 +141,8 @@ function Summary(props) {
                         <div className="col-sm-4 col-md-6 col-lg-6 col">
                           Coupon Applied
                         </div>
-                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
-                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-rightr"></div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-right">
                           {props.coupon}
                         </div>
                       </div>}
@@ -150,8 +150,8 @@ function Summary(props) {
                         <div className="col-sm-4 col-md-6 col-lg-6 col">
                           Discount
                         </div>
-                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center"></div>
-                        <div className="col-sm-4 col-md-3 col-lg-3 col text-center">
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-right"></div>
+                        <div className="col-sm-4 col-md-3 col-lg-3 col text-right">
                           ${props.couponDiscount}
                         </div>
                       </div>}

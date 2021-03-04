@@ -91,6 +91,8 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 }
 
 @media(min-width:1280px){
-    .sideBarMenu{width: 18.850%; float:left;margin-top: 5px;} 
-    .ant-menu-hidden {display: none !important;}
+.sideBarMenu{width: 18.850%; float:left;margin-top: 5px;} 
+.ant-menu-hidden {display: none !important;}
+.ant-collapse-content > .ant-collapse-content-box {padding:16px !important;}
+.ant-select-arrow{margin-top: 0 !important;}
 }
