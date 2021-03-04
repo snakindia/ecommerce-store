@@ -10,6 +10,7 @@ import Slider from 'react-slick';
 import Zoomer from "./Zoomer";
 import Quantity from "./Quantity";
 import Image from './Image'
+import {Rate} from 'antd'
 import { API_IMAGE_PATH } from './../../constants/appConstant';
 export default class QuickView extends Component {
     constructor(props) {
@@ -124,7 +125,7 @@ export default class QuickView extends Component {
                                 <div className="pro_Id"><span className="txtLabel">SKU:</span>
                                     <span>{item.sku}</span></div>
                                 <div className="star-rating mt-2">
-                                    <Ratings />
+                                {item.reviews >0 ?  <Rate disabled defaultValue ={item.reviews}/>: null }
                                 </div>
                                 <div className="pro_Price">
                                     <p className="currecny">
@@ -144,11 +145,13 @@ export default class QuickView extends Component {
                                             </div>
                                         </div>
                                     </form> : null}
+                                    
                                 <div className="float-left mt-4">
                                     {(regular_price || sale_price) ? <AddToCart className=" btn bha-btn-primary text-uppercase" item={item} qty={this.state.counts} add={true} /> : <ContactForSale />}
                                     {/* {(regular_price || sale_price) && single ? <BuyNow /> : null} */}
 
                                 </div>
+                               
                                 <div className="social_Share">
                                     <p>
                                         <Share item={item} />

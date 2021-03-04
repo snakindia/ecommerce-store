@@ -20,7 +20,7 @@ class CategoryProducts extends Component {
       resultPerPage: 20,
       total: 0,
       products: [],
-      sorting: 'latest',
+      sorting: '',
       view: 'grid'
     };
   }
@@ -127,7 +127,7 @@ class CategoryProducts extends Component {
       products
     }, () => {
       if (scroll) {
-        scrollToEl('#categorycontent', -240, 500)
+        scrollToEl('#categorycontent', -260, 500)
       }
 
     })
@@ -246,12 +246,12 @@ class CategoryProducts extends Component {
                           onChange={this.sort}
                           defaultValue={sorting}
                         >
-                          <Option value='latest'>Newest Items</Option>
-                          <Option selected="bestselling" value="bestselling">Bestselling</Option>
-                          <Option value="AZ">Alphabetical: A to Z</Option>
-                          <Option value="ZA">Alphabetical: Z to A</Option>
-                          <Option value="reviewDESC">Avg. Customer Review (High to Low)</Option>
-                          <Option value="reviewASC">Avg. Customer Review (Low to High)</Option>
+                          {/* <Option value='latest'>Newest Items</Option> */}
+                          {/* <Option selected="bestselling" value="bestselling">Bestselling</Option> */}
+                          <Option value="AZ">Alphabetical: A to Z (ASC)</Option>
+                          <Option value="ZA">Alphabetical: Z to A(DESC)</Option>
+                          <Option value="reviewDESC">Rating (High to Low)</Option>
+                          <Option value="reviewASC">Rating (Low to High)</Option>
                           <Option value="priceasc">Price: Low to High</Option>
                           <Option value="pricedesc">Price: High to Low</Option>
 
