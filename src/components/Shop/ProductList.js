@@ -45,15 +45,11 @@ export default class ProductList extends Component {
                             </Link>
                             </h6>
                         {/* <a href="product-details.html" className="text-muted mb-0"><ToolTip text={item.description} /></a> */}
-                        <div className="d-flex align-items-center justify-content-left mt-1">
-                            <div className="star-rating">
-                               {item.reviews >0 ?  <Rate disabled defaultValue ={item.reviews}/>: <div className="has_no_review" /> }
-                            </div>
-                        </div>
+                       
                         {hasPrice ?
                             <div className="pro_Price p-0">
                                 {item.sale_price ?
-                                    <p className=" currecny"><span className="strike">${item.regular_price}</span>
+                                    <p className=" currecny"><span className="strike red">${item.regular_price}</span>
                                         <span className="sp-price">${item.sale_price}</span></p>
 
                                     :
@@ -63,6 +59,11 @@ export default class ProductList extends Component {
                             </div>
                             :<div className="has_no_price"/>
                         }
+                         <div className="d-flex align-items-center justify-content-left mt-1">
+                            <div className="star-rating">
+                               {item.reviews >0 ?  <Rate disabled defaultValue ={item.reviews}/>: <div className="has_no_review" /> }
+                            </div>
+                        </div>
                         <div className="d-block float-left w-100 mt-4">
                             {hasPrice ? <AddToCart item={item} /> : <ContactForSale />}
                             <Compare item={item} />

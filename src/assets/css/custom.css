@@ -341,7 +341,8 @@ position: absolute;top: 15%;right: 5%;}
 .heading-h4{font-size: 1.42rem !important;font-weight: 600 !important;
   letter-spacing: -0.043rem !important; color:#212529; margin-top: -0.1rem}
 .pagewrap-inner p span{font-family: 'Roboto', sans-serif !important; font-size: 1rem !important}
-.pro-equipment-section span{color:#212529 !important;}
+
+
 .mission-section p span{color:#fff;}
 .location{margin-top: 0 !important}
 /*======Project page==================*/
@@ -1510,7 +1511,7 @@ strong.price-font{font-size: 1rem; font-weight: 600;}
    padding-top: 7px !important;
  }
 
- .hot-deals-item-wrapper .item-pro-inner a .prod-comp-top{padding-top: 26px !important;}
+ .hot-deals-item-wrapper .item-pro-inner a .prod-comp-top{padding-top: 0 !important; margin-top: -5px;}
 
  @media(max-width: 1281px){
   .hot-deals-item-wrapper .item-pro-inner a .prod-comp-top{padding-top: 27px !important;}

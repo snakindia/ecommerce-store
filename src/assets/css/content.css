@@ -91,6 +91,8 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .sideBarMenu{width: 18.85% !important;left:0;position: static;}
 .mainContentPanel .main-panel{width: 80%;}
 .ant-menu-hidden {display: none !important;}
+.optional-hover .hot-deals-item-wrapper .portfolio-hover .portfolio-hover-content .callToAction-xxs{
+    padding:2rem 5rem}
 }
 
 @media(min-width:1280px){
