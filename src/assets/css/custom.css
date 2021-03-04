@@ -1547,3 +1547,10 @@ strong.price-font{font-size: 1rem; font-weight: 600;}
     .ant-popover-placement-bottom.search-bar-popup .ant-popover-arrow {left: 77% !important;}
   }
   */
+
+  .ant-rate-star.ant-rate-star-full .anticon-star > svg{
+    fill :#ff9c00 !important
+  }
+  .ant-rate-star.ant-rate-star-zero .anticon-star > svg{
+    fill :#f0f0f0 !important
+  }
