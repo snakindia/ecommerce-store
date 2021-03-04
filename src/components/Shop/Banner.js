@@ -24,6 +24,8 @@ class Banner extends Component {
                 slideshowSpeed={6000}
                 version={4}
                 className="item-xs"
+                leftIcon={undefined }
+                rightIcon={undefined }
               >
                 <div className="item-xs">
                   <img src={Pro01} alt="" className="img-fluid mobileHide" />
@@ -46,7 +48,7 @@ class Banner extends Component {
                     <p className="item-description-xs">
                      Development, licensing and deployment of Baghouse Products to meet quality standards, emission’s requirements, and improve overall operation and capital costs associated with a plant.
                     </p>
-                    <Link to="/pulsevalve" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</Link>
+                    <Link to="/pulsevalves" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</Link>
                   </div>
                 </div>
   
@@ -70,7 +72,7 @@ class Banner extends Component {
                     <p className="item-description-xs">
                      Development, licensing and deployment of Baghouse Products to meet quality standards, emission’s requirements, and improve overall operation and capital costs associated with a plant.
                     </p>
-                    <Link to="/mecair" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</Link>
+                    <Link to="/" data-toggle="modal" className="btn bha-btn-primary btnLight mt-4">Read More</Link>
                   </div>
                 </div>
   

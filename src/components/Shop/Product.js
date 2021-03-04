@@ -55,7 +55,7 @@ export default class Product extends Component {
                         }
                         <div className="text-center">
                             <div className="star-rating">
-                            <Rate disabled  defaultValue ={item.reviews} style={{color:'#ff9c00'}}/>
+                            {item.reviews > 0 ? <Rate disabled  defaultValue ={item.reviews} style={{color:'#ff9c00'}}/> : null }
                             </div>
                         </div>
 

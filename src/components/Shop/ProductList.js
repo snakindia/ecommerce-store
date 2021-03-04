@@ -47,7 +47,7 @@ export default class ProductList extends Component {
                         {/* <a href="product-details.html" className="text-muted mb-0"><ToolTip text={item.description} /></a> */}
                         <div className="d-flex align-items-center justify-content-left mt-1">
                             <div className="star-rating">
-                                <Rate disabled defaultValue ={item.reviews}/>
+                               {item.reviews >0 ?  <Rate disabled defaultValue ={item.reviews}/>: null }
                             </div>
                         </div>
                         {hasPrice &&
