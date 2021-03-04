@@ -42,7 +42,7 @@ export default class Product extends Component {
                         <div className="product-description">
                         <Link to={`/shop/${item.id}`}><ToolTip text={item.name} /></Link>
                         </div>
-                        {hasPrice &&
+                        {hasPrice ?
                             <div className="pro_Price text-center">
                                 {item.sale_price ?
                                     <div className=" currecny"><span className="strike red">${item.regular_price}</span>
@@ -52,10 +52,11 @@ export default class Product extends Component {
                                     </div>
                                 }
                             </div>
+                            :<div className="has_no_price"/>
                         }
                         <div className="text-center">
                             <div className="star-rating">
-                            {item.reviews > 0 ? <Rate disabled  defaultValue ={item.reviews} style={{color:'#ff9c00'}}/> : null }
+                            {item.reviews > 0 ? <Rate disabled  defaultValue ={item.reviews} style={{color:'#ff9c00'}}/> : <div className="has_no_review" /> }
                             </div>
                         </div>
 
