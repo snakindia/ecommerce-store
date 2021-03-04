@@ -1699,6 +1699,9 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 .ant-rate-star:not(:last-child){margin-right:0.2rem !important}
 .star-rating .ant-rate-star .anticon-star svg{width: 0.775em !important;}
 .media-body h6 a:hover{color:#000 !important}
-.pro-equipment-section span{color:#212529 !important;}
+/* .pro-equipment-section span{color:#212529 !important;} */
 
 .hero-header .freequote-container .free-quote form .form-control-textarea{background: #fff !important;}
+.comparison-table table tr th{text-transform: none !important; font-size: 0.95rem !important;}
+.banner-container-small .carousel-control-prev, 
+.banner-container-small .carousel-control-next{display: none !important;}
