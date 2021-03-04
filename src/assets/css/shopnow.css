@@ -1694,3 +1694,5 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 .star-rating{float:left; width:100%; text-align: center; margin:0 0 1rem 0; 
   height:40px}
 .product-description{height:80px;}
+
+.hero-header .freequote-container .free-quote form .form-control-textarea{background: #fff !important;}
