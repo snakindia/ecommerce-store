@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router'
 import { message, Button, Space } from 'antd';
 import { connect } from 'react-redux';
+import Profile from '../assets/icon/profile.svg';
 import { MDBModal, MDBContainer } from 'mdbreact';
 import loginpopupleft from '../assets/images/loginpopupleft.jpg'
 import logo from '../assets/images/footer-logo.png'
@@ -40,7 +41,8 @@ class LoginPopUp extends Component {
         return (
             <>
                 <li><a id="loginpopover" href="/" className="ant-popover-open" onClick={this.show}>
-                    <embed src="/static/media/profile.035915d4.svg" alt="" width="20" height="20" />
+                <embed src={Profile} type='image/svg+xml' alt="" width="20" height="20"></embed>
+                        
                         login/signup
                 </a>
                 </li>
