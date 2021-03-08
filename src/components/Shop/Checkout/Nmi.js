@@ -43,6 +43,7 @@ class Nmi extends React.Component {
     }
 
     componentDidMount() {
+        
         const { paymentSettings, cart } = this.props;
         let currency = paymentSettings && paymentSettings.currency ? paymentSettings.currency : 'USD'; // or you can set this value from your props or state
         let total = paymentSettings && paymentSettings.amount ? paymentSettings.amount : 1;
@@ -145,7 +146,7 @@ class Nmi extends React.Component {
         status_id = status_id && status_id[0] ? status_id[0].id : '';
             this.props.paymentCompleted({...this.props.cart,status_id,status:'Order Received'},{currency, total, response })
             this.setState({isSubmitting:false, paymentDone:true})
-            notification('success','Payment successfully completed ...please wait while system creating your order')
+            notification('success','Payment successfully completed ...please wait while system creating your order', 3)
         } else {
             notification('error','Payment failed')
          

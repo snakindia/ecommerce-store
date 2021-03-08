@@ -1,7 +1,7 @@
 import {notification  as antdNotification} from 'antd';
-const notification = (type, message) => {
+const notification = (type, message, duration =2) => {
   antdNotification[type]({
-    message, top:100,duration:2
+    message, top:100,duration
     
   });
 };
