@@ -51,6 +51,9 @@ class Detail extends Component {
     render() {
 
         const { product } = this.props;
+        if(product && product.name){
+            document.title =product.name
+        }
         const { item, showModal, visible } = this.state;
         const { params: { id } } = this.props.match;
         let related = product && product.related_products ? product.related_products : [];

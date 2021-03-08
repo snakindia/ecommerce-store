@@ -47,9 +47,8 @@ class Fans extends Component {
 
     dl = (e, url) => {
         e.preventDefault();
-        this.setState({
-            url,
-        })
+        this.setState({ isFreeBrochure:true,url})
+        
         this.toggleModal()
     }
 
@@ -88,6 +87,7 @@ class Fans extends Component {
                     url={this.state.url}
                     onSubmit={this.props.saveBrochuresDetails}
                     showToast={this.props.showToast}
+                    isFreeBrochure={this.state.isFreeBrochure}
 
                 />
                 {data ?
@@ -603,7 +603,7 @@ class Fans extends Component {
                                         <div className="col-lg-12"><h2 className="h2 text-left pl-3">Resources</h2></div>
                                         {resources.map(item => <div className="col-sm-12 col-md-6 col-lg-4"><div className="customer-card-outer d-flex justify-content-center">
                                             <div className="resources-card">
-                                                <h3>{item.title}</h3>
+                                                <h3>{item.title =='||DB||' ? 'Download Brochure': item.title}</h3>
                                                 <a
                                                     href='#'
                                                     onClick={e => this.dl(e, item.url)}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { SideBySideMagnifier } from "react-image-magnifiers";
+import defaultImg from '../../assets/images/product/dummyproduct.PNG'
 class Zoomer extends Component {
   state = {
     alwaysInPlace: false,
@@ -32,8 +33,8 @@ class Zoomer extends Component {
             <SideBySideMagnifier
               className="input-position"
               style={{ order: switchSides ? "1" : "0" , height:'350px'}}
-              imageSrc={image}
-              largeImageSrc={largeImage}
+              imageSrc={[image,defaultImg]}
+              largeImageSrc={[largeImage, defaultImg]}
               alwaysInPlace={alwaysInPlace}
               overlayOpacity={overlayOpacity}
               switchSides={switchSides}
