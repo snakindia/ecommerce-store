@@ -75,7 +75,7 @@ export default class QuickView extends Component {
                 }
                 <div className="container">
                     <div className="row no-gutters">
-                        <div className="col-sm-6 col-md-6">
+                        <div className="col-sm-5 col-md-5">
                             <section id="magnific">
                                 <div className="row">
                                     <div className="large-5 column">
@@ -116,7 +116,7 @@ export default class QuickView extends Component {
                             </section>
 
                         </div>
-                        <div className="col-sm-6 col-md-6 pl-3">
+                        <div className="col-sm-7 col-md-7 pl-3">
                             <div className="media-body pt-3 pr-0">
                                 <div className="pro_Info">
                                     <h1 className="mt-0 mb-2">{item.name}</h1>

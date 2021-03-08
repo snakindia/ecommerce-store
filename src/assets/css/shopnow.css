@@ -1218,7 +1218,7 @@ a.bha-btn-secondry:hover {
   box-shadow: 1px 1px 2rem 0.1rem #5c5c5c;
 }
 .modal-width-lg {
-  max-width: 800px !important;
+  max-width: 1000px !important;
 }
 
 /*======================Compare Css=============================*/
@@ -1562,6 +1562,8 @@ width: 36px !important;}
   .morebtnL, .morebtnR{left:0}
   .pagewrap-inner{padding: 0 0.750rem}
   .texture-bg{background:none !important}
+  .item-list {width:100% !important }
+  .item-list .sp-price{text-align: right;}
 }
 
 @media(max-width:812px){
@@ -1666,6 +1668,7 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 #myDiv .bha-btn-primary{width:auto !important; margin-right: 1rem !important;}
 .bha-btn-new{padding: 0.50rem 0.975rem !important;}
 .ant-collapse-content > .ant-collapse-content-box {padding: 0 16px 16px 16px;}
+.item-list {width:340px !important }
 }
 
 .forgot-PwdText-message{padding:1rem 18rem}
@@ -1715,11 +1718,53 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 .banner-container-small .carousel-control-next{display: none !important;}
 
 /*======New fixes==========================================*/
+.item-list {width:340px }
 .pro-equipment-section .bg-opeque{padding:1rem 0 !important}
 .brand_name{display: flex !important;}
 .brand_name span:last-child{width: 100%;}
 .pro_Id{display: flex !important;}
 .pro_Id span:last-child{width: 100%;}
 
-.prod_gallery-sm img {object-fit: cover;height: 360px;width: 560px !important;overflow: hidden;}
+
+
+/* .prod_gallery-sm img {object-fit: cover; height: 500px !important; width: 500px !important;
+  overflow: hidden !important;} */
+
+  /* .prod_gallery-sm{overflow: visible !important; border:1px solid red;
+    text-align: center !important;
+    display: table !important;
+    table-layout: fixed !important;
+    max-width: 500px !important;
+    position: relative !important;}
+
+    .prod_gallery-sm img{
+      width: 100%;
+      object-fit: contain;
+  } */
+  .prod_gallery-sm{height:300px; width:400px;}
+  .prod_gallery-sm img {object-fit: cover; height: 100% !important; width: 400px !important;
+    overflow: hidden !important;} 
+  /* .zoomer-img{background: red; max-width: 100%; width:auto}
+  .zoomer-img img{height: 100% !important; width: 400px !important;
+    overflow: hidden !important;} */
+
+/* .prod_gallery-sm img{ width: 100% !important; object-fit: contain;} */
+
+/* .xzoom-container .thumbnails { margin: 3.5rem 0 0 2rem !important;} */
+
+@media(max-width:992px){
+  .pro-equipment-section .bg-opeque{padding:0 !important}
+
+  .prod_gallery-sm{width: 100%; height: 100%;}
+  .prod_gallery-sm img{ height:100%; width: 100% !important; object-fit: contain;}
+
+  .zoomer-img{width: 100%;}
+  .zoomer-img img{height: 100% !important; width: 100% !important;
+    overflow: hidden !important;}
+}
+
+/* img.classname{ 
+  max-width:100%; 
+  height:auto; 
+  }  */
 

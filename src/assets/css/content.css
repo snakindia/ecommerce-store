@@ -75,7 +75,7 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .parallax-header form .form-control-textarea{background: #fff !important;}
 .downArrowHide{visibility: visible !important}
 
-
+.item-list {width:340px !important }
 
 }
 
@@ -100,6 +100,8 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .hero-img{height: 470px !important;}
 
 .tab-menu {float: left; margin-bottom: 39px !important;}
+
+.item-list {width:340px !important }
 
 
 }

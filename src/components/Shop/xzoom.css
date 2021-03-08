@@ -12,7 +12,7 @@
 .product-slider img{object-fit: cover; object-position: center; -o-object-position: center; height: 60px;
   border: 1px solid #cecece;}
 .prod_gallery-sm img{object-fit: cover; min-height: 320px;}
-.xzoom-container .thumbnails{margin: 1rem 0 0 2rem;}
+.xzoom-container .thumbnails{margin: 7rem 0 0 2rem;}
 .thumbnails .slick-prev{position:absolute; top:1rem; left:-40px; background:none;}
 .thumbnails .slick-next{position:absolute; top:1rem; right:-40px; background:none;}
 
