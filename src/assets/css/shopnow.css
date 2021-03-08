@@ -1714,3 +1714,12 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 .banner-container-small .carousel-control-prev, 
 .banner-container-small .carousel-control-next{display: none !important;}
 
+/*======New fixes==========================================*/
+.pro-equipment-section .bg-opeque{padding:1rem 0 !important}
+.brand_name{display: flex !important;}
+.brand_name span:last-child{width: 100%;}
+.pro_Id{display: flex !important;}
+.pro_Id span:last-child{width: 100%;}
+
+.prod_gallery-sm img {object-fit: cover;height: 360px;width: 560px !important;overflow: hidden;}
+
