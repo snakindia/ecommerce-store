@@ -94,7 +94,7 @@ export default class QuickView extends Component {
                                             <div className="thumbnails product-slider-div" style={{ width: '300px' }}>
                                                 <Slider {...settings}>
                                                     {sliderImages.map((sl, i) => <div className="product-slider" style={{ width: '80px' }}>
-                                                        <img
+                                                        <Image
                                                             key={`${i}hotp`}
                                                             src={sl.url}
                                                             width="780"
