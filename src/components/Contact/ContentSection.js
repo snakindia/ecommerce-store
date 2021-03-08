@@ -72,7 +72,7 @@ class ContentSection extends Component {
               <div className="container pt-5">
                 <div className="row">
                   <div className="col-sm-9 col-md-9 mb-5 pr-4">
-                    <h2 className="bha_heading_2 text-black font-xx mb-3">
+                    <h2 className="bha_heading_2 text-black font-xx mb-3 p-0">
                       BAGHOUSE AMERICA
                     </h2>
                     <div className="row no-gutters">
@@ -209,7 +209,7 @@ class ContentSection extends Component {
                             </div>
 
                             <div className="row ">
-                              <div className="col-md-6 col-100">
+                              <div className="col-md-12 col-lg-6 col-100">
                                 <div className="mt-4 float-left">
                                   <i className="fa fa-envelope bha-icon mr-3"></i>
                                   <span className="font-weight-normal phone-font-size email-font-size">
@@ -219,7 +219,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div className="col-md-6 col-100">
+                              <div className="col-md-12 col-lg-6 col-100">
                                 <div className="mt-4 float-left">
                                   <i className="fa fa-envelope bha-icon mr-3"></i>
                                   <span className="font-weight-normal email-font-size">
@@ -229,7 +229,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div className="col-md-6">
+                              <div className="col-md-12 col-lg-6 col-100">
                                 <div className="mt-4 float-left">
                                   <i className="fa fa-envelope bha-icon mr-3"></i>
                                   <span className="font-weight-normal email-font-size">
@@ -239,7 +239,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div className="col-md-6">
+                              <div className="col-md-12 col-lg-6 col-100">
                                 <div className="mt-4 float-left">
                                   <i className="fa fa-envelope bha-icon mr-3"></i>
                                   <span className="font-weight-normal email-font-size">
@@ -249,7 +249,7 @@ class ContentSection extends Component {
                                   </span>
                                 </div>
                               </div>
-                              <div className="col-md-6">
+                              <div className="col-md-12 col-lg-6 col-100">
                                 <div className="mt-4 float-left">
                                   <i className="fa fa-envelope bha-icon mr-3"></i>
                                   <span className="font-weight-normal email-font-size">
@@ -603,7 +603,7 @@ class ContentSection extends Component {
                         <form>
                           <div className="row">
                             <div className="col-lg-12">
-                              <h2 className="bha_heading_2 text-black font-xx mb-3">
+                              <h2 className="bha_heading_2 text-black font-xx mb-3 p-0">
                                 Contact Us
                               </h2>
                             </div>

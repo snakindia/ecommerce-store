@@ -75,7 +75,7 @@ class Footer extends Component {
             <div className="pagewrap">
               <div className="footer-main pt-5">
                 <div className="row flex-column-reverse flex-md-row pl-0">
-                  <MDBCol md="8">
+                  <MDBCol sm="12" md="7" lg="8">
                     <MDBRow>
                       <MDBCol md="4">
                         <h3 className="title">{footer_menu_1_title}</h3>
@@ -147,7 +147,7 @@ class Footer extends Component {
                       <MDBCol md="4"></MDBCol>
                     </MDBRow>
                   </MDBCol>
-                  <MDBCol md="4">
+                  <MDBCol sm="12" md="5" lg="4">
                     <div className="broucher-wrapper">
                       <div className="broucher-inner">
                         <h2 className="bha_heading_2 font-weight-bold mb-3">

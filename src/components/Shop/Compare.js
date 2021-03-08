@@ -17,7 +17,7 @@ const Compare = ({item,data,compareWith}) => {
        
     }
     return (
-        <Link type="button" className="svg-icon" onClick={onClick} style={{color : added ? 'red':'#4e4c4c'}}>
+        <Link className="svg-icon" onClick={onClick} style={{color : added ? 'red':'#4e4c4c'}}>
             {/* <img className="mr-2 ml-4" src={imgsrc} alt="" /> */}
             <i className="fa fa-random mr-2 ml-2" area-hidden="true"></i>
                 Compare

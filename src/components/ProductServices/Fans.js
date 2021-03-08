@@ -96,7 +96,7 @@ class Fans extends Component {
                             <div className="parallax-header" style={{ backgroundImage: `url(${data.banner_image})` }}>
                                 <div className="container">
                                     <div className="row">
-                                        <div className="col-sm-8 col-md-6 col-lg-8">
+                                        <div className="col-sm-8 col-md-7 col-lg-8">
                                             <div className="row text-sm-right">
                                                 <div className="offer">
                                                     {data.banner_title}
@@ -151,7 +151,7 @@ class Fans extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-sm-4 col-md-6 col-lg-4 d-flex justify-content-center headerForm">
+                                        <div className="col-sm-4 col-md-5 col-lg-4 d-flex justify-content-center headerForm">
 
                                             <ProducstServiceContactForm
                                                 cat_id={cat_id}
@@ -542,7 +542,7 @@ class Fans extends Component {
                                 <div className="container pl-5 pr-5">
                                     <div className="row card-outer-gutter">
                                         <div className="col-lg-12"><h2 className="h2-lowercase text-left pl-3">Satisfied Customers </h2></div>
-                                        <div className="col-lg-4">
+                                        <div className="col-sm-12 col-md-6 col-lg-4">
                                             <div className="customer-card-outer d-flex justify-content-center">
                                                 <div className="customer-card-body">
                                                     <div className="text-left pt-4 pl-2"><img src="images/eed84b33-quotes2_1000000000000000000028.png" height="36" /></div>
@@ -558,7 +558,7 @@ class Fans extends Component {
                                                 <p>Plant Engineer , Grupo Numar</p>
                                             </div>
                                         </div>
-                                        <div className="col-lg-4">
+                                        <div className="col-sm-12 col-md-6 col-lg-4">
                                             <div className="customer-card-outer d-flex justify-content-center">
                                                 <div className="customer-card-body">
                                                     <div className="text-left pt-4 pl-2"><img src="images/eed84b33-quotes2_1000000000000000000028.png" height="36" /></div>
@@ -574,7 +574,7 @@ class Fans extends Component {
                                                 <p>Purchase Agent ,  CEMEX</p>
                                             </div>
                                         </div>
-                                        <div className="col-lg-4">
+                                        <div className="col-sm-12 col-md-6 col-lg-4">
                                             <div className="customer-card-outer d-flex justify-content-center">
                                                 <div className="customer-card-body">
                                                     <div className="text-left pt-4 pl-2"><img src="images/d44271e1-quotes_1000000000000000000028.png" height="36" /></div>
@@ -601,7 +601,7 @@ class Fans extends Component {
                                 <div className="container">
                                     <div className="row card-outer-gutter">
                                         <div className="col-lg-12"><h2 className="h2 text-left pl-3">Resources</h2></div>
-                                        {resources.map(item => <div className="col-lg-4"><div className="customer-card-outer d-flex justify-content-center">
+                                        {resources.map(item => <div className="col-sm-12 col-md-6 col-lg-4"><div className="customer-card-outer d-flex justify-content-center">
                                             <div className="resources-card">
                                                 <h3>{item.title}</h3>
                                                 <a

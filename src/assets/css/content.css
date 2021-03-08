@@ -51,6 +51,7 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .ant-menu-hidden {display: none !important;}
 .ant-drawer-header .ant-drawer-title { margin: 0; font-weight: 500; font-size: 20px !important;line-height: 22px;
     font-weight: 700; text-transform: uppercase; padding: 0.4rem 0 0;}
+
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -66,7 +67,16 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
     font-weight: 700; text-transform: uppercase; padding: 0.4rem 0 0;}
 .anticon svg {margin-top: -7px !important;}
 .ant-menu-hidden {display: none !important;}
-.forgot-PwdText-message{padding:0 4rem !important} 
+.forgot-PwdText-message{padding:0 4rem !important}
+.p-right {padding: 0 2rem 3rem 1rem !important;}
+.p-left{padding: 0 2rem 3rem 2rem !important;}
+.morebtnR{left:30px;}
+.promo-caption-left:before{left: -18px;}
+.parallax-header form .form-control-textarea{background: #fff !important;}
+.downArrowHide{visibility: visible !important}
+
+
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -82,7 +92,16 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
     font-weight: 700; text-transform: uppercase; padding: 0.4rem 0 0;}
 .ant-menu-hidden {display: none !important;}
 .forgot-PwdText-message{padding:0 10rem !important}
-.formLpRp{padding:0 2rem}   
+.formLpRp{padding:0 2rem}
+.promo-caption-left:before{left:-18px !important}
+
+.wsmenu_heading{width:100%; padding:0 0 0.3rem 0}
+/* .downArrowHide{display: none !important;}  */
+.hero-img{height: 470px !important;}
+
+.tab-menu {float: left; margin-bottom: 39px !important;}
+
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -93,6 +112,7 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .ant-menu-hidden {display: none !important;}
 .optional-hover .hot-deals-item-wrapper .portfolio-hover .portfolio-hover-content .callToAction-xxs{
     padding:2rem 5rem}
+.tab-menu {float: left; margin-bottom: 0 !important;}
 }
 
 @media(min-width:1280px){
@@ -100,4 +120,123 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
 .ant-menu-hidden {display: none !important;}
 .ant-collapse-content > .ant-collapse-content-box {padding:16px !important;}
 .ant-select-arrow{margin-top: 0 !important;}
+
+.hero-header .freequote-container .free-quote{position: absolute; top:0; right: -160px !important}
+.parallax-header .freequote-container .free-quote{position: absolute; top:0; right: -160px !important}
+
 }
+
+@media(min-width:640px){
+    .freequote-container {position: absolute !important; top: -25px !important; right: 0 !important;
+        width: 500px !important; left: 52px !important;}
+    .breadcrumb-container {margin-top:-20px;}
+    .p-pom-box{width: 28% !important;}
+    .p-pom-box .lp-pom-image img{width:80%}
+    .parallax-header .freequote-container{width:250px !important; margin-left:-50px}
+    .quote-heading_1{white-space: normal;}
+    #parallax-world-of-ugg .parallax-header{padding-bottom: 144px;}
+    .call-section .callBtn {padding: 0.5rem 0;}
+    #parallax-world-of-ugg .parallax-header{overflow:visible;}
+    #parallax-world-of-ugg h2{font-size: 20px !important; white-space: nowrap;}
+    }
+
+ 
+@media(min-width:667px){
+        .freequote-container { width: 520px !important;}
+    }
+
+@media(min-width:736px){
+    .freequote-container { width: 600px !important;}
+    .parallax-header .freequote-container { position: absolute !important;  top: 40px !important; 
+        left: -2rem !important; width:100% !important}
+    #parallax-world-of-ugg h2{font-size: 20px !important;}
+}
+
+@media(min-width:768px){
+    .freequote-container { position: absolute !important;  top: 390px !important; left: -24rem !important;
+    width:520px !important}
+    .breadcrumb-container{margin-top:-20px !important;}
+    .parallax-header form .form-control-textarea{background: #fff !important;}
+
+    .parallax-header .freequote-container { position: absolute !important;  top: 40px !important; 
+        left: 3rem !important; width:90% !important}
+}
+
+
+@media(min-width:812px){
+    .freequote-container {position: absolute !important; top: 0 !important; right: 0 !important; 
+         width: 300px !important; right: 0 !important; left:-47px !important;}
+    .breadcrumb-container {margin-top:-20px;}
+    .certificate-section{padding-top:2% !important}
+    .hero-header{height: auto !important;}
+    .awardTag img{margin:0 !important; width:120px}
+
+    .parallax-header .freequote-container { position: absolute !important;  top: 80px !important; 
+        left: 3rem !important; width:80% !important}
+    .sticker {right: 2px !important;}
+    #parallax-world-of-ugg .parallax-seven{padding:40px}
+
+    .customer-card-outer { padding:2rem 0.650rem 3rem 0.650rem;}
+
+    }
+
+@media(min-width:1024px){
+    .hero-header .freequote-container .free-quote{position: absolute; top:0; right:-70px !important}
+    .hero-header{height: auto !important;}
+
+    .freequote-container {position: absolute !important;  top: 0 !important; left: -2.5rem !important;}
+    .downArrowHide{visibility: hidden !important;}
+
+    .parallax-header .freequote-container .free-quote{position: absolute; top:30px; right:-60px !important}
+    #parallax-world-of-ugg .parallax-header{padding-bottom: 180px !important;}
+    .call-section .callBtn{width:100% !important; margin:0 !important}
+    .card-list-item .star-rating i{font-size: 1.8rem !important;}
+    .card-list-item{padding: 0.650rem 0.5rem !important;}
+
+}
+
+@media(min-width:1024.99px){
+    .hero-header .freequote-container .free-quote{position: absolute; top:0; right:-250px !important}
+    .hero-header{height: auto !important;}
+
+    .freequote-container {position: absolute !important;  top: 0 !important; left: -4.5rem !important;}
+    .hero-header{height: 85vh}
+
+    .parallax-header .freequote-container .free-quote{position: absolute; top:0; right:-250px !important}
+    
+}
+
+@media(min-width:1280px){
+    .hero-header .freequote-container .free-quote{position: absolute; top:0; right:-250px !important}
+    .hero-header{height: auto !important;}
+
+    .parallax-header .freequote-container .free-quote{position: absolute; top:0; right:-250px !important}
+
+    .freequote-container {position: absolute !important;  top: 0 !important; left: -8.5rem !important;}
+    .hero-header{height: 85vh}
+    .parallax-header form .form-control-textarea{background: #fff !important;}
+}
+
+@media(min-width:1280.99px){
+    .hero-header .freequote-container .free-quote{position: absolute; top:0; right:-306px !important}
+    .hero-header{height: auto !important;}
+
+    .parallax-header .freequote-container .free-quote{position: absolute; top:0; right:-306px !important}
+
+    .freequote-container {position: absolute !important;  top: 0 !important; left: -8.5rem !important;}
+    .hero-header{height: 85vh}
+
+    .parallax-header .freequote-container .free-quote{position: absolute !important;  top: 10px !important; 
+        left: 6rem !important;}
+    
+    .parallax-header form .form-control-textarea{background: #fff !important;}
+    #parallax-world-of-ugg .parallax-header { padding-bottom: 100px !important; }
+
+    /* .parallax-header .freequote-container .free-quote{position: absolute; top:70px; left:14rem !important} */
+    
+}
+
+/* @media(min-width:812px){
+    .freequote-container { position: absolute !important;  top: 20px !important; left: -4rem !important;}
+    .certificate-section{margin-top: 44% !important;}
+} */

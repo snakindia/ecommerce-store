@@ -111,7 +111,7 @@ class RequestAQuote extends Component {
             >
               <span aria-hidden="true">×</span>
             </button>
-            <h2 className="bha_heading_2 font-weight-bold text-black">
+            <h2 className="bha_heading_2 font-weight-bold text-black pb-0 pl-0">
               {isFreeBrochure != true ? "Request For quote" : "Free Brochure"}
             </h2>
             <Formik

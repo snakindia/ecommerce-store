@@ -8,7 +8,7 @@ import Torit from '../../../assets/images/torit.jpg';
 
 const Certificates = (is_certified) => {
   return (
-    <section className="certificate-section" style={{"margin-top": "8%"}}>
+    <section className="certificate-section" style={{"margin-top": "0"}}>
          <div className="pagewrap">
             <div className="awardTag">
                 <div className="container-fluid">

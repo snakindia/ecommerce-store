@@ -395,9 +395,9 @@ color: #08118f;}
 .actionButton{ width: 100%; text-align: center; margin:0}
 .actionButton a{display:block;background: #2e3192; color:#fff; padding:0.8rem 1.5rem; border-radius: 0.3rem;
 text-transform: uppercase; font-size: 0.850rem; font-weight: 600}
-.free-quote {width: 315px; display: inline-block; margin: 3rem 0; background: #5571ac;
+.free-quote {width: 315px; display: inline-block; margin:0 0 3rem 0; background: #5571ac;
 border-radius:0.5rem; padding:2rem;}
-.quote-heading_1{font-size: 1.450rem; font-family: 'Roboto', sans-serif !important; color:#fff; white-space: nowrap;
+.quote-heading_1{font-size: 1.450rem; font-family: 'Roboto', sans-serif !important; color:#fff; white-space: normal;
 text-transform: uppercase; text-align: center; font-weight: 600}
 .quote-heading_2{font-size: 0.950rem; font-family: 'Roboto', sans-serif !important; color:#fff; 
 text-transform: uppercase; text-align: center;font-weight: 500;}
