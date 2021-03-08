@@ -1762,6 +1762,7 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
   .zoomer-img img{height: 100% !important; width: 100% !important;
     overflow: hidden !important;}
   .pro_Price{text-align: center; padding-top:1rem !important}
+  .modal-view-inner{overflow-y: scroll; height:700px}
 }
 
 
