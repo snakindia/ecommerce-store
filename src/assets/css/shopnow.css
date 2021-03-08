@@ -1761,10 +1761,9 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
   .zoomer-img{width: 100%;}
   .zoomer-img img{height: 100% !important; width: 100% !important;
     overflow: hidden !important;}
+  .pro_Price{text-align: center; padding-top:1rem !important}
 }
 
-/* img.classname{ 
-  max-width:100%; 
-  height:auto; 
-  }  */
 
+.media .ant-image{height: auto; width:220px;}
+.media .ant-image-img{width:100% !important; text-align: center !important;}
