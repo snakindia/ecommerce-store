@@ -1579,3 +1579,10 @@ strong.price-font{font-size: 1rem; font-weight: 600;}
   .freequote-container { position: absolute !important; top: 0 !important;left: 0rem !important;
   width:100% !important}
 } */
+  .bha-btn-new-blue.disabled-submitting-nmi {
+    background-color: gainsboro;
+    cursor: not-allowed;
+}
+iframe#CollectJSInlineccnumber, iframe#CollectJSInlineccexp, iframe#CollectJSInlinecheckname, iframe#CollectJSInlinecvv {
+  height: 18px !important;
+}

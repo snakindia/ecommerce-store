@@ -41,11 +41,14 @@ class MobileMenu extends React.Component {
 
   render() {
     const { visible } = this.state;
+    const {location:{pathname}}=this.props;
     return (
       <div className="wsmobileheader clearfix">
         <a id="wsnavtoggle" className="wsanimated-arrow" onClick={this.clickHandler}><span></span></a>
         <span className="smllogo"><img className="w-100" src={MenuLogo} width="80" alt="" /></span>
         <a href="#myModal" data-toggle="modal" className="loginBtn sr-only">Log in</a>
+       { pathname && (pathname =='/shop' || pathname.includes('category')) ? 
+       <>
         <a href="#" className="categoryIcon" onClick={this.clickHandlerCategory}><img src={categoryIcon} alt="" width="30"/></a>
         {/* <div className={search ? 'wssearch clearfix wsopensearch' : 'wssearch clearfix'}>
           <i className="wsopensearch fas fa-search" onClick={e => this.setSearch(true)}></i>
@@ -69,6 +72,7 @@ class MobileMenu extends React.Component {
       >
         <LeftMenu mini={true} />
       </Drawer>
+      </>: null}
       </div>
     );
   }

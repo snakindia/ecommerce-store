@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { notification } from '../../../utils/helper';
 import { addOrder, getCart, paymentCompleted } from '../store/Actions';
 import CollectJSSection from "./CollectJSSection";
 class Nmi extends React.Component {
@@ -10,6 +11,8 @@ class Nmi extends React.Component {
             alertMessage: '',
             error:{},
             clicked:false,
+            paymentDone:false,
+            loaded:false,
             data:{}
         };
         this.setState = this.setState.bind(this);
@@ -17,6 +20,7 @@ class Nmi extends React.Component {
         this.finishSubmit = this.finishSubmit.bind(this);
     }
     validationCallback =(field, status, message)=>{
+        console.log(field, status, message);
             let {error,clicked, data} =this.state
             //console.log(field, status, message);
             if (status) {
@@ -104,12 +108,10 @@ class Nmi extends React.Component {
                     'validationCallback' :this.validationCallback,
                     // "timeoutDuration" : 1000,
                     "timeoutCallback" : function () {
+                        window.location.reload()
                         console.log("The tokenization didn't respond in the expected timeframe.  This could be due to an invalid or incomplete field or poor connectivity");
                     },
-                    "fieldsAvailableCallback" : function () {
-                        window.CollectJS.startPaymentRequest();
-                        console.log("Collect.js loaded the fields onto the form");
-                    },
+                    "fieldsAvailableCallback" : this.formLoaded,
                     // 'callback' : function(response) {
                     //     alert(response.token);
                     //     var input = document.createElement("input");
@@ -125,9 +127,15 @@ class Nmi extends React.Component {
                
     }
 
+    formLoaded =()=>{
+            //window.CollectJS.startPaymentRequest();
+            this.setState({loaded:true})
+            console.log("Collect.js loaded the fields onto the form");
+    }
+
     finishSubmit=(response)=> {
         console.log(response);
-        this.setState({ isSubmitting: false });
+        // this.setState({ isSubmitting: false });
         if (response && response.token) {
             const { paymentSettings, cart } = this.props;
         let currency = paymentSettings && paymentSettings.currency ? paymentSettings.currency : 'USD'; // or you can set this value from your props or state
@@ -136,12 +144,17 @@ class Nmi extends React.Component {
         let status_id = statuses ? statuses.filter(st => st.name == 'Order Received') : undefined;
         status_id = status_id && status_id[0] ? status_id[0].id : '';
             this.props.paymentCompleted({...this.props.cart,status_id,status:'Order Received'},{currency, total, response })
+            this.setState({isSubmitting:false, paymentDone:true})
+            notification('success','Payment successfully completed ...please wait while system creating your order')
+        } else {
+            notification('error','Payment failed')
+         
         }
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        this.setState({ isSubmitting: true,clicked:true });
+        this.setState({ isSubmitting: true,clicked:true,  });
         window.CollectJS.startPaymentRequest();
     }
 
@@ -153,15 +166,27 @@ class Nmi extends React.Component {
     }
 
     render() {
-        let {data}=this.state;
-        //console.log({data});
-        let disabled=true;
-        if(data && Object.keys(data).length > 0){
-            let filtered = Object.keys(data).filter(f=>!data[f])
-           // console.log(filtered);
-        }
-        return (<form >
+        let {data,isSubmitting,error, loaded, paymentDone}=this.state;
+        console.log(data,isSubmitting,error);
 
+        let disabled=false;
+        if(!data){
+            disabled=true;
+        } else if ( data && Object.keys(data).length !==4){
+            disabled=true;
+        } else if(data && Object.keys(data).length ===4 && Object.keys(error).length !=0){
+            disabled =true;
+        }
+        if(isSubmitting){
+            disabled =true;
+        }
+        // if(data && Object.keys(data).length > 0){
+        //     let filtered = Object.keys(data).filter(f=>!data[f])
+        //     console.log(filtered);
+        // }
+        console.log({disabled});
+        return (<form >
+            {!loaded ? <p className="payment-form-loading" >Please wait while payment page loading</p>:null}
             <CollectJSSection error={this.state.error}>
                 <div>
                     <input
@@ -174,15 +199,16 @@ class Nmi extends React.Component {
                 </div>
             </CollectJSSection>
             
-            <div className="col-lg-12 pl-0 pr-0 pt-2 pb-3" >
-                <button className="bha-btn-new-blue"
+            {!paymentDone ? <div className="col-lg-12 pl-0 pr-0 pt-2 pb-3" >
+                <button className={
+                    disabled ? "bha-btn-new-blue disabled-submitting-nmi" : "bha-btn-new-blue" }
                     onClick={this.onClick}
                     type="submit"
-                    //disabled={this.state.isSubmitting}
+                    disabled={disabled}
                 >
-                    Submit
+                 {isSubmitting ? 'Submitting ...' :'Submit'}   
             </button>
-            </div>
+            </div>: null }
         </form>
         );
     }

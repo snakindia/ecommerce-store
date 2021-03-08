@@ -21,6 +21,7 @@ const initialValues = {
 
 class RequestAQuote extends Component {
   handleSubmit = async (values, { setSubmitting }) => {
+    console.log({values})
     if (!values.category_name) {
       const { isOpen, toggleModal, subMenuData } = this.props;
 
@@ -66,6 +67,7 @@ class RequestAQuote extends Component {
   };
 
   validateForm = values => {
+    console.log({values})
     const e = execValidation(validators, values);
     if (this.props.isFreeBrochure == true) {
       delete e.message;
@@ -81,7 +83,7 @@ class RequestAQuote extends Component {
           subMenuData[key][0].items.map(item => {
             categories.push({
               label: item.name,
-              value: item.id
+              value: item._id
             })
           })
         }
@@ -93,6 +95,7 @@ class RequestAQuote extends Component {
       if (a.label > b.label) return 1;
       return 0;
     })
+    console.log({categories});
     return (
       <MDBModal isOpen={isOpen} toggle={toggleModal} centered>
         <MDBModalBody>

@@ -189,10 +189,9 @@ export const getProduct = (id) => {
 export const getMenu = () => {
     return dispatch => {
         dispatch(setLoadingMenu(true));
-        let url = 'get_shop_cat_sub_cat_list';
+        let url = 'get_shop_cat_sub_cat_list?enabled=true';
 
-        Axios.post(`${process.env.REACT_APP_API_URL}/${url}`,
-        )
+        Axios.get(`${process.env.REACT_APP_API_URL}/${url}`)
             .then(res => {
                 dispatch(setLoadingMenu(false));
                 if (res.data) {
