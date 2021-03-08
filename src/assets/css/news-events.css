@@ -148,7 +148,7 @@ padding-bottom: 0}
 .placement-client .item-container .filterNone:hover {
       -webkit-transform: scale(1.1);
     }
-.banner-container-xx{height: 535px;overflow: hidden;padding-bottom:2rem;}
+.banner-container-xx{height: 535px;overflow: hidden;padding-bottom:2rem; display: contents;}
 .banner-container-xx .carousel-indicators li{width: 20px !important; border-radius: 0 !important;
 background: #b9b9b9 !important; height: 6px}
 .banner-container-xx .carousel-indicators li.active { background: #6e7173 !important;}

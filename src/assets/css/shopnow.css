@@ -53,8 +53,8 @@ a.lp-pom-button {
 .pro-equipment-section .productitem-auto .slick-slide{width: 100% !important; }
 /* .product-card-wrapper .slick-slide{width: 100% !important; } */
 .shorting-box{margin-top: 1.5rem;}
-.short-items, #shortOption{width: 100% !important;}
-.ant-pagination { float: left !important; border-radius: 0; padding: 0 !important;}
+.short-items, #shortOption{width: 100% !important; display: flex;}
+.ant-pagination { float: left; border-radius: 0; padding: 0 !important;}
 .shorting-box{padding-bottom: 1rem !important;}
 .w-100{text-align: left;}
 a.lp-pom-button{width:auto; margin-left: 0 !important;}
@@ -1049,7 +1049,7 @@ a.bha-btn-secondry:hover {
 }
 .short-items span {
   line-height: 2.3rem;
-  float: left; margin-right: 0.5rem;
+  float: left; margin-right: 0.5rem; white-space: nowrap;
 }
 
 .featured-product {
@@ -1508,8 +1508,8 @@ width: 36px !important;}
 
 /*======Added css on 22 Feb, 2021=============================================*/
 .form-control-textarea{display: block; width: 100%;padding: .375rem .75rem;
-  background-color: transparent !important;  border: 1px solid #ced4da;
-  border-radius: .25rem !important;transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;}
+ border: 1px solid #ced4da; border-radius: .25rem !important;
+ transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;}
 
 .form-control-textarea:focus{ background-color: #fff !important;border: 1px solid #ced4da;}
 .ant-image{display:flex !important;}
@@ -1535,9 +1535,12 @@ width: 36px !important;}
   .ant-popover, .compare-collaspe-div{z-index: 1000000 !important;}
   .forgot-PwdText-message{padding:0 4rem !important}
   .bha_heading_2{padding:2rem}
+  .footer-main .bha_heading_2{padding:0}
   .benefits-of-registering .bha-btn-primary{width: 100% !important; white-space: pre-wrap;}
   .formLpRp{padding:0 2rem}
   form .form-select{width: 100% !important;}
+  .parallax-header .freequote-container{left:0rem !important}
+  #parallax-world-of-ugg h2{font-size: 24px !important;}
   
 }
 
@@ -1555,11 +1558,15 @@ width: 36px !important;}
   #myDiv .bha-btn-primary{width:auto !important; margin-right: 1rem !important;}
   .moBileNumber{display: none !important;}
   .plpr{padding-left:0 !important; padding-right:0 !important; padding-top:0 !important}
+  .item-xxs-caption{top:14px !important}
+  .morebtnL, .morebtnR{left:0}
+  .pagewrap-inner{padding: 0 0.750rem}
+  .texture-bg{background:none !important}
 }
 
 @media(max-width:812px){
 .wsmobileheader{z-index: 100 !important;}
-.modal{top: -20px !important; z-index: 1000 !important;}
+.modal{top: -20px !important; z-index: 1000000 !important;}
 .LoginReft{padding:1rem}
 .popup-decscription #loginformpopup .form-group, .Privacy{padding:0}
 .ant-popover, .compare-collaspe-div{z-index: 1000000 !important;}
@@ -1567,7 +1574,7 @@ width: 36px !important;}
 .LoginReft{padding:1rem;overflow-y: scroll !important; height: 300px;}
 .topPadding {margin-top:24px !important;}
 .moBileNumber{text-align: left !important;}
-
+.banner-container-xxs{margin-top:-15px}
 
 }
 
@@ -1583,7 +1590,7 @@ color:#666; font-family: 'Roboto', sans-serif;}
   height: auto !important;}
 /* .btnLight{background: #0361b4; box-shadow: 0 0 2px 0 rgb(0, 0, 0) !important} */
 .banner-item-xs-caption .item_heading {/*text-shadow:0 0 3px #000;*/ font-size: 1.8rem;; font-weight: 700;}
-.mobileImg{display: none;}
+.banner-container-small .mobileImg{display: none;}
 
 
 .banner-container-small .carousel-indicators {z-index: 10000 !important; bottom: 15px}
@@ -1651,6 +1658,7 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 #myDiv .bha-btn-primary{width:auto !important; margin-right: 1rem !important;}
 .bha-btn-new{padding: 0.50rem 0.975rem !important;}
 .ant-collapse-content > .ant-collapse-content-box {padding: 0 16px 16px 16px;}
+.banner-container-xxs{margin-top: -2px;}
   }
 
 @media (min-width: 736px){
@@ -1705,3 +1713,4 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 .comparison-table table tr th{text-transform: none !important; font-size: 0.95rem !important;}
 .banner-container-small .carousel-control-prev, 
 .banner-container-small .carousel-control-next{display: none !important;}
+
