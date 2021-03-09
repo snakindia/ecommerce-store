@@ -1,7 +1,8 @@
 import * as ActionTypes from './ActionTypes';
 import Axios from 'axios';
 import { notification } from '../../../utils/helper';
-Axios.defaults.withCredentials = true;
+import { json } from 'express';
+Axios.defaults.headers.common['signedCookiesCustom'] = localStorage.getItem('signedCookiesCustom') ? localStorage.getItem('signedCookiesCustom') :null;
 export const setLoading = (payload) => ({
     type: ActionTypes.SHOP_LOADING,
     payload
@@ -221,10 +222,7 @@ export const removeProductAction = (payload) => ({
 
 export const removeShippingMethods = () => {
     return dispatch => {
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`, { shipping_method_id: '' }, {
-            withCredentials: true,
-            crossDomain: true,
-        }).then(res => {
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`, { shipping_method_id: '' }).then(res => {
 
             if (res.data) {
 
@@ -247,11 +245,7 @@ export const removeProduct = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
         let url = `cart/items/${payload}`;
-        Axios.delete(`${process.env.REACT_APP_API_AJAX_URL}/${url}`, {
-            withCredentials: true,
-            crossDomain: true,
-        }
-        )
+        Axios.delete(`${process.env.REACT_APP_API_AJAX_URL}/${url}`)
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
@@ -281,18 +275,16 @@ export const addProduct = (payload, qty = 1) => {
             quantity_update: true,
             quantity_type: true,
         };
-        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/${url}`, data,
-            {
-                withCredentials: true,
-                crossDomain: true,
-            }
-        )
+        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/${url}`,data)
             .then(res => {
-                console.log(res)
+                console.log(res.headers)
                 dispatch(setLoading(false));
-                if (res.data) {
+                if(res.data && res.data.signedCookiesCustom){
+                    localStorage.setItem('signedCookiesCustom', JSON.stringify(res.data.signedCookiesCustom))
+                }
+                if (res.data && res.data.data) {
                     dispatch(removeShippingMethods())
-                    dispatch(addProductAction(res.data));
+                    dispatch(addProductAction(res.data.data));
                 } else {
                     dispatch(getProductError(undefined));
                     // notification('error', 'Oops!! something went wrong')
@@ -316,12 +308,7 @@ export const getCart = () => {
     return dispatch => {
         dispatch(setCartLoading(true));
 
-        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`,
-            {
-                withCredentials: true,
-                crossDomain: true,
-            }
-        )
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`)
             .then(res => {
                 dispatch(setCartLoading(false));
                 if (res.data) {
@@ -342,12 +329,7 @@ export const getCart = () => {
 export const applycoupon = (payload) => {
     return dispatch => {
         dispatch(setCartLoading(true));
-        Axios.post(`${process.env.REACT_APP_API_URL}/applycoupon`,payload,
-            {
-                withCredentials: true,
-                crossDomain: true,
-            }
-        )
+        Axios.post(`${process.env.REACT_APP_API_URL}/applycoupon`,payload)
             .then(res => {
                 dispatch(setCartLoading(false));
                 if (res.data && res.data.status) {
@@ -375,13 +357,7 @@ export const getPaymentMethod = () => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
-        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/payment_methods`,
-            {
-                withCredentials: true,
-                crossDomain: true,
-            },
-
-        )
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/payment_methods`)
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
@@ -410,13 +386,7 @@ export const getPaymentSettingsMethod = () => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
-        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/payment_form_settings`,
-            {
-                withCredentials: true,
-                crossDomain: true,
-            },
-
-        )
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/payment_form_settings`)
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
@@ -447,13 +417,7 @@ export const getShippingMethod = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
-        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/shipping_methods`,
-            {
-                withCredentials: true,
-                crossDomain: true,
-            },
-
-        )
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/shipping_methods`)
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
@@ -475,13 +439,7 @@ export const updateAddress = (payload, type, pannelstep) => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`, payload,
-            {
-                withCredentials: true,
-                crossDomain: true,
-            },
-
-        )
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`, payload)
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
@@ -517,12 +475,7 @@ export const addOrder = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
         let url = `cart/checkout`;
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/${url}`, payload,
-            {
-                withCredentials: true,
-                crossDomain: true,
-            }
-        )
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/${url}`, payload)
             .then(res => {
                 //dispatch(setLoading(false));
                 if (res.data && res.data.number) {
@@ -577,21 +530,10 @@ export const setpaymentCompletedError = (payload) => ({
 export const paymentCompleted = (payload, payment_data) => {
     return dispatch => {
         dispatch(setLoading(true));
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/checkout`, payload,
-            {
-                withCredentials: true,
-                crossDomain: true,
-            }
-        ).then(res => {
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/checkout`, payload).then(res => {
             if (res.data && res.data.number) {
                 let url = `orders/${res.data.id}/process`;
-                Axios.post(`${process.env.REACT_APP_API_URL}/${url}`, { ...payment_data, status: payload.status, status_id: payload.status_id },
-                    {
-                        withCredentials: true,
-                        crossDomain: true,
-                    },
-
-                )
+                Axios.post(`${process.env.REACT_APP_API_URL}/${url}`, { ...payment_data, status: payload.status, status_id: payload.status_id })
                     .then(res => {
                         dispatch(setLoading(false));
 

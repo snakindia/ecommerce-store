@@ -2,7 +2,7 @@ import * as ActionTypes from './ActionTypes';
 import Axios from 'axios';
 import { notification } from '../../../utils/helper';
 //import { getUserDetail, signOutUser } from '../../../actions/authActions';
-Axios.defaults.withCredentials = true;
+Axios.defaults.headers.common['signedCookiesCustom'] = localStorage.getItem('signedCookiesCustom') ? localStorage.getItem('signedCookiesCustom') :null;
 export const setLoading = (payload) => ({
     type: ActionTypes.ACCOUNTS_LOADING,
     payload
@@ -252,7 +252,7 @@ export const doLogin = (payload) => {
         });
         //instance.defaults.headers.common['Access-Control-Request-Headers'] = `content-type`;
         instance.defaults.headers.common['Access-Control-Allow-Headers'] = `*`;
-        instance.defaults.withCredentials = false;
+        // instance.defaults.withCredentials = false;
         instance.post('/login', payload)
             // Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/login`,payload)
             .then(res => {
@@ -322,20 +322,11 @@ export const toggleWishlist = (payload) => {
         dispatch(setLoading(true));
         let AInstace ;
         if(payload.type=='remove'){
-            AInstace =Axios.delete(`${process.env.REACT_APP_API_URL}/wishlist/${payload.customer_id}/product/${payload.item.id}`,
-            {
-                withCredentials: true,
-                crossDomain: true,
-            }
-        ) 
+            AInstace =Axios.delete(`${process.env.REACT_APP_API_URL}/wishlist/${payload.customer_id}/product/${payload.item.id}`) 
         } else {
             AInstace= Axios.post(`${process.env.REACT_APP_API_URL}/wishlist`, {
                 customer_id:payload.customer_id,
                 product_id:payload.item.id
-            },
-            {
-                withCredentials: true,
-                crossDomain: true,
             }
         )
         }
@@ -357,12 +348,7 @@ export const toggleWishlist = (payload) => {
 export const getWishlist = (customer_id) => {
     return dispatch => {
         dispatch(setLoading(true));
-        Axios.get(`${process.env.REACT_APP_API_URL}/wishlist?customer_id=${customer_id}`,
-            {
-                withCredentials: true,
-                crossDomain: true,
-            }
-        ).then(res => {
+        Axios.get(`${process.env.REACT_APP_API_URL}/wishlist?customer_id=${customer_id}` ).then(res => {
             if (res.data && res.data.data) {
                 dispatch(getWishlistSuccess(res.data));
             }
