@@ -194,6 +194,7 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
     .call-section .callBtn{width:100% !important; margin:0 !important}
     .card-list-item .star-rating i{font-size: 1.8rem !important;}
     .card-list-item{padding: 0.650rem 0.5rem !important;}
+    .formLpRp{padding:0}
 
 }
 
@@ -205,6 +206,9 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
     .hero-header{height: 85vh}
 
     .parallax-header .freequote-container .free-quote{position: absolute; top:0; right:-250px !important}
+
+    .project-section .col-sm-6 { flex: 0 0 50%; max-width: 50%;}
+    
     
 }
 
@@ -217,6 +221,8 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
     .freequote-container {position: absolute !important;  top: 0 !important; left: -8.5rem !important;}
     .hero-header{height: 85vh}
     .parallax-header form .form-control-textarea{background: #fff !important;}
+    .project-section .col-sm-6 { flex: 0 0 50%; max-width: 50%;}
+    
 }
 
 @media(min-width:1280.99px){
@@ -233,6 +239,8 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
     
     .parallax-header form .form-control-textarea{background: #fff !important;}
     #parallax-world-of-ugg .parallax-header { padding-bottom: 100px !important; }
+    .project-section .col-sm-6 { flex: 0 0 50%; max-width: 50%;}
+    .formLpRp{padding:0 !important}
 
     /* .parallax-header .freequote-container .free-quote{position: absolute; top:70px; left:14rem !important} */
     
