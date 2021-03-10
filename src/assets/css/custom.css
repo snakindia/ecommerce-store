@@ -1276,7 +1276,7 @@ float:none !important;font-size: 0.875rem !important; }
 .LoginReft .loginFooter a span:hover{ text-decoration: underline;}
 .LoginReft .loginFooter a:hover{text-decoration: none;}
 .popup-decscription #loginformpopup .form-group{padding:1rem 0 0 !important}
-.forgotPwd{position: absolute; right: 12px; top: 24px; }
+.forgotPwd{position: absolute; right: 12px; top: 27px; }
 .popup-decscription #loginformpopup .form-group .pwdlink{color:#153e52 !important}
 .LoginReft .popup-decscription .form-group .btn{padding:0.750rem}
 .Privacy{padding:1rem 0 0; font-size:0.750rem;color:#666; text-align: left;text-transform: none;}

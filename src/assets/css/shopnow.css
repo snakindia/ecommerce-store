@@ -1768,3 +1768,5 @@ iframe input:focus{border:none !important; box-shadow: none !important;}
 
 .media .ant-image{height: auto; width:220px;}
 .media .ant-image-img{width:100% !important; text-align: center !important;}
+
+.top-nav-link .modal .modal-width-lg{width: 800px !important;}
