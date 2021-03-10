@@ -169,7 +169,7 @@ export const getProduct = (id) => {
     return dispatch => {
         dispatch(setProductLoading(true));
 
-        let url = `productDetails/${id}`;
+        let url = `productDetailsBySlug/${id}`;
 
         Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
         )
