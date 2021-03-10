@@ -240,7 +240,7 @@ text-transform: uppercase; font-weight: 600; font-size: 1.2rem;}
     .parallax-header form .form-control-textarea{background: #fff !important;}
     #parallax-world-of-ugg .parallax-header { padding-bottom: 100px !important; }
     .project-section .col-sm-6 { flex: 0 0 50%; max-width: 50%;}
-    .formLpRp{padding:0}
+    .formLpRp{padding:0 !important}
 
     /* .parallax-header .freequote-container .free-quote{position: absolute; top:70px; left:14rem !important} */
     
