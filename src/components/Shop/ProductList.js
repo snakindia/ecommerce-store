@@ -22,7 +22,7 @@ export default class ProductList extends Component {
     render() {
         const { item } = this.props;
         const hasPrice = item && (item.regular_price || item.sale_price) ? true : false;
-        const imageUrl = item.images.length > 0 ? item.images[0].url : API_IMAGE_PATH + 'default/default.jpg';
+        const imageUrl = item && item.images && item.images.length > 0 ? item.images[0].url : API_IMAGE_PATH + 'default/default.jpg';
         return (
             <li className="list-group-item">
                 <div className="media flex-column flex-lg-row p-3">
