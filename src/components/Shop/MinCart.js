@@ -25,12 +25,12 @@ const Product = (props) => {
                         <span><i className="fa fa-times"></i></span>
                     </div>
                 </div>
-                <Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>
+                <Link to={`/shop/${item.slug}`} onClick={props.linkClick}>
                     <Image src={imageUrl} alt="" />
                     </Link>
             </div>
             <div className="details">
-                <div className="item-title"><Link to={`/shop/${item.product_id}`} onClick={props.linkClick}>
+                <div className="item-title"><Link to={`/shop/${item.slug}`} onClick={props.linkClick}>
                     <ToolTip text={item.name} />
                 </Link></div>
                 <span className="sp-price quantity">Qty:{item.quantity}</span>

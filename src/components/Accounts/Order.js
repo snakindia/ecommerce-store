@@ -211,7 +211,7 @@ class Order extends React.Component {
                                                                                 } width="72px" height="72px" />
                                                                             </th>
                                                                             <td style={{ verticalAlign: 'middle'  }}>
-                                                                            <Link to={`/shop/${product.product_id}`} className="">
+                                                                            <Link to={`/shop/${product.slug}`} className="">
                                                                                 {product.name}
                                                                             </Link>
                                                                                 </td>

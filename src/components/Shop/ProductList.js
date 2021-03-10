@@ -32,7 +32,7 @@ export default class ProductList extends Component {
                             <div className="callToAction-list">
                                 <p>
                                     <Link onClick={e => {e.preventDefault();this.props.quickView(item)}} className="quick-view">Quick View</Link>
-                                    <Link to={`/shop/${item.id}`} className="quick-view">View Details</Link>
+                                    <Link to={`/shop/${item.slug}`} className="quick-view">View Details</Link>
                                 </p>
                             </div>
                         </div>
@@ -40,7 +40,7 @@ export default class ProductList extends Component {
                     <Image src={imageUrl} alt="Generic placeholder image"  className="img-fluid order-1 order-lg-1 mr-lg-4"/>
                     <div className="media-body order-2 order-lg-1 pl-4">
                         <h6 className="mt-0 mb-2">
-                        <Link to={`/shop/${item.id}`} className="">
+                        <Link to={`/shop/${item.slug}`} className="">
                             <ToolTip text={item.name} length={1000} />
                             </Link>
                             </h6>

@@ -33,7 +33,7 @@ const CompareProductTable = ({ items, onClick }) => {
                                                 {items.map(d =>
                                                     <td className="p-0" key={d.id}>
                                                         <div className="comparison-item"><span className="remove-item" onClick={e => onClick(d)}><i className="fa fa-close"></i></span>
-                                                            <Link className="comparison-item-thumb" to={`/shop/${d.id}`}>
+                                                            <Link className="comparison-item-thumb" to={`/shop/${d.slug}`}>
                                                                 <Image preview={false} item={d} alt="" height="200px" width="200px" />
                                                             </Link>
                                                         </div>

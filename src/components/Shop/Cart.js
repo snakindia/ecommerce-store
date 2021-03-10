@@ -27,7 +27,7 @@ const Product = (props) => {
                 <Image src={imageUrl} width="72px" height="72px" />
             </th>
             <td style={{ verticalAlign: 'middle' }}>
-                <Link to={`/shop/${item.product_id}`} className="">
+                <Link to={`/shop/${item.slug}`} className="">
                     <ToolTip text={item.name} length={200} />
                 </Link>
             </td>
