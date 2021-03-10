@@ -134,7 +134,7 @@ padding-bottom: 0}
 .card.radious-0{border-radius: 0 !important}
 .card.bg_color{background:#387f95; color:#fff;}
 .title-texture{background: url(../images/Tactile-aerospace.png) top right no-repeat;}
-.title{padding-top:1rem;}
+.title{padding-top:0.350rem;}
 .img-scale-down{width: 100%; height: 300px; object-fit:fill;}
 .checkOut-container{background:#fff; color:#000; width: 100%; float: left;}/*052535*/
 .column-padding{margin:0.8rem 1.8rem;}
