@@ -425,7 +425,7 @@ font-size: 1.2rem !important}
 .font-xl{font-size:2.875rem !important;}
 .jail_Content_Descrpt {padding: 3rem 3rem 3rem 5rem;font-size: 1.25rem;text-align: justify;color: #fff;
 line-height: 2rem}
-.seperator{z-index: 1 !important}
+.seperator{z-index: 1 !important; top: -10px; position: relative;}
 .type1 {
     font-weight: normal;
     font-size: 4.5rem !important;
