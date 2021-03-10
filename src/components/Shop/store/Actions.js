@@ -1,8 +1,11 @@
 import * as ActionTypes from './ActionTypes';
 import Axios from 'axios';
 import { notification } from '../../../utils/helper';
-import { json } from 'express';
-Axios.defaults.headers.common['signedCookiesCustom'] = localStorage.getItem('signedCookiesCustom') ? localStorage.getItem('signedCookiesCustom') :null;
+const getOrderId =()=>{
+    const signedCookiesCustomOld = localStorage.getItem('signedCookiesCustom') ? localStorage.getItem('signedCookiesCustom') :null;
+    return signedCookiesCustomOld;
+}
+
 export const setLoading = (payload) => ({
     type: ActionTypes.SHOP_LOADING,
     payload
@@ -222,7 +225,7 @@ export const removeProductAction = (payload) => ({
 
 export const removeShippingMethods = () => {
     return dispatch => {
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`, { shipping_method_id: '' }).then(res => {
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`, { shipping_method_id: '' },{headers:{signedCookiesCustom:getOrderId()}}).then(res => {
 
             if (res.data) {
 
@@ -245,7 +248,8 @@ export const removeProduct = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
         let url = `cart/items/${payload}`;
-        Axios.delete(`${process.env.REACT_APP_API_AJAX_URL}/${url}`)
+        console.log('kk',getOrderId());
+        Axios.delete(`${process.env.REACT_APP_API_AJAX_URL}/${url}`,{headers:{signedCookiesCustom:getOrderId()}})
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
@@ -266,6 +270,7 @@ export const removeProduct = (payload) => {
 export const addProduct = (payload, qty = 1) => {
     return dispatch => {
         dispatch(setLoading(true));
+        console.log('kk',getOrderId());
         let url = `cart/items`;
         qty = qty == 'add' ? 1 : qty;
         const data = {
@@ -275,16 +280,18 @@ export const addProduct = (payload, qty = 1) => {
             quantity_update: true,
             quantity_type: true,
         };
-        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/${url}`,data)
+        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/${url}`,data,{headers:{signedCookiesCustom:getOrderId()}})
             .then(res => {
                 console.log(res.headers)
+                console.log(res.headers.signedcookiescustom)
                 dispatch(setLoading(false));
-                if(res.data && res.data.signedCookiesCustom){
-                    localStorage.setItem('signedCookiesCustom', JSON.stringify(res.data.signedCookiesCustom))
+                if(res.headers && res.headers.signedcookiescustom){
+                    console.log('setting orderId');
+                    localStorage.setItem('signedCookiesCustom', res.headers.signedcookiescustom)
                 }
-                if (res.data && res.data.data) {
+                if (res.data ) {
                     dispatch(removeShippingMethods())
-                    dispatch(addProductAction(res.data.data));
+                    dispatch(addProductAction(res.data));
                 } else {
                     dispatch(getProductError(undefined));
                     // notification('error', 'Oops!! something went wrong')
@@ -306,9 +313,12 @@ export const setCartLoading = (payload) => ({
 
 export const getCart = () => {
     return dispatch => {
+        const orderId =getOrderId();
+        console.log({orderId});
+        if(orderId){
         dispatch(setCartLoading(true));
 
-        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`)
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/cart`, {headers:{signedCookiesCustom:orderId}})
             .then(res => {
                 dispatch(setCartLoading(false));
                 if (res.data) {
@@ -324,12 +334,13 @@ export const getCart = () => {
                 dispatch(getProductError(e));
                 notification('error', 'Oops!! something went wrong')
             });
+        }
     }
 }
 export const applycoupon = (payload) => {
     return dispatch => {
         dispatch(setCartLoading(true));
-        Axios.post(`${process.env.REACT_APP_API_URL}/applycoupon`,payload)
+        Axios.post(`${process.env.REACT_APP_API_URL}/applycoupon`,payload,{headers:{signedCookiesCustom:getOrderId()}})
             .then(res => {
                 dispatch(setCartLoading(false));
                 if (res.data && res.data.status) {
@@ -357,7 +368,7 @@ export const getPaymentMethod = () => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
-        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/payment_methods`)
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/payment_methods`,{headers:{signedCookiesCustom:getOrderId()}})
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
@@ -386,7 +397,7 @@ export const getPaymentSettingsMethod = () => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
-        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/payment_form_settings`)
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/payment_form_settings`,{headers:{signedCookiesCustom:getOrderId()}})
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
@@ -417,7 +428,7 @@ export const getShippingMethod = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
-        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/shipping_methods`)
+        Axios.get(`${process.env.REACT_APP_API_AJAX_URL}/shipping_methods`,{headers:{signedCookiesCustom:getOrderId()}})
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
@@ -439,7 +450,7 @@ export const updateAddress = (payload, type, pannelstep) => {
     return dispatch => {
         dispatch(setLoading(true));
         //Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/${type=='billing' ? `billing_address`:`shipping_methods`}`,payload,
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`, payload)
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart`, payload,{headers:{signedCookiesCustom:getOrderId()}})
             .then(res => {
                 dispatch(setLoading(false));
                 if (res.data) {
@@ -475,7 +486,7 @@ export const addOrder = (payload) => {
     return dispatch => {
         dispatch(setLoading(true));
         let url = `cart/checkout`;
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/${url}`, payload)
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/${url}`, payload,{headers:{signedCookiesCustom:getOrderId()}})
             .then(res => {
                 //dispatch(setLoading(false));
                 if (res.data && res.data.number) {
@@ -499,7 +510,7 @@ export const orderRecieved = (orderId, payload) => {
     return dispatch => {
         dispatch(setLoading(true));
         let url = `orders/${orderId}/recieved`;
-        Axios.post(`${process.env.REACT_APP_API_URL}/${url}`, payload)
+        Axios.post(`${process.env.REACT_APP_API_URL}/${url}`, payload,{headers:{signedCookiesCustom:getOrderId()}})
             .then(res => {
                 dispatch(setLoading(false));
                 // console.log(res);
@@ -530,7 +541,7 @@ export const setpaymentCompletedError = (payload) => ({
 export const paymentCompleted = (payload, payment_data) => {
     return dispatch => {
         dispatch(setLoading(true));
-        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/checkout`, payload).then(res => {
+        Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/cart/checkout`, payload,{headers:{signedCookiesCustom:getOrderId()}}).then(res => {
             if (res.data && res.data.number) {
                 let url = `orders/${res.data.id}/process`;
                 Axios.post(`${process.env.REACT_APP_API_URL}/${url}`, { ...payment_data, status: payload.status, status_id: payload.status_id })

@@ -2,7 +2,12 @@ import * as ActionTypes from './ActionTypes';
 import Axios from 'axios';
 import { notification } from '../../../utils/helper';
 //import { getUserDetail, signOutUser } from '../../../actions/authActions';
-Axios.defaults.headers.common['signedCookiesCustom'] = localStorage.getItem('signedCookiesCustom') ? localStorage.getItem('signedCookiesCustom') :null;
+const signedCookiesCustomOld = localStorage.getItem('signedCookiesCustom') ? localStorage.getItem('signedCookiesCustom') :null;
+console.log({signedCookiesCustomOld});
+if(signedCookiesCustomOld){
+    Axios.defaults.headers.common['signedCookiesCustom'] = signedCookiesCustomOld
+}
+
 export const setLoading = (payload) => ({
     type: ActionTypes.ACCOUNTS_LOADING,
     payload
@@ -89,10 +94,10 @@ export const getOrderDetail = (id) => {
 export const logout = (history, location) => {
     return dispatch => {
         dispatch(setLoading(true));
-        Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/logout`)
-            .then(res => {
-                dispatch(setLoading(false));
-                if (res.data && res.data.status) {
+        // Axios.post(`${process.env.REACT_APP_API_AJAX_URL}/logout`)
+        //     .then(res => {
+        //         dispatch(setLoading(false));
+        //         if (res.data && res.data.status) {
                     localStorage.clear();
                     location = location.split('/')
                     if (location.includes('accounts') || location.includes('cart') || location.includes('checkout')) {
@@ -104,14 +109,14 @@ export const logout = (history, location) => {
                     //dispatch(flushOnLogout());
 
 
-                } else {
-                    notification('error', 'Oops!! something went wrong')
-                }
-            })
-            .catch(e => {
-                dispatch(setLoading(false));
-                notification('error', 'Oops!! something went wrong')
-            });
+            //     } else {
+            //         notification('error', 'Oops!! something went wrong')
+            //     }
+            // })
+            // .catch(e => {
+            //     dispatch(setLoading(false));
+            //     notification('error', 'Oops!! something went wrong')
+            // });
     }
 }
 export const cancelOrdersSuccess = (payload) => ({
