@@ -12,6 +12,7 @@ import Breadcrum from './Breadcrum';
 import Product from './Product';
 import Products from './Products';
 import Slider from 'react-slick';
+import {Helmet} from "react-helmet";
 const { TabPane } = Tabs;
 class Detail extends Component {
     constructor(props) {
@@ -51,8 +52,10 @@ class Detail extends Component {
     render() {
 
         const { product } = this.props;
+        let Pid =null;
         if(product && product.name){
-            document.title =product.name
+            
+            Pid =product.id
         }
         const { item, showModal, visible } = this.state;
         const { params: { id } } = this.props.match;
@@ -97,6 +100,16 @@ class Detail extends Component {
             <div className="content-wrapper topPadding" id="content">
                 {product ?
                     <div className="pagewrap">
+                        {/* <Child> */}
+                        <Helmet>
+                            <title>{product.name}</title>
+                            <meta name="og:type" property="og:type"  content="Product" />
+                            <meta name="og:title" property="og:title"  content={product.name} />
+                            <meta name="og:url" property="og:url"  content={window.location} />
+                            <meta name="product:price:amount" property="product:price:amount"  content={product.sale_price ? product.sale_price :product.price } />
+                            <meta name="product:price:currency" property="product:price:currency"  content="USD" />
+                        </Helmet>
+                    {/* </Child> */}
                         <div className="bgWhite padding-bottom">
                             <div className="container-fluid detail-breadcrumb" >
 
@@ -125,7 +138,7 @@ class Detail extends Component {
                                                     <TabPane tab="Product Reviews" key="2"
                                                         className="resp-tab-item">
                                                         <div className="resp-tabs-container">
-                                                            <Comments id={id} name={product.name} />
+                                                          {Pid &&  <Comments id={Pid} name={product.name} />}
                                                         </div>
 
                                                     </TabPane>

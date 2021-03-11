@@ -401,6 +401,7 @@ class Checkout extends Component {
             address = getAddress(order_statuses);
 
         }
+        console.log({address});
 
         let { pannelstep } = this.props;
         const activeKey=demand ? demand:pannelstep;

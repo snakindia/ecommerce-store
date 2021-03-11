@@ -25,11 +25,11 @@ const Reviews = ({data}) => {
                 {/* <Pagination  simple  total={data.length} pageSize={pageSize} onChange={onChange} /> */}
                 {items.map(item =>
                     <div className="media pl-0 pb-1 pr-0" key={item._id}>
-                        <img className="align-self-start mr-3" src={avtarImg} alt="" width="70" />
+                        {/* <img className="align-self-start mr-3" src={avtarImg} alt="" width="70" /> */}
                         <div className="media-body bha-review">
                             <h6 className="mt-0"><span>{item.user && item.user[0] && item.user[0].full_name ? item.user[0].full_name : ''} </span>
 
-                                <span>{moment(item.updatedAt).format('MMMM DD, YYYY hh:mm:ssA')}</span>
+                               <br/> <span>{moment(item.updatedAt).format('MMMM DD, YYYY hh:mm:ssA')}</span>
                             </h6>
                             <div>{item.review}</div>
                             <Rate disabled defaultValue={item.rating} />

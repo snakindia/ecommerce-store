@@ -105,16 +105,14 @@ export const search = (payload, limit) => {
 export const getProducts = (payload, id = null) => {
     return dispatch => {
         dispatch(setProductLoading(true));
+        let url = 'products?categoryEnabled=true&fields=name,images,sku,product_id,regular_price,sale_price,description,topSelling,featured';
+        if (payload && id && id !== 'featured' && id != 'bestselling' && id != "viewed") url = `products?category_id=${id}&enabled=true&categoryEnabled=true`;
 
-        console.log(payload);
-        let url = 'products?fields=name,images,sku,product_id,regular_price,sale_price,description,topSelling,featured';
-        if (payload && id && id !== 'featured' && id != 'bestselling' && id != "viewed") url = `products?category_id=${id}&enabled=true`;
-
-        else if (payload == 'featured' || id == 'featured') url = 'products?featured=true&fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
-        else if (payload == 'topRated') url = 'getTopRatedProducts?fields=name,topSelling,featured,images,sku,product_id,regular_price,sale_price,description';
-        else if (payload == 'viewed') url = 'products?viewCount=true&fields=id,viewCount,name,id,regular_price,sale_price,description,images&limit=8';
-        else if (payload == 'products' && id == 'viewed') url = 'products?viewCount=true&fields=id,viewCount,name,id,regular_price,sale_price,description,images&limit=8';
-        else if (payload == 'bestselling' || id == "bestselling") url = 'products?topSelling=true&?fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
+        else if (payload == 'featured' || id == 'featured') url = 'products?categoryEnabled=true&featured=true&fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
+        else if (payload == 'topRated') url = 'getTopRatedProducts?categoryEnabled=true&fields=name,topSelling,featured,images,sku,product_id,regular_price,sale_price,description';
+        else if (payload == 'viewed') url = 'products?categoryEnabled=true&viewCount=true&fields=id,viewCount,name,id,regular_price,sale_price,description,images&limit=8';
+        else if (payload == 'products' && id == 'viewed') url = 'products?categoryEnabled=true&viewCount=true&fields=id,viewCount,name,id,regular_price,sale_price,description,images&limit=8';
+        else if (payload == 'bestselling' || id == "bestselling") url = 'products?categoryEnabled=true&topSelling=true&?fields=name,topSelling,featured,regular_price,sale_price,images,sku,description';
 
 
         Axios.get(`${process.env.REACT_APP_API_URL}/${url}`,
