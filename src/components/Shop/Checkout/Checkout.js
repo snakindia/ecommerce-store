@@ -34,15 +34,24 @@ class Checkout extends Component {
             demand: null
         }
     }
+     getOrderId =()=>{
+        const signedCookiesCustomOld = localStorage.getItem('signedCookiesCustom') ? localStorage.getItem('signedCookiesCustom') :null;
+        return signedCookiesCustomOld;
+    }
 
     componentDidMount() {
-
-        this.props.getOrders();
-        this.checkForUser();
-        this.props.getPaymentMethod();
-        this.props.getShippingMethod(false);
-        this.props.getPaymentSettingsMethod();
-        this.sortShippingMethods()
+        const hasOrderid =this.getOrderId()
+        if(hasOrderid){
+            this.props.getOrders();
+            this.checkForUser();
+            this.props.getPaymentMethod();
+            this.props.getShippingMethod(false);
+            this.props.getPaymentSettingsMethod();
+            this.sortShippingMethods()
+        } else {
+            this.props.history.push('/shop')
+        }
+       
 
     }
     scrollToEle(id, time = 500) {
@@ -117,7 +126,7 @@ class Checkout extends Component {
            return;
 
         } 
-         if (this.props.pannelstep === 6 && this.props.cart && this.props.cart.items != prevProps.cart.items) {
+         if (this.props.pannelstep === 6 && this.props.cart && prevProps && prevProps.cart && prevProps.cart.items && this.props.cart.items != prevProps.cart.items) {
              if(this.props.cart.items.length != prevProps.cart.items.length){
                 console.log('c made changes',this.props.cart.items.length,prevProps.cart.items.length);
                 this.props.getShippingMethod(true)

@@ -11,7 +11,7 @@ export default class CollectJSSection extends React.Component {
             <div className="col-lg-6">
               <div className="form-group">
                 <label className="text-small">Credit Card Number</label>
-                <div id="ccnumber" className="form-control"/>
+                <div id="ccnumber" className="form-control" onChange={e=>console.log(e)}/>
                 <i className="fa fa-lock font-icon"></i>
                 {ccnumbererr ? ccnumbererr :''}
               </div>

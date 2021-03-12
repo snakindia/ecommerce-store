@@ -13,7 +13,8 @@ const PannelContent =({paymentSettings, cart, gateway, id, active,submit})=>{
     return (<>
   
           {active ==id && cart.payment_method_gateway == gateway && gateway=='paypal-checkout'  ? <PaypalExpress /> :null}
-          {active ==id && cart.payment_method_gateway == gateway && gateway=='nmi' && paymentSettings && paymentSettings.TokenKey ? <Nmi /> :null}
+          {/* {active ==id && cart.payment_method_gateway == gateway && gateway=='nmi' && paymentSettings && paymentSettings.TokenKey ? <Nmi /> :null} */}
+          {active ==id && cart.payment_method_gateway == gateway && gateway=='nmi'  ? <Nmi /> :null}
           {active ==id && cart.payment_method_gateway == gateway && gateway=='' ? 
           <div className="cod" > 
           <button onClick={e=>submit({payment_method:cart.payment_method_id})}

@@ -7,6 +7,7 @@ import imgSrc from '../../../assets/images/success.png';
 function Thankyou({order,user}) {
   useEffect(()=>{
     scrollToEl('#thankyou', -140, 500);
+    localStorage.removeItem('signedCookiesCustom')
   },[order])
    const onClick=(e)=>{
     if(!user){

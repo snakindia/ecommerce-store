@@ -95,6 +95,8 @@ export default (state = initialState, { type, payload, pannelstep = null }) => {
             return { ...state, loading: false, product: undefined, error: payload }
 
         case ActionTypes.ADD_TO_CART:
+            console.trace()
+            console.log(pannelstep, payload)
             if (pannelstep == null && payload) {
                 pannelstep = 1;
                 if (payload.email) {
@@ -105,6 +107,9 @@ export default (state = initialState, { type, payload, pannelstep = null }) => {
                             pannelstep = 4;
                             if (payload.shipping_method_id && payload.shipping_method_id) {
                                 pannelstep = 5;
+                            }
+                            if (payload.payment_method_id) {
+                                pannelstep = 6;
                             }
                         }
                     }
