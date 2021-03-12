@@ -52,7 +52,7 @@ class RequestAQuote extends Component {
                     window.open(res.url, '_blank');
                 }
             }
-            if (url) {
+            else if (url) {
                     window.open(url, '_blank');
             }
         } else if (res && res.status.error) {

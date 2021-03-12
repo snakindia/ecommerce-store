@@ -36,7 +36,7 @@ const SearchProduct = (props) => {
                     <ul className="results" style={{display:'block'}} >
                         {items && items.length >0 ? items.map(datum=>
                             <li>
-                                <Link to={`/shop/${datum.id}`} onClick={linkClick}>
+                                <Link to={`/shop/${datum.slug}`} onClick={linkClick}>
                                     <div className="media">
                                         <Image 
                                         preview={false}
