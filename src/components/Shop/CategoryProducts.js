@@ -42,7 +42,7 @@ class CategoryProducts extends Component {
   }
 
   sortData = (data, order) => {
-    console.log(order);
+    //console.log(order);
     if (data && data.length > 0 && order == 'latest') {
       data = data.sort((a, b) => {
         if (a.date_updated < b.date_updated) return -1;
@@ -92,7 +92,7 @@ class CategoryProducts extends Component {
       data = data.sort((a, b) => {
         const ap = a.sale_price ? a.sale_price : a.price;
         const bp = b.sale_price ? b.sale_price : b.price;
-        console.log(ap, bp);
+       // console.log(ap, bp);
         if (ap > bp) return -1;
         if (ap < bp) return 1;
         return 0;
@@ -106,7 +106,7 @@ class CategoryProducts extends Component {
       data = data.sort((a, b) => {
         const ap = a.sale_price ? a.sale_price : a.price;
         const bp = b.sale_price ? b.sale_price : b.price;
-        console.log(ap, bp);
+       // console.log(ap, bp);
         if (ap < bp) return -1;
         if (ap > bp) return 1;
         return 0;

@@ -284,7 +284,7 @@ export const addProduct = (payload, qty = 1) => {
                 console.log(res.headers.signedcookiescustom)
                 dispatch(setLoading(false));
                 if(res.headers && res.headers.signedcookiescustom){
-                    console.log('setting orderId');
+                    console.log('setting orderId',res.headers.signedcookiescustom);
                     localStorage.setItem('signedCookiesCustom', res.headers.signedcookiescustom)
                 }
                 if (res.data ) {

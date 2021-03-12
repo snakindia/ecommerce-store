@@ -95,8 +95,7 @@ export default (state = initialState, { type, payload, pannelstep = null }) => {
             return { ...state, loading: false, product: undefined, error: payload }
 
         case ActionTypes.ADD_TO_CART:
-            console.trace()
-            console.log(pannelstep, payload)
+           
             if (pannelstep == null && payload) {
                 pannelstep = 1;
                 if (payload.email) {
@@ -116,7 +115,7 @@ export default (state = initialState, { type, payload, pannelstep = null }) => {
                 }
             }
             // console.log({pannelstep});
-            return { ...state, cart: payload, pannelstep }
+            return { ...state, cart: payload, pannelstep ,checkoutSuccess:undefined}
         case ActionTypes.REMOVE_FROM_CART:
             return { ...state, cart: payload }
 

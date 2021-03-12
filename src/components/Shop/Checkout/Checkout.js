@@ -40,7 +40,8 @@ class Checkout extends Component {
     }
 
     componentDidMount() {
-        const hasOrderid =this.getOrderId()
+        const hasOrderid =this.getOrderId();
+        console.log({hasOrderid});
         if(hasOrderid){
             this.props.getOrders();
             this.checkForUser();
@@ -109,26 +110,26 @@ class Checkout extends Component {
 
 
         }
-        console.log( this.props.pannelstep, prevProps.pannelstep);
+        //console.log( this.props.pannelstep, prevProps.pannelstep);
         if (this.props.pannelstep === 4 && this.props.pannelstep != prevProps.pannelstep) {
-            console.log('getShippingMethod');
+           // console.log('getShippingMethod');
             this.props.getShippingMethod(true)
            // this.sortShippingMethods()
            // return;
 
         } else if( this.props.pannelstep === 4 &&  !this.props.shippingMethods ){
-            console.log('getShippingMethodEls');
+           // console.log('getShippingMethodEls');
             this.props.getShippingMethod(true)
         }
          if (this.props.pannelstep === 5 && this.props.pannelstep != prevProps.pannelstep) {
-            console.log('sortShippingMethods');
+           // console.log('sortShippingMethods');
            this.sortShippingMethods()
            return;
 
         } 
          if (this.props.pannelstep === 6 && this.props.cart && prevProps && prevProps.cart && prevProps.cart.items && this.props.cart.items != prevProps.cart.items) {
              if(this.props.cart.items.length != prevProps.cart.items.length){
-                console.log('c made changes',this.props.cart.items.length,prevProps.cart.items.length);
+               // console.log('c made changes',this.props.cart.items.length,prevProps.cart.items.length);
                 this.props.getShippingMethod(true)
                  // this.props.getShippingMethod()
         //    this.sortShippingMethods()
@@ -152,7 +153,7 @@ class Checkout extends Component {
     }
 
     sortShippingMethods = () => {
-        console.log('sortShippingMethods->>');
+       // console.log('sortShippingMethods->>');
         // return;
         const { shippingMethods, cart } = this.props;
         const {shipping_checked} = this.state;
@@ -410,7 +411,7 @@ class Checkout extends Component {
             address = getAddress(order_statuses);
 
         }
-        console.log({address});
+       
 
         let { pannelstep } = this.props;
         const activeKey=demand ? demand:pannelstep;

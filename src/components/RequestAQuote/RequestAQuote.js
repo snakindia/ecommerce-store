@@ -95,7 +95,7 @@ class RequestAQuote extends Component {
       if (a.label > b.label) return 1;
       return 0;
     })
-    console.log({categories});
+    // console.log({categories});
     return (
       <MDBModal isOpen={isOpen} toggle={toggleModal} centered>
         <MDBModalBody>

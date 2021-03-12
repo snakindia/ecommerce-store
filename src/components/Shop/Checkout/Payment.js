@@ -7,6 +7,10 @@ import PannelHeaderPayment from './PannelHeaderPayment';
 import { Collapse } from 'antd';
 import PaypalExpress from './PaypalExpress';
 const { Panel } = Collapse;
+const getOrderId =()=>{
+    const signedCookiesCustomOld = localStorage.getItem('signedCookiesCustom') ? localStorage.getItem('signedCookiesCustom') :null;
+    return signedCookiesCustomOld;
+}
 const PannelContent =({paymentSettings, cart, gateway, id, active,submit})=>{
 
     
@@ -14,7 +18,7 @@ const PannelContent =({paymentSettings, cart, gateway, id, active,submit})=>{
   
           {active ==id && cart.payment_method_gateway == gateway && gateway=='paypal-checkout'  ? <PaypalExpress /> :null}
           {/* {active ==id && cart.payment_method_gateway == gateway && gateway=='nmi' && paymentSettings && paymentSettings.TokenKey ? <Nmi /> :null} */}
-          {active ==id && cart.payment_method_gateway == gateway && gateway=='nmi'  ? <Nmi /> :null}
+          {active ==id && cart.payment_method_gateway == gateway && gateway=='nmi'  ? <Nmi key={getOrderId()}/> :null}
           {active ==id && cart.payment_method_gateway == gateway && gateway=='' ? 
           <div className="cod" > 
           <button onClick={e=>submit({payment_method:cart.payment_method_id})}
@@ -36,7 +40,7 @@ function Payment(props) {
     const [activeKey, setactiveKey] = useState(props.payment_method_id)
     const onChange = (id) => {
         setactiveKey(id)
-        console.log(id);
+        // console.log(id);
         props.paymentMethodHandler(id)
     }
     return (

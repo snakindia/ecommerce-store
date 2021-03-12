@@ -26,7 +26,7 @@ import './style.css';
     }
 
     handleClick = e => {
-        console.log('click ', e);
+       // console.log('click ', e);
     };
 
 

@@ -20,7 +20,7 @@ class Nmi extends React.Component {
         this.finishSubmit = this.finishSubmit.bind(this);
     }
     validationCallback =(field, status, message)=>{
-        console.log(field, status, message);
+        // console.log(field, status, message);
             let {error,clicked, data} =this.state
             //console.log(field, status, message);
             if (status) {
@@ -111,7 +111,7 @@ class Nmi extends React.Component {
                     // "timeoutDuration" : 1000,
                     "timeoutCallback" : function () {
                         window.location.reload()
-                        console.log("The tokenization didn't respond in the expected timeframe.  This could be due to an invalid or incomplete field or poor connectivity");
+                        // console.log("The tokenization didn't respond in the expected timeframe.  This could be due to an invalid or incomplete field or poor connectivity");
                     },
                     "fieldsAvailableCallback" : this.formLoaded,
                     // 'callback' : function(response) {
@@ -132,11 +132,11 @@ class Nmi extends React.Component {
     formLoaded =()=>{
             //window.CollectJS.startPaymentRequest();
             this.setState({loaded:true})
-            console.log("Collect.js loaded the fields onto the form");
+            //console.log("Collect.js loaded the fields onto the form");
     }
 
     finishSubmit=(response)=> {
-        console.log(response);
+        //console.log(response);
         // this.setState({ isSubmitting: false });
         if (response && response.token) {
             const { paymentSettings, cart } = this.props;
@@ -171,7 +171,7 @@ class Nmi extends React.Component {
 
     render() {
         let {data,isSubmitting,error, loaded, paymentDone}=this.state;
-        console.log(data,isSubmitting,error);
+        // console.log(data,isSubmitting,error);
 
         let disabled=false;
         if(!data){
@@ -188,7 +188,7 @@ class Nmi extends React.Component {
         //     let filtered = Object.keys(data).filter(f=>!data[f])
         //     console.log(filtered);
         // }
-        console.log({disabled});
+        // console.log({disabled});
         return (<form >
             {!loaded ? <p className="payment-form-loading" >Please wait while payment page loading</p>:null}
             <CollectJSSection error={this.state.error}>

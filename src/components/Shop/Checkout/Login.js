@@ -10,7 +10,7 @@ const Login = (props) => {
        e.preventDefault();
        const el =document.getElementById('loginpopover');
        if(el){
-           console.log({el})
+        //    console.log({el})
            el.click()
        }
    }

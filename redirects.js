@@ -10,7 +10,7 @@ const getRedirect = (req) => {
   const url = `${process.env.REACT_APP_API_URL}/redirects`;
   //const url = `http://localhost:3001/api/v1/redirects`;
   //console.log({ url });
-  console.log(absoluteUrl,relativeUrl,relativePath);
+  //console.log(absoluteUrl,relativeUrl,relativePath);
   return axios.get(url).then((res) => {
     
     //console.log(res.data);

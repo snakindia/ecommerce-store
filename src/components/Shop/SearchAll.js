@@ -74,7 +74,7 @@ class SearchAll extends Component {
             data = data.sort((a, b) => {
                 const ap = a.sale_price ? a.sale_price : a.price;
                 const bp = b.sale_price ? b.sale_price : b.price;
-                console.log(ap, bp);
+                //console.log(ap, bp);
                 if (ap > bp) return -1;
                 if (ap < bp) return 1;
                 return 0;
@@ -88,7 +88,7 @@ class SearchAll extends Component {
             data = data.sort((a, b) => {
                 const ap = a.sale_price ? a.sale_price : a.price;
                 const bp = b.sale_price ? b.sale_price : b.price;
-                console.log(ap, bp);
+                //console.log(ap, bp);
                 if (ap < bp) return -1;
                 if (ap > bp) return 1;
                 return 0;
