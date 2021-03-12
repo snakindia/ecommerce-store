@@ -481,9 +481,13 @@ export const orderError = (payload) => ({
 
 
 export const addOrder = (payload) => {
-    return dispatch => {
+    return (dispatch,state) => {
         dispatch(setLoading(true));
         let url = `cart/checkout`;
+        state =state();
+        if(state && state.accounts && state.accounts.user && state.accounts.user.full_name){
+            payload.full_name =state.accounts.user.full_name;
+        } 
         Axios.put(`${process.env.REACT_APP_API_AJAX_URL}/${url}`, payload,{headers:{signedCookiesCustom:getOrderId()}})
             .then(res => {
                 //dispatch(setLoading(false));

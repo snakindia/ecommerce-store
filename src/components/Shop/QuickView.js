@@ -84,6 +84,7 @@ export default class QuickView extends Component {
                                             <div className="prod_gallery-sm">
                                                 <div style={{ width: '96%', height:'350px' }} className="zoomer">
                                                     <Zoomer
+                                                        key={item.id}
                                                         image={imageUrl}
                                                         largeImage={imageUrl}
                                                     // image='https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg'

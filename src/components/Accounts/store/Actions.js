@@ -152,7 +152,7 @@ export const cancelOrder = (payload) => {
         dispatch(setLoading(true));
 
         let url = `orders/${payload.id}`;
-
+        payload.byadmin=true;
         Axios.put(`${process.env.REACT_APP_API_URL}/${url}`, payload
         )
             .then(res => {
