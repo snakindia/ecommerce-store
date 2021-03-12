@@ -121,7 +121,14 @@ export const logout = (history, location, email='lkm1developer@gmail.com') => {
             })
             .catch(e => {
                 dispatch(setLoading(false));
-                notification('error', 'Oops!! something went wrong')
+                localStorage.clear();
+                location = location.split('/')
+                if (location.includes('accounts') || location.includes('cart') || location.includes('checkout')) {
+                    window.location = process.env.REACT_APP_CLIENT_URL;
+                } else {
+                    window.location.reload();
+                }
+                // notification('error', 'Oops!! something went wrong')
             });
     }
 }
