@@ -120,7 +120,7 @@ class Detail extends Component {
                                 <div className="container-fluid">
                                     <div className="row">
                                         <div className="col-lg-12 col-sm-12">
-                                            {product ? <QuickView item={product} single={true} certificate={true} /> : null}
+                                            {product ? <QuickView item={product} single={true} certificate={true} key={`detail${product.id}`} /> : null}
                                         </div>
                                         {/* <div className="col-sm-3 col-md-3">
                                         <RelatedProduct items={related} />
