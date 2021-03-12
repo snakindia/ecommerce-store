@@ -1,4 +1,5 @@
 import {notification  as antdNotification} from 'antd';
+import _ from 'lodash';
 const notification = (type, message, duration =2) => {
   antdNotification[type]({
     message, top:100,duration
@@ -88,16 +89,22 @@ const getAddress =(orders)=>{
     }
    }
    
-
+   billing =_.uniqWith(billing, _.isEqual);
+   shipping =_.uniqWith(shipping, _.isEqual);
    
-   billing = billing.filter((v,i,a)=>a.findIndex(t=>(JSON.stringify(t) === JSON.stringify(v)))===i);
-   shipping = shipping.filter((v,i,a)=>a.findIndex(t=>(JSON.stringify(t) === JSON.stringify(v)))===i);
+  //  billing = billing.filter((v,i,a)=>a.findIndex(t=>(JSON.stringify(t) === JSON.stringify(v)))===i);
+  //  shipping = shipping.filter((v,i,a)=>a.findIndex(t=>(JSON.stringify(t) === JSON.stringify(v)))===i);
     
-   billing =billing.filter(item=>hasData(item));
-   shipping =shipping.filter(item=>hasData(item));
-   //console.log({billing})
-   billing =billing.map(item=>getData(item));
-   shipping =shipping.map(item=>getData(item));
+  //  billing =billing.filter(item=>hasData(item));
+  //  shipping =shipping.filter(item=>hasData(item));
+  //  //console.log({billing})
+  //  billing =billing.map(item=>getData(item));
+  //  shipping =shipping.map(item=>getData(item));
+  //  billing =billing.map(item=>JSON.stringify(item));
+  //  console.log(billing);
+  //  billing =[... new Set(billing)];
+  //  billing = billing.map(item=> JSON.parse(item))
+  //  console.log(billing);
    return {billing, shipping}
   }
 export { sliderSettings, notification, getAddress,getData,formatPhone }; 
